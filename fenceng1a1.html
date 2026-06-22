@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>跨越丝路分层习题生成器 · 1A Lesson 1 拼音与汉字</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --card: #ffffff;
+  --text: #1a1714;
+  --muted: #7a7570;
+  --border: #e2ded8;
+  --t1: #d4622a; --t1l: #fdf0ea; --t1m: #f5a07a;
+  --t2: #2a6fd4; --t2l: #eaf0fd; --t2m: #7aaaf5;
+  --t3: #1f8c5a; --t3l: #e8f7f0; --t3m: #6fcba0;
+  --correct: #1f8c5a; --correctbg: #e8f7f0;
+  --wrong: #c0392b; --wrongbg: #fdecea;
+  --gold: #c9a227;
+  --radius: 14px;
+  --shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; }
+
+/* ─── SETUP SCREEN ─── */
+.setup { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
+.brand-icon { width: 40px; height: 40px; background: var(--text); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 600; }
+.brand h1 { font-size: 17px; font-weight: 600; line-height: 1.2; }
+.brand p { font-size: 12px; color: var(--muted); }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-bottom: 1.5rem; }
+.lesson-card { border: 1.5px solid var(--border); border-radius: 10px; background: var(--card); padding: 10px 12px; cursor: pointer; transition: all .15s; }
+.lesson-card:hover { border-color: #aaa; }
+.lesson-card.active { border-color: var(--text); box-shadow: 0 0 0 3px rgba(26,23,20,.08); }
+.lesson-card .lc-num { font-size: 11px; font-weight: 700; color: var(--t2); margin-bottom: 4px; letter-spacing: .04em; }
+.lesson-card .lc-title { font-size: 12px; font-weight: 600; line-height: 1.5; color: var(--text); }
+.lesson-card .lc-cn { font-size: 11px; color: var(--muted); font-family: 'Noto Serif SC', serif; }
+.tier-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 1.75rem; }
+.tier-card { border: 1.5px solid var(--border); border-radius: 12px; background: var(--card); padding: 14px; cursor: pointer; transition: all .15s; }
+.tier-card:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.tier-card.t1.active { border-color: var(--t1); background: var(--t1l); }
+.tier-card.t2.active { border-color: var(--t2); background: var(--t2l); }
+.tier-card.t3.active { border-color: var(--t3); background: var(--t3l); }
+.tier-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.t1 .tier-dot { background: var(--t1); } .t2 .tier-dot { background: var(--t2); } .t3 .tier-dot { background: var(--t3); }
+.tier-card .tc-level { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 6px; display: flex; align-items: center; }
+.tier-card.t1.active .tc-level { color: var(--t1); } .tier-card.t2.active .tc-level { color: var(--t2); } .tier-card.t3.active .tc-level { color: var(--t3); }
+.tier-card .tc-cn { font-size: 16px; font-weight: 600; font-family: 'Noto Serif SC', serif; margin-bottom: 4px; }
+.tier-card .tc-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.start-btn { width: 100%; padding: 16px; background: var(--text); color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity .15s; }
+.start-btn:hover { opacity: .88; }
+.start-btn .sb-cn { font-family: 'Noto Serif SC', serif; font-size: 15px; }
+
+/* ─── QUIZ SCREEN ─── */
+.quiz { display: none; max-width: 860px; margin: 0 auto; padding: 1.5rem; }
+.quiz-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+.tier-badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.tb-t1 { background: var(--t1l); color: var(--t1); } .tb-t2 { background: var(--t2l); color: var(--t2); } .tb-t3 { background: var(--t3l); color: var(--t3); }
+.q-counter { font-size: 13px; color: var(--muted); }
+.timer-wrap { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
+.timer-wrap svg { width: 16px; height: 16px; }
+.timer-warn { color: #c9a227; } .timer-urgent { color: var(--wrong); }
+.exit-btn { padding: 5px 12px; border-radius: 20px; border: 1.5px solid var(--border); background: none; font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
+.exit-btn:hover { border-color: var(--wrong); color: var(--wrong); background: var(--wrongbg); }
+.progress { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 2px; transition: width .4s ease; }
+.pf-t1 { background: var(--t1); } .pf-t2 { background: var(--t2); } .pf-t3 { background: var(--t3); }
+
+/* question card */
+.q-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
+.q-type-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 10px; }
+.q-stem { font-size: 22px; font-weight: 500; line-height: 1.55; margin-bottom: 6px; }
+.q-stem .cn { font-family: 'Noto Serif SC', serif; }
+.q-hint { font-size: 12px; color: var(--muted); padding: 8px 12px; background: var(--bg); border-radius: 8px; border-left: 3px solid var(--border); margin-top: 10px; margin-bottom: 16px; }
+
+/* MC options */
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.opt-btn { background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 16px 18px; cursor: pointer; font-size: 17px; font-family: 'DM Sans', sans-serif; color: var(--text); text-align: left; display: flex; align-items: flex-start; gap: 10px; transition: all .12s; line-height: 1.4; }
+.opt-btn:hover:not(:disabled) { border-color: #999; background: var(--card); }
+.opt-btn:disabled { cursor: default; }
+.opt-btn.correct { background: var(--correctbg); border-color: var(--correct); color: var(--correct); }
+.opt-btn.wrong { background: var(--wrongbg); border-color: var(--wrong); color: var(--wrong); }
+.opt-key { width: 24px; height: 24px; border-radius: 6px; background: var(--card); border: 1px solid var(--border); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--muted); }
+.opt-btn.correct .opt-key { background: var(--correct); border-color: var(--correct); color: #fff; }
+.opt-btn.wrong .opt-key { background: var(--wrong); border-color: var(--wrong); color: #fff; }
+.opt-text { font-family: 'Noto Serif SC', serif; font-size: 18px; }
+
+/* fill-in */
+.fill-wrap { display: flex; gap: 8px; flex-direction: column; }
+.fill-input { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 16px 18px; font-size: 20px; font-family: 'Noto Serif SC', serif; background: var(--bg); color: var(--text); outline: none; transition: border-color .15s; }
+.fill-input:focus { border-color: #999; background: var(--card); }
+.fill-input.correct { border-color: var(--correct); background: var(--correctbg); color: var(--correct); }
+.fill-input.wrong { border-color: var(--wrong); background: var(--wrongbg); color: var(--wrong); }
+.submit-btn { padding: 11px 20px; background: var(--text); color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity .15s; align-self: flex-start; }
+.submit-btn:hover { opacity: .85; }
+
+/* match */
+.match-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.match-col-label { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; }
+.match-col { display: flex; flex-direction: column; gap: 7px; }
+.match-item { padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 18px; cursor: pointer; background: var(--bg); color: var(--text); font-family: 'Noto Serif SC', serif; text-align: center; transition: all .12s; }
+.match-item:hover:not(.matched):not(.wrong-match) { border-color: #999; background: var(--card); }
+.match-item.selected { border-color: var(--t2); background: var(--t2l); color: var(--t2); }
+.match-item.matched { border-color: var(--correct); background: var(--correctbg); color: var(--correct); cursor: default; }
+.match-item.wrong-match { border-color: var(--wrong); background: var(--wrongbg); color: var(--wrong); }
+.match-item.paired-left, .match-item.paired-right { border-color: var(--t2); background: var(--t2l); color: var(--t2); }
+.match-check-btn { margin-top: 10px; padding: 10px 18px; background: var(--text); color: #fff; border: none; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+/* ─── READING PASSAGE ─── */
+
+.reading-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--t3);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.reading-label::before { content: '📖'; font-size: 13px; }
+
+/* Word-block pinyin layout */
+.passage-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0;
+  row-gap: 10px;
+}
+/* Each word or punctuation unit */
+.w {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1px;
+  vertical-align: bottom;
+}
+.w .py {
+  font-size: 11px;
+  color: var(--t3);
+  font-style: italic;
+  line-height: 1.3;
+  white-space: nowrap;
+  min-height: 15px;
+}
+.w .ch {
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+/* Punctuation — no pinyin space needed */
+.w.punct .py { min-height: 0; font-size: 0; }
+.w.punct .ch { font-size: 16px; margin-left: -2px; }
+/* Sentence break = small gap */
+.w.brk { width: 100%; height: 0; }
+
+/* No-pinyin mode: hide py row, tighten layout */
+.passage-nopinyin .w .py { display: none; }
+.passage-nopinyin .passage-body { row-gap: 4px; }
+.passage-nopinyin .w .ch { font-size: 16px; line-height: 1.8; }
+
+/* ─── HOTS (Critical/Creative Thinking) ─── */
+.hots-box {
+  background: linear-gradient(135deg, #fdf8e8, #f9f0fb);
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.hots-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hots-label::before { content: '💭'; font-size: 13px; }
+.hots-prompts {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.hots-prompt {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 7px 11px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 7px;
+  border-left: 3px solid var(--gold);
+  line-height: 1.5;
+}
+.hots-open-input {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-size: 15px;
+  font-family: 'Noto Serif SC', serif;
+  background: rgba(255,255,255,0.8);
+  color: var(--text);
+  outline: none;
+  resize: vertical;
+  min-height: 90px;
+  transition: border-color .15s;
+  margin-top: 12px;
+}
+.hots-open-input:focus { border-color: var(--gold); }
+.hots-submit-btn {
+  margin-top: 8px;
+  padding: 10px 20px;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+.hots-submitted {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--correctbg);
+  color: var(--correct);
+  border-radius: 9px;
+  font-size: 13px;
+  display: none;
+}
+
+/* feedback */
+.feedback { margin-top: 10px; padding: 10px 14px; border-radius: 9px; font-size: 13px; display: none; }
+.feedback.show { display: block; }
+.feedback.ok { background: var(--correctbg); color: var(--correct); }
+.feedback.bad { background: var(--wrongbg); color: var(--wrong); }
+
+.next-btn { display: none; width: 100%; padding: 13px; background: var(--card); border: 1.5px solid var(--border); border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--text); margin-top: 10px; transition: all .12s; }
+.next-btn:hover { border-color: var(--text); }
+
+/* ─── HINT (hidden by default, click to reveal) ─── */
+.hint-toggle { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; cursor: pointer; margin-top: 8px; margin-bottom: 12px; transition: all .15s; user-select: none; }
+.hint-toggle:hover { border-color: #aaa; color: var(--text); }
+.hint-toggle .ht-arrow { font-size: 10px; transition: transform .2s; }
+.hint-toggle.open .ht-arrow { transform: rotate(180deg); }
+.hint-body { display: none; font-size: 12px; color: var(--muted); padding: 8px 12px; background: var(--bg); border-radius: 8px; border-left: 3px solid var(--border); margin-bottom: 12px; line-height: 1.5; }
+.hint-body.show { display: block; }
+
+/* ─── PINYIN TOGGLE (reading passages) ─── */
+.pinyin-toggle-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.pinyin-toggle-label { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.pinyin-switch { position: relative; display: inline-block; width: 38px; height: 22px; }
+.pinyin-switch input { opacity: 0; width: 0; height: 0; }
+.pinyin-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: var(--border); border-radius: 22px; transition: .2s; }
+.pinyin-slider:before { position: absolute; content: ''; height: 16px; width: 16px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .2s; }
+.pinyin-switch input:checked + .pinyin-slider { background: var(--t3); }
+.pinyin-switch input:checked + .pinyin-slider:before { transform: translateX(16px); }
+
+/* ─── RESULT SCREEN ─── */
+.result { display: none; max-width: 620px; margin: 0 auto; padding: 2rem 1.5rem; text-align: center; }
+.result-ring { width: 110px; height: 110px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 36px; font-weight: 700; }
+.ring-t1 { background: var(--t1l); color: var(--t1); border: 3px solid var(--t1m); }
+.ring-t2 { background: var(--t2l); color: var(--t2); border: 3px solid var(--t2m); }
+.ring-t3 { background: var(--t3l); color: var(--t3); border: 3px solid var(--t3m); }
+.result h2 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+.result .r-sub { font-size: 14px; color: var(--muted); margin-bottom: 1.5rem; }
+.stars { font-size: 30px; margin-bottom: 1rem; letter-spacing: 4px; }
+.result-msg { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; font-size: 14px; text-align: left; line-height: 1.7; margin-bottom: 1.25rem; color: var(--text); }
+.result-msg strong { font-weight: 600; }
+.result-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px auto; max-width: 600px; }
+.btn-retry { padding: 12px 28px; background: #1c2b4a; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-back { padding: 12px 28px; background: #f5f3f0; border: 1.5px solid #c9c4bc; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--text); }
+.btn-review { padding: 12px 28px; background: var(--t3l); border: 1.5px solid var(--t3m); border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--t3); }
+.btn-download { padding: 12px 28px; background: var(--t2l); border: 2px solid var(--t2m); border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--t2); }
+.btn-print { padding: 12px 28px; background: #f3e8ff; border: 1.5px solid #c4b5fd; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #6d28d9; }
+.btn-print:hover { opacity: .88; }
+
+/* ─── ANSWER REVIEW PANEL ─── */
+.review-panel { display: none; text-align: left; margin-top: 1rem; }
+.review-panel h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+.review-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; font-size: 13px; line-height: 1.6; }
+.review-item .ri-q { color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.review-item .ri-stem { font-size: 14px; margin-bottom: 6px; }
+.review-item .ri-answer { display: flex; gap: 10px; flex-wrap: wrap; }
+.ri-tag { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.ri-correct { background: var(--correctbg); color: var(--correct); }
+.ri-wrong { background: var(--wrongbg); color: var(--wrong); }
+.ri-open { background: var(--t3l); color: var(--t3); }
+.ri-user { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+
+/* ─── MOBILE DROPDOWNS (hidden on desktop) ─── */
+.mobile-select-wrap { display: none; }
+
+/* ─── STUDENT INFO SCREEN ─── */
+.student-info-screen { display: none; max-width: 580px; margin: 0 auto; padding: 3rem 1.5rem; }
+.si-card { background: var(--card); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem 2rem 1.75rem; }
+.si-title { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+.si-subtitle { font-size: 13px; color: var(--muted); margin-bottom: 1.75rem; }
+.si-field { margin-bottom: 1rem; }
+.si-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; display: block; }
+.si-input { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 13px 16px; font-size: 16px; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); outline: none; transition: border-color .15s; }
+.si-input:focus { border-color: var(--text); background: var(--card); }
+.si-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .si-row { grid-template-columns: 1fr; } }
+.si-note { font-size: 12px; color: var(--muted); margin-top: 0.75rem; line-height: 1.5; padding: 10px 12px; background: var(--bg); border-radius: 8px; }
+.si-start-btn { width: 100%; margin-top: 1.5rem; padding: 16px; background: var(--text); color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity .15s; }
+.si-start-btn:hover { opacity: .88; }
+.si-back-link { text-align: center; margin-top: 1rem; font-size: 13px; color: var(--muted); cursor: pointer; text-decoration: underline; }
+.si-back-link:hover { color: var(--text); }
+
+/* ─── SOUND TOGGLE ─── */
+.sound-toggle-wrap { display: none; /* hidden; button moved into quiz-header */ }
+.sound-toggle-btn { background: none; border: 1.5px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--muted); transition: all .15s; display: flex; align-items: center; gap: 5px; }
+.sound-toggle-btn:hover { border-color: #aaa; color: var(--text); }
+
+/* ─── ANALYTICS PANEL (replaces review-panel) ─── */
+.analytics-panel { text-align: left; margin-top: 1.5rem; }
+.analytics-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+.analytics-section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 7px; }
+.analytics-q-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.analytics-q-row:last-child { border-bottom: none; }
+.analytics-q-icon { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.aq-correct { background: var(--correctbg); color: var(--correct); }
+.aq-wrong { background: var(--wrongbg); color: var(--wrong); }
+.aq-open { background: var(--t3l); color: var(--t3); }
+.analytics-q-body { flex: 1; }
+.analytics-q-num { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.analytics-q-stem { font-size: 14px; line-height: 1.5; margin-bottom: 4px; }
+.analytics-q-ans { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+.aq-tag { padding: 2px 9px; border-radius: 20px; font-weight: 600; }
+.aq-right-tag { background: var(--correctbg); color: var(--correct); }
+.aq-wrong-tag { background: var(--wrongbg); color: var(--wrong); }
+.aq-user-tag { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+.strength-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.strength-label { font-size: 13px; min-width: 90px; color: var(--text); }
+.strength-track { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+.strength-fill-correct { height: 100%; background: var(--correct); border-radius: 5px; }
+.strength-fill-wrong { height: 100%; background: var(--wrong); border-radius: 5px; }
+.analytics-insight { font-size: 13px; line-height: 1.7; color: var(--text); }
+.analytics-insight strong { color: var(--t1); }
+.remedial-q { background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
+.remedial-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--t1); margin-bottom: 6px; }
+.remedial-q-stem { font-size: 15px; font-family: 'Noto Serif SC', serif; line-height: 1.5; margin-bottom: 10px; }
+.remedial-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+@media (max-width: 500px) { .remedial-choices { grid-template-columns: 1fr; } }
+.remedial-choice { padding: 9px 12px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 13px; font-family: 'Noto Serif SC', serif; background: var(--card); cursor: pointer; display: flex; gap: 8px; transition: all .12s; }
+.remedial-choice:hover { border-color: #999; }
+.remedial-choice.rc-correct { background: var(--correctbg); border-color: var(--correct); color: var(--correct); }
+.remedial-choice.rc-wrong { background: var(--wrongbg); border-color: var(--wrong); color: var(--wrong); }
+.remedial-choice:disabled { cursor: default; }
+.btn-download-remedial { padding: 12px 28px; background: #eaf7ed; border: 2px solid #2d8a4e; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #1a6637; }
+.btn-download-remedial:hover { opacity: .88; }
+
+/* ─── STUDENT SURVEY (result page bottom) ─── */
+.student-survey { max-width: 860px; margin: 2rem auto 0; padding: 0 1.5rem 3rem; }
+.survey-card { background: var(--card); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.75rem 2rem; }
+.survey-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+.survey-icon { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg,var(--t2) 0%,var(--t3) 100%); display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; }
+.survey-title { font-size: 16px; font-weight: 600; }
+.survey-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.survey-divider { border: none; border-top: 1.5px solid var(--border); margin: 1rem 0; }
+.survey-q { margin-bottom: 1.25rem; }
+.survey-q-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; gap: 5px; }
+.survey-required { color: var(--wrong); }
+.survey-options { display: flex; flex-wrap: wrap; gap: 7px; }
+.survey-option { padding: 7px 15px; border: 1.5px solid var(--border); border-radius: 20px; font-size: 13px; cursor: pointer; background: var(--bg); color: var(--text); transition: all .12s; user-select: none; }
+.survey-option:hover { border-color: #aaa; }
+.survey-option.selected { border-color: var(--t2); background: var(--t2l); color: var(--t2); font-weight: 600; }
+.survey-option.multi.selected { border-color: var(--t3); background: var(--t3l); color: var(--t3); font-weight: 600; }
+.survey-scale { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.survey-scale-label { font-size: 11px; color: var(--muted); }
+.survey-scale-btn { width: 38px; height: 38px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; background: var(--bg); color: var(--text); display: flex; align-items: center; justify-content: center; transition: all .12s; }
+.survey-scale-btn:hover { border-color: #aaa; }
+.survey-scale-btn.selected { border-color: var(--t2); background: var(--t2); color: #fff; }
+.survey-textarea { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 14px; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); outline: none; resize: vertical; min-height: 80px; transition: border-color .15s; }
+.survey-textarea:focus { border-color: #999; background: var(--card); }
+.survey-submit-btn { width: 100%; padding: 14px; background: var(--t2); color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 0.5rem; transition: opacity .15s; }
+.survey-submit-btn:hover { opacity: .88; }
+.survey-toggle-arrow { font-size: 14px; color: var(--muted); transition: transform .25s; flex-shrink: 0; margin-left: 4px; }
+.survey-toggle-header:hover .survey-title { color: var(--t2); }
+.survey-toggle-header { border-radius: 8px; padding: 4px; margin: -4px; transition: background .12s; }
+.survey-toggle-header:hover { background: var(--bg); }
+.survey-thanks { display: none; text-align: center; padding: 1.5rem 0 0.5rem; font-size: 15px; font-weight: 600; color: var(--correct); font-family: 'Noto Serif SC', serif; }
+.survey-thanks span { display: block; font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+
+/* ─── MOBILE RESPONSIVE ─── */
+@media (max-width: 600px) {
+  /* Setup screen */
+  .setup { padding: 1.25rem 1rem; }
+  .brand h1 { font-size: 14px; }
+  .brand p { font-size: 11px; }
+
+  /* Hide grid/cards on mobile, show dropdowns instead */
+  .lesson-grid { display: none; }
+  .tier-grid { display: none; }
+  .mobile-select-wrap { display: block; margin-bottom: 1.25rem; }
+  .mobile-select {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--card);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237a7570' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+  .mobile-select:focus { border-color: #999; }
+
+  /* Tier grid: stack to single column on very small, 1-col stacked */
+  .tier-grid { grid-template-columns: 1fr; gap: 8px; }
+  .tier-card { padding: 12px; }
+  .tier-card .tc-cn { font-size: 14px; }
+  .tier-card .tc-desc { font-size: 11px; }
+
+  /* Quiz screen */
+  .quiz { padding: 1rem 0.875rem; }
+  .quiz-header { flex-wrap: wrap; gap: 6px; }
+  .q-counter { flex: 1; text-align: center; }
+  .timer-wrap { font-size: 13px; }
+
+  /* Question card */
+  .q-card { padding: 1rem; }
+  .q-stem { font-size: 19px; }
+
+  /* MC options: single column on mobile */
+  .options-grid { grid-template-columns: 1fr; }
+  .opt-btn { font-size: 15px; padding: 12px 13px; }
+  .opt-text { font-size: 16px; }
+
+  /* Match: single column stacked */
+  .match-wrap { grid-template-columns: 1fr; gap: 8px; }
+  .match-item { font-size: 15px; padding: 10px 12px; }
+
+  /* Fill input */
+  .fill-input { font-size: 17px; }
+
+  /* Reading passage */
+  
+  .w .ch { font-size: 15px; }
+  .w .py { font-size: 10px; }
+
+  /* Result screen */
+  .result { padding: 1.25rem 1rem; }
+  .result-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px auto; max-width: 600px; }
+  .result-btns button { width: 100%; text-align: center; }
+  .result h2 { font-size: 19px; }
+  .result-ring { width: 90px; height: 90px; font-size: 28px; }
+
+  /* Feedback card */
+  .feedback-card { padding: 1.25rem 1rem 1rem; }
+  .feedback-bottom { flex-direction: column; align-items: stretch; }
+  .feedback-submit { width: 100%; text-align: center; padding: 12px; }
+}
+
+/* ─── VOCAB GLOSS BOX (above-level words in reading) ─── */
+.vocab-gloss {
+  background: #fffbea;
+  border: 1.5px solid #e8d87a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #5a4e00;
+}
+.vocab-gloss-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #b89a00;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.vocab-gloss-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.vocab-gloss-item {
+  white-space: nowrap;
+}
+.vocab-gloss-item .vg-word {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #3a3000;
+  margin-right: 3px;
+}
+.vocab-gloss-item .vg-level {
+  font-size: 10px;
+  background: #e8d87a;
+  color: #5a4e00;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-weight: 700;
+  margin-right: 3px;
+}
+.vocab-gloss-item .vg-meaning {
+  color: #6b5c00;
+}
+
+.match-instructions {
+  background: #eaf0fd;
+  border: 1.5px solid #7aaaf5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #1a4a8a;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.lesson-nav-btn {
+  width:34px;height:34px;border-radius:8px;border:1.5px solid var(--border);
+  background:var(--card);font-size:18px;cursor:pointer;color:var(--text);
+  display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0;
+}
+.lesson-nav-btn:hover{border-color:var(--text);background:var(--bg);}
+
+
+
+.reading-notes b { color: var(--text); }
+
+.rp { font-size:15px; line-height:2.8; background:var(--bg); border-left:3px solid #7aaaf5; padding:12px 16px; border-radius:0 8px 8px 0; margin-bottom:10px; }
+
+
+.passage-notes {
+  font-size: 12px;
+  color: var(--muted);
+  background: #f9f7f3;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 6px 0 12px 0;
+  line-height: 1.9;
+}
+.passage-notes b { color: var(--text); font-weight: 600; }
+
+/* pinyin (ruby) inside Tier 3 critical-thinking prompts */
+.hots-box ruby { ruby-position: over; -webkit-ruby-position: before; }
+.hots-box rt { font-size: .55em; color: #8a6d1f; font-weight: 500; font-family: 'DM Sans', sans-serif; line-height: 1.1; }
+.hots-box .q-stem { line-height: 2.05; }
+.hots-box .hots-prompt { line-height: 1.95; }
+
+.blank-paper-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  letter-spacing: .02em;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.blank-paper-btn:hover { border-color: var(--t3); color: var(--t3); }
+
+.fill-tip {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+  padding: 5px 10px;
+  background: #f9f7f3;
+  border-radius: 6px;
+}
+
+.setup-survey-wrap .survey-card {
+  margin-top: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+.setup-survey-wrap .survey-body {
+  max-height: 0;
+  overflow: hidden;
+}
+.setup-survey-wrap .survey-body.open {
+  max-height: 1000px;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.progress-row .progress {
+  flex: 1;
+  margin-bottom: 0;
+}
+.prog-nav-btn {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; flex-shrink: 0;
+  transition: all .12s;
+}
+.prog-nav-btn:hover { border-color: var(--text); background: var(--bg); }
+.prog-nav-btn:disabled { opacity: .3; cursor: default; }
+
+.result-action-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0;
+}
+.result-toggle-btn {
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text);
+  text-align: left;
+  transition: all .12s;
+}
+.result-toggle-btn:hover { border-color: var(--t2m); color: var(--t2); }
+.collapse-panel { animation: fadeIn .2s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+
+.hots-cycle-block {
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.hots-c2-block { background: #fffbea; border: 2px solid #e07b00; }
+.hots-c3-block { background: #eaf0fd; border: 2px solid #2a6fd4; }
+.hots-cycle-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.hots-cycle-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 12px;
+  min-width: 72px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.hots-c2-badge { background: #e07b00; color: #fff; }
+.hots-c3-badge { background: #2a6fd4; color: #fff; }
+.hots-badge-cycle {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1.1;
+}
+.hots-badge-grades {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  opacity: .95;
+}
+.hots-badge-do {
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 6px;
+  background: rgba(255,255,255,.3);
+  border-radius: 4px;
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+.hots-cycle-content {
+  padding: 14px 16px;
+  flex: 1;
+}
+.hots-c2-prompts .hots-prompt { border-left-color: #e07b00; }
+.hots-c3-prompts .hots-prompt { border-left-color: #2a6fd4; }
+@media(max-width:600px) {
+  .hots-cycle-row { flex-direction: column; }
+  .hots-cycle-badge { flex-direction: row; justify-content: flex-start; padding: 10px 14px; min-width: auto; }
+  .hots-badge-grades { margin-left: 6px; }
+  .hots-badge-do { margin-left: auto; margin-top: 0; }
+}
+/* ─── CUSTOM TOAST + CONFIRM (replaces native browser dialogs) ─── */
+#toastWrap { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: calc(100% - 32px); max-width: 460px; }
+.toast { pointer-events: auto; background: var(--text); color: #fff; padding: 13px 18px; border-radius: 12px; font-family: 'DM Sans','Noto Serif SC',sans-serif; font-size: 14px; line-height: 1.5; box-shadow: 0 6px 24px rgba(0,0,0,.18); opacity: 0; transform: translateY(12px); transition: opacity .25s, transform .25s; max-width: 100%; }
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.warn { background: #c0392b; }
+#confirmOverlay { position: fixed; inset: 0; z-index: 9998; background: rgba(26,23,20,.42); display: none; align-items: center; justify-content: center; padding: 20px; }
+#confirmOverlay.show { display: flex; }
+.confirm-box { background: var(--card); border-radius: 16px; box-shadow: 0 12px 48px rgba(0,0,0,.22); max-width: 380px; width: 100%; padding: 24px; text-align: center; font-family: 'DM Sans',sans-serif; }
+.confirm-msg { font-size: 15px; line-height: 1.55; color: var(--text); margin-bottom: 6px; }
+.confirm-msg-cn { font-size: 14px; line-height: 1.55; color: var(--muted); font-family: 'Noto Serif SC',serif; margin-bottom: 20px; }
+.confirm-btns { display: flex; gap: 10px; }
+.confirm-btn { flex: 1; padding: 11px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans',sans-serif; border: 1.5px solid var(--border); background: var(--card); color: var(--text); transition: all .15s; }
+.confirm-btn:hover { background: var(--bg); }
+.confirm-btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
+.confirm-btn.primary:hover { opacity: .88; background: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- custom dialog containers (replace native browser popups) -->
+<div id="toastWrap"></div>
+<div id="confirmOverlay"><div class="confirm-box">
+  <div class="confirm-msg" id="confirmMsg"></div>
+  <div class="confirm-msg-cn" id="confirmMsgCn"></div>
+  <div class="confirm-btns">
+    <button class="confirm-btn" id="confirmCancel">取消 Cancel</button>
+    <button class="confirm-btn primary" id="confirmOk">确定 OK</button>
+  </div>
+</div></div>
+
+<!-- ═══════════════ SETUP ═══════════════ -->
+<div class="setup" id="setup">
+  <div class="brand">
+    <div class="brand-icon">跨</div>
+    <div>
+      <h1>跨越丝路分层习题生成器 · 1A</h1>
+      <p>Across the Silk Route · Book 1A · Lesson 1 拼音与汉字 · Pinyin & Characters · Based on CCG &amp; HSK 3.0</p>
+    </div>
+  </div>
+  <div class="section-label">1 · Select lesson 选择课时</div>
+  <div class="lesson-grid" <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+      <button class="lesson-nav-btn" onclick="shiftLesson(-1)">&#8592;</button>
+      <span id="lessonNavLabel" style="font-size:13px;color:var(--muted);flex:1;text-align:center;font-weight:500"></span>
+      <button class="lesson-nav-btn" onclick="shiftLesson(1)">&#8594;</button>
+    </div>
+    <div class="lesson-grid" id="lessonGrid"></div>
+  <div class="mobile-select-wrap" id="lessonSelectWrap">
+    <select class="mobile-select" id="lessonSelect" onchange="selectLesson(parseInt(this.value))">
+      <option value="0">Lesson 1 · 拼音与汉字 (Pinyin &amp; Characters)</option>
+      <option value="1">Lesson 2 · 打招呼 (你好！Greetings)</option>
+      <option value="2">Lesson 3 · 姓名 (我叫哈桑。Names)</option>
+      <option value="3">Lesson 4 · 数字 (这是九。Numbers)</option>
+      <option value="4">Lesson 5 · 年龄 (我十二岁。Age)</option>
+      <option value="5">Lesson 6 · 星期 (今天星期四。Weekdays)</option>
+      <option value="6">Lesson 7 · 国家 (这是阿联酋。Countries)</option>
+      <option value="7">Lesson 8 · 国籍 (我是阿联酋人。Nationality)</option>
+      <option value="8">Lesson 9 · 地点 (上海在中国。Location)</option>
+    </select>
+  </div>
+  <div class="section-label">2 · Select mastery tier 选择分层</div>
+  <div class="mobile-select-wrap" id="tierSelectWrap">
+    <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
+      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+    </select>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
+      <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
+      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
+    </div>
+    <div class="tier-card t2" id="tc1" onclick="setTier(1)">
+      <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
+      <div class="tc-cn">达到掌握</div>
+      <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
+    </div>
+    <div class="tier-card t3" id="tc2" onclick="setTier(2)">
+      <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
+      <div class="tc-cn">深度掌握</div>
+      <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
+    </div>
+  </div>
+  <button class="start-btn" onclick="goToStudentInfo()">
+    <span class="sb-cn">开始练习</span> · Start Quiz →
+  </button>
+  <button class="blank-paper-btn" onclick="printWorksheet()" style="margin-top:10px;">
+    🖨 下载空白试卷 · Download Blank Paper
+  </button>
+
+  <!-- Survey on setup page -->
+  <div class="setup-survey-wrap" id="setupSurveyWrap" style="margin-top:12px;">
+<div class="survey-card">
+
+    <!-- ── Clickable collapsed header ── -->
+    <div class="survey-toggle-header" onclick="toggleSurveyBody()" id="surveyToggleHeader">
+      <div class="survey-header" style="margin-bottom:0; cursor:pointer;">
+        <div class="survey-icon">📝</div>
+        <div style="flex:1;">
+          <div class="survey-title">学生反馈问卷 · Student Feedback Survey</div>
+          <div class="survey-subtitle">Click to expand · Help your teacher improve class (2 min)</div>
+        </div>
+        <span class="survey-toggle-arrow" id="surveyArrow">▼</span>
+      </div>
+    </div>
+
+    <!-- ── Collapsible body — hidden by default ── -->
+    <div id="surveyBody" style="display:none;">
+      <hr class="survey-divider">
+      <div class="survey-q" id="sq1">
+        <div class="survey-q-label">1. 你觉得这个分层练习怎么样？How do you find this tiered quiz overall? <span class="survey-required">*</span></div>
+        <div class="survey-scale">
+          <span class="survey-scale-label">很差 Poor</span>
+          <button class="survey-scale-btn" onclick="selectScale('sq1',1)">1</button>
+          <button class="survey-scale-btn" onclick="selectScale('sq1',2)">2</button>
+          <button class="survey-scale-btn" onclick="selectScale('sq1',3)">3</button>
+          <button class="survey-scale-btn" onclick="selectScale('sq1',4)">4</button>
+          <button class="survey-scale-btn" onclick="selectScale('sq1',5)">5</button>
+          <span class="survey-scale-label">很好 Excellent</span>
+        </div>
+      </div>
+      <div class="survey-q" id="sq2">
+        <div class="survey-q-label">2. 这个练习是否有针对性？Does this practice feel targeted to your level? <span class="survey-required">*</span></div>
+        <div class="survey-options">
+          <span class="survey-option" onclick="selectSingle('sq2',this)">非常有针对性 Very targeted</span>
+          <span class="survey-option" onclick="selectSingle('sq2',this)">比较有针对性 Fairly targeted</span>
+          <span class="survey-option" onclick="selectSingle('sq2',this)">一般 So-so</span>
+          <span class="survey-option" onclick="selectSingle('sq2',this)">针对性不强 Not very targeted</span>
+        </div>
+      </div>
+      <div class="survey-q" id="sq3">
+        <div class="survey-q-label">3. 对你的HSK考试是否有帮助？Does this help with your HSK preparation? <span class="survey-required">*</span></div>
+        <div class="survey-options">
+          <span class="survey-option" onclick="selectSingle('sq3',this)">很有帮助 Very helpful</span>
+          <span class="survey-option" onclick="selectSingle('sq3',this)">有些帮助 Somewhat helpful</span>
+          <span class="survey-option" onclick="selectSingle('sq3',this)">帮助不大 Not much help</span>
+          <span class="survey-option" onclick="selectSingle('sq3',this)">没有帮助 Not helpful</span>
+        </div>
+      </div>
+      <div class="survey-q" id="sq4">
+        <div class="survey-q-label">4. 对掌握学习重点是否有帮助？Does it help you master the key learning points? <span class="survey-required">*</span></div>
+        <div class="survey-options">
+          <span class="survey-option" onclick="selectSingle('sq4',this)">非常有帮助 Very much</span>
+          <span class="survey-option" onclick="selectSingle('sq4',this)">有帮助 Helpful</span>
+          <span class="survey-option" onclick="selectSingle('sq4',this)">一般 Average</span>
+          <span class="survey-option" onclick="selectSingle('sq4',this)">帮助不大 Not much</span>
+        </div>
+      </div>
+      <div class="survey-q" id="sq5">
+        <div class="survey-q-label">5. 你最不喜欢哪种题型？Which question type do you like LEAST? <span class="survey-required">*</span></div>
+        <div class="survey-options">
+          <span class="survey-option" onclick="selectSingle('sq5',this)">MC Multiple Choice</span>
+          <span class="survey-option" onclick="selectSingle('sq5',this)">Fill-in Fill-in</span>
+          <span class="survey-option" onclick="selectSingle('sq5',this)">Match Matching</span>
+          <span class="survey-option" onclick="selectSingle('sq5',this)">阅读题 Reading</span>
+          <span class="survey-option" onclick="selectSingle('sq5',this)">思维题 HOTS</span>
+        </div>
+      </div>
+      <div class="survey-q" id="sq6">
+        <div class="survey-q-label">6. 你最喜欢哪种题型？Which question type do you like MOST? <span class="survey-required">*</span></div>
+        <div class="survey-options">
+          <span class="survey-option" onclick="selectSingle('sq6',this)">MC Multiple Choice</span>
+          <span class="survey-option" onclick="selectSingle('sq6',this)">Fill-in Fill-in</span>
+          <span class="survey-option" onclick="selectSingle('sq6',this)">Match Matching</span>
+          <span class="survey-option" onclick="selectSingle('sq6',this)">阅读题 Reading</span>
+          <span class="survey-option" onclick="selectSingle('sq6',this)">思维题 HOTS</span>
+        </div>
+      </div>
+      <div class="survey-q">
+        <div class="survey-q-label">7. 你还有什么意见和建议？（选填）Any other suggestions? <span style="color:var(--muted);font-weight:400;">Optional</span></div>
+        <textarea class="survey-textarea" id="survey_suggestions" placeholder="请写下你的想法 / Share your thoughts here…"></textarea>
+      </div>
+      <div id="surveyForm_submit">
+        <button class="survey-submit-btn" onclick="submitStudentSurvey()">提交反馈 Submit Feedback 📤</button>
+      </div>
+      <div class="survey-thanks" id="surveyThanks">
+        🎉 感谢你的反馈！Thank you for your feedback!
+        <span>老师会认真阅读你的意见，帮助改进课堂练习。Your teacher will review your responses. 🙏</span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <p style="text-align:right; margin-top:1.5rem; font-size:11px; color:var(--muted); font-family:'DM Sans',sans-serif; opacity:0.7;">Designed by Sun Hao</p>
+
+</div>
+
+<!-- ═══════════════ STUDENT INFO SCREEN ═══════════════ -->
+<div class="student-info-screen" id="studentInfoScreen">
+  <div class="si-card">
+    <div class="si-title">🎒 学生信息 · Student Info</div>
+    <div class="si-subtitle">请填写以下信息，方便老师了解你的学习情况。Your info helps your teacher track your progress.</div>
+    <div class="si-field">
+      <label class="si-label">姓名 Full Name <span style="color:var(--wrong)">*</span></label>
+      <input class="si-input" id="si_name" type="text" placeholder="Your full name / 你的姓名" autocomplete="name">
+    </div>
+    <div class="si-field">
+      <label class="si-label">班级 Class <span style="color:var(--wrong)">*</span></label>
+      <input class="si-input" id="si_class" type="text" placeholder="e.g. 7A, Grade 8B">
+    </div>
+    <div class="si-note">ℹ️ 姓名和班级为必填项。信息仅用于学情记录，不作其他用途。<br>Name and class are required. Info is used for learning records only.</div>
+    <button class="si-start-btn" onclick="confirmStudentInfo()">
+      <span style="font-family:'Noto Serif SC',serif;">确认并开始</span> · Confirm &amp; Start →
+    </button>
+    <div class="si-back-link" onclick="backToSetup()">← 返回 · Back to settings</div>
+  </div>
+</div>
+
+<!-- ═══════════════ QUIZ ═══════════════ -->
+<div class="quiz" id="quizScreen">
+  <div class="quiz-header">
+    <span class="tier-badge" id="qBadge">Tier 1</span>
+    <span class="q-counter" id="qCounter">1 / 10</span>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <button class="sound-toggle-btn" onclick="toggleSound()" id="soundBtn">🔊 Sound ON</button>
+      <button class="exit-btn" onclick="exitQuiz()" title="返回设置 Back to Setting">← 返回设置 Back to Setting</button>
+    </div>
+    <div class="timer-wrap" id="timerWrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="timerDisplay">15:00</span>
+    </div>
+  </div>
+  <div class="progress-row">
+  <button class="prog-nav-btn" onclick="navQ(-1)" id="navPrevBtn" title="Previous question">&#8592;</button>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  <button class="prog-nav-btn" onclick="navQ(1)" id="navNextBtn" title="Next question">&#8594;</button>
+</div>
+  <div id="qMount"></div>
+</div>
+
+<!-- ═══════════════ RESULT ═══════════════ -->
+<div class="result" id="resultScreen">
+  <div class="result-ring" id="rRing"></div>
+  <h2 id="rTitle">Well done!</h2>
+  <p class="r-sub" id="rSub"></p>
+  <div class="stars" id="rStars"></div>
+  <div class="result-msg" id="rMsg"></div>
+  <div class="analytics-panel" id="analyticsPanel"></div>
+  <div class="result-btns">
+    <button class="btn-download-remedial" onclick="downloadRemedial()">📥 下载补弱练习 · Download Remedial</button>
+    <button class="btn-download" onclick="downloadAnswers()">⬇ 下载答案 · Send to Teacher</button>
+    <button class="btn-retry" onclick="retry()">再试一次 · Retry</button>
+    <button class="btn-back" onclick="goBack()">← 返回设置 · Change settings</button>
+  </div>
+</div>
+
+
+
+<script>
+// ── Custom in-page dialogs (replace native alert/confirm "此网页显示" popups) ──
+function showToast(msg, type) {
+  var wrap = document.getElementById('toastWrap');
+  if (!wrap) { return; }
+  var t = document.createElement('div');
+  t.className = 'toast' + (type === 'warn' ? ' warn' : '');
+  t.innerHTML = String(msg).replace(/\n/g, '<br>');
+  wrap.appendChild(t);
+  requestAnimationFrame(function(){ t.classList.add('show'); });
+  setTimeout(function(){
+    t.classList.remove('show');
+    setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 300);
+  }, 3600);
+}
+function showConfirm(msgEn, msgCn, onOk) {
+  var ov = document.getElementById('confirmOverlay');
+  document.getElementById('confirmMsg').textContent = msgEn || '';
+  var cnEl = document.getElementById('confirmMsgCn');
+  cnEl.textContent = msgCn || '';
+  cnEl.style.display = msgCn ? 'block' : 'none';
+  var okBtn = document.getElementById('confirmOk');
+  var cancelBtn = document.getElementById('confirmCancel');
+  function close() {
+    ov.classList.remove('show');
+    okBtn.onclick = null; cancelBtn.onclick = null; ov.onclick = null;
+  }
+  okBtn.onclick = function(){ close(); if (typeof onOk === 'function') onOk(); };
+  cancelBtn.onclick = close;
+  ov.onclick = function(e){ if (e.target === ov) close(); };
+  ov.classList.add('show');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DATA — 跨越丝路 1A · Lesson 1 拼音与汉字 (Pinyin & Characters) · CCG + HSK 3.0
+// Tier 1: 10 core questions (mc / fill / match)
+// Tier 2: 10 questions with HSK 3.0 grammar integration
+// Tier 3: 5 extended + 4 reading comprehension + 1 HOTS
+//   type:'reading' — passage shown above q, mc underneath
+//   type:'hots'    — open-ended critical/creative thinking
+// ══════════════════════════════════════════════════════════════════
+
+const LESSONS = [
+
+{ id:'1A-L1', num:'Lesson 1', title:'拼音与汉字 · Pinyin & Characters', cn:'拼音与汉字',
+  tiers:[
+
+  // TIER 1 · 迈向掌握 — 10 Workbook-style questions
+  { qs:[
+    { type:'mc', stem:'🔊 The mark on <b>ā</b> is a flat line ➡. Which tone is this?', choices:['Tone 1 (flat ➡)', 'Tone 2 (rising ↗)', 'Tone 3 (dip ↘↗)', 'Tone 4 (falling ↘)'], ans:0, hint:'Flat line = Tone 1. Steady and high.' },
+    { type:'mc', stem:'🔊 The mark on <b>á</b> rises up ↗. Which tone is this?', choices:['Tone 2 (rising ↗)', 'Tone 1 (flat ➡)', 'Tone 3 (dip ↘↗)', 'Tone 4 (falling ↘)'], ans:0, hint:'Rising mark = Tone 2. Your voice goes up.' },
+    { type:'mc', stem:'🔊 The mark on <b>ǎ</b> is a V shape ↘↗. Which tone is this?', choices:['Tone 3 (dip ↘↗)', 'Tone 1 (flat ➡)', 'Tone 2 (rising ↗)', 'Tone 4 (falling ↘)'], ans:0, hint:'V-shape = Tone 3. Voice dips then rises.' },
+    { type:'mc', stem:'🔊 The mark on <b>à</b> falls ↘. Which tone is this?', choices:['Tone 4 (falling ↘)', 'Tone 1 (flat ➡)', 'Tone 2 (rising ↗)', 'Tone 3 (dip ↘↗)'], ans:0, hint:'Falling mark = Tone 4. Voice drops sharply.' },
+    { type:'match', stem:'Match each pinyin to its tone number. 🎵', left:['bā', 'bá', 'bǎ', 'bà'], right:['Tone 1', 'Tone 2', 'Tone 3', 'Tone 4'], pairs:[[0, 0], [1, 1], [2, 2], [3, 3]], hint:'Flat=1, rising=2, V-shape=3, falling=4.' },
+    { type:'mc', stem:'⛰ The picture shows a mountain. Which character matches?', choices:['<ruby>山<rt>shān</rt></ruby>', '<ruby>月<rt>yuè</rt></ruby>', '<ruby>水<rt>shuǐ</rt></ruby>', '<ruby>木<rt>mù</rt></ruby>'], ans:0, hint:'山 (shān) = mountain ⛰.' },
+    { type:'mc', stem:'🌙 The picture shows a moon. Which character matches?', choices:['<ruby>月<rt>yuè</rt></ruby>', '<ruby>山<rt>shān</rt></ruby>', '<ruby>水<rt>shuǐ</rt></ruby>', '<ruby>木<rt>mù</rt></ruby>'], ans:0, hint:'月 (yuè) = moon 🌙.' },
+    { type:'mc', stem:'💧 The picture shows water. Which character matches?', choices:['<ruby>水<rt>shuǐ</rt></ruby>', '<ruby>山<rt>shān</rt></ruby>', '<ruby>月<rt>yuè</rt></ruby>', '<ruby>木<rt>mù</rt></ruby>'], ans:0, hint:'水 (shuǐ) = water 💧.' },
+    { type:'mc', stem:'🌲 The picture shows a tree. Which character matches?', choices:['<ruby>木<rt>mù</rt></ruby>', '<ruby>山<rt>shān</rt></ruby>', '<ruby>月<rt>yuè</rt></ruby>', '<ruby>水<rt>shuǐ</rt></ruby>'], ans:0, hint:'木 (mù) = wood / tree 🌲.' },
+    { type:'mc', stem:'✏️ When writing a Chinese character, you always start from:', choices:['Top → Bottom, Left → Right', 'Bottom → Top', 'Right → Left only', 'Any direction'], ans:0, hint:'Golden rule: top to bottom, left to right — always.' },
+  ]},
+
+
+  { qs:[
+
+    // Q1 — T/F style: look at the tone mark, pick the right tone number
+    { type:'mc',
+      stem:'🔊 Look at the pinyin: <b>mā</b> — which tone number is this?',
+      choices:['Tone 1 (flat ➡)', 'Tone 2 (rising ↗)', 'Tone 3 (dip-rise ↘↗)', 'Tone 4 (falling ↘)'],
+      ans:0,
+      hint:'The flat line ( ā ) above the vowel = Tone 1. It sounds long and flat, like singing one steady note.' },
+
+    // Q2 — tone mark recognition
+    { type:'mc',
+      stem:'🔊 Look at the pinyin: <b>má</b> — which tone number is this?',
+      choices:['Tone 2 (rising ↗)', 'Tone 1 (flat ➡)', 'Tone 3 (dip-rise ↘↗)', 'Tone 4 (falling ↘)'],
+      ans:0,
+      hint:'The rising mark ( á ) = Tone 2. Your voice goes up, like asking "Really?"' },
+
+    // Q3 — tone mark recognition
+    { type:'mc',
+      stem:'🔊 Look at the pinyin: <b>mǎ</b> — which tone number is this?',
+      choices:['Tone 3 (dip-rise ↘↗)', 'Tone 1 (flat ➡)', 'Tone 2 (rising ↗)', 'Tone 4 (falling ↘)'],
+      ans:0,
+      hint:'The ˇ shape ( ǎ ) = Tone 3. Your voice dips down then rises, like a "V".' },
+
+    // Q4 — tone mark recognition
+    { type:'mc',
+      stem:'🔊 Look at the pinyin: <b>mà</b> — which tone number is this?',
+      choices:['Tone 4 (falling ↘)', 'Tone 1 (flat ➡)', 'Tone 2 (rising ↗)', 'Tone 3 (dip-rise ↘↗)'],
+      ans:0,
+      hint:'The grave mark ( à ) = Tone 4. Your voice drops sharply, like saying "Stop!"' },
+
+    // Q5 — match tone marks to tone numbers (right side shuffled)
+    { type:'match',
+      stem:'Match each pinyin syllable to its correct tone number. 🎵',
+      left:['bā  —  ?', 'bá  —  ?', 'bǎ  —  ?', 'bà  —  ?'],
+      right:['Tone 3', 'Tone 1', 'Tone 4', 'Tone 2'],
+      pairs:[[0,1],[1,3],[2,0],[3,2]],
+      hint:'Look at the mark on the vowel: flat line = 1, rising = 2, ˇ shape = 3, grave = 4.' },
+
+    // Q6 — picture + pinyin → meaning (emoji replaces image)
+    { type:'mc',
+      stem:'🏔 Look at the emoji and the character: <ruby>山<rt>shān</rt></ruby> — what does it mean?',
+      choices:['Mountain ⛰', 'River 🌊', 'Sun ☀️', 'Tree 🌲'],
+      ans:0,
+      hint:'<ruby>山<rt>shān</rt></ruby>(shān) looks like three peaks — it is a pictograph of a mountain.' },
+
+    // Q7 — picture + character → meaning
+    { type:'mc',
+      stem:'🌙 Look at the emoji and the character: <ruby>月<rt>yuè</rt></ruby> — what does it mean?',
+      choices:['Moon 🌙', 'Sun ☀️', 'Star ⭐', 'Water 💧'],
+      ans:0,
+      hint:'<ruby>月<rt>yuè</rt></ruby>(yuè) is a pictograph that looks like a crescent moon.' },
+
+    // Q8 — choose the correct pinyin for a character (with emoji)
+    { type:'mc',
+      stem:'💧 Which pinyin matches this character: <ruby>水<rt>shuǐ</rt></ruby>?',
+      choices:['shuǐ', 'shān', 'mù', 'yuè'],
+      ans:0,
+      hint:'<ruby>水<rt>shuǐ</rt></ruby>(shuǐ) means water 💧 — Tone 3, the dip-rise tone.' },
+
+    // Q9 — fill in the missing pinyin final
+    { type:'fill',
+      stem:'Complete the pinyin for 🌲 <ruby>木<rt>m___</rt></ruby> (wood / tree):  m + ___',
+      ans:['ù','u'],
+      hint:'<ruby>木<rt>mù</rt></ruby>(mù) = wood or tree 🌲. The final is "u" with a Tone 4 mark: ù.' },
+
+    // Q10 — stroke order rule (simple, practical)
+    { type:'mc',
+      stem:'✏️ When writing a Chinese character, which direction do you start?',
+      choices:['Top → Bottom, Left → Right', 'Bottom → Top, Right → Left', 'Right → Left, Top → Bottom', 'Any direction is fine'],
+      ans:0,
+      hint:'The two golden rules:<ruby>从上到下<rt>cóng shàng dào xià</rt></ruby>(top to bottom) and<ruby>从左到右<rt>cóng zuǒ dào yòu</rt></ruby>(left to right).' },
+
+  ]},
+
+
+  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  { qs:[
+    { type:'mc', stem:'Which tone mark means a FLAT line → on the vowel?', choices:['Tone 1: ā (flat ➡)', 'Tone 2: á (rising ↗)', 'Tone 3: ǎ (dip ↘↗)', 'Tone 4: à (falling ↘)'], ans:0, hint:'Flat mark = Tone 1.' },
+    { type:'mc', stem:'Which tone mark means a RISING line on the vowel?', choices:['Tone 2: á (rising ↗)', 'Tone 1: ā (flat ➡)', 'Tone 3: ǎ (dip ↘↗)', 'Tone 4: à (falling ↘)'], ans:0, hint:'Rising mark = Tone 2.' },
+    { type:'mc', stem:'The character <ruby>山<rt>shān</rt></ruby> is a pictograph. What does it mean?', choices:['Mountain ⛰', 'Moon 🌙', 'Water 💧', 'Tree 🌲'], ans:0, hint:'山 (shān) = mountain.' },
+    { type:'mc', stem:'The character <ruby>月<rt>yuè</rt></ruby> looks like a crescent. What does it mean?', choices:['Moon 🌙', 'Mountain ⛰', 'Water 💧', 'Sun ☀️'], ans:0, hint:'月 (yuè) = moon.' },
+    { type:'mc', stem:'In HSK, 拼音 (pīnyīn) is used to: (HSK tip)', choices:['Show the pronunciation of Chinese characters.', 'Replace Chinese characters completely.', 'Write Chinese characters in Arabic script.', 'Count the number of strokes in a character.'], ans:0, hint:'HSK tip: 拼音 is a pronunciation guide — it helps you READ characters, not replace them.' },
+    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><sup>①</sup><ruby>每天<rt>měitiān</rt></ruby><sup>②</sup><ruby>练习<rt>liànxí</rt></ruby><sup>③</sup><ruby>拼音<rt>pīnyīn</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>拼音<rt>pīnyīn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><sup>④</sup><ruby>声调<rt>shēngdiào</rt></ruby><sup>⑤</sup>。<ruby>第一声<rt>dì yī shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>平的<rt>píng de</rt></ruby><sup>⑦</sup>，<ruby>第四声<rt>dì sì shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>降的<rt>jiàng de</rt></ruby><sup>⑧</sup>。"</p><div class="rn"><b>Notes:</b> ① Xiǎo Míng: common Chinese name ② 每天 měitiān: every day ③ 练习 liànxí: to practise ④ 四个 sì gè: four (+ measure word) ⑤ 声调 shēngdiào: tone ⑥ 第…声 dì…shēng: the … tone ⑦ 平的 píng de: flat/level ⑧ 降的 jiàng de: falling</div>', stem:'What does Xiao Mings teacher say about Chinese tones?', choices:['There are four tones in Chinese.', 'There are five tones in Chinese.', 'The first tone is rising.', 'Pinyin is not important.'], ans:0, hint:'Find what the teacher says — look for 四个声调.' },
+    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><sup>①</sup><ruby>每天<rt>měitiān</rt></ruby><sup>②</sup><ruby>练习<rt>liànxí</rt></ruby><sup>③</sup><ruby>拼音<rt>pīnyīn</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>拼音<rt>pīnyīn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><sup>④</sup><ruby>声调<rt>shēngdiào</rt></ruby><sup>⑤</sup>。<ruby>第一声<rt>dì yī shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>平的<rt>píng de</rt></ruby><sup>⑦</sup>，<ruby>第四声<rt>dì sì shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>降的<rt>jiàng de</rt></ruby><sup>⑧</sup>。"</p><div class="rn"><b>Notes:</b> ① Xiǎo Míng: common Chinese name ② 每天 měitiān: every day ③ 练习 liànxí: to practise ④ 四个 sì gè: four (+ measure word) ⑤ 声调 shēngdiào: tone ⑥ 第…声 dì…shēng: the … tone ⑦ 平的 píng de: flat/level ⑧ 降的 jiàng de: falling</div>', stem:'What is Tone 1 like, according to the passage?', choices:['Flat and level (平的).', 'Rising up.', 'Dipping then rising.', 'Falling down.'], ans:0, hint:'Find 第一声 — 平的 means flat/level.' },
+    { type:'hots', stem:'🟡 Cycle 2 — Some Chinese characters look like little pictures of real things — 山 looks like a mountain and 月 like the moon. If you invented your own picture-symbol for the sun, what would you draw, and why? | 🔵 Cycle 3 — Chinese uses thousands of characters while Arabic and English use a small alphabet. What might be good and bad about each way of writing, and why do you think Chinese kept its characters for thousands of years?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+  ]}]}
+
+
+]; // END LESSONS
+
+// ── State ──
+let selectedLesson = 0, selectedTier = 0;
+let currentQs = [], qIndex = 0, score = 0;
+let timerInterval = null, secondsLeft = 900;
+let responses = []; // stores {userIdx/userText/correct/...} per question
+
+// ── Build Setup UI ──
+function buildSetup() {
+  const grid = document.getElementById('lessonGrid');
+  grid.innerHTML = LESSONS.map((l, i) =>
+    `<div class="lesson-card ${i===0?'active':''}" id="lc${i}" onclick="selectLesson(${i})">
+      <div class="lc-num">${l.id}</div>
+      <div class="lc-title">${l.title}</div>
+    </div>`
+  ).join('');
+  // Populate mobile lesson dropdown
+  const sel = document.getElementById('lessonSelect');
+  if (sel) {
+    sel.innerHTML = LESSONS.map((l, i) =>
+      `<option value="${i}">${l.id} · ${l.cn} · ${l.title}</option>`
+    ).join('');
+    sel.value = '0';
+  }
+}
+
+function selectLesson(i) {
+  selectedLesson = i;
+  document.querySelectorAll('.lesson-card').forEach((el,j) => el.classList.toggle('active', j===i));
+  updateLessonNavLabel();
+}
+function shiftLesson(dir) {
+  var newIdx = (selectedLesson + dir + LESSONS.length) % LESSONS.length;
+  selectLesson(newIdx);
+}
+function updateLessonNavLabel() {
+  var el = document.getElementById('lessonNavLabel');
+  if (el && LESSONS[selectedLesson]) {
+    el.textContent = LESSONS[selectedLesson].id + ' · ' + LESSONS[selectedLesson].cn + ' · ' + LESSONS[selectedLesson].title;
+  }
+}
+
+function setTier(i) {
+  selectedTier = i;
+  [0,1,2].forEach(j => {
+    const el = document.getElementById(`tc${j}`);
+    el.className = `tier-card ${'t1 t2 t3'.split(' ')[j]}${j===i?' active':''}`;
+  });
+}
+
+// ── Quiz Logic ──
+function startQuiz() {
+  const lesson = LESSONS[selectedLesson];
+  // Deep-clone questions so _rot / _choices don't persist across retries
+  currentQs = lesson.tiers[selectedTier].qs.map(q => Object.assign({}, q));
+  qIndex = 0; score = 0;
+  responses = new Array(currentQs.length).fill(null);
+  document.getElementById('setup').style.display = 'none';
+  document.getElementById('studentInfoScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  const tierColors = ['tb-t1','tb-t2','tb-t3'];
+  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  document.getElementById('qBadge').className = 'tier-badge ' + tierColors[selectedTier];
+  document.getElementById('qBadge').textContent = tierNames[selectedTier];
+  document.getElementById('progressFill').className = 'progress-fill ' + ['pf-t1','pf-t2','pf-t3'][selectedTier];
+  secondsLeft = 900;
+  startTimer();
+  renderQuestion();
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  updateTimer();
+  timerInterval = setInterval(() => {
+    secondsLeft--;
+    updateTimer();
+    if (secondsLeft <= 0) { clearInterval(timerInterval); showResult(); }
+  }, 1000);
+}
+
+function updateTimer() {
+  const m = Math.floor(secondsLeft/60), s = secondsLeft%60;
+  const el = document.getElementById('timerDisplay');
+  el.textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  const w = document.getElementById('timerWrap');
+  w.className = 'timer-wrap' + (secondsLeft<=120?' timer-urgent':secondsLeft<=240?' timer-warn':'');
+}
+
+function renderQuestion() {
+  const q = currentQs[qIndex];
+  document.getElementById('qCounter').textContent = `${qIndex+1} / ${currentQs.length}`;
+  const pct = (qIndex / currentQs.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  const prevBtn = document.getElementById('navPrevBtn');
+  const nextBtn = document.getElementById('navNextBtn');
+  if (prevBtn) prevBtn.disabled = (qIndex === 0);
+  if (nextBtn) nextBtn.disabled = (qIndex === currentQs.length - 1);
+  const mount = document.getElementById('qMount');
+
+  // For each mc/reading question, rotate choices so correct answer isn't always A
+  // We use a per-question rotation stored in q._rot (set once, stable per session)
+  if ((q.type === 'mc' || q.type === 'reading') && q._rot === undefined) {
+    // Assign rotation based on question index to spread answers evenly
+    q._rot = qIndex % 4;
+    const rot = q._rot;
+    // Rotate choices array so correct answer lands at position rot
+    const origAns = q.ans; // 0 = originally first choice is correct
+    // Build new order: put correct at position rot, others fill remaining slots
+    const newChoices = [];
+    const others = q.choices.filter((_, i) => i !== origAns);
+    for (let i = 0; i < 4; i++) {
+      if (i === rot) newChoices.push(q.choices[origAns]);
+      else newChoices.push(others.shift());
+    }
+    q._choices = newChoices;
+    q._ans = rot;
+  }
+
+  const typeLabels = {
+    mc: 'Multiple Choice',
+    fill: 'Fill In',
+    match: 'Match',
+    reading: 'Reading Comprehension',
+    hots: 'Critical Thinking'
+  };
+
+  let html = `<div class="q-card">
+    <div class="q-type-tag">${typeLabels[q.type] || q.type}</div>`;
+
+  // Reading passage with pinyin toggle
+  if (q.type === 'reading') {
+    const pid = `pinyin_${qIndex}`;
+    // Build passage with ruby markup for pinyin version
+    const passageWithPinyin = buildPassageWithPinyin(q.passage);
+    html += `<div class="pinyin-toggle-row">
+      <span class="reading-label" style="margin:0;">${q.passageLabel || 'Reading · 阅读理解'}</span>
+      <span style="flex:1"></span>
+      <span class="pinyin-toggle-label">拼音</span>
+      <label class="pinyin-switch">
+        <input type="checkbox" id="${pid}" onchange="togglePassagePinyin(this,'passage_${qIndex}')">
+        <span class="pinyin-slider"></span>
+      </label>
+    </div>
+    <div class="reading-passage passage-nopinyin" id="passage_${qIndex}">${passageWithPinyin}</div>${buildVocabGloss(q.passage)}${buildPassageNotes(q.passage)}`;
+  }
+
+  // HOTS box
+  if (q.type === 'hots') {
+    // Parse Cycle 2 and Cycle 3 from combined stem
+    const stemParts = q.stem.split(' | \u{1F535} Cycle 3 \u2014 ');
+    const c2Stem = stemParts[0].replace('\u{1F7E1} Cycle 2 \u2014 ', '');
+    const c3Stem = stemParts[1] || '';
+    const c2Prompts = q.prompts.filter(p => p.startsWith('[Cycle 2]')).map(p => p.replace('[Cycle 2] ',''));
+    const c3Prompts = q.prompts.filter(p => p.startsWith('[Cycle 3]')).map(p => p.replace('[Cycle 3] ',''));
+
+    html += `<div class="hots-box">
+      <div class="hots-label">Critical / Creative Thinking · 批判性思维</div>
+      <div class="hots-cycle-block hots-c2-block">
+        <div class="hots-cycle-row">
+          <div class="hots-cycle-badge hots-c2-badge">
+            <span class="hots-badge-cycle">Cycle 2</span>
+            <span class="hots-badge-grades">Grades<br>5 · 6 · 7 · 8</span>
+            <span class="hots-badge-do">← Do this one!</span>
+          </div>
+          <div class="hots-cycle-content">
+            <div class="q-stem">${annotateHotsCJK(c2Stem)}</div>
+            <div class="hots-prompts hots-c2-prompts">
+              ${c2Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hots-cycle-block hots-c3-block">
+        <div class="hots-cycle-row">
+          <div class="hots-cycle-badge hots-c3-badge">
+            <span class="hots-badge-cycle">Cycle 3</span>
+            <span class="hots-badge-grades">Grades<br>9 · 10 · 11 · 12</span>
+            <span class="hots-badge-do">← Do this one!</span>
+          </div>
+          <div class="hots-cycle-content">
+            <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
+            <div class="hots-prompts hots-c3-prompts">
+              ${c3Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hint-toggle" onclick="toggleHint(this,'hint_${qIndex}')">
+      <span>💡 Show hint</span><span class="ht-arrow">▼</span>
+    </div>
+    <div class="hint-body" id="hint_${qIndex}">${q.hint}</div>
+    <textarea class="hots-open-input" id="hotsInput" placeholder="Write your thoughts here (minimum 30 characters)…"></textarea>
+    <button class="hots-submit-btn" onclick="submitHOTS()">Submit</button>
+    <div class="hots-submitted" id="hotsSubmitted">✓ Response recorded · 已记录</div>`;
+  }
+  
+  if (q.type !== 'hots') {
+    html += `<div class="q-stem">${q.stem}</div>`;
+    html += `<div class="hint-toggle" onclick="toggleHint(this,'hint_${qIndex}')">
+      <span>💡 Show hint</span><span class="ht-arrow">▼</span>
+    </div>
+    <div class="hint-body" id="hint_${qIndex}">${q.hint}</div>`;
+  }
+
+  if (q.type === 'mc' || q.type === 'reading') {
+    const keys = ['A','B','C','D'];
+    const displayChoices = q._choices || q.choices;
+    const displayAns = (q._ans !== undefined) ? q._ans : q.ans;
+    const alreadyAnswered = responses[qIndex] !== null && responses[qIndex] !== undefined;
+    if (alreadyAnswered) {
+      // Show result state — no onclick, buttons disabled
+      const userIdx = responses[qIndex]?.userIdx;
+      html += `<div class="options-grid">` + displayChoices.map((c,i) => {
+        let cls = 'opt-btn';
+        if (i === displayAns) cls += ' correct';
+        else if (i === userIdx && i !== displayAns) cls += ' wrong';
+        return `<button class="${cls}" id="opt${i}" disabled>
+          <span class="opt-key">${keys[i]}</span><span class="opt-text">${c}</span>
+        </button>`;
+      }).join('') + `</div>`;
+    } else {
+      html += `<div class="options-grid">` + displayChoices.map((c,i) =>
+        `<button class="opt-btn" id="opt${i}" onclick="answerMC(${i},${displayAns})">
+          <span class="opt-key">${keys[i]}</span><span class="opt-text">${c}</span>
+        </button>`).join('') + `</div>`;
+    }
+  } else if (q.type === 'fill') {
+    const fillAnswered = responses[qIndex] !== null && responses[qIndex] !== undefined;
+    if (fillAnswered) {
+      const fCorrect = responses[qIndex].correct;
+      html += `<div class="fill-wrap">
+        <input class="fill-input ${fCorrect ? 'correct' : 'wrong'}" id="fillIn" value="${responses[qIndex].userText || ''}" disabled>
+        <button class="submit-btn" disabled>Submitted</button>
+      </div>`;
+    } else {
+      html += `<div class="fill-wrap">
+        <input class="fill-input" id="fillIn" placeholder="Type your answer here" onkeydown="if(event.key==='Enter')checkFill()">
+        <button class="submit-btn" onclick="checkFill()">Submit</button>
+      </div>
+      <div class="fill-tip">✏️ Accepted answers: typed Chinese characters · pasted Chinese characters · pinyin (with tones) · letters without tones</div>`;
+    }
+  } else if (q.type === 'match') {
+    const shuffled = _shuffleArr(q.right);
+    html += `<div class="match-instructions">👆 Click a word on the LEFT, then click its match on the RIGHT</div><div class="match-wrap">
+      <div><div class="match-col-label">A</div><div class="match-col">` +
+      q.left.map((l,i) => `<div class="match-item" id="ml${i}" onclick="selectMatchLeft(${i})">${l}</div>`).join('') +
+      `</div></div><div><div class="match-col-label">B</div><div class="match-col">` +
+      shuffled.map((r,i) => `<div class="match-item" id="mr${i}" onclick="selectMatchRight(${i},'${r.replace(/'/g,"\\'")}')\" data-val="${r.replace(/"/g,'&quot;')}">${r}</div>`).join('') +
+      `</div></div></div><button class="match-check-btn" onclick="checkMatch()">Check</button>`;
+    window._shuffled = shuffled; window._matchCorrect = {}; window._matchPairs = {}; window._matchSelected = { l:null, r:null };
+  }
+
+  if (q.type !== 'hots') {
+    html += `<div class="feedback" id="fb"></div>`;
+  }
+
+  html += `</div>
+  <button class="next-btn" id="nextBtn" onclick="nextQ()">${qIndex < currentQs.length-1 ? 'Next →' : 'See results →'}</button>`;
+  mount.innerHTML = html;
+  // If navigating back to an already-answered question, show next button and feedback
+  const already = responses[qIndex] !== null && responses[qIndex] !== undefined;
+  if (already) {
+    const nb = document.getElementById('nextBtn');
+    if (nb) nb.style.display = 'block';
+    const r = responses[qIndex];
+    const q2 = currentQs[qIndex];
+    if (q2.type === 'mc' || q2.type === 'reading') {
+      const dc = q2._choices || q2.choices;
+      const da = q2._ans !== undefined ? q2._ans : q2.ans;
+      showFeedback(r.correct, dc[da]);
+    } else if (q2.type === 'fill') {
+      showFeedback(r.correct, q2.ans[0]);
+    }
+  }
+}
+
+// ── PINYIN DICTIONARY — word-level, for 1A reading passages ──────
+const PINYIN_DICT = {
+  // ── Names ─────────────────────────────────────────────────────
+  '小明':'Xiǎomíng','小红':'Xiǎohóng','小华':'Xiǎohuá','小丽':'Xiǎolì',
+  '阿里':'Ālǐ','哈桑':'Hāsāng','法蒂玛':'Fǎdìmǎ','哈立德':'Hālìdé','玛丽亚':'Mǎlìyà',
+  // ── Countries & cities ────────────────────────────────────────
+  '中国人':'Zhōngguórén','阿联酋人':'Āliánqiúrén','沙特人':'Shātèrén',
+  '约旦人':'Yuēdànrén','埃及人':'Āijírén','阿曼人':'Āmànrén','英国人':'Yīngguórén',
+  '中国':'Zhōngguó','阿联酋':'Āliánqiú','迪拜':'Díbài','上海':'Shànghǎi',
+  '北京':'Běijīng','阿布扎比':'Ābùzhābǐ','沙特':'Shātè','约旦':'Yuēdàn',
+  '埃及':'Āijí','阿曼':'Āmàn',
+  // ── Greetings & social ────────────────────────────────────────
+  '你好':'nǐ hǎo','老师好':'lǎoshī hǎo','同学们':'tóngxuémen','同学':'tóngxué',
+  '很高兴':'hěn gāoxìng','认识':'rènshi','谢谢':'xièxie','不客气':'bú kèqì',
+  '对不起':'duìbuqǐ','没关系':'méi guānxi','再见':'zàijiàn',
+  // ── Pronouns ──────────────────────────────────────────────────
+  '我们':'wǒmen','你们':'nǐmen','他们':'tāmen','她们':'tāmen',
+  '我':'wǒ','你':'nǐ','他':'tā','她':'tā','您':'nín',
+  // ── Multi-char verbs & phrases (matched greedily before singles) ──
+  '不知道':'bù zhīdào','知道':'zhīdào','觉得':'juéde','来自':'láizì',
+  '住在':'zhùzài','学习':'xuéxí','上学':'shàngxué','上课':'shàngkè',
+  '下课':'xiàkè','放学':'fàngxué','喜欢':'xǐhuan',
+  '说':'shuō','问':'wèn','是':'shì','在':'zài','有':'yǒu','叫':'jiào',
+  '来':'lái','去':'qù','看':'kàn','学':'xué','教':'jiāo',
+  // ── Common nouns & phrases ────────────────────────────────────
+  '阿拉伯语':'Ālābóyǔ','英语':'Yīngyǔ','汉语':'Hànyǔ','中文':'Zhōngwén',
+  '拼音':'pīnyīn','汉字':'Hànzì','发音':'fāyīn','笔顺':'bǐshùn',
+  '有意思':'yǒu yìsi','意思':'yìsi','名字':'míngzi','朋友':'péngyou',
+  '好朋友':'hǎo péngyou','老师':'lǎoshī','国家':'guójiā','文化':'wénhuà',
+  '学校':'xuéxiào','初中':'chūzhōng','中学':'zhōngxué','小学':'xiǎoxué',
+  '年级':'niánjí','七年级':'qī niánjí','年龄':'niánlíng',
+  '数字':'shùzì','发财':'fācái','伊斯兰':'Yīsīlán',
+  '首都':'shǒudū','城市':'chéngshì','最大的':'zuì dà de',
+  '南边':'nánbiān','北边':'běibiān','东边':'dōngbiān','西边':'xībiān',
+  '有名':'yǒumíng','相似':'xiāngsì','重要':'zhòngyào',
+  '写字':'xiězì','姓名':'xìngmíng','休息日':'xiūxī rì',
+  '不上学':'bù shàngxué','星期一':'xīngqīyī','星期二':'xīngqīèr',
+  '星期三':'xīngqīsān','星期四':'xīngqīsì','星期五':'xīngqīwǔ',
+  '星期六':'xīngqīliù','星期天':'xīngqītiān','星期日':'xīngqīrì',
+  '每天':'měitiān','今天':'jīntiān','明天':'míngtiān','昨天':'zuótiān',
+  '十二岁':'shí èr suì','多大':'duō dà',
+  '表示':'biǎoshì','开始':'kāishǐ','开心':'kāixīn',
+  '帮助':'bāngzhù','自己':'zìjǐ','时候':'shíhou',
+  '孩子':'háizi','同一':'tóng yī','好朋友':'hǎo péngyou',
+  // ── Adverbs / particles ───────────────────────────────────────
+  '非常':'fēicháng','也':'yě','都':'dōu','很':'hěn','不':'bù','没':'méi',
+  '已经':'yǐjīng','一起':'yìqǐ','当然':'dāngrán','因为':'yīnwèi',
+  '所以':'suǒyǐ','<ruby>但是<rt>dànshì</rt></ruby>':'dànshì','或者':'huòzhě','然后':'ránhòu',
+  // ── Multi-char entries (must come before single-char fallbacks) ──
+  '姓':'xìng','叫':'jiào','国':'guó','人':'rén','家':'jiā',
+  '岁':'suì','名':'míng','说':'shuō','想':'xiǎng','要':'yào',
+  // ── Single-char fallbacks — cover every char left unmatched ──
+  // Numbers
+  '一':'yī','七':'qī','三':'sān','八':'bā','四':'sì',
+  // Structural / high-frequency
+  '的':'de','了':'le','个':'gè','和':'hé',
+  // Demonstratives & question words
+  '这':'zhè','哪':'nǎ',
+  // Verbs (single-char that appear standalone in passages)
+  '上':'shàng',  // 上学 already covered; 上 alone = shàng
+  '下':'xià',    // 从上到下
+  '从':'cóng',   // 从上到下
+  '到':'dào',    // 从上到下
+  '先':'xiān',   // 先说姓
+  '再':'zài',    // 先说姓再说名
+  '还':'hái',    // 我们还有
+  '开':'kāi',    // 要开始 (开始 multi covered; 开 standalone)
+  '始':'shǐ',    // 开始 multi covered; 始 standalone fallback
+  '发':'fā',     // 发音 multi covered; 发 alone = fā (发财 covered)
+  '帮':'bāng',   // 帮助 multi covered; 帮 standalone fallback
+  '助':'zhù',    // 帮助 multi covered; 助 standalone fallback
+  '记':'jì',     // 记住汉字
+  '住':'zhù',    // 住在 multi covered; 住 standalone
+  '只':'zhǐ',    // 只认识
+  '对':'duì',    // 他对老师说
+  '表':'biǎo',   // 表示 multi covered; 表 standalone fallback
+  '示':'shì',    // 表示 multi covered; 示 standalone fallback
+  '活':'huó',    // 学校生活
+  '生':'shēng',  // 学生, 生活 — shēng in all passage contexts
+  '比':'bǐ',     // 比如
+  '如':'rú',     // 比如
+  // Nouns / adjectives (single-char standalone)
+  '好':'hǎo',    // 你好 multi covered; 好 alone = hǎo
+  '大':'dà',     // 大家 in passages
+  '天':'tiān',   // 每天 multi covered; 天 standalone
+  '每':'měi',    // 每天 multi covered; 每 standalone
+  '小':'xiǎo',   // 小明 covered; 小 standalone (小学 covered)
+  '孩':'hái',    // 孩子 multi covered; 孩 standalone fallback
+  '子':'zi',     // 孩子 multi covered; 子 standalone (neutral tone)
+  '时':'shí',    // 时候 multi covered; 时 standalone
+  '候':'hòu',    // 时候 multi covered; 候 standalone
+  '数':'shù',    // 数字 multi covered; 数 standalone
+  '班':'bān',    // 同一个班
+  '现':'xiàn',   // 现在 → 他现在住在
+  '王':'Wáng',   // surname 王 (王老师, 王小雨)
+  '海':'hǎi',    // 叫海山 (name component)
+  '山':'shān',   // 叫海山 (name component)
+  '左':'zuǒ',    // 从左到右
+  '右':'yòu',    // 从左到右
+  '心':'xīn',    // 很开心
+  '死':'sǐ',     // 四的发音像死
+  '多':'duō',    // 很多人
+  '像':'xiàng',  // 发音像发
+  '呢':'ne',     // 你呢
+  '课':'kè',     // 中文课
+  '趣':'qù',     // 有趣
+  '里':'lǐ',     // 阿里 multi covered; 里 standalone
+  '雨':'yǔ',     // 小雨 (name component)
+  '第':'dì',     // 第一天
+  '同':'tóng',   // 同一个班 (同一 multi covered; 同 standalone)
+  '最':'zuì',    // 最大的 multi covered; 最 standalone  // ── Passage vocabulary additions ─────────────────────────────────
+  '练习':'liànxí',
+  '声调':'shēngdiào',
+  '四个':'sì gè',
+  '第一声':'dì yī shēng',
+  '第四声':'dì sì shēng',
+  '平的':'píng de',
+  '降的':'jiàng de',
+  '声':'shēng',
+  '第一天':'dì yī tiān',
+  '看见':'kànjiàn',
+  '新':'xīn',
+  '学生':'xuésheng',
+  '高兴':'gāoxìng',
+  '幸运':'xìngyùn',
+  '后天':'hòutiān',
+  '就是':'jiùshì',
+  '周末':'zhōumò',
+  '很多':'hěn duō',
+  '现在':'xiànzài',
+
+  // ── Additional passage words ──────────────────────────────────────
+  '他的':'tā de',
+  '你叫':'nǐ jiào',
+  '什么':'shénme',
+  '我叫':'wǒ jiào',
+  '这是几':'zhè shì jǐ',
+  '这是八':'zhè shì bā',
+  '很好':'hěn hǎo',
+  '是好朋友':'shì hǎo péngyou',
+  '你多大':'nǐ duō dà',
+  '我十二岁':'wǒ shíèr suì',
+  '今天星期四':'jīntiān xīngqī sì',
+  '明天星期几':'míngtiān xīngqī jǐ',
+  '明天星期五':'míngtiān xīngqī wǔ',
+  '她的':'tā de',
+  '你是哪国人':'nǐ shì nǎ guó rén',
+  '你呢':'nǐ ne',
+  '在哪里':'zài nǎlǐ',
+  '今天是第一天':'jīntiān shì dì yī tiān',
+  '今天是':'jīntiān shì',
+  '他的老师说':'tā de lǎoshī shuō',
+  '他现在在':'tā xiànzài zài',
+  '迪拜上学':'Díbài shàngxué',
+  '阿布扎比上学':'Ābùzhābǐ shàngxué',
+  '他的班有很多国家的同学':'tā de bān yǒu hěn duō guójiā de tóngxué',
+  '她的好朋友':'tā de hǎo péngyou',
+  '小丽是中国人':'Xiǎo Lì shì Zhōngguórén',
+  '她们一起学习中文':'tāmen yīqǐ xuéxí Zhōngwén',
+  '你叫什么名字':'nǐ jiào shénme míngzi',
+  '很高兴认识你':'hěn gāoxìng rènshi nǐ',
+  '你是哪国人':'nǐ shì nǎ guó rén',
+  '后天就是周末了':'hòutiān jiùshì zhōumò le',
+  '我也十二岁':'wǒ yě shíèr suì',
+  '我们都十二岁':'wǒmen dōu shíèr suì',
+  '阿里和小华是好朋友':'Ālǐ hé Xiǎohuá shì hǎo péngyou',
+  '阿里帮助朋友':'Ālǐ bāngzhù péngyou',
+  '阿里看见老师':'Ālǐ kànjiàn lǎoshī',
+  '阿里很高兴':'Ālǐ hěn gāoxìng',
+  '阿布扎比是阿联酋的首都':'Ābùzhābǐ shì Āliánqiú de shǒudū',
+  '小红在学习中文数字':'Xiǎohóng zài xuéxí Zhōngwén shùzì',
+  '小红很高兴':'Xiǎohóng hěn gāoxìng',
+  '小红问阿里':'Xiǎohóng wèn Ālǐ',
+  '小华来自中国':'Xiǎohuá láizì Zhōngguó',
+  '小明来自上海':'Xiǎomíng láizì Shànghǎi',
+  '小明的同学问':'Xiǎomíng de tóngxué wèn',
+  '小明每天练习拼音':'Xiǎomíng měitiān liànxí pīnyīn',
+  '拼音有四个声调':'pīnyīn yǒu sì gè shēngdiào',
+  '第一声是平的':'dì yī shēng shì píng de',
+  '第四声是降的':'dì sì shēng shì jiàng de',
+  '八是幸运数字':'bā shì xìngyùn shùzì',
+  '在中国':'zài Zhōngguó',
+  '上海在中国':'Shànghǎi zài Zhōngguó',
+  '上海在哪里':'Shànghǎi zài nǎlǐ',
+  '哈桑是新学生':'Hāsāng shì xīn xuésheng',
+  '法蒂玛是阿联酋人':'Fǎdìmǎ shì Āliánqiúrén',
+  '我是中国人':'wǒ shì Zhōngguórén',
+  '明天星期几':'míngtiān xīngqī jǐ',
+  '明天星期五':'míngtiān xīngqī wǔ',
+  '我叫哈桑':'wǒ jiào Hāsāng',
+  '这是几':'zhè shì jǐ',
+  '这是八':'zhè shì bā',
+
+// ── Build passage as word-blocks with py / ch spans ───────────────
+// Output: <div class="passage-body">  <span class="w"><span class="py">pīnyīn</span><span class="ch">汉字</span></span> ... </div>
+
+// ── Above-HSK1 vocabulary in reading passages ──────────────────
+};
+
+const ABOVE_HSK1_DICT = {
+  '发财': ['HSK4+', 'to get rich / make a fortune'],
+  '文化': ['HSK4', 'culture'],
+  '重要': ['HSK4', 'important'],
+  '初中': ['HSK3+', 'middle school / junior high school'],
+  '发音': ['HSK3+', 'pronunciation'],
+  '首都': ['HSK3+', 'capital city'],
+  '不同': ['HSK3', 'different'],
+  '国家': ['HSK3', 'country / nation'],
+  '城市': ['HSK3', 'city'],
+  '年级': ['HSK3', 'grade / school year'],
+  '数字': ['HSK3', 'number / digit'],
+  '有趣': ['HSK3', 'interesting / fun'],
+  '表示': ['HSK3', 'to express / indicate / mean'],
+  '同学': ['HSK2', 'classmate / schoolmate'],
+  '名字': ['HSK2', 'name'],
+  '意思': ['HSK2', 'meaning; interesting (有意思)'],
+  '知道': ['HSK2', 'to know (a fact)'],
+  '觉得': ['HSK2', 'to feel / think'],
+  '认识': ['HSK2', 'to know / recognise (a person)'],
+  '开始': ['HSK2', 'to begin / start'],
+  '帮助': ['HSK2', 'to help'],
+};
+
+function buildVocabGloss(passage) {
+  // Strip ruby markup before checking
+  const plain = passage.replace(/<ruby>/g,'').replace(/<\/ruby>/g,'')
+    .replace(/<rt>[^<]*<\/rt>/g,'').replace(/<[^>]+>/g,'');
+  const found = [];
+  for (const [word, info] of Object.entries(ABOVE_HSK1_DICT)) {
+    if (plain.includes(word)) {
+      found.push({ word, level: info[0], meaning: info[1] });
+    }
+  }
+  if (found.length === 0) return '';
+  const items = found.map(f =>
+    '<span class="vocab-gloss-item">' +
+    '<span class="vg-word">' + f.word + '</span>' +
+    '<span class="vg-level">' + f.level + '</span>' +
+    '<span class="vg-meaning">' + f.meaning + '</span>' +
+    '</span>'
+  ).join('');
+  return '<div class="vocab-gloss">' +
+    '<div class="vocab-gloss-label">📚 Above HSK 1 · 超纲词汇注释</div>' +
+    '<div class="vocab-gloss-items">' + items + '</div>' +
+    '</div>';
+}
+
+function buildPassageNotes(passage) {
+  // Extract the <div class="rn">Notes: …</div> footnotes so the online
+  // reading view shows the same annotations as the print version.
+  const m = passage.match(/<div class="rn">([\s\S]*?)<\/div>/);
+  if (!m || !m[1].trim()) return '';
+  return '<div class="passage-notes">' + m[1] + '</div>';
+}
+
+// ── HOTS (Tier 3) pinyin annotation ──────────────────────────────
+// Adds ruby pinyin above Chinese characters embedded in the
+// Critical/Creative Thinking prompts (auto-generated via pypinyin).
+const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby>上<rt>shàng</rt></ruby><ruby>海<rt>hǎi</rt></ruby>", "中": "<ruby>中<rt>zhōng</rt></ruby>", "中国": "<ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby>", "中国人": "<ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "人": "<ruby>人<rt>rén</rt></ruby>", "你好": "<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby>", "八": "<ruby>八<rt>bā</rt></ruby>", "北京": "<ruby>北<rt>běi</rt></ruby><ruby>京<rt>jīng</rt></ruby>", "发": "<ruby>发<rt>fā</rt></ruby>", "四": "<ruby>四<rt>sì</rt></ruby>", "天": "<ruby>天<rt>tiān</rt></ruby>", "山": "<ruby>山<rt>shān</rt></ruby>", "您": "<ruby>您<rt>nín</rt></ruby>", "您好": "<ruby>您<rt>nín</rt></ruby><ruby>好<rt>hǎo</rt></ruby>", "我十二岁": "<ruby>我<rt>wǒ</rt></ruby><ruby>十<rt>shí</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>岁<rt>suì</rt></ruby>", "月": "<ruby>月<rt>yuè</rt></ruby>", "月球人": "<ruby>月<rt>yuè</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby>人<rt>rén</rt></ruby>", "木": "<ruby>木<rt>mù</rt></ruby>", "死": "<ruby>死<rt>sǐ</rt></ruby>", "水": "<ruby>水<rt>shuǐ</rt></ruby>", "法国人": "<ruby>法<rt>fǎ</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "海": "<ruby>海<rt>hǎi</rt></ruby>", "美国人": "<ruby>美<rt>měi</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "英国人": "<ruby>英<rt>yīng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "阿联酋": "<ruby>阿<rt>ā</rt></ruby><ruby>联<rt>lián</rt></ruby><ruby>酋<rt>qiú</rt></ruby>"};
+const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
+function annotateHotsCJK(text) {
+  if (!text) return text;
+  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
+    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+    return run.split('').map(function(ch) {
+      var p = HOTS_PY_CHARS[ch];
+      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+    }).join('');
+  });
+}
+
+
+function buildPassageWithPinyin(passage) {
+  // Separate <p class="rp"> from <div class="rn"> notes
+  const rpMatch = passage.match(/<p class="rp">([\s\S]*?)<\/p>/);
+  const passageCore = rpMatch ? rpMatch[1] : passage;
+  // Strip ruby/rt tags to get plain Chinese text for re-annotation
+  const plain = passageCore.replace(/<ruby>/g,'').replace(/<\/ruby>/g,'')
+                        .replace(/<rt>[^<]*<\/rt>/g,'').replace(/<sup>[^<]*<\/sup>/g,'').replace(/<[^>]+>/g,'');
+
+  // Sort dict keys longest first to greedily match multi-char words
+  const keys = Object.keys(PINYIN_DICT).sort((a,b) => b.length - a.length);
+
+  // Tokenise: scan left-to-right, greedily match dict entries or single chars
+  const tokens = []; // { ch, py, isPunct, isBreak }
+  const PUNCT = /^[。，！？、：；""''「」【】()（）…—\n\r]+/;
+  let i = 0;
+  while (i < plain.length) {
+    // Newline → sentence break token
+    if (plain[i] === '\n' || plain[i] === '\r') {
+      tokens.push({ isBreak: true });
+      i++; continue;
+    }
+    // Punctuation
+    const pm = plain.slice(i).match(PUNCT);
+    if (pm) {
+      tokens.push({ ch: pm[0], py: '', isPunct: true });
+      i += pm[0].length; continue;
+    }
+    // Try dict match (longest first)
+    let matched = false;
+    for (const k of keys) {
+      if (plain.startsWith(k, i)) {
+        tokens.push({ ch: k, py: PINYIN_DICT[k] });
+        i += k.length; matched = true; break;
+      }
+    }
+    if (!matched) {
+      // Single character — no pinyin annotation
+      tokens.push({ ch: plain[i], py: '' });
+      i++;
+    }
+  }
+
+  // Render tokens as word-block spans
+  let html = '<div class="passage-body">';
+  for (const t of tokens) {
+    if (t.isBreak) {
+      html += '<span class="w brk"></span>';
+    } else if (t.isPunct) {
+      html += `<span class="w punct"><span class="py"></span><span class="ch">${t.ch}</span></span>`;
+    } else {
+      html += `<span class="w"><span class="py">${t.py}</span><span class="ch">${t.ch}</span></span>`;
+    }
+  }
+  html += '</div>';
+  return html;
+}
+
+function togglePassagePinyin(checkbox, passageId) {
+  const el = document.getElementById(passageId);
+  if (!el) return;
+  if (checkbox.checked) {
+    el.classList.remove('passage-nopinyin');
+  } else {
+    el.classList.add('passage-nopinyin');
+  }
+}
+
+function toggleHint(btn, hintId) {
+  const hintEl = document.getElementById(hintId);
+  if (!hintEl) return;
+  const isOpen = hintEl.classList.contains('show');
+  hintEl.classList.toggle('show', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.querySelector('span:first-child').textContent = isOpen ? '💡 Show hint' : '💡 Hide hint';
+}
+
+function answerMC(i, correctIdx) {
+  const q = currentQs[qIndex];
+  const displayChoices = q._choices || q.choices;
+  document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
+  const isCorrect = i === correctIdx;
+  if (isCorrect) { score++; document.getElementById(`opt${i}`).className = 'opt-btn correct'; }
+  else {
+    document.getElementById(`opt${i}`).className = 'opt-btn wrong';
+    document.getElementById(`opt${correctIdx}`).className = 'opt-btn correct';
+  }
+  playSound(isCorrect ? 'correct' : 'wrong');
+  // Record response
+  responses[qIndex] = { userIdx: i, correct: isCorrect, userLabel: displayChoices[i], correctLabel: displayChoices[correctIdx] };
+  showFeedback(isCorrect, displayChoices[correctIdx]);
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+function checkFill() {
+  const q = currentQs[qIndex];
+  const raw = document.getElementById('fillIn').value.trim();
+  // Normalise: strip tone marks for pinyin comparison
+  const normTones = s => s.toLowerCase()
+    .replace(/[āáǎà]/g,'a').replace(/[ēéěè]/g,'e').replace(/[īíǐì]/g,'i')
+    .replace(/[ōóǒò]/g,'o').replace(/[ūúǔùǖǘǚǜü]/g,'u')
+    .replace(/[’'`]/g,'').replace(/\s+/g,'').trim();
+  const val = raw;
+  const normVal = normTones(raw);
+  const correct = q.ans.some(a => {
+    if (!a) return false;
+    return val === a                             // exact hanzi/pinyin match
+        || val.toLowerCase() === a.toLowerCase() // case-insensitive
+        || normVal === normTones(a);             // tone-stripped pinyin match
+  });
+  document.getElementById('fillIn').className = 'fill-input ' + (correct?'correct':'wrong');
+  document.getElementById('fillIn').disabled = true;
+  document.querySelector('.submit-btn').disabled = true;
+  if (correct) score++;
+  playSound(correct ? 'correct' : 'wrong');
+  responses[qIndex] = { userText: val, correct, correctLabel: q.ans[0] };
+  showFeedback(correct, q.ans[0]);
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+function selectMatchLeft(i) {
+  window._matchSelected.l = i;
+  document.querySelectorAll('[id^="ml"]').forEach((el,j) => {
+    if (!el.classList.contains('matched')) el.classList.toggle('selected', j===i);
+  });
+  tryMatch();
+}
+
+function selectMatchRight(i, val) {
+  window._matchSelected.r = { i, val };
+  document.querySelectorAll('[id^="mr"]').forEach((el,j) => {
+    if (!el.classList.contains('matched')) el.classList.toggle('selected', j===i);
+  });
+  tryMatch();
+}
+
+function tryMatch() {
+  const { l, r } = window._matchSelected;
+  if (l === null || r === null) return;
+  // If left item already paired, unlink its previous right partner first
+  if (window._matchPairs[l] !== undefined) {
+    const oldRi = window._matchPairs[l];
+    const oldREl = document.getElementById(`mr${oldRi}`);
+    if (oldREl) { oldREl.classList.remove('selected','paired-right'); }
+  }
+  // If right item already claimed by another left, unlink that left first
+  for (const li in window._matchPairs) {
+    if (window._matchPairs[li] === r.i) {
+      document.getElementById(`ml${li}`) && document.getElementById(`ml${li}`).classList.remove('selected','paired-left');
+      delete window._matchPairs[li];
+    }
+  }
+  // Record the pairing (no correctness check yet)
+  window._matchPairs[l] = r.i;
+  document.getElementById(`ml${l}`).classList.remove('selected');
+  document.getElementById(`ml${l}`).classList.add('paired-left');
+  document.getElementById(`mr${r.i}`).classList.remove('selected');
+  document.getElementById(`mr${r.i}`).classList.add('paired-right');
+  window._matchSelected = { l:null, r:null };
+}
+
+function checkMatch() {
+  const q = currentQs[qIndex];
+  const pairedCount = Object.keys(window._matchPairs).length;
+  if (pairedCount < q.left.length) {
+    const fb = document.getElementById('fb');
+    if (fb) { fb.className = 'feedback show bad'; fb.textContent = '⚠ Please complete all matches before checking'; }
+    return;
+  }
+  // Now reveal correct / wrong for each pair
+  let allCorrect = true;
+  for (let li = 0; li < q.left.length; li++) {
+    const ri = window._matchPairs[li];
+    const correctRight = q.right[q.pairs[li][1]];
+    const userRight = window._shuffled[ri];
+    const isCorrect = userRight === correctRight;
+    if (!isCorrect) allCorrect = false;
+    document.getElementById(`ml${li}`).className = 'match-item ' + (isCorrect ? 'matched' : 'wrong-match');
+    document.getElementById(`mr${ri}`).className = 'match-item ' + (isCorrect ? 'matched' : 'wrong-match');
+  }
+  if (allCorrect) score++;
+  playSound(allCorrect ? 'correct' : 'wrong');
+  showFeedback(allCorrect, q.left.map((l,i) => `${l} → ${q.right[q.pairs[i][1]]}`).join(' | '));
+  responses[qIndex] = { correct: allCorrect, correctLabel: q.left.map((l,i) => `${l} → ${q.right[q.pairs[i][1]]}`).join(', ') };
+  document.getElementById('nextBtn').style.display = 'block';
+  document.querySelectorAll('.match-item').forEach(el => el.style.pointerEvents = 'none');
+}
+
+
+function submitHOTS() {
+  const val = document.getElementById('hotsInput')?.value?.trim() || '';
+  if (val.length < 30) {
+    showToast(`Please write at least 30 characters before submitting. (Current: ${val.length} characters)`, 'warn');
+    return;
+  }
+  score++;
+  document.getElementById('hotsInput').disabled = true;
+  document.querySelector('.hots-submit-btn').style.display = 'none';
+  document.getElementById('hotsSubmitted').style.display = 'block';
+  responses[qIndex] = { correct: true, userText: val, isOpen: true };
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+function showFeedback(correct, correctAns) {
+  const fb = document.getElementById('fb');
+  if (!fb) return;
+  fb.className = 'feedback show ' + (correct?'ok':'bad');
+  fb.innerHTML = correct
+    ? '✓ Correct!'
+    : `✗ The answer is: <b>${correctAns || ''}</b>`;
+}
+
+
+function navQ(dir) {
+  var newIdx = qIndex + dir;
+  if (newIdx < 0 || newIdx >= currentQs.length) return;
+  qIndex = newIdx;
+  renderQuestion();
+}
+function nextQ() {
+  playSound('click');
+  qIndex++;
+  if (qIndex >= currentQs.length) { clearInterval(timerInterval); showResult(); }
+  else renderQuestion();
+}
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  
+  const total = currentQs.length;
+  const pct = Math.round((score/total)*100);
+  const tierColors = ['ring-t1','ring-t2','ring-t3'];
+  document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
+  document.getElementById('rRing').textContent = `${pct}%`;
+  document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
+  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const lesson = LESSONS[selectedLesson];
+  const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
+  document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
+  document.getElementById('rStars').textContent = score===total?'⭐⭐⭐':score>=total*0.7?'⭐⭐':'⭐';
+  const msgs = [
+    `Your score: <strong>${score}/${total}</strong>. Focus on key vocabulary from this lesson — recognising characters and sentence patterns is your first step. Keep reading aloud!`,
+    `Your score: <strong>${score}/${total}</strong>. You're applying sentence patterns well. Try creating your own sentences using the grammar from this lesson.`,
+    `Your score: <strong>${score}/${total}</strong>. Excellent deeper understanding! You worked through extended questions, a reading passage, and a critical thinking challenge. Review any missed points and try expressing your ideas.`,
+  ];
+  document.getElementById('rMsg').innerHTML = msgs[selectedTier];
+  playSound('complete');
+  // Build always-visible analytics panel
+  buildAnalyticsPanel();
+  // Survey moved to setup page
+}
+
+// (buildReviewPanel and toggleReview replaced by buildAnalyticsPanel above)
+
+function downloadAnswers() {
+  const lesson = LESSONS[selectedLesson];
+  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const now = new Date().toLocaleString();
+  let txt = `跨越丝路分层习题生成器 · 1A\n`;
+  txt += `Across the Silk Route — Answer Sheet\n`;
+  txt += `${'='.repeat(50)}\n`;
+  txt += `学生 Student: ${studentName||'—'}  班级 Class: ${studentClass||'—'}\n`;
+  txt += `Lesson: ${lesson.num} · ${lesson.title} (${lesson.cn})\n`;
+  txt += `Tier: ${tierNames[selectedTier]}\n`;
+  txt += `Score: ${score} / ${currentQs.length}\n`;
+  txt += `Date: ${now}\n`;
+  txt += `${'='.repeat(50)}\n\n`;
+
+  currentQs.forEach((q, i) => {
+    const r = responses[i];
+    const typeLabels = { mc:'MC 选择', fill:'Fill 填空', match:'Match 连线', reading:'Reading 阅读', hots:'HOTS 思维' };
+    const stemText = q.stem.replace(/<[^>]*>/g,'');
+    txt += `Q${i+1} [${typeLabels[q.type]||q.type}]\n`;
+    txt += `Question: ${stemText}\n`;
+
+    if (q.type === 'mc' || q.type === 'reading') {
+      const displayChoices = q._choices || q.choices;
+      const displayAns = (q._ans !== undefined) ? q._ans : q.ans;
+      txt += `Correct Answer: ${['A','B','C','D'][displayAns]}. ${displayChoices[displayAns]}\n`;
+      if (r) txt += `Your Answer:    ${['A','B','C','D'][r.userIdx]}. ${r.userLabel} ${r.correct?'✓':'✗'}\n`;
+      else txt += `Your Answer:    — Not answered\n`;
+    } else if (q.type === 'fill') {
+      txt += `Correct Answer: ${q.ans.join(' / ')}\n`;
+      txt += `Your Answer:    ${r?.userText || '— Not answered'} ${r?.correct?'✓':'✗'}\n`;
+    } else if (q.type === 'match') {
+      txt += `Correct Pairs:  ${q.left.map((l,j) => `${l} → ${q.right[q.pairs[j][1]]}`).join(' | ')}\n`;
+      txt += `Result:         ${r?.correct ? 'All correct ✓' : 'Not all matched ✗'}\n`;
+    } else if (q.type === 'hots') {
+      txt += `(Open response — no single correct answer)\n`;
+      txt += `Your Response:  ${r?.userText || '— Not submitted'}\n`;
+    }
+    txt += '\n';
+  });
+
+  txt += `${'='.repeat(50)}\n`;
+  txt += `Total Score: ${score} / ${currentQs.length} (${Math.round(score/currentQs.length*100)}%)\n`;
+
+  const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `答案_${lesson.id}_Tier${selectedTier+1}_${new Date().toISOString().slice(0,10)}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function retry() {
+  document.getElementById('resultScreen').style.display = 'none';
+  startQuiz();
+}
+
+function exitQuiz() {
+  showConfirm('Back to settings? Your progress will not be saved.', '返回设置？当前进度不会保存。', function() {
+    clearInterval(timerInterval);
+    qIndex = 0; score = 0; responses = [];
+    document.getElementById('quizScreen').style.display = 'none';
+    document.getElementById('studentInfoScreen').style.display = 'none';
+    document.getElementById('setup').style.display = 'block';
+    window.scrollTo(0, 0);
+  });
+}
+
+function goBack() {
+  clearInterval(timerInterval);
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('studentInfoScreen').style.display = 'none';
+  document.getElementById('setup').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+
+function printWorksheet() {
+  const lesson = LESSONS[selectedLesson];
+  // Load questions from selected lesson/tier (works from both setup AND result screens)
+  const printQs = (currentQs && currentQs.length > 0)
+    ? currentQs
+    : lesson.tiers[selectedTier].qs;
+  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierLabel = tierNames[selectedTier];
+  const date = new Date().toLocaleDateString('zh-CN');
+
+  // Strip HTML tags helper
+  function stripTags(s) { return s.replace(/<rt>[^<]*<\/rt>/g,'').replace(/<sup>[^<]*<\/sup>/g,'').replace(/<[^>]*>/g, ''); }
+
+  // Build question HTML for print
+  function buildQHTML(q, idx) {
+    const qn = 'Q' + (idx + 1);
+    const typeMap = { mc: 'MC MC', fill: 'Fill-in Fill-in', match: 'Match Matching', reading: '阅读题 Reading', hots: '思维题 HOTS' };
+    let h = '<div class="pq">';
+    h += '<div class="pq-num">' + qn + ' <span class="pq-type">' + (typeMap[q.type] || q.type) + '</span></div>';
+
+    if (q.type === 'reading') {
+      // Passage (strip ruby markup)
+      // Extract passage core (<p class="rp">) and notes (<div class="rn">)
+      const rpM = (q.passage || '').match(/<p class="rp">([\s\S]*?)<\/p>/);
+      const rnM = (q.passage || '').match(/<div class="rn">([\s\S]*?)<\/div>/);
+      // Build passage with ruby pinyin displayed
+      const passageHtml = rpM
+        ? rpM[1]
+            .replace(/<sup>[^<]*<\/sup>/g, '')  // remove superscript markers
+        : (q.passage || '').replace(/<rt>[^<]*<\/rt>/g,'').replace(/<[^>]+>/g,'');
+      const notesHtml = rnM
+        ? '<div class="prn">' + rnM[1] + '</div>'
+        : '';
+      h += '<div class="ppassage"><div class="ppassage-lbl">📖 ' + (q.passageLabel || '阅读理解') + '</div><div class="ppassage-text">' + passageHtml + '</div>' + notesHtml + '</div>';
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      const choices = q._choices || q.choices || [];
+      h += '<div class="popts">';
+      ['A','B','C','D'].forEach(function(k, ci) {
+        if (choices[ci] !== undefined) h += '<div class="popt"><span class="popt-k">' + k + '.</span> ' + choices[ci] + '</div>';
+      });
+      h += '</div>';
+    } else if (q.type === 'mc') {
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      const choices = q._choices || q.choices || [];
+      h += '<div class="popts">';
+      ['A','B','C','D'].forEach(function(k, ci) {
+        if (choices[ci] !== undefined) h += '<div class="popt"><span class="popt-k">' + k + '.</span> ' + choices[ci] + '</div>';
+      });
+      h += '</div>';
+    } else if (q.type === 'fill') {
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      h += '<div class="pline"></div>';
+    } else if (q.type === 'match') {
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      // Shuffle right column for print version
+      const rightShuffled = _shuffleArr(q.right);
+      h += '<div class="pmatch">';
+      h += '<div class="pmatch-col"><div class="pmatch-hdr">中文</div>' + q.left.map(function(l) { return '<div class="pmatch-item">' + l + '</div>'; }).join('') + '</div>';
+      h += '<div class="pmatch-col"><div class="pmatch-hdr">English</div>' + rightShuffled.map(function(r) { return '<div class="pmatch-item">' + r + '</div>'; }).join('') + '</div>';
+      h += '</div>';
+    } else if (q.type === 'hots') {
+      // Parse both cycles
+      var stemParts = q.stem.split(' | 🔵 Cycle 3 — ');
+      var c2S = stemParts[0].replace('🟡 Cycle 2 — ', '');
+      var c3S = stemParts[1] || '';
+      var c2P = q.prompts.filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
+      var c3P = q.prompts.filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
+
+      h += '<div class="photsbox photsbox-c2">';
+      h += '<div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div>';
+      h += '<div class="pq-stem">' + c2S + '</div>';
+      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '</div>';
+      h += '<div class="pwrite-lines">';
+      for (var li2 = 0; li2 < 5; li2++) h += '<div class="pwrite-line"></div>';
+      h += '</div>';
+
+      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;">';
+      h += '<div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div>';
+      h += '<div class="pq-stem">' + c3S + '</div>';
+      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '</div>';
+      h += '<div class="pwrite-lines">';
+      for (var li3 = 0; li3 < 5; li3++) h += '<div class="pwrite-line"></div>';
+      h += '</div>';
+    }
+
+    h += '</div>';
+    return h;
+  }
+
+  let qsHTML = '';
+  printQs.forEach(function(q, i) { qsHTML += buildQHTML(q, i); });
+
+  const printHTML = '<!DOCTYPE html>\n<html lang="zh">\n<head>\n<meta charset="UTF-8">\n<title>试卷 ' + lesson.num + ' ' + tierLabel + '</title>\n<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">\n<style>\n* { box-sizing: border-box; margin: 0; padding: 0; }\nbody { font-family: "DM Sans", sans-serif; color: #1a1714; background: #fff; padding: 24px 32px; max-width: 780px; margin: 0 auto; }\n@media print { body { padding: 0; } }\n.header { border-bottom: 3px solid #1a1714; padding-bottom: 12px; margin-bottom: 16px; }\n.header h1 { font-size: 18px; font-weight: 700; font-family: "Noto Serif SC", serif; }\n.header .meta { font-size: 12px; color: #666; margin-top: 4px; }\n.student-row { display: flex; gap: 24px; margin-bottom: 20px; font-size: 13px; }\n.student-row .field { display: flex; align-items: center; gap: 6px; }\n.student-row .field-line { border-bottom: 1px solid #999; min-width: 120px; height: 20px; }\n.pq { margin-bottom: 24px; page-break-inside: avoid; }\n.pq-num { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }\n.pq-type { font-weight: 400; color: #888; font-size: 11px; }\n.pq-stem { font-size: 15px; line-height: 1.65; margin-bottom: 10px; font-family: "Noto Serif SC", serif; }\n.ppassage { background: #e8f7f0; border-left: 4px solid #1f8c5a; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; font-family: "Noto Serif SC", serif; font-size: 14px; line-height: 1.8; }\n.ppassage-lbl { font-size: 10px; font-weight: 700; color: #1f8c5a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }\n.popts { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; margin-left: 2px; }\n.popt { font-size: 13px; font-family: "Noto Serif SC", serif; padding: 3px 0; display: flex; gap: 6px; }\n.popt-k { font-weight: 700; min-width: 16px; }\n.pline { border-bottom: 1.5px solid #aaa; margin: 14px 0 4px; min-height: 26px; }\n.pmatch { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }\n.pmatch-col { display: flex; flex-direction: column; gap: 6px; }\n.pmatch-hdr { font-size: 11px; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }\n.pmatch-item { border: 1.5px solid #ddd; border-radius: 6px; padding: 7px 12px; font-size: 14px; font-family: "Noto Serif SC", serif; text-align: center; background: #f9f9f9; }\n.photsbox { background: #fffbea; border-left: 4px solid #c9a227; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }\n.phots-lbl { font-size: 10px; font-weight: 700; color: #c9a227; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }\n.phots-prompts { margin: 8px 0 0 16px; font-size: 12px; color: #7a7570; }\n.phots-prompts li { margin-bottom: 4px; }\n.pwrite-lines { margin-top: 8px; }\n.pwrite-line { border-bottom: 1px solid #ccc; height: 30px; margin-bottom: 2px; }\n.footer { margin-top: 32px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 11px; color: #aaa; display: flex; justify-content: space-between; }\n</style>\n</head>\n<body>\n<div class="header">\n  <h1>跨越丝路分层习题生成器 · 1A</h1>\n  <div class="meta">' + lesson.num + ' · ' + lesson.title + ' (' + lesson.cn + ') &nbsp;|&nbsp; ' + tierLabel + ' &nbsp;|&nbsp; 共 ' + printQs.length + ' 题 &nbsp;|&nbsp; ' + date + '</div>\n</div>\n<div class="student-row">\n  <div class="field">姓名 Name: <div class="field-line"></div></div>\n  <div class="field">日期 Date: <div class="field-line"></div></div>\n  <div class="field">得分 Score: <div class="field-line"></div></div>\n</div>\n' + qsHTML + '\n<div class="footer"><span>跨越丝路分层习题生成器 · 1A</span><span>' + lesson.num + ' · ' + tierLabel + '</span><span>Across the Silk Route</span></div>\n</body>\n</html>';
+
+  const win = window.open('', '_blank', 'width=860,height=960');
+  if (!win) { showToast('请允许弹出窗口后重试。\nPlease allow pop-ups and try again.', 'warn'); return; }
+  win.document.write(printHTML);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 900);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// STUDENT INFO
+// ══════════════════════════════════════════════════════════════════
+let studentName = '', studentClass = '', studentSchool = '';
+
+function goToStudentInfo() {
+  document.getElementById('setup').style.display = 'none';
+  document.getElementById('studentInfoScreen').style.display = 'block';
+}
+
+function backToSetup() {
+  document.getElementById('studentInfoScreen').style.display = 'none';
+  document.getElementById('setup').style.display = 'block';
+}
+
+function confirmStudentInfo() {
+  const name = document.getElementById('si_name').value.trim();
+  const cls  = document.getElementById('si_class').value.trim();
+  if (!name) {
+    document.getElementById('si_name').focus();
+    document.getElementById('si_name').style.borderColor = 'var(--wrong)';
+    setTimeout(()=>{ document.getElementById('si_name').style.borderColor=''; }, 1500);
+    return;
+  }
+  if (!cls) {
+    document.getElementById('si_class').focus();
+    document.getElementById('si_class').style.borderColor = 'var(--wrong)';
+    setTimeout(()=>{ document.getElementById('si_class').style.borderColor=''; }, 1500);
+    return;
+  }
+  studentName = name; studentClass = cls; studentSchool = '';
+  document.getElementById('studentInfoScreen').style.display = 'none';
+  
+  startQuiz();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// SOUND EFFECTS
+// ══════════════════════════════════════════════════════════════════
+let soundOn = true;
+
+function toggleSound() {
+  soundOn = !soundOn;
+  document.getElementById('soundBtn').textContent = soundOn ? '🔊 Sound ON' : '🔇 Sound OFF';
+}
+
+function playSound(type) {
+  if (!soundOn) return;
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    if (type === 'correct') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523, ctx.currentTime);
+      osc.frequency.setValueAtTime(659, ctx.currentTime + 0.12);
+      osc.frequency.setValueAtTime(784, ctx.currentTime + 0.24);
+      gain.gain.setValueAtTime(0.18, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.55);
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.55);
+    } else if (type === 'wrong') {
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, ctx.currentTime);
+      osc.frequency.setValueAtTime(180, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.14, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4);
+    } else if (type === 'click') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(400, ctx.currentTime);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.1);
+    } else if (type === 'complete') {
+      // Victory fanfare
+      const notes = [523,659,784,1047];
+      notes.forEach((f,idx) => {
+        const o2 = ctx.createOscillator();
+        const g2 = ctx.createGain();
+        o2.connect(g2); g2.connect(ctx.destination);
+        o2.type = 'sine'; o2.frequency.value = f;
+        g2.gain.setValueAtTime(0.15, ctx.currentTime + idx*0.15);
+        g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx*0.15 + 0.25);
+        o2.start(ctx.currentTime + idx*0.15);
+        o2.stop(ctx.currentTime + idx*0.15 + 0.3);
+      });
+    }
+  } catch(e) {}
+}
+
+// ══════════════════════════════════════════════════════════════════
+// ANALYTICS — builds always-visible panel on result screen
+// ══════════════════════════════════════════════════════════════════
+
+function toggleReviewPanel() {
+  var p = document.getElementById('reviewPanel');
+  if (p) p.style.display = (p.style.display === 'none') ? 'block' : 'none';
+}
+function toggleRemedialPanel() {
+  var p = document.getElementById('remedialPanel');
+  if (p) p.style.display = (p.style.display === 'none') ? 'block' : 'none';
+}
+function buildAnalyticsPanel() {
+  const panel = document.getElementById('analyticsPanel');
+  const lesson = LESSONS[selectedLesson];
+  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const total = currentQs.length;
+  const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
+
+  // ─ Per-question data
+  let wrongQs = [], correctCount = 0, typeStats = {};
+  currentQs.forEach((q, i) => {
+    const r = responses[i];
+    const isCorrect = r?.correct === true;
+    if (isCorrect) correctCount++;
+    else wrongQs.push({ q, i, r });
+    if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
+    typeStats[q.type].total++;
+    if (isCorrect) typeStats[q.type].correct++;
+  });
+
+  const pct = Math.round(correctCount/total*100);
+
+  // ─ Section 1: Q-by-Q review
+  let reviewHtml = '';
+  currentQs.forEach((q, i) => {
+    const r = responses[i];
+    const isCorrect = r?.correct === true;
+    const isOpen = q.type === 'hots';
+    const stemText = q.stem.replace(/<[^>]*>/g,'').slice(0,90) + (q.stem.replace(/<[^>]*>/g,'').length>90?'…':'');
+    let correctLabel = '', userLabel = '';
+    if (q.type==='mc'||q.type==='reading') {
+      const dc = q._choices||q.choices; const da = (q._ans!==undefined)?q._ans:q.ans;
+      correctLabel = `${['A','B','C','D'][da]}. ${dc[da]}`;
+      userLabel = r ? `${['A','B','C','D'][r.userIdx]}. ${r.userLabel}` : '— Not answered';
+    } else if (q.type==='fill') {
+      correctLabel = q.ans[0]; userLabel = r?.userText||'— Not answered';
+    } else if (q.type==='match') {
+      correctLabel = 'All pairs correct'; userLabel = r?.correct?'✓ 全部正确':'✗ Some incorrect';
+    } else if (q.type==='hots') {
+      correctLabel = 'Open response'; userLabel = r?.userText?'Submitted ✓':'— Not submitted';
+    }
+    const iconClass = isOpen ? 'aq-open' : isCorrect ? 'aq-correct' : 'aq-wrong';
+    const iconChar = isOpen ? '💭' : isCorrect ? '✓' : '✗';
+    reviewHtml += `<div class="analytics-q-row">
+      <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
+      <div class="analytics-q-body">
+        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-stem">${stemText}</div>
+        <div class="analytics-q-ans">
+          <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
+          <span class="aq-tag aq-user-tag ${isCorrect?'':'aq-wrong-tag'}">Your answer: ${userLabel}</span>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // ─ Section 2: Type-based strength bars
+  let strengthHtml = '';
+  Object.entries(typeStats).forEach(([type, stat]) => {
+    const pctT = Math.round(stat.correct/stat.total*100);
+    strengthHtml += `<div class="strength-bar">
+      <span class="strength-label">${typeLabels[type]||type}</span>
+      <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
+      <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
+    </div>`;
+  });
+
+  // ─ Section 3: Insight text
+  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
+  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  else insightText += ' Great overall performance — keep it up!';
+
+  // ─ Section 4: Remedial questions for wrong answers
+  let remedialHtml = '';
+  if (wrongQs.length > 0) {
+    const remedials = wrongQs.slice(0,4); // max 4 remedial Qs
+    remedials.forEach(({q, i}, ri) => {
+      if (q.type === 'mc' || q.type === 'reading') {
+        const dc = q._choices||q.choices; const da = (q._ans!==undefined)?q._ans:q.ans;
+        const stemText = q.stem.replace(/<[^>]*>/g,'');
+        remedialHtml += `<div class="remedial-q" id="rq${ri}">
+          <div class="remedial-q-label">Remedial Q${ri+1} · ${typeLabels[q.type]}</div>
+          <div class="remedial-q-stem">${stemText}</div>
+          <div class="remedial-choices">
+            ${dc.map((c,ci) => `<button class="remedial-choice" id="rqc${ri}_${ci}" onclick="checkRemedial(${ri},${ci},${da})">${['A','B','C','D'][ci]}. ${c}</button>`).join('')}
+          </div>
+        </div>`;
+      } else if (q.type === 'fill') {
+        const stemText = q.stem.replace(/<[^>]*>/g,'');
+        remedialHtml += `<div class="remedial-q" id="rq${ri}">
+          <div class="remedial-q-label">Remedial Q${ri+1} · Fill-in 填空</div>
+          <div class="remedial-q-stem">${stemText}</div>
+          <div style="display:flex;gap:8px;flex-direction:column">
+            <input class="fill-input" id="rqinput${ri}" placeholder="Write your answer · 填写答案" style="font-size:16px;padding:11px 14px;" onkeydown="if(event.key==='Enter')checkRemedialFill(${ri})">
+            <button class="submit-btn" onclick="checkRemedialFill(${ri})">Submit</button>
+          </div>
+          <div class="feedback" id="rqfb${ri}" style="margin-top:8px;"></div>
+        </div>`;
+      }
+    });
+  } else {
+    remedialHtml = `<p style="color:var(--correct);font-weight:600;font-size:15px;text-align:center;padding:1rem;">🎉 All answers correct — no remedial questions needed!</p>`;
+  }
+
+  // Store review/remedial HTML for later toggle
+  window._reviewHtml = reviewHtml;
+  window._remedialHtml = remedialHtml;
+
+  panel.innerHTML = `
+    <div class="analytics-section">
+      <div class="analytics-section-title">📋 Learning Analysis · 学情总览</div>
+      <p class="analytics-insight" style="margin-bottom:1rem;">${insightText}</p>
+      ${strengthHtml}
+    </div>
+    <div class="result-action-btns">
+      <button class="result-toggle-btn" onclick="toggleReviewPanel()">📝 Question Review · 逐题回顾</button>
+      <button class="result-toggle-btn" onclick="toggleRemedialPanel()">🔧 Remedial Practice · 补弱练习</button>
+    </div>
+    <div class="analytics-section collapse-panel" id="reviewPanel" style="display:none;">
+      <div class="analytics-section-title">📝 Question-by-Question Review · 逐题回顾</div>
+      ${reviewHtml}
+    </div>
+    <div class="analytics-section collapse-panel" id="remedialPanel" style="display:none;">
+      <div class="analytics-section-title">🔧 Remedial Practice · 补弱练习</div>
+      ${remedialHtml}
+    </div>`;
+}
+
+function checkRemedial(ri, chosen, correct) {
+  const btns = document.querySelectorAll(`[id^="rqc${ri}_"]`);
+  btns.forEach(b => b.disabled = true);
+  btns.forEach((b,ci) => {
+    if (ci === correct) b.classList.add('rc-correct');
+    else if (ci === chosen && chosen !== correct) b.classList.add('rc-wrong');
+  });
+  playSound(chosen === correct ? 'correct' : 'wrong');
+}
+
+function checkRemedialFill(ri) {
+  const wrongQ = currentQs.filter(q => { const r = responses[currentQs.indexOf(q)]; return r&&!r.correct; })[ri];
+  if (!wrongQ) return;
+  const val = document.getElementById(`rqinput${ri}`)?.value.trim() || '';
+  const correct = wrongQ.ans.some(a => val.toLowerCase() === a.toLowerCase());
+  const fb = document.getElementById(`rqfb${ri}`);
+  if (fb) { fb.className='feedback show '+(correct?'ok':'bad'); fb.textContent = correct ? '✓ 正确！Correct!' : `✗ 正确答案: ${wrongQ.ans[0]}`; }
+  document.getElementById(`rqinput${ri}`).disabled = true;
+  playSound(correct ? 'correct' : 'wrong');
+}
+
+function downloadRemedial() {
+  const lesson = LESSONS[selectedLesson];
+  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const date = new Date().toLocaleDateString('zh-CN');
+  const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
+  const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Remedial — ' + lesson.num + '</title>' +
+    '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">' +
+    '<style>body{font-family:"DM Sans",sans-serif;padding:24px 32px;max-width:780px;margin:0 auto;color:#1a1714;}' +
+    'h1{font-size:18px;font-family:"Noto Serif SC",serif;border-bottom:3px solid #1a1714;padding-bottom:10px;margin-bottom:16px;}' +
+    '.meta{font-size:12px;color:#666;margin-bottom:20px;}' +
+    '.remedial-q{margin-bottom:28px;page-break-inside:avoid;}' +
+    '.remedial-q-label{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}' +
+    '.remedial-q-stem{font-size:15px;font-family:"Noto Serif SC",serif;line-height:1.7;margin-bottom:10px;}' +
+    '.remedial-choices{display:grid;grid-template-columns:1fr 1fr;gap:6px;}' +
+    '.remedial-choice{padding:10px 14px;border:1.5px solid #ddd;border-radius:8px;font-size:13px;font-family:"Noto Serif SC",serif;text-align:left;cursor:pointer;background:#fff;}' +
+    '.fill-input{width:100%;border:1.5px solid #aaa;border-radius:8px;padding:10px;font-size:14px;}' +
+    '.submit-btn{padding:10px 20px;background:#1a1714;color:#fff;border:none;border-radius:8px;cursor:pointer;}' +
+    '@media print{.submit-btn,.remedial-choice{pointer-events:none;}}' +
+    '</style></head><body>' +
+    '<h1>补弱练习 · Remedial Worksheet</h1>' +
+    '<div class="meta">' + lesson.num + ' · ' + lesson.cn + ' · ' + tierNames[selectedTier] + ' · ' + date + (studentName ? ' · ' + studentName : '') + '</div>' +
+    remContent +
+    '</body></html>';
+  var win = window.open('', '_blank', 'width=860,height=960');
+  if (!win) { showToast('Please allow pop-ups and try again.', 'warn'); return; }
+  win.document.write(printHTML);
+  win.document.close();
+  win.focus();
+  setTimeout(function() { win.print(); }, 900);
+}
+
+let surveyData = {};
+
+function _shuffleArr(a){
+  if(!a || a.length<2) return (a||[]).slice();
+  var orig=a.join('\u0001'), r=a.slice();
+  for(var t=0;t<25;t++){
+    for(var i=r.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var tmp=r[i]; r[i]=r[j]; r[j]=tmp; }
+    if(r.join('\u0001')!==orig) break;
+  }
+  return r;
+}
+
+function toggleSurveyBody() {
+  const body = document.getElementById('surveyBody');
+  const arrow = document.getElementById('surveyArrow');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
+function selectSingle(qId, el) {
+  document.querySelectorAll(`#${qId} .survey-option`).forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  surveyData[qId] = el.textContent.trim();
+}
+
+function selectScale(qId, val) {
+  document.querySelectorAll(`#${qId} .survey-scale-btn`).forEach((b,i) => b.classList.toggle('selected', i+1===val));
+  surveyData[qId] = val;
+}
+
+function submitStudentSurvey() {
+  try {
+    const SD = (typeof surveyData !== 'undefined' && surveyData) ? surveyData : {};
+    const required = ['sq1','sq2','sq3','sq4','sq5','sq6'];
+    const labels = {
+      sq1:'Q1 \u00b7 Overall rating (1-5)',
+      sq2:'Q2 \u00b7 Targeted to your level',
+      sq3:'Q3 \u00b7 Helps with HSK',
+      sq4:'Q4 \u00b7 Helps master key points',
+      sq5:'Q5 \u00b7 Question type you like LEAST',
+      sq6:'Q6 \u00b7 Question type you like MOST'
+    };
+    const missing = required.filter(k => !SD[k]);
+    if (missing.length) {
+      const firstEl = document.getElementById(missing[0]);
+      if (firstEl) {
+        firstEl.scrollIntoView({ behavior:'smooth', block:'center' });
+        firstEl.style.outline = '2px solid var(--wrong)';
+        setTimeout(function(){ firstEl.style.outline=''; }, 2500);
+      }
+      alert('Please answer all required questions (marked *) before submitting:\n\n\u00b7 ' +
+            missing.map(function(k){return labels[k]||k;}).join('\n\u00b7 '));
+      return;
+    }
+
+    const suggestions = ((document.getElementById('survey_suggestions') || {}).value || '').trim();
+    const payload = {
+      type: '\u5b66\u751f\u95ee\u5377 Student Survey',
+      student: (typeof studentName !== 'undefined' ? studentName : '') || '',
+      'class': (typeof studentClass !== 'undefined' ? studentClass : '') || '',
+      lesson: (typeof LESSONS !== 'undefined' && LESSONS[selectedLesson]) ? (LESSONS[selectedLesson].num + ' ' + LESSONS[selectedLesson].cn) : '',
+      tier: (['Tier1','Tier2','Tier3'][typeof selectedTier !== 'undefined' ? selectedTier : 0]) || '',
+      score: ((typeof score !== 'undefined' ? score : 0) + '/' + (typeof currentQs !== 'undefined' && currentQs ? currentQs.length : 0)),
+      q1_overall: SD.sq1, q2_targeted: SD.sq2, q3_hsk_help: SD.sq3,
+      q4_key_points: SD.sq4, q5_least_fav: SD.sq5, q6_most_fav: SD.sq6,
+      suggestions: suggestions,
+      submitted_at: new Date().toLocaleString()
+    };
+
+    const btn = document.querySelector('.survey-submit-btn');
+    if (btn) { btn.disabled = true; btn.textContent = 'Submitting\u2026'; }
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('surveyResponses') || '[]');
+      existing.push(payload);
+      localStorage.setItem('surveyResponses', JSON.stringify(existing));
+    } catch(e) {}
+
+    // the teacher's Google Form (free, unlimited)
+    const GFORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeEKb7VtfsaUWnX4OP5c1eLsUxWtgwENhjpcyWKRB88Vv91yw/formResponse';
+    const GFORM_ENTRY = {
+      type:'entry.1709486619', student:'entry.531747910', 'class':'entry.1696821638',
+      lesson:'entry.1887032723', tier:'entry.335191274', score:'entry.302653584',
+      q1_overall:'entry.1725695647', q2_targeted:'entry.1245854470', q3_hsk_help:'entry.1865823702',
+      q4_key_points:'entry.8664019', q5_least_fav:'entry.1879615959', q6_most_fav:'entry.434425082',
+      suggestions:'entry.2114572130', submitted_at:'entry.286454996'
+    };
+    const gform = new URLSearchParams();
+    for (const k in GFORM_ENTRY) {
+      if (payload[k] !== undefined && payload[k] !== null && payload[k] !== '') gform.append(GFORM_ENTRY[k], payload[k]);
+    }
+
+    let _done = false;
+    const _finish = function(){
+      if (_done) return; _done = true;
+      const fs = document.getElementById('surveyForm_submit'); if (fs) fs.style.display = 'none';
+      const th = document.getElementById('surveyThanks'); if (th) th.style.display = 'block';
+    };
+    const _timer = setTimeout(_finish, 6000);
+    fetch(GFORM_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: gform.toString() })
+      .then(function(){ clearTimeout(_timer); _finish(); })
+      .catch(function(){ clearTimeout(_timer); _finish(); });
+
+  } catch (err) {
+    alert('Sorry, something went wrong while submitting:\n' + (err && err.message ? err.message : err) + '\nPlease let your teacher know.');
+    var b = document.querySelector('.survey-submit-btn');
+    if (b) { b.disabled = false; b.textContent = 'Submit Feedback \ud83d\udce4'; }
+  }
+}
+
+buildSetup();
+updateLessonNavLabel();
+</script>
+
+<!-- ─── FEEDBACK SECTION ─── -->
+<style>
+.feedback-section {
+  max-width: 780px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem 3rem;
+}
+.feedback-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 2rem 1.75rem;
+}
+.feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+.feedback-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d4622a 0%, #c9a227 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.feedback-title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.feedback-title span {
+  font-family: 'Noto Serif SC', serif;
+}
+.feedback-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.feedback-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 10px;
+  border-left: 3px solid var(--t1);
+}
+.feedback-desc strong {
+  color: var(--text);
+}
+.feedback-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 520px) {
+  .feedback-form-row { grid-template-columns: 1fr; }
+}
+.feedback-input, .feedback-textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s, background .15s;
+}
+.feedback-input:focus, .feedback-textarea:focus {
+  border-color: #999;
+  background: var(--card);
+}
+.feedback-textarea {
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.feedback-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.feedback-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.feedback-contact-info a {
+  color: var(--t1);
+  font-weight: 600;
+  text-decoration: none;
+}
+.feedback-contact-info a:hover {
+  text-decoration: underline;
+}
+.feedback-submit {
+  padding: 11px 28px;
+  background: var(--text);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity .15s;
+  white-space: nowrap;
+}
+.feedback-submit:hover { opacity: .85; }
+.feedback-thanks {
+  display: none;
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--correct);
+  font-family: 'Noto Serif SC', serif;
+}
+.feedback-thanks span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 4px;
+}
+.feedback-divider {
+  border: none;
+  border-top: 1.5px solid var(--border);
+  margin: 1.5rem 0 1.5rem;
+}
+</style>
+
+<script>
+function submitFeedback() {
+  var name = document.getElementById('fb_name').value.trim();
+  var lesson = document.getElementById('fb_lesson').value.trim();
+  var msg = document.getElementById('fb_msg').value.trim();
+  if (!msg) {
+    document.getElementById('fb_msg').focus();
+    document.getElementById('fb_msg').style.borderColor = 'var(--wrong)';
+    setTimeout(function(){ document.getElementById('fb_msg').style.borderColor = ''; }, 1500);
+    return;
+  }
+  var btn = document.querySelector('.feedback-submit');
+  btn.disabled = true;
+  btn.textContent = '发送中… Sending…';
+  fetch('https://formspree.io/f/mqenoyyz', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: name || '（未填写）',
+      lesson: lesson || '（未填写）',
+      message: msg
+    })
+  })
+  .then(function(res) {
+    if (res.ok) {
+      document.getElementById('feedbackForm').style.display = 'none';
+      document.getElementById('feedbackThanks').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = '提交反馈 Submit';
+      showToast('发送失败，请直接发邮件至 Sun.Hao@moe.sch.ae', 'warn');
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.textContent = '提交反馈 Submit';
+    showToast('网络错误，请直接发邮件至 Sun.Hao@moe.sch.ae', 'warn');
+  });
+}
+</script>
+</body>
+</html>
