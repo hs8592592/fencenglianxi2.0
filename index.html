@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>跨越丝路 · 分层练习 | Across the Silk Road</title>
+<style>
+  :root{--ink:#24333A;--sec:#6F7D84;--eng:#8A959C;--gold:#C58A36;--gold-d:#C58A36;
+    --cream:#F7F6F2;--cream-d:#E8E8E8;--paper:#FFFFFF;--jade:#EDF7EA;--shadow:rgba(0,0,0,.06);--splashbg:#F7F6F2;--divider:#ECECEC}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;color:var(--ink);
+    background:#F7F6F2;min-height:100vh}
+
+  #splash{position:fixed;inset:0;z-index:9999;background:#f5eedd;overflow-y:auto;
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    gap:2px;padding:0.5vh 16px 1.5vh;transition:opacity .8s ease,visibility .8s ease}
+  #splash .sp-logo{width:185px;max-width:44vw;height:auto;filter:drop-shadow(0 6px 14px var(--shadow))}
+  #splash .sp-title{font-size:clamp(30px,5.5vw,48px);font-weight:800;color:#5FAE46;letter-spacing:3px;margin-top:6px}
+  #splash .sp-en{font-size:clamp(13px,2.7vw,18px);color:#C58A36;letter-spacing:3px;font-weight:600;text-transform:uppercase;margin-top:5px}
+  #splash video{max-width:min(99vw,1100px);max-height:74vh;width:auto;height:auto;object-fit:contain;border-radius:16px;margin-top:2px}
+  #soundBtn{position:fixed;top:22px;right:22px;z-index:5;cursor:pointer;padding:10px 20px;border-radius:30px;
+    border:1.5px solid var(--gold);background:rgba(255,255,255,.85);color:var(--gold-d);font-weight:700;font-size:14px;
+    letter-spacing:1px;backdrop-filter:blur(6px);transition:.2s}
+  #soundBtn:hover{background:var(--gold);color:#fff}
+  #splash.hide{opacity:0;visibility:hidden}
+
+  header.top{text-align:center;padding:34px 20px 8px}
+  .about{max-width:880px;margin:0 auto;padding:24px 28px;background:#FFFFFF;
+    border:1px solid var(--cream-d);border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+  .about .row{display:flex;align-items:flex-start;gap:13px;text-align:left;line-height:1.62}
+  .about .row+.row{margin-top:14px;padding-top:14px;border-top:1px dashed var(--cream-d)}
+  .about .ic{flex:0 0 auto;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;background:var(--jade);color:#5FAE46}
+  .about .tx b{color:var(--ink);font-size:16px}
+  .about .tx p{color:var(--sec);font-size:13.5px;margin-top:4px}
+  .about .tiers{margin-top:8px;display:flex;flex-direction:column;gap:7px}
+  .about .tier{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--sec);line-height:1.55}
+  .about .tier .dot{flex:0 0 auto;margin-top:5px;width:9px;height:9px;border-radius:50%}
+  .about .tier b{color:var(--ink);font-size:13.5px}
+  .t1{background:#e6824a}.t2{background:#4a7bd1}.t3{background:#3d8a4e}
+  .about .terms{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+  .about .tchip{font-size:12.5px;color:#5f6e54;background:var(--jade);padding:4px 12px;border-radius:16px}
+  .about .tchip b{color:var(--bamboo-d)}
+
+  .levelbar{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;justify-content:center;gap:9px;padding:14px;
+    background:rgba(247,244,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--cream-d);margin-top:18px}
+  .levelbar{align-items:flex-end;gap:0;padding:14px 24px 0;border-bottom:none;max-width:1280px;margin:18px auto 0;position:relative;z-index:10}
+  .levelbar .chip{cursor:pointer;user-select:none;height:54px;display:flex;align-items:center;padding:0 26px;font-weight:700;font-size:18px;white-space:nowrap;color:#fff;position:relative;border:none;border-radius:16px 16px 0 0;margin:0 3px;box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(5px);opacity:.9;transition:transform .2s,filter .2s}
+  .levelbar .chip:hover{transform:translateY(2px);opacity:1;filter:brightness(1.05)}
+  .levelbar .chip{margin-bottom:0;padding-bottom:0;align-self:flex-end}
+  /* 选中:向上长高(顶部升起),底部留在原基线与panel无缝相接 */
+  .levelbar .chip.active{height:74px;padding:0 30px;font-size:19px;opacity:1;z-index:6;
+    margin-bottom:0;border-radius:16px 16px 0 0;
+    box-shadow:0 -6px 16px rgba(0,0,0,.08)}
+  /* 仅填平标签底与panel顶之间的1-2px细缝,不向下延伸 */
+  .levelbar .chip.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:4px;
+    background:inherit;z-index:-1}
+
+  /* 单元区:连在标签下的同色框框 */
+  #unitwrap{transition:background .3s;background:transparent!important}
+  main{max-width:1280px;margin:0 auto;padding:0 24px 56px;position:relative;z-index:5}
+  .panel{border:none;border-radius:28px;
+    background:var(--pbg,#5FAE46);padding:18px;transition:background .25s;position:relative;z-index:5;
+    box-shadow:0 10px 30px rgba(0,0,0,.12), 0 0 24px 4px var(--gc,rgba(0,0,0,.14))}
+  .grid{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));align-items:stretch}
+  .card{border-radius:16px;padding:10px 11px 8px;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:122px;height:100%;text-decoration:none;position:relative;background:#FFFFFF!important;border:1px solid #ECECEC;box-shadow:0 4px 12px rgba(0,0,0,.05);overflow:hidden}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+  .card .tag{align-self:center;font-size:11.5px;font-weight:600;padding:2.5px 11px;border-radius:999px;margin-bottom:5px;color:#fff}
+  .card .cardmid{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .card .zh{font-size:14px;font-weight:700;color:#24333A;line-height:1.25;text-align:center;word-break:break-word}
+  .card .en{font-size:10.5px;font-weight:500;color:#6F7D84;margin-top:3px;line-height:1.25;text-align:center;word-break:break-word}
+  .card .copy{margin-top:auto;text-align:center;font-size:12px;font-weight:600;color:#C58A36;padding:7px 8px 2px;border-radius:10px;border-top:1px solid var(--divider);transition:.2s}
+  .card .copy:hover{background:#FFF7E6}
+  .card .copy.done{color:#5FAE46}
+
+  footer{text-align:center;padding:20px;color:#9aa48d;font-size:12px;letter-spacing:1px}
+  #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;
+    padding:11px 22px;border-radius:30px;font-size:13px;font-weight:600;max-width:90vw;opacity:0;pointer-events:none;
+    transition:.3s;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.25);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:520px){
+    header.top{padding:22px 14px 6px}
+    .about{padding:16px 16px}
+    .about .tx b{font-size:14px}.about .tx p{font-size:12px}.about .tier{font-size:11.5px}
+    .grid{grid-template-columns:1fr 1fr;gap:10px}
+    .card{padding:13px 10px 10px;height:152px}
+    .card .zh{font-size:15px}.card .en{font-size:11.5px}
+    .panel{padding:18px 14px;border-radius:18px}
+    .levelbar{gap:6px;padding:10px 8px;margin-top:14px}
+    .levelbar .chip{padding:9px 16px 11px;font-size:14px}
+    #soundBtn{top:14px;right:14px;padding:8px 14px;font-size:13px}
+    #splash video{max-height:50vh}#splash .sp-logo{width:110px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="splash">
+  <div id="soundBtn" onclick="toggleSound()">🔇 开启声音 Sound</div>
+  <img class="sp-logo" src="logo.png" alt="跨越丝路分层练习">
+  <div class="sp-title">跨越丝路 · 分层练习</div>
+  <div class="sp-en">Across the Silk Road · Differentiated Practice</div>
+  <video id="introVid" autoplay muted playsinline>
+    <source src="intro.mp4" type="video/mp4">
+  </video>
+</div>
+
+<header class="top">
+  <div class="about">
+    <div class="row">
+      <div class="ic">📚</div>
+      <div class="tx"><b>基于《跨越丝路》教材，对标 CCG 与 HSK 3.0</b>
+      <p>习题取材于国际中文教材《跨越丝路》1–4 册，依据最新 2025–2026 版 CCG（Comprehensive Curriculum Guide，阿联酋教育部课程司发布的科目教学综合指南）与新 HSK 3.0 编写，科学分级、循序渐进。</p></div>
+    </div>
+    <div class="row">
+      <div class="ic">🪜</div>
+      <div class="tx"><b>三层进阶，精准分层</b>
+      <div class="tiers">
+        <div class="tier"><span class="dot t1"></span><span><b>Tier 1 · 迈向掌握：</b>聚焦《跨越丝路》Level 1–9 的基础知识（核心词汇与句型）。</span></div>
+        <div class="tier"><span class="dot t2"></span><span><b>Tier 2 · 达到掌握：</b>基础知识 + HSK 3.0；其中 Level 3 及以上增加一篇阅读理解。</span></div>
+        <div class="tier"><span class="dot t3"></span><span><b>Tier 3 · 深度掌握：</b>基础知识 + HSK 3.0 + 阅读理解 + 开放性与批判性思维题，围绕中阿文化与习俗的了解和对比。其中 Level 1–4 的批判性思维题分为 C2、C3 两个等级。</span></div>
+      </div></div>
+    </div>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px dashed var(--cream-d);font-size:12.5px;color:#8A959C;line-height:1.6;text-align:left">💡 友情提示：本平台 Level 1–8 的分级，是 2028 年以后执行的标准分级。</div></div>
+</header>
+
+<nav class="levelbar" id="levelbar"></nav>
+<div id="unitwrap"><main id="main"></main></div>
+<footer>跨越丝路分层练习 · Across the Silk Road &nbsp;|&nbsp; 共 78 个单元 · 8 个等级</footer>
+<div id="toast"></div>
+
+<script>
+const DOMAIN="https://haoteach.com";
+const LEVELS=[{"num": "1", "items": [{"f": "fenceng1a1", "u": "1A-L1", "zh": "拼音与汉字", "en": "Pinyin and Characters"}, {"f": "fenceng1a2", "u": "1A-L2", "zh": "你好！", "en": "Hello!"}, {"f": "fenceng1a3", "u": "1A-L3", "zh": "我叫哈桑。", "en": "I am Hassan."}, {"f": "fenceng1a4", "u": "1A-L4", "zh": "这是九。", "en": "This is nine."}, {"f": "fenceng1a5", "u": "1A-L5", "zh": "我十二岁。", "en": "I am 12 years old."}, {"f": "fenceng1a6", "u": "1A-L6", "zh": "今天星期四。", "en": "Today is Thursday."}, {"f": "fenceng1a7", "u": "1A-L7", "zh": "这是阿联酋。", "en": "This is the UAE."}, {"f": "fenceng1a8", "u": "1A-L8", "zh": "我是阿联酋人。", "en": "I am Emirati."}, {"f": "fenceng1a9", "u": "1A-L9", "zh": "上海在中国。", "en": "Shanghai is in China."}, {"f": "fenceng1b1", "u": "1B-L1", "zh": "她是我妹妹。", "en": "She is my younger sister."}], "count": 10}, {"num": "2", "items": [{"f": "fenceng1b2", "u": "1B-L2", "zh": "我有两个哥哥。", "en": "I have two older brothers."}, {"f": "fenceng1b3", "u": "1B-L3", "zh": "我爱我家。", "en": "I love my family."}, {"f": "fenceng1b4", "u": "1B-L4", "zh": "现在几点？", "en": "What time is it now?"}, {"f": "fenceng1b5", "u": "1B-L5", "zh": "今天二月一号。", "en": "Today is February 1st."}, {"f": "fenceng1b6", "u": "1B-L6", "zh": "祝你生日快乐！", "en": "Happy birthday to you!"}, {"f": "fenceng1c1", "u": "1C-L1", "zh": "我是学生。", "en": "I am a student."}, {"f": "fenceng1c2", "u": "1C-L2", "zh": "我六点半起床。", "en": "I wake up at 6:30."}, {"f": "fenceng1c3", "u": "1C-L3", "zh": "我的一天。", "en": "My day."}, {"f": "fenceng1c4", "u": "1C-L4", "zh": "我喜欢唱歌。", "en": "I like singing."}, {"f": "fenceng1c5", "u": "1C-L5", "zh": "你的爱好是什么？", "en": "What is your hobby?"}], "count": 10}, {"num": "3", "items": [{"f": "fenceng1c6", "u": "1C-L6", "zh": "我会说汉语。", "en": "I can speak Chinese."}, {"f": "fenceng2a1", "u": "2A-L1", "zh": "今天太热了！", "en": "It's so hot today!"}, {"f": "fenceng2a2", "u": "2A-L2", "zh": "今天下雨。", "en": "It's raining today."}, {"f": "fenceng2a3", "u": "2A-L3", "zh": "北京的秋天非常美。", "en": "Autumn in Beijing is very beautiful."}, {"f": "fenceng2a4", "u": "2A-L4", "zh": "你喜欢什么颜色？", "en": "What color do you like?"}, {"f": "fenceng2a5", "u": "2A-L5", "zh": "我们去奇迹花园了。", "en": "We went to the Miracle Garden."}, {"f": "fenceng2a6", "u": "2A-L6", "zh": "我周末去公园玩了。", "en": "I went to the park on the weekend."}, {"f": "fenceng2a7", "u": "2A-L7", "zh": "我在学习。", "en": "I am studying."}, {"f": "fenceng2a8", "u": "2A-L8", "zh": "我两点有中文课。", "en": "I have a Chinese class at 2 o'clock."}, {"f": "fenceng2a9", "u": "2A-L9", "zh": "我今天很忙。", "en": "I am very busy today."}], "count": 10}, {"num": "4", "items": [{"f": "fenceng2b1", "u": "2B-L1", "zh": "你们想喝什么？", "en": "What would you like to drink?"}, {"f": "fenceng2b2", "u": "2B-L2", "zh": "我喜欢吃中国菜。", "en": "I like eating Chinese food."}, {"f": "fenceng2b3", "u": "2B-L3", "zh": "你们早饭一般吃什么？", "en": "What do you usually have for breakfast?"}, {"f": "fenceng2b4", "u": "2B-L4", "zh": "我现在在家上课。", "en": "I am having class at home now."}, {"f": "fenceng2b5", "u": "2B-L5", "zh": "请问你们要什么？", "en": "Excuse me, what would you like?"}, {"f": "fenceng2b6", "u": "2B-L6", "zh": "我买了一部手机。", "en": "I bought a mobile phone."}, {"f": "fenceng2c1", "u": "2C-L1", "zh": "我想买一双鞋子。", "en": "I want to buy a pair of shoes."}, {"f": "fenceng2c2", "u": "2C-L2", "zh": "一共七百三十八元。", "en": "That's 738 yuan in total."}, {"f": "fenceng2c3", "u": "2C-L3", "zh": "苹果多少钱一斤？", "en": "How much is a jin of apples?"}, {"f": "fenceng2c4", "u": "2C-L4", "zh": "我坐校车去学校。", "en": "I take the school bus to school."}], "count": 10}, {"num": "5", "items": [{"f": "fenceng2c5", "u": "2C-L5", "zh": "我家在学校旁边。", "en": "My home is next to the school."}, {"f": "fenceng2c6", "u": "2C-L6", "zh": "我们是坐火车去的。", "en": "We went there by train."}, {"f": "fenceng3a1", "u": "3A-L1", "zh": "你周末常常做什么？", "en": "What do you often do on weekends?"}, {"f": "fenceng3a2", "u": "3A-L2", "zh": "洗手间在图书馆里边。", "en": "The restroom is inside the library."}, {"f": "fenceng3a3", "u": "3A-L3", "zh": "请问，去地铁站怎么走？", "en": "Excuse me, how do I get to the subway station?"}, {"f": "fenceng3a4", "u": "3A-L4", "zh": "我想去上海旅行。", "en": "I want to travel to Shanghai."}, {"f": "fenceng3a5", "u": "3A-L5", "zh": "这件比那件贵一百块。", "en": "This one is 100 yuan more expensive than that one."}, {"f": "fenceng3a6", "u": "3A-L6", "zh": "你们看过《功夫熊猫》吗？", "en": "Have you watched Kung Fu Panda?"}, {"f": "fenceng3a7", "u": "3A-L7", "zh": "动物园里有两只熊猫。", "en": "There are two pandas in the zoo."}, {"f": "fenceng3a8", "u": "3A-L8", "zh": "它的眼睛很大。", "en": "Its eyes are very big."}], "count": 10}, {"num": "6", "items": [{"f": "fenceng3a9", "u": "3A-L9", "zh": "我头疼。", "en": "I have a headache."}, {"f": "fenceng3b1", "u": "3B-L1", "zh": "你弹得真好！", "en": "You play so well!"}, {"f": "fenceng3b2", "u": "3B-L2", "zh": "她说汉语说得很好。", "en": "She speaks Chinese very well."}, {"f": "fenceng3b3", "u": "3B-L3", "zh": "别担心，我帮你复习。", "en": "Don't worry, I'll help you review."}, {"f": "fenceng3b4", "u": "3B-L4", "zh": "我们一起去哈利法塔吧。", "en": "Let's go to Burj Khalifa together."}, {"f": "fenceng3b5", "u": "3B-L5", "zh": "哈利法塔晚上最漂亮。", "en": "Burj Khalifa is most beautiful at night."}, {"f": "fenceng3b6", "u": "3B-L6", "zh": "春节要到了。", "en": "Spring Festival is coming."}, {"f": "fenceng3c1", "u": "3C-L1", "zh": "熊猫胖胖的，圆圆的。", "en": "The panda is chubby and round."}, {"f": "fenceng3c2", "u": "3C-L2", "zh": "我们参观了三个小时。", "en": "We visited for three hours."}, {"f": "fenceng3c3", "u": "3C-L3", "zh": "能便宜一点儿吗？", "en": "Can it be a little cheaper?"}], "count": 10}, {"num": "7", "items": [{"f": "fenceng3c4", "u": "3C-L4", "zh": "我找到了！", "en": "I found it!"}, {"f": "fenceng3c5", "u": "3C-L5", "zh": "你怎么才来？", "en": "Why are you so late?"}, {"f": "fenceng3c6", "u": "3C-L6", "zh": "我穿着红色的上衣。", "en": "I am wearing a red top."}, {"f": "fenceng4a1", "u": "4A-L1", "zh": "大家都很棒！", "en": "Everyone is great!"}, {"f": "fenceng4a2", "u": "4A-L2", "zh": "北边是体育馆。", "en": "The gym is to the north."}, {"f": "fenceng4a3", "u": "4A-L3", "zh": "我可以借一下你的铅笔吗？", "en": "May I borrow your pencil?"}, {"f": "fenceng4a4", "u": "4A-L4", "zh": "我请你来我家吃饭。", "en": "I'd like to invite you to my home for dinner."}, {"f": "fenceng4a5", "u": "4A-L5", "zh": "欢迎你！快进来吧。", "en": "Welcome! Come on in."}, {"f": "fenceng4a6", "u": "4A-L6", "zh": "又酸又甜，味道很好。", "en": "Sweet and sour, it tastes great."}, {"f": "fenceng4a7", "u": "4A-L7", "zh": "老师会通知我们。", "en": "The teacher will let us know."}], "count": 10}, {"num": "8", "items": [{"f": "fenceng4a8", "u": "4A-L8", "zh": "我们一边参观一边拍照。", "en": "We took photos while visiting."}, {"f": "fenceng4a9", "u": "4A-L9", "zh": "你的汉语越来越好了。", "en": "Your Chinese is getting better and better."}, {"f": "fenceng4b1", "u": "4B-L1", "zh": "他拍的短视频酷极了！", "en": "The short video he made is super cool!"}, {"f": "fenceng4b2", "u": "4B-L2", "zh": "我正在看他拍的微电影呢。", "en": "I'm watching the short film he made."}, {"f": "fenceng4b3", "u": "4B-L3", "zh": "你们在迪拜还是在阿布扎比？", "en": "Are you in Dubai or Abu Dhabi?"}, {"f": "fenceng4b4", "u": "4B-L4", "zh": "写汉字跟画画一样有趣。", "en": "Writing characters is as fun as drawing."}, {"f": "fenceng4b5", "u": "4B-L5", "zh": "只要你努力，就一定能学好。", "en": "As long as you work hard, you'll surely learn it well."}, {"f": "fenceng4b6", "u": "4B-L6", "zh": "有空的时候我也看看。", "en": "I'll take a look when I have time."}, {"f": "fenceng4c1", "u": "4C-L1", "zh": "我们不但是同学，而且是最好的朋友。", "en": "We are not only classmates but also best friends."}, {"f": "fenceng4c2", "u": "4C-L2", "zh": "孩子送的礼物妈妈都喜欢吧？", "en": "Mothers love all the gifts their children give, right?"}, {"f": "fenceng4c3", "u": "4C-L3", "zh": "我们从早到晚都在一起。", "en": "We are together from morning till night."}, {"f": "fenceng4c4", "u": "4C-L4", "zh": "我们一到假期就去旅行。", "en": "We travel as soon as the holidays begin."}, {"f": "fenceng4c5", "u": "4C-L5", "zh": "如果八月参加夏令营，我就七月去旅行。", "en": "If I join the summer camp in August, I'll travel in July."}, {"f": "fenceng4c6", "u": "4C-L6", "zh": "为我们的理想加油！", "en": "Let's strive for our dreams!"}], "count": 8}];
+const PBG={"1": "#cfe8c2", "2": "#c2e6e2", "3": "#dbe8be", "4": "#f2e0b0", "5": "#cdd9f2", "6": "#ecd4bf", "7": "#ddccf0", "8": "#f0c9d6"};
+const LC={"1": ["#5FAE46", "#EDF7EA", "#D6EBCF"], "2": ["#48AAA7", "#EAF7F6", "#D2ECEB"], "3": ["#95B547", "#F3F8E8", "#E1EBCF"], "4": ["#D6A540", "#FCF5E6", "#F2E4BE"], "5": ["#6488D1", "#EEF3FC", "#DCE6F8"], "6": ["#C98A56", "#FBF2EA", "#EDD8C8"], "7": ["#8C72C8", "#F4F1FC", "#E2DAF6"], "8": ["#C96E89", "#FAEFF3", "#EFCFDA"]};
+
+function hideSplash(){const s=document.getElementById('splash');s.classList.add('hide');
+  const v=document.getElementById('introVid');if(v){try{v.pause();}catch(e){}}setTimeout(()=>{s.style.display='none';},850);}
+const vid=document.getElementById('introVid');
+if(vid){vid.addEventListener('ended',hideSplash);}
+function toggleSound(){const b=document.getElementById('soundBtn');if(!vid)return;vid.muted=!vid.muted;
+  if(vid.muted){b.innerHTML='🔇 开启声音 Sound';}else{b.innerHTML='🔊 关闭声音 Mute';vid.play().catch(()=>{});}}
+
+const bar=document.getElementById('levelbar');
+LEVELS.forEach(L=>{const c=document.createElement('div');c.className='chip';c.textContent='Level '+L.num;
+  const col=LC[L.num][0];c.dataset.c=col;c.dataset.num=L.num;
+  c.style.background=col;c.style.color='#fff';  // 立体标签:实色填充
+  c.onclick=()=>showLevel(L.num);bar.appendChild(c);});
+
+const main=document.getElementById('main');
+const wrap=document.getElementById('unitwrap');
+function showLevel(num){
+  const L=LEVELS.find(x=>x.num===num);const col=LC[num][0],bg=LC[num][1],wbg=LC[num][2];
+  document.querySelectorAll('.levelbar .chip').forEach(c=>{const on=c.dataset.num===num;
+    c.style.background=c.dataset.c;c.style.color='#fff';
+    c.classList.toggle('active',on);
+    if(on)c.style.setProperty('--gc',c.dataset.c);else c.style.removeProperty('--gc');});
+  const pbg=col;
+  let h=`<div class="panel" style="--pbg:${pbg};--gc:${col}"><div class="grid">`;
+  L.items.forEach(it=>{const url=DOMAIN+'/'+it.f+'.html';
+    h+=`<a class="card" href="${it.f}.html"><span class="tag" style="background:${col}">${it.u}</span><div class="cardmid"><div class="zh">${it.zh}</div><div class="en">${it.en||''}</div></div><div class="copy" data-url="${url}">📋 复制网址</div></a>`;});
+  h+='</div></div>';
+  main.innerHTML=h;
+}
+showLevel("1");
+
+main.addEventListener('click',e=>{const cp=e.target.closest('.copy');if(!cp)return;e.preventDefault();e.stopPropagation();
+  const url=cp.dataset.url;const done=()=>{cp.classList.add('done');const t=cp.innerHTML;cp.textContent='已复制 ✓';showToast('已复制：'+url);
+    setTimeout(()=>{cp.classList.remove('done');cp.innerHTML=t;},1500);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(()=>fb(url,done));}else fb(url,done);});
+function fb(text,cb){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);cb();}
+let tt;function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);}
+</script>
+</body>
+</html>
