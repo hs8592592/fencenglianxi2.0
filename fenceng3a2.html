@@ -26,6 +26,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 
 /* ─── SETUP SCREEN ─── */
 .setup { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+.home-back { display:inline-flex; align-items:center; gap:7px; margin-bottom:1.4rem; padding:8px 16px; border:1.5px solid var(--border); border-radius:999px; background:var(--card); color:var(--text); text-decoration:none; font-size:13.5px; font-weight:600; font-family:'DM Sans',sans-serif; transition:all .15s; box-shadow:var(--shadow); }
+.home-back:hover { border-color:var(--t1); color:var(--t1); transform:translateX(-2px); }
 .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
 .brand-icon { width: 40px; height: 40px; background: var(--text); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 600; }
 .brand h1 { font-size: 17px; font-weight: 600; line-height: 1.2; }
@@ -736,6 +738,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 
 <!-- ═══════════════ SETUP ═══════════════ -->
 <div class="setup" id="setup">
+  <a class="home-back" href="https://haoteach.com">← 返回首页 · haoteach</a>
   <div class="brand">
     <div class="brand-icon">跨</div>
     <div>
@@ -1089,9 +1092,14 @@ function selectLesson(i) {
   document.querySelectorAll('.lesson-card').forEach((el,j) => el.classList.toggle('active', j===i));
   updateLessonNavLabel();
 }
+const UNIT_FILES = ["fenceng1a1","fenceng1a2","fenceng1a3","fenceng1a4","fenceng1a5","fenceng1a6","fenceng1a7","fenceng1a8","fenceng1a9","fenceng1b1","fenceng1b2","fenceng1b3","fenceng1b4","fenceng1b5","fenceng1b6","fenceng1c1","fenceng1c2","fenceng1c3","fenceng1c4","fenceng1c5","fenceng1c6","fenceng2a1","fenceng2a2","fenceng2a3","fenceng2a4","fenceng2a5","fenceng2a6","fenceng2a7","fenceng2a8","fenceng2a9","fenceng2b1","fenceng2b2","fenceng2b3","fenceng2b4","fenceng2b5","fenceng2b6","fenceng2c1","fenceng2c2","fenceng2c3","fenceng2c4","fenceng2c5","fenceng2c6","fenceng3a1","fenceng3a2","fenceng3a3","fenceng3a4","fenceng3a5","fenceng3a6","fenceng3a7","fenceng3a8","fenceng3a9","fenceng3b1","fenceng3b2","fenceng3b3","fenceng3b4","fenceng3b5","fenceng3b6","fenceng3c1","fenceng3c2","fenceng3c3","fenceng3c4","fenceng3c5","fenceng3c6","fenceng4a1","fenceng4a2","fenceng4a3","fenceng4a4","fenceng4a5","fenceng4a6","fenceng4a7","fenceng4a8","fenceng4a9","fenceng4b1","fenceng4b2","fenceng4b3","fenceng4b4","fenceng4b5","fenceng4b6","fenceng4c1","fenceng4c2","fenceng4c3","fenceng4c4","fenceng4c5","fenceng4c6"];
 function shiftLesson(dir) {
-  var newIdx = (selectedLesson + dir + LESSONS.length) % LESSONS.length;
-  selectLesson(newIdx);
+  var cur = (location.pathname.split('/').pop() || '').replace(/\.html$/i, '').toLowerCase();
+  var idx = UNIT_FILES.indexOf(cur);
+  if (idx === -1) { var n = (selectedLesson + dir + LESSONS.length) % LESSONS.length; selectLesson(n); return; }
+  var ni = idx + dir;
+  if (ni < 0 || ni >= UNIT_FILES.length) return;
+  location.href = UNIT_FILES[ni] + '.html';
 }
 function updateLessonNavLabel() {
   var el = document.getElementById('lessonNavLabel');
@@ -1968,6 +1976,7 @@ function showResult() {
   document.getElementById('resultScreen').style.display = 'block';
   
   const total = currentQs.length;
+  score = responses.reduce((s, r) => s + (r && r.correct ? 1 : 0), 0);
   const pct = Math.round((score/total)*100);
   const tierColors = ['ring-t1','ring-t2','ring-t3'];
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
