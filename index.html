@@ -139,7 +139,7 @@
   .signin-drop{position:absolute;top:calc(100% + 8px);right:0;width:300px;background:var(--paper);
     border:1px solid var(--cream-d,#e6e3dd);border-radius:16px;box-shadow:0 12px 36px rgba(0,0,0,.16);
     padding:18px;display:none;flex-direction:column;gap:10px;z-index:500}
-  .signin-wrap:hover .signin-drop,.signin-drop.show{display:flex}
+  .signin-drop.show{display:flex}
   .signin-drop input{width:100%;padding:12px 14px;border:1.5px solid #e2ddd4;border-radius:10px;font-size:14px;
     font-family:inherit;outline:none;transition:.15s;box-sizing:border-box}
   .signin-drop input:focus{border-color:var(--orange,#e89556)}
@@ -322,7 +322,7 @@
     </div>
     <div class="field">
       <label>密码 Password</label>
-      <input type="password" id="mPass" placeholder="••••••••" autocomplete="current-password">
+      <input type="password" id="mPass" placeholder="请输入密码 Password" autocomplete="current-password">
     </div>
     <div class="drop-err" id="mErr" style="text-align:center;margin-bottom:8px"></div>
     <button class="submit" id="authSubmit" onclick="authSubmit()">登录</button>
