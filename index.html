@@ -198,10 +198,12 @@
           Sign in
         </button>
         <div class="signin-drop" id="signinDrop" onclick="event.stopPropagation()">
-          <input type="email" id="liEmail" placeholder="邮箱 Email" autocomplete="username">
-          <input type="password" id="liPass" placeholder="密码 Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
-          <div class="drop-err" id="liErr"></div>
-          <button class="drop-login" id="liBtn" onclick="doLogin()">登录 Sign In</button>
+          <form id="liForm" onsubmit="doLogin();return false;" autocomplete="on" style="display:flex;flex-direction:column;gap:10px;margin:0">
+            <input type="email" id="liEmail" name="email" placeholder="邮箱 Email" autocomplete="username">
+            <input type="password" id="liPass" name="password" placeholder="密码 Password" autocomplete="current-password">
+            <div class="drop-err" id="liErr"></div>
+            <button type="submit" class="drop-login" id="liBtn">登录 Sign In</button>
+          </form>
           <a class="drop-forgot" href="#" id="liToSignup" style="display:none;color:#1a6637" onclick="closeSigninDrop();openAuth('signup');return false;">还没账号?去注册 No account? Sign up →</a>
           <a class="drop-forgot" href="#" onclick="forgotPw();return false;">忘记密码 Forgot password?</a>
         </div>
