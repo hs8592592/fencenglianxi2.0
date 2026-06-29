@@ -202,7 +202,7 @@
           <input type="password" id="liPass" placeholder="密码 Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
           <div class="drop-err" id="liErr"></div>
           <button class="drop-login" id="liBtn" onclick="doLogin()">登录 Sign In</button>
-          <a class="drop-forgot" href="#" id="liToSignup" style="display:none;color:#1a6637" onclick="closeSigninDrop();openAuth('signup');return false;">还没账号?点这里去注册 →</a>
+          <a class="drop-forgot" href="#" id="liToSignup" style="display:none;color:#1a6637" onclick="closeSigninDrop();openAuth('signup');return false;">还没账号?去注册 No account? Sign up →</a>
           <a class="drop-forgot" href="#" onclick="forgotPw();return false;">忘记密码 Forgot password?</a>
         </div>
       </div>
@@ -301,8 +301,8 @@
   <div class="auth">
     <button class="close" onclick="closeAuth()">×</button>
     <span class="alogo"><img src="hlogo.png" alt="logo"></span>
-    <h2 id="authTitle">欢迎回来</h2>
-    <p class="asub" id="authSub">登录以继续你的学习</p>
+    <h2 id="authTitle">欢迎回来 Welcome back</h2>
+    <p class="asub" id="authSub">登录以继续 Sign in to continue</p>
     <div class="tabs">
       <button id="tabIn" class="on" onclick="switchTab('signin')">登录 Sign in</button>
       <button id="tabUp" onclick="switchTab('signup')">注册 Sign up</button>
@@ -349,9 +349,9 @@
     document.getElementById('tabIn').classList.toggle('on',!isUp);
     document.getElementById('tabUp').classList.toggle('on',isUp);
     document.getElementById('nameField').style.display=isUp?'block':'none';
-    document.getElementById('authTitle').textContent=isUp?'创建账号':'欢迎回来';
-    document.getElementById('authSub').textContent=isUp?'注册以开始你的学习之旅':'登录以继续你的学习';
-    document.getElementById('authSubmit').textContent=isUp?'注册':'登录';
+    document.getElementById('authTitle').textContent=isUp?'创建账号 Create account':'欢迎回来 Welcome back';
+    document.getElementById('authSub').textContent=isUp?'注册开始学习 Sign up to start':'登录以继续 Sign in to continue';
+    document.getElementById('authSubmit').textContent=isUp?'注册 Sign up':'登录 Sign in';
     document.getElementById('mErr').textContent='';
   }
 
@@ -370,11 +370,11 @@
     const pass=document.getElementById('liPass').value;
     const err=document.getElementById('liErr'),btn=document.getElementById('liBtn');
     err.style.color='#c0392b';err.textContent='';document.getElementById('liToSignup').style.display='none';
-    if(!email||!pass){err.textContent='请输入邮箱和密码';return;}
-    btn.disabled=true;btn.textContent='登录中…';
+    if(!email||!pass){err.textContent='请输入邮箱和密码 Enter email & password';return;}
+    btn.disabled=true;btn.textContent='登录中 Signing in…';
     const {error}=await _sb.auth.signInWithPassword({email,password:pass});
     btn.disabled=false;btn.textContent='登录 Sign In';
-    if(error){err.textContent=/confirm|verif/i.test(error.message)?'请先去邮箱点确认链接,激活后再登录':'邮箱或密码错误';document.getElementById('liToSignup').style.display='block';return;}
+    if(error){err.textContent=/confirm|verif/i.test(error.message)?'请先去邮箱确认 Please confirm your email first':'邮箱或密码错误 Incorrect email or password';document.getElementById('liToSignup').style.display='block';return;}
     afterLogin();
   }
   /* ===== 弹框提交(注册/登录) ===== */
@@ -383,20 +383,20 @@
     const pass=document.getElementById('mPass').value;
     const err=document.getElementById('mErr'),btn=document.getElementById('authSubmit');
     err.style.color='#c0392b';err.textContent='';
-    if(!email||!pass){err.textContent='请输入邮箱和密码';return;}
-    if(currentTab==='signup'&&pass.length<6){err.textContent='密码至少 6 位';return;}
-    btn.disabled=true;btn.textContent='处理中…';
+    if(!email||!pass){err.textContent='请输入邮箱和密码 Enter email & password';return;}
+    if(currentTab==='signup'&&pass.length<6){err.textContent='密码至少6位 Password min 6 chars';return;}
+    btn.disabled=true;btn.textContent='处理中 Processing…';
     if(currentTab==='signup'){
       const name=document.getElementById('suName').value.trim();
       const {error}=await _sb.auth.signUp({email,password:pass,options:{data:{name}}});
-      btn.disabled=false;btn.textContent='注册';
-      if(error){err.textContent='注册失败:'+error.message;return;}
+      btn.disabled=false;btn.textContent='注册 Sign up';
+      if(error){err.textContent='注册失败 Sign up failed: '+error.message;return;}
       err.style.color='#1a6637';
-      err.textContent='✅ 注册成功!验证邮件已发到邮箱,请点确认链接后再登录。';
+      err.textContent='✅ 注册成功!验证邮件已发送,请去邮箱确认 Registered! Check your email to confirm.';
     }else{
       const {error}=await _sb.auth.signInWithPassword({email,password:pass});
-      btn.disabled=false;btn.textContent='登录';
-      if(error){err.textContent=/confirm|verif/i.test(error.message)?'请先去邮箱点确认链接激活':'邮箱或密码错误';return;}
+      btn.disabled=false;btn.textContent='登录 Sign in';
+      if(error){err.textContent=/confirm|verif/i.test(error.message)?'请先去邮箱确认 Please confirm your email first':'邮箱或密码错误 Incorrect email or password';return;}
       afterLogin();
     }
   }
@@ -404,10 +404,10 @@
   async function forgotPw(){
     const email=document.getElementById('liEmail').value.trim();
     const err=document.getElementById('liErr');
-    if(!email){err.style.color='#c0392b';err.textContent='请先填邮箱再点忘记密码';return;}
+    if(!email){err.style.color='#c0392b';err.textContent='请先填邮箱 Enter your email first';return;}
     const {error}=await _sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin});
     err.style.color=error?'#c0392b':'#1a6637';
-    err.textContent=error?('发送失败:'+error.message):'重置邮件已发送,请查收';
+    err.textContent=error?('发送失败 Send failed: '+error.message):'重置邮件已发送,请查收 Reset email sent, check inbox';
   }
   async function doLogout(){await _sb.auth.signOut();location.reload();}
   function afterLogin(){
