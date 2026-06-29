@@ -127,6 +127,39 @@
     font-weight:600;font-size:15px;cursor:pointer;transition:.2s;font-family:inherit;letter-spacing:1px;margin-top:6px}
   .submit:hover{background:var(--orange);box-shadow:0 8px 20px rgba(232,149,86,.32)}
   .authnote{text-align:center;font-size:11.5px;color:var(--ink-soft);margin-top:16px;line-height:1.5}
+  /* ===== Namecheap风格 右上角认证栏 ===== */
+  .authbar-out{display:flex;align-items:center;gap:6px}
+  .authbar-in{display:flex;align-items:center;gap:12px}
+  .authbtn{font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border:none;background:none;
+    color:var(--ink-soft);padding:9px 16px;border-radius:10px;transition:.15s;white-space:nowrap}
+  .authbtn:hover{color:var(--ink);background:var(--ivory-2)}
+  .signin-btn{display:inline-flex;align-items:center;gap:6px}
+  .signin-btn.open{background:var(--ivory-2);color:var(--ink)}
+  .signin-wrap{position:relative}
+  .signin-drop{position:absolute;top:calc(100% + 8px);right:0;width:300px;background:var(--paper);
+    border:1px solid var(--cream-d,#e6e3dd);border-radius:16px;box-shadow:0 12px 36px rgba(0,0,0,.16);
+    padding:18px;display:none;flex-direction:column;gap:10px;z-index:500}
+  .signin-wrap:hover .signin-drop,.signin-drop.show{display:flex}
+  .signin-drop input{width:100%;padding:12px 14px;border:1.5px solid #e2ddd4;border-radius:10px;font-size:14px;
+    font-family:inherit;outline:none;transition:.15s;box-sizing:border-box}
+  .signin-drop input:focus{border-color:var(--orange,#e89556)}
+  .drop-login{width:100%;padding:12px;border:none;border-radius:10px;background:var(--ink);color:#fff;
+    font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s}
+  .drop-login:hover{background:var(--orange,#e89556)}
+  .drop-login:disabled{opacity:.6;cursor:default}
+  .drop-err{font-size:12px;color:#c0392b;min-height:0;line-height:1.4}
+  .drop-forgot{font-size:12px;color:var(--ink-soft);text-decoration:none;text-align:center}
+  .drop-forgot:hover{color:var(--orange,#e89556)}
+  .user-email{font-size:13.5px;color:var(--ink-soft);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .logout-btn{font-size:13px;font-weight:600;color:var(--ink);background:var(--ivory-2);padding:8px 16px;border-radius:10px;border:none;cursor:pointer}
+  .logout-btn:hover{background:var(--orange,#e89556);color:#fff}
+  /* 联系弹出 */
+  .contact-wrap{position:relative}
+  .contact-pop{position:absolute;top:calc(100% + 8px);right:0;width:240px;background:var(--paper);
+    border:1px solid var(--cream-d,#e6e3dd);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.16);
+    padding:16px;display:none;z-index:500;font-size:13.5px;line-height:1.7;color:var(--ink)}
+  .contact-pop.show{display:block}
+  @media(max-width:560px){.signin-drop,.contact-pop{width:min(86vw,300px)}.user-email{display:none}}
 
   @media (max-width:920px){
     .modules{grid-template-columns:1fr 1fr}
@@ -156,7 +189,39 @@
     <a href="#" onclick="return false;">好唱<span class="sub">Sing</span></a>
     <a href="#" onclick="return false;">好说<span class="sub">Speak</span></a>
   </nav>
-  <div style="justify-self:end"><a class="signin" href="#" onclick="openAuth('signin');return false;">登录 / 注册</a></div>
+  <div class="authbar" style="justify-self:end">
+    <!-- 未登录:三按钮 -->
+    <div id="authOut" class="authbar-out">
+      <div class="signin-wrap" id="signinWrap">
+        <button class="authbtn signin-btn" id="signinBtn" onclick="toggleSigninDrop(event)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.69-8 6v1h16v-1c0-3.31-3.58-6-8-6Z"/></svg>
+          Sign in
+        </button>
+        <div class="signin-drop" id="signinDrop" onclick="event.stopPropagation()">
+          <input type="email" id="liEmail" placeholder="邮箱 Email" autocomplete="username">
+          <input type="password" id="liPass" placeholder="密码 Password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+          <div class="drop-err" id="liErr"></div>
+          <button class="drop-login" id="liBtn" onclick="doLogin()">登录 Sign In</button>
+          <a class="drop-forgot" href="#" id="liToSignup" style="display:none;color:#1a6637" onclick="closeSigninDrop();openAuth('signup');return false;">还没账号?点这里去注册 →</a>
+          <a class="drop-forgot" href="#" onclick="forgotPw();return false;">忘记密码 Forgot password?</a>
+        </div>
+      </div>
+      <button class="authbtn signup-btn" onclick="openAuth('signup')">Sign up</button>
+      <div class="contact-wrap" id="contactWrap">
+        <button class="authbtn contact-btn" onclick="toggleContact(event)">Contact us</button>
+        <div class="contact-pop" id="contactPop" onclick="event.stopPropagation()">
+          <strong>联系我们 Contact</strong><br>
+          Sun Hao<br>
+          📧 <a href="mailto:326615718@qq.com" style="color:inherit">326615718@qq.com</a>
+        </div>
+      </div>
+    </div>
+    <!-- 已登录:邮箱+退出 -->
+    <div id="authIn" class="authbar-in" style="display:none">
+      <span class="user-email" id="userEmail"></span>
+      <button class="logout-btn" onclick="doLogout()">退出 Sign out</button>
+    </div>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -242,43 +307,121 @@
       <button id="tabIn" class="on" onclick="switchTab('signin')">登录 Sign in</button>
       <button id="tabUp" onclick="switchTab('signup')">注册 Sign up</button>
     </div>
-    <button class="gbtn" onclick="alert('Google 登录功能即将开放。')">
+    <button class="gbtn" style="display:none" onclick="alert('Google 登录功能即将开放。')">
       <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
       使用 Google 继续
     </button>
-    <div class="divider">或</div>
+    <div class="divider" style="display:none">或</div>
     <div id="nameField" class="field" style="display:none">
       <label>昵称 Name</label>
-      <input type="text" placeholder="你的昵称">
+      <input type="text" id="suName" placeholder="你的昵称">
     </div>
     <div class="field">
       <label>邮箱 Email</label>
-      <input type="email" placeholder="you@example.com">
+      <input type="email" id="mEmail" placeholder="you@example.com" autocomplete="username">
     </div>
     <div class="field">
       <label>密码 Password</label>
-      <input type="password" placeholder="••••••••">
+      <input type="password" id="mPass" placeholder="••••••••" autocomplete="current-password">
     </div>
-    <button class="submit" id="authSubmit" onclick="alert('登录/注册功能即将开放,目前为界面预览。')">登录</button>
+    <div class="drop-err" id="mErr" style="text-align:center;margin-bottom:8px"></div>
+    <button class="submit" id="authSubmit" onclick="authSubmit()">登录</button>
     <p class="authnote">继续即表示同意我们的服务条款与隐私政策。</p>
   </div>
 </div>
 
+<script src="supabase-js.js"></script>
 <script>
+  /* ===== Supabase 接入 ===== */
+  const SB_URL='https://pqwgottflvwbyhjipcgb.supabase.co';
+  const SB_KEY='sb_publishable_kk5uEHy84Wx71bRPYMUfLQ_T4jI_8Ef';
+  const _sb = window.supabase.createClient(SB_URL, SB_KEY);
+
   const ov=document.getElementById('authOverlay');
+  let currentTab='signin';
   function openAuth(mode){ov.classList.add('show');switchTab(mode||'signin');document.body.style.overflow='hidden';}
   function closeAuth(){ov.classList.remove('show');document.body.style.overflow='';}
   ov.addEventListener('click',e=>{if(e.target===ov)closeAuth();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAuth();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAuth();closeSigninDrop();closeContact();}});
   function switchTab(mode){
-    const isUp=mode==='signup';
+    currentTab=mode==='signup'?'signup':'signin';
+    const isUp=currentTab==='signup';
     document.getElementById('tabIn').classList.toggle('on',!isUp);
     document.getElementById('tabUp').classList.toggle('on',isUp);
     document.getElementById('nameField').style.display=isUp?'block':'none';
     document.getElementById('authTitle').textContent=isUp?'创建账号':'欢迎回来';
     document.getElementById('authSub').textContent=isUp?'注册以开始你的学习之旅':'登录以继续你的学习';
     document.getElementById('authSubmit').textContent=isUp?'注册':'登录';
+    document.getElementById('mErr').textContent='';
   }
+
+  /* ===== 右上角悬停/点击下拉 ===== */
+  function openSigninDrop(){document.getElementById('signinDrop').classList.add('show');document.getElementById('signinBtn').classList.add('open');closeContact();}
+  function closeSigninDrop(){document.getElementById('signinDrop').classList.remove('show');document.getElementById('signinBtn').classList.remove('open');}
+  function toggleSigninDrop(e){if(e)e.stopPropagation();const d=document.getElementById('signinDrop');if(d.classList.contains('show')){closeSigninDrop();}else{openSigninDrop();setTimeout(()=>document.getElementById('liEmail').focus(),50);}}
+  function toggleContact(e){if(e)e.stopPropagation();document.getElementById('contactPop').classList.toggle('show');closeSigninDrop();}
+  function closeContact(){document.getElementById('contactPop').classList.remove('show');}
+  const sw=document.getElementById('signinWrap'); if(sw){sw.addEventListener('mouseenter',openSigninDrop);}
+  document.addEventListener('click',()=>{closeSigninDrop();closeContact();});
+
+  /* ===== 登录(下拉框) ===== */
+  async function doLogin(){
+    const email=document.getElementById('liEmail').value.trim();
+    const pass=document.getElementById('liPass').value;
+    const err=document.getElementById('liErr'),btn=document.getElementById('liBtn');
+    err.style.color='#c0392b';err.textContent='';document.getElementById('liToSignup').style.display='none';
+    if(!email||!pass){err.textContent='请输入邮箱和密码';return;}
+    btn.disabled=true;btn.textContent='登录中…';
+    const {error}=await _sb.auth.signInWithPassword({email,password:pass});
+    btn.disabled=false;btn.textContent='登录 Sign In';
+    if(error){err.textContent=/confirm|verif/i.test(error.message)?'请先去邮箱点确认链接,激活后再登录':'邮箱或密码错误';document.getElementById('liToSignup').style.display='block';return;}
+    afterLogin();
+  }
+  /* ===== 弹框提交(注册/登录) ===== */
+  async function authSubmit(){
+    const email=document.getElementById('mEmail').value.trim();
+    const pass=document.getElementById('mPass').value;
+    const err=document.getElementById('mErr'),btn=document.getElementById('authSubmit');
+    err.style.color='#c0392b';err.textContent='';
+    if(!email||!pass){err.textContent='请输入邮箱和密码';return;}
+    if(currentTab==='signup'&&pass.length<6){err.textContent='密码至少 6 位';return;}
+    btn.disabled=true;btn.textContent='处理中…';
+    if(currentTab==='signup'){
+      const name=document.getElementById('suName').value.trim();
+      const {error}=await _sb.auth.signUp({email,password:pass,options:{data:{name}}});
+      btn.disabled=false;btn.textContent='注册';
+      if(error){err.textContent='注册失败:'+error.message;return;}
+      err.style.color='#1a6637';
+      err.textContent='✅ 注册成功!验证邮件已发到邮箱,请点确认链接后再登录。';
+    }else{
+      const {error}=await _sb.auth.signInWithPassword({email,password:pass});
+      btn.disabled=false;btn.textContent='登录';
+      if(error){err.textContent=/confirm|verif/i.test(error.message)?'请先去邮箱点确认链接激活':'邮箱或密码错误';return;}
+      afterLogin();
+    }
+  }
+  /* ===== 忘记密码 ===== */
+  async function forgotPw(){
+    const email=document.getElementById('liEmail').value.trim();
+    const err=document.getElementById('liErr');
+    if(!email){err.style.color='#c0392b';err.textContent='请先填邮箱再点忘记密码';return;}
+    const {error}=await _sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin});
+    err.style.color=error?'#c0392b':'#1a6637';
+    err.textContent=error?('发送失败:'+error.message):'重置邮件已发送,请查收';
+  }
+  async function doLogout(){await _sb.auth.signOut();location.reload();}
+  function afterLogin(){
+    const back=sessionStorage.getItem('haoteach_return');
+    if(back){sessionStorage.removeItem('haoteach_return');location.href=back;}else location.reload();
+  }
+  async function refreshAuthUI(){
+    const {data:{session}}=await _sb.auth.getSession();
+    const out=document.getElementById('authOut'),inn=document.getElementById('authIn');
+    if(session&&session.user){out.style.display='none';inn.style.display='flex';document.getElementById('userEmail').textContent=session.user.email;}
+    else{out.style.display='flex';inn.style.display='none';}
+  }
+  refreshAuthUI();
+  _sb.auth.onAuthStateChange(()=>refreshAuthUI());
 </script>
 </body>
 </html>
