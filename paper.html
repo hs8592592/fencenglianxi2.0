@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>空白试卷 · Blank Paper</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "DM Sans","PingFang SC","Microsoft YaHei",sans-serif; color: #1a1714; background: #f3f1ec; }
+  /* 顶部工具条(打印时隐藏) */
+  .toolbar { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid #e6e3dd;
+    display: flex; align-items: center; gap: 12px; padding: 12px 20px; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+  .toolbar .tb-back { font-size: 14px; font-weight: 600; color: #555; text-decoration: none; padding: 8px 14px; border-radius: 10px; background: #f3f1ec; }
+  .toolbar .tb-back:hover { background: #e9e6df; }
+  .toolbar .tb-title { font-size: 14px; color: #888; flex: 1; }
+  .toolbar .tb-print { font-size: 14.5px; font-weight: 700; color: #fff; background: #1a1714; border: none; cursor: pointer; padding: 10px 22px; border-radius: 10px; }
+  .toolbar .tb-print:hover { background: #C58A36; }
+  .status { max-width: 780px; margin: 40px auto; text-align: center; color: #888; font-size: 15px; padding: 0 20px; }
+  /* 试卷主体 */
+  .sheet { background: #fff; max-width: 820px; margin: 18px auto; padding: 30px 38px; box-shadow: 0 6px 24px rgba(0,0,0,.08); border-radius: 8px; }
+  .header { border-bottom: 3px solid #1a1714; padding-bottom: 12px; margin-bottom: 16px; }
+  .header h1 { font-size: 18px; font-weight: 700; font-family: "Noto Serif SC","Songti SC",serif; }
+  .header .meta { font-size: 12px; color: #666; margin-top: 4px; }
+  .student-row { display: flex; gap: 24px; margin-bottom: 20px; font-size: 13px; flex-wrap: wrap; }
+  .student-row .field { display: flex; align-items: center; gap: 6px; }
+  .student-row .field-line { border-bottom: 1px solid #999; min-width: 120px; height: 20px; }
+  .pq { margin-bottom: 24px; page-break-inside: avoid; }
+  .pq-num { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }
+  .pq-type { font-weight: 400; color: #888; font-size: 11px; }
+  .pq-stem { font-size: 15px; line-height: 1.65; margin-bottom: 10px; font-family: "Noto Serif SC","Songti SC",serif; }
+  .ppassage { background: #e8f7f0; border-left: 4px solid #1f8c5a; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; font-family: "Noto Serif SC","Songti SC",serif; font-size: 14px; line-height: 1.8; }
+  .ppassage-lbl { font-size: 10px; font-weight: 700; color: #1f8c5a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+  .prn { font-size: 12px; color: #5a7a6a; margin-top: 6px; }
+  .popts { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; margin-left: 2px; }
+  .popt { font-size: 13px; font-family: "Noto Serif SC","Songti SC",serif; padding: 3px 0; display: flex; gap: 6px; }
+  .popt-k { font-weight: 700; min-width: 16px; }
+  .pline { border-bottom: 1.5px solid #aaa; margin: 14px 0 4px; min-height: 26px; }
+  .pmatch { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+  .pmatch-col { display: flex; flex-direction: column; gap: 6px; }
+  .pmatch-hdr { font-size: 11px; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+  .pmatch-item { border: 1.5px solid #ddd; border-radius: 6px; padding: 7px 12px; font-size: 14px; font-family: "Noto Serif SC","Songti SC",serif; text-align: center; background: #f9f9f9; }
+  .photsbox { background: #fffbea; border-left: 4px solid #c9a227; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }
+  .phots-lbl { font-size: 10px; font-weight: 700; color: #c9a227; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+  .phots-prompts { margin: 8px 0 0 16px; font-size: 12px; color: #7a7570; }
+  .phots-prompts li { margin-bottom: 4px; }
+  .pwrite-lines { margin-top: 8px; }
+  .pwrite-line { border-bottom: 1px solid #ccc; height: 30px; margin-bottom: 2px; }
+  .footer { margin-top: 32px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 11px; color: #aaa; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+  @media print {
+    body { background: #fff; }
+    .toolbar { display: none !important; }
+    .sheet { box-shadow: none; margin: 0; max-width: 100%; padding: 0; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <a class="tb-back" href="lianxi.html">← 返回 Back</a>
+    <span class="tb-title" id="tbTitle">正在生成试卷… Generating…</span>
+    <button class="tb-print" id="tbPrint" onclick="window.print()" style="display:none">🖨 打印 / 存为PDF</button>
+  </div>
+  <div class="status" id="status">正在加载题目… Loading…</div>
+  <div class="sheet" id="sheet" style="display:none"></div>
+
+<script>
+  /* ===== 工具函数(与习题页一致) ===== */
+  function _shuffleArr(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;} return a; }
+  function stripTags(s){ return (s||'').replace(/<rt>[^<]*<\/rt>/g,'').replace(/<sup>[^<]*<\/sup>/g,'').replace(/<[^>]*>/g,''); }
+
+  function buildQHTML(q, idx){
+    const qn = 'Q' + (idx + 1);
+    const typeMap = { mc:'MC MC', fill:'Fill-in Fill-in', match:'Match Matching', reading:'阅读题 Reading', hots:'思维题 HOTS' };
+    let h = '<div class="pq">';
+    h += '<div class="pq-num">' + qn + ' <span class="pq-type">' + (typeMap[q.type] || q.type) + '</span></div>';
+    if (q.type === 'reading') {
+      const rpM = (q.passage || '').match(/<p class="rp">([\s\S]*?)<\/p>/);
+      const rnM = (q.passage || '').match(/<div class="rn">([\s\S]*?)<\/div>/);
+      const passageHtml = rpM ? rpM[1].replace(/<sup>[^<]*<\/sup>/g,'') : (q.passage || '').replace(/<rt>[^<]*<\/rt>/g,'').replace(/<[^>]+>/g,'');
+      const notesHtml = rnM ? '<div class="prn">' + rnM[1] + '</div>' : '';
+      h += '<div class="ppassage"><div class="ppassage-lbl">📖 ' + (q.passageLabel || '阅读理解') + '</div><div class="ppassage-text">' + passageHtml + '</div>' + notesHtml + '</div>';
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      const choices = q._choices || q.choices || [];
+      h += '<div class="popts">';
+      ['A','B','C','D'].forEach(function(k, ci){ if (choices[ci] !== undefined) h += '<div class="popt"><span class="popt-k">' + k + '.</span> ' + choices[ci] + '</div>'; });
+      h += '</div>';
+    } else if (q.type === 'mc') {
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      const choices = q._choices || q.choices || [];
+      h += '<div class="popts">';
+      ['A','B','C','D'].forEach(function(k, ci){ if (choices[ci] !== undefined) h += '<div class="popt"><span class="popt-k">' + k + '.</span> ' + choices[ci] + '</div>'; });
+      h += '</div>';
+    } else if (q.type === 'fill') {
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      h += '<div class="pline"></div>';
+    } else if (q.type === 'match') {
+      h += '<div class="pq-stem">' + stripTags(q.stem) + '</div>';
+      const rightShuffled = _shuffleArr(q.right);
+      h += '<div class="pmatch">';
+      h += '<div class="pmatch-col"><div class="pmatch-hdr">中文</div>' + q.left.map(function(l){ return '<div class="pmatch-item">' + l + '</div>'; }).join('') + '</div>';
+      h += '<div class="pmatch-col"><div class="pmatch-hdr">English</div>' + rightShuffled.map(function(r){ return '<div class="pmatch-item">' + r + '</div>'; }).join('') + '</div>';
+      h += '</div>';
+    } else if (q.type === 'hots') {
+      var stemParts = q.stem.split(' | 🔵 Cycle 3 — ');
+      var c2S = stemParts[0].replace('🟡 Cycle 2 — ', '');
+      var c3S = stemParts[1] || '';
+      var c2P = (q.prompts||[]).filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
+      var c3P = (q.prompts||[]).filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
+      h += '<div class="photsbox photsbox-c2"><div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div><div class="pq-stem">' + c2S + '</div>';
+      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '</div><div class="pwrite-lines">';
+      for (var li2=0; li2<5; li2++) h += '<div class="pwrite-line"></div>';
+      h += '</div>';
+      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;"><div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div><div class="pq-stem">' + c3S + '</div>';
+      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '</div><div class="pwrite-lines">';
+      for (var li3=0; li3<5; li3++) h += '<div class="pwrite-line"></div>';
+      h += '</div>';
+    }
+    h += '</div>';
+    return h;
+  }
+
+  function fail(msg){ document.getElementById('status').innerHTML = '⚠️ ' + msg; document.getElementById('tbTitle').textContent = '生成失败 Failed'; }
+
+  async function generate(){
+    const params = new URLSearchParams(location.search);
+    let lessonCode = (params.get('lesson') || '').toLowerCase().trim();
+    let tier = parseInt(params.get('tier') || '1', 10);
+    if (!lessonCode) { fail('缺少课程参数。Missing lesson parameter.'); return; }
+    if (!(tier>=1 && tier<=3)) tier = 1;
+    const tierIdx = tier - 1;
+    const file = lessonCode.indexOf('fenceng')===0 ? (lessonCode + '.html') : ('fenceng' + lessonCode + '.html');
+
+    let txt;
+    try {
+      const resp = await fetch(file, { cache: 'no-store' });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      txt = await resp.text();
+    } catch(e) { fail('找不到该课程文件：' + file + '<br>' + e.message); return; }
+
+    const m = txt.match(/const LESSONS\s*=\s*(\[[\s\S]*?\]);\s*\/\/ END LESSONS/);
+    if (!m) { fail('无法读取题目数据。Could not read question data.'); return; }
+    let LESSONS;
+    try { LESSONS = (new Function('return ' + m[1]))(); } catch(e) { fail('题目数据解析失败。' + e.message); return; }
+    if (!LESSONS || !LESSONS.length) { fail('题目数据为空。'); return; }
+
+    const lesson = LESSONS[0];
+    if (!lesson.tiers || !lesson.tiers[tierIdx] || !lesson.tiers[tierIdx].qs) { fail('该课没有 Tier ' + tier + ' 的题目。'); return; }
+    const printQs = lesson.tiers[tierIdx].qs;
+    const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+    const tierLabel = tierNames[tierIdx];
+    const date = new Date().toLocaleDateString('zh-CN');
+    const book = (lesson.id || lessonCode).replace(/-.*/,'').toUpperCase().replace(/L?(\d[ABC])/,'$1');
+
+    let qsHTML = '';
+    printQs.forEach(function(q, i){ qsHTML += buildQHTML(q, i); });
+
+    const sheetHTML =
+      '<div class="header"><h1>跨越丝路分层习题生成器 · ' + book + '</h1>' +
+      '<div class="meta">' + (lesson.num||'') + ' · ' + (lesson.title||'') + ' (' + (lesson.cn||'') + ') &nbsp;|&nbsp; ' + tierLabel + ' &nbsp;|&nbsp; 共 ' + printQs.length + ' 题 &nbsp;|&nbsp; ' + date + '</div></div>' +
+      '<div class="student-row"><div class="field">姓名 Name: <div class="field-line"></div></div><div class="field">日期 Date: <div class="field-line"></div></div><div class="field">得分 Score: <div class="field-line"></div></div></div>' +
+      qsHTML +
+      '<div class="footer"><span>跨越丝路分层习题生成器 · ' + book + '</span><span>' + (lesson.num||'') + ' · ' + tierLabel + '</span><span>Across the Silk Route</span></div>';
+
+    document.getElementById('sheet').innerHTML = sheetHTML;
+    document.getElementById('sheet').style.display = 'block';
+    document.getElementById('status').style.display = 'none';
+    document.getElementById('tbPrint').style.display = 'inline-block';
+    document.getElementById('tbTitle').textContent = (lesson.num||'') + ' · ' + tierLabel;
+    document.title = '空白试卷 ' + (lesson.num||'') + ' ' + tierLabel;
+    // 自动弹出打印(用户也可手动点)
+    setTimeout(function(){ try{ window.print(); }catch(e){} }, 700);
+  }
+  generate();
+</script>
+</body>
+</html>

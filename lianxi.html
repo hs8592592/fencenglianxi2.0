@@ -72,6 +72,15 @@
   .card .copy{margin-top:auto;text-align:center;font-size:12px;font-weight:600;color:#C58A36;padding:7px 8px 2px;border-radius:10px;border-top:1px solid var(--divider);transition:.2s}
   .card .copy:hover{background:#FFF7E6}
   .card .copy.done{color:#5FAE46}
+  .card .cardmid{text-decoration:none;cursor:pointer}
+  .card .paper-row{margin-top:6px;border-top:1px solid var(--divider);padding-top:8px}
+  .card .paper-lbl{display:block;font-size:10px;color:#8a96a0;text-align:center;margin-bottom:6px;font-weight:600}
+  .card .tiers{display:flex;gap:5px;justify-content:center}
+  .card .tier-btn{flex:1;text-align:center;font-size:11px;font-weight:700;padding:6px 0;border-radius:8px;text-decoration:none;color:#fff;transition:.15s}
+  .card .tier-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .card .tier-btn.t1{background:#E8915E}
+  .card .tier-btn.t2{background:#4A7BB5}
+  .card .tier-btn.t3{background:#4F9D5B}
 
   footer{text-align:center;padding:20px;color:#9aa48d;font-size:12px;letter-spacing:1px}
   #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;
@@ -84,7 +93,7 @@
     .about{padding:16px 16px}
     .about .tx b{font-size:14px}.about .tx p{font-size:12px}.about .tier{font-size:11.5px}
     .grid{grid-template-columns:1fr 1fr;gap:10px}
-    .card{padding:13px 10px 10px;height:152px}
+    .card{padding:13px 10px 10px;min-height:152px}
     .card .zh{font-size:15px}.card .en{font-size:11.5px}
     .panel{padding:18px 14px;border-radius:18px}
     .levelbar{gap:6px;padding:10px 8px;margin-top:14px}
@@ -164,14 +173,14 @@ function showLevel(num){
   const pbg=col;
   let h=`<div class="panel" style="--pbg:${pbg};--gc:${col}"><div class="grid">`;
   L.items.forEach(it=>{const url=DOMAIN+'/'+it.f+'.html';
-    h+=`<a class="card" href="${it.f}.html"><span class="tag" style="background:${col}">${it.u}</span><div class="cardmid"><div class="zh">${it.zh}</div><div class="en">${it.en||''}</div></div><div class="copy" data-url="${url}">📋 复制网址</div></a>`;});
+    h+=`<div class="card"><span class="tag" style="background:${col}">${it.u}</span><a class="cardmid" href="${it.f}.html"><div class="zh">${it.zh}</div><div class="en">${it.en||''}</div></a><div class="copy" data-url="${url}">🔗 Copy Link</div><div class="paper-row"><span class="paper-lbl">下载空白试卷 Blank Paper</span><div class="tiers"><a class="tier-btn t1" href="paper.html?lesson=${it.f.replace('fenceng','')}&tier=1" target="_blank">Tier 1</a><a class="tier-btn t2" href="paper.html?lesson=${it.f.replace('fenceng','')}&tier=2" target="_blank">Tier 2</a><a class="tier-btn t3" href="paper.html?lesson=${it.f.replace('fenceng','')}&tier=3" target="_blank">Tier 3</a></div></div></div>`;});
   h+='</div></div>';
   main.innerHTML=h;
 }
 showLevel("1");
 
 main.addEventListener('click',e=>{const cp=e.target.closest('.copy');if(!cp)return;e.preventDefault();e.stopPropagation();
-  const url=cp.dataset.url;const done=()=>{cp.classList.add('done');const t=cp.innerHTML;cp.textContent='已复制 ✓';showToast('已复制：'+url);
+  const url=cp.dataset.url;const done=()=>{cp.classList.add('done');const t=cp.innerHTML;cp.textContent='Copied ✓';showToast('Copied: '+url);
     setTimeout(()=>{cp.classList.remove('done');cp.innerHTML=t;},1500);};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(()=>fb(url,done));}else fb(url,done);});
 function fb(text,cb){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);cb();}
