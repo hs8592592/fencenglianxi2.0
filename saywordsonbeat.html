@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Say Words on Beat-熊猫词语卡点练习</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="pinyin-pro.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #e9e9e7;
+            margin: 0;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .video-wrapper {
+            position: fixed; inset: 0; z-index: 5;
+            display: flex; align-items: center; justify-content: center; background: #e9e9e7;
+        }
+
+        video { width: 100%; height: 100%; object-fit: contain; }
+
+        #game-layer {
+            position: fixed; inset: 0; z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            pointer-events: none; opacity: 0; transition: opacity 0.5s;
+        }
+
+        /* ── Grid responsive ── */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: clamp(5px, 1.5vw, 15px);
+            width: 95vw;
+            max-width: 1000px;
+            height: auto;
+            max-height: 55vh;
+        }
+
+        .word-box {
+            background: rgba(255, 255, 255, 0.98);
+            border: 4px solid #fff;
+            border-radius: 24px;
+            display: flex; flex-direction: row; align-items: center; justify-content: center;
+            color: #1e293b;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            opacity: 0;
+            padding: clamp(4px, 1.2vw, 10px);
+            overflow: hidden;
+            min-height: clamp(55px, 10vw, 120px);
+            transform: scale(1);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pop-active { animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .keep-visible { opacity: 1; transform: scale(1); }
+
+        .highlight-border {
+            border-color: #4A7C74 !important;
+            box-shadow: 0 0 50px rgba(74, 124, 116, 0.8) !important;
+            z-index: 20;
+            transform: scale(1.02);
+        }
+
+        /* Inner wrapper: flex-wrap so long words wrap instead of overflow */
+        .word-box-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .char-unit {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            line-height: 1;
+            margin: 0 clamp(1px, 0.4vw, 4px);
+            min-width: 0;
+            flex-shrink: 1;
+        }
+
+        .pinyin-text {
+            font-size: clamp(0.5rem, 1.8vw, 2.2rem);
+            margin-bottom: 0.1em;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: 500;
+            color: #4A7C74;
+            white-space: nowrap;
+        }
+
+        .kanji-text {
+            font-size: clamp(1rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: #2B2B2B;
+            transition: font-size 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Scale down fonts for longer words */
+        .word-box[data-len="5"] .kanji-text,
+        .word-box[data-len="6"] .kanji-text  { font-size: clamp(0.75rem, 2.8vw, 2.5rem); }
+        .word-box[data-len="5"] .pinyin-text,
+        .word-box[data-len="6"] .pinyin-text  { font-size: clamp(0.4rem, 1.3vw, 1.5rem); }
+        .word-box[data-len="7"] .kanji-text,
+        .word-box[data-len="8"] .kanji-text   { font-size: clamp(0.6rem, 2.2vw, 2rem); }
+        .word-box[data-len="7"] .pinyin-text,
+        .word-box[data-len="8"] .pinyin-text  { font-size: clamp(0.32rem, 1vw, 1.2rem); }
+        .word-box[data-long] .kanji-text       { font-size: clamp(0.5rem, 1.8vw, 1.6rem); }
+        .word-box[data-long] .pinyin-text      { font-size: clamp(0.28rem, 0.8vw, 1rem); }
+
+        .no-pinyin .kanji-text { font-size: clamp(1.4rem, 5.5vw, 4.8rem); }
+        .no-pinyin .pinyin-text { display: none; }
+        .no-pinyin .word-box[data-len="5"] .kanji-text,
+        .no-pinyin .word-box[data-len="6"] .kanji-text { font-size: clamp(1rem, 3.5vw, 3.5rem); }
+        .no-pinyin .word-box[data-len="7"] .kanji-text,
+        .no-pinyin .word-box[data-len="8"] .kanji-text { font-size: clamp(0.8rem, 2.8vw, 2.8rem); }
+        .no-pinyin .word-box[data-long] .kanji-text    { font-size: clamp(0.65rem, 2.2vw, 2.2rem); }
+
+        /* ── Language toggle ── */
+        #lang-toggle {
+            position: fixed; top: 12px; right: 12px; z-index: 300;
+            background: #4A7C74; color: white;
+            border: none; border-radius: 20px;
+            padding: 6px 16px; font-size: 0.85rem; font-weight: bold;
+            cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+        }
+        #lang-toggle:hover { background: #3a6560; }
+
+        #home-back {
+            position: fixed; top: 12px; left: 12px; z-index: 300;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: #fff; color: #2b4a45;
+            border: 1.5px solid #CFE5E0; border-radius: 20px;
+            padding: 6px 16px; font-size: 0.85rem; font-weight: bold;
+            text-decoration: none; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: .2s;
+        }
+        #home-back:hover { background: #EAF7F4; border-color: #4A7C74; color: #3a6560; transform: translateX(-2px); }
+
+        /* ── UI Panel responsive ── */
+        #ui-panel {
+            position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%);
+            z-index: 100; background: #EAF7F4; padding: clamp(12px, 3vw, 22px);
+            border-radius: 32px; border: 2px solid #CFE5E0;
+            width: 96%; max-width: 600px;
+            display: flex; flex-direction: column; gap: clamp(8px, 2vw, 14px);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            max-height: 90vh; overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .control-group { display: flex; flex-direction: column; gap: 4px; }
+        .label-text {
+            font-size: clamp(0.72rem, 2.2vw, 0.85rem);
+            color: #2B2B2B; font-weight: bold;
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        .opt-btn {
+            background: #FFFFFF; color: #333;
+            padding: clamp(6px, 1.5vw, 10px) 5px;
+            border-radius: 14px; cursor: pointer; flex: 1; text-align: center;
+            transition: all 0.2s; border: 2px solid #DADADA;
+            display: flex; flex-direction: column; line-height: 1.2;
+            position: relative; overflow: hidden;
+            font-size: clamp(0.68rem, 2vw, 0.9rem);
+        }
+        .opt-btn:hover { background: #F2FBF9; }
+        .opt-btn.active { background: #D4F1EC; border-color: #7FC8C0; color: #2B2B2B; transform: translateY(-1px); }
+        .opt-btn.active::after { content: ''; position: absolute; top: 6px; right: 6px; width: 4px; height: 4px; background-color: #E53935; border-radius: 50%; }
+
+        .btn-start {
+            background: #4A7C74; color: white;
+            padding: clamp(10px, 2.5vw, 14px);
+            border-radius: 18px; font-size: clamp(0.88rem, 2.8vw, 1.1rem); font-weight: bold;
+            cursor: pointer; text-align: center; margin-top: 5px;
+            box-shadow: 0 10px 20px -5px rgba(74, 124, 116, 0.3);
+            transition: opacity 0.2s;
+        }
+        .btn-start:hover { opacity: 0.9; }
+
+        #stop-btn { background: #CFE5E0; color: #4A7C74; padding: 10px; border-radius: 18px; cursor: pointer; text-align: center; display: none; font-weight: bold; }
+
+        textarea, select {
+            background: #FFFFFF; border: 2px solid #CFE5E0;
+            padding: clamp(6px, 1.5vw, 10px); border-radius: 14px; color: #2B2B2B;
+            outline: none; transition: border-color 0.2s;
+            font-size: clamp(0.78rem, 2.3vw, 1rem);
+            width: 100%; box-sizing: border-box;
+        }
+
+        .history-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+        .history-item {
+            background: white; border: 1px solid #CFE5E0; padding: 4px 10px; border-radius: 10px;
+            font-size: 12px; color: #4A7C74; cursor: pointer; max-width: 150px;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: all 0.2s;
+        }
+        .history-item:hover { background: #D4F1EC; border-color: #7FC8C0; }
+        .more-toggle { font-size: 12px; color: #94a3b8; cursor: pointer; padding: 4px; text-decoration: underline; }
+
+        .signature-area {
+            background: #F2FBF9;
+            margin: 0 -22px -22px -22px;
+            padding: 10px; text-align: center;
+            border-bottom-left-radius: 32px; border-bottom-right-radius: 32px;
+            border-top: 1px solid #CFE5E0;
+        }
+        .signature-text { font-size: 10px; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; }
+        #badge { border-color: #7FC8C0; color: #4A7C74; font-size: clamp(0.85rem, 3vw, 1.25rem); }
+
+        /* ── Result layer ── */
+        #result-layer {
+            position: fixed; inset: 0; z-index: 200;
+            background: rgba(0,0,0,0.85);
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            color: white; text-align: center; backdrop-filter: blur(10px);
+        }
+        .congrats-card {
+            background: white; color: #1e293b;
+            padding: clamp(20px, 5vw, 40px); border-radius: 40px;
+            box-shadow: 0 0 50px rgba(255,255,255,0.2);
+            transform: scale(0.8); opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 90vw;
+        }
+        #result-layer.show .congrats-card { transform: scale(1); opacity: 1; }
+
+        @media (max-width: 480px) {
+            .grid-container { gap: 5px; }
+            .word-box { border-radius: 12px; border-width: 2px; }
+            #badge { top: 6px !important; padding: 5px 14px !important; }
+            .signature-area { margin: 0 -12px -12px -12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language toggle -->
+    <button id="lang-toggle" onclick="toggleLang()">EN</button>
+    <a id="home-back" href="index.html">← 返回 haoteach 首页</a>
+
+    <div class="video-wrapper">
+        <video id="v1" playsinline preload="auto" muted poster="panda-poster.jpg">
+            <source src="1-yasuo.mp4" type="video/mp4">
+        </video>
+        <video id="v2" playsinline loop style="display:none;" preload="auto" muted>
+            <source src="2-yasuo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="result-layer">
+        <div class="congrats-card flex flex-col items-center gap-6">
+            <div class="text-7xl">🐼</div>
+            <h1 id="result-title" class="text-5xl font-bold text-teal-600">你真棒！</h1>
+            <p id="result-sub" class="text-3xl font-medium text-slate-600">Good Job!</p>
+            <div id="result-tag" onclick="location.reload()" style="cursor:pointer;" class="mt-4 px-6 py-2 bg-teal-50 text-teal-700 rounded-full font-bold hover:bg-teal-100 transition-colors">练习完成！</div>
+        </div>
+    </div>
+
+    <div id="game-layer">
+        <div id="badge" class="absolute top-10 bg-white/95 px-8 py-3 rounded-full text-xl shadow-xl border-2 font-bold">READY?</div>
+        <div class="grid-container" id="grid"></div>
+    </div>
+
+    <div id="ui-panel">
+        <div id="setup-controls" class="flex flex-col gap-4">
+            <div class="flex gap-4">
+                <div class="control-group flex-1">
+                    <span id="lbl-mode" class="label-text">模式 Mode</span>
+                    <div class="flex gap-2">
+                        <div class="opt-btn mode-sel active" data-type="fixed" data-cn="固定" data-en="Fixed">固定</div>
+                        <div class="opt-btn mode-sel" data-type="random" data-cn="随机" data-en="Random">随机</div>
+                        <div class="opt-btn mode-sel" data-type="custom" data-cn="自定义" data-en="Custom">自定义</div>
+                    </div>
+                </div>
+                <div class="control-group w-1/4">
+                    <span id="lbl-pinyin" class="label-text">拼音 Pinyin</span>
+                    <div id="pinyin-toggle" class="opt-btn active">开启</div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <span id="lbl-words" class="label-text">输入词语 Word List</span>
+                <textarea id="words" rows="2" placeholder="苹果, 熊猫, 老师"></textarea>
+                <div id="history-container">
+                    <div class="history-wrap" id="history-list"></div>
+                    <div id="more-history" class="more-toggle" style="display:none;">显示更多历史记录...</div>
+                </div>
+            </div>
+
+            <div class="flex gap-3 items-end">
+                <div class="control-group w-1/4">
+                    <span id="lbl-repeat" class="label-text">每页重复次数</span>
+                    <select id="repeat-count">
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="control-group flex-1">
+                    <span id="lbl-speed" class="label-text">速度控制 Speed Control</span>
+                    <div class="flex gap-1">
+                        <div class="opt-btn speed-btn active" data-mode="1" data-cn="慢" data-en="Slow">慢</div>
+                        <div class="opt-btn speed-btn" data-mode="2" data-cn="中" data-en="Med">中</div>
+                        <div class="opt-btn speed-btn" data-mode="3" data-cn="快" data-en="Fast">快</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="start-btn" class="btn-start">开始训练 START TRAINING</div>
+            <div class="signature-area"><span class="signature-text">Designed by Sun Hao</span></div>
+        </div>
+        <div id="stop-btn">停止训练 STOP TRAINING</div>
+    </div>
+
+    <script>
+        const { pinyin } = pinyinPro;
+        const v1 = document.getElementById('v1');
+        const v2 = document.getElementById('v2');
+        const grid = document.getElementById('grid');
+        const badge = document.getElementById('badge');
+        const wordsArea = document.getElementById('words');
+        const historyListEl = document.getElementById('history-list');
+        const moreHistoryBtn = document.getElementById('more-history');
+        const resultLayer = document.getElementById('result-layer');
+        const cheerAudio = new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3');
+
+        let pages = [];
+        let isRunning = false;
+        let selectedSpeed = 1;
+        let currentMode = 'fixed';
+        let showPinyin = true;
+        let rAFId = null;
+        let currentLang = 'cn';
+
+        const CONFIG = {
+            1: { speed: 0.5, interval: 5.352 },
+            2: { speed: 0.7, interval: 3.824 },
+            3: { speed: 1.0, interval: 2.676 }
+        };
+
+        // ── Language i18n map ──
+        const i18n = {
+            cn: {
+                langBtn: 'EN',
+                lblMode: '模式 Mode', lblPinyin: '拼音 Pinyin',
+                lblWords: '输入词语 Word List', lblRepeat: '每页重复次数',
+                lblSpeed: '速度控制 Speed Control',
+                pinyinOn: '开启', pinyinOff: '关闭',
+                startBtn: '开始训练 START TRAINING', stopBtn: '停止训练 STOP TRAINING',
+                moreHistory: '显示更多历史记录...',
+                placeholder: '苹果, 熊猫, 老师',
+                resultTitle: '你真棒！', resultSub: 'Good Job!', resultTag: '练习完成！'
+            },
+            en: {
+                langBtn: '中',
+                lblMode: 'Mode', lblPinyin: 'Pinyin',
+                lblWords: 'Word List', lblRepeat: 'Repeats / Page',
+                lblSpeed: 'Speed Control',
+                pinyinOn: 'ON', pinyinOff: 'OFF',
+                startBtn: 'START TRAINING', stopBtn: 'STOP TRAINING',
+                moreHistory: 'Show more history...',
+                placeholder: 'apple, panda, teacher',
+                resultTitle: 'Well Done!', resultSub: 'Good Job!', resultTag: 'Practice Complete!'
+            }
+        };
+
+        function applyLang() {
+            const t = i18n[currentLang];
+            document.getElementById('lang-toggle').textContent = t.langBtn;
+            document.getElementById('lbl-mode').textContent = t.lblMode;
+            document.getElementById('lbl-pinyin').textContent = t.lblPinyin;
+            document.getElementById('lbl-words').textContent = t.lblWords;
+            document.getElementById('lbl-repeat').textContent = t.lblRepeat;
+            document.getElementById('lbl-speed').textContent = t.lblSpeed;
+            document.getElementById('pinyin-toggle').textContent = showPinyin ? t.pinyinOn : t.pinyinOff;
+            document.getElementById('start-btn').textContent = t.startBtn;
+            document.getElementById('stop-btn').textContent = t.stopBtn;
+            moreHistoryBtn.textContent = t.moreHistory;
+            wordsArea.placeholder = t.placeholder;
+            document.getElementById('result-title').textContent = t.resultTitle;
+            document.getElementById('result-sub').textContent = t.resultSub;
+            document.getElementById('result-tag').textContent = t.resultTag;
+
+            document.querySelectorAll('.mode-sel').forEach(btn => {
+                btn.textContent = btn.dataset[currentLang];
+            });
+            document.querySelectorAll('.speed-btn').forEach(btn => {
+                btn.textContent = btn.dataset[currentLang];
+            });
+        }
+
+        function toggleLang() {
+            currentLang = currentLang === 'cn' ? 'en' : 'cn';
+            applyLang();
+        }
+
+        // ── History ──
+        let historyData = JSON.parse(localStorage.getItem('panda_history') || '[]');
+
+        function updateHistoryUI(expanded = false) {
+            historyListEl.innerHTML = '';
+            const toShow = expanded ? historyData : historyData.slice(0, 3);
+            toShow.forEach(text => {
+                const item = document.createElement('div');
+                item.className = 'history-item';
+                item.innerText = text;
+                item.onclick = () => { wordsArea.value = text; };
+                historyListEl.appendChild(item);
+            });
+            moreHistoryBtn.style.display = (historyData.length > 3 && !expanded) ? 'block' : 'none';
+        }
+
+        function saveHistory(text) {
+            if (!text) return;
+            historyData = historyData.filter(i => i !== text);
+            historyData.unshift(text);
+            if (historyData.length > 10) historyData.pop();
+            localStorage.setItem('panda_history', JSON.stringify(historyData));
+            updateHistoryUI();
+        }
+
+        moreHistoryBtn.onclick = () => updateHistoryUI(true);
+
+        document.getElementById('pinyin-toggle').onclick = function() {
+            showPinyin = !showPinyin;
+            this.classList.toggle('active');
+            this.textContent = showPinyin ? i18n[currentLang].pinyinOn : i18n[currentLang].pinyinOff;
+            grid.classList.toggle('no-pinyin', !showPinyin);
+        };
+
+        document.querySelectorAll('.mode-sel').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.mode-sel').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentMode = btn.dataset.type;
+            };
+        });
+
+        document.querySelectorAll('.speed-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedSpeed = parseInt(btn.dataset.mode);
+            };
+        });
+
+        function createGrid() {
+            grid.innerHTML = '';
+            for(let i = 0; i < 8; i++) {
+                const div = document.createElement('div');
+                div.className = 'word-box';
+                div.id = `box-${i}`;
+                grid.appendChild(div);
+            }
+        }
+
+        // ── Render a word into a box with long-word overflow fix ──
+        function renderWord(box, word) {
+            if (box.dataset.word === word) return;
+
+            const py = pinyin(word, { type: 'array' });
+            const len = word.length;
+
+            // Clear size attributes
+            box.removeAttribute('data-len');
+            box.removeAttribute('data-long');
+
+            if (len >= 9) {
+                box.setAttribute('data-long', '');
+            } else if (len >= 5) {
+                box.setAttribute('data-len', String(len));
+            }
+
+            const inner = document.createElement('div');
+            inner.className = 'word-box-inner';
+            inner.innerHTML = word.split('').map((c, idx) =>
+                `<div class="char-unit">
+                    <div class="pinyin-text">${py[idx] || ''}</div>
+                    <div class="kanji-text">${c}</div>
+                </div>`
+            ).join('');
+            box.innerHTML = '';
+            box.appendChild(inner);
+            box.dataset.word = word;
+        }
+
+        // ── Start session ──
+        async function startSession() {
+            const raw = wordsArea.value.trim();
+            if (!raw) return;
+
+            saveHistory(raw);
+            const inputList = raw.split(/[,，;；]/).map(s => s.trim()).filter(s => s);
+            pages = [];
+
+            if (currentMode === 'fixed') {
+                inputList.forEach(word => { pages.push(Array(8).fill(word)); });
+            } else if (currentMode === 'random') {
+                for (let i = 0; i < Math.max(inputList.length, 5); i++) {
+                    let pageWords = [];
+                    for (let j = 0; j < 8; j++) pageWords.push(inputList[Math.floor(Math.random() * inputList.length)]);
+                    pages.push(pageWords);
+                }
+            } else if (currentMode === 'custom') {
+                let pageWords = [];
+                for (let j = 0; j < 8; j++) pageWords.push(inputList[j % inputList.length]);
+                pages.push(pageWords);
+            }
+
+            isRunning = true;
+            document.getElementById('setup-controls').style.display = 'none';
+            document.getElementById('stop-btn').style.display = 'block';
+            createGrid();
+
+            v1.style.display = 'block'; v2.style.display = 'none';
+            v1.currentTime = 0;
+            v1.muted = false;
+
+            const playPromise = v1.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => { v1.muted = true; v1.play(); });
+            }
+            v2.load();
+            v1.onended = () => { if (isRunning) enterLoopMode(); };
+        }
+
+        function enterLoopMode() {
+            v1.style.display = 'none';
+            v2.style.display = 'block';
+            v2.muted = false;
+            v2.playbackRate = CONFIG[selectedSpeed].speed;
+            v2.play();
+            document.getElementById('game-layer').style.opacity = '1';
+            startRhythm();
+        }
+
+        function showResult() {
+            isRunning = false;
+            cancelAnimationFrame(rAFId);
+            v2.pause();
+            cheerAudio.play();
+            resultLayer.style.display = 'flex';
+            setTimeout(() => resultLayer.classList.add('show'), 10);
+
+        }
+
+        function startRhythm() {
+            let startTime = performance.now();
+            const interval = CONFIG[selectedSpeed].interval * 1000;
+            const repeatPerPage = parseInt(document.getElementById('repeat-count').value);
+
+            function run() {
+                if (!isRunning) return;
+                const now = performance.now();
+                const elapsedSinceStart = now - startTime;
+                const actionRound = Math.floor(elapsedSinceStart / interval) + 1;
+                const roundElapsed = elapsedSinceStart % interval;
+                const activeIndex = Math.floor(roundElapsed / (interval / 8));
+
+                if (actionRound === 1) {
+                    badge.innerText = "READY?";
+                    document.querySelectorAll('.word-box').forEach(box => {
+                        box.style.opacity = "0"; box.className = 'word-box';
+                    });
+                } else {
+                    const effectiveRound = actionRound - 1;
+                    const roundsPerPage = repeatPerPage * 2;
+                    const pageIdx = Math.floor((effectiveRound - 1) / roundsPerPage);
+
+                    if (pageIdx >= pages.length) { showResult(); return; }
+
+                    const currentPageData = pages[pageIdx];
+                    const roundInPage = (effectiveRound - 1) % roundsPerPage;
+                    const cycleType = roundInPage % 2;
+
+                    document.querySelectorAll('.word-box').forEach((box, i) => {
+                        renderWord(box, currentPageData[i]);
+
+                        if (cycleType === 0) {
+                            if (i < activeIndex) { box.className = 'word-box keep-visible'; box.style.opacity = "1"; }
+                            else if (i === activeIndex) { box.className = 'word-box pop-active'; box.style.opacity = "1"; }
+                            else { box.style.opacity = "0"; box.className = 'word-box'; }
+                        } else {
+                            box.style.opacity = "1";
+                            box.className = i === activeIndex ? 'word-box keep-visible highlight-border' : 'word-box keep-visible';
+                        }
+                    });
+                    badge.innerText = currentMode === 'fixed' ? currentPageData[0] : "TRAINING...";
+                }
+                rAFId = requestAnimationFrame(run);
+            }
+            rAFId = requestAnimationFrame(run);
+        }
+
+        document.getElementById('start-btn').onclick = startSession;
+        document.getElementById('stop-btn').onclick = () => location.reload();
+
+        window.onload = () => {
+            createGrid();
+            updateHistoryUI();
+            applyLang();
+            v1.load();
+            v2.load();
+            cheerAudio.load();
+        };
+    </script>
+</body>
+</html>
