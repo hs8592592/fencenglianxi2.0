@@ -270,21 +270,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .pinyin-switch input:checked + .pinyin-slider:before { transform: translateX(16px); }
 
 /* ─── RESULT SCREEN ─── */
-.result { display: none; max-width: 620px; margin: 0 auto; padding: 2rem 1.5rem; text-align: center; }
-.result-ring { width: 110px; height: 110px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 36px; font-weight: 700; }
+.result { display: none; max-width: 960px; margin: 0 auto; padding: 1.4rem 1.5rem; text-align: center; }
+.r-hero { display: flex; align-items: center; gap: 30px; background: #fff; border-radius: 22px; padding: 32px 36px; box-shadow: 0 8px 30px rgba(0,0,0,.06); text-align: left; margin-bottom: 16px; }
+.r-hero-left { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: none; }
+.r-hero-right { flex: 1; min-width: 0; }
+.result-ring { width: 108px; height: 108px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0; font-size: 36px; font-weight: 700; flex: none; }
+.result h2 { font-size: 28px; font-weight: 800; margin: 0 0 6px; text-align: left; }
+.stars { font-size: 30px; margin: 0; letter-spacing: 4px; }
+.result-msg { background: transparent; border: none; border-radius: 0; padding: 0; font-size: 16.5px; text-align: left; line-height: 1.65; margin: 10px 0 0; color: var(--text); }
+.result-msg strong { font-weight: 700; }
 .ring-t1 { background: var(--t1l); color: var(--t1); border: 3px solid var(--t1m); }
 .ring-t2 { background: var(--t2l); color: var(--t2); border: 3px solid var(--t2m); }
 .ring-t3 { background: var(--t3l); color: var(--t3); border: 3px solid var(--t3m); }
-.result h2 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
-.result .r-sub { font-size: 14px; color: var(--muted); margin-bottom: 1.5rem; }
-.stars { font-size: 30px; margin-bottom: 1rem; letter-spacing: 4px; }
-.result-msg { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; font-size: 14px; text-align: left; line-height: 1.7; margin-bottom: 1.25rem; color: var(--text); }
-.result-msg strong { font-weight: 600; }
-.result-btns { display: flex; flex-direction: column; gap: 10px; margin: 16px auto; max-width: 600px; }
+.result .r-sub { font-size: 15px; color: var(--muted); margin: 0; text-align: left; }
+.result-btns { display: flex; flex-direction: column; gap: 10px; margin: 16px auto; max-width: 960px; }
 .rb-wide { width: 100%; }
 .rb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.btn-review-q, .btn-remedial-show { padding: 14px 18px; background: var(--tier-light,#FDEBD8); border: 1.5px solid var(--tier-c,#F2962F); border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--tier-c,#F2962F); line-height: 1.3; }
-.btn-review-q:hover, .btn-remedial-show:hover, .btn-download-remedial:hover { filter: brightness(.96); }
+.btn-review-q { padding: 14px 18px; background: #EAF1FB; border: 1.5px solid #3E7BD6; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #2766CC; line-height: 1.3; }
+.btn-remedial-show { padding: 14px 18px; background: #EDF6EC; border: 1.5px solid #43A047; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #2e8b3d; line-height: 1.3; }
+.btn-review-q:hover, .btn-remedial-show:hover, .btn-download-remedial:hover { filter: brightness(.97); }
 .btn-download:hover { filter: brightness(1.05); transform: translateY(-1px); }
 .remedial-inline { text-align: left; background: #fbfbfa; border: 1.5px solid #e3e0d8; border-radius: 14px; padding: 18px 20px; }
 .remedial-inline-head { font-weight: 800; font-size: 16px; margin-bottom: 12px; color: #1a6637; }
@@ -294,10 +298,9 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .remedial-inline .remedial-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 .remedial-inline .remedial-choice { padding: 9px 13px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 13px; font-family: 'Noto Serif SC', serif; background: #fff; }
 .remedial-inline .fill-input { width: 100%; border: 1.5px solid #aaa; border-radius: 8px; padding: 9px; font-size: 14px; }
-.btn-retry { padding: 14px 28px; background: var(--tier-c,#F2962F); color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-.btn-back { padding: 14px 28px; background: var(--tier-light,#FDEBD8); border: 1.5px solid var(--tier-c,#F2962F); border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--tier-c,#F2962F); }
-.btn-retry:hover { filter: brightness(1.05); }
-.btn-back:hover { filter: brightness(.96); }
+.btn-retry { padding: 15px 28px; background: var(--tier-dark,#1c2b4a); color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-back { padding: 15px 28px; background: var(--tier-dark,#1c2b4a); border: none; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #fff; }
+.btn-retry:hover, .btn-back:hover { filter: brightness(1.12); }
 .btn-review { padding: 12px 28px; background: var(--t3l); border: 1.5px solid var(--t3m); border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--t3); }
 .btn-download { padding: 16px 28px; background: var(--tier-c,#F2962F); border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #fff; box-shadow: 0 5px 14px rgba(0,0,0,.13); }
 .btn-print { padding: 12px 28px; background: #f3e8ff; border: 1.5px solid #c4b5fd; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #6d28d9; }
@@ -342,9 +345,9 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .sound-toggle-btn:hover { border-color: #aaa; color: var(--text); }
 
 /* ─── ANALYTICS PANEL (replaces review-panel) ─── */
-.analytics-panel { text-align: left; margin-top: 1.5rem; }
-.analytics-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
-.analytics-section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 7px; }
+.analytics-panel { text-align: left; margin-top: 0; }
+.analytics-section { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.8rem; margin-bottom: 0; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
+.analytics-section-title { font-size: 14.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: .9rem; display: flex; align-items: center; gap: 7px; }
 .analytics-q-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); }
 .analytics-q-row:last-child { border-bottom: none; }
 .analytics-q-icon { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
@@ -359,12 +362,12 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .aq-right-tag { background: var(--correctbg); color: var(--correct); }
 .aq-wrong-tag { background: var(--wrongbg); color: var(--wrong); }
 .aq-user-tag { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
-.strength-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.strength-label { font-size: 13px; min-width: 90px; color: var(--text); }
-.strength-track { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+.strength-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.strength-label { font-size: 15px; min-width: 100px; color: var(--text); }
+.strength-track { flex: 1; height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; }
 .strength-fill-correct { height: 100%; background: var(--correct); border-radius: 5px; }
 .strength-fill-wrong { height: 100%; background: var(--wrong); border-radius: 5px; }
-.analytics-insight { font-size: 13px; line-height: 1.7; color: var(--text); }
+.analytics-insight { font-size: 15px; line-height: 1.7; color: var(--text); }
 .analytics-insight strong { color: var(--t1); }
 .remedial-q { background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
 .remedial-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--t1); margin-bottom: 6px; }
@@ -376,7 +379,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .remedial-choice.rc-correct { background: var(--correctbg); border-color: var(--correct); color: var(--correct); }
 .remedial-choice.rc-wrong { background: var(--wrongbg); border-color: var(--wrong); color: var(--wrong); }
 .remedial-choice:disabled { cursor: default; }
-.btn-download-remedial { padding: 14px 14px; background: var(--tier-light,#FDEBD8); border: 1.5px solid var(--tier-c,#F2962F); border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--tier-c,#F2962F); line-height: 1.3; }
+.btn-download-remedial { padding: 14px 14px; background: #EDF6EC; border: 1.5px solid #43A047; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #2e8b3d; line-height: 1.3; }
 .btn-download-remedial:hover { opacity: .88; }
 
 /* ─── STUDENT SURVEY (result page bottom) ─── */
@@ -483,8 +486,11 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .result-btns button { width: 100%; text-align: center; }
   .rb-row { grid-template-columns: 1fr; }
   .remedial-inline .remedial-choices { grid-template-columns: 1fr; }
-  .result h2 { font-size: 19px; }
-  .result-ring { width: 90px; height: 90px; font-size: 28px; }
+  .result h2 { font-size: 20px; text-align: center; }
+  .result-ring { width: 84px; height: 84px; font-size: 26px; }
+  .r-hero { flex-direction: column; gap: 12px; text-align: center; padding: 20px 18px; }
+  .r-hero-right { text-align: center; }
+  .result .r-sub, .result-msg { text-align: center; }
 
   /* Feedback card */
   .feedback-card { padding: 1.25rem 1rem 1rem; }
@@ -795,6 +801,16 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .cv-tier-img:hover{transform:translateY(-4px)}
   .cv-tier-img img{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 20px rgba(0,0,0,.13))}
   @media(max-width:820px){.cv-kp-grid{grid-template-columns:1fr}.cv-tiers{grid-template-columns:1fr;gap:14px;max-width:430px;margin:0 auto}.cv-h1{font-size:24px}}
+  @media(max-width:600px){
+    .cv-top{flex-wrap:wrap;gap:10px}
+    .cv-h1{order:-1;flex-basis:100%;font-size:22px;margin-bottom:2px}
+    .cv-navbtn{flex:1;justify-content:center;padding:11px 8px;font-size:13px}
+    .cv-keypoints{padding:18px 16px}
+    .cv-panel{padding:15px 16px}
+    .kw-cn{font-size:22px}.cv-sentence .s-cn{font-size:23px}
+    .td-card{padding:28px 20px}.rv-card{padding:24px 18px}
+    #tierDetailScreen,#revisionScreen{padding:18px 14px 44px}
+  }
 </style>
 <div id="coverScreen">
   <div class="cv-top">
@@ -839,11 +855,11 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 <script>
   // 三个 Tier 的统一配色与内容(进哪个 Tier 全程用这套色)
   var TIER_THEME = [
-    {c:'#F2962F', light:'#FDEBD8', name:'Tier 1 – Build',  sub:'Foundation Practice (10 Questions)',
+    {c:'#F2962F', light:'#FDEBD8', dark:'#C26A12', name:'Tier 1 – Build',  sub:'Foundation Practice (10 Questions)',
      info:'Focuses on the <b>core vocabulary</b> and <b>sentence patterns</b> from <i>Across the Silk Road</i>. These exercises help students build a solid language foundation through targeted practice of essential words and sentence structures.'},
-    {c:'#3E7BD6', light:'#EAF1FB', name:'Tier 2 – Apply',  sub:'Skill Development (10 Questions)',
+    {c:'#3E7BD6', light:'#EAF1FB', dark:'#2B5699', name:'Tier 2 – Apply',  sub:'Skill Development (10 Questions)',
      info:'Focuses on the <b>key vocabulary</b>, <b>sentence usage</b>, and integrates <b>HSK 3.0 vocabulary and grammar</b>. Students strengthen their understanding of the unit while developing the language skills required for the HSK 3.0 examination.'},
-    {c:'#43A047', light:'#EDF6EC', name:'Tier 3 – Extend', sub:'Advanced Application (8 Questions)',
+    {c:'#43A047', light:'#EDF6EC', dark:'#2E7330', name:'Tier 3 – Extend', sub:'Advanced Application (8 Questions)',
      info:'Designed to extend students\' language proficiency through higher-level tasks:<ul class="td-list"><li><b>5 Basic Practice Questions</b> based on key vocabulary, sentence patterns, and HSK 3.0 vocabulary and grammar.</li><li><b>1 Reading Passage</b> with <b>2 Reading Comprehension Questions</b> to develop reading skills.</li><li><b>1 Critical Thinking Question</b> encouraging deeper reflection on Chinese and UAE cultures, traditions, and customs.</li></ul>'}
   ];
   // 本课重点词与句型(复习页用)
@@ -856,6 +872,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     var t = TIER_THEME[n];
     document.documentElement.style.setProperty('--tier-c', t.c);
     document.documentElement.style.setProperty('--tier-light', t.light);
+    document.documentElement.style.setProperty('--tier-dark', t.dark);
   }
   function hideNewScreens(){
     ['coverScreen','tierDetailScreen','revisionScreen'].forEach(function(id){
@@ -1172,9 +1189,9 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .email-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:99999;padding:18px;}
   .email-overlay.show{display:flex;}
   .email-modal{background:#fff;border-radius:22px;padding:28px 26px;max-width:440px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center;font-family:'DM Sans',sans-serif;}
-  .email-title{font-size:22px;font-weight:900;color:var(--tier-c,#F2962F);}
+  .email-title{font-size:22px;font-weight:900;color:var(--tier-c,#F2962F);margin-bottom:18px;}
   .email-sub{font-size:14px;color:#888;margin:3px 0 18px;}
-  .email-summary{background:var(--tier-light,#FDEBD8);border-radius:12px;padding:14px 16px;text-align:left;font-size:13.5px;line-height:1.75;color:#333;margin-bottom:18px;}
+  .email-summary{background:var(--tier-light,#FDEBD8);border-radius:12px;padding:14px 16px;text-align:left;font-size:14.5px;line-height:1.85;color:#333;margin-bottom:18px;}
   .email-label{display:block;text-align:left;font-size:13px;font-weight:700;color:#555;margin-bottom:6px;}
   .email-input{width:100%;padding:13px 14px;border:1.5px solid #d8d4cc;border-radius:11px;font-size:16px;font-family:inherit;box-sizing:border-box;}
   .email-input:focus{outline:none;border-color:var(--tier-c,#F2962F);}
@@ -1183,30 +1200,36 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .email-send-btn:hover{filter:brightness(1.05);}
   .email-dl-btn{width:100%;padding:12px;margin-top:9px;border:1.5px solid var(--tier-c,#F2962F);border-radius:12px;background:var(--tier-light,#FDEBD8);color:var(--tier-c,#F2962F);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
   .email-tip{font-size:12px;color:#aaa;margin-top:12px;line-height:1.5;}
-  .email-close{margin-top:12px;font-size:13px;color:#999;cursor:pointer;}
+  .email-cancel-btn{width:100%;padding:13px;margin-top:14px;border:1.5px solid #cfc9bf;border-radius:12px;background:#f3f1ed;color:#555;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .email-cancel-btn:hover{background:#e9e5dd;}
 </style>
 <div class="email-overlay" id="emailOverlay">
   <div class="email-modal">
     <div class="email-title">📤 Send Report to Teacher</div>
-    <div class="email-sub">发送成绩报告给老师</div>
     <div class="email-summary" id="emailSummary"></div>
-    <label class="email-label">Teacher's Email · 老师邮箱</label>
+    <label class="email-label">Teacher's Email</label>
     <input class="email-input" id="teacherEmail" type="email" placeholder="teacher@school.ae" autocomplete="email">
     <div class="email-err" id="emailErr"></div>
-    <button class="email-send-btn" onclick="doMailto()">📧 Open Email to Send · 打开邮箱发送</button>
-    <button class="email-dl-btn" onclick="downloadAnswers()">⬇ Download instead · 改为下载文件</button>
-    <div class="email-tip">Your email app will open with the report filled in — just press Send.<br>会打开你的邮箱、报告已填好,点发送即可。</div>
-    <div class="email-close" onclick="closeEmailModal()">Cancel · 取消</div>
+    <button class="email-send-btn" onclick="doMailto()">📧 Open Email to Send</button>
+    <button class="email-dl-btn" onclick="downloadAnswers()">⬇ Download instead</button>
+    <div class="email-tip">Your email app will open with the report filled in — just press Send.</div>
+    <button class="email-cancel-btn" onclick="closeEmailModal()">Cancel</button>
   </div>
 </div>
 
 
 <div class="result" id="resultScreen">
-  <div class="result-ring" id="rRing"></div>
-  <h2 id="rTitle">Well done!</h2>
-  <p class="r-sub" id="rSub"></p>
-  <div class="stars" id="rStars"></div>
-  <div class="result-msg" id="rMsg"></div>
+  <div class="r-hero">
+    <div class="r-hero-left">
+      <div class="result-ring" id="rRing"></div>
+      <div class="stars" id="rStars"></div>
+    </div>
+    <div class="r-hero-right">
+      <h2 id="rTitle">Well done!</h2>
+      <p class="r-sub" id="rSub"></p>
+      <div class="result-msg" id="rMsg"></div>
+    </div>
+  </div>
   <div class="analytics-panel" id="analyticsPanel"></div>
   <div class="result-btns">
     <button class="btn-review-q rb-wide" onclick="toggleReviewPanel()">📝 Question Review · 逐题回顾</button>
@@ -2189,11 +2212,11 @@ function sendToTeacher() {
   const lesson = LESSONS[selectedLesson];
   const tn = ['Tier 1 – Build','Tier 2 – Apply','Tier 3 – Extend'][selectedTier];
   document.getElementById('emailSummary').innerHTML =
-    'Student · 学生: <b>' + (studentName||'—') + '</b><br>' +
-    'Class · 班级: <b>' + (studentClass||'—') + '</b><br>' +
-    'Lesson · 课程: <b>' + lesson.num + ' ' + lesson.cn + '</b><br>' +
+    'Student: <b>' + (studentName||'—') + '</b><br>' +
+    'Class: <b>' + (studentClass||'—') + '</b><br>' +
+    'Lesson: <b>' + lesson.num + ' ' + lesson.cn + '</b><br>' +
     'Tier: <b>' + tn + '</b><br>' +
-    'Score · 成绩: <b>' + score + ' / ' + currentQs.length + '</b>';
+    'Score: <b>' + score + ' / ' + currentQs.length + '</b>';
   document.getElementById('teacherEmail').value = '';
   document.getElementById('emailErr').textContent = '';
   document.getElementById('emailOverlay').classList.add('show');
@@ -2566,7 +2589,7 @@ function buildAnalyticsPanel() {
   panel.innerHTML = `
     <div class="analytics-section">
       <div class="analytics-section-title">📋 Learning Analysis · 学情总览</div>
-      <p class="analytics-insight" style="margin-bottom:1rem;">${insightText}</p>
+      <p class="analytics-insight" style="margin-bottom:.6rem;">${insightText}</p>
       ${strengthHtml}
     </div>
     <div class="analytics-section collapse-panel" id="reviewPanel" style="display:none;">
