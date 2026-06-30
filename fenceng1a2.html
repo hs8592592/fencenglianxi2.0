@@ -768,6 +768,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 <!-- ===== 新流程 第1屏:课程封面(1:1复刻) ===== -->
 <style>
   #coverScreen{max-width:1180px;margin:0 auto;padding:10px 16px 40px}
+  .cv-home-btn{display:inline-block;margin-bottom:14px;color:#1a3a5c;font-size:14px;font-weight:700;text-decoration:none;background:#fff;border-radius:999px;padding:9px 18px;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:.15s}
+  .cv-home-btn:hover{box-shadow:0 5px 16px rgba(0,0,0,.12);transform:translateY(-1px)}
   .cv-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:6px 0 18px}
   .cv-navbtn{display:inline-flex;align-items:center;gap:9px;background:#fff;border:none;border-radius:999px;
     padding:13px 22px;font-size:15px;font-weight:800;color:#1a3a5c;cursor:pointer;font-family:inherit;
@@ -813,6 +815,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   }
 </style>
 <div id="coverScreen">
+  <a class="cv-home-btn" href="index.html">← Back to haoteach</a>
   <div class="cv-top">
     <button class="cv-navbtn" onclick="shiftLesson(-1)">←&nbsp; Previous Lesson</button>
     <div class="cv-h1">1A-L2 你好! Hello!</div>
