@@ -797,11 +797,9 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 <!-- ===== 新流程 第1屏:课程封面(1:1复刻) ===== -->
 <style>
   #coverScreen{max-width:1180px;margin:0 auto;padding:10px 16px 40px}
-  .cv-home-wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:12px;margin-bottom:16px;position:relative;z-index:5}
-  .cv-panda{height:150px;width:auto;pointer-events:none;user-select:none;transform:translateY(46px);filter:drop-shadow(0 8px 12px rgba(0,0,0,.16))}
-  .cv-panda.left{justify-self:start}
-  .cv-panda.right{justify-self:end}
-  @media (max-width:640px){ .cv-panda{height:92px;transform:translateY(28px)} }
+  .cv-home-wrap{text-align:center;margin-bottom:16px}
+  .cv-panda{height:112px;width:auto;pointer-events:none;user-select:none;flex:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14))}
+  @media (max-width:640px){ .cv-panda{height:64px} }
   .cv-home-btn{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:800;text-decoration:none;background:#EC8AA0;border-radius:999px;padding:12px 26px;box-shadow:0 5px 16px rgba(236,138,160,.30);transition:.15s}
   .cv-home-btn:hover{background:#e57a92;box-shadow:0 7px 20px rgba(236,138,160,.4);transform:translateY(-1px)}
   .cv-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:6px 0 18px}
@@ -858,14 +856,12 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   }
 </style>
 <div id="coverScreen">
-  <div class="cv-home-wrap">
-    <img class="cv-panda left" src="panda1.png" alt="">
-    <a class="cv-home-btn" href="lianxi.html">← Back to Lessons</a>
-    <img class="cv-panda right" src="panda2.png" alt="">
-  </div>
+  <div class="cv-home-wrap"><a class="cv-home-btn" href="lianxi.html">← Back to Lessons</a></div>
   <div class="cv-top">
     <button class="cv-navbtn" onclick="shiftLesson(-1)">←&nbsp; Previous Lesson</button>
+    <img class="cv-panda" src="panda1.png" alt="">
     <div class="cv-h1">1A-L2 你好! Hello!</div>
+    <img class="cv-panda" src="panda2.png" alt="">
     <button class="cv-navbtn" onclick="shiftLesson(1)">Next Lesson &nbsp;→</button>
   </div>
   <div class="cv-keypoints">
