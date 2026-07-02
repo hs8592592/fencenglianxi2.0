@@ -755,33 +755,6 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 </head>
 <body>
 
-<!-- 熊猫加载动画:打开页面时播放视频,播完淡出 -->
-<div id="introLoader" style="position:fixed;inset:0;z-index:99999;background:#FBF8F2;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease;">
-  <video id="introVideo" src="Chinese_Learning_Bigger_Thinking_.mp4" muted autoplay playsinline preload="auto"
-         style="max-width:min(88vw,560px);max-height:82vh;width:auto;height:auto;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.14);"></video>
-</div>
-<script>
-(function(){
-  var loader = document.getElementById('introLoader');
-  var vid = document.getElementById('introVideo');
-  if(!loader) return;
-  var done = false;
-  function hideLoader(){
-    if(done) return; done = true;
-    loader.style.opacity = '0';
-    setTimeout(function(){ if(loader && loader.parentNode) loader.parentNode.removeChild(loader); }, 550);
-  }
-  if(vid){
-    vid.addEventListener('ended', hideLoader);
-    vid.addEventListener('error', hideLoader);
-    var p = vid.play();
-    if(p && p.catch){ p.catch(function(){ /* 自动播放被拦就直接进入 */ setTimeout(hideLoader, 400); }); }
-  }
-  // 兜底:最多 6 秒后一定淡出(防止视频没加载出来卡住)
-  setTimeout(hideLoader, 6000);
-})();
-</script>
-
 <!-- custom dialog containers (replace native browser popups) -->
 <div id="toastWrap"></div>
 <div id="confirmOverlay"><div class="confirm-box">
