@@ -1,0 +1,160 @@
+/* ============================================================
+   haoteach 全站登录门槛 auth-gate.js
+   用法:在需要登录的页面 <body> 后面加一行:
+       <script src="auth-gate.js"></script>
+   会自动:加载 Supabase → 检查登录 → 未登录则全屏弹出登录/注册
+   (与首页 index.html 使用同一个 Supabase 账号体系)
+   ============================================================ */
+(function () {
+  var SB_URL = 'https://pqwgottflvwbyhjipcgb.supabase.co';
+  var SB_KEY = 'sb_publishable_kk5uEHy84Wx71bRPYMUfLQ_T4jI_8Ef';
+
+  var css = "\
+  #agOverlay{position:fixed;inset:0;z-index:2147483000;background:#FBF8F2;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Poppins','Noto Sans SC',system-ui,-apple-system,sans-serif}\
+  #agOverlay.ag-hide{display:none}\
+  #agOverlay *{box-sizing:border-box}\
+  .ag-card{width:min(94vw,400px);background:#fff;border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.16);padding:30px 28px 22px;text-align:center}\
+  .ag-logo{width:54px;height:54px;border-radius:14px;object-fit:contain;margin-bottom:10px}\
+  .ag-h{font-size:22px;font-weight:800;color:#1a3a2b;margin:0 0 4px}\
+  .ag-sub{font-size:14px;color:#8a8578;margin:0 0 18px}\
+  .ag-tabs{display:flex;background:#f0ece3;border-radius:12px;padding:4px;margin-bottom:16px}\
+  .ag-tabs button{flex:1;border:none;background:none;padding:9px;border-radius:9px;font-size:14px;font-weight:700;color:#8a8578;cursor:pointer}\
+  .ag-tabs button.on{background:#fff;color:#1a3a2b;box-shadow:0 2px 6px rgba(0,0,0,.08)}\
+  .ag-field{text-align:left;margin-bottom:12px}\
+  .ag-field label{display:block;font-size:12.5px;font-weight:600;color:#6b6659;margin-bottom:5px}\
+  .ag-field input{width:100%;padding:11px 13px;border:1.5px solid #e3ddd0;border-radius:10px;font-size:15px;outline:none;font-family:inherit}\
+  .ag-field input:focus{border-color:#43A047}\
+  .ag-err{font-size:13px;color:#c0392b;min-height:18px;margin-bottom:8px;line-height:1.35}\
+  .ag-submit{width:100%;padding:13px;border:none;border-radius:11px;background:#1a3a2b;color:#fff;font-size:15px;font-weight:700;cursor:pointer}\
+  .ag-submit:hover{background:#43A047}\
+  .ag-submit:disabled{opacity:.6;cursor:default}\
+  .ag-link{display:inline-block;margin-top:12px;font-size:13px;color:#43A047;text-decoration:none;cursor:pointer}\
+  .ag-home{display:block;margin-top:14px;font-size:12.5px;color:#a89f8e;text-decoration:none}\
+  .ag-home:hover{color:#6b6659}\
+  .ag-note{font-size:11.5px;color:#b5ac9c;margin-top:12px;line-height:1.4}\
+  ";
+
+  function inject() {
+    var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+    var ov = document.createElement('div'); ov.id = 'agOverlay';
+    ov.innerHTML =
+      '<div class="ag-card">' +
+      '<img class="ag-logo" src="hlogo.png" alt="logo" onerror="this.style.display=\'none\'">' +
+      '<h2 class="ag-h" id="agTitle">\u6b22\u8fce\u56de\u6765 Welcome back</h2>' +
+      '<p class="ag-sub" id="agSub">\u767b\u5f55\u4ee5\u7ee7\u7eed Sign in to continue</p>' +
+      '<div class="ag-tabs">' +
+      '<button id="agTabIn" class="on" type="button">\u767b\u5f55 Sign in</button>' +
+      '<button id="agTabUp" type="button">\u6ce8\u518c Sign up</button>' +
+      '</div>' +
+      '<div class="ag-field" id="agNameField" style="display:none">' +
+      '<label>\u6635\u79f0 Name</label>' +
+      '<input type="text" id="agName" placeholder="\u4f60\u7684\u6635\u79f0 Your name">' +
+      '</div>' +
+      '<div class="ag-field"><label>\u90ae\u7bb1 Email</label>' +
+      '<input type="email" id="agEmail" placeholder="you@example.com" autocomplete="username"></div>' +
+      '<div class="ag-field"><label>\u5bc6\u7801 Password</label>' +
+      '<input type="password" id="agPass" placeholder="\u5bc6\u7801 Password" autocomplete="current-password"></div>' +
+      '<div class="ag-err" id="agErr"></div>' +
+      '<button class="ag-submit" id="agSubmit" type="button">\u767b\u5f55 Sign in</button>' +
+      '<a class="ag-link" id="agForgot">\u5fd8\u8bb0\u5bc6\u7801 Forgot password?</a>' +
+      '<a class="ag-home" href="index.html">\u2190 \u8fd4\u56de\u9996\u9875 Back to home</a>' +
+      '<p class="ag-note">\u7ee7\u7eed\u5373\u8868\u793a\u540c\u610f\u670d\u52a1\u6761\u6b3e\u4e0e\u9690\u79c1\u653f\u7b56\u3002</p>' +
+      '</div>';
+    document.body.appendChild(ov);
+    return ov;
+  }
+
+  var ov, sb, tab = 'signin';
+  function q(id) { return document.getElementById(id); }
+
+  function setTab(m) {
+    tab = m;
+    q('agTabIn').classList.toggle('on', m === 'signin');
+    q('agTabUp').classList.toggle('on', m === 'signup');
+    q('agNameField').style.display = m === 'signup' ? 'block' : 'none';
+    q('agTitle').textContent = m === 'signup' ? '\u521b\u5efa\u8d26\u53f7 Create account' : '\u6b22\u8fce\u56de\u6765 Welcome back';
+    q('agSub').textContent = m === 'signup' ? '\u6ce8\u518c\u4e00\u4e2a\u65b0\u8d26\u53f7 Sign up to get started' : '\u767b\u5f55\u4ee5\u7ee7\u7eed Sign in to continue';
+    q('agSubmit').textContent = m === 'signup' ? '\u6ce8\u518c Sign up' : '\u767b\u5f55 Sign in';
+    q('agErr').textContent = '';
+  }
+  function show() { if (ov) ov.classList.remove('ag-hide'); }
+  function hide() { if (ov) { ov.classList.add('ag-hide'); document.documentElement.style.overflow = ''; } }
+
+  async function submit() {
+    var email = q('agEmail').value.trim(), pass = q('agPass').value, name = q('agName').value.trim();
+    var err = q('agErr'); err.style.color = '#c0392b'; err.textContent = '';
+    if (!email || !pass) { err.textContent = '\u8bf7\u8f93\u5165\u90ae\u7bb1\u548c\u5bc6\u7801 Enter email & password'; return; }
+    var btn = q('agSubmit'); btn.disabled = true;
+    try {
+      if (tab === 'signup') {
+        if (pass.length < 6) { err.textContent = '\u5bc6\u7801\u81f3\u5c116\u4f4d Password min 6 chars'; btn.disabled = false; return; }
+        var r = await sb.auth.signUp({ email: email, password: pass, options: { data: { name: name } } });
+        if (r.error) { err.textContent = r.error.message; btn.disabled = false; return; }
+        if (r.data && r.data.session) { hide(); return; }
+        err.style.color = '#1a6637';
+        err.textContent = '\u2705 \u6ce8\u518c\u6210\u529f!\u8bf7\u53bb\u90ae\u7bb1\u786e\u8ba4\u540e\u767b\u5f55 Registered! Check your email, then sign in.';
+        setTab('signin');
+      } else {
+        var r2 = await sb.auth.signInWithPassword({ email: email, password: pass });
+        if (r2.error) {
+          err.textContent = /confirm|verif/i.test(r2.error.message)
+            ? '\u8bf7\u5148\u53bb\u90ae\u7bb1\u786e\u8ba4 Please confirm your email first'
+            : '\u90ae\u7bb1\u6216\u5bc6\u7801\u9519\u8bef Incorrect email or password';
+          btn.disabled = false; return;
+        }
+        hide();
+      }
+    } catch (e) {
+      err.textContent = '\u7f51\u7edc\u9519\u8bef,\u8bf7\u91cd\u8bd5 Network error, please try again';
+    }
+    btn.disabled = false;
+  }
+
+  async function forgot() {
+    var email = q('agEmail').value.trim(), err = q('agErr');
+    if (!email) { err.style.color = '#c0392b'; err.textContent = '\u8bf7\u5148\u586b\u90ae\u7bb1 Enter your email first'; return; }
+    try {
+      await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin });
+      err.style.color = '#1a6637'; err.textContent = '\ud83d\udce7 \u91cd\u7f6e\u90ae\u4ef6\u5df2\u53d1\u9001 Password reset email sent.';
+    } catch (e) { err.style.color = '#c0392b'; err.textContent = '\u53d1\u9001\u5931\u8d25,\u8bf7\u91cd\u8bd5 Failed, try again'; }
+  }
+
+  function wire() {
+    q('agTabIn').onclick = function () { setTab('signin'); };
+    q('agTabUp').onclick = function () { setTab('signup'); };
+    q('agSubmit').onclick = submit;
+    q('agForgot').onclick = function (e) { e.preventDefault(); forgot(); };
+    q('agPass').addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+  }
+
+  function start() {
+    if (!window.supabase || !window.supabase.createClient) {
+      console.error('[auth-gate] supabase-js \u672a\u52a0\u8f7d');
+      return;
+    }
+    sb = window.supabase.createClient(SB_URL, SB_KEY);
+    wire();
+    sb.auth.getSession().then(function (res) {
+      if (res && res.data && res.data.session) { hide(); }
+      else { show(); try { q('agEmail').focus(); } catch (e) {} }
+    }).catch(function () { show(); });
+    sb.auth.onAuthStateChange(function (_e, session) { if (session) hide(); });
+  }
+
+  function ensureSupabase(cb) {
+    if (window.supabase && window.supabase.createClient) return cb();
+    var s = document.createElement('script'); s.src = 'supabase-js.js';
+    s.onload = cb;
+    s.onerror = function () { console.error('[auth-gate] \u65e0\u6cd5\u52a0\u8f7d supabase-js.js'); };
+    document.head.appendChild(s);
+  }
+
+  function boot() {
+    document.documentElement.style.overflow = 'hidden'; // 挡住内容前先锁滚动
+    ov = inject();                                       // 立即显示遮罩
+    ensureSupabase(start);
+  }
+
+  if (document.body) boot();
+  else document.addEventListener('DOMContentLoaded', boot);
+})();
