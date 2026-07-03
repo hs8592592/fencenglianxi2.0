@@ -805,6 +805,9 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .kw-cn{font-size:24px;font-weight:700;color:#222;font-family:'Noto Serif SC',serif}
   .kw-en{font-size:11px;color:#9a9286}
   .cv-sentence{display:flex;flex-direction:column;gap:3px}
+  .s-line{margin-bottom:9px}
+  .s-line:last-child{margin-bottom:0}
+  .s-line .s-cn,.s-line .s-en{display:block}
   .cv-sentence .s-py{font-size:13px;color:#7d7466;font-weight:600}
   .cv-sentence .s-cn{font-size:26px;font-weight:700;color:#222;font-family:'Noto Serif SC',serif}
   .cv-sentence .s-en{font-size:14px;color:#9a9286;font-style:italic}
@@ -958,8 +961,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
       return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';
     }).join('');
     var s = KEYPOINTS.sentence;
-    document.getElementById('rvSentence').innerHTML =
-      '<span class=\"s-cn\">'+s.ruby+'</span><span class=\"s-en\">'+s.en+'</span>';
+    document.getElementById('rvSentence').innerHTML = sentenceHTML(s);
     hideNewScreens();
     document.getElementById('studentInfoScreen').style.display='none';
     document.getElementById('revisionScreen').style.display='block';
@@ -2973,13 +2975,39 @@ function submitStudentSurvey() {
   }
 }
 
+function sentenceHTML(o){
+  var rb=(o&&o.ruby)||'', en=(o&&o.en)||'';
+  function blk(cn,e){ return '<div class="s-line"><span class="s-cn">'+cn+'</span>'+(e?'<span class="s-en">'+e+'</span>':'')+'</div>'; }
+  var qi=rb.indexOf('？'); if(qi<0) qi=rb.indexOf('?');
+  if(qi>=0){
+    var after=rb.slice(qi+1).replace(/^\s+/,'');
+    if(after){
+      var q=rb.slice(0,qi+1);
+      var ei=en.indexOf('?');
+      var qe=ei>=0?en.slice(0,ei+1):en;
+      var ae=ei>=0?en.slice(ei+1).replace(/^\s+/,''):'';
+      return blk(q,qe)+blk(after,ae);
+    }
+  }
+  return blk(rb,en);
+}
+function fitTitle(){
+  var el=document.querySelector('.cv-h1-cn'); if(!el) return;
+  el.style.whiteSpace='nowrap'; el.style.fontSize='';
+  var p=el.parentElement, fs=parseFloat(getComputedStyle(el).fontSize), g=0;
+  while(el.scrollWidth>p.clientWidth && fs>13 && g<90){ fs-=1; el.style.fontSize=fs+'px'; g++; }
+}
+
 function renderCoverKeypoints(){
   var w=document.getElementById('cvWords');
   if(w){ w.innerHTML=KEYPOINTS.words.map(function(x){return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';}).join(''); }
   var sc=document.getElementById('cvSentence'), sen=KEYPOINTS.sentence;
-  if(sc){ sc.innerHTML='<span class=\"s-cn\">'+sen.ruby+'</span><span class=\"s-en\">'+sen.en+'</span>'; }
+  if(sc){ sc.innerHTML=sentenceHTML(sen); }
 }
 renderCoverKeypoints();
+fitTitle();
+window.addEventListener('resize', fitTitle);
+setTimeout(fitTitle,300);
 buildSetup();
 updateLessonNavLabel();
 </script>
