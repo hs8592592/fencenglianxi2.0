@@ -26,13 +26,55 @@
   #splash.hide{opacity:0;visibility:hidden}
 
   header.top{text-align:center;padding:34px 20px 8px}
-  .about{max-width:880px;margin:0 auto;padding:24px 28px;background:#FFFFFF;
+  .about{max-width:1120px;margin:0 auto;padding:24px 28px;background:#FFFFFF;
     border:1px solid var(--cream-d);border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
   .about .row{display:flex;align-items:flex-start;gap:13px;text-align:left;line-height:1.62}
   .about .row+.row{margin-top:14px;padding-top:14px;border-top:1px dashed var(--cream-d)}
   .about .ic{flex:0 0 auto;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;background:var(--jade);color:#5FAE46}
   .about .tx b{color:var(--ink);font-size:16px}
   .about .tx p{color:var(--sec);font-size:13.5px;margin-top:4px}
+  .about .en{margin-top:9px;padding:9px 0 2px 13px;border-left:3px solid #cfe3d8;color:#5f6e64;font-size:12.8px;line-height:1.62}
+  .about .en b{color:#2f4738;font-weight:700}
+  .about .en i{font-style:italic}
+  .about .en .lbl{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.12em;color:#8fbf9f;text-transform:uppercase;margin:0}
+  .about .en .en-h{cursor:pointer;display:flex;align-items:center;gap:7px;user-select:none;padding:1px 0}
+  .about .en .en-arrow{font-size:10px;color:#8fbf9f;transition:transform .2s}
+  .about .en.open .en-arrow{transform:rotate(90deg)}
+  .about .en .en-hint{font-size:10.5px;color:#b7c4ac;font-weight:600}
+  .about .en.open .en-hint{display:none}
+  .about .en .en-body{display:none;margin-top:8px}
+  .about .en.open .en-body{display:block}
+  .about .en .enul{margin:6px 0 0;padding-left:18px}
+  .about .en .enul li{margin-bottom:5px}
+  .about .hsknote{margin-top:12px;background:#F3F8E8;border-radius:12px;padding:11px 15px;font-size:12.5px;color:#5f6e54;line-height:1.62}
+  .about .hsknote b{color:#5FAE46}
+  .about .en-title{color:#5FAE46;font-weight:700;font-size:13.8px;margin-top:5px;line-height:1.5}
+  .about .en-title i{font-style:italic}
+  .about .detail{margin-top:11px}
+  .about .det-h{cursor:pointer;display:inline-flex;align-items:center;gap:7px;user-select:none;font-size:12px;font-weight:700;color:#7d8a80;background:#f2f6ef;padding:5px 13px;border-radius:20px}
+  .about .det-h:hover{background:#e8efe3}
+  .about .det-arrow{font-size:10px;color:#9bb0a0;transition:transform .2s}
+  .about .detail.open .det-arrow{transform:rotate(90deg)}
+  .about .det-body{display:none;margin-top:11px}
+  .about .detail.open .det-body{display:block}
+  .about .det-body>p{color:var(--sec);font-size:13.5px;line-height:1.62;margin:0}
+  .about .en-body-txt{margin-top:10px;padding-left:13px;border-left:3px solid #cfe3d8;color:#5f6e64;font-size:12.8px;line-height:1.62}
+  .about .en-body-txt b{color:#2f4738;font-weight:700}
+  .about .en-body-txt i{font-style:italic}
+  .about .en-body-txt .enul{margin:6px 0 0;padding-left:18px}
+  .about .en-body-txt .enul li{margin-bottom:5px}
+  .about .tip-big{margin-top:18px;padding-top:15px;border-top:1px dashed var(--cream-d);font-size:15.5px;font-weight:800;color:#3a4a3f;line-height:1.55;text-align:left}
+
+  .about .hsknote .hsk-h{cursor:pointer;display:flex;align-items:center;gap:7px;user-select:none}
+  .about .hsknote .hsk-h b{color:#5FAE46}
+  .about .hsknote .hsk-arrow{font-size:11px;color:#8fbf9f;transition:transform .2s}
+  .about .hsknote.open .hsk-arrow{transform:rotate(90deg)}
+  .about .hsknote .hsk-hint{font-size:11px;color:#b7c4ac;font-weight:600}
+  .about .hsknote.open .hsk-hint{display:none}
+  .about .hsknote .hsk-body{display:none;margin-top:9px}
+  .about .hsknote.open .hsk-body{display:block}
+
+
   .about .tiers{margin-top:8px;display:flex;flex-direction:column;gap:7px}
   .about .tier{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--sec);line-height:1.55}
   .about .tier .dot{flex:0 0 auto;margin-top:5px;width:9px;height:9px;border-radius:50%}
@@ -121,22 +163,25 @@
 
 <header class="top">
   <a class="home-back" href="index.html">← 返回 haoteach 首页</a>
-  <div class="about">
+        <div class="about">
     <div class="row">
       <div class="ic">📚</div>
-      <div class="tx"><b>基于《跨越丝路》教材，对标 CCG 与 HSK 3.0</b>
-      <p>习题取材于国际中文教材《跨越丝路》1–4 册，依据最新 2025–2026 版 CCG（Comprehensive Curriculum Guide，阿联酋教育部课程司发布的科目教学综合指南）与新 HSK 3.0 编写，科学分级、循序渐进。</p></div>
+      <div class="tx">
+        <b>基于《跨越丝路》教材，对标 CCG 与 HSK 3.0</b>
+        <div class="en-title">Built on the <i>Across the Silk Road</i> textbook series, aligned with the CCG and HSK&nbsp;3.0</div>
+        <div class="detail"><div class="det-h" onclick="toggleDet(this)"><span>展开详情 Details</span><span class="det-arrow">▸</span></div><div class="det-body"><p>习题取材于国际中文教材《跨越丝路》1–4 册——阿联酋教育部“中文百校项目”C2–C3 阶段的指定教材，依据最新 2025–2026 版 CCG（Comprehensive Curriculum Guide，阿联酋教育部课程司发布的科目教学综合指南）与新 HSK 3.0 标准编写，科学分级、循序渐进。</p><div class="en-body-txt">These exercises are drawn from the international Chinese-language series <i>Across the Silk Road</i> (《跨越丝路》), Books&nbsp;1–4 — the prescribed textbook for stages <b>C2–C3</b> of the UAE Ministry of Education’s “Chinese in 100 Schools” programme (中文百校项目). They are developed in accordance with the latest 2025–2026 <b>Comprehensive Curriculum Guide (CCG)</b> — the official subject-teaching framework issued by the Curriculum Department of the UAE Ministry of Education — and the new <b>HSK&nbsp;3.0</b> standard, ensuring a rigorous, level-by-level progression.</div><div class="hsknote" style="margin-top:13px"><b>What is HSK&nbsp;3.0?</b>&nbsp; HSK (<i>Hànyǔ Shuǐpíng Kǎoshì</i>) is the official international standardised test of Chinese-language proficiency, administered under the Ministry of Education of China. <b>HSK&nbsp;3.0</b> is its latest framework (2021) — the <i>Chinese Proficiency Grading Standards for International Chinese Language Education</i> — organising proficiency into <b>3 stages and 9 levels</b> spanning vocabulary, grammar, characters and communicative skills.<br><span style="color:#98917f">HSK（汉语水平考试）是中国教育部主管的国际中文水平标准化考试;HSK 3.0 为其 2021 年最新标准《国际中文教育中文水平等级标准》,分三级九等。</span></div></div></div>
+      </div>
     </div>
     <div class="row">
       <div class="ic">🪜</div>
-      <div class="tx"><b>三层进阶，精准分层</b>
-      <div class="tiers">
-        <div class="tier"><span class="dot t1"></span><span><b>Tier 1 · 迈向掌握：</b>聚焦《跨越丝路》Level 1–9 的基础知识（核心词汇与句型）。</span></div>
-        <div class="tier"><span class="dot t2"></span><span><b>Tier 2 · 达到掌握：</b>基础知识 + HSK 3.0；其中 Level 3 及以上增加一篇阅读理解。</span></div>
-        <div class="tier"><span class="dot t3"></span><span><b>Tier 3 · 深度掌握：</b>基础知识 + HSK 3.0 + 阅读理解 + 开放性与批判性思维题，围绕中阿文化与习俗的了解和对比。其中 Level 1–4 的批判性思维题分为 C2、C3 两个等级。</span></div>
-      </div></div>
+      <div class="tx">
+        <b>三层进阶，精准分层</b>
+        <div class="en-title">A three-tier progression, precisely differentiated</div>
+        <div class="detail"><div class="det-h" onclick="toggleDet(this)"><span>展开详情 Details</span><span class="det-arrow">▸</span></div><div class="det-body"><div class="tiers"><div class="tier"><span class="dot t1"></span><span><b>Tier 1 · 迈向掌握：</b>聚焦《跨越丝路》Level 1–9 的基础知识（核心词汇与句型）。</span></div><div class="tier"><span class="dot t2"></span><span><b>Tier 2 · 达到掌握：</b>基础知识 + HSK 3.0；其中 Level 3 及以上增加一篇阅读理解。</span></div><div class="tier"><span class="dot t3"></span><span><b>Tier 3 · 深度掌握：</b>基础知识 + HSK 3.0 + 阅读理解 + 开放性与批判性思维题，围绕中阿文化与习俗的了解和对比。其中 Level 1–4 的批判性思维题分为 C2、C3 两个等级。</span></div></div><div class="en-body-txt"><ul class="enul"><li><b>Tier&nbsp;1 · Building toward mastery</b> — focuses on the core knowledge (key vocabulary and sentence patterns) of <i>Across the Silk Road</i>, Levels&nbsp;1–9.</li><li><b>Tier&nbsp;2 · Reaching mastery</b> — core knowledge plus HSK&nbsp;3.0 practice; from Level&nbsp;3 onward, a reading-comprehension passage is added.</li><li><b>Tier&nbsp;3 · Mastery in depth</b> — core knowledge, HSK&nbsp;3.0, reading comprehension, and open-ended and critical-thinking tasks that explore and compare Chinese and Emirati culture and customs. For Levels&nbsp;1–4, the critical-thinking tasks are further divided into two grades, <b>C2</b> and <b>C3</b>.</li></ul></div></div></div>
+      </div>
     </div>
-    <div style="margin-top:16px;padding-top:14px;border-top:1px dashed var(--cream-d);font-size:12.5px;color:#8A959C;line-height:1.6;text-align:left">💡 友情提示：本平台 Level 1–8 的分级，是 2028 年以后执行的标准分级。</div></div>
+    <div class="tip-big">💡 友情提示：本平台 Level 1–8 的分级，是 2028 年以后执行的标准分级。</div>
+  </div>
 </header>
 
 <nav class="levelbar" id="levelbar"></nav>
@@ -145,6 +190,9 @@
 <div id="toast"></div>
 
 <script>
+function toggleHsk(el){el.parentElement.classList.toggle('open');}
+function toggleDet(el){el.parentElement.classList.toggle('open');}
+function toggleEn(el){el.parentElement.classList.toggle('open');}
 const DOMAIN="https://haoteach.com";
 const LEVELS=[{"num": "1", "items": [{"f": "fenceng1a1", "u": "1A-L1", "zh": "拼音与汉字", "en": "Pinyin and Characters"}, {"f": "fenceng1a2", "u": "1A-L2", "zh": "你好！", "en": "Hello!"}, {"f": "fenceng1a3", "u": "1A-L3", "zh": "我叫哈桑。", "en": "I am Hassan."}, {"f": "fenceng1a4", "u": "1A-L4", "zh": "这是九。", "en": "This is nine."}, {"f": "fenceng1a5", "u": "1A-L5", "zh": "我十二岁。", "en": "I am 12 years old."}, {"f": "fenceng1a6", "u": "1A-L6", "zh": "今天星期四。", "en": "Today is Thursday."}, {"f": "fenceng1a7", "u": "1A-L7", "zh": "这是阿联酋。", "en": "This is the UAE."}, {"f": "fenceng1a8", "u": "1A-L8", "zh": "我是阿联酋人。", "en": "I am Emirati."}, {"f": "fenceng1a9", "u": "1A-L9", "zh": "上海在中国。", "en": "Shanghai is in China."}, {"f": "fenceng1b1", "u": "1B-L1", "zh": "她是我妹妹。", "en": "She is my younger sister."}], "count": 10}, {"num": "2", "items": [{"f": "fenceng1b2", "u": "1B-L2", "zh": "我有两个哥哥。", "en": "I have two older brothers."}, {"f": "fenceng1b3", "u": "1B-L3", "zh": "我爱我家。", "en": "I love my family."}, {"f": "fenceng1b4", "u": "1B-L4", "zh": "现在几点？", "en": "What time is it now?"}, {"f": "fenceng1b5", "u": "1B-L5", "zh": "今天二月一号。", "en": "Today is February 1st."}, {"f": "fenceng1b6", "u": "1B-L6", "zh": "祝你生日快乐！", "en": "Happy birthday to you!"}, {"f": "fenceng1c1", "u": "1C-L1", "zh": "我是学生。", "en": "I am a student."}, {"f": "fenceng1c2", "u": "1C-L2", "zh": "我六点半起床。", "en": "I wake up at 6:30."}, {"f": "fenceng1c3", "u": "1C-L3", "zh": "我的一天。", "en": "My day."}, {"f": "fenceng1c4", "u": "1C-L4", "zh": "我喜欢唱歌。", "en": "I like singing."}, {"f": "fenceng1c5", "u": "1C-L5", "zh": "你的爱好是什么？", "en": "What is your hobby?"}], "count": 10}, {"num": "3", "items": [{"f": "fenceng1c6", "u": "1C-L6", "zh": "我会说汉语。", "en": "I can speak Chinese."}, {"f": "fenceng2a1", "u": "2A-L1", "zh": "今天太热了！", "en": "It's so hot today!"}, {"f": "fenceng2a2", "u": "2A-L2", "zh": "今天下雨。", "en": "It's raining today."}, {"f": "fenceng2a3", "u": "2A-L3", "zh": "北京的秋天非常美。", "en": "Autumn in Beijing is very beautiful."}, {"f": "fenceng2a4", "u": "2A-L4", "zh": "你喜欢什么颜色？", "en": "What color do you like?"}, {"f": "fenceng2a5", "u": "2A-L5", "zh": "我们去奇迹花园了。", "en": "We went to the Miracle Garden."}, {"f": "fenceng2a6", "u": "2A-L6", "zh": "我周末去公园玩了。", "en": "I went to the park on the weekend."}, {"f": "fenceng2a7", "u": "2A-L7", "zh": "我在学习。", "en": "I am studying."}, {"f": "fenceng2a8", "u": "2A-L8", "zh": "我两点有中文课。", "en": "I have a Chinese class at 2 o'clock."}, {"f": "fenceng2a9", "u": "2A-L9", "zh": "我今天很忙。", "en": "I am very busy today."}], "count": 10}, {"num": "4", "items": [{"f": "fenceng2b1", "u": "2B-L1", "zh": "你们想喝什么？", "en": "What would you like to drink?"}, {"f": "fenceng2b2", "u": "2B-L2", "zh": "我喜欢吃中国菜。", "en": "I like eating Chinese food."}, {"f": "fenceng2b3", "u": "2B-L3", "zh": "你们早饭一般吃什么？", "en": "What do you usually have for breakfast?"}, {"f": "fenceng2b4", "u": "2B-L4", "zh": "我现在在家上课。", "en": "I am having class at home now."}, {"f": "fenceng2b5", "u": "2B-L5", "zh": "请问你们要什么？", "en": "Excuse me, what would you like?"}, {"f": "fenceng2b6", "u": "2B-L6", "zh": "我买了一部手机。", "en": "I bought a mobile phone."}, {"f": "fenceng2c1", "u": "2C-L1", "zh": "我想买一双鞋子。", "en": "I want to buy a pair of shoes."}, {"f": "fenceng2c2", "u": "2C-L2", "zh": "一共七百三十八元。", "en": "That's 738 yuan in total."}, {"f": "fenceng2c3", "u": "2C-L3", "zh": "苹果多少钱一斤？", "en": "How much is a jin of apples?"}, {"f": "fenceng2c4", "u": "2C-L4", "zh": "我坐校车去学校。", "en": "I take the school bus to school."}], "count": 10}, {"num": "5", "items": [{"f": "fenceng2c5", "u": "2C-L5", "zh": "我家在学校旁边。", "en": "My home is next to the school."}, {"f": "fenceng2c6", "u": "2C-L6", "zh": "我们是坐火车去的。", "en": "We went there by train."}, {"f": "fenceng3a1", "u": "3A-L1", "zh": "你周末常常做什么？", "en": "What do you often do on weekends?"}, {"f": "fenceng3a2", "u": "3A-L2", "zh": "洗手间在图书馆里边。", "en": "The restroom is inside the library."}, {"f": "fenceng3a3", "u": "3A-L3", "zh": "请问，去地铁站怎么走？", "en": "Excuse me, how do I get to the subway station?"}, {"f": "fenceng3a4", "u": "3A-L4", "zh": "我想去上海旅行。", "en": "I want to travel to Shanghai."}, {"f": "fenceng3a5", "u": "3A-L5", "zh": "这件比那件贵一百块。", "en": "This one is 100 yuan more expensive than that one."}, {"f": "fenceng3a6", "u": "3A-L6", "zh": "你们看过《功夫熊猫》吗？", "en": "Have you watched Kung Fu Panda?"}, {"f": "fenceng3a7", "u": "3A-L7", "zh": "动物园里有两只熊猫。", "en": "There are two pandas in the zoo."}, {"f": "fenceng3a8", "u": "3A-L8", "zh": "它的眼睛很大。", "en": "Its eyes are very big."}], "count": 10}, {"num": "6", "items": [{"f": "fenceng3a9", "u": "3A-L9", "zh": "我头疼。", "en": "I have a headache."}, {"f": "fenceng3b1", "u": "3B-L1", "zh": "你弹得真好！", "en": "You play so well!"}, {"f": "fenceng3b2", "u": "3B-L2", "zh": "她说汉语说得很好。", "en": "She speaks Chinese very well."}, {"f": "fenceng3b3", "u": "3B-L3", "zh": "别担心，我帮你复习。", "en": "Don't worry, I'll help you review."}, {"f": "fenceng3b4", "u": "3B-L4", "zh": "我们一起去哈利法塔吧。", "en": "Let's go to Burj Khalifa together."}, {"f": "fenceng3b5", "u": "3B-L5", "zh": "哈利法塔晚上最漂亮。", "en": "Burj Khalifa is most beautiful at night."}, {"f": "fenceng3b6", "u": "3B-L6", "zh": "春节要到了。", "en": "Spring Festival is coming."}, {"f": "fenceng3c1", "u": "3C-L1", "zh": "熊猫胖胖的，圆圆的。", "en": "The panda is chubby and round."}, {"f": "fenceng3c2", "u": "3C-L2", "zh": "我们参观了三个小时。", "en": "We visited for three hours."}, {"f": "fenceng3c3", "u": "3C-L3", "zh": "能便宜一点儿吗？", "en": "Can it be a little cheaper?"}], "count": 10}, {"num": "7", "items": [{"f": "fenceng3c4", "u": "3C-L4", "zh": "我找到了！", "en": "I found it!"}, {"f": "fenceng3c5", "u": "3C-L5", "zh": "你怎么才来？", "en": "Why are you so late?"}, {"f": "fenceng3c6", "u": "3C-L6", "zh": "我穿着红色的上衣。", "en": "I am wearing a red top."}, {"f": "fenceng4a1", "u": "4A-L1", "zh": "大家都很棒！", "en": "Everyone is great!"}, {"f": "fenceng4a2", "u": "4A-L2", "zh": "北边是体育馆。", "en": "The gym is to the north."}, {"f": "fenceng4a3", "u": "4A-L3", "zh": "我可以借一下你的铅笔吗？", "en": "May I borrow your pencil?"}, {"f": "fenceng4a4", "u": "4A-L4", "zh": "我请你来我家吃饭。", "en": "I'd like to invite you to my home for dinner."}, {"f": "fenceng4a5", "u": "4A-L5", "zh": "欢迎你！快进来吧。", "en": "Welcome! Come on in."}, {"f": "fenceng4a6", "u": "4A-L6", "zh": "又酸又甜，味道很好。", "en": "Sweet and sour, it tastes great."}, {"f": "fenceng4a7", "u": "4A-L7", "zh": "老师会通知我们。", "en": "The teacher will let us know."}], "count": 10}, {"num": "8", "items": [{"f": "fenceng4a8", "u": "4A-L8", "zh": "我们一边参观一边拍照。", "en": "We took photos while visiting."}, {"f": "fenceng4a9", "u": "4A-L9", "zh": "你的汉语越来越好了。", "en": "Your Chinese is getting better and better."}, {"f": "fenceng4b1", "u": "4B-L1", "zh": "他拍的短视频酷极了！", "en": "The short video he made is super cool!"}, {"f": "fenceng4b2", "u": "4B-L2", "zh": "我正在看他拍的微电影呢。", "en": "I'm watching the short film he made."}, {"f": "fenceng4b3", "u": "4B-L3", "zh": "你们在迪拜还是在阿布扎比？", "en": "Are you in Dubai or Abu Dhabi?"}, {"f": "fenceng4b4", "u": "4B-L4", "zh": "写汉字跟画画一样有趣。", "en": "Writing characters is as fun as drawing."}, {"f": "fenceng4b5", "u": "4B-L5", "zh": "只要你努力，就一定能学好。", "en": "As long as you work hard, you'll surely learn it well."}, {"f": "fenceng4b6", "u": "4B-L6", "zh": "有空的时候我也看看。", "en": "I'll take a look when I have time."}, {"f": "fenceng4c1", "u": "4C-L1", "zh": "我们不但是同学，而且是最好的朋友。", "en": "We are not only classmates but also best friends."}, {"f": "fenceng4c2", "u": "4C-L2", "zh": "孩子送的礼物妈妈都喜欢吧？", "en": "Mothers love all the gifts their children give, right?"}, {"f": "fenceng4c3", "u": "4C-L3", "zh": "我们从早到晚都在一起。", "en": "We are together from morning till night."}, {"f": "fenceng4c4", "u": "4C-L4", "zh": "我们一到假期就去旅行。", "en": "We travel as soon as the holidays begin."}, {"f": "fenceng4c5", "u": "4C-L5", "zh": "如果八月参加夏令营，我就七月去旅行。", "en": "If I join the summer camp in August, I'll travel in July."}, {"f": "fenceng4c6", "u": "4C-L6", "zh": "为我们的理想加油！", "en": "Let's strive for our dreams!"}], "count": 8}];
 const PBG={"1": "#cfe8c2", "2": "#c2e6e2", "3": "#dbe8be", "4": "#f2e0b0", "5": "#cdd9f2", "6": "#ecd4bf", "7": "#ddccf0", "8": "#f0c9d6"};
