@@ -34,6 +34,9 @@
   .ag-field label{display:block;font-size:12.5px;font-weight:600;color:#6b6659;margin-bottom:5px}\
   .ag-field input{width:100%;padding:11px 13px;border:1.5px solid #e3ddd0;border-radius:10px;font-size:15px;outline:none;font-family:inherit}\
   .ag-field input:focus{border-color:#43A047}\
+  .ag-pw{position:relative}\
+  .ag-pw input{padding-right:42px}\
+  .ag-eye{position:absolute;right:9px;top:50%;transform:translateY(-50%);border:none;background:none;cursor:pointer;font-size:16px;opacity:.55;padding:4px;line-height:1}\
   .ag-err{font-size:13px;color:#c0392b;min-height:18px;margin-bottom:8px;line-height:1.35}\
   .ag-submit{width:100%;padding:13px;border:none;border-radius:11px;background:#1a3a2b;color:#fff;font-size:15px;font-weight:700;cursor:pointer}\
   .ag-submit:hover{background:#43A047}\
@@ -63,7 +66,7 @@
       '<div class="ag-field"><label>\u90ae\u7bb1 Email</label>' +
       '<input type="email" id="agEmail" placeholder="you@example.com" autocomplete="username"></div>' +
       '<div class="ag-field"><label>\u5bc6\u7801 Password</label>' +
-      '<input type="password" id="agPass" placeholder="\u5bc6\u7801 Password" autocomplete="current-password"></div>' +
+      '<div class="ag-pw"><input type="password" id="agPass" placeholder="\u5bc6\u7801 Password" autocomplete="current-password"><button type="button" class="ag-eye" id="agEye" tabindex="-1">\ud83d\udc41</button></div></div>' +
       '<div class="ag-err" id="agErr"></div>' +
       '<button class="ag-submit" id="agSubmit" type="button">\u767b\u5f55 Sign in</button>' +
       '<a class="ag-link" id="agForgot">\u5fd8\u8bb0\u5bc6\u7801 Forgot password?</a>' +
@@ -153,6 +156,7 @@
     q('agForgot').onclick = function (e) { e.preventDefault(); forgot(); };
     q('agPass').addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
     q('agGOut').onclick = logout;
+    q('agEye').onclick = function(){ var i=q('agPass'); if(i.type==='password'){i.type='text';this.textContent='\ud83d\ude48';}else{i.type='password';this.textContent='\ud83d\udc41';} };
   }
 
   async function start() {
