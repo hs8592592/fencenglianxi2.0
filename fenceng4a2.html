@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>跨越丝路分层习题生成器 · 4A Lesson 2 北边是体育馆</title>
+<title>跨越丝路分层习题生成器 · 4A-L2 北边是体育馆。</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -58,14 +58,17 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 
 /* ─── QUIZ SCREEN ─── */
 .quiz { display: none; max-width: 860px; margin: 0 auto; padding: 1.5rem; }
-.quiz-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
-.tier-badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.quiz-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+.qh-left { display: flex; align-items: center; gap: 8px; justify-self: start; }
+.qh-right { display: flex; align-items: center; gap: 12px; justify-self: end; }
+.qh-center { display: flex; flex-direction: column; align-items: center; gap: 4px; justify-self: center; }
+.tier-badge { padding: 11px 28px; border-radius: 26px; font-size: 23px; font-weight: 800; }
+.q-counter { font-size: 14px; color: var(--muted); }
+.timer-wrap { display: flex; align-items: center; gap: 8px; font-size: 23px; font-weight: 800; }
+.timer-wrap svg { width: 26px; height: 26px; }
 .tb-t1 { background: var(--t1l); color: var(--t1); } .tb-t2 { background: var(--t2l); color: var(--t2); } .tb-t3 { background: var(--t3l); color: var(--t3); }
-.q-counter { font-size: 13px; color: var(--muted); }
-.timer-wrap { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; }
-.timer-wrap svg { width: 16px; height: 16px; }
 .timer-warn { color: #c9a227; } .timer-urgent { color: var(--wrong); }
-.exit-btn { padding: 5px 12px; border-radius: 20px; border: 1.5px solid var(--border); background: none; font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; }
+.exit-btn { padding: 10px 20px; border-radius: 22px; border: 1.5px solid var(--border); background: none; font-size: 15px; font-weight: 700; color: var(--muted); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; white-space: nowrap; }
 .exit-btn:hover { border-color: var(--wrong); color: var(--wrong); background: var(--wrongbg); }
 .progress { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 2px; transition: width .4s ease; }
@@ -267,21 +270,41 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .pinyin-switch input:checked + .pinyin-slider:before { transform: translateX(16px); }
 
 /* ─── RESULT SCREEN ─── */
-.result { display: none; max-width: 620px; margin: 0 auto; padding: 2rem 1.5rem; text-align: center; }
-.result-ring { width: 110px; height: 110px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 36px; font-weight: 700; }
+.result { display: none; max-width: 960px; margin: 0 auto; padding: 1.4rem 1.5rem; text-align: center; }
+.r-hero { display: flex; align-items: center; gap: 30px; background: #fff; border-radius: 22px; padding: 32px 36px; box-shadow: 0 8px 30px rgba(0,0,0,.06); text-align: left; margin-bottom: 16px; }
+.r-hero-left { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: none; }
+.r-hero-right { flex: 1; min-width: 0; }
+.result-ring { width: 108px; height: 108px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0; font-size: 36px; font-weight: 700; flex: none; }
+.result h2 { font-size: 28px; font-weight: 800; margin: 0 0 6px; text-align: left; }
+.stars { font-size: 30px; margin: 0; letter-spacing: 4px; }
+.result-msg { background: transparent; border: none; border-radius: 0; padding: 0; font-size: 16.5px; text-align: left; line-height: 1.65; margin: 10px 0 0; color: var(--text); }
+.result-msg strong { font-weight: 700; }
 .ring-t1 { background: var(--t1l); color: var(--t1); border: 3px solid var(--t1m); }
 .ring-t2 { background: var(--t2l); color: var(--t2); border: 3px solid var(--t2m); }
 .ring-t3 { background: var(--t3l); color: var(--t3); border: 3px solid var(--t3m); }
-.result h2 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
-.result .r-sub { font-size: 14px; color: var(--muted); margin-bottom: 1.5rem; }
-.stars { font-size: 30px; margin-bottom: 1rem; letter-spacing: 4px; }
-.result-msg { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; font-size: 14px; text-align: left; line-height: 1.7; margin-bottom: 1.25rem; color: var(--text); }
-.result-msg strong { font-weight: 600; }
-.result-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px auto; max-width: 600px; }
-.btn-retry { padding: 12px 28px; background: #1c2b4a; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-.btn-back { padding: 12px 28px; background: #f5f3f0; border: 1.5px solid #c9c4bc; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--text); }
+.result .r-sub { font-size: 15px; color: var(--muted); margin: 0; text-align: left; }
+.result-btns { display: flex; flex-direction: column; gap: 10px; margin: 16px auto; max-width: 960px; }
+.rb-wide { width: 100%; }
+.rb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-review-q { padding: 14px 18px; background: #EAF1FB; border: 1.5px solid #3E7BD6; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #2766CC; line-height: 1.3; }
+.btn-remedial-show { padding: 14px 18px; background: #EDF6EC; border: 1.5px solid #43A047; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #2e8b3d; line-height: 1.3; }
+.btn-review-q:hover, .btn-remedial-show:hover, .btn-download-remedial:hover { filter: brightness(.97); }
+.btn-download:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.remedial-inline { text-align: left; background: #fbfbfa; border: 1.5px solid #e3e0d8; border-radius: 14px; padding: 18px 20px; }
+.remedial-inline-head { font-weight: 800; font-size: 16px; margin-bottom: 12px; color: #1a6637; }
+.remedial-inline .remedial-q { margin-bottom: 20px; }
+.remedial-inline .remedial-q-label { font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }
+.remedial-inline .remedial-q-stem { font-size: 15px; font-family: 'Noto Serif SC', serif; line-height: 1.7; margin-bottom: 9px; }
+.remedial-inline .remedial-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.remedial-inline .remedial-choice { padding: 9px 13px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 13px; font-family: 'Noto Serif SC', serif; background: #fff; }
+.remedial-inline .fill-input { width: 100%; border: 1.5px solid #aaa; border-radius: 8px; padding: 9px; font-size: 14px; }
+.btn-retry { padding: 15px 28px; background: var(--tier-dark,#1c2b4a); color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 800; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-back { padding: 15px 28px; background: var(--tier-dark,#1c2b4a); border: none; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #fff; }
+.btn-retry:hover, .btn-back:hover { filter: brightness(1.12); }
 .btn-review { padding: 12px 28px; background: var(--t3l); border: 1.5px solid var(--t3m); border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--t3); }
-.btn-download { padding: 12px 28px; background: var(--t2l); border: 2px solid var(--t2m); border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--t2); }
+.btn-download { padding: 16px 28px; background: var(--tier-c,#F2962F); border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #fff; box-shadow: 0 5px 14px rgba(0,0,0,.13); }
+.btn-pdf { padding: 16px 28px; background: var(--tier-light,#FDEBD8); border: 2px solid var(--tier-c,#F2962F); border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--tier-dark,#C26A12); }
+.btn-pdf:hover { filter: brightness(.97); }
 .btn-print { padding: 12px 28px; background: #f3e8ff; border: 1.5px solid #c4b5fd; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #6d28d9; }
 .btn-print:hover { opacity: .88; }
 
@@ -303,30 +326,30 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 
 /* ─── STUDENT INFO SCREEN ─── */
 .student-info-screen { display: none; max-width: 580px; margin: 0 auto; padding: 3rem 1.5rem; }
-.si-card { background: var(--card); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem 2rem 1.75rem; }
-.si-title { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
-.si-subtitle { font-size: 13px; color: var(--muted); margin-bottom: 1.75rem; }
-.si-field { margin-bottom: 1rem; }
-.si-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; display: block; }
-.si-input { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; padding: 13px 16px; font-size: 16px; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); outline: none; transition: border-color .15s; }
-.si-input:focus { border-color: var(--text); background: var(--card); }
+.si-card { background:#fff; border:none; border-radius:24px; box-shadow:0 12px 40px rgba(0,0,0,.10); border-top:7px solid var(--tier-c,#F2962F); padding:32px 30px 26px; text-align:center; }
+.si-title { font-size:34px; font-weight:800; color:var(--tier-c,#F2962F); line-height:1.1; margin-bottom:6px; }
+.si-subtitle { font-size:14px; color:#777; margin-bottom:24px; }
+.si-field { margin-bottom:14px; text-align:left; }
+.si-label { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 6px; display: block; }
+.si-input { width: 100%; box-sizing:border-box; border: 1.5px solid var(--border); border-radius: 10px; padding: 13px 16px; font-size: 16px; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); outline: none; transition: border-color .15s; }
+.si-input:focus { border-color: var(--tier-c,#F2962F); background: var(--card); }
 .si-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 520px) { .si-row { grid-template-columns: 1fr; } }
-.si-note { font-size: 12px; color: var(--muted); margin-top: 0.75rem; line-height: 1.5; padding: 10px 12px; background: var(--bg); border-radius: 8px; }
-.si-start-btn { width: 100%; margin-top: 1.5rem; padding: 16px; background: var(--text); color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity .15s; }
-.si-start-btn:hover { opacity: .88; }
-.si-back-link { text-align: center; margin-top: 1rem; font-size: 13px; color: var(--muted); cursor: pointer; text-decoration: underline; }
-.si-back-link:hover { color: var(--text); }
+.si-note { font-size:13px; color:#3a3a3a; margin:4px 0 24px; line-height:1.6; padding:14px 16px; background:var(--tier-light,#FDEBD8); border-radius:14px; text-align:left; }
+.si-start-btn { display:inline-flex; width:auto; margin-top:0; padding:16px 54px; background:var(--tier-c,#F2962F); color:#fff; border:none; border-radius:14px; font-size:19px; font-weight:800; cursor:pointer; font-family:'DM Sans',sans-serif; align-items:center; justify-content:center; gap:10px; box-shadow:0 6px 18px rgba(0,0,0,.13); transition:.15s; }
+.si-start-btn:hover { filter:brightness(1.06); transform:translateY(-2px); }
+.si-back-link { text-align: center; margin-top: 16px; font-size: 14px; color: #999; cursor: pointer; }
+.si-back-link:hover { color: #666; }
 
 /* ─── SOUND TOGGLE ─── */
 .sound-toggle-wrap { display: none; /* hidden; button moved into quiz-header */ }
-.sound-toggle-btn { background: none; border: 1.5px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--muted); transition: all .15s; display: flex; align-items: center; gap: 5px; }
+.sound-toggle-btn { background: none; border: 1.5px solid var(--border); border-radius: 22px; padding: 10px 18px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--muted); transition: all .15s; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .sound-toggle-btn:hover { border-color: #aaa; color: var(--text); }
 
 /* ─── ANALYTICS PANEL (replaces review-panel) ─── */
-.analytics-panel { text-align: left; margin-top: 1.5rem; }
-.analytics-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
-.analytics-section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 7px; }
+.analytics-panel { text-align: left; margin-top: 0; }
+.analytics-section { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.8rem; margin-bottom: 0; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
+.analytics-section-title { font-size: 14.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: .9rem; display: flex; align-items: center; gap: 7px; }
 .analytics-q-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); }
 .analytics-q-row:last-child { border-bottom: none; }
 .analytics-q-icon { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
@@ -341,12 +364,12 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .aq-right-tag { background: var(--correctbg); color: var(--correct); }
 .aq-wrong-tag { background: var(--wrongbg); color: var(--wrong); }
 .aq-user-tag { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
-.strength-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.strength-label { font-size: 13px; min-width: 90px; color: var(--text); }
-.strength-track { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+.strength-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.strength-label { font-size: 15px; min-width: 100px; color: var(--text); }
+.strength-track { flex: 1; height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; }
 .strength-fill-correct { height: 100%; background: var(--correct); border-radius: 5px; }
 .strength-fill-wrong { height: 100%; background: var(--wrong); border-radius: 5px; }
-.analytics-insight { font-size: 13px; line-height: 1.7; color: var(--text); }
+.analytics-insight { font-size: 15px; line-height: 1.7; color: var(--text); }
 .analytics-insight strong { color: var(--t1); }
 .remedial-q { background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
 .remedial-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--t1); margin-bottom: 6px; }
@@ -358,7 +381,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .remedial-choice.rc-correct { background: var(--correctbg); border-color: var(--correct); color: var(--correct); }
 .remedial-choice.rc-wrong { background: var(--wrongbg); border-color: var(--wrong); color: var(--wrong); }
 .remedial-choice:disabled { cursor: default; }
-.btn-download-remedial { padding: 12px 28px; background: #eaf7ed; border: 2px solid #2d8a4e; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #1a6637; }
+.btn-download-remedial { padding: 14px 14px; background: #EDF6EC; border: 1.5px solid #43A047; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; color: #2e8b3d; line-height: 1.3; }
 .btn-download-remedial:hover { opacity: .88; }
 
 /* ─── STUDENT SURVEY (result page bottom) ─── */
@@ -431,9 +454,12 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 
   /* Quiz screen */
   .quiz { padding: 1rem 0.875rem; }
-  .quiz-header { flex-wrap: wrap; gap: 6px; }
-  .q-counter { flex: 1; text-align: center; }
-  .timer-wrap { font-size: 13px; }
+  .quiz-header { grid-template-columns: 1fr auto 1fr; gap: 6px; }
+  .qh-right { flex-direction: column; align-items: flex-end; gap: 5px; }
+  .sound-toggle-btn, .exit-btn { padding: 7px 11px; font-size: 12px; }
+  .tier-badge { font-size: 17px; padding: 8px 18px; }
+  .timer-wrap { font-size: 18px; }
+  .timer-wrap svg { width: 20px; height: 20px; }
 
   /* Question card */
   .q-card { padding: 1rem; }
@@ -458,10 +484,15 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 
   /* Result screen */
   .result { padding: 1.25rem 1rem; }
-  .result-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px auto; max-width: 600px; }
+  .result-btns { display: flex; flex-direction: column; gap: 10px; margin: 16px auto; max-width: 600px; }
   .result-btns button { width: 100%; text-align: center; }
-  .result h2 { font-size: 19px; }
-  .result-ring { width: 90px; height: 90px; font-size: 28px; }
+  .rb-row { grid-template-columns: 1fr; }
+  .remedial-inline .remedial-choices { grid-template-columns: 1fr; }
+  .result h2 { font-size: 20px; text-align: center; }
+  .result-ring { width: 84px; height: 84px; font-size: 26px; }
+  .r-hero { flex-direction: column; gap: 12px; text-align: center; padding: 20px 18px; }
+  .r-hero-right { text-align: center; }
+  .result .r-sub, .result-msg { text-align: center; }
 
   /* Feedback card */
   .feedback-card { padding: 1.25rem 1rem 1rem; }
@@ -720,8 +751,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .confirm-btn:hover { background: var(--bg); }
 .confirm-btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
 .confirm-btn.primary:hover { opacity: .88; background: var(--text); }
-    .gl{ color:#6b7280; font-size:.82em; }
-  </style>
+</style>
 </head>
 <body>
 
@@ -737,13 +767,230 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 </div></div>
 
 <!-- ═══════════════ SETUP ═══════════════ -->
-<div class="setup" id="setup">
+<!-- ===== 新流程 第1屏:课程封面(1:1复刻) ===== -->
+<style>
+  #coverScreen{max-width:1180px;margin:0 auto;padding:10px 16px 40px}
+  .cv-home-wrap{text-align:center;margin-bottom:16px}
+  .cv-panda{height:112px;width:auto;pointer-events:none;user-select:none;flex:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14))}
+  @media (max-width:640px){ .cv-panda{height:64px} }
+  .cv-home-btn{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:800;text-decoration:none;background:#EC8AA0;border-radius:999px;padding:12px 26px;box-shadow:0 5px 16px rgba(236,138,160,.30);transition:.15s}
+  .cv-home-btn:hover{background:#e57a92;box-shadow:0 7px 20px rgba(236,138,160,.4);transform:translateY(-1px)}
+  .cv-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:6px 0 18px}
+  .cv-navbtn{display:inline-flex;align-items:center;gap:9px;background:#fff;border:none;border-radius:999px;
+    padding:13px 22px;font-size:15px;font-weight:800;color:#1a3a5c;cursor:pointer;font-family:inherit;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.15s;white-space:nowrap}
+  .cv-navbtn:hover{box-shadow:0 6px 20px rgba(0,0,0,.13);transform:translateY(-1px)}
+  .cv-h1{flex:1;text-align:center;font-size:clamp(26px,4.6vw,46px);font-weight:900;color:#1a3a5c;letter-spacing:-.01em}
+  .cv-h1-py{display:block;font-size:.4em;font-weight:600;color:#7a93ad;letter-spacing:.03em;margin-bottom:3px;line-height:1.2}
+  .cv-h1-cn{display:block;line-height:1.5}
+  .cv-h1-cn ruby{margin:0 1px}
+  .cv-h1-cn rt{font-size:.38em;font-weight:600;color:#7a93ad;letter-spacing:0}
+  .s-cn rt{font-size:.4em;font-weight:600;color:#8aa0b0;letter-spacing:0}
+  .cv-h1-en{display:block;font-size:.5em;font-weight:700;color:#3a5a7c;margin-top:5px;letter-spacing:0;line-height:1.2}
+  .cv-keypoints{background:#fff;border-radius:26px;padding:22px 26px 26px;box-shadow:0 8px 30px rgba(0,0,0,.06);margin-bottom:26px}
+  .cv-kp-title{text-align:center;font-size:20px;font-weight:800;color:#1a3a5c;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px}
+  .cv-kp-title::before,.cv-kp-title::after{content:"";width:5px;height:5px;border-radius:50%;background:#1a3a5c;display:inline-block}
+  .cv-kp-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:18px}
+  .cv-panel{border-radius:18px;padding:18px 20px}
+  .cv-panel.kw{background:#EAF1FB}
+  .cv-panel.st{background:#EDF6EC}
+  .cv-panel-hd{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;padding-bottom:11px;margin-bottom:13px;border-bottom:1px dashed rgba(0,0,0,.12)}
+  .cv-panel.kw .cv-panel-hd{color:#2766CC}
+  .cv-panel.st .cv-panel-hd{color:#3A9E4A}
+  .cv-ico{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;flex:none}
+  .cv-panel.kw .cv-ico{background:#2766CC}
+  .cv-panel.st .cv-ico{background:#3A9E4A}
+  .cv-words{display:flex;flex-wrap:wrap;gap:12px 20px}
+  .kw-item{display:inline-flex;flex-direction:column;align-items:center;line-height:1.2}
+  .kw-py{font-size:12px;color:#7d7466;font-weight:600}
+  .kw-cn{font-size:24px;font-weight:700;color:#222;font-family:'Noto Serif SC',serif}
+  .kw-en{font-size:11px;color:#9a9286}
+  .cv-sentence{display:flex;flex-direction:column;gap:3px}
+  .s-line{margin-bottom:9px}
+  .s-line:last-child{margin-bottom:0}
+  .s-line .s-cn,.s-line .s-en{display:block}
+  .cv-sentence .s-py{font-size:13px;color:#7d7466;font-weight:600}
+  .cv-sentence .s-cn{font-size:26px;font-weight:700;color:#222;font-family:'Noto Serif SC',serif}
+  .cv-sentence .s-en{font-size:14px;color:#9a9286;font-style:italic}
+  .cv-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  .cv-tier-card{width:100%;cursor:pointer;border:none;padding:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.14);transition:.18s;display:flex;flex-direction:column;align-items:stretch;font-family:inherit;text-align:center}
+  .cv-tier-card:hover{transform:translateY(-4px)}
+  .cv-tc-head{position:relative;overflow:hidden;width:100%;height:172px;box-sizing:border-box;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+  .cv-tc-blob{position:absolute;border-radius:50%}
+  .cv-tc-badge{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.25)}
+  .cv-tc-badge>span{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .cv-tc-txt{position:relative;z-index:1;text-align:center}
+  .cv-tc-name{font-weight:800;line-height:1.1}
+  .cv-tc-sub{font-size:12px;margin-top:2px}
+  .cv-tc-body{height:104px;box-sizing:border-box;padding:12px 16px}
+  .cv-tc-lo-label{font-weight:700;font-size:11px;margin-bottom:4px}
+  .cv-tc-lo{font-size:11px;line-height:1.5;color:#333}
+  @media(max-width:820px){.cv-kp-grid{grid-template-columns:1fr}.cv-tiers{grid-template-columns:1fr;gap:14px;max-width:430px;margin:0 auto}.cv-h1{font-size:24px}}
+  @media(max-width:600px){
+    .cv-top{flex-wrap:wrap;gap:10px}
+    .cv-h1{order:-1;flex-basis:100%;font-size:22px;margin-bottom:2px}
+    .cv-navbtn{flex:1;justify-content:center;padding:11px 8px;font-size:13px}
+    .cv-keypoints{padding:18px 16px}
+    .cv-panel{padding:15px 16px}
+    .kw-cn{font-size:22px}.cv-sentence .s-cn{font-size:23px}
+    .td-card{padding:28px 20px}.rv-card{padding:24px 18px}
+    #tierDetailScreen,#revisionScreen{padding:18px 14px 44px}
+  }
+</style>
+<div id="coverScreen">
+  <div class="cv-home-wrap"><a class="cv-home-btn" href="lianxi.html">← Back to Lessons</a></div>
+  <div class="cv-top">
+    <button class="cv-navbtn" onclick="shiftLesson(-1)">←&nbsp; Previous Lesson</button>
+    <img class="cv-panda" src="panda1.png" alt="">
+    <div class="cv-h1"><span class="cv-h1-cn">4A-L2 <ruby>北<rt>běi</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体<rt>tǐ</rt></ruby><ruby>育<rt>yù</rt></ruby><ruby>馆<rt>guǎn</rt></ruby>。</span><span class="cv-h1-en">The gym is to the north.</span></div>
+    <img class="cv-panda" src="panda2.png" alt="">
+    <button class="cv-navbtn" onclick="shiftLesson(1)">Next Lesson &nbsp;→</button>
+  </div>
+  <div class="cv-keypoints">
+    <div class="cv-kp-title">Key Points</div>
+    <div class="cv-kp-grid">
+      <div class="cv-panel kw">
+        <div class="cv-panel-hd"><span class="cv-ico">💬</span>Key Words</div>
+        <div class="cv-words" id="cvWords"></div>
+      </div>
+      <div class="cv-panel st">
+        <div class="cv-panel-hd"><span class="cv-ico">💬</span>Sentence</div>
+        <div class="cv-sentence" id="cvSentence"></div>
+      </div>
+    </div>
+  </div>
+  <div class="cv-tiers">
+    <button class="cv-tier-card" onclick="coverTier(0)">
+      <div class="cv-tc-head" style="background:#F2962F">
+        <span class="cv-tc-blob" style="width:130px;height:130px;background:rgba(255,255,255,.08);top:-42px;right:-34px"></span>
+        <span class="cv-tc-blob" style="width:96px;height:96px;background:rgba(255,255,255,.06);bottom:-34px;left:-24px"></span>
+        <svg style="position:absolute;top:22px;left:22px" width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.55)"><path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z"/></svg>
+        <svg style="position:absolute;bottom:20px;right:26px" width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,.5)"><path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z"/></svg>
+        <span class="cv-tc-badge"><span style="background:#FFF3E2"><svg width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="t1b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B93E6"/><stop offset="1" stop-color="#3E7BD6"/></linearGradient><linearGradient id="t1o" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8AC4E"/><stop offset="1" stop-color="#EF8F22"/></linearGradient></defs><rect x="4" y="19" width="10" height="9" rx="2.2" fill="url(#t1o)"/><rect x="15" y="19" width="10" height="9" rx="2.2" fill="#fff" stroke="#3E7BD6" stroke-width="1.4"/><rect x="9.5" y="10.5" width="10" height="9" rx="2.2" fill="url(#t1b)"/><rect x="12.2" y="3.5" width="7" height="7" rx="1.8" fill="url(#t1b)"/></svg></span></span>
+        <span class="cv-tc-txt"><span class="cv-tc-name" style="font-size:36px;color:#5a3206">Tier 1 · Build</span></span>
+      </div>
+      <div class="cv-tc-body">
+        <div class="cv-tc-lo-label" style="color:#C26A12">Learning Objective</div>
+        <div class="cv-tc-lo">Recognize and reproduce the lesson's key words and sentences, and understand the text.</div>
+      </div>
+    </button>
+    <button class="cv-tier-card" onclick="coverTier(1)">
+      <div class="cv-tc-head" style="background:#3E7BD6">
+        <span class="cv-tc-blob" style="width:130px;height:130px;background:rgba(255,255,255,.08);top:-42px;right:-34px"></span>
+        <span class="cv-tc-blob" style="width:96px;height:96px;background:rgba(255,255,255,.06);bottom:-34px;left:-24px"></span>
+        <svg style="position:absolute;top:22px;left:22px" width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.55)"><path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z"/></svg>
+        <svg style="position:absolute;bottom:20px;right:26px" width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,.5)"><path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z"/></svg>
+        <span class="cv-tc-badge"><span style="background:#EAF1FB"><svg width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="t2b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B93E6"/><stop offset="1" stop-color="#2B5699"/></linearGradient></defs><circle cx="16" cy="16" r="13" fill="url(#t2b)"/><circle cx="16" cy="16" r="9" fill="#fff"/><circle cx="16" cy="16" r="5.4" fill="url(#t2b)"/><circle cx="16" cy="16" r="2.1" fill="#fff"/><g stroke="#EF8F22" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"><line x1="27" y1="5.5" x2="17.5" y2="15"/><path d="M17.5 15 h4 M17.5 15 v-4"/><path d="M27 5.5 l-3.6 .9 M27 5.5 l-.9 3.6"/></g></svg></span></span>
+        <span class="cv-tc-txt"><span class="cv-tc-name" style="font-size:36px;color:#14315a">Tier 2 · Apply</span></span>
+      </div>
+      <div class="cv-tc-body">
+        <div class="cv-tc-lo-label" style="color:#2B5699">Learning Objective</div>
+        <div class="cv-tc-lo">Apply the key words and sentences in new contexts, and consolidate through HSK 3.0 and reading practice.</div>
+      </div>
+    </button>
+    <button class="cv-tier-card" onclick="coverTier(2)">
+      <div class="cv-tc-head" style="background:#43A047">
+        <span class="cv-tc-blob" style="width:130px;height:130px;background:rgba(255,255,255,.08);top:-42px;right:-34px"></span>
+        <span class="cv-tc-blob" style="width:96px;height:96px;background:rgba(255,255,255,.06);bottom:-34px;left:-24px"></span>
+        <svg style="position:absolute;top:22px;left:22px" width="15" height="15" viewBox="0 0 24 24" fill="rgba(255,255,255,.55)"><path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z"/></svg>
+        <svg style="position:absolute;bottom:20px;right:26px" width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,.5)"><path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z"/></svg>
+        <span class="cv-tc-badge"><span style="background:#EAF5EA"><svg width="32" height="32" viewBox="0 0 32 32"><defs><linearGradient id="t3g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FB863"/><stop offset="1" stop-color="#3C8F40"/></linearGradient><linearGradient id="t3b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B93E6"/><stop offset="1" stop-color="#3E7BD6"/></linearGradient><linearGradient id="t3o" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8AC4E"/><stop offset="1" stop-color="#EF8F22"/></linearGradient></defs><rect x="4" y="4" width="11" height="11" rx="2.4" fill="url(#t3g)"/><circle cx="15" cy="9.5" r="2.4" fill="url(#t3g)"/><rect x="17" y="4" width="11" height="11" rx="2.4" fill="url(#t3b)"/><rect x="4" y="17" width="11" height="11" rx="2.4" fill="url(#t3o)"/><circle cx="15" cy="22.5" r="2.4" fill="url(#t3o)"/><rect x="17" y="17" width="11" height="11" rx="2.4" fill="url(#t3g)"/></svg></span></span>
+        <span class="cv-tc-txt"><span class="cv-tc-name" style="font-size:30px;color:#1a451d">Tier 3 · Enrichment</span></span>
+      </div>
+      <div class="cv-tc-body">
+        <div class="cv-tc-lo-label" style="color:#2E7330">Learning Objective</div>
+        <div class="cv-tc-lo">Deepen language use through reading, open-ended and critical-thinking tasks, and reflect on Chinese and Emirati culture.</div>
+      </div>
+    </button>
+  </div>
+</div>
+<script>
+  // 三个 Tier 的统一配色与内容(进哪个 Tier 全程用这套色)
+  var TIER_THEME = [
+    {c:'#F2962F', light:'#FDEBD8', light2:'#FBDDBE', dark:'#C26A12', name:'Tier 1 – Build',  sub:'Foundation Practice (10 Questions)',
+     info:'Focuses on the <b>core vocabulary</b> and <b>sentence patterns</b> from <i>Across the Silk Road</i>. These exercises help students build a solid language foundation through targeted practice of essential words and sentence structures.',
+     lo:'<ul class="td-lo-list"><li>Recognize, reproduce and understand the lesson\'s core content</li><li>Key words: 东边（east） · 西边（west） · 南边（south） · 北边（north） · 清楚（clear）</li><li>Sentence: 北边是体育馆。（The gym is to the north.）</li></ul>'},
+    {c:'#3E7BD6', light:'#EAF1FB', light2:'#DBE7F8', dark:'#2B5699', name:'Tier 2 – Apply',  sub:'Skill Development (10 Questions)',
+     info:'Focuses on the <b>key vocabulary</b>, <b>sentence usage</b>, and integrates <b>HSK 3.0 vocabulary and grammar</b>. Students strengthen their understanding of the unit while developing the language skills required for the HSK 3.0 examination.',
+     lo:'<ul class="td-lo-list"><li>Apply the key words and sentences in new contexts and build accuracy</li><li>Key words: 东边（east） · 西边（west） · 南边（south） · 北边（north） · 清楚（clear）</li><li>Sentence: 北边是体育馆。（The gym is to the north.）</li><li>HSK 3.0 practice</li><li>One reading passage with reading-comprehension questions</li></ul>'},
+    {c:'#43A047', light:'#EDF6EC', light2:'#DCEEDB', dark:'#2E7330', name:'Tier 3 – Extend', sub:'Advanced Application (8 Questions)',
+     info:'Designed to extend students\' language proficiency through higher-level tasks:<ul class="td-list"><li><b>5 Basic Practice Questions</b> based on key vocabulary, sentence patterns, and HSK 3.0 vocabulary and grammar.</li><li><b>1 Reading Passage</b> with <b>2 Reading Comprehension Questions</b> to develop reading skills.</li><li><b>1 Critical Thinking Question</b> encouraging deeper reflection on Chinese and UAE cultures, traditions, and customs.</li></ul>',
+     lo:'<ul class="td-lo-list"><li>Deepen the key words and sentences and use them in richer communication</li><li>Key words: 东边（east） · 西边（west） · 南边（south） · 北边（north） · 清楚（clear）</li><li>Sentence: 北边是体育馆。（The gym is to the north.）</li><li>HSK 3.0, reading comprehension, open-ended and critical-thinking tasks</li><li>Comparing Chinese and Emirati culture</li></ul>'}
+  ];
+  // 本课重点词与句型(复习页用)
+    var KEYPOINTS = {
+    words: [['dōngbian','东边','east'],['xībian','西边','west'],['nánbian','南边','south'],['běibian','北边','north'],['qīngchu','清楚','clear']],
+    sentence: {py:'běibian shì tǐyùguǎn.', cn:'北边是体育馆。', en:'The gym is to the north.', ruby:'<ruby>北<rt>běi</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体<rt>tǐ</rt></ruby><ruby>育<rt>yù</rt></ruby><ruby>馆<rt>guǎn</rt></ruby>。'}
+  };
+
+  function applyTierTheme(n){
+    var t = TIER_THEME[n];
+    document.documentElement.style.setProperty('--tier-c', t.c);
+    document.documentElement.style.setProperty('--tier-light', t.light);
+    document.documentElement.style.setProperty('--tier-light2', t.light2 || t.light);
+    document.documentElement.style.setProperty('--tier-dark', t.dark);
+  }
+  function hideNewScreens(){
+    ['coverScreen','tierDetailScreen','revisionScreen'].forEach(function(id){
+      var el=document.getElementById(id); if(el) el.style.display='none';
+    });
+  }
+
+  // 封面点 Tier → Tier 详情页
+  function coverTier(n){
+    try{setTier(n);}catch(e){}
+    applyTierTheme(n);
+    hideNewScreens();
+    var t = TIER_THEME[n];
+    document.getElementById('tdTitle').textContent = t.name;
+    document.getElementById('tdSub').textContent = t.sub;
+    document.getElementById('tdInfo').innerHTML = t.info;
+    document.getElementById('tdLO').innerHTML = t.lo || '';
+    document.getElementById('tierDetailScreen').style.display = 'block';
+    window.scrollTo(0,0);
+  }
+  // Tier 详情 Continue → 学生信息页
+  function tierContinue(){
+    document.getElementById('tierDetailScreen').style.display='none';
+    try{goToStudentInfo();}catch(e){}
+    window.scrollTo(0,0);
+  }
+  // 学生信息确认后 → 复习页(由 confirmStudentInfo 调用)
+  function showRevision(){
+    var w = document.getElementById('rvWords');
+    w.innerHTML = KEYPOINTS.words.map(function(x){
+      return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';
+    }).join('');
+    var s = KEYPOINTS.sentence;
+    document.getElementById('rvSentence').innerHTML = sentenceHTML(s);
+    hideNewScreens();
+    document.getElementById('studentInfoScreen').style.display='none';
+    document.getElementById('revisionScreen').style.display='block';
+    window.scrollTo(0,0);
+  }
+  // 复习页 Start → 正式答题
+  function revisionStart(){
+    document.getElementById('revisionScreen').style.display='none';
+    try{startQuiz();}catch(e){}
+    window.scrollTo(0,0);
+  }
+  // 返回封面
+  function backToCover(){
+    hideNewScreens();
+    document.getElementById('studentInfoScreen').style.display='none';
+    document.getElementById('setup').style.display='none';
+    document.getElementById('coverScreen').style.display='block';
+    window.scrollTo(0,0);
+  }
+</script>
+
+<div class="setup" id="setup" style="display:none">
   <a class="home-back" href="lianxi.html">← 返回分层练习</a>
   <div class="brand">
     <div class="brand-icon">跨</div>
     <div>
-      <h1>跨越丝路分层习题生成器 · 4A</h1>
-      <p>Across the Silk Route · Book 4A · Lesson 2 北边是体育馆 · Directions · Based on CCG &amp; HSK 3.0</p>
+      <h1>跨越丝路分层习题生成器 · 1A</h1>
+      <p>Across the Silk Route · Book 1A · Lesson 2 你好！ · Greetings · Based on CCG &amp; HSK 3.0</p>
     </div>
   </div>
   <div class="section-label">1 · Select lesson 选择课时</div>
@@ -770,7 +1017,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
       <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Usage &amp; recognition (HSK 3.0) + reading</option>
+      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
       <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
     </select>
   </div>
@@ -783,7 +1030,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
       <div class="tc-cn">达到掌握</div>
-      <div class="tc-desc">10 questions · Usage &amp; character recognition (incl. HSK 3.0) + 2 short reading · Working at mastery</div>
+      <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
@@ -900,36 +1147,94 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 <!-- ═══════════════ STUDENT INFO SCREEN ═══════════════ -->
 <div class="student-info-screen" id="studentInfoScreen">
   <div class="si-card">
-    <div class="si-title">🎒 学生信息 · Student Info</div>
-    <div class="si-subtitle">请填写以下信息，方便老师了解你的学习情况。Your info helps your teacher track your progress.</div>
+    <div class="si-title">🎒 Student Info</div>
+    <div class="si-subtitle">Your info helps your teacher track your progress.</div>
     <div class="si-field">
-      <label class="si-label">姓名 Full Name <span style="color:var(--wrong)">*</span></label>
-      <input class="si-input" id="si_name" type="text" placeholder="Your full name / 你的姓名" autocomplete="name">
+      <label class="si-label">Full Name <span style="color:var(--wrong)">*</span></label>
+      <input class="si-input" id="si_name" type="text" placeholder="Your full name" autocomplete="name">
     </div>
     <div class="si-field">
-      <label class="si-label">班级 Class <span style="color:var(--wrong)">*</span></label>
+      <label class="si-label">Class <span style="color:var(--wrong)">*</span></label>
       <input class="si-input" id="si_class" type="text" placeholder="e.g. 7A, Grade 8B">
     </div>
-    <div class="si-note">ℹ️ 姓名和班级为必填项。信息仅用于学情记录，不作其他用途。<br>Name and class are required. Info is used for learning records only.</div>
-    <button class="si-start-btn" onclick="confirmStudentInfo()">
-      <span style="font-family:'Noto Serif SC',serif;">确认并开始</span> · Confirm &amp; Start →
-    </button>
-    <div class="si-back-link" onclick="backToSetup()">← 返回 · Back to settings</div>
+    <div class="si-note">ℹ️ Name and class are required. Your information is used for learning records only.<br>信息仅用于学情记录，不作其他用途。</div>
+    <button class="si-start-btn" onclick="confirmStudentInfo()" style="background:var(--tier-c,#F2962F)">Continue →</button>
+    <div class="si-back-link" onclick="backToCover()">← Back</div>
+  </div>
+</div>
+
+<!-- ═══════════════ 第2屏:TIER 详情页 ═══════════════ -->
+<style>
+  #tierDetailScreen,#revisionScreen{display:none;max-width:780px;margin:0 auto;padding:24px 16px 54px}
+  .td-card{background:#fff;border-radius:28px;padding:40px 36px;box-shadow:0 12px 40px rgba(0,0,0,.08);text-align:center;border-top:7px solid var(--tier-c,#F2962F)}
+  .td-title{font-size:clamp(32px,5.4vw,50px);font-weight:900;letter-spacing:-.01em;color:var(--tier-c,#F2962F);line-height:1.05}
+  .td-sub{font-size:18px;font-weight:800;color:#444;margin:8px 0 26px}
+  .td-info{background:var(--tier-light,#FDEBD8);border-radius:18px;padding:20px 24px;text-align:left;font-size:16.5px;line-height:1.72;color:#3a3a3a;margin-bottom:16px}
+  .td-info b{color:#1a1a1a}
+  .td-box-title{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tier-dark,#C26A12);margin-bottom:9px}
+  .td-lo{background:var(--tier-light2,#FBDDBE);border-radius:18px;padding:20px 24px;text-align:left;font-size:16px;line-height:1.72;color:#3a3a3a;margin-bottom:30px}
+  .td-lo-list{margin:0;padding-left:22px}
+  .td-lo-list li{margin-bottom:8px}
+  .td-list{margin:12px 0 0;padding-left:22px}
+  .td-list li{margin-bottom:9px}
+  .td-continue{border:none;cursor:pointer;color:#fff;background:var(--tier-c,#F2962F);font-family:inherit;font-weight:800;font-size:20px;border-radius:14px;padding:17px 60px;transition:.15s;box-shadow:0 6px 18px rgba(0,0,0,.13)}
+  .td-continue:hover{filter:brightness(1.06);transform:translateY(-2px)}
+  .td-back{display:inline-block;margin-top:18px;font-size:14px;color:#999;cursor:pointer}
+  .td-back:hover{color:#666}
+  .rv-card{background:#fff;border-radius:28px;padding:34px 32px;box-shadow:0 12px 40px rgba(0,0,0,.08);border-top:7px solid var(--tier-c,#F2962F)}
+  .rv-head{font-size:28px;font-weight:900;color:var(--tier-c,#F2962F);text-align:center}
+  .rv-sub{text-align:center;color:#888;font-size:14px;margin:4px 0 26px}
+  .rv-block-t{font-size:15px;font-weight:800;color:var(--tier-c,#F2962F);margin-bottom:10px}
+  .rv-words{display:flex;flex-wrap:wrap;gap:14px 22px;background:var(--tier-light,#FDEBD8);border-radius:16px;padding:22px;margin-bottom:18px}
+  .rv-sentence{background:var(--tier-light,#FDEBD8);border-radius:16px;padding:20px 22px;margin-bottom:28px;display:flex;flex-direction:column;gap:3px}
+  .rv-sentence .s-py{font-size:13px;color:#7d7466;font-weight:600}
+  .rv-sentence .s-cn{font-size:26px;font-weight:700;color:#222;font-family:'Noto Serif SC',serif}
+  .rv-sentence .s-en{font-size:14px;color:#9a9286;font-style:italic}
+  .rv-start{display:block;width:100%;border:none;cursor:pointer;color:#fff;background:var(--tier-c,#F2962F);font-family:inherit;font-weight:800;font-size:21px;border-radius:14px;padding:18px;transition:.15s;box-shadow:0 6px 18px rgba(0,0,0,.13)}
+  .rv-start:hover{filter:brightness(1.06);transform:translateY(-2px)}
+  .rv-back{display:block;text-align:center;margin-top:16px;font-size:14px;color:#999;cursor:pointer}
+</style>
+<div id="tierDetailScreen">
+  <div class="td-card">
+    <div class="td-title" id="tdTitle">Tier 1 – Build</div>
+    <div class="td-sub" id="tdSub">Foundation Practice · 10 Questions</div>
+    <div class="td-info"><div class="td-box-title">Info</div><div id="tdInfo"></div></div>
+    <div class="td-lo"><div class="td-box-title">Learning Objective</div><div id="tdLO"></div></div>
+    <button class="td-continue" onclick="tierContinue()">Continue →</button>
+    <div class="td-back" onclick="backToCover()">← Back</div>
+  </div>
+</div>
+
+<!-- ═══════════════ 第4屏:复习页 ═══════════════ -->
+<div id="revisionScreen">
+  <div class="rv-card">
+    <div class="rv-head">📖 Revision</div>
+    <div class="rv-sub">Review the key words and sentence before you start.</div>
+    <div class="rv-block-t">Key Words</div>
+    <div class="rv-words" id="rvWords"></div>
+    <div class="rv-block-t">Sentence</div>
+    <div class="rv-sentence" id="rvSentence"></div>
+    <button class="rv-start" id="rvStartBtn" onclick="revisionStart()">Start →</button>
+    <div class="rv-back" onclick="backToCover()">← Back to lesson</div>
   </div>
 </div>
 
 <!-- ═══════════════ QUIZ ═══════════════ -->
 <div class="quiz" id="quizScreen">
   <div class="quiz-header">
-    <span class="tier-badge" id="qBadge">Tier 1</span>
-    <span class="q-counter" id="qCounter">1 / 10</span>
-    <div style="display:flex;align-items:center;gap:6px;">
-      <button class="sound-toggle-btn" onclick="toggleSound()" id="soundBtn">🔊 Sound ON</button>
-      <button class="exit-btn" onclick="exitQuiz()" title="返回设置 Back to Setting">← 返回设置 Back to Setting</button>
+    <div class="qh-left">
+      <button class="exit-btn" onclick="exitQuiz()" title="Back to Setting">← Back to Setting</button>
     </div>
-    <div class="timer-wrap" id="timerWrap">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span id="timerDisplay">15:00</span>
+    <div class="qh-center">
+      <span class="tier-badge" id="qBadge">Tier 1</span>
+      <span class="q-counter" id="qCounter">1 / 10</span>
+    </div>
+    <div class="qh-right">
+      <button class="sound-toggle-btn" onclick="toggleSound()" id="soundBtn">🔊 Sound ON</button>
+      <div class="timer-wrap" id="timerWrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span id="timerDisplay">15:00</span>
+      </div>
     </div>
   </div>
   <div class="progress-row">
@@ -940,19 +1245,67 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div id="qMount"></div>
 </div>
 
-<!-- ═══════════════ RESULT ═══════════════ -->
+<!-- ═══ 方案B:发送报告给老师 弹窗 ═══ -->
+<style>
+  .email-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:99999;padding:18px;}
+  .email-overlay.show{display:flex;}
+  .email-modal{background:#fff;border-radius:22px;padding:28px 26px;max-width:440px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center;font-family:'DM Sans',sans-serif;}
+  .email-title{font-size:22px;font-weight:900;color:var(--tier-c,#F2962F);margin-bottom:18px;}
+  .email-sub{font-size:14px;color:#888;margin:3px 0 18px;}
+  .email-summary{background:var(--tier-light,#FDEBD8);border-radius:12px;padding:14px 16px;text-align:left;font-size:14.5px;line-height:1.85;color:#333;margin-bottom:18px;}
+  .email-label{display:block;text-align:left;font-size:13px;font-weight:700;color:#555;margin-bottom:6px;}
+  .email-input{width:100%;padding:13px 14px;border:1.5px solid #d8d4cc;border-radius:11px;font-size:16px;font-family:inherit;box-sizing:border-box;}
+  .email-input:focus{outline:none;border-color:var(--tier-c,#F2962F);}
+  .email-err{color:var(--wrong,#d33);font-size:12.5px;text-align:left;min-height:16px;margin:5px 2px 0;}
+  .email-send-btn{width:100%;padding:15px;margin-top:6px;border:none;border-radius:12px;background:var(--tier-c,#F2962F);color:#fff;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;}
+  .email-send-btn:hover{filter:brightness(1.05);}
+  .email-dl-btn{width:100%;padding:12px;margin-top:9px;border:1.5px solid var(--tier-c,#F2962F);border-radius:12px;background:var(--tier-light,#FDEBD8);color:var(--tier-c,#F2962F);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .email-tip{font-size:12px;color:#aaa;margin-top:12px;line-height:1.5;}
+  .email-cancel-btn{width:100%;padding:13px;margin-top:14px;border:1.5px solid #cfc9bf;border-radius:12px;background:#f3f1ed;color:#555;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .email-cancel-btn:hover{background:#e9e5dd;}
+</style>
+<div class="email-overlay" id="emailOverlay">
+  <div class="email-modal">
+    <div class="email-title">📤 Send Report to Teacher</div>
+    <div class="email-summary" id="emailSummary"></div>
+    <label class="email-label">Teacher's Email</label>
+    <input class="email-input" id="teacherEmail" type="email" placeholder="teacher@school.ae" autocomplete="email">
+    <div class="email-err" id="emailErr"></div>
+    <button class="email-send-btn" onclick="doMailto()">📧 Open Email to Send</button>
+    <button class="email-dl-btn" onclick="downloadAnswers()">⬇ Download instead</button>
+    <div class="email-tip">Your email app will open with the report filled in — just press Send.</div>
+    <button class="email-cancel-btn" onclick="closeEmailModal()">Cancel</button>
+  </div>
+</div>
+
+
 <div class="result" id="resultScreen">
-  <div class="result-ring" id="rRing"></div>
-  <h2 id="rTitle">Well done!</h2>
-  <p class="r-sub" id="rSub"></p>
-  <div class="stars" id="rStars"></div>
-  <div class="result-msg" id="rMsg"></div>
+  <div class="r-hero">
+    <div class="r-hero-left">
+      <div class="result-ring" id="rRing"></div>
+      <div class="stars" id="rStars"></div>
+    </div>
+    <div class="r-hero-right">
+      <h2 id="rTitle">Well done!</h2>
+      <p class="r-sub" id="rSub"></p>
+      <div class="result-msg" id="rMsg"></div>
+    </div>
+  </div>
   <div class="analytics-panel" id="analyticsPanel"></div>
   <div class="result-btns">
-    <button class="btn-download-remedial" onclick="downloadRemedial()">📥 下载补弱练习 · Download Remedial</button>
-    <button class="btn-download" onclick="downloadAnswers()">⬇ 下载答案 · Send to Teacher</button>
-    <button class="btn-retry" onclick="retry()">再试一次 · Retry</button>
-    <button class="btn-back" onclick="goBack()">← 返回设置 · Change settings</button>
+    <button class="btn-review-q rb-wide" onclick="toggleReviewPanel()">📝 Question Review · 逐题回顾</button>
+    <div class="rb-row">
+      <button class="btn-remedial-show" onclick="toggleRemedialPanel()">🔧 Remedial Practice · 补弱练习</button>
+      <button class="btn-download-remedial" onclick="downloadRemedial()">📥 Download Remedial · 下载补弱练习</button>
+    </div>
+    <div class="rb-row">
+      <button class="btn-pdf" onclick="downloadReportPDF()">📄 Download PDF · 下载PDF</button>
+      <button class="btn-download" onclick="sendToTeacher()">📧 Send to Teacher · 发送给老师</button>
+    </div>
+    <div class="rb-row" style="margin-top:14px;">
+      <button class="btn-retry" onclick="retry()">🔁 Retry · 再做一遍</button>
+      <button class="btn-back" onclick="goBack()">← Change settings · 返回设置</button>
+    </div>
   </div>
 </div>
 
@@ -992,23 +1345,10 @@ function showConfirm(msgEn, msgCn, onOk) {
 }
 
 // ══════════════════════════════════════════════════════════════════
-// DATA — 跨越丝路 3A · Lesson 1 你周末常常做什么 (Leisure Activities) · CCG + HSK 3.0
-// Key vocab: 逛街 聊天 爬山 排球 冲浪 武术 常常 练
-// Grammar: 周末常常做什么？· 常常 + verb · verb reduplication (逛逛街 / 看看书)
-// Culture: leisure life in China (中国人的休闲生活) · Suggested characters: 山 天 看 练 球
-// Note: row 44 listed "排布" — treated as 排球 (volleyball); confirm with curriculum
+// DATA — 跨越丝路 1A · Lesson 2 你好！ (Greetings) · CCG + HSK 3.0
 // Tier 1: 10 core questions (mc / fill / match)
-// Tier 2: 8 usage + character recognition + 2 short reading at the end (easier & shorter than Tier 3)
-// Tier 3: 5 extended + 2 reading comprehension + 1 HOTS
-// Tier 1: 10 core questions (mc / fill / match)
-// Tier 2: 8 usage + character recognition + 2 short reading at the end (easier & shorter than Tier 3)
-// Tier 3: 5 extended + 2 reading comprehension + 1 HOTS
-// Tier 1: 10 core questions (mc / fill / match)
-// Tier 2: 8 usage + character recognition + 2 short reading at the end (easier & shorter than Tier 3)
-// Tier 3: 5 extended + 2 reading comprehension + 1 HOTS
-// Tier 1: 10 core questions (mc / fill / match)
-// Tier 2: 8 usage + character recognition + 2 short reading at the end (easier & shorter than Tier 3)
-// Tier 3: 5 extended + 2 reading comprehension + 1 HOTS
+// Tier 2: 10 questions with HSK 3.0 grammar integration
+// Tier 3: 5 extended + 4 reading comprehension + 1 HOTS
 //   type:'reading' — passage shown above q, mc underneath
 //   type:'hots'    — open-ended critical/creative thinking
 // ══════════════════════════════════════════════════════════════════
@@ -1101,7 +1441,7 @@ function shiftLesson(dir) {
 function updateLessonNavLabel() {
   var el = document.getElementById('lessonNavLabel');
   if (el && LESSONS[selectedLesson]) {
-    el.textContent = LESSONS[selectedLesson].id + ' · ' + '方位' + ' · ' + LESSONS[selectedLesson].title;
+    el.textContent = LESSONS[selectedLesson].id + ' · ' + LESSONS[selectedLesson].cn + ' · ' + LESSONS[selectedLesson].title;
   }
 }
 
@@ -1125,7 +1465,7 @@ function startQuiz() {
   document.getElementById('resultScreen').style.display = 'none';
   document.getElementById('quizScreen').style.display = 'block';
   const tierColors = ['tb-t1','tb-t2','tb-t3'];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 – Build','Tier 2 – Apply','Tier 3 – Extend'];
   document.getElementById('qBadge').className = 'tier-badge ' + tierColors[selectedTier];
   document.getElementById('qBadge').textContent = tierNames[selectedTier];
   document.getElementById('progressFill').className = 'progress-fill ' + ['pf-t1','pf-t2','pf-t3'][selectedTier];
@@ -1220,13 +1560,43 @@ function renderQuestion() {
     const c3Prompts = q.prompts.filter(p => p.startsWith('[Cycle 3]')).map(p => p.replace('[Cycle 3] ',''));
 
     html += `<div class="hots-box">
-      <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
+      <div class="hots-label">Critical / Creative Thinking · 批判性思维</div>
+      <div class="hots-cycle-block hots-c2-block">
+        <div class="hots-cycle-row">
+          <div class="hots-cycle-badge hots-c2-badge">
+            <span class="hots-badge-cycle">Cycle 2</span>
+            <span class="hots-badge-grades">Grades<br>5 · 6 · 7 · 8</span>
+            <span class="hots-badge-do">← Do this one!</span>
+          </div>
+          <div class="hots-cycle-content">
+            <div class="q-stem">${annotateHotsCJK(c2Stem)}</div>
+            <div class="hots-prompts hots-c2-prompts">
+              ${c2Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hots-cycle-block hots-c3-block">
+        <div class="hots-cycle-row">
+          <div class="hots-cycle-badge hots-c3-badge">
+            <span class="hots-badge-cycle">Cycle 3</span>
+            <span class="hots-badge-grades">Grades<br>9 · 10 · 11 · 12</span>
+            <span class="hots-badge-do">← Do this one!</span>
+          </div>
+          <div class="hots-cycle-content">
+            <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
+            <div class="hots-prompts hots-c3-prompts">
+              ${c3Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="hint-toggle" onclick="toggleHint(this,'hint_${qIndex}')">
       <span>💡 Show hint</span><span class="ht-arrow">▼</span>
     </div>
     <div class="hint-body" id="hint_${qIndex}">${q.hint}</div>
-    <textarea class="hots-open-input" id="hotsInput" placeholder="Write your thoughts here (minimum 30 characters)…"></textarea>
+    <textarea class="hots-open-input" id="hotsInput" placeholder="Write your thoughts here (minimum 20 characters)…"></textarea>
     <button class="hots-submit-btn" onclick="submitHOTS()">Submit</button>
     <div class="hots-submitted" id="hotsSubmitted">✓ Response recorded · 已记录</div>`;
   }
@@ -1316,35 +1686,6 @@ const PINYIN_DICT = {
   // ── Names ─────────────────────────────────────────────────────
   '小明':'Xiǎomíng','小红':'Xiǎohóng','小华':'Xiǎohuá','小丽':'Xiǎolì',
   '阿里':'Ālǐ','哈桑':'Hāsāng','法蒂玛':'Fǎdìmǎ','哈立德':'Hālìdé','玛丽亚':'Mǎlìyà',
-  // ── 1B-L1 家庭成员 Family members ──
-  '爸爸':'bàba','妈妈':'māma','爷爷':'yéye','奶奶':'nǎinai',
-  '哥哥':'gēge','姐姐':'jiějie','弟弟':'dìdi','妹妹':'mèimei',
-  '谁':'shéi','照片':'zhàopiàn','今年':'jīnnián','九岁':'jiǔ suì','九':'jiǔ',
-  // ── 2A-L1 天气 Weather ──
-  '天气':'tiānqì','怎么样':'zěnmeyàng','多少':'duōshao','度':'dù','太':'tài',
-  '冷':'lěng','热':'rè','舒服':'shūfu','零下':'língxià','不冷不热':'bù lěng bú rè',
-  '二十':'èrshí','三十八':'sānshíbā','气':'qì','怎':'zěn',
-  '医生':'yīshēng','家人':'jiārén','两':'liǎng','爱':'ài',
-  // ── 2B-L3 西餐与三餐 Meals & western dishes ──
-  '鸡蛋':'jīdàn','沙拉':'shālā','汉堡包':'hànbǎobāo','牛肉':'niúròu','羊肉':'yángròu',
-  '比萨饼':'bǐsàbǐng','海鲜':'hǎixiān','早饭':'zǎofàn','午饭':'wǔfàn','晚饭':'wǎnfàn',
-  '方便':'fāngbiàn','一般':'yìbān','中午':'zhōngwǔ','面包':'miànbāo','好吃':'hǎochī',
-  '吃':'chī','喝':'hē','牛奶':'niúnǎi','做':'zuò','或者':'huòzhě','还是':'háishi',
-  '饭':'fàn','早':'zǎo','牛':'niú','羊':'yáng','晚':'wǎn','肉':'ròu','鸡':'jī',
-  '蛋':'dàn','鲜':'xiān','沙':'shā','拉':'lā','便':'biàn','者':'zhě','什么':'shénme',
-  // ── 2B-L4 地点与介词在 Places & preposition 在 ──
-  '医院':'yīyuàn','公司':'gōngsī','学校':'xuéxiào','食堂':'shítáng','饭店':'fàndiàn',
-  '教室':'jiàoshì','时间':'shíjiān','网课':'wǎngkè','现在':'xiànzài','下午':'xiàwǔ',
-  '工作':'gōngzuò','上课':'shàngkè','回家':'huíjiā','吃饭':'chīfàn','看书':'kàn shū',
-  '图书馆':'túshūguǎn','体育馆':'tǐyùguǎn','踢足球':'tī zúqiú','打篮球':'dǎ lánqiú',
-  '足球':'zúqiú','篮球':'lánqiú','晚上':'wǎnshang','朋友们':'péngyoumen','哪儿':'nǎr',
-  '职业':'zhíyè','变化':'biànhuà','网上':'wǎngshàng',
-  '问':'wèn','网':'wǎng','店':'diàn','公':'gōng','现':'xiàn','课':'kè',
-  '医':'yī','院':'yuàn','司':'sī','室':'shì','堂':'táng','食':'shí','间':'jiān',
-  '体':'tǐ','育':'yù','馆':'guǎn','踢':'tī','足':'zú','打':'dǎ','篮':'lán','球':'qiú',
-  '图':'tú','书':'shū','工':'gōng','作':'zuò','回':'huí','点':'diǎn','午':'wǔ',
-  '六':'liù','们':'men','哪':'nǎ','儿':'ér',
-
   // ── Countries & cities ────────────────────────────────────────
   '中国人':'Zhōngguórén','阿联酋人':'Āliánqiúrén','沙特人':'Shātèrén',
   '约旦人':'Yuēdànrén','埃及人':'Āijírén','阿曼人':'Āmànrén','英国人':'Yīngguórén',
@@ -1391,30 +1732,6 @@ const PINYIN_DICT = {
   // ── Multi-char entries (must come before single-char fallbacks) ──
   '姓':'xìng','叫':'jiào','国':'guó','人':'rén','家':'jiā',
   '岁':'suì','名':'míng','说':'shuō','想':'xiǎng','要':'yào',
-  // ── 5 请问你们要什么 extra vocab ──
-  '请':'qǐng','坐':'zuò','饺子':'jiǎozi','汤':'tāng','要':'yào','服务员':'fúwùyuán','菜单':'càidān','请问':'qǐngwèn','碗':'wǎn','这儿':'zhèr','盘':'pán','果汁':'guǒzhī','牛肉汤':'niúròutāng','炒面':'chǎomiàn','客人':'kèrén','筷子':'kuàizi','米饭':'mǐfàn','杯':'bēi','吗':'ma','有':'yǒu','几点':'jǐdiǎn','菜':'cài','单':'dān','员':'yuán',
-  // ── 6 我买了一部手机 extra vocab ──
-  '手机':'shǒujī','电脑':'diànnǎo','书包':'shūbāo','本子':'běnzi','笔':'bǐ','买':'mǎi','商店':'shāngdiàn','以后':'yǐhòu','东西':'dōngxi','很多':'hěnduō','红笔':'hóngbǐ','电影':'diànyǐng','支付':'zhīfù','移动':'yídòng','台':'tái','支':'zhī','部':'bù','还':'hái','几':'jǐ','去':'qù','本':'běn','手':'shǒu','机':'jī','脑':'nǎo','包':'bāo','商':'shāng','西':'xī','付':'fù','动':'dòng','移':'yí',
-  // ── 1 我想买一双鞋子 extra vocab ──
-  '裤子':'kùzi','上衣':'shàngyī','长袍':'chángpáo','鞋子':'xiézi','袜子':'wàzi','头巾':'tóujīn','件':'jiàn','条':'tiáo','双':'shuāng','适合':'shìhé','漂亮':'piàoliang','衣服':'yīfu','高兴':'gāoxìng','汉服':'Hànfú','客人':'kèrén','裤':'kù','衣':'yī','袍':'páo','鞋':'xié','袜':'wà','巾':'jīn','适':'shì','合':'hé','漂':'piào','亮':'liàng','高':'gāo','兴':'xìng','头':'tóu','袋':'dài',
-  // ── 2 一共七百三十八元 extra vocab ──
-  '元':'yuán','钱':'qián','百':'bǎi','一共':'yígòng','用':'yòng','这里':'zhèlǐ','慢走':'mànzǒu','多少':'duōshao','迪拉姆':'dílāmǔ','一百':'yìbǎi','两百':'liǎngbǎi','三百':'sānbǎi','六百':'liùbǎi','七百':'qībǎi','三十八':'sānshíbā','三百五十':'sānbǎi wǔshí','七百三十八':'qībǎi sānshíbā','人民币':'rénmínbì','风景':'fēngjǐng','名胜':'míngshèng','这个':'zhège','共':'gòng','里':'lǐ','慢':'màn','走':'zǒu','少':'shǎo','姆':'mǔ','五十':'wǔshí',
-  // ── 3 苹果多少钱一斤 extra vocab ──
-  '葡萄':'pútáo','西瓜':'xīguā','香蕉':'xiāngjiāo','椰枣':'yēzǎo','苹果':'píngguǒ','橙子':'chéngzi','柠檬':'níngméng','水果':'shuǐguǒ','斤':'jīn','块':'kuài','甜':'tián','串':'chuàn','三十五':'sānshíwǔ','平安':'píng’ān','好吃':'hǎochī','葡':'pú','萄':'táo','瓜':'guā','香':'xiāng','蕉':'jiāo','椰':'yē','枣':'zǎo','苹':'píng','橙':'chéng','柠':'níng','檬':'méng','果':'guǒ','吉':'jí',
-  // ── auto single-char fallbacks ──
-  '五':'wǔ',
-  // ── _ extra vocab ──
-  '火车':'huǒchē','飞机':'fēijī','船':'chuán','出租车':'chūzūchē','校车':'xiàochē','公共汽车':'gōnggòng qìchē','自行车':'zìxíngchē','地铁':'dìtiě','开车':'kāichē','怎么':'zěnme','骑':'qí','快':'kuài','早上':'zǎoshang','一家人':'yìjiārén','公共':'gōnggòng','汽车':'qìchē','出租':'chūzū','共享单车':'gòngxiǎng dānchē','火':'huǒ','飞':'fēi','铁':'tiě','地':'dì','租':'zū','汽':'qì','开':'kāi','坐':'zuò',
-  // ── _ extra vocab ──
-  '走路':'zǒulù','旁边':'pángbiān','常常':'chángcháng','离':'lí','远':'yuǎn','近':'jìn','共享单车':'gòngxiǎng dānchē','上班':'shàngbān','共享':'gòngxiǎng','单车':'dānchē','路':'lù','旁':'páng','边':'biān','常':'cháng','享':'xiǎng','来':'lái','走':'zǒu',
-  // ── auto single-char fallbacks ──
-  '园':'yuán',
-  // ── _ extra vocab ──
-  '去年':'qùnián','旅行':'lǚxíng','高铁':'gāotiě','发展':'fāzhǎn','新':'xīn','明年':'míngnián','经济':'jīngjì','旅':'lǚ','展':'zhǎn','经':'jīng','济':'jì','起':'qǐ','同':'tóng',
-  // ── auto single-char fallbacks ──
-  '年':'nián','得':'dé',
-  // ── _ extra vocab ──
-  '逛街':'guàngjiē','聊天':'liáotiān','爬山':'páshān','排球':'páiqiú','冲浪':'chōnglàng','武术':'wǔshù','练':'liàn','周末':'zhōumò','海边':'hǎibiān','上午':'shàngwǔ','事':'shì','逛':'guàng','街':'jiē','聊':'liáo','爬':'pá','山':'shān','浪':'làng','冲':'chōng','武':'wǔ','术':'shù','周':'zhōu','末':'mò','累':'lèi','排':'pái','海':'hǎi',
   // ── Single-char fallbacks — cover every char left unmatched ──
   // Numbers
   '一':'yī','七':'qī','三':'sān','八':'bā','四':'sì',
@@ -1564,23 +1881,6 @@ const PINYIN_DICT = {
 };
 
 const ABOVE_HSK1_DICT = {
-  '天气': ['HSK2', 'weather'],
-  '怎么样': ['HSK2', 'how / what is it like'],
-  '舒服': ['HSK3', 'comfortable'],
-  '零下': ['HSK4', 'below zero'],
-  '度': ['HSK3', 'degree'],
-  '一般': ['HSK3', 'usually / generally'],
-  '方便': ['HSK3', 'convenient'],
-  '海鲜': ['HSK4+', 'seafood'],
-  '汉堡包': ['HSK3+', 'hamburger'],
-  '沙拉': ['HSK3+', 'salad'],
-  '鸡蛋': ['HSK2', 'egg'],
-  '牛肉': ['HSK3', 'beef'],
-  '羊肉': ['HSK3+', 'lamb / mutton'],
-  '或者': ['HSK3', 'or (in a statement)'],
-  '好吃': ['HSK2', 'delicious / tasty'],
-  '照片': ['HSK3', 'photo / photograph'],
-  '今年': ['HSK2', 'this year'],
   '发财': ['HSK4+', 'to get rich / make a fortune'],
   '文化': ['HSK4', 'culture'],
   '重要': ['HSK4', 'important'],
@@ -1602,79 +1902,6 @@ const ABOVE_HSK1_DICT = {
   '认识': ['HSK2', 'to know / recognise (a person)'],
   '开始': ['HSK2', 'to begin / start'],
   '帮助': ['HSK2', 'to help'],
-  '工作': ['HSK1', 'to work; a job'],
-  '医院': ['HSK1', 'hospital'],
-  '公司': ['HSK2', 'company'],
-  '网课': ['—', 'online class (网 + 课)'],
-  '现在': ['HSK1', 'now'],
-  '图书馆': ['HSK2', 'library'],
-  '体育馆': ['—', 'gymnasium / sports hall'],
-  '踢足球': ['HSK2', 'to play football'],
-  '打篮球': ['HSK2', 'to play basketball'],
-  '服务员': ['HSK2', 'waiter / service staff'],
-  '菜单': ['HSK2', 'menu'],
-  '饺子': ['HSK2', 'dumplings'],
-  '牛肉汤': ['—', 'beef soup'],
-  '炒面': ['—', 'fried noodles'],
-  '手机': ['HSK2', 'mobile phone'],
-  '电脑': ['HSK2', 'computer'],
-  '书包': ['—', 'schoolbag'],
-  '商店': ['HSK1', 'shop / store'],
-  '以后': ['HSK2', 'after / afterwards'],
-  '东西': ['HSK1', 'thing(s)'],
-  '几': ['HSK1', 'a few / how many'],
-  '裤子': ['HSK2', 'trousers / pants'],
-  '上衣': ['—', 'top / upper garment'],
-  '鞋子': ['HSK2', 'shoes'],
-  '衣服': ['HSK1', 'clothes'],
-  '漂亮': ['HSK1', 'pretty / beautiful'],
-  '适合': ['HSK3', 'to suit / fit'],
-  '头巾': ['—', 'headscarf'],
-  '汉服': ['—', 'Hanfu (traditional Han Chinese clothing)'],
-  '多少': ['HSK1', 'how many / how much'],
-  '一共': ['HSK2', 'altogether / in total'],
-  '元': ['HSK1', 'yuan (RMB unit)'],
-  '钱': ['HSK1', 'money'],
-  '百': ['HSK1', 'hundred'],
-  '用': ['HSK2', 'to use'],
-  '慢走': ['—', '\u201ctake care\u201d (said to a leaving guest)'],
-  '迪拉姆': ['—', 'dirham (UAE currency)'],
-  '水果': ['HSK1', 'fruit'],
-  '苹果': ['HSK1', 'apple'],
-  '西瓜': ['HSK2', 'watermelon'],
-  '香蕉': ['HSK2', 'banana'],
-  '块': ['HSK1', 'kuai (spoken yuan)'],
-  '甜': ['HSK3', 'sweet'],
-  '斤': ['—', 'jin (unit of weight, ~500g)'],
-  '椰枣': ['—', 'dates (the fruit)'],
-  '火车': ['HSK2', 'train'],
-  '飞机': ['HSK1', 'plane'],
-  '出租车': ['HSK2', 'taxi'],
-  '公共汽车': ['HSK2', 'bus'],
-  '自行车': ['HSK3 (light)', 'bicycle'],
-  '地铁': ['HSK3 (light)', 'subway / metro'],
-  '校车': ['—', 'school bus'],
-  '走路': ['HSK2', 'to walk'],
-  '旁边': ['HSK2', 'beside / next to'],
-  '离': ['HSK2', '(distance) from'],
-  '远': ['HSK2', 'far'],
-  '近': ['HSK2', 'near'],
-  '常常': ['HSK2', 'often'],
-  '共享单车': ['—', 'shared bikes'],
-  '去年': ['HSK2', 'last year'],
-  '同学': ['HSK2', 'classmate'],
-  '一起': ['HSK2', 'together'],
-  '觉得': ['HSK1', 'to feel / think'],
-  '有意思': ['HSK2', 'interesting'],
-  '高铁': ['—', 'high-speed rail'],
-  '旅行': ['HSK2', 'to travel'],
-  '周末': ['HSK2', 'weekend'],
-  '聊天': ['HSK3 (light)', 'to chat'],
-  '爬山': ['HSK2', 'to hike / climb a mountain'],
-  '逛街': ['—', 'to stroll & shop'],
-  '冲浪': ['—', 'to surf'],
-  '武术': ['—', 'martial arts'],
-  '排球': ['HSK3 (light)', 'volleyball'],
 };
 
 function buildVocabGloss(passage) {
@@ -1712,21 +1939,8 @@ function buildPassageNotes(passage) {
 // ── HOTS (Tier 3) pinyin annotation ──────────────────────────────
 // Adds ruby pinyin above Chinese characters embedded in the
 // Critical/Creative Thinking prompts (auto-generated via pypinyin).
-const HOTS_PY_RUNS = {"早饭": "<ruby>早<rt>zǎo</rt></ruby><ruby>饭<rt>fàn</rt></ruby>", "午饭": "<ruby>午<rt>wǔ</rt></ruby><ruby>饭<rt>fàn</rt></ruby>", "晚饭": "<ruby>晚<rt>wǎn</rt></ruby><ruby>饭<rt>fàn</rt></ruby>", "八大菜系": "<ruby>八<rt>bā</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>菜<rt>cài</rt></ruby><ruby>系<rt>xì</rt></ruby>", "上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby>上<rt>shàng</rt></ruby><ruby>海<rt>hǎi</rt></ruby>", "中": "<ruby>中<rt>zhōng</rt></ruby>", "中国": "<ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby>", "中国人": "<ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "人": "<ruby>人<rt>rén</rt></ruby>", "你好": "<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby>", "八": "<ruby>八<rt>bā</rt></ruby>", "北京": "<ruby>北<rt>běi</rt></ruby><ruby>京<rt>jīng</rt></ruby>", "发": "<ruby>发<rt>fā</rt></ruby>", "四": "<ruby>四<rt>sì</rt></ruby>", "天": "<ruby>天<rt>tiān</rt></ruby>", "山": "<ruby>山<rt>shān</rt></ruby>", "您": "<ruby>您<rt>nín</rt></ruby>", "您好": "<ruby>您<rt>nín</rt></ruby><ruby>好<rt>hǎo</rt></ruby>", "我十二岁": "<ruby>我<rt>wǒ</rt></ruby><ruby>十<rt>shí</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>岁<rt>suì</rt></ruby>", "月": "<ruby>月<rt>yuè</rt></ruby>", "月球人": "<ruby>月<rt>yuè</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby>人<rt>rén</rt></ruby>", "木": "<ruby>木<rt>mù</rt></ruby>", "死": "<ruby>死<rt>sǐ</rt></ruby>", "水": "<ruby>水<rt>shuǐ</rt></ruby>", "法国人": "<ruby>法<rt>fǎ</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "海": "<ruby>海<rt>hǎi</rt></ruby>", "美国人": "<ruby>美<rt>měi</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "英国人": "<ruby>英<rt>yīng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "阿联酋": "<ruby>阿<rt>ā</rt></ruby><ruby>联<rt>lián</rt></ruby><ruby>酋<rt>qiú</rt></ruby>", "在医院": "<ruby>在<rt>zài</rt></ruby><ruby>医<rt>yī</rt></ruby><ruby>院<rt>yuàn</rt></ruby>", "在公司": "<ruby>在<rt>zài</rt></ruby><ruby>公<rt>gōng</rt></ruby><ruby>司<rt>sī</rt></ruby>", "在学校": "<ruby>在<rt>zài</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>校<rt>xiào</rt></ruby>", "在家": "<ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby>", "在": "<ruby>在<rt>zài</rt></ruby>", "网课": "<ruby>网<rt>wǎng</rt></ruby><ruby>课<rt>kè</rt></ruby>", "网上工作": "<ruby>网<rt>wǎng</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>工<rt>gōng</rt></ruby><ruby>作<rt>zuò</rt></ruby>", "饺子": "<ruby>饺<rt>jiǎo</rt></ruby><ruby>子<rt>zi</rt></ruby>", "汤": "<ruby>汤<rt>tāng</rt></ruby>", "米饭": "<ruby>米<rt>mǐ</rt></ruby><ruby>饭<rt>fàn</rt></ruby>", "果汁": "<ruby>果<rt>guǒ</rt></ruby><ruby>汁<rt>zhī</rt></ruby>", "服务员": "<ruby>服<rt>fú</rt></ruby><ruby>务<rt>wù</rt></ruby><ruby>员<rt>yuán</rt></ruby>", "请问": "<ruby>请<rt>qǐng</rt></ruby><ruby>问<rt>wèn</rt></ruby>", "筷子": "<ruby>筷<rt>kuài</rt></ruby><ruby>子<rt>zi</rt></ruby>", "买了什么": "<ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什<rt>shén</rt></ruby><ruby>么<rt>me</rt></ruby>", "了": "<ruby>了<rt>le</rt></ruby>", "一部": "<ruby>一<rt>yī</rt></ruby><ruby>部<rt>bù</rt></ruby>", "一台": "<ruby>一<rt>yī</rt></ruby><ruby>台<rt>tái</rt></ruby>", "几本": "<ruby>几<rt>jǐ</rt></ruby><ruby>本<rt>běn</rt></ruby>", "几支": "<ruby>几<rt>jǐ</rt></ruby><ruby>支<rt>zhī</rt></ruby>", "手机支付": "<ruby>手<rt>shǒu</rt></ruby><ruby>机<rt>jī</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>付<rt>fù</rt></ruby>", "上衣": "<ruby>上<rt>shàng</rt></ruby><ruby>衣<rt>yī</rt></ruby>", "裤子": "<ruby>裤<rt>kù</rt></ruby><ruby>子<rt>zi</rt></ruby>", "鞋子": "<ruby>鞋<rt>xié</rt></ruby><ruby>子<rt>zi</rt></ruby>", "袜子": "<ruby>袜<rt>wà</rt></ruby><ruby>子<rt>zi</rt></ruby>", "我想买": "<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>", "一件": "<ruby>一<rt>yī</rt></ruby><ruby>件<rt>jiàn</rt></ruby>", "一条": "<ruby>一<rt>yī</rt></ruby><ruby>条<rt>tiáo</rt></ruby>", "一双": "<ruby>一<rt>yī</rt></ruby><ruby>双<rt>shuāng</rt></ruby>", "汉服": "<ruby>汉<rt>hàn</rt></ruby><ruby>服<rt>fú</rt></ruby>", "长袍": "<ruby>长<rt>zhǎng</rt></ruby><ruby>袍<rt>páo</rt></ruby>", "丝路文化日": "<ruby>丝<rt>sī</rt></ruby><ruby>路<rt>lù</rt></ruby><ruby>文<rt>wén</rt></ruby><ruby>化<rt>huà</rt></ruby><ruby>日<rt>rì</rt></ruby>", "节日": "<ruby>节<rt>jié</rt></ruby><ruby>日<rt>rì</rt></ruby>", "人民币": "<ruby>人<rt>rén</rt></ruby><ruby>民<rt>mín</rt></ruby><ruby>币<rt>bì</rt></ruby>", "元": "<ruby>元<rt>yuán</rt></ruby>", "桂林": "<ruby>桂<rt>guì</rt></ruby><ruby>林<rt>lín</rt></ruby>", "人民大会堂": "<ruby>人<rt>rén</rt></ruby><ruby>民<rt>mín</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>堂<rt>táng</rt></ruby>", "迪拉姆": "<ruby>迪<rt>dí</rt></ruby><ruby>拉<rt>lā</rt></ruby><ruby>姆<rt>mǔ</rt></ruby>", "苹果": "<ruby>苹<rt>píng</rt></ruby><ruby>果<rt>guǒ</rt></ruby>", "西瓜": "<ruby>西<rt>xī</rt></ruby><ruby>瓜<rt>guā</rt></ruby>", "葡萄": "<ruby>葡<rt>pú</rt></ruby><ruby>萄<rt>táo</rt></ruby>", "椰枣": "<ruby>椰<rt>yē</rt></ruby><ruby>枣<rt>zǎo</rt></ruby>", "多少钱一斤": "<ruby>多<rt>duō</rt></ruby><ruby>少<rt>shǎo</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>斤<rt>jīn</rt></ruby>", "甜": "<ruby>甜<rt>tián</rt></ruby>", "平安": "<ruby>平<rt>píng</rt></ruby><ruby>安<rt>ān</rt></ruby>", "校车": "<ruby>校<rt>xiào</rt></ruby><ruby>车<rt>chē</rt></ruby>", "地铁": "<ruby>地<rt>dì</rt></ruby><ruby>铁<rt>tiě</rt></ruby>", "自行车": "<ruby>自<rt>zì</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>车<rt>chē</rt></ruby>", "出租车": "<ruby>出<rt>chū</rt></ruby><ruby>租<rt>zū</rt></ruby><ruby>车<rt>chē</rt></ruby>", "飞机": "<ruby>飞<rt>fēi</rt></ruby><ruby>机<rt>jī</rt></ruby>", "坐": "<ruby>坐<rt>zuò</rt></ruby>", "开": "<ruby>开<rt>kāi</rt></ruby>", "骑": "<ruby>骑<rt>qí</rt></ruby>", "去": "<ruby>去<rt>qù</rt></ruby>", "高铁": "<ruby>高<rt>gāo</rt></ruby><ruby>铁<rt>tiě</rt></ruby>", "远": "<ruby>远<rt>yuǎn</rt></ruby>", "近": "<ruby>近<rt>jìn</rt></ruby>", "走路": "<ruby>走<rt>zǒu</rt></ruby><ruby>路<rt>lù</rt></ruby>", "坐校车": "<ruby>坐<rt>zuò</rt></ruby><ruby>校<rt>xiào</rt></ruby><ruby>车<rt>chē</rt></ruby>", "坐车": "<ruby>坐<rt>zuò</rt></ruby><ruby>车<rt>chē</rt></ruby>", "离": "<ruby>离<rt>lí</rt></ruby>", "旁边": "<ruby>旁<rt>páng</rt></ruby><ruby>边<rt>biān</rt></ruby>", "共享单车": "<ruby>共<rt>gòng</rt></ruby><ruby>享<rt>xiǎng</rt></ruby><ruby>单<rt>dān</rt></ruby><ruby>车<rt>chē</rt></ruby>", "是": "<ruby>是<rt>shì</rt></ruby>", "的": "<ruby>的<rt>de</rt></ruby>", "去年": "<ruby>去<rt>qù</rt></ruby><ruby>年<rt>nián</rt></ruby>", "一起": "<ruby>一<rt>yī</rt></ruby><ruby>起<rt>qǐ</rt></ruby>", "觉得": "<ruby>觉<rt>jué</rt></ruby><ruby>得<rt>dé</rt></ruby>", "我们是坐飞机去的": "<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞<rt>fēi</rt></ruby><ruby>机<rt>jī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>"};
-const HOTS_PY_CHARS = {"早": "zǎo", "午": "wǔ", "晚": "wǎn", "饭": "fàn", "菜": "cài", "系": "xì", "大": "dà", "月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ", "在": "zài", "医": "yī", "院": "yuàn", "公": "gōng", "司": "sī", "学": "xué", "校": "xiào", "家": "jiā", "网": "wǎng", "课": "kè", "工": "gōng", "作": "zuò", "饺": "jiǎo", "子": "zi", "汤": "tāng", "米": "mǐ", "果": "guǒ", "汁": "zhī", "服": "fú", "务": "wù", "员": "yuán", "请": "qǐng", "问": "wèn", "筷": "kuài", "买": "mǎi", "了": "le", "什": "shén", "么": "me", "一": "yī", "部": "bù", "台": "tái", "几": "jǐ", "本": "běn", "支": "zhī", "手": "shǒu", "机": "jī", "付": "fù", "衣": "yī", "裤": "kù", "鞋": "xié", "袜": "wà", "想": "xiǎng", "件": "jiàn", "条": "tiáo", "双": "shuāng", "汉": "hàn", "长": "zhǎng", "袍": "páo", "丝": "sī", "路": "lù", "文": "wén", "化": "huà", "日": "rì", "节": "jié", "民": "mín", "币": "bì", "元": "yuán", "桂": "guì", "林": "lín", "会": "huì", "堂": "táng", "迪": "dí", "拉": "lā", "姆": "mǔ", "苹": "píng", "西": "xī", "瓜": "guā", "葡": "pú", "萄": "táo", "椰": "yē", "枣": "zǎo", "多": "duō", "少": "shǎo", "钱": "qián", "斤": "jīn", "甜": "tián", "平": "píng", "安": "ān", "车": "chē", "地": "dì", "铁": "tiě", "自": "zì", "行": "xíng", "出": "chū", "租": "zū", "飞": "fēi", "坐": "zuò", "开": "kāi", "骑": "qí", "去": "qù", "高": "gāo", "远": "yuǎn", "近": "jìn", "走": "zǒu", "离": "lí", "旁": "páng", "边": "biān", "共": "gòng", "享": "xiǎng", "单": "dān", "是": "shì", "的": "de", "年": "nián", "起": "qǐ", "觉": "jué", "得": "dé", "们": "men"};
-
-
-
-
-
-
-
-
-
-/* ── pinyin coverage (auto-added) ── */
-Object.assign(PINYIN_DICT, {"一": "yī", "不": "bù", "东": "dōng", "个": "gè", "也": "yě", "书": "shū", "了": "le", "京": "jīng", "亮": "liàng", "今": "jīn", "从": "cóng", "他": "tā", "们": "men", "位": "wèi", "体": "tǐ", "作": "zuò", "你": "nǐ", "公": "gōng", "兴": "xīng", "再": "zài", "写": "xiě", "出": "chū", "别": "bié", "北": "běi", "医": "yī", "南": "nán", "去": "qù", "同": "tóng", "名": "míng", "吗": "ma", "哈": "hā", "园": "yuán", "图": "tú", "在": "zài", "多": "duō", "大": "dà", "天": "tiān", "太": "tài", "好": "hǎo", "字": "zì", "学": "xué", "它": "tā", "家": "jiā", "寺": "sì", "小": "xiǎo", "师": "shī", "店": "diàn", "很": "hěn", "得": "de", "懂": "dǒng", "我": "wǒ", "拍": "pāi", "拜": "bài", "文": "wén", "方": "fāng", "是": "shì", "有": "yǒu", "来": "lái", "校": "xiào", "桑": "sāng", "棒": "bàng", "楚": "chǔ", "次": "cì", "汉": "hàn", "清": "qīng", "漂": "piāo", "热": "rè", "照": "zhào", "片": "piàn", "牛": "niú", "特": "tè", "玩": "wán", "用": "yòng", "的": "de", "看": "kàn", "真": "zhēn", "知": "zhī", "礼": "lǐ", "答": "dá", "老": "lǎo", "育": "yù", "英": "yīng", "街": "jiē", "西": "xī", "认": "rèn", "说": "shuō", "请": "qǐng", "读": "dú", "贵": "guì", "边": "biān", "这": "zhè", "道": "dào", "都": "dōu", "里": "lǐ", "闹": "nào", "阅": "yuè", "阳": "yáng", "院": "yuàn", "馆": "guǎn", "高": "gāo", "东边": "dōngbiān", "西边": "xībiān", "南边": "nánbiān", "北边": "běibiān", "体育馆": "tǐyùguǎn", "太阳": "tàiyáng", "出来": "chūlái", "学校": "xuéxiào", "老师": "lǎoshī", "清楚": "qīngchu", "不同": "bùtóng", "真的": "zhēnde", "图书馆": "túshūguǎn", "一次": "yícì", "一个": "yí gè", "公园": "gōngyuán", "医院": "yīyuàn", "高兴": "gāoxìng", "今天": "jīntiān", "我们": "wǒmen", "清真寺": "qīngzhēnsì", "知道": "zhīdào", "哈桑": "Hāsāng", "北京": "Běijīng", "有名": "yǒumíng", "牛街": "Niújiē", "礼拜寺": "lǐbàisì", "漂亮": "piàoliang", "小店": "xiǎodiàn", "热闹": "rènao", "这里": "zhèlǐ", "特别": "tèbié", "很多": "hěn duō", "照片": "zhàopiàn"});
-Object.assign(HOTS_PY_CHARS, {"一": "yī", "不": "bù", "东": "dōng", "个": "gè", "也": "yě", "书": "shū", "了": "le", "京": "jīng", "亮": "liàng", "今": "jīn", "从": "cóng", "他": "tā", "们": "men", "位": "wèi", "体": "tǐ", "作": "zuò", "你": "nǐ", "公": "gōng", "兴": "xīng", "再": "zài", "写": "xiě", "出": "chū", "别": "bié", "北": "běi", "医": "yī", "南": "nán", "去": "qù", "同": "tóng", "名": "míng", "吗": "ma", "哈": "hā", "园": "yuán", "图": "tú", "在": "zài", "多": "duō", "大": "dà", "天": "tiān", "太": "tài", "好": "hǎo", "字": "zì", "学": "xué", "它": "tā", "家": "jiā", "寺": "sì", "小": "xiǎo", "师": "shī", "店": "diàn", "很": "hěn", "得": "dé", "懂": "dǒng", "我": "wǒ", "拍": "pāi", "拜": "bài", "文": "wén", "方": "fāng", "是": "shì", "有": "yǒu", "来": "lái", "校": "xiào", "桑": "sāng", "棒": "bàng", "楚": "chǔ", "次": "cì", "汉": "hàn", "清": "qīng", "漂": "piāo", "热": "rè", "照": "zhào", "片": "piàn", "牛": "niú", "特": "tè", "玩": "wán", "用": "yòng", "的": "de", "看": "kàn", "真": "zhēn", "知": "zhī", "礼": "lǐ", "答": "dá", "老": "lǎo", "育": "yù", "英": "yīng", "街": "jiē", "西": "xī", "认": "rèn", "说": "shuō", "请": "qǐng", "读": "dú", "贵": "guì", "边": "biān", "这": "zhè", "道": "dào", "都": "dōu", "里": "lǐ", "闹": "nào", "阅": "yuè", "阳": "yáng", "院": "yuàn", "馆": "guǎn", "高": "gāo"});
-Object.assign(HOTS_PY_RUNS, {"东边": "<ruby>东<rt>dōng</rt></ruby><ruby>边<rt>biān</rt></ruby>", "西边": "<ruby>西<rt>xī</rt></ruby><ruby>边<rt>biān</rt></ruby>", "南边": "<ruby>南<rt>nán</rt></ruby><ruby>边<rt>biān</rt></ruby>", "北边": "<ruby>北<rt>běi</rt></ruby><ruby>边<rt>biān</rt></ruby>", "体育馆": "<ruby>体<rt>tǐ</rt></ruby><ruby>育<rt>yù</rt></ruby><ruby>馆<rt>guǎn</rt></ruby>", "太阳": "<ruby>太<rt>tài</rt></ruby><ruby>阳<rt>yáng</rt></ruby>", "出来": "<ruby>出<rt>chū</rt></ruby><ruby>来<rt>lái</rt></ruby>", "学校": "<ruby>学<rt>xué</rt></ruby><ruby>校<rt>xiào</rt></ruby>", "老师": "<ruby>老<rt>lǎo</rt></ruby><ruby>师<rt>shī</rt></ruby>", "清楚": "<ruby>清<rt>qīng</rt></ruby><ruby>楚<rt>chǔ</rt></ruby>", "不同": "<ruby>不<rt>bù</rt></ruby><ruby>同<rt>tóng</rt></ruby>", "真的": "<ruby>真<rt>zhēn</rt></ruby><ruby>的<rt>de</rt></ruby>", "图书馆": "<ruby>图<rt>tú</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>馆<rt>guǎn</rt></ruby>", "一次": "<ruby>一<rt>yī</rt></ruby><ruby>次<rt>cì</rt></ruby>", "一个": "<ruby>一<rt>yī</rt></ruby><ruby>个<rt>gè</rt></ruby>", "公园": "<ruby>公<rt>gōng</rt></ruby><ruby>园<rt>yuán</rt></ruby>", "医院": "<ruby>医<rt>yī</rt></ruby><ruby>院<rt>yuàn</rt></ruby>", "高兴": "<ruby>高<rt>gāo</rt></ruby><ruby>兴<rt>xīng</rt></ruby>", "今天": "<ruby>今<rt>jīn</rt></ruby><ruby>天<rt>tiān</rt></ruby>", "我们": "<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby>", "清真寺": "<ruby>清<rt>qīng</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>寺<rt>sì</rt></ruby>", "知道": "<ruby>知<rt>zhī</rt></ruby><ruby>道<rt>dào</rt></ruby>", "哈桑": "<ruby>哈<rt>hā</rt></ruby><ruby>桑<rt>sāng</rt></ruby>", "北京": "<ruby>北<rt>běi</rt></ruby><ruby>京<rt>jīng</rt></ruby>", "有名": "<ruby>有<rt>yǒu</rt></ruby><ruby>名<rt>míng</rt></ruby>", "牛街": "<ruby>牛<rt>niú</rt></ruby><ruby>街<rt>jiē</rt></ruby>", "礼拜寺": "<ruby>礼<rt>lǐ</rt></ruby><ruby>拜<rt>bài</rt></ruby><ruby>寺<rt>sì</rt></ruby>", "漂亮": "<ruby>漂<rt>piāo</rt></ruby><ruby>亮<rt>liàng</rt></ruby>", "小店": "<ruby>小<rt>xiǎo</rt></ruby><ruby>店<rt>diàn</rt></ruby>", "热闹": "<ruby>热<rt>rè</rt></ruby><ruby>闹<rt>nào</rt></ruby>", "这里": "<ruby>这<rt>zhè</rt></ruby><ruby>里<rt>lǐ</rt></ruby>", "特别": "<ruby>特<rt>tè</rt></ruby><ruby>别<rt>bié</rt></ruby>", "很多": "<ruby>很<rt>hěn</rt></ruby><ruby>多<rt>duō</rt></ruby>", "照片": "<ruby>照<rt>zhào</rt></ruby><ruby>片<rt>piàn</rt></ruby>"});
+const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby>上<rt>shàng</rt></ruby><ruby>海<rt>hǎi</rt></ruby>", "中": "<ruby>中<rt>zhōng</rt></ruby>", "中国": "<ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby>", "中国人": "<ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "人": "<ruby>人<rt>rén</rt></ruby>", "你好": "<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby>", "八": "<ruby>八<rt>bā</rt></ruby>", "北京": "<ruby>北<rt>běi</rt></ruby><ruby>京<rt>jīng</rt></ruby>", "发": "<ruby>发<rt>fā</rt></ruby>", "四": "<ruby>四<rt>sì</rt></ruby>", "天": "<ruby>天<rt>tiān</rt></ruby>", "山": "<ruby>山<rt>shān</rt></ruby>", "您": "<ruby>您<rt>nín</rt></ruby>", "您好": "<ruby>您<rt>nín</rt></ruby><ruby>好<rt>hǎo</rt></ruby>", "我十二岁": "<ruby>我<rt>wǒ</rt></ruby><ruby>十<rt>shí</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>岁<rt>suì</rt></ruby>", "月": "<ruby>月<rt>yuè</rt></ruby>", "月球人": "<ruby>月<rt>yuè</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby>人<rt>rén</rt></ruby>", "木": "<ruby>木<rt>mù</rt></ruby>", "死": "<ruby>死<rt>sǐ</rt></ruby>", "水": "<ruby>水<rt>shuǐ</rt></ruby>", "法国人": "<ruby>法<rt>fǎ</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "海": "<ruby>海<rt>hǎi</rt></ruby>", "美国人": "<ruby>美<rt>měi</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "英国人": "<ruby>英<rt>yīng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>", "阿联酋": "<ruby>阿<rt>ā</rt></ruby><ruby>联<rt>lián</rt></ruby><ruby>酋<rt>qiú</rt></ruby>"};
+const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
   return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
@@ -1929,8 +2143,8 @@ function checkMatch() {
 
 function submitHOTS() {
   const val = document.getElementById('hotsInput')?.value?.trim() || '';
-  if (val.length < 30) {
-    showToast(`Please write at least 30 characters before submitting. (Current: ${val.length} characters)`, 'warn');
+  if (val.length < 20) {
+    showToast(`Please write at least 20 characters before submitting. (Current: ${val.length} characters)`, 'warn');
     return;
   }
   score++;
@@ -1994,11 +2208,20 @@ function showResult() {
 
 // (buildReviewPanel and toggleReview replaced by buildAnalyticsPanel above)
 
-function downloadAnswers() {
+function plainCN(s){
+  if(s==null) return '';
+  return String(s)
+    .replace(/<ruby>(.*?)<rt>(.*?)<\/rt><\/ruby>/g, '$1（$2）')
+    .replace(/<[^>]*>/g,'')
+    .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
+    .replace(/&nbsp;/g,' ').replace(/&quot;/g,'"')
+    .replace(/[ \t]+/g,' ').trim();
+}
+function buildReportText() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 – Build','Tier 2 – Apply','Tier 3 – Extend'];
   const now = new Date().toLocaleString();
-  let txt = `跨越丝路分层习题生成器 · 4A\n`;
+  let txt = `跨越丝路分层习题生成器 · 1A\n`;
   txt += `Across the Silk Route — Answer Sheet\n`;
   txt += `${'='.repeat(50)}\n`;
   txt += `学生 Student: ${studentName||'—'}  班级 Class: ${studentClass||'—'}\n`;
@@ -2011,21 +2234,21 @@ function downloadAnswers() {
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const typeLabels = { mc:'MC 选择', fill:'Fill 填空', match:'Match 连线', reading:'Reading 阅读', hots:'HOTS 思维' };
-    const stemText = q.stem.replace(/<[^>]*>/g,'');
+    const stemText = plainCN(q.stem);
     txt += `Q${i+1} [${typeLabels[q.type]||q.type}]\n`;
     txt += `Question: ${stemText}\n`;
 
     if (q.type === 'mc' || q.type === 'reading') {
       const displayChoices = q._choices || q.choices;
       const displayAns = (q._ans !== undefined) ? q._ans : q.ans;
-      txt += `Correct Answer: ${['A','B','C','D'][displayAns]}. ${displayChoices[displayAns]}\n`;
-      if (r) txt += `Your Answer:    ${['A','B','C','D'][r.userIdx]}. ${r.userLabel} ${r.correct?'✓':'✗'}\n`;
+      txt += `Correct Answer: ${['A','B','C','D'][displayAns]}. ${plainCN(displayChoices[displayAns])}\n`;
+      if (r) txt += `Your Answer:    ${['A','B','C','D'][r.userIdx]}. ${plainCN(r.userLabel)} ${r.correct?'✓':'✗'}\n`;
       else txt += `Your Answer:    — Not answered\n`;
     } else if (q.type === 'fill') {
-      txt += `Correct Answer: ${q.ans.join(' / ')}\n`;
+      txt += `Correct Answer: ${q.ans.map(plainCN).join(' / ')}\n`;
       txt += `Your Answer:    ${r?.userText || '— Not answered'} ${r?.correct?'✓':'✗'}\n`;
     } else if (q.type === 'match') {
-      txt += `Correct Pairs:  ${q.left.map((l,j) => `${l} → ${q.right[q.pairs[j][1]]}`).join(' | ')}\n`;
+      txt += `Correct Pairs:  ${q.left.map((l,j) => `${plainCN(l)} → ${plainCN(q.right[q.pairs[j][1]])}`).join(' | ')}\n`;
       txt += `Result:         ${r?.correct ? 'All correct ✓' : 'Not all matched ✗'}\n`;
     } else if (q.type === 'hots') {
       txt += `(Open response — no single correct answer)\n`;
@@ -2036,7 +2259,12 @@ function downloadAnswers() {
 
   txt += `${'='.repeat(50)}\n`;
   txt += `Total Score: ${score} / ${currentQs.length} (${Math.round(score/currentQs.length*100)}%)\n`;
+  return txt;
+}
 
+function downloadAnswers() {
+  const lesson = LESSONS[selectedLesson];
+  const txt = buildReportText();
   const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -2048,18 +2276,119 @@ function downloadAnswers() {
   URL.revokeObjectURL(url);
 }
 
+function downloadReportPDF() {
+  const lesson = LESSONS[selectedLesson];
+  const tierNames = ['Tier 1 – Build','Tier 2 – Apply','Tier 3 – Extend'];
+  const now = new Date().toLocaleString();
+  const pct = currentQs.length ? Math.round(score/currentQs.length*100) : 0;
+  const typeLabels = { mc:'MC 选择', fill:'Fill 填空', match:'Match 连线', reading:'Reading 阅读', hots:'HOTS 思维' };
+  let rows = '';
+  currentQs.forEach(function(q,i){
+    const r = responses[i];
+    rows += '<div class="rq">';
+    rows += '<div class="rq-num">Q'+(i+1)+' <span class="rq-type">'+(typeLabels[q.type]||q.type)+'</span></div>';
+    rows += '<div class="rq-stem">'+q.stem+'</div>';
+    if (q.type==='mc' || q.type==='reading') {
+      const dc = q._choices||q.choices; const da = (q._ans!==undefined)?q._ans:q.ans;
+      rows += '<div class="rq-line"><b>Correct 正确答案:</b> '+['A','B','C','D'][da]+'. '+dc[da]+'</div>';
+      if (r) rows += '<div class="rq-line '+(r.correct?'ok':'no')+'"><b>Your 你的答案:</b> '+['A','B','C','D'][r.userIdx]+'. '+r.userLabel+' '+(r.correct?'✓':'✗')+'</div>';
+      else rows += '<div class="rq-line no"><b>Your 你的答案:</b> — Not answered 未作答</div>';
+    } else if (q.type==='fill') {
+      rows += '<div class="rq-line"><b>Correct 正确答案:</b> '+q.ans.join(' / ')+'</div>';
+      rows += '<div class="rq-line '+((r&&r.correct)?'ok':'no')+'"><b>Your 你的答案:</b> '+((r&&r.userText)||'— Not answered 未作答')+' '+(r?(r.correct?'✓':'✗'):'')+'</div>';
+    } else if (q.type==='match') {
+      rows += '<div class="rq-line"><b>Correct 正确配对:</b> '+q.left.map(function(l,j){return l+' → '+q.right[q.pairs[j][1]];}).join(' ｜ ')+'</div>';
+      rows += '<div class="rq-line '+((r&&r.correct)?'ok':'no')+'"><b>Result 结果:</b> '+((r&&r.correct)?'All correct 全对 ✓':'Not all matched 未全对 ✗')+'</div>';
+    } else if (q.type==='hots') {
+      rows += '<div class="rq-line"><b>Open response 开放题:</b> no single answer 无标准答案</div>';
+      rows += '<div class="rq-line"><b>Your 你的回答:</b> '+((r&&r.userText)||'— Not submitted 未提交')+'</div>';
+    }
+    rows += '</div>';
+  });
+
+  const doc = '<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 4A-L2 北边是体育馆。</title>'
+    + '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">'
+    + '<style>'
+    + '*{box-sizing:border-box;margin:0;padding:0}'
+    + 'body{font-family:"DM Sans",sans-serif;color:#1a1714;background:#fff;padding:28px 34px;max-width:800px;margin:0 auto}'
+    + '@media print{body{padding:0}}'
+    + 'ruby rt{font-size:.6em;color:#888;font-weight:400}'
+    + '.rhead{border-bottom:3px solid #1a1714;padding-bottom:12px;margin-bottom:18px}'
+    + '.rhead h1{font-size:18px;font-family:"Noto Serif SC",serif;font-weight:700;line-height:1.4}'
+    + '.rhead .meta{font-size:12.5px;color:#555;margin-top:6px;line-height:1.8}'
+    + '.rscore{display:inline-block;background:#f2f4f7;border-radius:8px;padding:5px 14px;font-weight:700;font-size:13px;margin-top:8px}'
+    + '.rq{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #eee;page-break-inside:avoid}'
+    + '.rq-num{font-size:11px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}'
+    + '.rq-type{font-weight:400;color:#999}'
+    + '.rq-stem{font-size:15.5px;line-height:1.75;margin-bottom:8px;font-family:"Noto Serif SC",serif}'
+    + '.rq-line{font-size:14px;line-height:1.75;margin:2px 0;font-family:"Noto Serif SC",serif}'
+    + '.rq-line b{font-family:"DM Sans",sans-serif;font-weight:700;color:#555}'
+    + '.rq-line.ok{color:#1f8c5a}.rq-line.no{color:#c0392b}'
+    + '.rfoot{margin-top:26px;padding-top:10px;border-top:1px solid #ddd;font-size:11px;color:#aaa;display:flex;justify-content:space-between}'
+    + '</style></head><body>'
+    + '<div class="rhead"><h1>跨越丝路分层习题生成器 · 1A ｜ Answer Report 答题报告</h1>'
+    + '<div class="meta">Student 学生: <b>'+(studentName||'—')+'</b> ｜ Class 班级: <b>'+(studentClass||'—')+'</b><br>'
+    + 'Lesson 课程: '+lesson.num+' · '+lesson.title+' ('+lesson.cn+') ｜ '+tierNames[selectedTier]+' ｜ '+now+'</div>'
+    + '<div class="rscore">Score 得分: '+score+' / '+currentQs.length+' ('+pct+'%)</div></div>'
+    + rows
+    + '<div class="rfoot"><span>跨越丝路分层习题生成器 · 1A</span><span>Across the Silk Route</span></div>'
+    + '</body></html>';
+
+  const win = window.open('', '_blank', 'width=860,height=960');
+  if (!win) { showToast('请允许弹出窗口后重试。\nPlease allow pop-ups and try again.', 'warn'); return; }
+  win.document.write(doc);
+  win.document.close();
+  win.focus();
+  setTimeout(function(){ win.print(); }, 700);
+}
+
+// ── 方案B:填老师邮箱,报告放正文,调起学生邮箱发送 ──
+function sendToTeacher() {
+  const lesson = LESSONS[selectedLesson];
+  const tn = ['Tier 1 – Build','Tier 2 – Apply','Tier 3 – Extend'][selectedTier];
+  document.getElementById('emailSummary').innerHTML =
+    'Student: <b>' + (studentName||'—') + '</b><br>' +
+    'Class: <b>' + (studentClass||'—') + '</b><br>' +
+    'Lesson: <b>' + lesson.num + ' ' + lesson.cn + '</b><br>' +
+    'Tier: <b>' + tn + '</b><br>' +
+    'Score: <b>' + score + ' / ' + currentQs.length + '</b>';
+  document.getElementById('teacherEmail').value = '';
+  document.getElementById('emailErr').textContent = '';
+  document.getElementById('emailOverlay').classList.add('show');
+  setTimeout(function(){ document.getElementById('teacherEmail').focus(); }, 100);
+}
+function closeEmailModal() {
+  document.getElementById('emailOverlay').classList.remove('show');
+}
+function doMailto() {
+  const email = document.getElementById('teacherEmail').value.trim();
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!ok) {
+    document.getElementById('emailErr').textContent = 'Please enter a valid email · 请输入正确的老师邮箱';
+    document.getElementById('teacherEmail').focus();
+    return;
+  }
+  const lesson = LESSONS[selectedLesson];
+  const tn = ['Tier 1 – Build','Tier 2 – Apply','Tier 3 – Extend'][selectedTier];
+  const subject = (studentName || 'Student') + ' · ' + lesson.num + ' · ' + tn + ' · ' + score + '/' + currentQs.length;
+  const body = buildReportText();
+  const href = 'mailto:' + encodeURIComponent(email) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = href;
+  closeEmailModal();
+}
+
 function retry() {
   document.getElementById('resultScreen').style.display = 'none';
   startQuiz();
 }
 
 function exitQuiz() {
-  showConfirm('Back to settings? Your progress will not be saved.', '返回设置？当前进度不会保存。', function() {
+  showConfirm('Back to lesson? Your progress will not be saved.', '返回课程？当前进度不会保存。', function() {
     clearInterval(timerInterval);
     qIndex = 0; score = 0; responses = [];
     document.getElementById('quizScreen').style.display = 'none';
     document.getElementById('studentInfoScreen').style.display = 'none';
-    document.getElementById('setup').style.display = 'block';
+    if(typeof backToCover==='function'){ backToCover(); } else { document.getElementById('setup').style.display = 'block'; }
     window.scrollTo(0, 0);
   });
 }
@@ -2069,7 +2398,7 @@ function goBack() {
   document.getElementById('resultScreen').style.display = 'none';
   document.getElementById('quizScreen').style.display = 'none';
   document.getElementById('studentInfoScreen').style.display = 'none';
-  document.getElementById('setup').style.display = 'block';
+  if(typeof backToCover==='function'){ backToCover(); } else { document.getElementById('setup').style.display = 'block'; }
   window.scrollTo(0, 0);
 }
 
@@ -2142,8 +2471,19 @@ function printWorksheet() {
       var c2P = q.prompts.filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
       var c3P = q.prompts.filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
 
-            h += '<div class="photsbox photsbox-c3">';
+      h += '<div class="photsbox photsbox-c2">';
+      h += '<div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div>';
+      h += '<div class="pq-stem">' + c2S + '</div>';
+      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '</div>';
+      h += '<div class="pwrite-lines">';
+      for (var li2 = 0; li2 < 5; li2++) h += '<div class="pwrite-line"></div>';
+      h += '</div>';
+
+      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;">';
+      h += '<div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div>';
       h += '<div class="pq-stem">' + c3S + '</div>';
+      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
       h += '</div>';
       h += '<div class="pwrite-lines">';
       for (var li3 = 0; li3 < 5; li3++) h += '<div class="pwrite-line"></div>';
@@ -2157,7 +2497,7 @@ function printWorksheet() {
   let qsHTML = '';
   printQs.forEach(function(q, i) { qsHTML += buildQHTML(q, i); });
 
-  const printHTML = '<!DOCTYPE html>\n<html lang="zh">\n<head>\n<meta charset="UTF-8">\n<title>试卷 ' + lesson.num + ' ' + tierLabel + '</title>\n<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">\n<style>\n* { box-sizing: border-box; margin: 0; padding: 0; }\nbody { font-family: "DM Sans", sans-serif; color: #1a1714; background: #fff; padding: 24px 32px; max-width: 780px; margin: 0 auto; }\n@media print { body { padding: 0; } }\n.header { border-bottom: 3px solid #1a1714; padding-bottom: 12px; margin-bottom: 16px; }\n.header h1 { font-size: 18px; font-weight: 700; font-family: "Noto Serif SC", serif; }\n.header .meta { font-size: 12px; color: #666; margin-top: 4px; }\n.student-row { display: flex; gap: 24px; margin-bottom: 20px; font-size: 13px; }\n.student-row .field { display: flex; align-items: center; gap: 6px; }\n.student-row .field-line { border-bottom: 1px solid #999; min-width: 120px; height: 20px; }\n.pq { margin-bottom: 24px; page-break-inside: avoid; }\n.pq-num { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }\n.pq-type { font-weight: 400; color: #888; font-size: 11px; }\n.pq-stem { font-size: 15px; line-height: 1.65; margin-bottom: 10px; font-family: "Noto Serif SC", serif; }\n.ppassage { background: #e8f7f0; border-left: 4px solid #1f8c5a; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; font-family: "Noto Serif SC", serif; font-size: 14px; line-height: 1.8; }\n.ppassage-lbl { font-size: 10px; font-weight: 700; color: #1f8c5a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }\n.popts { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; margin-left: 2px; }\n.popt { font-size: 13px; font-family: "Noto Serif SC", serif; padding: 3px 0; display: flex; gap: 6px; }\n.popt-k { font-weight: 700; min-width: 16px; }\n.pline { border-bottom: 1.5px solid #aaa; margin: 14px 0 4px; min-height: 26px; }\n.pmatch { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }\n.pmatch-col { display: flex; flex-direction: column; gap: 6px; }\n.pmatch-hdr { font-size: 11px; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }\n.pmatch-item { border: 1.5px solid #ddd; border-radius: 6px; padding: 7px 12px; font-size: 14px; font-family: "Noto Serif SC", serif; text-align: center; background: #f9f9f9; }\n.photsbox { background: #fffbea; border-left: 4px solid #c9a227; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }\n.phots-lbl { font-size: 10px; font-weight: 700; color: #c9a227; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }\n.phots-prompts { margin: 8px 0 0 16px; font-size: 12px; color: #7a7570; }\n.phots-prompts li { margin-bottom: 4px; }\n.pwrite-lines { margin-top: 8px; }\n.pwrite-line { border-bottom: 1px solid #ccc; height: 30px; margin-bottom: 2px; }\n.footer { margin-top: 32px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 11px; color: #aaa; display: flex; justify-content: space-between; }\n</style>\n</head>\n<body>\n<div class="header">\n  <h1>跨越丝路分层习题生成器 · 4A</h1>\n  <div class="meta">' + lesson.num + ' · ' + lesson.title + ' (' + lesson.cn + ') &nbsp;|&nbsp; ' + tierLabel + ' &nbsp;|&nbsp; 共 ' + printQs.length + ' 题 &nbsp;|&nbsp; ' + date + '</div>\n</div>\n<div class="student-row">\n  <div class="field">姓名 Name: <div class="field-line"></div></div>\n  <div class="field">日期 Date: <div class="field-line"></div></div>\n  <div class="field">得分 Score: <div class="field-line"></div></div>\n</div>\n' + qsHTML + '\n<div class="footer"><span>跨越丝路分层习题生成器 · 4A</span><span>' + lesson.num + ' · ' + tierLabel + '</span><span>Across the Silk Route</span></div>\n</body>\n</html>';
+  const printHTML = '<!DOCTYPE html>\n<html lang="zh">\n<head>\n<meta charset="UTF-8">\n<title>跨越丝路分层习题生成器 · 4A-L2 北边是体育馆。</title>\n<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">\n<style>\n* { box-sizing: border-box; margin: 0; padding: 0; }\nbody { font-family: "DM Sans", sans-serif; color: #1a1714; background: #fff; padding: 24px 32px; max-width: 780px; margin: 0 auto; }\n@media print { body { padding: 0; } }\n.header { border-bottom: 3px solid #1a1714; padding-bottom: 12px; margin-bottom: 16px; }\n.header h1 { font-size: 18px; font-weight: 700; font-family: "Noto Serif SC", serif; }\n.header .meta { font-size: 12px; color: #666; margin-top: 4px; }\n.student-row { display: flex; gap: 24px; margin-bottom: 20px; font-size: 13px; }\n.student-row .field { display: flex; align-items: center; gap: 6px; }\n.student-row .field-line { border-bottom: 1px solid #999; min-width: 120px; height: 20px; }\n.pq { margin-bottom: 24px; page-break-inside: avoid; }\n.pq-num { font-size: 12px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }\n.pq-type { font-weight: 400; color: #888; font-size: 11px; }\n.pq-stem { font-size: 15px; line-height: 1.65; margin-bottom: 10px; font-family: "Noto Serif SC", serif; }\n.ppassage { background: #e8f7f0; border-left: 4px solid #1f8c5a; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; font-family: "Noto Serif SC", serif; font-size: 14px; line-height: 1.8; }\n.ppassage-lbl { font-size: 10px; font-weight: 700; color: #1f8c5a; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }\n.popts { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; margin-left: 2px; }\n.popt { font-size: 13px; font-family: "Noto Serif SC", serif; padding: 3px 0; display: flex; gap: 6px; }\n.popt-k { font-weight: 700; min-width: 16px; }\n.pline { border-bottom: 1.5px solid #aaa; margin: 14px 0 4px; min-height: 26px; }\n.pmatch { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }\n.pmatch-col { display: flex; flex-direction: column; gap: 6px; }\n.pmatch-hdr { font-size: 11px; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }\n.pmatch-item { border: 1.5px solid #ddd; border-radius: 6px; padding: 7px 12px; font-size: 14px; font-family: "Noto Serif SC", serif; text-align: center; background: #f9f9f9; }\n.photsbox { background: #fffbea; border-left: 4px solid #c9a227; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px; }\n.phots-lbl { font-size: 10px; font-weight: 700; color: #c9a227; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }\n.phots-prompts { margin: 8px 0 0 16px; font-size: 12px; color: #7a7570; }\n.phots-prompts li { margin-bottom: 4px; }\n.pwrite-lines { margin-top: 8px; }\n.pwrite-line { border-bottom: 1px solid #ccc; height: 30px; margin-bottom: 2px; }\n.footer { margin-top: 32px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 11px; color: #aaa; display: flex; justify-content: space-between; }\n</style>\n</head>\n<body>\n<div class="header">\n  <h1>跨越丝路分层习题生成器 · 1A</h1>\n  <div class="meta">' + lesson.num + ' · ' + lesson.title + ' (' + lesson.cn + ') &nbsp;|&nbsp; ' + tierLabel + ' &nbsp;|&nbsp; 共 ' + printQs.length + ' 题 &nbsp;|&nbsp; ' + date + '</div>\n</div>\n<div class="student-row">\n  <div class="field">姓名 Name: <div class="field-line"></div></div>\n  <div class="field">日期 Date: <div class="field-line"></div></div>\n  <div class="field">得分 Score: <div class="field-line"></div></div>\n</div>\n' + qsHTML + '\n<div class="footer"><span>跨越丝路分层习题生成器 · 1A</span><span>' + lesson.num + ' · ' + tierLabel + '</span><span>Across the Silk Route</span></div>\n</body>\n</html>';
 
   const win = window.open('', '_blank', 'width=860,height=960');
   if (!win) { showToast('请允许弹出窗口后重试。\nPlease allow pop-ups and try again.', 'warn'); return; }
@@ -2179,7 +2519,7 @@ function goToStudentInfo() {
 
 function backToSetup() {
   document.getElementById('studentInfoScreen').style.display = 'none';
-  document.getElementById('setup').style.display = 'block';
+  if(typeof backToCover==='function'){ backToCover(); } else { document.getElementById('setup').style.display = 'block'; }
 }
 
 function confirmStudentInfo() {
@@ -2200,7 +2540,7 @@ function confirmStudentInfo() {
   studentName = name; studentClass = cls; studentSchool = '';
   document.getElementById('studentInfoScreen').style.display = 'none';
   
-  startQuiz();
+  showRevision();
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -2384,12 +2724,8 @@ function buildAnalyticsPanel() {
   panel.innerHTML = `
     <div class="analytics-section">
       <div class="analytics-section-title">📋 Learning Analysis · 学情总览</div>
-      <p class="analytics-insight" style="margin-bottom:1rem;">${insightText}</p>
+      <p class="analytics-insight" style="margin-bottom:.6rem;">${insightText}</p>
       ${strengthHtml}
-    </div>
-    <div class="result-action-btns">
-      <button class="result-toggle-btn" onclick="toggleReviewPanel()">📝 Question Review · 逐题回顾</button>
-      <button class="result-toggle-btn" onclick="toggleRemedialPanel()">🔧 Remedial Practice · 补弱练习</button>
     </div>
     <div class="analytics-section collapse-panel" id="reviewPanel" style="display:none;">
       <div class="analytics-section-title">📝 Question-by-Question Review · 逐题回顾</div>
@@ -2427,7 +2763,7 @@ function downloadRemedial() {
   const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
-  const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Remedial — ' + lesson.num + '</title>' +
+  const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 4A-L2 北边是体育馆。</title>' +
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">' +
     '<style>body{font-family:"DM Sans",sans-serif;padding:24px 32px;max-width:780px;margin:0 auto;color:#1a1714;}' +
     'h1{font-size:18px;font-family:"Noto Serif SC",serif;border-bottom:3px solid #1a1714;padding-bottom:10px;margin-bottom:16px;}' +
@@ -2454,6 +2790,17 @@ function downloadRemedial() {
 }
 
 let surveyData = {};
+
+function showRemedialInline() {
+  var p = document.getElementById('remedialInlinePanel');
+  if (!p) return;
+  if (p.style.display !== 'none') { p.style.display = 'none'; return; }
+  var content = (window._remedialHtml && window._remedialHtml.trim()) ? window._remedialHtml
+    : '<p style="color:#1a6637;font-weight:700;">🎉 No remedial questions — you got everything right!</p>';
+  p.innerHTML = '<div class="remedial-inline-head">🔧 补弱练习 · Remedial Practice</div>' + content;
+  p.style.display = 'block';
+  p.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
 
 function _shuffleArr(a){
   if(!a || a.length<2) return (a||[]).slice();
@@ -2564,6 +2911,39 @@ function submitStudentSurvey() {
   }
 }
 
+function sentenceHTML(o){
+  var rb=(o&&o.ruby)||'', en=(o&&o.en)||'';
+  function blk(cn,e){ return '<div class="s-line"><span class="s-cn">'+cn+'</span>'+(e?'<span class="s-en">'+e+'</span>':'')+'</div>'; }
+  var qi=rb.indexOf('？'); if(qi<0) qi=rb.indexOf('?');
+  if(qi>=0){
+    var after=rb.slice(qi+1).replace(/^\s+/,'');
+    if(after){
+      var q=rb.slice(0,qi+1);
+      var ei=en.indexOf('?');
+      var qe=ei>=0?en.slice(0,ei+1):en;
+      var ae=ei>=0?en.slice(ei+1).replace(/^\s+/,''):'';
+      return blk(q,qe)+blk(after,ae);
+    }
+  }
+  return blk(rb,en);
+}
+function fitTitle(){
+  var el=document.querySelector('.cv-h1-cn'); if(!el) return;
+  el.style.whiteSpace='nowrap'; el.style.fontSize='';
+  var p=el.parentElement, fs=parseFloat(getComputedStyle(el).fontSize), g=0;
+  while(el.scrollWidth>p.clientWidth && fs>13 && g<90){ fs-=1; el.style.fontSize=fs+'px'; g++; }
+}
+
+function renderCoverKeypoints(){
+  var w=document.getElementById('cvWords');
+  if(w){ w.innerHTML=KEYPOINTS.words.map(function(x){return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';}).join(''); }
+  var sc=document.getElementById('cvSentence'), sen=KEYPOINTS.sentence;
+  if(sc){ sc.innerHTML=sentenceHTML(sen); }
+}
+renderCoverKeypoints();
+fitTitle();
+window.addEventListener('resize', fitTitle);
+setTimeout(fitTitle,300);
 buildSetup();
 updateLessonNavLabel();
 </script>
