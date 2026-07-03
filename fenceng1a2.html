@@ -781,6 +781,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.15s;white-space:nowrap}
   .cv-navbtn:hover{box-shadow:0 6px 20px rgba(0,0,0,.13);transform:translateY(-1px)}
   .cv-h1{flex:1;text-align:center;font-size:clamp(26px,4.6vw,46px);font-weight:900;color:#1a3a5c;letter-spacing:-.01em}
+  .cv-h1-cn{display:block;line-height:1.15}
+  .cv-h1-en{display:block;font-size:.5em;font-weight:700;color:#3a5a7c;margin-top:5px;letter-spacing:0;line-height:1.2}
   .cv-keypoints{background:#fff;border-radius:26px;padding:22px 26px 26px;box-shadow:0 8px 30px rgba(0,0,0,.06);margin-bottom:26px}
   .cv-kp-title{text-align:center;font-size:20px;font-weight:800;color:#1a3a5c;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px}
   .cv-kp-title::before,.cv-kp-title::after{content:"";width:5px;height:5px;border-radius:50%;background:#1a3a5c;display:inline-block}
@@ -833,7 +835,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="cv-top">
     <button class="cv-navbtn" onclick="shiftLesson(-1)">←&nbsp; Previous Lesson</button>
     <img class="cv-panda" src="panda1.png" alt="">
-    <div class="cv-h1">1A-L2 你好! Hello!</div>
+    <div class="cv-h1"><span class="cv-h1-cn">1A-L2 你好！</span><span class="cv-h1-en">Hello!</span></div>
     <img class="cv-panda" src="panda2.png" alt="">
     <button class="cv-navbtn" onclick="shiftLesson(1)">Next Lesson &nbsp;→</button>
   </div>
@@ -842,26 +844,11 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     <div class="cv-kp-grid">
       <div class="cv-panel kw">
         <div class="cv-panel-hd"><span class="cv-ico">💬</span>Key Words</div>
-        <div class="cv-words">
-          <span class="kw-item"><span class="kw-py">nǐ</span><span class="kw-cn">你</span><span class="kw-en">(you)</span></span>
-          <span class="kw-item"><span class="kw-py">wǒ</span><span class="kw-cn">我</span><span class="kw-en">(I / me)</span></span>
-          <span class="kw-item"><span class="kw-py">tā</span><span class="kw-cn">他</span><span class="kw-en">(he / him)</span></span>
-          <span class="kw-item"><span class="kw-py">nǐ hǎo</span><span class="kw-cn">你好</span><span class="kw-en">(hello)</span></span>
-          <span class="kw-item"><span class="kw-py">hǎo</span><span class="kw-cn">好</span><span class="kw-en">(good / well)</span></span>
-          <span class="kw-item"><span class="kw-py">xièxie</span><span class="kw-cn">谢谢</span><span class="kw-en">(thanks)</span></span>
-          <span class="kw-item"><span class="kw-py">zàijiàn</span><span class="kw-cn">再见</span><span class="kw-en">(goodbye)</span></span>
-          <span class="kw-item"><span class="kw-py">lǎoshī</span><span class="kw-cn">老师</span><span class="kw-en">(teacher)</span></span>
-          <span class="kw-item"><span class="kw-py">nǐmen</span><span class="kw-cn">你们</span><span class="kw-en">(you, plural)</span></span>
-          <span class="kw-item"><span class="kw-py">nín</span><span class="kw-cn">您</span><span class="kw-en">(you, polite)</span></span>
-        </div>
+        <div class="cv-words" id="cvWords"></div>
       </div>
       <div class="cv-panel st">
         <div class="cv-panel-hd"><span class="cv-ico">💬</span>Sentence</div>
-        <div class="cv-sentence">
-          <span class="s-py">wǒ shì Āyīshā.</span>
-          <span class="s-cn">我是阿伊莎。</span>
-          <span class="s-en">I am Aisha.</span>
-        </div>
+        <div class="cv-sentence" id="cvSentence"></div>
       </div>
     </div>
   </div>
@@ -2922,6 +2909,13 @@ function submitStudentSurvey() {
   }
 }
 
+function renderCoverKeypoints(){
+  var w=document.getElementById('cvWords');
+  if(w){ w.innerHTML=KEYPOINTS.words.map(function(x){return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';}).join(''); }
+  var sc=document.getElementById('cvSentence'), sen=KEYPOINTS.sentence;
+  if(sc){ sc.innerHTML='<span class="s-py">'+sen.py+'</span><span class="s-cn">'+sen.cn+'</span><span class="s-en">'+sen.en+'</span>'; }
+}
+renderCoverKeypoints();
 buildSetup();
 updateLessonNavLabel();
 </script>
