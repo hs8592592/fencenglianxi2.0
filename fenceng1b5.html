@@ -781,7 +781,10 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.15s;white-space:nowrap}
   .cv-navbtn:hover{box-shadow:0 6px 20px rgba(0,0,0,.13);transform:translateY(-1px)}
   .cv-h1{flex:1;text-align:center;font-size:clamp(26px,4.6vw,46px);font-weight:900;color:#1a3a5c;letter-spacing:-.01em}
-  .cv-h1-cn{display:block;line-height:1.15}
+  .cv-h1-cn{display:block;line-height:1.5}
+  .cv-h1-cn ruby{margin:0 1px}
+  .cv-h1-cn rt{font-size:.38em;font-weight:600;color:#7a93ad;letter-spacing:0}
+  .s-cn rt{font-size:.4em;font-weight:600;color:#8aa0b0;letter-spacing:0}
   .cv-h1-en{display:block;font-size:.5em;font-weight:700;color:#3a5a7c;margin-top:5px;letter-spacing:0;line-height:1.2}
   .cv-keypoints{background:#fff;border-radius:26px;padding:22px 26px 26px;box-shadow:0 8px 30px rgba(0,0,0,.06);margin-bottom:26px}
   .cv-kp-title{text-align:center;font-size:20px;font-weight:800;color:#1a3a5c;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px}
@@ -835,7 +838,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="cv-top">
     <button class="cv-navbtn" onclick="shiftLesson(-1)">←&nbsp; Previous Lesson</button>
     <img class="cv-panda" src="panda1.png" alt="">
-    <div class="cv-h1"><span class="cv-h1-cn">1B-L5 今天二月一号。</span><span class="cv-h1-en">Today is February 1st.</span></div>
+    <div class="cv-h1"><span class="cv-h1-cn">1B-L5 <ruby>今<rt>jīn</rt></ruby><ruby>天<rt>tiān</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>月<rt>yuè</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>号<rt>hào</rt></ruby>。</span><span class="cv-h1-en">Today is February 1st.</span></div>
     <img class="cv-panda" src="panda2.png" alt="">
     <button class="cv-navbtn" onclick="shiftLesson(1)">Next Lesson &nbsp;→</button>
   </div>
@@ -913,7 +916,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   // 本课重点词与句型(复习页用)
     var KEYPOINTS = {
     words: [['nián','年','year'],['yuè','月','month'],['hào','号','day (of the month)'],['rì','日','day'],['jīnnián','今年','this year']],
-    sentence: {py:'jīntiān jǐ yuè jǐ hào? jīntiān èr yuè yī hào.', cn:'今天几月几号？今天二月一号。', en:'What\'s the date today? Today is February 1st.'}
+    sentence: {py:'jīntiān jǐ yuè jǐ hào? jīntiān èr yuè yī hào.', cn:'今天几月几号？今天二月一号。', en:'What\'s the date today? Today is February 1st.', ruby:'<ruby>今<rt>jīn</rt></ruby><ruby>天<rt>tiān</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>月<rt>yuè</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>号<rt>hào</rt></ruby>？<ruby>今<rt>jīn</rt></ruby><ruby>天<rt>tiān</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>月<rt>yuè</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>号<rt>hào</rt></ruby>。'}
   };
 
   function applyTierTheme(n){
@@ -956,7 +959,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     }).join('');
     var s = KEYPOINTS.sentence;
     document.getElementById('rvSentence').innerHTML =
-      '<span class="s-py">'+s.py+'</span><span class="s-cn">'+s.cn+'</span><span class="s-en">'+s.en+'</span>';
+      '<span class=\"s-cn\">'+s.ruby+'</span><span class=\"s-en\">'+s.en+'</span>';
     hideNewScreens();
     document.getElementById('studentInfoScreen').style.display='none';
     document.getElementById('revisionScreen').style.display='block';
@@ -2913,7 +2916,7 @@ function renderCoverKeypoints(){
   var w=document.getElementById('cvWords');
   if(w){ w.innerHTML=KEYPOINTS.words.map(function(x){return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';}).join(''); }
   var sc=document.getElementById('cvSentence'), sen=KEYPOINTS.sentence;
-  if(sc){ sc.innerHTML='<span class="s-py">'+sen.py+'</span><span class="s-cn">'+sen.cn+'</span><span class="s-en">'+sen.en+'</span>'; }
+  if(sc){ sc.innerHTML='<span class=\"s-cn\">'+sen.ruby+'</span><span class=\"s-en\">'+sen.en+'</span>'; }
 }
 renderCoverKeypoints();
 buildSetup();
