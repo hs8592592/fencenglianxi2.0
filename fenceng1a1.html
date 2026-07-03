@@ -787,6 +787,13 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .s-cn rt{font-size:.4em;font-weight:600;color:#8aa0b0;letter-spacing:0}
   .cv-h1-en{display:block;font-size:.5em;font-weight:700;color:#3a5a7c;margin-top:5px;letter-spacing:0;line-height:1.2}
   .cv-keypoints{background:#fff;border-radius:26px;padding:22px 26px 26px;box-shadow:0 8px 30px rgba(0,0,0,.06);margin-bottom:26px}
+  .py-chart{display:flex;flex-direction:column;gap:15px;width:100%}
+  .py-gt{font-size:14px;font-weight:800;color:#2766CC;margin-bottom:8px;letter-spacing:.02em}
+  .py-row{display:flex;flex-wrap:wrap;gap:8px}
+  .py-row span{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 9px;background:#fff;border:1.5px solid #d8e3f3;border-radius:9px;font-size:16px;font-weight:600;color:#1a3a5c}
+  .py-tone span{min-width:46px;font-size:19px}
+  .py-note{font-size:12.5px;color:#8a97a6;margin-top:6px}
+
   .cv-kp-title{text-align:center;font-size:20px;font-weight:800;color:#1a3a5c;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px}
   .cv-kp-title::before,.cv-kp-title::after{content:"";width:5px;height:5px;border-radius:50%;background:#1a3a5c;display:inline-block}
   .cv-kp-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:18px}
@@ -845,19 +852,11 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     <img class="cv-panda" src="panda2.png" alt="">
     <button class="cv-navbtn" onclick="shiftLesson(1)">Next Lesson &nbsp;→</button>
   </div>
-  <div class="cv-keypoints" style="display:none">
-    <div class="cv-kp-title">Key Points</div>
-    <div class="cv-kp-grid">
-      <div class="cv-panel kw">
-        <div class="cv-panel-hd"><span class="cv-ico">💬</span>Key Words</div>
-        <div class="cv-words" id="cvWords"></div>
-      </div>
-      <div class="cv-panel st">
-        <div class="cv-panel-hd"><span class="cv-ico">💬</span>Sentence</div>
-        <div class="cv-sentence" id="cvSentence"></div>
-      </div>
-    </div>
+  <div class="cv-keypoints">
+    <div class="cv-kp-title">拼音表 · Pinyin Chart</div>
+    <div id="cvPinyin"></div>
   </div>
+
   <div class="cv-tiers">
     <button class="cv-tier-card" onclick="coverTier(0)">
       <div class="cv-tc-head" style="background:#F2962F">
@@ -957,9 +956,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   // 学生信息确认后 → 复习页(由 confirmStudentInfo 调用)
   function showRevision(){
     var w = document.getElementById('rvWords');
-    w.innerHTML = KEYPOINTS.words.map(function(x){
-      return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';
-    }).join('');
+    w.innerHTML = PINYIN_CHART;
     var s = KEYPOINTS.sentence;
     document.getElementById('rvSentence').innerHTML = sentenceHTML(s);
     hideNewScreens();
@@ -1209,10 +1206,10 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="rv-card">
     <div class="rv-head">📖 Revision</div>
     <div class="rv-sub">Review the key words and sentence before you start.</div>
-    <div class="rv-block-t">Key Words</div>
+    <div class="rv-block-t">拼音表 · Pinyin Chart</div>
     <div class="rv-words" id="rvWords"></div>
-    <div class="rv-block-t">Sentence</div>
-    <div class="rv-sentence" id="rvSentence"></div>
+    <div class="rv-block-t" style="display:none">Sentence</div>
+    <div class="rv-sentence" id="rvSentence" style="display:none"></div>
     <button class="rv-start" id="rvStartBtn" onclick="revisionStart()">Start →</button>
     <div class="rv-back" onclick="backToCover()">← Back to lesson</div>
   </div>
@@ -2998,7 +2995,9 @@ function fitTitle(){
   while(el.scrollWidth>p.clientWidth && fs>12 && g<120){ fs-=1; el.style.fontSize=fs+'px'; g++; }
 }
 
+var PINYIN_CHART = '<div class="py-chart"><div class="py-group"><div class="py-gt">声母 Initials (23)</div><div class="py-row"><span>b</span><span>p</span><span>m</span><span>f</span><span>d</span><span>t</span><span>n</span><span>l</span><span>g</span><span>k</span><span>h</span><span>j</span><span>q</span><span>x</span><span>zh</span><span>ch</span><span>sh</span><span>r</span><span>z</span><span>c</span><span>s</span><span>y</span><span>w</span></div></div><div class="py-group"><div class="py-gt">韵母 Finals</div><div class="py-row"><span>a</span><span>o</span><span>e</span><span>i</span><span>u</span><span>ü</span><span>ai</span><span>ei</span><span>ui</span><span>ao</span><span>ou</span><span>iu</span><span>ie</span><span>üe</span><span>er</span><span>an</span><span>en</span><span>in</span><span>un</span><span>ün</span><span>ang</span><span>eng</span><span>ing</span><span>ong</span></div></div><div class="py-group"><div class="py-gt">声调 Tones</div><div class="py-row py-tone"><span>ā</span><span>á</span><span>ǎ</span><span>à</span></div><div class="py-note">1st ā · 2nd á · 3rd ǎ · 4th à　　例:mā(妈) má(麻) mǎ(马) mà(骂)</div></div></div>';
 function renderCoverKeypoints(){
+  var cp=document.getElementById('cvPinyin'); if(cp) cp.innerHTML=PINYIN_CHART;
   var w=document.getElementById('cvWords');
   if(w){ w.innerHTML=KEYPOINTS.words.map(function(x){return '<span class="kw-item"><span class="kw-py">'+x[0]+'</span><span class="kw-cn">'+x[1]+'</span><span class="kw-en">('+x[2]+')</span></span>';}).join(''); }
   var sc=document.getElementById('cvSentence'), sen=KEYPOINTS.sentence;
