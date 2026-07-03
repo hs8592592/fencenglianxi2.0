@@ -780,7 +780,7 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
     padding:13px 22px;font-size:15px;font-weight:800;color:#1a3a5c;cursor:pointer;font-family:inherit;
     box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.15s;white-space:nowrap}
   .cv-navbtn:hover{box-shadow:0 6px 20px rgba(0,0,0,.13);transform:translateY(-1px)}
-  .cv-h1{flex:1;text-align:center;font-size:clamp(26px,4.6vw,46px);font-weight:900;color:#1a3a5c;letter-spacing:-.01em}
+  .cv-h1{flex:1;min-width:0;text-align:center;font-size:clamp(26px,4.6vw,46px);font-weight:900;color:#1a3a5c;letter-spacing:-.01em}
   .cv-h1-py{display:block;font-size:.4em;font-weight:600;color:#7a93ad;letter-spacing:.03em;margin-bottom:3px;line-height:1.2}
   .cv-h1-cn{display:block;line-height:1.5}
   .cv-h1-cn ruby{margin:0 1px}
@@ -2931,7 +2931,7 @@ function fitTitle(){
   var el=document.querySelector('.cv-h1-cn'); if(!el) return;
   el.style.whiteSpace='nowrap'; el.style.fontSize='';
   var p=el.parentElement, fs=parseFloat(getComputedStyle(el).fontSize), g=0;
-  while(el.scrollWidth>p.clientWidth && fs>13 && g<90){ fs-=1; el.style.fontSize=fs+'px'; g++; }
+  while(el.scrollWidth>p.clientWidth && fs>12 && g<120){ fs-=1; el.style.fontSize=fs+'px'; g++; }
 }
 
 function renderCoverKeypoints(){
