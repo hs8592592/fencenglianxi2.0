@@ -428,14 +428,27 @@
     const back=sessionStorage.getItem('haoteach_return');
     if(back){sessionStorage.removeItem('haoteach_return');location.href=back;}else location.reload();
   }
+  let _user=null;
   async function refreshAuthUI(){
-    const {data:{session}}=await _sb.auth.getSession();
+    let session=null;
+    try{ const r=await _t(_sb.auth.getSession(),8000); session=r.data.session; }catch(e){}
+    _user=(session&&session.user)?session.user:null;
     const out=document.getElementById('authOut'),inn=document.getElementById('authIn');
-    if(session&&session.user){out.style.display='none';inn.style.display='flex';var u=session.user;var nm=(u.user_metadata&&(u.user_metadata.name||u.user_metadata.full_name))||(u.email?u.email.split('@')[0]:'there');document.getElementById('userEmail').textContent='Hi '+nm;}
+    if(_user){out.style.display='none';inn.style.display='flex';var u=_user;var nm=(u.user_metadata&&(u.user_metadata.name||u.user_metadata.full_name))||(u.email?u.email.split('@')[0]:'there');document.getElementById('userEmail').textContent='Hi '+nm;}
     else{out.style.display='flex';inn.style.display='none';}
   }
   refreshAuthUI();
   _sb.auth.onAuthStateChange(()=>refreshAuthUI());
+  /* 未登录时,点四个入口(好读/好练/好唱/好说)先弹登录 */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a'):null; if(!a) return;
+    var href=a.getAttribute('href')||'';
+    var toSection=/(?:^|\/)(saywordsonbeat|lianxi)\.html(?:$|[?#])/.test(href);
+    var t=a.textContent||'';
+    var comingSoon=(href==='#'||href==='')&&/(好唱|好说|Sing|Speak)/.test(t);
+    if(toSection){ if(!_user){ e.preventDefault(); e.stopPropagation(); openAuth('signin'); } }
+    else if(comingSoon){ e.preventDefault(); if(!_user) openAuth('signin'); }
+  },true);
 </script>
 </body>
 </html>
