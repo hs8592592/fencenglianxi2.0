@@ -341,7 +341,8 @@
   /* ===== Supabase 接入 ===== */
   const SB_URL='https://pqwgottflvwbyhjipcgb.supabase.co';
   const SB_KEY='sb_publishable_kk5uEHy84Wx71bRPYMUfLQ_T4jI_8Ef';
-  const _sb = window.supabase.createClient(SB_URL, SB_KEY);
+  const _sb = window.supabase.createClient(SB_URL, SB_KEY, {auth:{storageKey:'haoteach-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  console.log("[haoteach] index v3 auth ready");
   function togglePw(id,b){var i=document.getElementById(id);if(i.type==='password'){i.type='text';b.textContent='🙈';}else{i.type='password';b.textContent='👁';}}
   function _t(p,ms){return Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error("timeout")),ms||12000))]);}
 
@@ -426,7 +427,10 @@
   async function doLogout(){await _sb.auth.signOut();location.reload();}
   function afterLogin(){
     const back=sessionStorage.getItem('haoteach_return');
-    if(back){sessionStorage.removeItem('haoteach_return');location.href=back;}else location.reload();
+    if(back){sessionStorage.removeItem('haoteach_return');location.href=back;return;}
+    try{closeAuth();}catch(e){}
+    try{closeSigninDrop();}catch(e){}
+    refreshAuthUI();
   }
   let _user=null;
   async function refreshAuthUI(){

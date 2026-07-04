@@ -71,7 +71,7 @@
       '<button class="ag-submit" id="agSubmit" type="button">\u767b\u5f55 Sign in</button>' +
       '<a class="ag-link" id="agForgot">\u5fd8\u8bb0\u5bc6\u7801 Forgot password?</a>' +
       '<a class="ag-home" href="index.html">\u2190 \u8fd4\u56de\u9996\u9875 Back to home</a>' +
-      '<p class="ag-note">\u7ee7\u7eed\u5373\u8868\u793a\u540c\u610f\u670d\u52a1\u6761\u6b3e\u4e0e\u9690\u79c1\u653f\u7b56\u3002</p>' +
+      '<p class="ag-note">\u7ee7\u7eed\u5373\u8868\u793a\u540c\u610f\u670d\u52a1\u6761\u6b3e\u4e0e\u9690\u79c1\u653f\u7b56\u3002<br>By continuing you agree to our Terms of Service and Privacy Policy.</p>' +
       '</div>';
     document.body.appendChild(ov);
     var gr = document.createElement('div'); gr.id = 'agGreet';
@@ -161,7 +161,7 @@
 
   async function start() {
     if (!window.supabase || !window.supabase.createClient) { console.error('[auth-gate] supabase-js \u672a\u52a0\u8f7d'); return; }
-    sb = window.supabase.createClient(SB_URL, SB_KEY);
+    sb = window.supabase.createClient(SB_URL, SB_KEY, {auth:{storageKey:'haoteach-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
     wire();
     try {
       var res = await withTimeout(sb.auth.getSession(), 10000);

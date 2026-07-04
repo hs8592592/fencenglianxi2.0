@@ -130,10 +130,10 @@
 
         /* ── Language toggle ── */
         #lang-toggle {
-            position: fixed; top: 12px; right: 12px; z-index: 300;
+            position: absolute; top: 14px; right: 16px; z-index: 30;
             background: #4A7C74; color: white;
             border: none; border-radius: 20px;
-            padding: 6px 16px; font-size: 0.85rem; font-weight: bold;
+            padding: 4px 13px; font-size: 0.76rem; font-weight: bold;
             cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             transition: background 0.2s;
         }
@@ -152,6 +152,7 @@
 
         /* ── UI Panel responsive ── */
         #ui-panel {
+            position: relative;
             position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%);
             z-index: 100; background: #EAF7F4; padding: clamp(12px, 3vw, 22px);
             border-radius: 32px; border: 2px solid #CFE5E0;
@@ -251,7 +252,6 @@
 <script src="auth-gate.js"></script>
 
     <!-- Language toggle -->
-    <button id="lang-toggle" onclick="toggleLang()">EN</button>
     <a id="home-back" href="index.html">← 返回 haoteach 首页</a>
 
     <div class="video-wrapper">
@@ -278,10 +278,11 @@
     </div>
 
     <div id="ui-panel">
+        <button id="lang-toggle" onclick="toggleLang()">EN</button>
         <div id="setup-controls" class="flex flex-col gap-4">
             <div class="flex gap-4">
                 <div class="control-group flex-1">
-                    <span id="lbl-mode" class="label-text">模式 Mode</span>
+                    <span id="lbl-mode" class="label-text">模式</span>
                     <div class="flex gap-2">
                         <div class="opt-btn mode-sel active" data-type="fixed" data-cn="固定" data-en="Fixed">固定</div>
                         <div class="opt-btn mode-sel" data-type="random" data-cn="随机" data-en="Random">随机</div>
@@ -289,13 +290,13 @@
                     </div>
                 </div>
                 <div class="control-group w-1/4">
-                    <span id="lbl-pinyin" class="label-text">拼音 Pinyin</span>
+                    <span id="lbl-pinyin" class="label-text">拼音</span>
                     <div id="pinyin-toggle" class="opt-btn active">开启</div>
                 </div>
             </div>
 
             <div class="control-group">
-                <span id="lbl-words" class="label-text">输入词语 Word List</span>
+                <span id="lbl-words" class="label-text">输入词语</span>
                 <textarea id="words" rows="2" placeholder="苹果, 熊猫, 老师"></textarea>
                 <div id="history-container">
                     <div class="history-wrap" id="history-list"></div>
@@ -359,11 +360,11 @@
         const i18n = {
             cn: {
                 langBtn: 'EN',
-                lblMode: '模式 Mode', lblPinyin: '拼音 Pinyin',
-                lblWords: '输入词语 Word List', lblRepeat: '每页重复次数',
-                lblSpeed: '速度控制 Speed Control',
+                lblMode: '模式', lblPinyin: '拼音',
+                lblWords: '输入词语', lblRepeat: '每页重复次数',
+                lblSpeed: '速度控制',
                 pinyinOn: '开启', pinyinOff: '关闭',
-                startBtn: '开始训练 START TRAINING', stopBtn: '停止训练 STOP TRAINING',
+                startBtn: '开始训练', stopBtn: '停止训练',
                 moreHistory: '显示更多历史记录...',
                 placeholder: '苹果, 熊猫, 老师',
                 resultTitle: '你真棒！', resultSub: 'Good Job!', resultTag: '练习完成！'
