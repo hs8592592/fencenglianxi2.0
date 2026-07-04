@@ -434,13 +434,22 @@
     refreshAuthUI();
   }
   let _user=null;
-  async function refreshAuthUI(){
-    let session=null;
-    try{ const r=await _t(_sb.auth.getSession(),8000); session=r.data.session; }catch(e){}
-    _user=(session&&session.user)?session.user:null;
-    const out=document.getElementById('authOut'),inn=document.getElementById('authIn');
-    if(_user){out.style.display='none';inn.style.display='flex';var u=_user;var nm=(u.user_metadata&&(u.user_metadata.name||u.user_metadata.full_name))||(u.email?u.email.split('@')[0]:'there');document.getElementById('userEmail').textContent='Hi '+nm;}
-    else{out.style.display='flex';inn.style.display='none';}
+  function readLocalSession(){
+    try{
+      var raw=localStorage.getItem('haoteach-auth'); if(!raw) return null;
+      var o=JSON.parse(raw); var ss=o.currentSession||o;
+      if(ss && ss.user && ss.refresh_token) return ss;
+    }catch(e){}
+    return null;
+  }
+  function refreshAuthUI(){
+    var ss=readLocalSession();
+    _user = ss ? ss.user : null;
+    var out=document.getElementById('authOut'), inn=document.getElementById('authIn');
+    if(_user){ out.style.display='none'; inn.style.display='flex';
+      var u=_user; var nm=(u.user_metadata&&(u.user_metadata.name||u.user_metadata.full_name))||(u.email?u.email.split('@')[0]:'there');
+      document.getElementById('userEmail').textContent='Hi '+nm;
+    } else { out.style.display='flex'; inn.style.display='none'; }
   }
   refreshAuthUI();
   _sb.auth.onAuthStateChange(()=>refreshAuthUI());

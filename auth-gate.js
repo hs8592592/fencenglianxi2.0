@@ -160,16 +160,27 @@
     q('agEye').onclick = function(){ var i=q('agPass'); if(i.type==='password'){i.type='text';this.textContent='\ud83d\ude48';}else{i.type='password';this.textContent='\ud83d\udc41';} };
   }
 
+  function readLocalSession() {
+    try {
+      var raw = localStorage.getItem('haoteach-auth'); if (!raw) return null;
+      var o = JSON.parse(raw); var ss = o.currentSession || o;
+      if (ss && ss.user && ss.refresh_token) return ss;
+    } catch (e) {}
+    return null;
+  }
   async function start() {
     if (!window.supabase || !window.supabase.createClient) { console.error('[auth-gate] supabase-js \u672a\u52a0\u8f7d'); return; }
     sb = window.supabase.createClient(SB_URL, SB_KEY, {auth:{storageKey:'haoteach-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
     wire();
-    try {
-      var res = await withTimeout(sb.auth.getSession(), 10000);
-      var session = res && res.data && res.data.session;
-      if (session && session.user) hideGate(session.user); else showGate();
-    } catch (e) {
-      showGate(); // 超时/出错 → 安全起见要求登录
+    // 先读本地会话:有就即时放行,避免网络抖动误挡
+    var ls = readLocalSession();
+    if (ls) { hideGate(ls.user); }
+    else {
+      try {
+        var res = await withTimeout(sb.auth.getSession(), 10000);
+        var session = res && res.data && res.data.session;
+        if (session && session.user) hideGate(session.user); else showGate();
+      } catch (e) { showGate(); }
     }
     sb.auth.onAuthStateChange(function (_e, session) {
       if (session && session.user) hideGate(session.user); else showGate();
