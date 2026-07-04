@@ -43,15 +43,15 @@
   .signin:hover{background:var(--orange);border-color:var(--orange);box-shadow:0 6px 16px rgba(232,149,86,.32)}
 
   /* ===== HERO ===== */
-  .hero{position:relative;max-width:1180px;margin:0 auto;padding:88px 40px 40px;text-align:center}
+  .hero{position:relative;max-width:1180px;margin:0 auto;padding:44px 40px 30px;text-align:center}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:"Fraunces",serif;
     font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--orange-deep);font-weight:600;margin-bottom:26px}
   .hero .eyebrow::before,.hero .eyebrow::after{content:'';width:30px;height:1.5px;background:var(--gold);display:inline-block}
-  .hero h1{font-family:"Noto Serif SC",serif;font-weight:900;line-height:1.12;
-    font-size:clamp(40px,7vw,82px);letter-spacing:2px;color:var(--ink)}
+  .hero h1{font-family:"Noto Serif SC",serif;font-weight:900;line-height:1.1;
+    font-size:clamp(30px,4.8vw,56px);letter-spacing:1px;color:var(--ink)}
   .hero h1 .accent{color:var(--orange-d);position:relative;white-space:nowrap}
   .hero .ensub{font-family:"Fraunces",serif;font-weight:400;font-style:italic;
-    font-size:clamp(17px,2.6vw,27px);color:var(--ink-soft);margin-top:22px;letter-spacing:.5px}
+    font-size:clamp(24px,3.8vw,42px);color:var(--orange-deep);font-weight:500;margin-top:14px;letter-spacing:.5px}
   .hero .lead{max-width:600px;margin:26px auto 0;font-size:16px;color:var(--ink-soft);line-height:1.8}
 
   /* ===== 四板块 ===== */
@@ -71,11 +71,12 @@
   .mod:hover .ic{background:var(--orange);transform:scale(1.06) rotate(-4deg)}
   .mod .modtop{text-align:left}
   .mod .mzh{font-family:"Noto Serif SC",serif;font-weight:700;font-size:26px;color:var(--ink);letter-spacing:2px;margin-top:8px}
+  .mdesc-en{display:block;font-size:.82em;color:#a89f8e;font-style:italic;margin-top:3px;line-height:1.4}
   .mod .men{font-family:"Fraunces",serif;font-size:12.5px;color:var(--orange-deep);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-top:2px}
   .mod .modlogo{width:120px;height:120px;object-fit:contain;margin:14px auto;border-radius:18px;transition:.32s}
   .mod:hover .modlogo{transform:scale(1.05)}
   .mod .modbtm{margin-top:auto}
-  .mod .mdesc{font-size:13px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+  .mod .mdesc{font-size:13px;color:var(--ink-soft);margin-top:10px;line-height:1.55;min-height:82px}
   .mod .go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--ink);transition:.25s}
   .mod:hover .go{color:var(--orange-deep);gap:11px}
   .mod.soon{opacity:.92}
@@ -191,8 +192,8 @@
   <nav class="menu">
     <a href="saywordsonbeat.html">好读<span class="sub">Read</span></a>
     <a class="primary" href="lianxi.html">好练<span class="sub">Practice</span></a>
+    <a href="https://silkroad-reading.vercel.app/" target="_blank" rel="noopener">好学<span class="sub">Learn</span></a>
     <a href="#" onclick="return false;">好唱<span class="sub">Sing</span></a>
-    <a href="#" onclick="return false;">好说<span class="sub">Speak</span></a>
   </nav>
   <div class="authbar" style="justify-self:end">
     <!-- 未登录:三按钮 -->
@@ -233,7 +234,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>智学启未来<br><span class="accent">思远见世界</span></h1>
+  <h1>智学启未来思远见世界</h1>
   <p class="ensub">Smarter Learning, Bigger Thinking</p>
 </section>
 
@@ -248,7 +249,7 @@
     </div>
     <img class="modlogo" src="panda_read.jpg" alt="熊猫卡点读词">
     <div class="modbtm">
-      <div class="mdesc">熊猫卡点读词,在节奏里认字识词。</div>
+      <div class="mdesc">熊猫卡点读词,在节奏里认字识词。<span class="mdesc-en">Read words to the beat — recognise characters through rhythm.</span></div>
       <span class="go">进入 <span>→</span></span>
     </div>
   </a>
@@ -261,36 +262,35 @@
     </div>
     <img class="modlogo" src="fenceng_logo.png" alt="分层练习">
     <div class="modbtm">
-      <div class="mdesc">《跨越丝路》分层练习,对标 CCG 与 HSK 3.0。</div>
+      <div class="mdesc">《跨越丝路》分层练习,对标 CCG 与 HSK 3.0。<span class="mdesc-en">Layered practice for <i>Across the Silk Road</i>, aligned with the CCG and HSK 3.0.</span></div>
+      <span class="go">进入 <span>→</span></span>
+    </div>
+  </a>
+
+  <a class="mod feature" href="https://silkroad-reading.vercel.app/" target="_blank" rel="noopener">
+    <div class="modtop">
+      <span class="idx">03</span>
+      <div class="mzh">好学</div>
+      <div class="men">Learn</div>
+    </div>
+    <img class="modlogo" src="haoxue_logo.png" alt="跨越丝路词句学习">
+    <div class="modbtm">
+      <div class="mdesc">《跨越丝路》重点词汇与句型学习。<span class="mdesc-en">Learn the key vocabulary and sentence patterns of <i>Across the Silk Road</i>.</span></div>
       <span class="go">进入 <span>→</span></span>
     </div>
   </a>
 
   <a class="mod soon" href="#" onclick="return false;">
-    <span class="tag">即将上线</span>
+    <span class="tag">Coming soon</span>
     <div class="modtop">
-      <span class="idx">03</span>
+      <span class="idx">04</span>
       <div class="mzh">好唱</div>
       <div class="men">Sing</div>
     </div>
     <div class="ic">🎵</div>
     <div class="modbtm">
-      <div class="mdesc">在歌声里记住语调与韵律。</div>
-      <span class="go">敬请期待 <span>→</span></span>
-    </div>
-  </a>
-
-  <a class="mod soon" href="#" onclick="return false;">
-    <span class="tag">即将上线</span>
-    <div class="modtop">
-      <span class="idx">04</span>
-      <div class="mzh">好说</div>
-      <div class="men">Speak</div>
-    </div>
-    <div class="ic">💬</div>
-    <div class="modbtm">
-      <div class="mdesc">开口表达,把所学用于真实对话。</div>
-      <span class="go">敬请期待 <span>→</span></span>
+      <div class="mdesc">在歌声里记住语调与韵律。<span class="mdesc-en">Remember tones and rhythm through song.</span></div>
+      <span class="go">Coming soon <span>→</span></span>
     </div>
   </a>
 </main>
@@ -457,9 +457,9 @@
   document.addEventListener('click',function(e){
     var a=e.target.closest?e.target.closest('a'):null; if(!a) return;
     var href=a.getAttribute('href')||'';
-    var toSection=/(?:^|\/)(saywordsonbeat|lianxi)\.html(?:$|[?#])/.test(href);
+    var toSection=/(?:^|\/)(saywordsonbeat|lianxi)\.html(?:$|[?#])/.test(href)||href.indexOf('silkroad-reading.vercel.app')>=0;
     var t=a.textContent||'';
-    var comingSoon=(href==='#'||href==='')&&/(好唱|好说|Sing|Speak)/.test(t);
+    var comingSoon=(href==='#'||href==='')&&/(好唱|Sing)/.test(t);
     if(toSection){ if(!_user){ e.preventDefault(); e.stopPropagation(); openAuth('signin'); } }
     else if(comingSoon){ e.preventDefault(); if(!_user) openAuth('signin'); }
   },true);
