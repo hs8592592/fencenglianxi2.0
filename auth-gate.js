@@ -142,8 +142,9 @@
     var email = q('agEmail').value.trim(), err = q('agErr');
     if (!email) { err.style.color = '#c0392b'; err.textContent = '\u8bf7\u5148\u586b\u90ae\u7bb1 Enter your email first'; return; }
     try {
-      await withTimeout(sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin }));
-      err.style.color = '#1a6637'; err.textContent = '\ud83d\udce7 \u91cd\u7f6e\u90ae\u4ef6\u5df2\u53d1\u9001 Password reset email sent.';
+      var _r = await withTimeout(sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + '/reset.html' }));
+      if(_r && _r.error){ err.style.color='#c0392b'; err.textContent = /second|rate|too many|security/i.test(_r.error.message)?'\u8bf7\u6c42\u592a\u9891\u7e41,\u8bf7\u7a0d\u7b49\u7ea61\u5206\u949f\u518d\u8bd5 Please wait ~1 min.':('\u53d1\u9001\u5931\u8d25 '+_r.error.message); }
+      else { err.style.color = '#1a6637'; err.textContent = '\ud83d\udce7 \u91cd\u7f6e\u90ae\u4ef6\u5df2\u53d1\u9001 Password reset email sent.'; }
     } catch (e) { err.style.color = '#c0392b'; err.textContent = '\u53d1\u9001\u5931\u8d25,\u8bf7\u91cd\u8bd5 Failed, try again.'; }
   }
 

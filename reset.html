@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>重设密码 Reset Password · haoteach</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;
+       background:#FBF8F2;font-family:'Poppins','Noto Sans SC',system-ui,-apple-system,sans-serif}
+  .card{width:min(94vw,410px);background:#fff;border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.14);padding:32px 28px 26px;text-align:center}
+  .logo{width:54px;height:54px;border-radius:14px;object-fit:contain;margin-bottom:10px}
+  h1{font-size:22px;font-weight:800;color:#1a3a2b;margin:0 0 4px}
+  .sub{font-size:14px;color:#8a8578;margin:0 0 20px}
+  .field{text-align:left;margin-bottom:14px}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:#6b6659;margin-bottom:5px}
+  .pw{position:relative}
+  .pw input{width:100%;padding:11px 42px 11px 13px;border:1.5px solid #e3ddd0;border-radius:10px;font-size:15px;outline:none;font-family:inherit}
+  .pw input:focus{border-color:#E08A3C}
+  .eye{position:absolute;right:9px;top:50%;transform:translateY(-50%);border:none;background:none;cursor:pointer;font-size:16px;opacity:.55;padding:4px}
+  .msg{font-size:13px;min-height:20px;margin:2px 0 10px;line-height:1.4;color:#c0392b}
+  .btn{width:100%;padding:13px;border:none;border-radius:11px;background:#E08A3C;color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+  .btn:hover{background:#c9722a}
+  .btn:disabled{opacity:.6;cursor:default}
+  .home{display:block;margin-top:16px;font-size:12.5px;color:#a89f8e;text-decoration:none}
+  .home:hover{color:#6b6659}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="hlogo.png" alt="logo" onerror="this.style.display='none'">
+    <h1>重设密码 Reset your password</h1>
+    <p class="sub" id="sub">请设置一个新密码 Enter a new password</p>
+    <div id="form">
+      <div class="field"><label>新密码 New password</label>
+        <div class="pw"><input type="password" id="p1" placeholder="至少6位 Min 6 chars"><button type="button" class="eye" onclick="eye('p1',this)">👁</button></div>
+      </div>
+      <div class="field"><label>确认新密码 Confirm password</label>
+        <div class="pw"><input type="password" id="p2" placeholder="再输一次 Repeat"><button type="button" class="eye" onclick="eye('p2',this)">👁</button></div>
+      </div>
+      <div class="msg" id="msg"></div>
+      <button class="btn" id="btn" onclick="doUpdate()">更新密码 Update password</button>
+    </div>
+    <a class="home" href="index.html">← 返回首页 Back to home</a>
+  </div>
+
+<script src="supabase-js.js"></script>
+<script>
+  var SB_URL='https://pqwgottflvwbyhjipcgb.supabase.co';
+  var SB_KEY='sb_publishable_kk5uEHy84Wx71bRPYMUfLQ_T4jI_8Ef';
+  var sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{storageKey:'haoteach-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  var msg=document.getElementById('msg');
+  function eye(id,b){var i=document.getElementById(id);if(i.type==='password'){i.type='text';b.textContent='🙈';}else{i.type='password';b.textContent='👁';}}
+  function _t(p,ms){return Promise.race([p,new Promise(function(_,r){setTimeout(function(){r(new Error('timeout'));},ms||12000);})]);}
+
+  // 确认是从邮件链接进来的(有恢复会话)
+  sb.auth.getSession().then(function(res){
+    var s=res&&res.data&&res.data.session;
+    if(!s){
+      document.getElementById('sub').textContent='请通过邮件里的重置链接进入本页 Open this page from the reset link in your email.';
+    }
+  });
+
+  async function doUpdate(){
+    var p1=document.getElementById('p1').value, p2=document.getElementById('p2').value;
+    msg.style.color='#c0392b'; msg.textContent='';
+    if(!p1||p1.length<6){ msg.textContent='密码至少6位 Password must be at least 6 characters.'; return; }
+    if(p1!==p2){ msg.textContent='两次密码不一致 Passwords do not match.'; return; }
+    var btn=document.getElementById('btn'); btn.disabled=true; btn.textContent='更新中… Updating…';
+    try{
+      var r=await _t(sb.auth.updateUser({password:p1}));
+      if(r.error){ msg.textContent=/session|recover|missing|expired/i.test(r.error.message)?'链接已失效,请重新申请重置邮件 Link expired — please request a new reset email.':r.error.message; btn.disabled=false; btn.textContent='更新密码 Update password'; return; }
+      msg.style.color='#1a6637';
+      msg.textContent='✅ 密码已更新!正在跳转登录… Password updated! Redirecting…';
+      document.getElementById('form').style.opacity='.5';
+      try{ await _t(sb.auth.signOut(),6000); }catch(e){}
+      setTimeout(function(){ location.href='index.html'; }, 1600);
+    }catch(e){
+      msg.textContent='请求超时,请重试 Request timed out, try again.'; btn.disabled=false; btn.textContent='更新密码 Update password';
+    }
+  }
+  document.getElementById('p2').addEventListener('keydown',function(e){if(e.key==='Enter')doUpdate();});
+</script>
+</body>
+</html>

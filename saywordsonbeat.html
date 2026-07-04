@@ -183,6 +183,8 @@
         .opt-btn:hover { background: #F2FBF9; }
         .opt-btn.active { background: #D4F1EC; border-color: #7FC8C0; color: #2B2B2B; transform: translateY(-1px); }
         .opt-btn.active::after { content: ''; position: absolute; top: 6px; right: 6px; width: 4px; height: 4px; background-color: #E53935; border-radius: 50%; }
+        /* 拼音开关单独配色(蓝色,和其它绿色按钮区分) */
+        #pinyin-toggle.active { background: #E1ECFB; border-color: #8DB2E3; color: #234a7d; }
 
         .btn-start {
             background: #4A7C74; color: white;
@@ -290,8 +292,8 @@
                     </div>
                 </div>
                 <div class="control-group w-1/4">
-                    <span id="lbl-pinyin" class="label-text">拼音</span>
-                    <div id="pinyin-toggle" class="opt-btn active">开启</div>
+                    <span id="lbl-pinyin" class="label-text">&nbsp;</span>
+                    <div id="pinyin-toggle" class="opt-btn active">拼音 开启</div>
                 </div>
             </div>
 
@@ -386,11 +388,11 @@
             const t = i18n[currentLang];
             document.getElementById('lang-toggle').textContent = t.langBtn;
             document.getElementById('lbl-mode').textContent = t.lblMode;
-            document.getElementById('lbl-pinyin').textContent = t.lblPinyin;
+            document.getElementById('lbl-pinyin').innerHTML = '&nbsp;';
             document.getElementById('lbl-words').textContent = t.lblWords;
             document.getElementById('lbl-repeat').textContent = t.lblRepeat;
             document.getElementById('lbl-speed').textContent = t.lblSpeed;
-            document.getElementById('pinyin-toggle').textContent = showPinyin ? t.pinyinOn : t.pinyinOff;
+            document.getElementById('pinyin-toggle').textContent = t.lblPinyin + ' ' + (showPinyin ? t.pinyinOn : t.pinyinOff);
             document.getElementById('start-btn').textContent = t.startBtn;
             document.getElementById('stop-btn').textContent = t.stopBtn;
             moreHistoryBtn.textContent = t.moreHistory;
@@ -442,7 +444,7 @@
         document.getElementById('pinyin-toggle').onclick = function() {
             showPinyin = !showPinyin;
             this.classList.toggle('active');
-            this.textContent = showPinyin ? i18n[currentLang].pinyinOn : i18n[currentLang].pinyinOff;
+            this.textContent = i18n[currentLang].lblPinyin + ' ' + (showPinyin ? i18n[currentLang].pinyinOn : i18n[currentLang].pinyinOff);
             grid.classList.toggle('no-pinyin', !showPinyin);
         };
 

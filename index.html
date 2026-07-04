@@ -333,7 +333,7 @@
     </div>
     <div class="drop-err" id="mErr" style="text-align:center;margin-bottom:8px"></div>
     <button class="submit" id="authSubmit" onclick="authSubmit()">登录</button>
-    <p class="authnote">继续即表示同意我们的服务条款与隐私政策。</p>
+    <p class="authnote">继续即表示同意我们的服务条款与隐私政策。<br>By continuing you agree to our Terms of Service and Privacy Policy.</p>
   </div>
 </div>
 
@@ -421,9 +421,9 @@
     const email=document.getElementById('liEmail').value.trim();
     const err=document.getElementById('liErr');
     if(!email){err.style.color='#c0392b';err.textContent='请先填邮箱 Enter your email first';return;}
-    const {error}=await _sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin});
-    err.style.color=error?'#c0392b':'#1a6637';
-    err.textContent=error?('发送失败 Send failed: '+error.message):'重置邮件已发送,请查收 Reset email sent, check inbox';
+    const {error}=await _sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/reset.html'});
+    if(error){err.style.color='#c0392b';err.textContent=/second|rate|too many|security/i.test(error.message)?'请求太频繁,请稍等约1分钟再试 Please wait ~1 min before trying again.':('发送失败 Send failed: '+error.message);}
+    else{err.style.color='#1a6637';err.textContent='重置邮件已发送,请查收(含垃圾箱)Reset email sent — check inbox & spam.';}
   }
   async function doLogout(){await _sb.auth.signOut();location.reload();}
   function afterLogin(){
