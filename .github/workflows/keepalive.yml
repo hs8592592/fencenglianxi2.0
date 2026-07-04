@@ -1,0 +1,36 @@
+# ============================================================
+#  Supabase 保活 (Keep-Alive)
+#  作用:每 3 天自动向你的 Supabase 项目发一次请求,
+#       防止免费版因闲置(约一周)被自动暂停。
+#  完全自动、免费,建好后无需人工干预。
+# ============================================================
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    # 每 3 天的 06:17 UTC 各跑一次(错开整点,避免拥堵)
+    - cron: '17 6 */3 * *'
+  workflow_dispatch:      # 也允许你在 GitHub 页面手动点一下运行
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase (Auth + REST)
+        run: |
+          SB_URL="https://pqwgottflvwbyhjipcgb.supabase.co"
+          SB_KEY="sb_publishable_kk5uEHy84Wx71bRPYMUfLQ_T4jI_8Ef"
+
+          echo "==> Ping Auth health"
+          code=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: ${SB_KEY}" \
+            "${SB_URL}/auth/v1/health")
+          echo "Auth health HTTP ${code}"
+
+          echo "==> Ping REST (轻量,只取 1 行,不依赖任何表)"
+          curl -s -o /dev/null -w "REST HTTP %{http_code}\n" \
+            -H "apikey: ${SB_KEY}" \
+            -H "Authorization: Bearer ${SB_KEY}" \
+            "${SB_URL}/rest/v1/?limit=1" || true
+
+          echo "==> Keep-alive done at $(date -u)"
