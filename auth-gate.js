@@ -53,7 +53,7 @@
 
   function inject() {
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-    var ov = document.createElement('div'); ov.id = 'agOverlay';
+    var ov = document.createElement('div'); ov.id = 'agOverlay'; ov.className = 'ag-hide';
     ov.innerHTML =
       '<div class="ag-card">' +
       '<img class="ag-logo" src="hlogo.png" alt="logo" onerror="this.style.display=\'none\'">' +
@@ -172,20 +172,19 @@
     if (!window.supabase || !window.supabase.createClient) { console.error('[auth-gate] supabase-js \u672a\u52a0\u8f7d'); return; }
     sb = window.supabase.createClient(SB_URL, SB_KEY, {auth:{storageKey:'haoteach-auth',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
     wire();
-    // 先读本地会话:有就即时放行,避免网络抖动误挡
-    var ls = readLocalSession();
-    if (ls) { hideGate(ls.user); }
-    else {
+    // 后台校验:本地无会话时才补一次,只隐藏不弹出(避免闪烁)
+    if (!readLocalSession()) {
       try {
         var res = await withTimeout(sb.auth.getSession(), 10000);
         var session = res && res.data && res.data.session;
-        if (session && session.user) hideGate(session.user); else showGate();
-      } catch (e) { showGate(); }
+        if (session && session.user) hideGate(session.user);
+      } catch (e) {}
     }
-    sb.auth.onAuthStateChange(function (_e, session) {
-      if (session && session.user) hideGate(session.user); else showGate();
+    sb.auth.onAuthStateChange(function (evt, session) {
+      if (session && session.user) hideGate(session.user);
+      else if (evt === 'SIGNED_OUT') showGate();
     });
-    try { q('agEmail').focus(); } catch (e) {}
+    try { if (!readLocalSession()) q('agEmail').focus(); } catch (e) {}
   }
 
   function ensureSupabase(cb) {
@@ -196,6 +195,11 @@
     document.head.appendChild(s);
   }
 
-  function boot() { document.documentElement.style.overflow = 'hidden'; ov = inject(); ensureSupabase(start); }
+  function boot() {
+    ov = inject();
+    var ls = readLocalSession();
+    if (ls) { hideGate(ls.user); } else { showGate(); }
+    ensureSupabase(start);
+  }
   if (document.body) boot(); else document.addEventListener('DOMContentLoaded', boot);
 })();
