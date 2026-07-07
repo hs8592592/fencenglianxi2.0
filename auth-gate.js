@@ -7,6 +7,20 @@
    - 所有网络请求带超时,绝不无限转圈
    - 与首页 index.html 使用同一个 Supabase 账号体系
    ============================================================ */
+
+/* ---- Vercel Web Analytics(访问统计,自动加载,不影响登录) ---- */
+(function () {
+  try {
+    if (window.__vaInjected) return;   // 防止重复注入
+    window.__vaInjected = true;
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    var s = document.createElement('script');
+    s.defer = true;
+    s.src = '/_vercel/insights/script.js';
+    (document.head || document.documentElement).appendChild(s);
+  } catch (e) { /* 统计失败也绝不影响页面正常使用 */ }
+})();
+
 (function () {
   var SB_URL = 'https://pqwgottflvwbyhjipcgb.supabase.co';
   var SB_KEY = 'sb_publishable_kk5uEHy84Wx71bRPYMUfLQ_T4jI_8Ef';
