@@ -404,13 +404,14 @@
     btn.disabled=true;btn.textContent='处理中 Processing…';
     if(currentTab==='signup'){
       const name=document.getElementById('suName').value.trim();
-      let error;
-      try{ ({error}=await _t(_sb.auth.signUp({email,password:pass,options:{data:{name}}}))); }
+      let data,error;
+      try{ ({data,error}=await _t(_sb.auth.signUp({email,password:pass,options:{data:{name}}}))); }
       catch(ex){ btn.disabled=false;btn.textContent='注册 Sign up'; err.textContent='请求超时,请检查网络或稍后重试 Request timed out.'; return; }
       btn.disabled=false;btn.textContent='注册 Sign up';
       if(error){err.textContent='注册失败 Sign up failed: '+error.message;return;}
+      if(data && data.session){ afterLogin(); return; }   /* 已关闭邮箱确认 → 注册即登录,直接进入 */
       err.style.color='#1a6637';
-      err.textContent='✅ 注册成功!验证邮件已发送,请去邮箱确认 Registered! Check your email to confirm.';
+      err.textContent='✅ 注册成功,请登录 Registered! You can sign in now.';
     }else{
       let error;
       try{ ({error}=await _t(_sb.auth.signInWithPassword({email,password:pass}))); }
