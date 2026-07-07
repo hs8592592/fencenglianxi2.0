@@ -464,7 +464,21 @@
     var toSection=/(?:^|\/)(saywordsonbeat|lianxi)\.html(?:$|[?#])/.test(href)||href.indexOf('silkroad-reading.vercel.app')>=0;
     var t=a.textContent||'';
     var comingSoon=(href==='#'||href==='')&&/(好唱|Sing)/.test(t);
-    if(toSection){ if(!_user){ e.preventDefault(); e.stopPropagation(); openAuth('signin'); } }
+    if(toSection){
+      if(!_user){ e.preventDefault(); e.stopPropagation(); openAuth('signin'); return; }
+      /* 已登录 + 跳去阅读网站 → 带上登录凭证做单点登录交接(SSO handoff) */
+      if(href.indexOf('silkroad-reading.vercel.app')>=0){
+        var ss=readLocalSession();
+        if(ss && ss.access_token && ss.refresh_token){
+          e.preventDefault(); e.stopPropagation();
+          var base=href.split('#')[0];
+          /* Supabase 的 token 本身是 URL 安全字符,放 # 后面无需额外编码;阅读网站按原样读取即可 */
+          var handoff=base+'#ht_at='+ss.access_token+'&ht_rt='+ss.refresh_token;
+          if(a.getAttribute('target')==='_blank'){ window.open(handoff,'_blank','noopener'); }
+          else { location.href=handoff; }
+        }
+      }
+    }
     else if(comingSoon){ e.preventDefault(); if(!_user) openAuth('signin'); }
   },true);
 </script>
