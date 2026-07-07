@@ -337,6 +337,7 @@
     </div>
     <div class="drop-err" id="mErr" style="text-align:center;margin-bottom:8px"></div>
     <button class="submit" id="authSubmit" onclick="authSubmit()">登录</button>
+    <a class="drop-forgot" href="#" id="mForgot" style="display:block;text-align:center;margin-top:12px;color:#1a6637" onclick="forgotPw('mEmail','mErr');return false;">忘记密码 Forgot password?</a>
     <p class="authnote">继续即表示同意我们的服务条款与隐私政策。<br>By continuing you agree to our Terms of Service and Privacy Policy.</p>
   </div>
 </div>
@@ -366,6 +367,7 @@
     document.getElementById('authTitle').textContent=isUp?'创建账号 Create account':'欢迎回来 Welcome back';
     document.getElementById('authSub').textContent=isUp?'注册开始学习 Sign up to start':'登录以继续 Sign in to continue';
     document.getElementById('authSubmit').textContent=isUp?'注册 Sign up':'登录 Sign in';
+    document.getElementById('mForgot').style.display=isUp?'none':'block';
     document.getElementById('mErr').textContent='';
   }
 
@@ -422,9 +424,9 @@
     }
   }
   /* ===== 忘记密码 ===== */
-  async function forgotPw(){
-    const email=document.getElementById('liEmail').value.trim();
-    const err=document.getElementById('liErr');
+  async function forgotPw(emailId,errId){
+    const email=document.getElementById(emailId||'liEmail').value.trim();
+    const err=document.getElementById(errId||'liErr');
     if(!email){err.style.color='#c0392b';err.textContent='请先填邮箱 Enter your email first';return;}
     const {error}=await _sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/reset.html'});
     if(error){err.style.color='#c0392b';err.textContent=/second|rate|too many|security/i.test(error.message)?'请求太频繁,请稍等约1分钟再试 Please wait ~1 min before trying again.':('发送失败 Send failed: '+error.message);}
