@@ -165,7 +165,10 @@
     border:1px solid var(--cream-d,#e6e3dd);border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.16);
     padding:16px;display:none;z-index:500;font-size:13.5px;line-height:1.7;color:var(--ink)}
   .contact-pop.show{display:block}
-  @media(max-width:560px){.signin-drop,.contact-pop{width:min(86vw,300px)}.user-email{display:none}}
+  @media(max-width:560px){
+    .user-email{display:none}
+    .signin-drop,.contact-pop{position:fixed;top:92px;left:50%;right:auto;transform:translateX(-50%);width:min(92vw,320px);max-width:340px}
+  }
 
   @media (max-width:920px){
     .modules{grid-template-columns:1fr 1fr}
