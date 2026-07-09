@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'3A-L2', num:'Lesson 2', title:'洗手间在图书馆里边 The toilet is inside the library', cn:'方位词',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: position words (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: position words (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><ruby>在<rt>zài</rt></ruby>（　）？ <span class="gl">(___ (where) is the toilet?)</span>', choices:['<ruby>哪里<rt>nǎlǐ</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shéi</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'哪里 = where.' },
-    { type:'mc', stem:'📚 Which word means “library”?', choices:['<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>'], ans:0, hint:'图书馆 = library.' },
-    { type:'match', stem:'🧭 Match each position word to its meaning.', left:['<ruby>上边<rt>shàngbian</rt></ruby>','<ruby>下边<rt>xiàbian</rt></ruby>','<ruby>左边<rt>zuǒbian</rt></ruby>','<ruby>右边<rt>yòubian</rt></ruby>'], right:['above','below','left','right'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'上边=above · 下边=below · 左边=left · 右边=right.' },
-    { type:'mc', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby>（　）<ruby>学校<rt>xuéxiào</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt></rt></ruby>。 <span class="gl">(The library ___ (is) inside the school.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>去<rt></rt></ruby>'], ans:0, hint:'A 在 B = A is at/in B.' },
-    { type:'mc', stem:'<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt></rt></ruby>。 <span class="gl">(The shop is ___ (outside) the school.)</span>', choices:['<ruby>外<rt>wài</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>上<rt></rt></ruby>','<ruby>下<rt></rt></ruby>'], ans:0, hint:'外边 = outside.' },
-    { type:'fill', stem:'认读 · Type the position word: <span class="cn">学校（　）边有一个公园。</span> (in front)', ans:['前','qián','qian'], hint:'前边 = in front. The word is 前.' },
-    { type:'fill', stem:'认读 · Type the position word: <span class="cn">洗手间在图书馆（　）边。</span> (inside)', ans:['里','lǐ','li'], hint:'里边 = inside. The word is 里.' },
-    { type:'mc', stem:'🚻 Which word means “toilet / washroom”?', choices:['<ruby>洗手间<rt>xǐshǒujiān</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>教室<rt>jiàoshì</rt></ruby>'], ans:0, hint:'洗手间 = toilet.' },
-    { type:'match', stem:'📍 Match each position word to its meaning.', left:['<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>','<ruby>前<rt>qián</rt></ruby>','<ruby>后<rt>hòu</rt></ruby>'], right:['inside','outside','front','back'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'里=inside · 外=outside · 前=front · 后=back.' },
-    { type:'mc', stem:'✨ Which word means “new”?', choices:['<ruby>新<rt>xīn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>'], ans:0, hint:'新 = new.' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><ruby>在<rt>zài</rt></ruby>（　）？ <span class="gl">(___ (where) is the toilet?)</span>', choices:['<ruby>哪里<rt>nǎlǐ</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shéi</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'哪里 = where.' },
+    { type:'mc', skill:'Location & places', stem:'📚 Which word means “library”?', choices:['<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>'], ans:0, hint:'图书馆 = library.' },
+    { type:'match', skill:'Location & places', stem:'🧭 Match each position word to its meaning.', left:['<ruby>上边<rt>shàngbian</rt></ruby>','<ruby>下边<rt>xiàbian</rt></ruby>','<ruby>左边<rt>zuǒbian</rt></ruby>','<ruby>右边<rt>yòubian</rt></ruby>'], right:['above','below','left','right'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'上边=above · 下边=below · 左边=left · 右边=right.' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby>（　）<ruby>学校<rt>xuéxiào</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt></rt></ruby>。 <span class="gl">(The library ___ (is) inside the school.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>去<rt></rt></ruby>'], ans:0, hint:'A 在 B = A is at/in B.' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt></rt></ruby>。 <span class="gl">(The shop is ___ (outside) the school.)</span>', choices:['<ruby>外<rt>wài</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>上<rt></rt></ruby>','<ruby>下<rt></rt></ruby>'], ans:0, hint:'外边 = outside.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the position word: <span class="cn">学校（　）边有一个公园。</span> (in front)', ans:['前','qián','qian'], hint:'前边 = in front. The word is 前.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the position word: <span class="cn">洗手间在图书馆（　）边。</span> (inside)', ans:['里','lǐ','li'], hint:'里边 = inside. The word is 里.' },
+    { type:'mc', skill:'Location & places', stem:'🚻 Which word means “toilet / washroom”?', choices:['<ruby>洗手间<rt>xǐshǒujiān</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>教室<rt>jiàoshì</rt></ruby>'], ans:0, hint:'洗手间 = toilet.' },
+    { type:'match', skill:'Location & places', stem:'📍 Match each position word to its meaning.', left:['<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>','<ruby>前<rt>qián</rt></ruby>','<ruby>后<rt>hòu</rt></ruby>'], right:['inside','outside','front','back'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'里=inside · 外=outside · 前=front · 后=back.' },
+    { type:'mc', skill:'Location & places', stem:'✨ Which word means “new”?', choices:['<ruby>新<rt>xīn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>'], ans:0, hint:'新 = new.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 8 usage + A 在 B 里边 + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
+  // TIER 2 · 学以致用 — 8 usage + A 在 B 里边 + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
   { qs:[
-    { type:'mc', stem:'↔️ Which word is the opposite of 前 (front)?', choices:['<ruby>后<rt>hòu</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>','<ruby>新<rt>xīn</rt></ruby>'], ans:0, hint:'前 (front) ↔ 后 (back).' },
-    { type:'mc', stem:'<ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt></rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí ge</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。 <span class="gl">(There is a park ___ (in front of) the school.)</span>', choices:['<ruby>前<rt>qián</rt></ruby>','<ruby>后<rt>hòu</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>'], ans:0, hint:'前边 = in front.' },
-    { type:'mc', stem:'<ruby>洗手间<rt>xǐshǒujiān</rt></ruby>（　）<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt></rt></ruby>。 <span class="gl">(The toilet ___ (is) inside the library.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>','<ruby>去<rt></rt></ruby>'], ans:0, hint:'A 在 B + position word.' },
-    { type:'mc', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt></rt></ruby>。 <span class="gl">(The library is ___ (inside) the school.)</span>', choices:['<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>','<ruby>上<rt></rt></ruby>','<ruby>前<rt>qián</rt></ruby>'], ans:0, hint:'里边 = inside.' },
-    { type:'fill', stem:'认读 · Type the position word: <span class="cn">商店在学校（　）边。</span> (outside)', ans:['外','wài','wai'], hint:'外边 = outside. The word is 外.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['qián','hòu','lǐ','wài'], right:['前','后','里','外'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'前=front · 后=back · 里=inside · 外=outside.' },
-    { type:'mc', stem:'🌳 Which sentence means “There is a park in front of the school”?', choices:['<ruby>学校<rt>xuéxiào</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>后<rt>hòu</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。','<ruby>公园<rt>gōngyuán</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。'], ans:0, hint:'前边 = in front.' },
-    { type:'mc', stem:'🗣️ A asks <ruby>图书馆在哪里<rt>túshūguǎn zài nǎlǐ</rt></ruby>？ B answers:', choices:['<ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt></rt></ruby>，<ruby>教室<rt>jiàoshì</rt></ruby><ruby>后<rt>hòu</rt></ruby><ruby>边<rt></rt></ruby>。','<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪里<rt>nǎlǐ</rt></ruby>？','<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公司<rt>gōngsī</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。'], ans:0, hint:'哪里 → answer with 在 + place + position word.' },
-{ type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby>。<ruby>教室<rt>jiàoshì</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>外边<rt>wàibian</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 洗手间 xǐshǒujiān: toilet</div>', stem:'What is inside the classroom (教室里边)?', choices:['Many books (很多书).', 'A toilet.', 'A park.', 'A shop.'], ans:0, hint:'Find 教室里边有 ……'},
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby>。<ruby>教室<rt>jiàoshì</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>外边<rt>wàibian</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 洗手间 xǐshǒujiān: toilet</div>', stem:'Where is the toilet?', choices:['Outside the classroom (教室外边).', 'Inside the classroom.', 'In the library.', 'In front of the school.'], ans:0, hint:'Find 洗手间在 ……'},
+    { type:'mc', skill:'Location & places', stem:'↔️ Which word is the opposite of 前 (front)?', choices:['<ruby>后<rt>hòu</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>','<ruby>新<rt>xīn</rt></ruby>'], ans:0, hint:'前 (front) ↔ 后 (back).' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt></rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí ge</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。 <span class="gl">(There is a park ___ (in front of) the school.)</span>', choices:['<ruby>前<rt>qián</rt></ruby>','<ruby>后<rt>hòu</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>'], ans:0, hint:'前边 = in front.' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>洗手间<rt>xǐshǒujiān</rt></ruby>（　）<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt></rt></ruby>。 <span class="gl">(The toilet ___ (is) inside the library.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>','<ruby>去<rt></rt></ruby>'], ans:0, hint:'A 在 B + position word.' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt></rt></ruby>。 <span class="gl">(The library is ___ (inside) the school.)</span>', choices:['<ruby>里<rt>lǐ</rt></ruby>','<ruby>外<rt>wài</rt></ruby>','<ruby>上<rt></rt></ruby>','<ruby>前<rt>qián</rt></ruby>'], ans:0, hint:'里边 = inside.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the position word: <span class="cn">商店在学校（　）边。</span> (outside)', ans:['外','wài','wai'], hint:'外边 = outside. The word is 外.' },
+    { type:'match', skill:'Location & places', stem:'写汉字 · Match each pinyin to its character.', left:['qián','hòu','lǐ','wài'], right:['前','后','里','外'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'前=front · 后=back · 里=inside · 外=outside.' },
+    { type:'mc', skill:'Location & places', stem:'🌳 Which sentence means “There is a park in front of the school”?', choices:['<ruby>学校<rt>xuéxiào</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>后<rt>hòu</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。','<ruby>公园<rt>gōngyuán</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。'], ans:0, hint:'前边 = in front.' },
+    { type:'mc', skill:'Location & places', stem:'🗣️ A asks <ruby>图书馆在哪里<rt>túshūguǎn zài nǎlǐ</rt></ruby>？ B answers:', choices:['<ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>边<rt></rt></ruby>，<ruby>教室<rt>jiàoshì</rt></ruby><ruby>后<rt>hòu</rt></ruby><ruby>边<rt></rt></ruby>。','<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪里<rt>nǎlǐ</rt></ruby>？','<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公司<rt>gōngsī</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。'], ans:0, hint:'哪里 → answer with 在 + place + position word.' },
+{ type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby>。<ruby>教室<rt>jiàoshì</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>外边<rt>wàibian</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 洗手间 xǐshǒujiān: toilet</div>', stem:'What is inside the classroom (教室里边)?', choices:['Many books (很多书).', 'A toilet.', 'A park.', 'A shop.'], ans:0, hint:'Find 教室里边有 ……'},
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby>。<ruby>教室<rt>jiàoshì</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby><ruby>外边<rt>wàibian</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>教室<rt>jiàoshì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 洗手间 xǐshǒujiān: toilet</div>', stem:'Where is the toilet?', choices:['Outside the classroom (教室外边).', 'Inside the classroom.', 'In the library.', 'In front of the school.'], ans:0, hint:'Find 洗手间在 ……'},
       ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt>biān</rt></ruby>。 <span class="gl">(The shop is ___ (outside) the school.)</span>', choices:['<ruby>外<rt>wài</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>上<rt>shàng</rt></ruby>','<ruby>下<rt>xià</rt></ruby>'], ans:0, hint:'外边 = outside.' },
-    { type:'mc', stem:'Culture: <ruby>成语和方位词<rt>chéngyǔ hé fāngwèicí</rt></ruby> — position words in idioms. Which is true?', choices:['Many Chinese 成语 (four-character idioms) use position words, like 前后 (around / before and after) and 里里外外 (inside and out) — direction words help express ideas, not just places.', 'Position words are never used in idioms.', '成语 always have five characters.', 'Chinese has no idioms.'], ans:0, hint:'成语 = idioms. Words like 前/后/里/外 appear in many idioms to describe order, completeness, or relationships.' },
-    { type:'mc', stem:'↔️ Which word is the opposite of 里 (inside)?', choices:['<ruby>外<rt>wài</rt></ruby>','<ruby>前<rt>qián</rt></ruby>','<ruby>新<rt>xīn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>'], ans:0, hint:'里 (inside) ↔ 外 (outside).' },
-    { type:'mc', stem:'🚻 Which word means “toilet”?', choices:['<ruby>洗手间<rt>xǐshǒujiān</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>教室<rt>jiàoshì</rt></ruby>'], ans:0, hint:'洗手间 = toilet.' },
-    { type:'mc', stem:'How do you say where something is? (HSK tip)', choices:['A 在 B + 方位词: 洗手间在图书馆里边 (thing + 在 + place + position word).', 'A 方位词 B 在: 洗手间里边图书馆在.', 'A 是 B 里: 洗手间是图书馆里.', 'You cannot describe location in Chinese.'], ans:0, hint:'Pattern: thing + 在 + place + 里边/外边/前边/后边.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby><sup>①</sup>。<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>前边<rt>qiánbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>，<ruby>后边<rt>hòubian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。<ruby>这个<rt>zhège</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>③</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 新 xīn: new ② 洗手间 xǐshǒujiān: toilet ③ 离 lí: (distance) from</div>', stem:'Where is the toilet?', choices:['Inside the library (图书馆里边).', 'In front of the school.', 'Behind the school.', 'Inside the shop.'], ans:0, hint:'Find 洗手间在 ……' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby><sup>①</sup>。<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>前边<rt>qiánbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>，<ruby>后边<rt>hòubian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。<ruby>这个<rt>zhège</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>③</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 新 xīn: new ② 洗手间 xǐshǒujiān: toilet ③ 离 lí: (distance) from</div>', stem:'What is in front of the school (学校前边)?', choices:['A park (公园).', 'A shop.', 'A library.', 'A toilet.'], ans:0, hint:'Find 学校前边有 ……' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🏫 Imagine you could design your dream school. Where would you put the library, the gardens, the sports area, the food court and the quiet rooms — and why? Think about how the front, back, inside and outside spaces would make students happy and help them learn. | 🔵 Cycle 3 — 🕌 Every culture builds important public spaces in special places: in China you often find a quiet courtyard or garden INSIDE a building or temple, while in the UAE the mosque often sits at the centre of a neighbourhood and homes face inward around a private courtyard. Why do you think different cultures arrange their buildings and spaces so differently, and what can the WAY a society places things — what is inside, outside, central or hidden — tell us about what it values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Location & places', stem:'<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）<ruby>边<rt>biān</rt></ruby>。 <span class="gl">(The shop is ___ (outside) the school.)</span>', choices:['<ruby>外<rt>wài</rt></ruby>','<ruby>里<rt>lǐ</rt></ruby>','<ruby>上<rt>shàng</rt></ruby>','<ruby>下<rt>xià</rt></ruby>'], ans:0, hint:'外边 = outside.' },
+    { type:'mc', skill:'Location & places', stem:'Culture: <ruby>成语和方位词<rt>chéngyǔ hé fāngwèicí</rt></ruby> — position words in idioms. Which is true?', choices:['Many Chinese 成语 (four-character idioms) use position words, like 前后 (around / before and after) and 里里外外 (inside and out) — direction words help express ideas, not just places.', 'Position words are never used in idioms.', '成语 always have five characters.', 'Chinese has no idioms.'], ans:0, hint:'成语 = idioms. Words like 前/后/里/外 appear in many idioms to describe order, completeness, or relationships.' },
+    { type:'mc', skill:'Location & places', stem:'↔️ Which word is the opposite of 里 (inside)?', choices:['<ruby>外<rt>wài</rt></ruby>','<ruby>前<rt>qián</rt></ruby>','<ruby>新<rt>xīn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>'], ans:0, hint:'里 (inside) ↔ 外 (outside).' },
+    { type:'mc', skill:'Location & places', stem:'🚻 Which word means “toilet”?', choices:['<ruby>洗手间<rt>xǐshǒujiān</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>教室<rt>jiàoshì</rt></ruby>'], ans:0, hint:'洗手间 = toilet.' },
+    { type:'mc', skill:'Location & places', stem:'How do you say where something is? (HSK tip)', choices:['A 在 B + 方位词: 洗手间在图书馆里边 (thing + 在 + place + position word).', 'A 方位词 B 在: 洗手间里边图书馆在.', 'A 是 B 里: 洗手间是图书馆里.', 'You cannot describe location in Chinese.'], ans:0, hint:'Pattern: thing + 在 + place + 里边/外边/前边/后边.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby><sup>①</sup>。<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>前边<rt>qiánbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>，<ruby>后边<rt>hòubian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。<ruby>这个<rt>zhège</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>③</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 新 xīn: new ② 洗手间 xǐshǒujiān: toilet ③ 离 lí: (distance) from</div>', stem:'Where is the toilet?', choices:['Inside the library (图书馆里边).', 'In front of the school.', 'Behind the school.', 'Inside the shop.'], ans:0, hint:'Find 洗手间在 ……' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>新<rt>xīn</rt></ruby><sup>①</sup>。<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>洗手间<rt>xǐshǒujiān</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>前边<rt>qiánbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>，<ruby>后边<rt>hòubian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。<ruby>这个<rt>zhège</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>③</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 新 xīn: new ② 洗手间 xǐshǒujiān: toilet ③ 离 lí: (distance) from</div>', stem:'What is in front of the school (学校前边)?', choices:['A park (公园).', 'A shop.', 'A library.', 'A toilet.'], ans:0, hint:'Find 学校前边有 ……' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🏫 Imagine you could design your dream school. Where would you put the library, the gardens, the sports area, the food court and the quiet rooms — and why? Think about how the front, back, inside and outside spaces would make students happy and help them learn. | 🔵 Cycle 3 — 🕌 Every culture builds important public spaces in special places: in China you often find a quiet courtyard or garden INSIDE a building or temple, while in the UAE the mosque often sits at the centre of a neighbourhood and homes face inward around a private courtyard. Why do you think different cultures arrange their buildings and spaces so differently, and what can the WAY a society places things — what is inside, outside, central or hidden — tell us about what it values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3A-L2 洗手间在图书馆里边。</title>' +

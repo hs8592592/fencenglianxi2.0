@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'2C-L6', num:'Lesson 6', title:'我们是坐火车去的 We went by train', cn:'时间地点方式',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary (mc / fill / match)
   { qs:[
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我们是坐火车去（　）。</span> (是…的 frame)', ans:['的','de'], hint:'是……的. 我们是坐火车去的。' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">我和同学一（　）去。</span> (together)', ans:['起','qǐ','qi'], hint:'一起 = together. The word is 起.' },
-    { type:'match', stem:'📅 Match each word to its meaning.', left:['<ruby>去年<rt>qùnián</rt></ruby>','<ruby>同学<rt>tóngxué</rt></ruby>','<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>觉得<rt>juéde</rt></ruby>'], right:['last year','classmate','together','to think'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去年=last year · 同学=classmate · 一起=together · 觉得=think.' },
-    { type:'match', stem:'🚆 Match each word to its meaning.', left:['<ruby>火车<rt>huǒchē</rt></ruby>','<ruby>飞机<rt>fēijī</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>去<rt>qù</rt></ruby>'], right:['train','plane','to take / ride','to go'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'火车=train · 飞机=plane · 坐=take/ride · 去=go.' },
-    { type:'mc', stem:'🧑‍🤝‍🧑 Which word means “classmate”?', choices:['<ruby>同学<rt>tóngxué</rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby>','<ruby>朋友<rt>péngyou</rt></ruby>','<ruby>家人<rt>jiārén</rt></ruby>'], ans:0, hint:'同学 = classmate.' },
-    { type:'mc', stem:'📅 Which word means “last year”?', choices:['<ruby>去年<rt>qùnián</rt></ruby>','<ruby>今年<rt>jīnnián</rt></ruby>','<ruby>明年<rt>míngnián</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>'], ans:0, hint:'去年 = last year.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby>。 <span class="gl">(I go ___ (together) with my classmates.)</span>', choices:['<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>觉得<rt>juéde</rt></ruby>'], ans:0, hint:'和…一起 = together with…' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。 <span class="gl">(I ___ (think) China is interesting.)</span>', choices:['<ruby>觉得<rt>juéde</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>去<rt>qù</rt></ruby>','<ruby>来<rt>lái</rt></ruby>'], ans:0, hint:'觉得 = to think / feel.' },
-    { type:'mc', stem:'🤩 Which word means “interesting”?', choices:['<ruby>有意思<rt>yǒuyìsi</rt></ruby>','<ruby>没意思<rt>méiyìsi</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>便宜<rt>piányi</rt></ruby>'], ans:0, hint:'有意思 = interesting.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）。 <span class="gl">(We went by train (是…___ frame).)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'是……的 highlights how a past action happened.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我们是坐火车去（　）。</span> (是…的 frame)', ans:['的','de'], hint:'是……的. 我们是坐火车去的。' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">我和同学一（　）去。</span> (together)', ans:['起','qǐ','qi'], hint:'一起 = together. The word is 起.' },
+    { type:'match', skill:'Transport (past)', stem:'📅 Match each word to its meaning.', left:['<ruby>去年<rt>qùnián</rt></ruby>','<ruby>同学<rt>tóngxué</rt></ruby>','<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>觉得<rt>juéde</rt></ruby>'], right:['last year','classmate','together','to think'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去年=last year · 同学=classmate · 一起=together · 觉得=think.' },
+    { type:'match', skill:'Transport (past)', stem:'🚆 Match each word to its meaning.', left:['<ruby>火车<rt>huǒchē</rt></ruby>','<ruby>飞机<rt>fēijī</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>去<rt>qù</rt></ruby>'], right:['train','plane','to take / ride','to go'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'火车=train · 飞机=plane · 坐=take/ride · 去=go.' },
+    { type:'mc', skill:'Transport (past)', stem:'🧑‍🤝‍🧑 Which word means “classmate”?', choices:['<ruby>同学<rt>tóngxué</rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby>','<ruby>朋友<rt>péngyou</rt></ruby>','<ruby>家人<rt>jiārén</rt></ruby>'], ans:0, hint:'同学 = classmate.' },
+    { type:'mc', skill:'Transport (past)', stem:'📅 Which word means “last year”?', choices:['<ruby>去年<rt>qùnián</rt></ruby>','<ruby>今年<rt>jīnnián</rt></ruby>','<ruby>明年<rt>míngnián</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>'], ans:0, hint:'去年 = last year.' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby>。 <span class="gl">(I go ___ (together) with my classmates.)</span>', choices:['<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>觉得<rt>juéde</rt></ruby>'], ans:0, hint:'和…一起 = together with…' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。 <span class="gl">(I ___ (think) China is interesting.)</span>', choices:['<ruby>觉得<rt>juéde</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>去<rt>qù</rt></ruby>','<ruby>来<rt>lái</rt></ruby>'], ans:0, hint:'觉得 = to think / feel.' },
+    { type:'mc', skill:'Transport (past)', stem:'🤩 Which word means “interesting”?', choices:['<ruby>有意思<rt>yǒuyìsi</rt></ruby>','<ruby>没意思<rt>méiyìsi</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>便宜<rt>piányi</rt></ruby>'], ans:0, hint:'有意思 = interesting.' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）。 <span class="gl">(We went by train (是…___ frame).)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'是……的 highlights how a past action happened.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 8 usage + 是……的 structure + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
+  // TIER 2 · 学以致用 — 8 usage + 是……的 structure + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
   { qs:[
-    { type:'mc', stem:'👯 Which word means “together”?', choices:['<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>同学<rt>tóngxué</rt></ruby>','<ruby>觉得<rt>juéde</rt></ruby>','<ruby>有意思<rt>yǒuyìsi</rt></ruby>'], ans:0, hint:'一起 = together.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['qù','nián','tóng','qǐ'], right:['去','年','同','起'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去=go · 年=year · 同=same · 起=rise (一起).' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）。 <span class="gl">(We went by train (是…___).)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'是……的 highlights how it happened.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。 <span class="gl">(We went ___ (by) train.)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>开<rt>kāi</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'坐火车 = by train.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。 <span class="gl">(I go to China ___ (together) with classmates.)</span>', choices:['<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>有意思<rt>yǒuyìsi</rt></ruby>'], ans:0, hint:'一起 = together.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。 <span class="gl">(It was ___ (last year) that we went.)</span>', choices:['<ruby>去年<rt>qùnián</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>','<ruby>明年<rt>míngnián</rt></ruby>','<ruby>晚上<rt>wǎnshang</rt></ruby>'], ans:0, hint:'去年 = last year.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">我们是（　）年去的。</span> (last)', ans:['去','qù','qu'], hint:'去年 = last year. The word is 去.' },
-    { type:'mc', stem:'🗣️ A asks <ruby>你们是怎么去的<rt>nǐmen shì zěnme qù de</rt></ruby>？ (How did you go?) B answers:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>火车<rt>huǒchē</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby>。'], ans:0, hint:'是…的 → answer 我们是坐…去的.' },
-{ type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel</div>', stem:'When did the speaker go to China?', choices:['Last year (去年).', 'This year.', 'Next year.', 'Last week.'], ans:0, hint:'The passage begins with 去年 …… = last year.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel</div>', stem:'How did the speaker go to China?', choices:['By train (坐火车去的).', 'By plane.', 'By boat.', 'By car.'], ans:0, hint:'Find 我们是坐 …… 去的.'},
+    { type:'mc', skill:'Transport (past)', stem:'👯 Which word means “together”?', choices:['<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>同学<rt>tóngxué</rt></ruby>','<ruby>觉得<rt>juéde</rt></ruby>','<ruby>有意思<rt>yǒuyìsi</rt></ruby>'], ans:0, hint:'一起 = together.' },
+    { type:'match', skill:'Transport (past)', stem:'写汉字 · Match each pinyin to its character.', left:['qù','nián','tóng','qǐ'], right:['去','年','同','起'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去=go · 年=year · 同=same · 起=rise (一起).' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）。 <span class="gl">(We went by train (是…___).)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'是……的 highlights how it happened.' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。 <span class="gl">(We went ___ (by) train.)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>开<rt>kāi</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'坐火车 = by train.' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。 <span class="gl">(I go to China ___ (together) with classmates.)</span>', choices:['<ruby>一起<rt>yìqǐ</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>有意思<rt>yǒuyìsi</rt></ruby>'], ans:0, hint:'一起 = together.' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。 <span class="gl">(It was ___ (last year) that we went.)</span>', choices:['<ruby>去年<rt>qùnián</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>','<ruby>明年<rt>míngnián</rt></ruby>','<ruby>晚上<rt>wǎnshang</rt></ruby>'], ans:0, hint:'去年 = last year.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">我们是（　）年去的。</span> (last)', ans:['去','qù','qu'], hint:'去年 = last year. The word is 去.' },
+    { type:'mc', skill:'Transport (past)', stem:'🗣️ A asks <ruby>你们是怎么去的<rt>nǐmen shì zěnme qù de</rt></ruby>？ (How did you go?) B answers:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>火车<rt>huǒchē</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby>。'], ans:0, hint:'是…的 → answer 我们是坐…去的.' },
+{ type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel</div>', stem:'When did the speaker go to China?', choices:['Last year (去年).', 'This year.', 'Next year.', 'Last week.'], ans:0, hint:'The passage begins with 去年 …… = last year.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel</div>', stem:'How did the speaker go to China?', choices:['By train (坐火车去的).', 'By plane.', 'By boat.', 'By car.'], ans:0, hint:'Find 我们是坐 …… 去的.'},
       ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。 <span class="gl">(We went ___ (by) train.)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>开<rt>kāi</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'坐火车 = by train.' },
-    { type:'mc', stem:'✈️ Which sentence means “We went by plane”?', choices:['<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>船<rt>chuán</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我们<rt>wǒmen</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。'], ans:0, hint:'坐飞机 = by plane.' },
-    { type:'mc', stem:'🗣️ A friend asks <ruby>你和谁一起去的<rt>… hé shéi yìqǐ qù de</rt></ruby>？ With classmates. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。'], ans:0, hint:'和…一起 = together with…' },
-    { type:'mc', stem:'When do we use the <ruby>是……的<rt>shì…de</rt></ruby> frame? (HSK tip)', choices:['For a finished action, to stress its time, place, or way: 我们是坐火车去的 (it was BY TRAIN).', 'For something happening right now.', 'For things in the future.', 'Only for questions about money.'], ans:0, hint:'The action already happened; 是……的 highlights HOW / WHEN / WHERE: 我是去年去的 / 我是坐飞机来的.' },
-    { type:'mc', stem:'Culture: <ruby>中国的经济发展<rt>Zhōngguó de jīngjì fāzhǎn</rt></ruby> — China\u2019s development. Which is true?', choices:['China has changed fast: high-speed rail (高铁), big new cities, online shopping and mobile payment are all signs of rapid development.', 'China has not changed at all.', 'China has no trains or cities.', 'Development means nothing changed.'], ans:0, hint:'经济发展 = economic development. Fast trains, new metros, and digital payment all show how quickly China has grown.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby><sup>③</sup>，<ruby>高铁<rt>gāotiě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>年<rt>nián</rt></ruby>，<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>发展<rt>fāzhǎn</rt></ruby><sup>④</sup><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>地铁<rt>dìtiě</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel ③ 高铁 gāotiě: high-speed rail ④ 发展 fāzhǎn: to develop</div>', stem:'When and how did the speaker go to China?', choices:['Last year, by plane (去年，坐飞机去的).', 'This year, by train.', 'Last year, by boat.', 'Next year, by car.'], ans:0, hint:'Read the first two sentences: 去年…… 我们是坐飞机去的。' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby><sup>③</sup>，<ruby>高铁<rt>gāotiě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>年<rt>nián</rt></ruby>，<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>发展<rt>fāzhǎn</rt></ruby><sup>④</sup><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>地铁<rt>dìtiě</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel ③ 高铁 gāotiě: high-speed rail ④ 发展 fāzhǎn: to develop</div>', stem:'What does the speaker think about China, and the high-speed rail?', choices:['China is interesting (有意思); the high-speed rail is fast and convenient.', 'China is boring.', 'The high-speed rail is slow.', 'They did not enjoy the trip.'], ans:0, hint:'Find 我觉得中国很……, and what is said about 高铁.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🌏 China and the UAE have both changed astonishingly fast — China built the world\u2019s largest high-speed rail network, and the UAE grew gleaming cities out of the desert. If YOU could design a \"city of the future\" by borrowing the best ideas from BOTH China and the Arab world, what would it have, and what would daily life be like there? | 🔵 Cycle 3 — 🏙️ In just a few decades, both China and the UAE transformed daily life through fast building, new technology, online shopping and digital payment. Rapid development brings great benefits — but also new challenges: crowded cities, pressure on the environment, and keeping old traditions alive. Why do you think some countries can develop so quickly, and how can a society grow fast while still protecting its environment AND its culture?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Transport (past)', stem:'<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。 <span class="gl">(We went ___ (by) train.)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>开<rt>kāi</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'坐火车 = by train.' },
+    { type:'mc', skill:'Transport (past)', stem:'✈️ Which sentence means “We went by plane”?', choices:['<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>船<rt>chuán</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我们<rt>wǒmen</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。'], ans:0, hint:'坐飞机 = by plane.' },
+    { type:'mc', skill:'Transport (past)', stem:'🗣️ A friend asks <ruby>你和谁一起去的<rt>… hé shéi yìqǐ qù de</rt></ruby>？ With classmates. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。'], ans:0, hint:'和…一起 = together with…' },
+    { type:'mc', skill:'Transport (past)', stem:'When do we use the <ruby>是……的<rt>shì…de</rt></ruby> frame? (HSK tip)', choices:['For a finished action, to stress its time, place, or way: 我们是坐火车去的 (it was BY TRAIN).', 'For something happening right now.', 'For things in the future.', 'Only for questions about money.'], ans:0, hint:'The action already happened; 是……的 highlights HOW / WHEN / WHERE: 我是去年去的 / 我是坐飞机来的.' },
+    { type:'mc', skill:'Transport (past)', stem:'Culture: <ruby>中国的经济发展<rt>Zhōngguó de jīngjì fāzhǎn</rt></ruby> — China\u2019s development. Which is true?', choices:['China has changed fast: high-speed rail (高铁), big new cities, online shopping and mobile payment are all signs of rapid development.', 'China has not changed at all.', 'China has no trains or cities.', 'Development means nothing changed.'], ans:0, hint:'经济发展 = economic development. Fast trains, new metros, and digital payment all show how quickly China has grown.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby><sup>③</sup>，<ruby>高铁<rt>gāotiě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>年<rt>nián</rt></ruby>，<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>发展<rt>fāzhǎn</rt></ruby><sup>④</sup><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>地铁<rt>dìtiě</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel ③ 高铁 gāotiě: high-speed rail ④ 发展 fāzhǎn: to develop</div>', stem:'When and how did the speaker go to China?', choices:['Last year, by plane (去年，坐飞机去的).', 'This year, by train.', 'Last year, by boat.', 'Next year, by car.'], ans:0, hint:'Read the first two sentences: 去年…… 我们是坐飞机去的。' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby><sup>③</sup>，<ruby>高铁<rt>gāotiě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>年<rt>nián</rt></ruby>，<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>发展<rt>fāzhǎn</rt></ruby><sup>④</sup><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>新<rt>xīn</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>地铁<rt>dìtiě</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>高铁<rt>gāotiě</rt></ruby>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 旅行 lǚxíng: to travel ③ 高铁 gāotiě: high-speed rail ④ 发展 fāzhǎn: to develop</div>', stem:'What does the speaker think about China, and the high-speed rail?', choices:['China is interesting (有意思); the high-speed rail is fast and convenient.', 'China is boring.', 'The high-speed rail is slow.', 'They did not enjoy the trip.'], ans:0, hint:'Find 我觉得中国很……, and what is said about 高铁.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🌏 China and the UAE have both changed astonishingly fast — China built the world\u2019s largest high-speed rail network, and the UAE grew gleaming cities out of the desert. If YOU could design a \"city of the future\" by borrowing the best ideas from BOTH China and the Arab world, what would it have, and what would daily life be like there? | 🔵 Cycle 3 — 🏙️ In just a few decades, both China and the UAE transformed daily life through fast building, new technology, online shopping and digital payment. Rapid development brings great benefits — but also new challenges: crowded cities, pressure on the environment, and keeping old traditions alive. Why do you think some countries can develop so quickly, and how can a society grow fast while still protecting its environment AND its culture?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2C-L6 我们是坐火车去的。</title>' +

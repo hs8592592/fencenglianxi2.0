@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1B-L4', num:'Lesson 4', title:'现在几点？What time is it now?', cn:'时间',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'🕐 "What time is it now?" in Chinese:', choices:['<ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？', '<ruby>几点现在<rt>jǐ diǎn xiànzài</rt></ruby>？', '<ruby>现在点几<rt>xiànzài diǎn jǐ</rt></ruby>？', '<ruby>点几现在<rt>diǎn jǐ xiànzài</rt></ruby>？'], ans:0, hint:'现在 (now) + 几点 (what o-clock) → 现在几点？' },
-    { type:'mc', stem:'<ruby>现在<rt>xiànzài</rt></ruby> means:', choices:['now', 'today', 'time', 'minute'], ans:0, hint:'现在 = now / right now.' },
-    { type:'mc', stem:'<ruby>点<rt>diǎn</rt></ruby> (as in <ruby>八点<rt>bā diǎn</rt></ruby>) means:', choices:['o-clock (the hour)', 'minute', 'half', 'morning'], ans:0, hint:'number + 点 = the hour: 八点 = 8 o-clock.' },
-    { type:'mc', stem:'<ruby>分<rt>fēn</rt></ruby> means:', choices:['minute', 'hour', 'half', 'second'], ans:0, hint:'分 = minute: 八点三十分 = 8:30.' },
-    { type:'mc', stem:'<ruby>半<rt>bàn</rt></ruby> (as in <ruby>八点半<rt>bā diǎn bàn</rt></ruby>) means:', choices:['half past (:30)', 'a quarter (:15)', 'o-clock', 'noon'], ans:0, hint:'点 + 半 = half past the hour. 八点半 = 8:30.' },
-    { type:'mc', stem:'"It is 8 o-clock now":', choices:['<ruby>现在八点<rt>xiànzài bā diǎn</rt></ruby>。', '<ruby>八点现在<rt>bā diǎn xiànzài</rt></ruby>。', '<ruby>现在点八<rt>xiànzài diǎn bā</rt></ruby>。', '<ruby>点八现在<rt>diǎn bā xiànzài</rt></ruby>。'], ans:0, hint:'现在 + number + 点: 现在八点。' },
-    { type:'match', stem:'Match each time-of-day word to its meaning.', left:['<ruby>上午<rt>shàngwǔ</rt></ruby>', '<ruby>中午<rt>zhōngwǔ</rt></ruby>', '<ruby>下午<rt>xiàwǔ</rt></ruby>', '<ruby>晚上<rt>wǎnshang</rt></ruby>'], right:['morning (AM)', 'noon / midday', 'afternoon (PM)', 'evening / night'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'上午 morning · 中午 noon · 下午 afternoon · 晚上 evening.' },
-    { type:'mc', stem:'<ruby>几点<rt>jǐ diǎn</rt></ruby> is used to ask about:', choices:['the time', 'a person', 'a place', 'a price'], ans:0, hint:'几点 = "what o-clock" → asks the time.' },
-    { type:'fill', stem:'Say "It is 8 o-clock now": <span class="cn"><ruby>现在<rt>xiànzài</rt></ruby><ruby>八<rt>bā</rt></ruby>＿。</span>', ans:['点','diǎn','dian'], hint:'number + 点 = o-clock. 八点 = 8 o-clock.' },
-    { type:'mc', stem:'🌙 <ruby>晚上<rt>wǎnshang</rt></ruby> means:', choices:['evening / night', 'morning', 'noon', 'now'], ans:0, hint:'晚上 = evening / night.' },
+    { type:'mc', skill:'Telling time', stem:'🕐 "What time is it now?" in Chinese:', choices:['<ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？', '<ruby>几点现在<rt>jǐ diǎn xiànzài</rt></ruby>？', '<ruby>现在点几<rt>xiànzài diǎn jǐ</rt></ruby>？', '<ruby>点几现在<rt>diǎn jǐ xiànzài</rt></ruby>？'], ans:0, hint:'现在 (now) + 几点 (what o-clock) → 现在几点？' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>现在<rt>xiànzài</rt></ruby> means:', choices:['now', 'today', 'time', 'minute'], ans:0, hint:'现在 = now / right now.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>点<rt>diǎn</rt></ruby> (as in <ruby>八点<rt>bā diǎn</rt></ruby>) means:', choices:['o-clock (the hour)', 'minute', 'half', 'morning'], ans:0, hint:'number + 点 = the hour: 八点 = 8 o-clock.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>分<rt>fēn</rt></ruby> means:', choices:['minute', 'hour', 'half', 'second'], ans:0, hint:'分 = minute: 八点三十分 = 8:30.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>半<rt>bàn</rt></ruby> (as in <ruby>八点半<rt>bā diǎn bàn</rt></ruby>) means:', choices:['half past (:30)', 'a quarter (:15)', 'o-clock', 'noon'], ans:0, hint:'点 + 半 = half past the hour. 八点半 = 8:30.' },
+    { type:'mc', skill:'Telling time', stem:'"It is 8 o-clock now":', choices:['<ruby>现在八点<rt>xiànzài bā diǎn</rt></ruby>。', '<ruby>八点现在<rt>bā diǎn xiànzài</rt></ruby>。', '<ruby>现在点八<rt>xiànzài diǎn bā</rt></ruby>。', '<ruby>点八现在<rt>diǎn bā xiànzài</rt></ruby>。'], ans:0, hint:'现在 + number + 点: 现在八点。' },
+    { type:'match', skill:'Telling time', stem:'Match each time-of-day word to its meaning.', left:['<ruby>上午<rt>shàngwǔ</rt></ruby>', '<ruby>中午<rt>zhōngwǔ</rt></ruby>', '<ruby>下午<rt>xiàwǔ</rt></ruby>', '<ruby>晚上<rt>wǎnshang</rt></ruby>'], right:['morning (AM)', 'noon / midday', 'afternoon (PM)', 'evening / night'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'上午 morning · 中午 noon · 下午 afternoon · 晚上 evening.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>几点<rt>jǐ diǎn</rt></ruby> is used to ask about:', choices:['the time', 'a person', 'a place', 'a price'], ans:0, hint:'几点 = "what o-clock" → asks the time.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "It is 8 o-clock now": <span class="cn"><ruby>现在<rt>xiànzài</rt></ruby><ruby>八<rt>bā</rt></ruby>＿。</span>', ans:['点','diǎn','dian'], hint:'number + 点 = o-clock. 八点 = 8 o-clock.' },
+    { type:'mc', skill:'Telling time', stem:'🌙 <ruby>晚上<rt>wǎnshang</rt></ruby> means:', choices:['evening / night', 'morning', 'noon', 'now'], ans:0, hint:'晚上 = evening / night.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'<ruby>八点三十分<rt>bā diǎn sānshí fēn</rt></ruby> (8:30) can also be said as <ruby>八点<rt>bā diǎn</rt></ruby>＿:', choices:['<ruby>半<rt>bàn</rt></ruby>', '<ruby>分<rt>fēn</rt></ruby>', '<ruby>零<rt>líng</rt></ruby>', '<ruby>刻<rt>kè</rt></ruby>'], ans:0, hint:'半 = half = 30 minutes. 八点半 = 八点三十分 = 8:30.' },
-    { type:'mc', stem:'For "2 o-clock", which is correct — <ruby>两点<rt>liǎng diǎn</rt></ruby> or <ruby>二点<rt>èr diǎn</rt></ruby>?', choices:['<ruby>两点<rt>liǎng diǎn</rt></ruby>', '<ruby>二点<rt>èr diǎn</rt></ruby>', 'both', 'neither'], ans:0, hint:'For 2 o-clock use 两, not 二 → 两点 (same rule as 两个).' },
-    { type:'fill', stem:'Say "It is 8 o-clock in the morning now": <span class="cn"><ruby>现在<rt>xiànzài</rt></ruby>＿＿<ruby>八点<rt>bā diǎn</rt></ruby>。</span>', ans:['上午','shàngwǔ','shangwu'], hint:'Put the time-of-day word first: 上午 = morning. 现在上午八点。' },
-    { type:'mc', stem:'Where does the time-of-day word go? "3 PM" =', choices:['<ruby>下午三点<rt>xiàwǔ sān diǎn</rt></ruby>', '<ruby>三点下午<rt>sān diǎn xiàwǔ</rt></ruby>', '<ruby>三下午点<rt>sān xiàwǔ diǎn</rt></ruby>', '<ruby>点三下午<rt>diǎn sān xiàwǔ</rt></ruby>'], ans:0, hint:'Time-of-day word goes BEFORE the clock time: 下午 + 三点.' },
-    { type:'mc', stem:'<ruby>一刻<rt>yí kè</rt></ruby> (as in 八点一刻) means:', choices:['a quarter past (:15)', 'half past (:30)', 'o-clock', 'one minute'], ans:0, hint:'一刻 = 15 minutes (a quarter). 八点一刻 = 8:15.' },
-    { type:'mc', stem:'To ask someone the time, you say:', choices:['<ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？', '<ruby>现在几岁<rt>xiànzài jǐ suì</rt></ruby>？', '<ruby>现在哪里<rt>xiànzài nǎlǐ</rt></ruby>？', '<ruby>现在是谁<rt>xiànzài shì shéi</rt></ruby>？'], ans:0, hint:'几点 asks the hour; 几岁 asks age — do not mix them up.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['wǔ', 'diǎn', 'fēn', 'sì'], right:['午', '点', '分', '四'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 四, 午, 点, 分, 半.' },
-    { type:'fill', stem:'Say "It is half past eight in the morning now": <span class="cn"><ruby>现在<rt>xiànzài</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby>＿。</span>', ans:['半','bàn','ban'], hint:'半 = half past. 八点半 = 8:30.' },
-    { type:'mc', stem:'In <ruby>八点零五分<rt>bā diǎn líng wǔ fēn</rt></ruby> (8:05), the word <ruby>零<rt>líng</rt></ruby> means:', choices:['zero (the 0 in 8:05)', 'half', 'quarter', 'minute'], ans:0, hint:'零 = 0 · used for single-digit minutes: 八点零五分 = 8:05.' },
-    { type:'mc', stem:'Put in order — "It is now 8:30 AM":', choices:['<ruby>现在上午八点半<rt>xiànzài shàngwǔ bā diǎn bàn</rt></ruby>。', '<ruby>八点半上午现在<rt>bā diǎn bàn shàngwǔ xiànzài</rt></ruby>。', '<ruby>现在八点半上午<rt>xiànzài bā diǎn bàn shàngwǔ</rt></ruby>。', '<ruby>上午现在八点半<rt>shàngwǔ xiànzài bā diǎn bàn</rt></ruby>。'], ans:0, hint:'现在 + 上午 (time-of-day) + 八点半 (clock time).' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>八点三十分<rt>bā diǎn sānshí fēn</rt></ruby> (8:30) can also be said as <ruby>八点<rt>bā diǎn</rt></ruby>＿:', choices:['<ruby>半<rt>bàn</rt></ruby>', '<ruby>分<rt>fēn</rt></ruby>', '<ruby>零<rt>líng</rt></ruby>', '<ruby>刻<rt>kè</rt></ruby>'], ans:0, hint:'半 = half = 30 minutes. 八点半 = 八点三十分 = 8:30.' },
+    { type:'mc', skill:'Telling time', stem:'For "2 o-clock", which is correct — <ruby>两点<rt>liǎng diǎn</rt></ruby> or <ruby>二点<rt>èr diǎn</rt></ruby>?', choices:['<ruby>两点<rt>liǎng diǎn</rt></ruby>', '<ruby>二点<rt>èr diǎn</rt></ruby>', 'both', 'neither'], ans:0, hint:'For 2 o-clock use 两, not 二 → 两点 (same rule as 两个).' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "It is 8 o-clock in the morning now": <span class="cn"><ruby>现在<rt>xiànzài</rt></ruby>＿＿<ruby>八点<rt>bā diǎn</rt></ruby>。</span>', ans:['上午','shàngwǔ','shangwu'], hint:'Put the time-of-day word first: 上午 = morning. 现在上午八点。' },
+    { type:'mc', skill:'Telling time', stem:'Where does the time-of-day word go? "3 PM" =', choices:['<ruby>下午三点<rt>xiàwǔ sān diǎn</rt></ruby>', '<ruby>三点下午<rt>sān diǎn xiàwǔ</rt></ruby>', '<ruby>三下午点<rt>sān xiàwǔ diǎn</rt></ruby>', '<ruby>点三下午<rt>diǎn sān xiàwǔ</rt></ruby>'], ans:0, hint:'Time-of-day word goes BEFORE the clock time: 下午 + 三点.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>一刻<rt>yí kè</rt></ruby> (as in 八点一刻) means:', choices:['a quarter past (:15)', 'half past (:30)', 'o-clock', 'one minute'], ans:0, hint:'一刻 = 15 minutes (a quarter). 八点一刻 = 8:15.' },
+    { type:'mc', skill:'Telling time', stem:'To ask someone the time, you say:', choices:['<ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？', '<ruby>现在几岁<rt>xiànzài jǐ suì</rt></ruby>？', '<ruby>现在哪里<rt>xiànzài nǎlǐ</rt></ruby>？', '<ruby>现在是谁<rt>xiànzài shì shéi</rt></ruby>？'], ans:0, hint:'几点 asks the hour; 几岁 asks age — do not mix them up.' },
+    { type:'match', skill:'Telling time', stem:'Match each pinyin to its character (写汉字).', left:['wǔ', 'diǎn', 'fēn', 'sì'], right:['午', '点', '分', '四'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 四, 午, 点, 分, 半.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "It is half past eight in the morning now": <span class="cn"><ruby>现在<rt>xiànzài</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby>＿。</span>', ans:['半','bàn','ban'], hint:'半 = half past. 八点半 = 8:30.' },
+    { type:'mc', skill:'Telling time', stem:'In <ruby>八点零五分<rt>bā diǎn líng wǔ fēn</rt></ruby> (8:05), the word <ruby>零<rt>líng</rt></ruby> means:', choices:['zero (the 0 in 8:05)', 'half', 'quarter', 'minute'], ans:0, hint:'零 = 0 · used for single-digit minutes: 八点零五分 = 8:05.' },
+    { type:'mc', skill:'Telling time', stem:'Put in order — "It is now 8:30 AM":', choices:['<ruby>现在上午八点半<rt>xiànzài shàngwǔ bā diǎn bàn</rt></ruby>。', '<ruby>八点半上午现在<rt>bā diǎn bàn shàngwǔ xiànzài</rt></ruby>。', '<ruby>现在八点半上午<rt>xiànzài bā diǎn bàn shàngwǔ</rt></ruby>。', '<ruby>上午现在八点半<rt>shàngwǔ xiànzài bā diǎn bàn</rt></ruby>。'], ans:0, hint:'现在 + 上午 (time-of-day) + 八点半 (clock time).' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>八点半<rt>bā diǎn bàn</rt></ruby> is the same as:', choices:['<ruby>八点三十分<rt>bā diǎn sānshí fēn</rt></ruby> (8:30)', '<ruby>八点十五分<rt>bā diǎn shíwǔ fēn</rt></ruby> (8:15)', '<ruby>八点四十五分<rt>bā diǎn sìshíwǔ fēn</rt></ruby> (8:45)', '<ruby>八点零五分<rt>bā diǎn líng wǔ fēn</rt></ruby> (8:05)'], ans:0, hint:'半 = half = 30 minutes.' },
-    { type:'mc', stem:'<ruby>上午<rt>shàngwǔ</rt></ruby> is to morning as <ruby>下午<rt>xiàwǔ</rt></ruby> is to:', choices:['afternoon', 'noon', 'evening', 'midnight'], ans:0, hint:'上午 AM · 下午 PM · 中午 noon · 晚上 evening.' },
-    { type:'mc', stem:'<ruby>一刻<rt>yí kè</rt></ruby> = 15 min, so <ruby>三刻<rt>sān kè</rt></ruby> =', choices:['45 minutes (:45)', '30 minutes (:30)', '3 minutes', '13 minutes'], ans:0, hint:'1 刻 = 15 min → 3 刻 = 45 min. 八点三刻 = 8:45.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？ B: ___', choices:['<ruby>现在下午三点<rt>xiànzài xiàwǔ sān diǎn</rt></ruby>。', '<ruby>现在几岁<rt>xiànzài jǐ suì</rt></ruby>？', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。', '<ruby>他是谁<rt>tā shì shéi</rt></ruby>？'], ans:0, hint:'几点 asks the time → answer with 现在 + (time-of-day) + number + 点.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you say "it is 2 o-clock"? (HSK tip)', choices:['<ruby>两点<rt>liǎng diǎn</rt></ruby> — use 两 before 点.', '<ruby>二点<rt>èr diǎn</rt></ruby> — use 二 before 点.', 'Either 两点 or 二点 is fine.', '<ruby>二点钟头<rt>èr diǎn zhōngtóu</rt></ruby>.'], ans:0, hint:'HSK tip: for clock hours use 两 (两点), never 二点 — the same 两/二 rule as measure words.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>几点<rt>jǐ diǎn</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>现在<rt>xiànzài</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点半<rt>bā diǎn bàn</rt></ruby>。"<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>十二点<rt>shí\u2019èr diǎn</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>吃<rt>chī</rt></ruby><sup>②</sup><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>九点<rt>jiǔ diǎn</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 吃 chī: to eat ③ 睡觉 shuìjiào: to sleep</div>', stem:'What time does Maria say it is?', choices:['8:30 in the morning (上午八点半).', '8:30 in the evening (晚上八点半).', '9:00 at night (晚上九点).', '12:00 noon (中午十二点).'], ans:0, hint:'Read what 玛丽亚 says after 现在.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>几点<rt>jǐ diǎn</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>现在<rt>xiànzài</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点半<rt>bā diǎn bàn</rt></ruby>。"<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>十二点<rt>shí\u2019èr diǎn</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>吃<rt>chī</rt></ruby><sup>②</sup><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>九点<rt>jiǔ diǎn</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 吃 chī: to eat ③ 睡觉 shuìjiào: to sleep</div>', stem:'When do they eat lunch (午饭)?', choices:['At 12 noon (中午十二点).', 'At 8:30 in the morning.', 'At 9 in the evening.', 'In the afternoon.'], ans:0, hint:'Find 吃午饭 and read the time just before it.' },
-    { type:'hots', stem:'🟡 Cycle 2 — ⏰ Long ago there were no clocks or phones — people in China and the Arab world used the sun to tell the time! How do you know what time it is each day, and would it be fun or hard to live with no clocks? | 🔵 Cycle 3 — Long ago Chinese people used sundials and Arab scholars built clever clocks; today we just check a phone. Is it better to know the exact minute or just “morning, afternoon, evening”, and do you think clocks make life better or more stressful?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>八点半<rt>bā diǎn bàn</rt></ruby> is the same as:', choices:['<ruby>八点三十分<rt>bā diǎn sānshí fēn</rt></ruby> (8:30)', '<ruby>八点十五分<rt>bā diǎn shíwǔ fēn</rt></ruby> (8:15)', '<ruby>八点四十五分<rt>bā diǎn sìshíwǔ fēn</rt></ruby> (8:45)', '<ruby>八点零五分<rt>bā diǎn líng wǔ fēn</rt></ruby> (8:05)'], ans:0, hint:'半 = half = 30 minutes.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>上午<rt>shàngwǔ</rt></ruby> is to morning as <ruby>下午<rt>xiàwǔ</rt></ruby> is to:', choices:['afternoon', 'noon', 'evening', 'midnight'], ans:0, hint:'上午 AM · 下午 PM · 中午 noon · 晚上 evening.' },
+    { type:'mc', skill:'Telling time', stem:'<ruby>一刻<rt>yí kè</rt></ruby> = 15 min, so <ruby>三刻<rt>sān kè</rt></ruby> =', choices:['45 minutes (:45)', '30 minutes (:30)', '3 minutes', '13 minutes'], ans:0, hint:'1 刻 = 15 min → 3 刻 = 45 min. 八点三刻 = 8:45.' },
+    { type:'mc', skill:'Telling time', stem:'Complete the dialogue — A: <ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？ B: ___', choices:['<ruby>现在下午三点<rt>xiànzài xiàwǔ sān diǎn</rt></ruby>。', '<ruby>现在几岁<rt>xiànzài jǐ suì</rt></ruby>？', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。', '<ruby>他是谁<rt>tā shì shéi</rt></ruby>？'], ans:0, hint:'几点 asks the time → answer with 现在 + (time-of-day) + number + 点.' },
+    { type:'mc', skill:'Telling time', stem:'In Chinese (HSK), how do you say "it is 2 o-clock"? (HSK tip)', choices:['<ruby>两点<rt>liǎng diǎn</rt></ruby> — use 两 before 点.', '<ruby>二点<rt>èr diǎn</rt></ruby> — use 二 before 点.', 'Either 两点 or 二点 is fine.', '<ruby>二点钟头<rt>èr diǎn zhōngtóu</rt></ruby>.'], ans:0, hint:'HSK tip: for clock hours use 两 (两点), never 二点 — the same 两/二 rule as measure words.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>几点<rt>jǐ diǎn</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>现在<rt>xiànzài</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点半<rt>bā diǎn bàn</rt></ruby>。"<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>十二点<rt>shí\u2019èr diǎn</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>吃<rt>chī</rt></ruby><sup>②</sup><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>九点<rt>jiǔ diǎn</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 吃 chī: to eat ③ 睡觉 shuìjiào: to sleep</div>', stem:'What time does Maria say it is?', choices:['8:30 in the morning (上午八点半).', '8:30 in the evening (晚上八点半).', '9:00 at night (晚上九点).', '12:00 noon (中午十二点).'], ans:0, hint:'Read what 玛丽亚 says after 现在.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>几点<rt>jǐ diǎn</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>现在<rt>xiànzài</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点半<rt>bā diǎn bàn</rt></ruby>。"<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>十二点<rt>shí\u2019èr diǎn</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>吃<rt>chī</rt></ruby><sup>②</sup><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>九点<rt>jiǔ diǎn</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 吃 chī: to eat ③ 睡觉 shuìjiào: to sleep</div>', stem:'When do they eat lunch (午饭)?', choices:['At 12 noon (中午十二点).', 'At 8:30 in the morning.', 'At 9 in the evening.', 'In the afternoon.'], ans:0, hint:'Find 吃午饭 and read the time just before it.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — ⏰ Long ago there were no clocks or phones — people in China and the Arab world used the sun to tell the time! How do you know what time it is each day, and would it be fun or hard to live with no clocks? | 🔵 Cycle 3 — Long ago Chinese people used sundials and Arab scholars built clever clocks; today we just check a phone. Is it better to know the exact minute or just “morning, afternoon, evening”, and do you think clocks make life better or more stressful?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1B-L4 现在几点？</title>' +

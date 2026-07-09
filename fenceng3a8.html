@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,44 +1360,44 @@ const LESSONS = [
 { id:'3A-L8', num:'Lesson 8', title:'它的眼睛很大 Its eyes are big', cn:'身体部位 · 形容词谓语/只·条',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(Its eyes are very ___ (big).)</span>', choices:['<ruby>大<rt>dà</rt></ruby>','<ruby>长<rt>cháng</rt></ruby>','<ruby>红<rt></rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'Subject + 很 + adjective.' },
-    { type:'fill', stem:'认读 · Type the adjective: <span class="cn">大象的鼻子很（　）。</span> (long)', ans:['长','chang','cháng'], hint:'The word is 长 (long).' },
-    { type:'mc', stem:'（　）<ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。 <span class="gl">(___ (its) eyes are big. (about an animal))</span>', choices:['<ruby>它<rt>tā</rt></ruby>','<ruby>他<rt>tā</rt></ruby>','<ruby>我<rt>wǒ</rt></ruby>','<ruby>你<rt>nǐ</rt></ruby>'], ans:0, hint:'For an animal we use 它 (it).' },
-    { type:'match', stem:'🧍 Match each body part to its meaning.', left:['<ruby>头<rt>tóu</rt></ruby>','<ruby>眼睛<rt>yǎnjing</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>','<ruby>耳朵<rt>ěrduo</rt></ruby>'], right:['head','eye','mouth','ear'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'头=head · 眼睛=eye · 嘴=mouth · 耳朵=ear.' },
-    { type:'fill', stem:'认读 · Type the body part: <span class="cn">它的（　）很大。</span> (Its EYES are big 🐸)', ans:['眼睛','yanjing','yǎnjing'], hint:'The word is 眼睛 (eye).' },
-    { type:'mc', stem:'<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt></rt></ruby>（　）<ruby>腿<rt>tuǐ</rt></ruby>。 <span class="gl">(It has four ___ (legs).)</span>', choices:['<ruby>条<rt>tiáo</rt></ruby>','<ruby>只<rt>zhī</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'条 = measure word for legs (long thin things).' },
-    { type:'mc', stem:'👁️ Which word means “eye”?', choices:['<ruby>眼睛<rt>yǎnjing</rt></ruby>','<ruby>耳朵<rt>ěrduo</rt></ruby>','<ruby>鼻子<rt>bízi</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>'], ans:0, hint:'眼睛 = eye.' },
-    { type:'mc', stem:'💪 Which word means “arm”?', choices:['<ruby>胳膊<rt>gēbo</rt></ruby>','<ruby>腿<rt>tuǐ</rt></ruby>','<ruby>手<rt>shǒu</rt></ruby>','<ruby>脚<rt>jiǎo</rt></ruby>'], ans:0, hint:'胳膊 = arm.' },
-    { type:'mc', stem:'📏 Which word means “long”?', choices:['<ruby>长<rt>cháng</rt></ruby>','<ruby>短<rt>duǎn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>'], ans:0, hint:'长 = long. (短 = short.)' },
-    { type:'match', stem:'🖐️ Match each body part to its meaning.', left:['<ruby>手<rt>shǒu</rt></ruby>','<ruby>脚<rt>jiǎo</rt></ruby>','<ruby>腿<rt>tuǐ</rt></ruby>','<ruby>鼻子<rt>bízi</rt></ruby>'], right:['hand','foot','leg','nose'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'手=hand · 脚=foot · 腿=leg · 鼻子=nose.' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(Its eyes are very ___ (big).)</span>', choices:['<ruby>大<rt>dà</rt></ruby>','<ruby>长<rt>cháng</rt></ruby>','<ruby>红<rt></rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'Subject + 很 + adjective.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the adjective: <span class="cn">大象的鼻子很（　）。</span> (long)', ans:['长','chang','cháng'], hint:'The word is 长 (long).' },
+    { type:'mc', skill:'Body & description', stem:'（　）<ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。 <span class="gl">(___ (its) eyes are big. (about an animal))</span>', choices:['<ruby>它<rt>tā</rt></ruby>','<ruby>他<rt>tā</rt></ruby>','<ruby>我<rt>wǒ</rt></ruby>','<ruby>你<rt>nǐ</rt></ruby>'], ans:0, hint:'For an animal we use 它 (it).' },
+    { type:'match', skill:'Body & description', stem:'🧍 Match each body part to its meaning.', left:['<ruby>头<rt>tóu</rt></ruby>','<ruby>眼睛<rt>yǎnjing</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>','<ruby>耳朵<rt>ěrduo</rt></ruby>'], right:['head','eye','mouth','ear'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'头=head · 眼睛=eye · 嘴=mouth · 耳朵=ear.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the body part: <span class="cn">它的（　）很大。</span> (Its EYES are big 🐸)', ans:['眼睛','yanjing','yǎnjing'], hint:'The word is 眼睛 (eye).' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt></rt></ruby>（　）<ruby>腿<rt>tuǐ</rt></ruby>。 <span class="gl">(It has four ___ (legs).)</span>', choices:['<ruby>条<rt>tiáo</rt></ruby>','<ruby>只<rt>zhī</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'条 = measure word for legs (long thin things).' },
+    { type:'mc', skill:'Body & description', stem:'👁️ Which word means “eye”?', choices:['<ruby>眼睛<rt>yǎnjing</rt></ruby>','<ruby>耳朵<rt>ěrduo</rt></ruby>','<ruby>鼻子<rt>bízi</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>'], ans:0, hint:'眼睛 = eye.' },
+    { type:'mc', skill:'Body & description', stem:'💪 Which word means “arm”?', choices:['<ruby>胳膊<rt>gēbo</rt></ruby>','<ruby>腿<rt>tuǐ</rt></ruby>','<ruby>手<rt>shǒu</rt></ruby>','<ruby>脚<rt>jiǎo</rt></ruby>'], ans:0, hint:'胳膊 = arm.' },
+    { type:'mc', skill:'Body & description', stem:'📏 Which word means “long”?', choices:['<ruby>长<rt>cháng</rt></ruby>','<ruby>短<rt>duǎn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>'], ans:0, hint:'长 = long. (短 = short.)' },
+    { type:'match', skill:'Body & description', stem:'🖐️ Match each body part to its meaning.', left:['<ruby>手<rt>shǒu</rt></ruby>','<ruby>脚<rt>jiǎo</rt></ruby>','<ruby>腿<rt>tuǐ</rt></ruby>','<ruby>鼻子<rt>bízi</rt></ruby>'], right:['hand','foot','leg','nose'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'手=hand · 脚=foot · 腿=leg · 鼻子=nose.' },
   ]},
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'<ruby>大象<rt>dàxiàng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>鼻子<rt>bízi</rt></ruby><ruby>特别<rt>tèbié</rt></ruby>（　）。 <span class="gl">(An elephant nose is especially ___ (long).)</span>', choices:['<ruby>长<rt>cháng</rt></ruby>','<ruby>短<rt>duǎn</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>','<ruby>黑<rt></rt></ruby>'], ans:0, hint:'长 = long.' },
-    { type:'mc', stem:'<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>的<rt>de</rt></ruby>。 <span class="gl">(Its eyes are ___ (red).)</span>', choices:['<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>长<rt>cháng</rt></ruby>'], ans:0, hint:'是 + colour + 的. 红色 = red.' },
-    { type:'mc', stem:'<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(Its ears are very ___ (long).)</span>', choices:['<ruby>长<rt>cháng</rt></ruby>','<ruby>短<rt>duǎn</rt></ruby>','<ruby>红<rt></rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'Subject + 很 + adjective. 长 = long.' },
-    { type:'mc', stem:'<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>眼睛<rt>yǎnjing</rt></ruby>。 <span class="gl">(It has one ___ (eye).)</span>', choices:['<ruby>只<rt>zhī</rt></ruby>','<ruby>条<rt>tiáo</rt></ruby>','<ruby>本<rt>běn</rt></ruby>','<ruby>件<rt>jiàn</rt></ruby>'], ans:0, hint:'只 = measure word for eyes.' },
-    { type:'fill', stem:'认读 · Type the pronoun: <span class="cn">（　）的眼睛很大。</span> (Its — an animal)', ans:['它','ta','tā'], hint:'The word is 它 (tā) = it.' },
-    { type:'mc', stem:'👂 Which word means “ear”?', choices:['<ruby>耳朵<rt>ěrduo</rt></ruby>','<ruby>眼睛<rt>yǎnjing</rt></ruby>','<ruby>鼻子<rt>bízi</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>'], ans:0, hint:'耳朵 = ear.' },
-    { type:'mc', stem:'🐰 A rabbit has long ears. Which sentence is correct?', choices:['<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>cháng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>长<rt>cháng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>长<rt>cháng</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>长<rt>cháng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby>。'], ans:0, hint:'Subject + 很 + adjective (no 是 with adjectives).' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['tā','shǒu','cháng','tóu'], right:['它','手','长','头'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'它 has 宀 on top · 手 = hand · 头 = head.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>只<rt>zhī</rt></ruby><ruby>小狗<rt>xiǎogǒu</rt></ruby><sup>①</sup>，<ruby>它<rt>tā</rt></ruby><ruby>叫<rt>jiào</rt></ruby><sup>②</sup><ruby>贝贝<rt>Bèibei</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>短<rt>duǎn</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>贝贝<rt>Bèibei</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>③</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>它<rt>tā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 小狗 xiǎogǒu: puppy ② 叫 jiào: to be called ③ 可爱 kě’ài: cute</div>', stem:'What colour are the dog eyes?', choices:['Black (黑色的).','Red.','Blue.','White.'], ans:0, hint:'Find 眼睛…是＿色的.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>只<rt>zhī</rt></ruby><ruby>小狗<rt>xiǎogǒu</rt></ruby><sup>①</sup>，<ruby>它<rt>tā</rt></ruby><ruby>叫<rt>jiào</rt></ruby><sup>②</sup><ruby>贝贝<rt>Bèibei</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>短<rt>duǎn</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>贝贝<rt>Bèibei</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>③</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>它<rt>tā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 小狗 xiǎogǒu: puppy ② 叫 jiào: to be called ③ 可爱 kě’ài: cute</div>', stem:'What are Beibei legs like?', choices:['Very long (腿很长).','Very short.','Very thick.','Very small.'], ans:0, hint:'Read 腿很＿.' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>大象<rt>dàxiàng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>鼻子<rt>bízi</rt></ruby><ruby>特别<rt>tèbié</rt></ruby>（　）。 <span class="gl">(An elephant nose is especially ___ (long).)</span>', choices:['<ruby>长<rt>cháng</rt></ruby>','<ruby>短<rt>duǎn</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>','<ruby>黑<rt></rt></ruby>'], ans:0, hint:'长 = long.' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>是<rt>shì</rt></ruby>（　）<ruby>的<rt>de</rt></ruby>。 <span class="gl">(Its eyes are ___ (red).)</span>', choices:['<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>长<rt>cháng</rt></ruby>'], ans:0, hint:'是 + colour + 的. 红色 = red.' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(Its ears are very ___ (long).)</span>', choices:['<ruby>长<rt>cháng</rt></ruby>','<ruby>短<rt>duǎn</rt></ruby>','<ruby>红<rt></rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'Subject + 很 + adjective. 长 = long.' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>眼睛<rt>yǎnjing</rt></ruby>。 <span class="gl">(It has one ___ (eye).)</span>', choices:['<ruby>只<rt>zhī</rt></ruby>','<ruby>条<rt>tiáo</rt></ruby>','<ruby>本<rt>běn</rt></ruby>','<ruby>件<rt>jiàn</rt></ruby>'], ans:0, hint:'只 = measure word for eyes.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the pronoun: <span class="cn">（　）的眼睛很大。</span> (Its — an animal)', ans:['它','ta','tā'], hint:'The word is 它 (tā) = it.' },
+    { type:'mc', skill:'Body & description', stem:'👂 Which word means “ear”?', choices:['<ruby>耳朵<rt>ěrduo</rt></ruby>','<ruby>眼睛<rt>yǎnjing</rt></ruby>','<ruby>鼻子<rt>bízi</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>'], ans:0, hint:'耳朵 = ear.' },
+    { type:'mc', skill:'Body & description', stem:'🐰 A rabbit has long ears. Which sentence is correct?', choices:['<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>cháng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>长<rt>cháng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>长<rt>cháng</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>长<rt>cháng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby>。'], ans:0, hint:'Subject + 很 + adjective (no 是 with adjectives).' },
+    { type:'match', skill:'Body & description', stem:'写汉字 · Match each pinyin to its character.', left:['tā','shǒu','cháng','tóu'], right:['它','手','长','头'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'它 has 宀 on top · 手 = hand · 头 = head.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>只<rt>zhī</rt></ruby><ruby>小狗<rt>xiǎogǒu</rt></ruby><sup>①</sup>，<ruby>它<rt>tā</rt></ruby><ruby>叫<rt>jiào</rt></ruby><sup>②</sup><ruby>贝贝<rt>Bèibei</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>短<rt>duǎn</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>贝贝<rt>Bèibei</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>③</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>它<rt>tā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 小狗 xiǎogǒu: puppy ② 叫 jiào: to be called ③ 可爱 kě’ài: cute</div>', stem:'What colour are the dog eyes?', choices:['Black (黑色的).','Red.','Blue.','White.'], ans:0, hint:'Find 眼睛…是＿色的.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>只<rt>zhī</rt></ruby><ruby>小狗<rt>xiǎogǒu</rt></ruby><sup>①</sup>，<ruby>它<rt>tā</rt></ruby><ruby>叫<rt>jiào</rt></ruby><sup>②</sup><ruby>贝贝<rt>Bèibei</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>短<rt>duǎn</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>贝贝<rt>Bèibei</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>③</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>它<rt>tā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 小狗 xiǎogǒu: puppy ② 叫 jiào: to be called ③ 可爱 kě’ài: cute</div>', stem:'What are Beibei legs like?', choices:['Very long (腿很长).','Very short.','Very thick.','Very small.'], ans:0, hint:'Read 腿很＿.' },
   ]},
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'👃 Which word means “nose”?', choices:['<ruby>鼻子<rt>bízi</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>','<ruby>手<rt>shǒu</rt></ruby>','<ruby>脚<rt>jiǎo</rt></ruby>'], ans:0, hint:'鼻子 = nose.' },
-    { type:'mc', stem:'How do you describe something with an adjective like “long”? (HSK tip)', choices:['Use <ruby>很<rt>hěn</rt></ruby> + adjective, no 是: <ruby>它的耳朵很长<rt>hěn cháng</rt></ruby> = its ears are long.','Use 是 + adjective: 它的耳朵是长.','Put the adjective first.','You cannot describe things.'], ans:0, hint:'Subject + 很 + adjective. No 是 with adjectives.' },
-    { type:'mc', stem:'<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby>（　）<ruby>腿<rt>tuǐ</rt></ruby>。 <span class="gl">(It has four ___ (MW) legs.)</span>', choices:['<ruby>条<rt>tiáo</rt></ruby>','<ruby>只<rt>zhǐ</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'条 = MW for legs.' },
-    { type:'mc', stem:'📏 Which word means “short”?', choices:['<ruby>短<rt>duǎn</rt></ruby>','<ruby>长<rt>zhǎng</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>'], ans:0, hint:'短 = short.' },
-    { type:'mc', stem:'🐰 Which sentence means “Its ears are very long”?', choices:['<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>zhǎng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>短<rt>duǎn</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>zhǎng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>zhǎng</rt></ruby>。'], ans:0, hint:'Subject + 很 + adjective.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>动物园<rt>dòngwùyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>种<rt>zhǒng</rt></ruby><sup>①</sup><ruby>动物<rt>dòngwù</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>鼻子<rt>bízi</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>腿<rt>tuǐ</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>粗<rt>cū</rt></ruby><sup>②</sup>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>小<rt>xiǎo</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>第一次<rt>dì-yī cì</rt></ruby><sup>③</sup><ruby>看<rt>kàn</rt></ruby><ruby>它<rt>tā</rt></ruby>，<ruby>觉得<rt>juéde</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>动物<rt>dòngwù</rt></ruby><ruby>吗<rt>ma</rt></ruby>？<ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>大象<rt>dàxiàng</rt></ruby><sup>④</sup>！</p><div class="rn"><b>Notes:</b> ① 种 zhǒng: kind / type ② 粗 cū: thick ③ 第一次 dì-yī cì: first time ④ 大象 dàxiàng: elephant</div>', stem:'Which body part of this animal is especially long?', choices:['Its nose (鼻子特别长).','Its ears.','Its legs.','Its tail.'], ans:0, hint:'Find ＿特别长.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>动物园<rt>dòngwùyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>种<rt>zhǒng</rt></ruby><sup>①</sup><ruby>动物<rt>dòngwù</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>鼻子<rt>bízi</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>腿<rt>tuǐ</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>粗<rt>cū</rt></ruby><sup>②</sup>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>小<rt>xiǎo</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>第一次<rt>dì-yī cì</rt></ruby><sup>③</sup><ruby>看<rt>kàn</rt></ruby><ruby>它<rt>tā</rt></ruby>，<ruby>觉得<rt>juéde</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>动物<rt>dòngwù</rt></ruby><ruby>吗<rt>ma</rt></ruby>？<ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>大象<rt>dàxiàng</rt></ruby><sup>④</sup>！</p><div class="rn"><b>Notes:</b> ① 种 zhǒng: kind / type ② 粗 cū: thick ③ 第一次 dì-yī cì: first time ④ 大象 dàxiàng: elephant</div>', stem:'What animal is it?', choices:['An elephant (大象).','A rabbit.','A dog.','An eagle.'], ans:0, hint:'Big ears, a very long nose, four thick legs → 大象.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 👋 We use our bodies to greet people! In China people often smile, wave, or nod their head and say 你好; in the UAE friends shake hands, and Emirati men sometimes greet each other by gently touching noses. How do you greet your family and friends? Describe one greeting you use every day. | 🔵 Cycle 3 — In both China and the Arab world, the hands carry special meaning — for example, offering or receiving something with both hands (China) or with the right hand (Arab culture) shows respect, while pointing at someone with one finger can seem rude. Why do you think so many cultures connect respect and politeness to the hands and to small body movements?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Body & description', stem:'👃 Which word means “nose”?', choices:['<ruby>鼻子<rt>bízi</rt></ruby>','<ruby>嘴<rt>zuǐ</rt></ruby>','<ruby>手<rt>shǒu</rt></ruby>','<ruby>脚<rt>jiǎo</rt></ruby>'], ans:0, hint:'鼻子 = nose.' },
+    { type:'mc', skill:'Body & description', stem:'How do you describe something with an adjective like “long”? (HSK tip)', choices:['Use <ruby>很<rt>hěn</rt></ruby> + adjective, no 是: <ruby>它的耳朵很长<rt>hěn cháng</rt></ruby> = its ears are long.','Use 是 + adjective: 它的耳朵是长.','Put the adjective first.','You cannot describe things.'], ans:0, hint:'Subject + 很 + adjective. No 是 with adjectives.' },
+    { type:'mc', skill:'Body & description', stem:'<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby>（　）<ruby>腿<rt>tuǐ</rt></ruby>。 <span class="gl">(It has four ___ (MW) legs.)</span>', choices:['<ruby>条<rt>tiáo</rt></ruby>','<ruby>只<rt>zhǐ</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'条 = MW for legs.' },
+    { type:'mc', skill:'Body & description', stem:'📏 Which word means “short”?', choices:['<ruby>短<rt>duǎn</rt></ruby>','<ruby>长<rt>zhǎng</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>'], ans:0, hint:'短 = short.' },
+    { type:'mc', skill:'Body & description', stem:'🐰 Which sentence means “Its ears are very long”?', choices:['<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>zhǎng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>短<rt>duǎn</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>zhǎng</rt></ruby>。','<ruby>它<rt>tā</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>长<rt>zhǎng</rt></ruby>。'], ans:0, hint:'Subject + 很 + adjective.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>动物园<rt>dòngwùyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>种<rt>zhǒng</rt></ruby><sup>①</sup><ruby>动物<rt>dòngwù</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>鼻子<rt>bízi</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>腿<rt>tuǐ</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>粗<rt>cū</rt></ruby><sup>②</sup>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>小<rt>xiǎo</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>第一次<rt>dì-yī cì</rt></ruby><sup>③</sup><ruby>看<rt>kàn</rt></ruby><ruby>它<rt>tā</rt></ruby>，<ruby>觉得<rt>juéde</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>动物<rt>dòngwù</rt></ruby><ruby>吗<rt>ma</rt></ruby>？<ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>大象<rt>dàxiàng</rt></ruby><sup>④</sup>！</p><div class="rn"><b>Notes:</b> ① 种 zhǒng: kind / type ② 粗 cū: thick ③ 第一次 dì-yī cì: first time ④ 大象 dàxiàng: elephant</div>', stem:'Which body part of this animal is especially long?', choices:['Its nose (鼻子特别长).','Its ears.','Its legs.','Its tail.'], ans:0, hint:'Find ＿特别长.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>动物园<rt>dòngwùyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>种<rt>zhǒng</rt></ruby><sup>①</sup><ruby>动物<rt>dòngwù</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>耳朵<rt>ěrduo</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>鼻子<rt>bízi</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>长<rt>cháng</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>腿<rt>tuǐ</rt></ruby>，<ruby>腿<rt>tuǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>粗<rt>cū</rt></ruby><sup>②</sup>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>眼睛<rt>yǎnjing</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>小<rt>xiǎo</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>第一次<rt>dì-yī cì</rt></ruby><sup>③</sup><ruby>看<rt>kàn</rt></ruby><ruby>它<rt>tā</rt></ruby>，<ruby>觉得<rt>juéde</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>动物<rt>dòngwù</rt></ruby><ruby>吗<rt>ma</rt></ruby>？<ruby>它<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>大象<rt>dàxiàng</rt></ruby><sup>④</sup>！</p><div class="rn"><b>Notes:</b> ① 种 zhǒng: kind / type ② 粗 cū: thick ③ 第一次 dì-yī cì: first time ④ 大象 dàxiàng: elephant</div>', stem:'What animal is it?', choices:['An elephant (大象).','A rabbit.','A dog.','An eagle.'], ans:0, hint:'Big ears, a very long nose, four thick legs → 大象.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 👋 We use our bodies to greet people! In China people often smile, wave, or nod their head and say 你好; in the UAE friends shake hands, and Emirati men sometimes greet each other by gently touching noses. How do you greet your family and friends? Describe one greeting you use every day. | 🔵 Cycle 3 — In both China and the Arab world, the hands carry special meaning — for example, offering or receiving something with both hands (China) or with the right hand (Arab culture) shows respect, while pointing at someone with one finger can seem rude. Why do you think so many cultures connect respect and politeness to the hands and to small body movements?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 ]; // END LESSONS
@@ -2192,7 +2192,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2412,7 +2412,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2616,12 +2616,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2630,6 +2630,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2658,7 +2662,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2670,22 +2674,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2763,7 +2767,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3A-L8 它的眼睛很大。</title>' +

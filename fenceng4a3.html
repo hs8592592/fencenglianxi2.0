@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1361,40 +1361,40 @@ const LESSONS = [
   tiers:[
 
   { qs:[
-    { type:'match', stem:'✏️ Match each item to its meaning.', left:['<ruby>课本<rt>kèběn</rt></ruby>','<ruby>橡皮<rt>xiàngpí</rt></ruby>','<ruby>笔袋<rt>bǐdài</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>'], right:['textbook','eraser','pencil case','pencil'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'课本·橡皮·笔袋·铅笔.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(___ (May) I borrow your pencil?)</span>', choices:['<ruby>可以<rt>kěyǐ</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>等<rt>děng</rt></ruby>'], ans:0, hint:'可以…吗 = may I …?' },
-    { type:'mc', stem:'<ruby>请<rt>qǐng</rt></ruby><ruby>你<rt>nǐ</rt></ruby>（　）<ruby>一下<rt>yíxià</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>写完<rt>xiěwán</rt></ruby>。 <span class="gl">(Please ___ (wait) a moment; I have not finished writing.)</span>', choices:['<ruby>等<rt>děng</rt></ruby>','<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>'], ans:0, hint:'等一下 = wait a moment.' },
-    { type:'match', stem:'🔎 Match each word to its meaning.', left:['<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>'], right:['ruler','to borrow','to give','question'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'尺子·借·给·问题.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>橡皮<rt>xiàngpí</rt></ruby>，<ruby>你<rt>nǐ</rt></ruby><ruby>能<rt>néng</rt></ruby>（　）<ruby>我<rt>wǒ</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>块<rt>kuài</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(I have no eraser; can you ___ (lend) me one?)</span>', choices:['<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>'], ans:0, hint:'借 = to borrow / to lend.' },
-    { type:'mc', stem:'<ruby>老师<rt>lǎoshī</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby>（　）。 <span class="gl">(Teacher, I have a ___ (question).)</span>', choices:['<ruby>问题<rt>wèntí</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>','<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>橡皮<rt>xiàngpí</rt></ruby>'], ans:0, hint:'问题 = question / problem.' },
-    { type:'mc', stem:'✏️ 课本、橡皮、铅笔、尺子 are all:', choices:['stationery (文具)','animals','foods','colours'], ans:0, hint:'They are stationery items.' },
-    { type:'mc', stem:'📏 Which means \u201cruler\u201d?', choices:['<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>','<ruby>橡皮<rt>xiàngpí</rt></ruby>','<ruby>笔袋<rt>bǐdài</rt></ruby>'], ans:0, hint:'尺子 = ruler.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我＿以借你的铅笔吗？</span> (may=可)', ans:['可','kě','ke'], hint:'可以 = may / can.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character.', left:['jiè','ná','huì','quán'], right:['借','拿','会','全'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'借·拿·会·全.' },
+    { type:'match', skill:'Permission (keyi)', stem:'✏️ Match each item to its meaning.', left:['<ruby>课本<rt>kèběn</rt></ruby>','<ruby>橡皮<rt>xiàngpí</rt></ruby>','<ruby>笔袋<rt>bǐdài</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>'], right:['textbook','eraser','pencil case','pencil'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'课本·橡皮·笔袋·铅笔.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(___ (May) I borrow your pencil?)</span>', choices:['<ruby>可以<rt>kěyǐ</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>等<rt>děng</rt></ruby>'], ans:0, hint:'可以…吗 = may I …?' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>请<rt>qǐng</rt></ruby><ruby>你<rt>nǐ</rt></ruby>（　）<ruby>一下<rt>yíxià</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>写完<rt>xiěwán</rt></ruby>。 <span class="gl">(Please ___ (wait) a moment; I have not finished writing.)</span>', choices:['<ruby>等<rt>děng</rt></ruby>','<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>'], ans:0, hint:'等一下 = wait a moment.' },
+    { type:'match', skill:'Permission (keyi)', stem:'🔎 Match each word to its meaning.', left:['<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>'], right:['ruler','to borrow','to give','question'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'尺子·借·给·问题.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>橡皮<rt>xiàngpí</rt></ruby>，<ruby>你<rt>nǐ</rt></ruby><ruby>能<rt>néng</rt></ruby>（　）<ruby>我<rt>wǒ</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>块<rt>kuài</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(I have no eraser; can you ___ (lend) me one?)</span>', choices:['<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>'], ans:0, hint:'借 = to borrow / to lend.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>老师<rt>lǎoshī</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby>（　）。 <span class="gl">(Teacher, I have a ___ (question).)</span>', choices:['<ruby>问题<rt>wèntí</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>','<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>橡皮<rt>xiàngpí</rt></ruby>'], ans:0, hint:'问题 = question / problem.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'✏️ 课本、橡皮、铅笔、尺子 are all:', choices:['stationery (文具)','animals','foods','colours'], ans:0, hint:'They are stationery items.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'📏 Which means \u201cruler\u201d?', choices:['<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>','<ruby>橡皮<rt>xiàngpí</rt></ruby>','<ruby>笔袋<rt>bǐdài</rt></ruby>'], ans:0, hint:'尺子 = ruler.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我＿以借你的铅笔吗？</span> (may=可)', ans:['可','kě','ke'], hint:'可以 = may / can.' },
+    { type:'match', skill:'Permission (keyi)', stem:'写汉字 · Match the pinyin to its character.', left:['jiè','ná','huì','quán'], right:['借','拿','会','全'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'借·拿·会·全.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>课本<rt>kèběn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(May I take a ___ (quick) look at your textbook?)</span>', choices:['<ruby>一下<rt>yíxià</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>','<ruby>等<rt>děng</rt></ruby>'], ans:0, hint:'verb + 一下 = do briefly.' },
-    { type:'mc', stem:'🗣️ Which means \u201cMay I borrow your pencil?\u201d?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。'], ans:0, hint:'我可以借一下你的铅笔吗？' },
-    { type:'mc', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>橡皮<rt>xiàngpí</rt></ruby>，（　）<ruby>你<rt>nǐ</rt></ruby>。 <span class="gl">(This is your eraser \u2014 ___ (here you go).)</span>', choices:['<ruby>给<rt>gěi</rt></ruby>','<ruby>借<rt>jiè</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>'], ans:0, hint:'给你 = here you go / for you.' },
-    { type:'mc', stem:'<ruby>没<rt>méi</rt></ruby>（　）<ruby>，<rt></rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>吧<rt>ba</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(No ___ (problem) \u2014 go ahead and use it!)</span>', choices:['<ruby>问题<rt>wèntí</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>','<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>课本<rt>kèběn</rt></ruby>'], ans:0, hint:'没问题 = no problem.' },
-    { type:'mc', stem:'🗣️ Which means \u201cWait a moment, I have not finished\u201d?', choices:['<ruby>等<rt>děng</rt></ruby><ruby>一下<rt>yíxià</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>写完<rt>xiěwán</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>写完<rt>xiěwán</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>等<rt>děng</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。'], ans:0, hint:'等一下，我还没写完。' },
-    { type:'mc', stem:'🗣️ verb + 一下 (e.g. 看一下) means doing something:', choices:['briefly / for a moment','forever','yesterday','never'], ans:0, hint:'verb + 一下 = do briefly.' },
-    { type:'mc', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>，<ruby>你<rt>nǐ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>一<rt>yī</rt></ruby><ruby>本<rt>běn</rt></ruby>。 <span class="gl">(The library has this book; you can go ___ (borrow) one.)</span>', choices:['<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>'], ans:0, hint:'借 = to borrow.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">等一＿，我还没写完。</span> (yí xià 下)', ans:['下','xià','xia'], hint:'等一下 = wait a moment.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>上课<rt>shàngkè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 上课 shàngkè: in class ② 借 jiè: to borrow</div>', stem:'What does Hassan not have?', choices:['A pencil (铅笔).','A book.','An eraser.','A ruler.'], ans:0, hint:'Find 哈桑没有铅笔.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>上课<rt>shàngkè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 上课 shàngkè: in class ② 借 jiè: to borrow</div>', stem:'What does Ali do?', choices:['He lends his pencil (可以，给你).','He says no.','He leaves.','Nothing.'], ans:0, hint:'Find 可以，给你.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>课本<rt>kèběn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(May I take a ___ (quick) look at your textbook?)</span>', choices:['<ruby>一下<rt>yíxià</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>','<ruby>等<rt>děng</rt></ruby>'], ans:0, hint:'verb + 一下 = do briefly.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'🗣️ Which means \u201cMay I borrow your pencil?\u201d?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。'], ans:0, hint:'我可以借一下你的铅笔吗？' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>橡皮<rt>xiàngpí</rt></ruby>，（　）<ruby>你<rt>nǐ</rt></ruby>。 <span class="gl">(This is your eraser \u2014 ___ (here you go).)</span>', choices:['<ruby>给<rt>gěi</rt></ruby>','<ruby>借<rt>jiè</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>'], ans:0, hint:'给你 = here you go / for you.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>没<rt>méi</rt></ruby>（　）<ruby>，<rt></rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>吧<rt>ba</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(No ___ (problem) \u2014 go ahead and use it!)</span>', choices:['<ruby>问题<rt>wèntí</rt></ruby>','<ruby>铅笔<rt>qiānbǐ</rt></ruby>','<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>课本<rt>kèběn</rt></ruby>'], ans:0, hint:'没问题 = no problem.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'🗣️ Which means \u201cWait a moment, I have not finished\u201d?', choices:['<ruby>等<rt>děng</rt></ruby><ruby>一下<rt>yíxià</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>写完<rt>xiěwán</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>写完<rt>xiěwán</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>等<rt>děng</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。'], ans:0, hint:'等一下，我还没写完。' },
+    { type:'mc', skill:'Permission (keyi)', stem:'🗣️ verb + 一下 (e.g. 看一下) means doing something:', choices:['briefly / for a moment','forever','yesterday','never'], ans:0, hint:'verb + 一下 = do briefly.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>这<rt>zhè</rt></ruby><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby>，<ruby>你<rt>nǐ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>一<rt>yī</rt></ruby><ruby>本<rt>běn</rt></ruby>。 <span class="gl">(The library has this book; you can go ___ (borrow) one.)</span>', choices:['<ruby>借<rt>jiè</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>'], ans:0, hint:'借 = to borrow.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">等一＿，我还没写完。</span> (yí xià 下)', ans:['下','xià','xia'], hint:'等一下 = wait a moment.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>上课<rt>shàngkè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 上课 shàngkè: in class ② 借 jiè: to borrow</div>', stem:'What does Hassan not have?', choices:['A pencil (铅笔).','A book.','An eraser.','A ruler.'], ans:0, hint:'Find 哈桑没有铅笔.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>上课<rt>shàngkè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 上课 shàngkè: in class ② 借 jiè: to borrow</div>', stem:'What does Ali do?', choices:['He lends his pencil (可以，给你).','He says no.','He leaves.','Nothing.'], ans:0, hint:'Find 可以，给你.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>笔袋<rt>bǐdài</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby>（　）。 <span class="gl">(There is no ___ (ruler) in my pencil case.)</span>', choices:['<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>课本<rt>kèběn</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>'], ans:0, hint:'尺子 = ruler.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby>（　）<ruby>用<rt>yòng</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>橡皮<rt>xiàngpí</rt></ruby>。 <span class="gl">(You ___ (may) use my eraser.)</span>', choices:['<ruby>可以<rt>kěyǐ</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>'], ans:0, hint:'可以 = may / can.' },
-    { type:'mc', stem:'🗣️ You want to borrow a classmate\u2019s pencil. You ask politely:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>给<rt>gěi</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>太<rt>tài</rt></ruby><ruby>贵<rt>guì</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Polite request: 我可以借一下…吗？' },
-    { type:'mc', stem:'💡 How do you politely ask permission to do something? (HSK tip)', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>  ✔ 我可以 + verb + 吗','<ruby>可以<rt>kěyǐ</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>  ✘','<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>？<rt></rt></ruby>  ✘','<ruby>吗<rt>ma</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>？<rt></rt></ruby>  ✘'], ans:0, hint:'我可以 + verb + 吗？= may I …?' },
-    { type:'mc', stem:'🖌️ The Chinese calligraphy brush (毛笔) and the Arab reed pen (芦苇笔) are both used for:', choices:['beautiful handwriting / calligraphy','cooking','sport','driving'], ans:0, hint:'Both 毛笔 and the reed pen (qalam) are tools for calligraphy.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>今天<rt>jīntiān</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>字<rt>zì</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>：“<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>”<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一个<rt>yí gè</rt></ruby>“<ruby>福<rt>fú</rt></ruby>”<ruby>字<rt>zì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 毛笔 máobǐ: calligraphy brush ② 福 fú: fortune / luck</div>', stem:'What does Hassan want to use today?', choices:['A calligraphy brush (毛笔).','A pencil.','A ruler.','A computer.'], ans:0, hint:'Find 想用毛笔写字.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>今天<rt>jīntiān</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>字<rt>zì</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>：“<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>”<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一个<rt>yí gè</rt></ruby>“<ruby>福<rt>fú</rt></ruby>”<ruby>字<rt>zì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 毛笔 máobǐ: calligraphy brush ② 福 fú: fortune / luck</div>', stem:'What character does Hassan write?', choices:['The character 福 (fortune).','The character 人.','His name.','Nothing.'], ans:0, hint:'Find 写了一个“福”字.' },
-    { type:'hots', stem:'🟡 Cycle 2 — The Chinese calligraphy brush (毛笔) and the Arab reed pen (芦苇笔, qalam) are both special tools for writing beautiful letters. Which would you like to try, and what would you write with it? | 🔵 Cycle 3 — The Chinese brush (毛笔) and the Arab reed pen (qalam) both turn writing into an art form \u2014 Chinese and Arabic calligraphy are admired around the world. Why do you think both cultures made writing into something beautiful, and what does it say about a culture that it treasures fine handwriting? Compare.', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>笔袋<rt>bǐdài</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby>（　）。 <span class="gl">(There is no ___ (ruler) in my pencil case.)</span>', choices:['<ruby>尺子<rt>chǐzi</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>课本<rt>kèběn</rt></ruby>','<ruby>可以<rt>kěyǐ</rt></ruby>'], ans:0, hint:'尺子 = ruler.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'<ruby>你<rt>nǐ</rt></ruby>（　）<ruby>用<rt>yòng</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>橡皮<rt>xiàngpí</rt></ruby>。 <span class="gl">(You ___ (may) use my eraser.)</span>', choices:['<ruby>可以<rt>kěyǐ</rt></ruby>','<ruby>问题<rt>wèntí</rt></ruby>','<ruby>等<rt>děng</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>'], ans:0, hint:'可以 = may / can.' },
+    { type:'mc', skill:'Permission (keyi)', stem:'🗣️ You want to borrow a classmate\u2019s pencil. You ask politely:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>给<rt>gěi</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>铅笔<rt>qiānbǐ</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>太<rt>tài</rt></ruby><ruby>贵<rt>guì</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Polite request: 我可以借一下…吗？' },
+    { type:'mc', skill:'Permission (keyi)', stem:'💡 How do you politely ask permission to do something? (HSK tip)', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>  ✔ 我可以 + verb + 吗','<ruby>可以<rt>kěyǐ</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>  ✘','<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>？<rt></rt></ruby>  ✘','<ruby>吗<rt>ma</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>？<rt></rt></ruby>  ✘'], ans:0, hint:'我可以 + verb + 吗？= may I …?' },
+    { type:'mc', skill:'Permission (keyi)', stem:'🖌️ The Chinese calligraphy brush (毛笔) and the Arab reed pen (芦苇笔) are both used for:', choices:['beautiful handwriting / calligraphy','cooking','sport','driving'], ans:0, hint:'Both 毛笔 and the reed pen (qalam) are tools for calligraphy.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>今天<rt>jīntiān</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>字<rt>zì</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>：“<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>”<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一个<rt>yí gè</rt></ruby>“<ruby>福<rt>fú</rt></ruby>”<ruby>字<rt>zì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 毛笔 máobǐ: calligraphy brush ② 福 fú: fortune / luck</div>', stem:'What does Hassan want to use today?', choices:['A calligraphy brush (毛笔).','A pencil.','A ruler.','A computer.'], ans:0, hint:'Find 想用毛笔写字.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>今天<rt>jīntiān</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>字<rt>zì</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>：“<ruby>我<rt>wǒ</rt></ruby><ruby>可以<rt>kěyǐ</rt></ruby><ruby>借<rt>jiè</rt></ruby><ruby>一下<rt>yíxià</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>”<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>可以<rt>kěyǐ</rt></ruby>，<ruby>给<rt>gěi</rt></ruby><ruby>你<rt>nǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>用<rt>yòng</rt></ruby><ruby>毛笔<rt>máobǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一个<rt>yí gè</rt></ruby>“<ruby>福<rt>fú</rt></ruby>”<ruby>字<rt>zì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 毛笔 máobǐ: calligraphy brush ② 福 fú: fortune / luck</div>', stem:'What character does Hassan write?', choices:['The character 福 (fortune).','The character 人.','His name.','Nothing.'], ans:0, hint:'Find 写了一个“福”字.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — The Chinese calligraphy brush (毛笔) and the Arab reed pen (芦苇笔, qalam) are both special tools for writing beautiful letters. Which would you like to try, and what would you write with it? | 🔵 Cycle 3 — The Chinese brush (毛笔) and the Arab reed pen (qalam) both turn writing into an art form \u2014 Chinese and Arabic calligraphy are admired around the world. Why do you think both cultures made writing into something beautiful, and what does it say about a culture that it treasures fine handwriting? Compare.', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
   ]},
 
   ]},
@@ -2191,7 +2191,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2411,7 +2411,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2615,12 +2615,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2629,6 +2629,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2657,7 +2661,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2669,22 +2673,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2762,7 +2766,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 4A-L3 我可以借一下你的铅笔吗？</title>' +

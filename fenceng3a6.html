@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,44 +1360,44 @@ const LESSONS = [
 { id:'3A-L6', num:'Lesson 6', title:'你看过《功夫熊猫》吗 Have you seen Kung Fu Panda?', cn:'经历 · 过/遍',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'fill', stem:'认读 · Type the measure word: <span class="cn">我看过三（　）。</span> (three times)', ans:['遍','bian','biàn'], hint:'遍 counts full times. 三遍 = three times.' },
-    { type:'match', stem:'📖 Match each word to its meaning.', left:['<ruby>看<rt>kàn</rt></ruby>','<ruby>学<rt>xué</rt></ruby>','<ruby>跟<rt>gēn</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], right:['to watch','to study','with','again'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看=watch · 学=study · 跟=with · 再=again.' },
-    { type:'mc', stem:'🐼 Which word means “panda”?', choices:['<ruby>熊猫<rt>xióngmāo</rt></ruby>','<ruby>老虎<rt>lǎohǔ</rt></ruby>','<ruby>狗<rt>gǒu</rt></ruby>','<ruby>猫<rt>māo</rt></ruby>'], ans:0, hint:'熊猫 = panda.' },
-    { type:'mc', stem:'🥋 Which word means “kung fu”?', choices:['<ruby>功夫<rt>gōngfu</rt></ruby>','<ruby>跳舞<rt>tiàowǔ</rt></ruby>','<ruby>唱歌<rt>chànggē</rt></ruby>','<ruby>做饭<rt>zuòfàn</rt></ruby>'], ans:0, hint:'功夫 = kung fu.' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">这个电影特别好（　）！</span> (nice to watch)', ans:['看','kan','kàn'], hint:'好看 = nice to watch. The word is 看.' },
-    { type:'mc', stem:'⭐ Which word means “especially / very”?', choices:['<ruby>特别<rt>tèbié</rt></ruby>','<ruby>一点儿<rt>yìdiǎnr</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>还<rt>hái</rt></ruby>'], ans:0, hint:'特别 = especially.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>《<rt></rt></ruby>功夫熊猫<ruby>》<rt></rt></ruby><ruby>吗<rt>ma</rt></ruby>？ <span class="gl">(Have you ___ Kung Fu Panda?)</span>', choices:['<ruby>过<rt>guo</rt></ruby>','<ruby>吃<rt>chī</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>学<rt>xué</rt></ruby>'], ans:0, hint:'看过…吗 = have you watched … The aspect word is 过.' },
-    { type:'match', stem:'🐼 Match each word to its meaning.', left:['<ruby>熊猫<rt>xióngmāo</rt></ruby>','<ruby>功夫<rt>gōngfu</rt></ruby>','<ruby>好看<rt>hǎokàn</rt></ruby>','<ruby>特别<rt>tèbié</rt></ruby>'], right:['panda','kung fu','nice to watch','especially'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'熊猫=panda · 功夫=kung fu · 好看=nice · 特别=especially.' },
-    { type:'mc', stem:'<ruby>明天<rt>míngtiān</rt></ruby><ruby>你<rt>nǐ</rt></ruby>（　）<ruby>我<rt>wǒ</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>起<rt></rt></ruby><ruby>去<rt></rt></ruby><ruby>吧<rt></rt></ruby>。 <span class="gl">(Tomorrow, go ___ me.)</span>', choices:['<ruby>跟<rt>gēn</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>'], ans:0, hint:'跟…一起 = together with…' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（　）<ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。 <span class="gl">(I want to watch it ___ (again).)</span>', choices:['<ruby>再<rt>zài</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'再 = again. 再看一遍 = watch one more time.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the measure word: <span class="cn">我看过三（　）。</span> (three times)', ans:['遍','bian','biàn'], hint:'遍 counts full times. 三遍 = three times.' },
+    { type:'match', skill:'Experiences (guo)', stem:'📖 Match each word to its meaning.', left:['<ruby>看<rt>kàn</rt></ruby>','<ruby>学<rt>xué</rt></ruby>','<ruby>跟<rt>gēn</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], right:['to watch','to study','with','again'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看=watch · 学=study · 跟=with · 再=again.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'🐼 Which word means “panda”?', choices:['<ruby>熊猫<rt>xióngmāo</rt></ruby>','<ruby>老虎<rt>lǎohǔ</rt></ruby>','<ruby>狗<rt>gǒu</rt></ruby>','<ruby>猫<rt>māo</rt></ruby>'], ans:0, hint:'熊猫 = panda.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'🥋 Which word means “kung fu”?', choices:['<ruby>功夫<rt>gōngfu</rt></ruby>','<ruby>跳舞<rt>tiàowǔ</rt></ruby>','<ruby>唱歌<rt>chànggē</rt></ruby>','<ruby>做饭<rt>zuòfàn</rt></ruby>'], ans:0, hint:'功夫 = kung fu.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">这个电影特别好（　）！</span> (nice to watch)', ans:['看','kan','kàn'], hint:'好看 = nice to watch. The word is 看.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'⭐ Which word means “especially / very”?', choices:['<ruby>特别<rt>tèbié</rt></ruby>','<ruby>一点儿<rt>yìdiǎnr</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>还<rt>hái</rt></ruby>'], ans:0, hint:'特别 = especially.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>《<rt></rt></ruby>功夫熊猫<ruby>》<rt></rt></ruby><ruby>吗<rt>ma</rt></ruby>？ <span class="gl">(Have you ___ Kung Fu Panda?)</span>', choices:['<ruby>过<rt>guo</rt></ruby>','<ruby>吃<rt>chī</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>学<rt>xué</rt></ruby>'], ans:0, hint:'看过…吗 = have you watched … The aspect word is 过.' },
+    { type:'match', skill:'Experiences (guo)', stem:'🐼 Match each word to its meaning.', left:['<ruby>熊猫<rt>xióngmāo</rt></ruby>','<ruby>功夫<rt>gōngfu</rt></ruby>','<ruby>好看<rt>hǎokàn</rt></ruby>','<ruby>特别<rt>tèbié</rt></ruby>'], right:['panda','kung fu','nice to watch','especially'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'熊猫=panda · 功夫=kung fu · 好看=nice · 特别=especially.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>明天<rt>míngtiān</rt></ruby><ruby>你<rt>nǐ</rt></ruby>（　）<ruby>我<rt>wǒ</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>起<rt></rt></ruby><ruby>去<rt></rt></ruby><ruby>吧<rt></rt></ruby>。 <span class="gl">(Tomorrow, go ___ me.)</span>', choices:['<ruby>跟<rt>gēn</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>'], ans:0, hint:'跟…一起 = together with…' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（　）<ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。 <span class="gl">(I want to watch it ___ (again).)</span>', choices:['<ruby>再<rt>zài</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'再 = again. 再看一遍 = watch one more time.' },
   ]},
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'<ruby>明天<rt>míngtiān</rt></ruby>（　）<ruby>我<rt>wǒ</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>起<rt></rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吧<rt></rt></ruby>！ <span class="gl">(Tomorrow, watch ___ me together!)</span>', choices:['<ruby>跟<rt>gēn</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'跟…一起 = together with…' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>《<rt></rt></ruby>功夫熊猫<ruby>》<rt></rt></ruby>。 <span class="gl">(I HAVE seen Kung Fu Panda (before).)</span>', choices:['<ruby>过<rt>guo</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>想<rt>xiǎng</rt></ruby>'], ans:0, hint:'verb + 过 = have done it before.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['kàn','guò','xué','gēn'], right:['看','过','学','跟'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看 has 目 (eye) · 跟 has 足 (foot).' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（　）<ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>吗<rt>ma</rt></ruby>？ <span class="gl">(Do you want to watch it ___ (again)?)</span>', choices:['<ruby>再<rt>zài</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>都<rt>dōu</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'再 = again.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>去<rt></rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。 <span class="gl">(I have NEVER been to China.)</span>', choices:['<ruby>没<rt>méi</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], ans:0, hint:'没 + verb + 过 = have never done it.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>三<rt>sān</rt></ruby>（　）。 <span class="gl">(I have watched it three TIMES.)</span>', choices:['<ruby>遍<rt>biàn</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>岁<rt>suì</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'遍 = times (all the way through).' },
-    { type:'fill', stem:'认读 · Type the measure word: <span class="cn">我想再看一（　）。</span>', ans:['遍','bian','biàn'], hint:'The word is 遍 (biàn).' },
-    { type:'mc', stem:'🗣️ A friend asks <ruby>你看过《功夫熊猫》吗<rt>nǐ kànguo … ma</rt></ruby>？ You have seen it. You say:', choices:['<ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>！','<ruby>没<rt>méi</rt></ruby><ruby>有<rt>yǒu</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>去<rt></rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby>。'], ans:0, hint:'看过 = (I) have seen it. Then add your opinion.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电影<rt>diànyǐng</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>两<rt>liǎng</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><sup>②</sup><ruby>看过<rt>kànguo</rt></ruby>《<ruby>哪吒<rt>Nézhā</rt></ruby>》<sup>③</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>西游记<rt>Xīyóujì</rt></ruby>》<sup>④</sup>。<ruby>这个<rt>zhège</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。</p><div class="rn"><b>Notes:</b> ① 电影 diànyǐng: film ② 还 hái: also / in addition ③ 哪吒 Nézhā: Ne Zha (a film) ④ 西游记 Xīyóujì: Journey to the West</div>', stem:'How many times has the writer watched Kung Fu Panda?', choices:['Two times (两遍).','One time (一遍).','Three times (三遍).','Never.'], ans:0, hint:'Find 我看过＿遍《功夫熊猫》.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电影<rt>diànyǐng</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>两<rt>liǎng</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><sup>②</sup><ruby>看过<rt>kànguo</rt></ruby>《<ruby>哪吒<rt>Nézhā</rt></ruby>》<sup>③</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>西游记<rt>Xīyóujì</rt></ruby>》<sup>④</sup>。<ruby>这个<rt>zhège</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。</p><div class="rn"><b>Notes:</b> ① 电影 diànyǐng: film ② 还 hái: also / in addition ③ 哪吒 Nézhā: Ne Zha (a film) ④ 西游记 Xīyóujì: Journey to the West</div>', stem:'Which film has the writer NOT seen?', choices:['Journey to the West (西游记).','Kung Fu Panda.','Ne Zha.','None of them.'], ans:0, hint:'Find 我没看过《＿》.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>明天<rt>míngtiān</rt></ruby>（　）<ruby>我<rt>wǒ</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>起<rt></rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>吧<rt></rt></ruby>！ <span class="gl">(Tomorrow, watch ___ me together!)</span>', choices:['<ruby>跟<rt>gēn</rt></ruby>','<ruby>给<rt>gěi</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'跟…一起 = together with…' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>《<rt></rt></ruby>功夫熊猫<ruby>》<rt></rt></ruby>。 <span class="gl">(I HAVE seen Kung Fu Panda (before).)</span>', choices:['<ruby>过<rt>guo</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>想<rt>xiǎng</rt></ruby>'], ans:0, hint:'verb + 过 = have done it before.' },
+    { type:'match', skill:'Experiences (guo)', stem:'写汉字 · Match each pinyin to its character.', left:['kàn','guò','xué','gēn'], right:['看','过','学','跟'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看 has 目 (eye) · 跟 has 足 (foot).' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（　）<ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>吗<rt>ma</rt></ruby>？ <span class="gl">(Do you want to watch it ___ (again)?)</span>', choices:['<ruby>再<rt>zài</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>都<rt>dōu</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'再 = again.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>去<rt></rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。 <span class="gl">(I have NEVER been to China.)</span>', choices:['<ruby>没<rt>méi</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], ans:0, hint:'没 + verb + 过 = have never done it.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>三<rt>sān</rt></ruby>（　）。 <span class="gl">(I have watched it three TIMES.)</span>', choices:['<ruby>遍<rt>biàn</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>岁<rt>suì</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'遍 = times (all the way through).' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the measure word: <span class="cn">我想再看一（　）。</span>', ans:['遍','bian','biàn'], hint:'The word is 遍 (biàn).' },
+    { type:'mc', skill:'Experiences (guo)', stem:'🗣️ A friend asks <ruby>你看过《功夫熊猫》吗<rt>nǐ kànguo … ma</rt></ruby>？ You have seen it. You say:', choices:['<ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>！','<ruby>没<rt>méi</rt></ruby><ruby>有<rt>yǒu</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>去<rt></rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby>。'], ans:0, hint:'看过 = (I) have seen it. Then add your opinion.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电影<rt>diànyǐng</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>两<rt>liǎng</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><sup>②</sup><ruby>看过<rt>kànguo</rt></ruby>《<ruby>哪吒<rt>Nézhā</rt></ruby>》<sup>③</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>西游记<rt>Xīyóujì</rt></ruby>》<sup>④</sup>。<ruby>这个<rt>zhège</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。</p><div class="rn"><b>Notes:</b> ① 电影 diànyǐng: film ② 还 hái: also / in addition ③ 哪吒 Nézhā: Ne Zha (a film) ④ 西游记 Xīyóujì: Journey to the West</div>', stem:'How many times has the writer watched Kung Fu Panda?', choices:['Two times (两遍).','One time (一遍).','Three times (三遍).','Never.'], ans:0, hint:'Find 我看过＿遍《功夫熊猫》.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电影<rt>diànyǐng</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>两<rt>liǎng</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><sup>②</sup><ruby>看过<rt>kànguo</rt></ruby>《<ruby>哪吒<rt>Nézhā</rt></ruby>》<sup>③</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>西游记<rt>Xīyóujì</rt></ruby>》<sup>④</sup>。<ruby>这个<rt>zhège</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。</p><div class="rn"><b>Notes:</b> ① 电影 diànyǐng: film ② 还 hái: also / in addition ③ 哪吒 Nézhā: Ne Zha (a film) ④ 西游记 Xīyóujì: Journey to the West</div>', stem:'Which film has the writer NOT seen?', choices:['Journey to the West (西游记).','Kung Fu Panda.','Ne Zha.','None of them.'], ans:0, hint:'Find 我没看过《＿》.' },
   ]},
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🎬 Which sentence means “I have watched it three times”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby>。'], ans:0, hint:'遍 = times (all the way through).' },
-    { type:'mc', stem:'How do you count how many times you watched something? (HSK tip)', choices:['Use <ruby>遍<rt>biàn</rt></ruby> after the verb: <ruby>我看过三遍<rt>sān biàn</rt></ruby> = watched three times.','Use 个: 看过三个.','Use 岁: 看过三岁.','You cannot count times in Chinese.'], ans:0, hint:'遍 counts full times through.' },
-    { type:'mc', stem:'🔁 Which measure word counts full times of watching a film?', choices:['<ruby>遍<rt>biàn</rt></ruby> — times (whole)','<ruby>个<rt>gè</rt></ruby> — a (general)','<ruby>岁<rt>suì</rt></ruby> — years old','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'遍 = full times. 三遍.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>这个<rt>zhège</rt></ruby><ruby>电影<rt>diànyǐng</rt></ruby>。 <span class="gl">(I have seen this film (___, before).)</span>', choices:['<ruby>过<rt>guo</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>想<rt>xiǎng</rt></ruby>'], ans:0, hint:'verb + 过 = have done it before.' },
-    { type:'mc', stem:'🗣️ A friend asks <ruby>你看过《功夫熊猫》吗<rt>… kànguo … ma</rt></ruby>？ You have. Reply:', choices:['<ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>。','<ruby>没<rt>méi</rt></ruby><ruby>有<rt>yǒu</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'看过 = have seen it.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>。<ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><sup>②</sup>，<ruby>在<rt>zài</rt></ruby><ruby>那里<rt>nàlǐ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>真<rt>zhēn</rt></ruby><sup>③</sup><ruby>的<rt>de</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>④</sup>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>也<rt>yě</rt></ruby><ruby>学过<rt>xuéguo</rt></ruby><ruby>一点儿<rt>yìdiǎnr</rt></ruby><ruby>功夫<rt>gōngfu</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。<ruby>明天<rt>míngtiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>吧<rt>ba</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 北京 Běijīng: Beijing ③ 真 zhēn: real ④ 可爱 kě’ài: cute</div>', stem:'How many times has the writer watched Kung Fu Panda?', choices:['Three times (三遍).','One time (一遍).','Two times (两遍).','Never.'], ans:0, hint:'Find 我还看过＿遍《功夫熊猫》.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>。<ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><sup>②</sup>，<ruby>在<rt>zài</rt></ruby><ruby>那里<rt>nàlǐ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>真<rt>zhēn</rt></ruby><sup>③</sup><ruby>的<rt>de</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>④</sup>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>也<rt>yě</rt></ruby><ruby>学过<rt>xuéguo</rt></ruby><ruby>一点儿<rt>yìdiǎnr</rt></ruby><ruby>功夫<rt>gōngfu</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。<ruby>明天<rt>míngtiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>吧<rt>ba</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 北京 Běijīng: Beijing ③ 真 zhēn: real ④ 可爱 kě’ài: cute</div>', stem:'What does the writer invite Ali to do tomorrow?', choices:['Watch Kung Fu Panda together one more time.','Go to Beijing.','Learn to cook.','Buy a panda toy.'], ans:0, hint:'Read the last sentence: 跟他一起再看一遍吧！' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🍵 Tea is a big part of Chinese culture, and in the UAE people welcome guests with Arabic coffee (gahwa) and dates. When friends or guests come to your home, what do you and your family offer them to drink or eat? Have you ever tried Chinese tea or Arabic coffee (你喝过中国茶或者阿拉伯咖啡吗)? | 🔵 Cycle 3 — In a Chinese home a host often keeps refilling your cup and says 多吃点 (eat more!); in an Emirati home, welcoming guests with coffee and dates in the majlis is a sign of deep respect. Why do you think offering food and drink is such an important way of showing respect to guests in both Chinese and Arab cultures?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'🎬 Which sentence means “I have watched it three times”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby>。'], ans:0, hint:'遍 = times (all the way through).' },
+    { type:'mc', skill:'Experiences (guo)', stem:'How do you count how many times you watched something? (HSK tip)', choices:['Use <ruby>遍<rt>biàn</rt></ruby> after the verb: <ruby>我看过三遍<rt>sān biàn</rt></ruby> = watched three times.','Use 个: 看过三个.','Use 岁: 看过三岁.','You cannot count times in Chinese.'], ans:0, hint:'遍 counts full times through.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'🔁 Which measure word counts full times of watching a film?', choices:['<ruby>遍<rt>biàn</rt></ruby> — times (whole)','<ruby>个<rt>gè</rt></ruby> — a (general)','<ruby>岁<rt>suì</rt></ruby> — years old','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'遍 = full times. 三遍.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）<ruby>这个<rt>zhège</rt></ruby><ruby>电影<rt>diànyǐng</rt></ruby>。 <span class="gl">(I have seen this film (___, before).)</span>', choices:['<ruby>过<rt>guo</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>想<rt>xiǎng</rt></ruby>'], ans:0, hint:'verb + 过 = have done it before.' },
+    { type:'mc', skill:'Experiences (guo)', stem:'🗣️ A friend asks <ruby>你看过《功夫熊猫》吗<rt>… kànguo … ma</rt></ruby>？ You have. Reply:', choices:['<ruby>看<rt>kàn</rt></ruby><ruby>过<rt>guo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>好看<rt>hǎokàn</rt></ruby>。','<ruby>没<rt>méi</rt></ruby><ruby>有<rt>yǒu</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'看过 = have seen it.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>。<ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><sup>②</sup>，<ruby>在<rt>zài</rt></ruby><ruby>那里<rt>nàlǐ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>真<rt>zhēn</rt></ruby><sup>③</sup><ruby>的<rt>de</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>④</sup>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>也<rt>yě</rt></ruby><ruby>学过<rt>xuéguo</rt></ruby><ruby>一点儿<rt>yìdiǎnr</rt></ruby><ruby>功夫<rt>gōngfu</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。<ruby>明天<rt>míngtiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>吧<rt>ba</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 北京 Běijīng: Beijing ③ 真 zhēn: real ④ 可爱 kě’ài: cute</div>', stem:'How many times has the writer watched Kung Fu Panda?', choices:['Three times (三遍).','One time (一遍).','Two times (两遍).','Never.'], ans:0, hint:'Find 我还看过＿遍《功夫熊猫》.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>。<ruby>去年<rt>qùnián</rt></ruby><sup>①</sup>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><sup>②</sup>，<ruby>在<rt>zài</rt></ruby><ruby>那里<rt>nàlǐ</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>真<rt>zhēn</rt></ruby><sup>③</sup><ruby>的<rt>de</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby>，<ruby>特别<rt>tèbié</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby><sup>④</sup>！<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>看过<rt>kànguo</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>遍<rt>biàn</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》，<ruby>也<rt>yě</rt></ruby><ruby>学过<rt>xuéguo</rt></ruby><ruby>一点儿<rt>yìdiǎnr</rt></ruby><ruby>功夫<rt>gōngfu</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>去过<rt>qùguo</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>看过<rt>kànguo</rt></ruby>《<ruby>功夫熊猫<rt>Gōngfu Xióngmāo</rt></ruby>》。<ruby>明天<rt>míngtiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>跟<rt>gēn</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>遍<rt>biàn</rt></ruby><ruby>吧<rt>ba</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 去年 qùnián: last year ② 北京 Běijīng: Beijing ③ 真 zhēn: real ④ 可爱 kě’ài: cute</div>', stem:'What does the writer invite Ali to do tomorrow?', choices:['Watch Kung Fu Panda together one more time.','Go to Beijing.','Learn to cook.','Buy a panda toy.'], ans:0, hint:'Read the last sentence: 跟他一起再看一遍吧！' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🍵 Tea is a big part of Chinese culture, and in the UAE people welcome guests with Arabic coffee (gahwa) and dates. When friends or guests come to your home, what do you and your family offer them to drink or eat? Have you ever tried Chinese tea or Arabic coffee (你喝过中国茶或者阿拉伯咖啡吗)? | 🔵 Cycle 3 — In a Chinese home a host often keeps refilling your cup and says 多吃点 (eat more!); in an Emirati home, welcoming guests with coffee and dates in the majlis is a sign of deep respect. Why do you think offering food and drink is such an important way of showing respect to guests in both Chinese and Arab cultures?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 ]; // END LESSONS
@@ -2192,7 +2192,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2412,7 +2412,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2616,12 +2616,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2630,6 +2630,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2658,7 +2662,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2670,22 +2674,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2763,7 +2767,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3A-L6 你们看过《功夫熊猫》吗？</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L2', num:'Lesson 2', title:'今天下雨。It rains today.', cn:'天气',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 weather vocabulary (mixed types, not starting with word-order)
+  // TIER 1 · 夯实基础 — 10 weather vocabulary (mixed types, not starting with word-order)
   { qs:[
-    { type:'mc', stem:'☂️ Which word means “umbrella”?', choices:['<ruby>伞<rt>sǎn</rt></ruby>','<ruby>云<rt>yún</rt></ruby>','<ruby>雨<rt>yǔ</rt></ruby>','<ruby>风<rt>fēng</rt></ruby>'], ans:0, hint:'伞 = umbrella.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (sky words).', left:['yǔ','fēng','yún','le'], right:['雨','风','云','了'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'雨·风·云·了.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">下雨了！我的＿呢？</span> (umbrella)', ans:['伞','sǎn','san'], hint:'伞 = umbrella.' },
-    { type:'mc', stem:'🌧️ Which sentence means “It rains today”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雪<rt>xiàxuě</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'今天下雨 = it rains today.' },
-    { type:'mc', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>雪<rt>xuě</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(It is snowing today — ___)</span>', choices:['<ruby>下<rt>xià</rt></ruby>','<ruby>刮<rt>guā</rt></ruby>','<ruby>晴<rt>qíng</rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'下雪 = to snow.' },
-    { type:'mc', stem:'🌧️ Which word means “it is raining”?', choices:['<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>下雪<rt>xiàxuě</rt></ruby>','<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], ans:0, hint:'下雨 = raining.' },
-    { type:'match', stem:'🌦️ Match each weather word to its meaning.', left:['<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>多云<rt>duōyún</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], right:['sunny','cloudy','raining','windy'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'晴天·多云·下雨·刮风.' },
-    { type:'mc', stem:'❄️ Which word means “it is snowing”?', choices:['<ruby>下雪<rt>xiàxuě</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>','<ruby>多云<rt>duōyún</rt></ruby>'], ans:0, hint:'下雪 = snowing.' },
-    { type:'mc', stem:'💨 Which word means the wind is blowing?', choices:['<ruby>刮风<rt>guāfēng</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>下雪<rt>xiàxuě</rt></ruby>','<ruby>晴天<rt>qíngtiān</rt></ruby>'], ans:0, hint:'刮风 = windy.' },
-    { type:'mc', stem:'☀️ Which word means a clear, sunny day?', choices:['<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>多云<rt>duōyún</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], ans:0, hint:'晴天 = sunny.' },
+    { type:'mc', skill:'Weather', stem:'☂️ Which word means “umbrella”?', choices:['<ruby>伞<rt>sǎn</rt></ruby>','<ruby>云<rt>yún</rt></ruby>','<ruby>雨<rt>yǔ</rt></ruby>','<ruby>风<rt>fēng</rt></ruby>'], ans:0, hint:'伞 = umbrella.' },
+    { type:'match', skill:'Weather', stem:'写汉字 · Match the pinyin to its character (sky words).', left:['yǔ','fēng','yún','le'], right:['雨','风','云','了'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'雨·风·云·了.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">下雨了！我的＿呢？</span> (umbrella)', ans:['伞','sǎn','san'], hint:'伞 = umbrella.' },
+    { type:'mc', skill:'Weather', stem:'🌧️ Which sentence means “It rains today”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雪<rt>xiàxuě</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'今天下雨 = it rains today.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>雪<rt>xuě</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(It is snowing today — ___)</span>', choices:['<ruby>下<rt>xià</rt></ruby>','<ruby>刮<rt>guā</rt></ruby>','<ruby>晴<rt>qíng</rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'下雪 = to snow.' },
+    { type:'mc', skill:'Weather', stem:'🌧️ Which word means “it is raining”?', choices:['<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>下雪<rt>xiàxuě</rt></ruby>','<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], ans:0, hint:'下雨 = raining.' },
+    { type:'match', skill:'Weather', stem:'🌦️ Match each weather word to its meaning.', left:['<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>多云<rt>duōyún</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], right:['sunny','cloudy','raining','windy'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'晴天·多云·下雨·刮风.' },
+    { type:'mc', skill:'Weather', stem:'❄️ Which word means “it is snowing”?', choices:['<ruby>下雪<rt>xiàxuě</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>','<ruby>多云<rt>duōyún</rt></ruby>'], ans:0, hint:'下雪 = snowing.' },
+    { type:'mc', skill:'Weather', stem:'💨 Which word means the wind is blowing?', choices:['<ruby>刮风<rt>guāfēng</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>下雪<rt>xiàxuě</rt></ruby>','<ruby>晴天<rt>qíngtiān</rt></ruby>'], ans:0, hint:'刮风 = windy.' },
+    { type:'mc', skill:'Weather', stem:'☀️ Which word means a clear, sunny day?', choices:['<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>多云<rt>duōyún</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], ans:0, hint:'晴天 = sunny.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 grammar (呢 / 了 / 没有 / 写汉字), mixed types
+  // TIER 2 · 学以致用 — 10 grammar (呢 / 了 / 没有 / 写汉字), mixed types
   { qs:[
-    { type:'mc', stem:'<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(Beijing has ___ (no) rain today.)</span>', choices:['<ruby>没有<rt>méiyǒu</rt></ruby>','<ruby>不是<rt>bú shì</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>太<rt>tài</rt></ruby>'], ans:0, hint:'没有 + verb = did not / no….' },
-    { type:'fill', stem:'认读 · Type the weather: <span class="cn">今天＿天，很舒服。</span> (sunny)', ans:['晴','qíng','qing'], hint:'晴天 = sunny.' },
-    { type:'mc', stem:'<ruby>下雪<rt>xiàxuě</rt></ruby>（　）<ruby>，<rt></rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(It has started snowing (___), very cold.)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'了 = a new situation.' },
-    { type:'mc', stem:'🗣️ Your friend says <ruby>好的<rt>hǎo de</rt></ruby>。 It tells you:', choices:['Okay / alright','very good weather','a cloud','not good'], ans:0, hint:'好的 = okay / alright.' },
-    { type:'mc', stem:'🌂 Which sentence means “I do not like rainy weather”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'不喜欢下雨的天气.' },
-    { type:'mc', stem:'<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(It is raining! Where is my umbrella? — ___)</span>', choices:['<ruby>呢<rt>ne</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>吧<rt>ba</rt></ruby>','<ruby>了<rt>le</rt></ruby>'], ans:0, hint:'呢 asks “where is it?”' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (rain words).', left:['xià','xuě','sǎn','hǎo'], right:['下','雪','伞','好'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'下·雪·伞·好.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>今天天气怎么样<rt>… zěnmeyàng</rt></ruby>？ It is cloudy. Reply:', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>多云<rt>duōyún</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 今天多云.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><sup>①</sup>，<ruby>多云<rt>duōyún</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>伞<rt>sǎn</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 刮风 guāfēng: windy</div>', stem:'What is the weather like in Dubai today?', choices:['Windy and cloudy (刮风、多云).','Rainy and cold.','Sunny and hot.','Snowing.'], ans:0, hint:'Find 迪拜.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><sup>①</sup>，<ruby>多云<rt>duōyún</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>伞<rt>sǎn</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 刮风 guāfēng: windy</div>', stem:'Did it rain in Dubai today?', choices:['No, it did not (没有下雨).','Yes, it rained a lot.','It snowed.','The passage does not say.'], ans:0, hint:'Find 没有下雨.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(Beijing has ___ (no) rain today.)</span>', choices:['<ruby>没有<rt>méiyǒu</rt></ruby>','<ruby>不是<rt>bú shì</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>太<rt>tài</rt></ruby>'], ans:0, hint:'没有 + verb = did not / no….' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the weather: <span class="cn">今天＿天，很舒服。</span> (sunny)', ans:['晴','qíng','qing'], hint:'晴天 = sunny.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>下雪<rt>xiàxuě</rt></ruby>（　）<ruby>，<rt></rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(It has started snowing (___), very cold.)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'了 = a new situation.' },
+    { type:'mc', skill:'Weather', stem:'🗣️ Your friend says <ruby>好的<rt>hǎo de</rt></ruby>。 It tells you:', choices:['Okay / alright','very good weather','a cloud','not good'], ans:0, hint:'好的 = okay / alright.' },
+    { type:'mc', skill:'Weather', stem:'🌂 Which sentence means “I do not like rainy weather”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'不喜欢下雨的天气.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(It is raining! Where is my umbrella? — ___)</span>', choices:['<ruby>呢<rt>ne</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>吧<rt>ba</rt></ruby>','<ruby>了<rt>le</rt></ruby>'], ans:0, hint:'呢 asks “where is it?”' },
+    { type:'match', skill:'Weather', stem:'写汉字 · Match the pinyin to its character (rain words).', left:['xià','xuě','sǎn','hǎo'], right:['下','雪','伞','好'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'下·雪·伞·好.' },
+    { type:'mc', skill:'Weather', stem:'🗣️ Someone asks <ruby>今天天气怎么样<rt>… zěnmeyàng</rt></ruby>？ It is cloudy. Reply:', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>多云<rt>duōyún</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 今天多云.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><sup>①</sup>，<ruby>多云<rt>duōyún</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>伞<rt>sǎn</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 刮风 guāfēng: windy</div>', stem:'What is the weather like in Dubai today?', choices:['Windy and cloudy (刮风、多云).','Rainy and cold.','Sunny and hot.','Snowing.'], ans:0, hint:'Find 迪拜.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>刮风<rt>guāfēng</rt></ruby><sup>①</sup>，<ruby>多云<rt>duōyún</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>伞<rt>sǎn</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 刮风 guāfēng: windy</div>', stem:'Did it rain in Dubai today?', choices:['No, it did not (没有下雨).','Yes, it rained a lot.','It snowed.','The passage does not say.'], ans:0, hint:'Find 没有下雨.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In Chinese (HSK), how do you say "It rains today"? (HSK tip)', choices:['<ruby>今天下雨<rt>jīntiān xiàyǔ</rt></ruby>。— verb only, no 是.', '<ruby>今天是下雨<rt>jīntiān shì xiàyǔ</rt></ruby>。— incorrect: no 是.', '<ruby>今天很下雨<rt>jīntiān hěn xiàyǔ</rt></ruby>。— incorrect: no 很.', '<ruby>今天下雨是<rt>jīntiān xiàyǔ shì</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: 下雨/下雪/刮风 are verbs — use them directly. Do NOT add 是 or 很.' },
-    { type:'mc', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>，<rt></rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(It did ___ (not) rain today; it is sunny.)</span>', choices:['<ruby>没有<rt>méiyǒu</rt></ruby>','<ruby>太<rt>tài</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'没有 + verb = did not….' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>迪拜今天下雨了吗<rt>… xiàyǔ le ma</rt></ruby>？ No rain. Reply:', choices:['<ruby>没有<rt>méiyǒu</rt></ruby><ruby>，<rt></rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>是<rt>shì</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>，<rt></rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星<rt>xīng</rt></ruby><ruby>期<rt>qī</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'No → 没有….' },
-    { type:'mc', stem:'☁️ Which word means “cloudy”?', choices:['<ruby>多云<rt>duōyún</rt></ruby>','<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], ans:0, hint:'多云 = cloudy.' },
-    { type:'mc', stem:'🌾 Long ago, before phones, Chinese farmers used weather <ruby>谚语<rt>yànyǔ</rt></ruby> (proverbs). These sayings were used to:', choices:['guess what the weather would do', 'count the days of the week', 'name the months', 'write poems about food'], ans:0, hint:'Culture: weather proverbs (谚语) helped people predict rain, wind and good days for farming.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。<ruby>迪拜<rt>Díbài</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><sup>①</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十五<rt>sānshíwǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><sup>②</sup>，<ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><sup>③</sup><ruby>呢<rt>ne</rt></ruby>？\u201d<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 晴天 qíngtiān: sunny ② 下雨 xiàyǔ: to rain ③ 伞 sǎn: umbrella</div>', stem:'What is the weather like in Dubai today?', choices:['Sunny and hot (晴天，很热).', 'Rainy and cool.', 'Cloudy.', 'Snowing.'], ans:0, hint:'Find 迪拜 … near the start.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。<ruby>迪拜<rt>Díbài</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><sup>①</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十五<rt>sānshíwǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><sup>②</sup>，<ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><sup>③</sup><ruby>呢<rt>ne</rt></ruby>？\u201d<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 晴天 qíngtiān: sunny ② 下雨 xiàyǔ: to rain ③ 伞 sǎn: umbrella</div>', stem:'Why does Fatima (法蒂玛) look for her umbrella?', choices:['Because it has started raining (下雨了).', 'Because it is snowing.', 'Because it is too hot.', 'Because it is windy.'], ans:0, hint:'She says 下雨了 — what does 了 tell you just happened?' },
-    { type:'hots', stem:'🟡 Cycle 2 — Many families have weather sayings, like \u201cred sky at night, a fine day is coming.\u201d Do you know any weather sayings or signs from your family or country, and do you think they are true? | 🔵 Cycle 3 — Long ago, Chinese farmers used weather proverbs (\u5929\u6c14\u8c1a\u8bed) to guess the weather before there were phones or apps. Why do you think people all over the world made up weather sayings, and do these old sayings still matter now that we have weather apps?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Weather', stem:'In Chinese (HSK), how do you say "It rains today"? (HSK tip)', choices:['<ruby>今天下雨<rt>jīntiān xiàyǔ</rt></ruby>。— verb only, no 是.', '<ruby>今天是下雨<rt>jīntiān shì xiàyǔ</rt></ruby>。— incorrect: no 是.', '<ruby>今天很下雨<rt>jīntiān hěn xiàyǔ</rt></ruby>。— incorrect: no 很.', '<ruby>今天下雨是<rt>jīntiān xiàyǔ shì</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: 下雨/下雪/刮风 are verbs — use them directly. Do NOT add 是 or 很.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>，<rt></rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(It did ___ (not) rain today; it is sunny.)</span>', choices:['<ruby>没有<rt>méiyǒu</rt></ruby>','<ruby>太<rt>tài</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'没有 + verb = did not….' },
+    { type:'mc', skill:'Weather', stem:'🗣️ Someone asks <ruby>迪拜今天下雨了吗<rt>… xiàyǔ le ma</rt></ruby>？ No rain. Reply:', choices:['<ruby>没有<rt>méiyǒu</rt></ruby><ruby>，<rt></rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>是<rt>shì</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>，<rt></rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星<rt>xīng</rt></ruby><ruby>期<rt>qī</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'No → 没有….' },
+    { type:'mc', skill:'Weather', stem:'☁️ Which word means “cloudy”?', choices:['<ruby>多云<rt>duōyún</rt></ruby>','<ruby>晴天<rt>qíngtiān</rt></ruby>','<ruby>下雨<rt>xiàyǔ</rt></ruby>','<ruby>刮风<rt>guāfēng</rt></ruby>'], ans:0, hint:'多云 = cloudy.' },
+    { type:'mc', skill:'Weather', stem:'🌾 Long ago, before phones, Chinese farmers used weather <ruby>谚语<rt>yànyǔ</rt></ruby> (proverbs). These sayings were used to:', choices:['guess what the weather would do', 'count the days of the week', 'name the months', 'write poems about food'], ans:0, hint:'Culture: weather proverbs (谚语) helped people predict rain, wind and good days for farming.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。<ruby>迪拜<rt>Díbài</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><sup>①</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十五<rt>sānshíwǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><sup>②</sup>，<ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><sup>③</sup><ruby>呢<rt>ne</rt></ruby>？\u201d<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 晴天 qíngtiān: sunny ② 下雨 xiàyǔ: to rain ③ 伞 sǎn: umbrella</div>', stem:'What is the weather like in Dubai today?', choices:['Sunny and hot (晴天，很热).', 'Rainy and cool.', 'Cloudy.', 'Snowing.'], ans:0, hint:'Find 迪拜 … near the start.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。<ruby>迪拜<rt>Díbài</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><sup>①</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十五<rt>sānshíwǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><sup>②</sup>，<ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><sup>③</sup><ruby>呢<rt>ne</rt></ruby>？\u201d<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 晴天 qíngtiān: sunny ② 下雨 xiàyǔ: to rain ③ 伞 sǎn: umbrella</div>', stem:'Why does Fatima (法蒂玛) look for her umbrella?', choices:['Because it has started raining (下雨了).', 'Because it is snowing.', 'Because it is too hot.', 'Because it is windy.'], ans:0, hint:'She says 下雨了 — what does 了 tell you just happened?' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Many families have weather sayings, like \u201cred sky at night, a fine day is coming.\u201d Do you know any weather sayings or signs from your family or country, and do you think they are true? | 🔵 Cycle 3 — Long ago, Chinese farmers used weather proverbs (\u5929\u6c14\u8c1a\u8bed) to guess the weather before there were phones or apps. Why do you think people all over the world made up weather sayings, and do these old sayings still matter now that we have weather apps?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L2 今天下雨。</title>' +

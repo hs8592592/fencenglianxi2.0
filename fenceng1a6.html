@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1A-L6', num:'Lesson 6', title:'今天星期四。Today is Thursday.', cn:'星期',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 Workbook-style questions
+  // TIER 1 · 夯实基础 — 10 Workbook-style questions
   { qs:[
-    { type:'mc', stem:'📅 <ruby>星期一<rt>xīngqī yī</rt></ruby> means:', choices:['Monday', 'Tuesday', 'Wednesday', 'Thursday'], ans:0, hint:'星期 = week. 一=1 = Monday.' },
-    { type:'mc', stem:'📅 <ruby>星期四<rt>xīngqī sì</rt></ruby> means:', choices:['Thursday', 'Tuesday', 'Friday', 'Wednesday'], ans:0, hint:'四=4 = Thursday. Mon=1, Tue=2, Wed=3, Thu=4.' },
-    { type:'mc', stem:'📅 "Today is Thursday":', choices:['<ruby>今天星期四<rt>jīntiān xīngqī sì</rt></ruby>。', '<ruby>今天星期三<rt>jīntiān xīngqī sān</rt></ruby>。', '<ruby>星期四今天<rt>xīngqī sì jīntiān</rt></ruby>。', '<ruby>今天星期几<rt>jīntiān xīngqī jǐ</rt></ruby>？'], ans:0, hint:'今天 + day = Today is ___.' },
-    { type:'mc', stem:'❓ "What day is today?":', choices:['<ruby>今天星期几<rt>jīntiān xīngqī jǐ</rt></ruby>？', '<ruby>今天是什么<rt>jīntiān shì shénme</rt></ruby>？', '<ruby>星期几今天<rt>xīngqī jǐ jīntiān</rt></ruby>？', '<ruby>今天几星期<rt>jīntiān jǐ xīngqī</rt></ruby>？'], ans:0, hint:'今天星期几？= What day is today?' },
-    { type:'match', stem:'Match each day to its Chinese name.', left:['Monday', 'Wednesday', 'Friday', 'Sunday'], right:['<ruby>星期天<rt>xīngqī tiān</rt></ruby>', '<ruby>星期一<rt>xīngqī yī</rt></ruby>', '<ruby>星期五<rt>xīngqī wǔ</rt></ruby>', '<ruby>星期三<rt>xīngqī sān</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 2], [3, 0]], hint:'Mon=1, Wed=3, Fri=5, Sun=天.' },
-    { type:'mc', stem:'📅 <ruby>明天<rt>míngtiān</rt></ruby> means:', choices:['tomorrow', 'yesterday', 'today', 'next week'], ans:0, hint:'今天=today, 明天=tomorrow, 昨天=yesterday.' },
-    { type:'mc', stem:'📅 <ruby>昨天<rt>zuótiān</rt></ruby> means:', choices:['yesterday', 'today', 'tomorrow', 'last week'], ans:0, hint:'昨天 = yesterday.' },
-    { type:'mc', stem:'📅 Today is Tuesday. Tomorrow is:', choices:['<ruby>星期三<rt>xīngqī sān</rt></ruby>', '<ruby>星期一<rt>xīngqī yī</rt></ruby>', '<ruby>星期四<rt>xīngqī sì</rt></ruby>', '<ruby>星期五<rt>xīngqī wǔ</rt></ruby>'], ans:0, hint:'Tuesday=星期二(2). Tomorrow=3=Wednesday.' },
-    { type:'mc', stem:'📅 <ruby>上课<rt>shàngkè</rt></ruby> means:', choices:['class starts / have class', 'class ends', 'go home', 'eat lunch'], ans:0, hint:'上课 = class begins.' },
-    { type:'mc', stem:'📅 In China, the weekend days are:', choices:['Saturday & Sunday', 'Friday & Saturday', 'Sunday only', 'Friday & Sunday'], ans:0, hint:'In China: 星期六(Sat) and 星期天(Sun).' },
+    { type:'mc', skill:'Days of the week', stem:'📅 <ruby>星期一<rt>xīngqī yī</rt></ruby> means:', choices:['Monday', 'Tuesday', 'Wednesday', 'Thursday'], ans:0, hint:'星期 = week. 一=1 = Monday.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 <ruby>星期四<rt>xīngqī sì</rt></ruby> means:', choices:['Thursday', 'Tuesday', 'Friday', 'Wednesday'], ans:0, hint:'四=4 = Thursday. Mon=1, Tue=2, Wed=3, Thu=4.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 "Today is Thursday":', choices:['<ruby>今天星期四<rt>jīntiān xīngqī sì</rt></ruby>。', '<ruby>今天星期三<rt>jīntiān xīngqī sān</rt></ruby>。', '<ruby>星期四今天<rt>xīngqī sì jīntiān</rt></ruby>。', '<ruby>今天星期几<rt>jīntiān xīngqī jǐ</rt></ruby>？'], ans:0, hint:'今天 + day = Today is ___.' },
+    { type:'mc', skill:'Days of the week', stem:'❓ "What day is today?":', choices:['<ruby>今天星期几<rt>jīntiān xīngqī jǐ</rt></ruby>？', '<ruby>今天是什么<rt>jīntiān shì shénme</rt></ruby>？', '<ruby>星期几今天<rt>xīngqī jǐ jīntiān</rt></ruby>？', '<ruby>今天几星期<rt>jīntiān jǐ xīngqī</rt></ruby>？'], ans:0, hint:'今天星期几？= What day is today?' },
+    { type:'match', skill:'Days of the week', stem:'Match each day to its Chinese name.', left:['Monday', 'Wednesday', 'Friday', 'Sunday'], right:['<ruby>星期天<rt>xīngqī tiān</rt></ruby>', '<ruby>星期一<rt>xīngqī yī</rt></ruby>', '<ruby>星期五<rt>xīngqī wǔ</rt></ruby>', '<ruby>星期三<rt>xīngqī sān</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 2], [3, 0]], hint:'Mon=1, Wed=3, Fri=5, Sun=天.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 <ruby>明天<rt>míngtiān</rt></ruby> means:', choices:['tomorrow', 'yesterday', 'today', 'next week'], ans:0, hint:'今天=today, 明天=tomorrow, 昨天=yesterday.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 <ruby>昨天<rt>zuótiān</rt></ruby> means:', choices:['yesterday', 'today', 'tomorrow', 'last week'], ans:0, hint:'昨天 = yesterday.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 Today is Tuesday. Tomorrow is:', choices:['<ruby>星期三<rt>xīngqī sān</rt></ruby>', '<ruby>星期一<rt>xīngqī yī</rt></ruby>', '<ruby>星期四<rt>xīngqī sì</rt></ruby>', '<ruby>星期五<rt>xīngqī wǔ</rt></ruby>'], ans:0, hint:'Tuesday=星期二(2). Tomorrow=3=Wednesday.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 <ruby>上课<rt>shàngkè</rt></ruby> means:', choices:['class starts / have class', 'class ends', 'go home', 'eat lunch'], ans:0, hint:'上课 = class begins.' },
+    { type:'mc', skill:'Days of the week', stem:'📅 In China, the weekend days are:', choices:['Saturday & Sunday', 'Friday & Saturday', 'Sunday only', 'Friday & Sunday'], ans:0, hint:'In China: 星期六(Sat) and 星期天(Sun).' },
   ]},
 
 
   { qs:[
-    { type:'mc', stem:'<span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>几<rt>jǐ</rt></ruby>？</span> means:', choices:['What day is today?','What time is it?','What date is today?','What month is it?'], ans:0, hint:'<ruby>星期<rt>xīngqī</rt></ruby>= week,<ruby>几<rt>jǐ</rt></ruby>= which number' },
-    { type:'mc', stem:'Which means "yesterday"?', choices:['<ruby>昨天<rt>zuótiān</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>','<ruby>明天<rt>míngtiān</rt></ruby>','<ruby>星期天<rt>xīngqī tiān</rt></ruby>'], ans:0, hint:'<ruby>昨<rt>zuó</rt></ruby>= past,<ruby>今<rt>jīn</rt></ruby>= present,<ruby>明<rt>míng</rt></ruby>= future' },
-    { type:'mc', stem:'<span class="cn"><ruby>星期<rt>xīngqī</rt></ruby><ruby>三<rt>sān</rt></ruby></span> is:', choices:['Wednesday','Monday','Thursday','Saturday'], ans:0, hint:'<ruby>三<rt>sān</rt></ruby>= 3; Monday =<ruby>星期<rt>xīngqī</rt></ruby><ruby>一<rt>yī</rt></ruby>(1), so<ruby>三<rt>sān</rt></ruby>= third day = Wed' },
-    { type:'mc', stem:'<span class="cn"><ruby>星期天<rt>xīngqī tiān</rt></ruby></span> and <span class="cn"><ruby>星期日<rt>xīngqī rì</rt></ruby></span> both mean:', choices:['Sunday','Saturday','Friday','Monday'], ans:0, hint:'<ruby>天<rt>tiān</rt></ruby>and<ruby>日<rt>rì</rt></ruby>both mean "day" — Sunday is the exception (no number)' },
-    { type:'mc', stem:'<span class="cn"><ruby>上<rt>shàng</rt></ruby><ruby>课<rt>kè</rt></ruby></span> means:', choices:['to have class / start class','to finish class','to go home','to eat lunch'], ans:0, hint:'<ruby>上<rt>shàng</rt></ruby>= go up / start,<ruby>课<rt>kè</rt></ruby>= class' },
-    { type:'mc', stem:'<span class="cn"><ruby>今天<rt>jīntiān</rt></ruby></span> means:', choices:['today','tomorrow','yesterday','this week'], ans:0, hint:'<ruby>今<rt>jīn</rt></ruby>= present/now,<ruby>天<rt>tiān</rt></ruby>= day' },
-    { type:'fill', stem:'Complete: <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby>＿＿<ruby>六<rt>liù</rt></ruby>。</span> (Today is Saturday.)', ans:['星期','xīngqī','xingqi'], hint:'Days of the week:<ruby>星期<rt>xīngqī</rt></ruby>+ number (<ruby>六<rt>liù</rt></ruby>= Saturday)' },
-    { type:'match', stem:'Match day names', left:['<ruby>星期<rt>xīngqī</rt></ruby><ruby>一<rt>yī</rt></ruby>','<ruby>星期<rt>xīngqī</rt></ruby><ruby>三<rt>sān</rt></ruby>','<ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>','<ruby>星期日<rt>xīngqī rì</rt></ruby>'], right:['Monday','Wednesday','Friday','Sunday'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'<ruby>一<rt>yī</rt></ruby>=Mon,<ruby>三<rt>sān</rt></ruby>=Wed,<ruby>五<rt>wǔ</rt></ruby>=Fri,<ruby>日<rt>rì</rt></ruby>=Sun' },
-    { type:'mc', stem:'Which sentence correctly states the day?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>四<rt>sì</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>几<rt>jǐ</rt></ruby>？','<ruby>星期<rt>xīngqī</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby>。'], ans:0, hint:'<ruby>名词谓语句<rt>míngcí wèiyǔjù</rt></ruby>: Subject (<ruby>今天<rt>jīntiān</rt></ruby>) + noun predicate (<ruby>星期<rt>xīngqī</rt></ruby><ruby>四<rt>sì</rt></ruby>) — no<ruby>是<rt>shì</rt></ruby>needed' },
-    { type:'fill', stem:'Ask what day tomorrow is: <span class="cn"><ruby>明天<rt>míngtiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby>＿＿？</span>', ans:['几','jǐ','ji'], hint:'<ruby>几<rt>jǐ</rt></ruby>asks "which number" —<ruby>疑问代词<rt>yíwèn dàicí</rt></ruby>' },
+    { type:'mc', skill:'Days of the week', stem:'<span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>几<rt>jǐ</rt></ruby>？</span> means:', choices:['What day is today?','What time is it?','What date is today?','What month is it?'], ans:0, hint:'<ruby>星期<rt>xīngqī</rt></ruby>= week,<ruby>几<rt>jǐ</rt></ruby>= which number' },
+    { type:'mc', skill:'Days of the week', stem:'Which means "yesterday"?', choices:['<ruby>昨天<rt>zuótiān</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>','<ruby>明天<rt>míngtiān</rt></ruby>','<ruby>星期天<rt>xīngqī tiān</rt></ruby>'], ans:0, hint:'<ruby>昨<rt>zuó</rt></ruby>= past,<ruby>今<rt>jīn</rt></ruby>= present,<ruby>明<rt>míng</rt></ruby>= future' },
+    { type:'mc', skill:'Days of the week', stem:'<span class="cn"><ruby>星期<rt>xīngqī</rt></ruby><ruby>三<rt>sān</rt></ruby></span> is:', choices:['Wednesday','Monday','Thursday','Saturday'], ans:0, hint:'<ruby>三<rt>sān</rt></ruby>= 3; Monday =<ruby>星期<rt>xīngqī</rt></ruby><ruby>一<rt>yī</rt></ruby>(1), so<ruby>三<rt>sān</rt></ruby>= third day = Wed' },
+    { type:'mc', skill:'Days of the week', stem:'<span class="cn"><ruby>星期天<rt>xīngqī tiān</rt></ruby></span> and <span class="cn"><ruby>星期日<rt>xīngqī rì</rt></ruby></span> both mean:', choices:['Sunday','Saturday','Friday','Monday'], ans:0, hint:'<ruby>天<rt>tiān</rt></ruby>and<ruby>日<rt>rì</rt></ruby>both mean "day" — Sunday is the exception (no number)' },
+    { type:'mc', skill:'Days of the week', stem:'<span class="cn"><ruby>上<rt>shàng</rt></ruby><ruby>课<rt>kè</rt></ruby></span> means:', choices:['to have class / start class','to finish class','to go home','to eat lunch'], ans:0, hint:'<ruby>上<rt>shàng</rt></ruby>= go up / start,<ruby>课<rt>kè</rt></ruby>= class' },
+    { type:'mc', skill:'Days of the week', stem:'<span class="cn"><ruby>今天<rt>jīntiān</rt></ruby></span> means:', choices:['today','tomorrow','yesterday','this week'], ans:0, hint:'<ruby>今<rt>jīn</rt></ruby>= present/now,<ruby>天<rt>tiān</rt></ruby>= day' },
+    { type:'fill', skill:'Sentence patterns', stem:'Complete: <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby>＿＿<ruby>六<rt>liù</rt></ruby>。</span> (Today is Saturday.)', ans:['星期','xīngqī','xingqi'], hint:'Days of the week:<ruby>星期<rt>xīngqī</rt></ruby>+ number (<ruby>六<rt>liù</rt></ruby>= Saturday)' },
+    { type:'match', skill:'Days of the week', stem:'Match day names', left:['<ruby>星期<rt>xīngqī</rt></ruby><ruby>一<rt>yī</rt></ruby>','<ruby>星期<rt>xīngqī</rt></ruby><ruby>三<rt>sān</rt></ruby>','<ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>','<ruby>星期日<rt>xīngqī rì</rt></ruby>'], right:['Monday','Wednesday','Friday','Sunday'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'<ruby>一<rt>yī</rt></ruby>=Mon,<ruby>三<rt>sān</rt></ruby>=Wed,<ruby>五<rt>wǔ</rt></ruby>=Fri,<ruby>日<rt>rì</rt></ruby>=Sun' },
+    { type:'mc', skill:'Days of the week', stem:'Which sentence correctly states the day?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>四<rt>sì</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>几<rt>jǐ</rt></ruby>？','<ruby>星期<rt>xīngqī</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby>。'], ans:0, hint:'<ruby>名词谓语句<rt>míngcí wèiyǔjù</rt></ruby>: Subject (<ruby>今天<rt>jīntiān</rt></ruby>) + noun predicate (<ruby>星期<rt>xīngqī</rt></ruby><ruby>四<rt>sì</rt></ruby>) — no<ruby>是<rt>shì</rt></ruby>needed' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask what day tomorrow is: <span class="cn"><ruby>明天<rt>míngtiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby>＿＿？</span>', ans:['几','jǐ','ji'], hint:'<ruby>几<rt>jǐ</rt></ruby>asks "which number" —<ruby>疑问代词<rt>yíwèn dàicí</rt></ruby>' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'What does <ruby>今天星期几<rt>jīntiān xīngqī jǐ</rt></ruby>？ mean?', choices:['What day is today?', 'What time is it?', 'What date is today?', 'What month is it?'], ans:0, hint:'星期 = week, 几 = which number.' },
-    { type:'mc', stem:'Which means "yesterday"?', choices:['<ruby>昨天<rt>zuótiān</rt></ruby>', '<ruby>今天<rt>jīntiān</rt></ruby>', '<ruby>明天<rt>míngtiān</rt></ruby>', '<ruby>星期天<rt>xīngqī tiān</rt></ruby>'], ans:0, hint:'昨天 = yesterday.' },
-    { type:'mc', stem:'<ruby>星期三<rt>xīngqī sān</rt></ruby> is:', choices:['Wednesday', 'Monday', 'Thursday', 'Saturday'], ans:0, hint:'三=3; Mon=1, so 3rd day = Wednesday.' },
-    { type:'mc', stem:'<ruby>星期天<rt>xīngqī tiān</rt></ruby> means:', choices:['Sunday', 'Saturday', 'Friday', 'Monday'], ans:0, hint:'天 and 日 both mean day — Sunday is the exception.' },
-    { type:'mc', stem:'In Chinese (HSK), Sunday is NOT called 星期七. It is called: (HSK tip)', choices:['星期天 (xīngqī tiān) or 星期日 (xīngqī rì).', '星期七 (xīngqī qī) — seven.', '星期零 (xīngqī líng) — zero.', '星期末 (xīngqī mò) — week end.'], ans:0, hint:'HSK tip: Sunday = 星期天 or 星期日. The Chinese week uses 天/日 for Sunday, not a number.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期四<rt>xīngqī sì</rt></ruby>。<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期几<rt>xīngqī jǐ</rt></ruby>？"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期五<rt>xīngqī wǔ</rt></ruby>！<ruby>后天<rt>hòutiān</rt></ruby><sup>①</sup><ruby>就是<rt>jiùshì</rt></ruby><sup>②</sup><ruby>周末<rt>zhōumò</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby><sup>④</sup>！"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 后天 hòutiān: day after tomorrow ② 就是 jiùshì: that is exactly ③ 周末 zhōumò: weekend ④ 了 le: particle showing new situation</div>', stem:'What day is it today in the passage?', choices:['Thursday (星期四).', 'Friday (星期五).', 'Wednesday (星期三).', 'Saturday (星期六).'], ans:0, hint:'Find 今天 at the start of the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期四<rt>xīngqī sì</rt></ruby>。<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期几<rt>xīngqī jǐ</rt></ruby>？"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期五<rt>xīngqī wǔ</rt></ruby>！<ruby>后天<rt>hòutiān</rt></ruby><sup>①</sup><ruby>就是<rt>jiùshì</rt></ruby><sup>②</sup><ruby>周末<rt>zhōumò</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby><sup>④</sup>！"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 后天 hòutiān: day after tomorrow ② 就是 jiùshì: that is exactly ③ 周末 zhōumò: weekend ④ 了 le: particle showing new situation</div>', stem:'How does Xiao Hong feel at the end, and why?', choices:['Happy, because the weekend is coming after tomorrow.', 'Sad, because there is school tomorrow.', 'Tired, because today is Monday.', 'Busy, because there is a test.'], ans:0, hint:'Find 高兴 and 周末 in the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — In China weekdays are numbered — Monday is 星期一 (Day 1), Tuesday 星期二 (Day 2). Which day of the week is your favourite, and what do you most like to do on your rest days? | 🔵 Cycle 3 — China names its weekdays with numbers while English uses names, and different countries choose different rest days. Why do you think cultures pick different days to rest, and why does every culture need rest days at all?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Days of the week', stem:'What does <ruby>今天星期几<rt>jīntiān xīngqī jǐ</rt></ruby>？ mean?', choices:['What day is today?', 'What time is it?', 'What date is today?', 'What month is it?'], ans:0, hint:'星期 = week, 几 = which number.' },
+    { type:'mc', skill:'Days of the week', stem:'Which means "yesterday"?', choices:['<ruby>昨天<rt>zuótiān</rt></ruby>', '<ruby>今天<rt>jīntiān</rt></ruby>', '<ruby>明天<rt>míngtiān</rt></ruby>', '<ruby>星期天<rt>xīngqī tiān</rt></ruby>'], ans:0, hint:'昨天 = yesterday.' },
+    { type:'mc', skill:'Days of the week', stem:'<ruby>星期三<rt>xīngqī sān</rt></ruby> is:', choices:['Wednesday', 'Monday', 'Thursday', 'Saturday'], ans:0, hint:'三=3; Mon=1, so 3rd day = Wednesday.' },
+    { type:'mc', skill:'Days of the week', stem:'<ruby>星期天<rt>xīngqī tiān</rt></ruby> means:', choices:['Sunday', 'Saturday', 'Friday', 'Monday'], ans:0, hint:'天 and 日 both mean day — Sunday is the exception.' },
+    { type:'mc', skill:'Days of the week', stem:'In Chinese (HSK), Sunday is NOT called 星期七. It is called: (HSK tip)', choices:['星期天 (xīngqī tiān) or 星期日 (xīngqī rì).', '星期七 (xīngqī qī) — seven.', '星期零 (xīngqī líng) — zero.', '星期末 (xīngqī mò) — week end.'], ans:0, hint:'HSK tip: Sunday = 星期天 or 星期日. The Chinese week uses 天/日 for Sunday, not a number.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期四<rt>xīngqī sì</rt></ruby>。<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期几<rt>xīngqī jǐ</rt></ruby>？"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期五<rt>xīngqī wǔ</rt></ruby>！<ruby>后天<rt>hòutiān</rt></ruby><sup>①</sup><ruby>就是<rt>jiùshì</rt></ruby><sup>②</sup><ruby>周末<rt>zhōumò</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby><sup>④</sup>！"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 后天 hòutiān: day after tomorrow ② 就是 jiùshì: that is exactly ③ 周末 zhōumò: weekend ④ 了 le: particle showing new situation</div>', stem:'What day is it today in the passage?', choices:['Thursday (星期四).', 'Friday (星期五).', 'Wednesday (星期三).', 'Saturday (星期六).'], ans:0, hint:'Find 今天 at the start of the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期四<rt>xīngqī sì</rt></ruby>。<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期几<rt>xīngqī jǐ</rt></ruby>？"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期五<rt>xīngqī wǔ</rt></ruby>！<ruby>后天<rt>hòutiān</rt></ruby><sup>①</sup><ruby>就是<rt>jiùshì</rt></ruby><sup>②</sup><ruby>周末<rt>zhōumò</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby><sup>④</sup>！"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 后天 hòutiān: day after tomorrow ② 就是 jiùshì: that is exactly ③ 周末 zhōumò: weekend ④ 了 le: particle showing new situation</div>', stem:'How does Xiao Hong feel at the end, and why?', choices:['Happy, because the weekend is coming after tomorrow.', 'Sad, because there is school tomorrow.', 'Tired, because today is Monday.', 'Busy, because there is a test.'], ans:0, hint:'Find 高兴 and 周末 in the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China weekdays are numbered — Monday is 星期一 (Day 1), Tuesday 星期二 (Day 2). Which day of the week is your favourite, and what do you most like to do on your rest days? | 🔵 Cycle 3 — China names its weekdays with numbers while English uses names, and different countries choose different rest days. Why do you think cultures pick different days to rest, and why does every culture need rest days at all?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1A-L6 今天星期四。</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L6', num:'Lesson 6', title:'我周末去公园玩了。I went to the park on the weekend.', cn:'日常活动',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 activity/place vocabulary (mixed types)
+  // TIER 1 · 夯实基础 — 10 activity/place vocabulary (mixed types)
   { qs:[
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">去商店＿东西</span> (buy=买)', ans:['买','mǎi','mai'], hint:'买东西 = buy things.' },
-    { type:'mc', stem:'🌊 Which means “I went to the seaside to play”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>沙漠<rt>shāmò</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去海边玩了.' },
-    { type:'mc', stem:'🌳 Which word means “park”?', choices:['<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>'], ans:0, hint:'公园 = park.' },
-    { type:'match', stem:'🏞️ Match each place/word to its meaning.', left:['<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>书法<rt>shūfǎ</rt></ruby>'], right:['seaside','desert','park','calligraphy'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'海边·沙漠·公园·书法.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(I went to the park to ___ (play) on the weekend.)</span>', choices:['<ruby>玩<rt>wán</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>写<rt>xiě</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'去公园玩 = go to the park to play.' },
-    { type:'mc', stem:'🕌 Which word means to worship / pray?', choices:['<ruby>做礼拜<rt>zuò lǐbài</rt></ruby>','<ruby>买东西<rt>mǎi dōngxi</rt></ruby>','<ruby>好玩儿<rt>hǎowánr</rt></ruby>','<ruby>书法<rt>shūfǎ</rt></ruby>'], ans:0, hint:'做礼拜 = to worship.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (action words).', left:['qù','shū','zhōu','wán'], right:['去','书','周','玩'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去·书·周·玩.' },
-    { type:'mc', stem:'😄 Which word means “fun”?', choices:['<ruby>好玩儿<rt>hǎowánr</rt></ruby>','<ruby>买东西<rt>mǎi dōngxi</rt></ruby>','<ruby>做礼拜<rt>zuò lǐbài</rt></ruby>','<ruby>书法<rt>shūfǎ</rt></ruby>'], ans:0, hint:'好玩儿 = fun.' },
-    { type:'mc', stem:'🖌️ Which word means the art of writing characters?', choices:['<ruby>书法<rt>shūfǎ</rt></ruby>','<ruby>买东西<rt>mǎi dōngxi</rt></ruby>','<ruby>冲沙<rt>chōngshā</rt></ruby>','<ruby>做礼拜<rt>zuò lǐbài</rt></ruby>'], ans:0, hint:'书法 = calligraphy.' },
-    { type:'mc', stem:'🏜️ Which word means “desert”?', choices:['<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>'], ans:0, hint:'沙漠 = desert.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">去商店＿东西</span> (buy=买)', ans:['买','mǎi','mai'], hint:'买东西 = buy things.' },
+    { type:'mc', skill:'Weekend activities', stem:'🌊 Which means “I went to the seaside to play”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>沙漠<rt>shāmò</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去海边玩了.' },
+    { type:'mc', skill:'Weekend activities', stem:'🌳 Which word means “park”?', choices:['<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>'], ans:0, hint:'公园 = park.' },
+    { type:'match', skill:'Weekend activities', stem:'🏞️ Match each place/word to its meaning.', left:['<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>书法<rt>shūfǎ</rt></ruby>'], right:['seaside','desert','park','calligraphy'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'海边·沙漠·公园·书法.' },
+    { type:'mc', skill:'Weekend activities', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(I went to the park to ___ (play) on the weekend.)</span>', choices:['<ruby>玩<rt>wán</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>写<rt>xiě</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'去公园玩 = go to the park to play.' },
+    { type:'mc', skill:'Weekend activities', stem:'🕌 Which word means to worship / pray?', choices:['<ruby>做礼拜<rt>zuò lǐbài</rt></ruby>','<ruby>买东西<rt>mǎi dōngxi</rt></ruby>','<ruby>好玩儿<rt>hǎowánr</rt></ruby>','<ruby>书法<rt>shūfǎ</rt></ruby>'], ans:0, hint:'做礼拜 = to worship.' },
+    { type:'match', skill:'Weekend activities', stem:'写汉字 · Match the pinyin to its character (action words).', left:['qù','shū','zhōu','wán'], right:['去','书','周','玩'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去·书·周·玩.' },
+    { type:'mc', skill:'Weekend activities', stem:'😄 Which word means “fun”?', choices:['<ruby>好玩儿<rt>hǎowánr</rt></ruby>','<ruby>买东西<rt>mǎi dōngxi</rt></ruby>','<ruby>做礼拜<rt>zuò lǐbài</rt></ruby>','<ruby>书法<rt>shūfǎ</rt></ruby>'], ans:0, hint:'好玩儿 = fun.' },
+    { type:'mc', skill:'Weekend activities', stem:'🖌️ Which word means the art of writing characters?', choices:['<ruby>书法<rt>shūfǎ</rt></ruby>','<ruby>买东西<rt>mǎi dōngxi</rt></ruby>','<ruby>冲沙<rt>chōngshā</rt></ruby>','<ruby>做礼拜<rt>zuò lǐbài</rt></ruby>'], ans:0, hint:'书法 = calligraphy.' },
+    { type:'mc', skill:'Weekend activities', stem:'🏜️ Which word means “desert”?', choices:['<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>'], ans:0, hint:'沙漠 = desert.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 grammar (serial verbs / 了 / 写汉字), mixed types
+  // TIER 2 · 学以致用 — 10 grammar (serial verbs / 了 / 写汉字), mixed types
   { qs:[
-    { type:'mc', stem:'🗣️ Someone asks <ruby>周末你去哪儿玩了<rt>… qù nǎr wán le</rt></ruby>？ You went to the seaside. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我去…玩了.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (places 2).', left:['hǎi','shā','mò','fǎ'], right:['海','沙','漠','法'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'海·沙·漠·法.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">去海边＿儿</span> (play=玩)', ans:['玩','wán','wan'], hint:'玩 = to play.' },
-    { type:'mc', stem:'🗣️ <ruby>买东西<rt>mǎi dōngxi</rt></ruby> tells you:', choices:['to buy things','to sell things','to make things','to look for things'], ans:0, hint:'买东西 = buy things.' },
-    { type:'mc', stem:'<ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>（　）<ruby>东西<rt>dōngxi</rt></ruby> <span class="gl">(go to the shop to ___ (buy) things)</span>', choices:['<ruby>买<rt>mǎi</rt></ruby>','<ruby>玩<rt>wán</rt></ruby>','<ruby>写<rt>xiě</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'买东西 = buy things.' },
-    { type:'mc', stem:'<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby>（　）。 <span class="gl">(We went to the park to play (___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'verb + 了 = it happened.' },
-    { type:'mc', stem:'🖌️ Which means “Dad went to the park to write calligraphy”?', choices:['<ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>妈妈<rt>māma</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去公园写书法.' },
-    { type:'mc', stem:'<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby>（　）<ruby>！<rt></rt></ruby> <span class="gl">(Chinese parks are so much fun! 太…___)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'太…了 = so / too….' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><sup>①</sup><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>海边<rt>hǎibiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>海边<rt>hǎibiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 海边 hǎibiān: seaside</div>', stem:'Where did Fatima go on Friday?', choices:['The seaside (海边).','The desert.','The park.','The library.'], ans:0, hint:'Find 星期五.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><sup>①</sup><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>海边<rt>hǎibiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>海边<rt>hǎibiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 海边 hǎibiān: seaside</div>', stem:'How did Fatima feel about the seaside?', choices:['So much fun (太好玩儿了).','Boring.','Too far.','Too cold.'], ans:0, hint:'Find 好玩儿.' },
+    { type:'mc', skill:'Weekend activities', stem:'🗣️ Someone asks <ruby>周末你去哪儿玩了<rt>… qù nǎr wán le</rt></ruby>？ You went to the seaside. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我去…玩了.' },
+    { type:'match', skill:'Weekend activities', stem:'写汉字 · Match the pinyin to its character (places 2).', left:['hǎi','shā','mò','fǎ'], right:['海','沙','漠','法'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'海·沙·漠·法.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">去海边＿儿</span> (play=玩)', ans:['玩','wán','wan'], hint:'玩 = to play.' },
+    { type:'mc', skill:'Weekend activities', stem:'🗣️ <ruby>买东西<rt>mǎi dōngxi</rt></ruby> tells you:', choices:['to buy things','to sell things','to make things','to look for things'], ans:0, hint:'买东西 = buy things.' },
+    { type:'mc', skill:'Weekend activities', stem:'<ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>（　）<ruby>东西<rt>dōngxi</rt></ruby> <span class="gl">(go to the shop to ___ (buy) things)</span>', choices:['<ruby>买<rt>mǎi</rt></ruby>','<ruby>玩<rt>wán</rt></ruby>','<ruby>写<rt>xiě</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'买东西 = buy things.' },
+    { type:'mc', skill:'Weekend activities', stem:'<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby>（　）。 <span class="gl">(We went to the park to play (___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'verb + 了 = it happened.' },
+    { type:'mc', skill:'Weekend activities', stem:'🖌️ Which means “Dad went to the park to write calligraphy”?', choices:['<ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>妈妈<rt>māma</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去公园写书法.' },
+    { type:'mc', skill:'Weekend activities', stem:'<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby>（　）<ruby>！<rt></rt></ruby> <span class="gl">(Chinese parks are so much fun! 太…___)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'太…了 = so / too….' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><sup>①</sup><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>海边<rt>hǎibiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>海边<rt>hǎibiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 海边 hǎibiān: seaside</div>', stem:'Where did Fatima go on Friday?', choices:['The seaside (海边).','The desert.','The park.','The library.'], ans:0, hint:'Find 星期五.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><sup>①</sup><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>海边<rt>hǎibiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>海边<rt>hǎibiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 海边 hǎibiān: seaside</div>', stem:'How did Fatima feel about the seaside?', choices:['So much fun (太好玩儿了).','Boring.','Too far.','Too cold.'], ans:0, hint:'Find 好玩儿.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🗣️ Someone asks <ruby>周末你去哪儿玩了<rt>… wán le</rt></ruby>？ You went to the park. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>周末<rt>zhōumò</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我去公园玩了.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you say "I went to the park to play"? (HSK tip)', choices:['<ruby>我去公园玩了<rt>wǒ qù gōngyuán wán le</rt></ruby>。— 去 + place + activity + 了.', '<ruby>我是去公园玩<rt>wǒ shì qù gōngyuán wán</rt></ruby>。— incorrect: no 是.', '<ruby>我玩去公园了<rt>wǒ wán qù gōngyuán le</rt></ruby>。— wrong order.', '<ruby>我去玩公园了<rt>wǒ qù wán gōngyuán le</rt></ruby>。— wrong order.'], ans:0, hint:'HSK tip: serial verbs go in time order — 去公园 (go) then 玩 (play), 了 at the end.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(I went to the park to ___ (play).)</span>', choices:['<ruby>玩<rt>wán</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>写<rt>xiě</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'去公园玩.' },
-    { type:'mc', stem:'🌳 In China, parks are lively places where people often:', choices:['exercise, dance, sing and write water-calligraphy together', 'sit quietly and never talk', 'only sell food', 'are not allowed to enter'], ans:0, hint:'Culture: Chinese parks are social — people do tai chi, dance, play music and practise calligraphy.' },
-    { type:'mc', stem:'🌊 Which word means “seaside”?', choices:['<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>'], ans:0, hint:'海边 = seaside.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友们<rt>péngyoumen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby>：<ruby>有人<rt>yǒu rén</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>跳舞<rt>tiàowǔ</rt></ruby><sup>②</sup>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><sup>③</sup>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 上午 shàngwǔ: morning ② 跳舞 tiàowǔ: to dance ③ 书法 shūfǎ: calligraphy</div>', stem:'What did Hassan (哈桑) and his friends do on Friday morning?', choices:['They went to the park to play (去公园玩了).', 'They went to the desert.', 'They went shopping.', 'They went to the cinema.'], ans:0, hint:'Read the first sentence.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友们<rt>péngyoumen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby>：<ruby>有人<rt>yǒu rén</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>跳舞<rt>tiàowǔ</rt></ruby><sup>②</sup>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><sup>③</sup>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 上午 shàngwǔ: morning ② 跳舞 tiàowǔ: to dance ③ 书法 shūfǎ: calligraphy</div>', stem:'According to the passage, what do people do in Chinese parks?', choices:['Exercise, dance and write calligraphy (运动、跳舞、写书法).', 'Only sleep.', 'Only buy food.', 'Nothing at all.'], ans:0, hint:'Find the list after 公园里有很多人.' },
-    { type:'hots', stem:'🟡 Cycle 2 — In China, parks are busy and fun \u2014 people exercise, dance, sing and write calligraphy there together. What do you like to do at a park or outdoors, and who do you usually go with? | 🔵 Cycle 3 — Chinese parks are lively places where young and old gather to dance, exercise and make music, while in the UAE people often enjoy the beach, the desert and big malls. Where do people in your community like to gather and relax, and why do you think every culture needs shared public places?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Weekend activities', stem:'🗣️ Someone asks <ruby>周末你去哪儿玩了<rt>… wán le</rt></ruby>？ You went to the park. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>周末<rt>zhōumò</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我去公园玩了.' },
+    { type:'mc', skill:'Weekend activities', stem:'In Chinese (HSK), how do you say "I went to the park to play"? (HSK tip)', choices:['<ruby>我去公园玩了<rt>wǒ qù gōngyuán wán le</rt></ruby>。— 去 + place + activity + 了.', '<ruby>我是去公园玩<rt>wǒ shì qù gōngyuán wán</rt></ruby>。— incorrect: no 是.', '<ruby>我玩去公园了<rt>wǒ wán qù gōngyuán le</rt></ruby>。— wrong order.', '<ruby>我去玩公园了<rt>wǒ qù wán gōngyuán le</rt></ruby>。— wrong order.'], ans:0, hint:'HSK tip: serial verbs go in time order — 去公园 (go) then 玩 (play), 了 at the end.' },
+    { type:'mc', skill:'Weekend activities', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(I went to the park to ___ (play).)</span>', choices:['<ruby>玩<rt>wán</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>写<rt>xiě</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'去公园玩.' },
+    { type:'mc', skill:'Weekend activities', stem:'🌳 In China, parks are lively places where people often:', choices:['exercise, dance, sing and write water-calligraphy together', 'sit quietly and never talk', 'only sell food', 'are not allowed to enter'], ans:0, hint:'Culture: Chinese parks are social — people do tai chi, dance, play music and practise calligraphy.' },
+    { type:'mc', skill:'Weekend activities', stem:'🌊 Which word means “seaside”?', choices:['<ruby>海边<rt>hǎibiān</rt></ruby>','<ruby>沙漠<rt>shāmò</rt></ruby>','<ruby>公园<rt>gōngyuán</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>'], ans:0, hint:'海边 = seaside.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友们<rt>péngyoumen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby>：<ruby>有人<rt>yǒu rén</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>跳舞<rt>tiàowǔ</rt></ruby><sup>②</sup>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><sup>③</sup>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 上午 shàngwǔ: morning ② 跳舞 tiàowǔ: to dance ③ 书法 shūfǎ: calligraphy</div>', stem:'What did Hassan (哈桑) and his friends do on Friday morning?', choices:['They went to the park to play (去公园玩了).', 'They went to the desert.', 'They went shopping.', 'They went to the cinema.'], ans:0, hint:'Read the first sentence.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>星期五<rt>xīngqīwǔ</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友们<rt>péngyoumen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby>：<ruby>有人<rt>yǒu rén</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>跳舞<rt>tiàowǔ</rt></ruby><sup>②</sup>，<ruby>有人<rt>yǒu rén</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><sup>③</sup>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>好玩儿<rt>hǎowánr</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 上午 shàngwǔ: morning ② 跳舞 tiàowǔ: to dance ③ 书法 shūfǎ: calligraphy</div>', stem:'According to the passage, what do people do in Chinese parks?', choices:['Exercise, dance and write calligraphy (运动、跳舞、写书法).', 'Only sleep.', 'Only buy food.', 'Nothing at all.'], ans:0, hint:'Find the list after 公园里有很多人.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China, parks are busy and fun \u2014 people exercise, dance, sing and write calligraphy there together. What do you like to do at a park or outdoors, and who do you usually go with? | 🔵 Cycle 3 — Chinese parks are lively places where young and old gather to dance, exercise and make music, while in the UAE people often enjoy the beach, the desert and big malls. Where do people in your community like to gather and relax, and why do you think every culture needs shared public places?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L6 我周末去公园玩了。</title>' +

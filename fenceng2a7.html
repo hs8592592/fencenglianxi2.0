@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L7', num:'Lesson 7', title:'我在学习。I am studying.', cn:'正在进行的事',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 vocabulary (mixed types)
+  // TIER 1 · 夯实基础 — 10 vocabulary (mixed types)
   { qs:[
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我在＿习。</span> (study=学)', ans:['学','xué','xue'], hint:'学习 = study.' },
-    { type:'mc', stem:'🙋 Which means “What are you doing?”', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>点<rt>diǎn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你在做什么？= What are you doing?' },
-    { type:'mc', stem:'📚 Which word means to study / learn?', choices:['<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'学习 = to study.' },
-    { type:'mc', stem:'📞 Which word means “make a phone call”?', choices:['<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'打电话 = make a call.' },
-    { type:'mc', stem:'📺 Which word means “watch TV”?', choices:['<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], ans:0, hint:'看电视 = watch TV.' },
-    { type:'mc', stem:'🥋 Which word means Tai Chi (a slow martial art)?', choices:['<ruby>太极拳<rt>tàijíquán</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], ans:0, hint:'太极拳 = Tai Chi.' },
-    { type:'match', stem:'📺 Match each activity to its meaning.', left:['<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], right:['watch TV','play the piano','make a phone call','to study'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看电视·弹钢琴·打电话·学习.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (now words).', left:['dǎ','diàn','huà','zài'], right:['打','电','话','在'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'打·电·话·在.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>学习<rt>xuéxí</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(I am studying — use ___ + verb for “right now”.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在 + verb = doing right now.' },
-    { type:'mc', stem:'🎹 Which word means “play the piano”?', choices:['<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], ans:0, hint:'弹钢琴 = play piano.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我在＿习。</span> (study=学)', ans:['学','xué','xue'], hint:'学习 = study.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🙋 Which means “What are you doing?”', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>点<rt>diǎn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你在做什么？= What are you doing?' },
+    { type:'mc', skill:'Present actions (zai)', stem:'📚 Which word means to study / learn?', choices:['<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'学习 = to study.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'📞 Which word means “make a phone call”?', choices:['<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'打电话 = make a call.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'📺 Which word means “watch TV”?', choices:['<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], ans:0, hint:'看电视 = watch TV.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🥋 Which word means Tai Chi (a slow martial art)?', choices:['<ruby>太极拳<rt>tàijíquán</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], ans:0, hint:'太极拳 = Tai Chi.' },
+    { type:'match', skill:'Present actions (zai)', stem:'📺 Match each activity to its meaning.', left:['<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], right:['watch TV','play the piano','make a phone call','to study'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看电视·弹钢琴·打电话·学习.' },
+    { type:'match', skill:'Present actions (zai)', stem:'写汉字 · Match the pinyin to its character (now words).', left:['dǎ','diàn','huà','zài'], right:['打','电','话','在'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'打·电·话·在.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>学习<rt>xuéxí</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(I am studying — use ___ + verb for “right now”.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在 + verb = doing right now.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🎹 Which word means “play the piano”?', choices:['<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>'], ans:0, hint:'弹钢琴 = play piano.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 grammar (在 / 写汉字), mixed types
+  // TIER 2 · 学以致用 — 10 grammar (在 / 写汉字), mixed types
   { qs:[
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby>（　）<ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What are you doing right now? — ___)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'你在做什么？' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">爸爸在看＿视。</span> (TV=电)', ans:['电','diàn','dian'], hint:'看电视 = watch TV.' },
-    { type:'mc', stem:'<ruby>哥哥<rt>gēge</rt></ruby>（　）<ruby>打<rt>dǎ</rt></ruby><ruby>电话<rt>diànhuà</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(Older brother is ___ (now) making a call.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在打电话.' },
-    { type:'mc', stem:'🗣️ <ruby>奶奶，我很想你<rt>… wǒ hěn xiǎng nǐ</rt></ruby> — here 想 tells you:', choices:['to miss / think of','to watch','to play','to study'], ans:0, hint:'想 = to miss.' },
-    { type:'mc', stem:'🎹 Which means “Mum is playing the piano”?', choices:['<ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看电视<rt>kàn diànshì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>妈妈<rt>māma</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'妈妈在弹钢琴.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (activities 2).', left:['kàn','tán','xué','xí'], right:['看','弹','学','习'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看·弹·学·习.' },
-    { type:'mc', stem:'<ruby>爸爸<rt>bàba</rt></ruby>（　）<ruby>看<rt>kàn</rt></ruby><ruby>电视<rt>diànshì</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(Dad is ___ (now) watching TV.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在 + verb = doing now.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你在做什么<rt>nǐ zài zuò shénme</rt></ruby>？ You are studying. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我在….' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看电视<rt>kàn diànshì</rt></ruby><sup>①</sup>，<ruby>她<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打电话<rt>dǎ diànhuà</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 看电视 kàn diànshì: watch TV</div>', stem:'What is Fatima doing now?', choices:['Homework (做作业).','Watching TV.','Playing the piano.','Making a call.'], ans:0, hint:'Find 法蒂玛在.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看电视<rt>kàn diànshì</rt></ruby><sup>①</sup>，<ruby>她<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打电话<rt>dǎ diànhuà</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 看电视 kàn diànshì: watch TV</div>', stem:'What is Fatima’s dad doing?', choices:['Making a phone call (打电话).','Watching TV.','Studying.','Playing the piano.'], ans:0, hint:'Find 爸爸.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'<ruby>你<rt>nǐ</rt></ruby>（　）<ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What are you doing right now? — ___)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'你在做什么？' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">爸爸在看＿视。</span> (TV=电)', ans:['电','diàn','dian'], hint:'看电视 = watch TV.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'<ruby>哥哥<rt>gēge</rt></ruby>（　）<ruby>打<rt>dǎ</rt></ruby><ruby>电话<rt>diànhuà</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(Older brother is ___ (now) making a call.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在打电话.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🗣️ <ruby>奶奶，我很想你<rt>… wǒ hěn xiǎng nǐ</rt></ruby> — here 想 tells you:', choices:['to miss / think of','to watch','to play','to study'], ans:0, hint:'想 = to miss.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🎹 Which means “Mum is playing the piano”?', choices:['<ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看电视<rt>kàn diànshì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>妈妈<rt>māma</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'妈妈在弹钢琴.' },
+    { type:'match', skill:'Present actions (zai)', stem:'写汉字 · Match the pinyin to its character (activities 2).', left:['kàn','tán','xué','xí'], right:['看','弹','学','习'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看·弹·学·习.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'<ruby>爸爸<rt>bàba</rt></ruby>（　）<ruby>看<rt>kàn</rt></ruby><ruby>电视<rt>diànshì</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(Dad is ___ (now) watching TV.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在 + verb = doing now.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🗣️ Someone asks <ruby>你在做什么<rt>nǐ zài zuò shénme</rt></ruby>？ You are studying. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我在….' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看电视<rt>kàn diànshì</rt></ruby><sup>①</sup>，<ruby>她<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打电话<rt>dǎ diànhuà</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 看电视 kàn diànshì: watch TV</div>', stem:'What is Fatima doing now?', choices:['Homework (做作业).','Watching TV.','Playing the piano.','Making a call.'], ans:0, hint:'Find 法蒂玛在.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看电视<rt>kàn diànshì</rt></ruby><sup>①</sup>，<ruby>她<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打电话<rt>dǎ diànhuà</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 看电视 kàn diànshì: watch TV</div>', stem:'What is Fatima’s dad doing?', choices:['Making a phone call (打电话).','Watching TV.','Studying.','Playing the piano.'], ans:0, hint:'Find 爸爸.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🥋 Tai Chi (<ruby>太极拳<rt>tàijíquán</rt></ruby>) is special because its slow, gentle movements:', choices:['exercise the body AND calm the mind', 'are done as fast as possible', 'use a ball and net', 'need a computer'], ans:0, hint:'Culture: Tai Chi is slow and calm — good for both body and mind, often practised in parks.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你在做什么<rt>… zài zuò shénme</rt></ruby>？ You are reading. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>绿色<rt>lǜsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我在看书.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you say "I am studying"? (HSK tip)', choices:['<ruby>我在学习<rt>wǒ zài xuéxí</rt></ruby>。— 在 + verb.', '<ruby>我是学习<rt>wǒ shì xuéxí</rt></ruby>。— incorrect: no 是.', '<ruby>我学习在<rt>wǒ xuéxí zài</rt></ruby>。— wrong order.', '<ruby>我学习了在<rt>wǒ xuéxí le zài</rt></ruby>。— wrong.'], ans:0, hint:'HSK tip: present continuous = 在 + verb. Do NOT use 是.' },
-    { type:'mc', stem:'<ruby>他<rt>tā</rt></ruby>（　）<ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(He is ___ (now) doing calligraphy.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在写书法.' },
-    { type:'mc', stem:'🎹 Which word means “to study”?', choices:['<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'学习 = to study.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>下午<rt>xiàwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电视<rt>diànshì</rt></ruby><sup>②</sup>，<ruby>他<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹<rt>tán</rt></ruby><ruby>钢琴<rt>gāngqín</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>电话<rt>diànhuà</rt></ruby><sup>④</sup>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>太极拳<rt>tàijíquán</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 下午 xiàwǔ: afternoon ② 电视 diànshì: TV ③ 钢琴 gāngqín: piano ④ 电话 diànhuà: phone</div>', stem:'What is Hassan (哈桑) doing?', choices:['Studying (学习).', 'Watching TV.', 'Playing the piano.', 'Making a call.'], ans:0, hint:'Read the first sentence about 哈桑.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>下午<rt>xiàwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电视<rt>diànshì</rt></ruby><sup>②</sup>，<ruby>他<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹<rt>tán</rt></ruby><ruby>钢琴<rt>gāngqín</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>电话<rt>diànhuà</rt></ruby><sup>④</sup>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>太极拳<rt>tàijíquán</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 下午 xiàwǔ: afternoon ② 电视 diànshì: TV ③ 钢琴 gāngqín: piano ④ 电话 diànhuà: phone</div>', stem:'In China, what do many people like to do in the park?', choices:['Practise Tai Chi (打太极拳).', 'Watch TV.', 'Make phone calls.', 'Study Chinese.'], ans:0, hint:'Read the last sentence about 公园.' },
-    { type:'hots', stem:'🟡 Cycle 2 — Right now, people everywhere are doing different things \u2014 studying, watching TV, playing music or sport. What do you most like to do in your free time, and who do you usually do it with? | 🔵 Cycle 3 — In China, many people practise Tai Chi (\u592a\u6781\u62f3) in parks early in the morning \u2014 slow, gentle movements that exercise the body and calm the mind. What do people in the UAE do to stay healthy and relax, and why do you think calm activities like Tai Chi can be good for busy students?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🥋 Tai Chi (<ruby>太极拳<rt>tàijíquán</rt></ruby>) is special because its slow, gentle movements:', choices:['exercise the body AND calm the mind', 'are done as fast as possible', 'use a ball and net', 'need a computer'], ans:0, hint:'Culture: Tai Chi is slow and calm — good for both body and mind, often practised in parks.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🗣️ Someone asks <ruby>你在做什么<rt>… zài zuò shénme</rt></ruby>？ You are reading. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>绿色<rt>lǜsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我在看书.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'In Chinese (HSK), how do you say "I am studying"? (HSK tip)', choices:['<ruby>我在学习<rt>wǒ zài xuéxí</rt></ruby>。— 在 + verb.', '<ruby>我是学习<rt>wǒ shì xuéxí</rt></ruby>。— incorrect: no 是.', '<ruby>我学习在<rt>wǒ xuéxí zài</rt></ruby>。— wrong order.', '<ruby>我学习了在<rt>wǒ xuéxí le zài</rt></ruby>。— wrong.'], ans:0, hint:'HSK tip: present continuous = 在 + verb. Do NOT use 是.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'<ruby>他<rt>tā</rt></ruby>（　）<ruby>写<rt>xiě</rt></ruby><ruby>书法<rt>shūfǎ</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(He is ___ (now) doing calligraphy.)</span>', choices:['<ruby>在<rt>zài</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>了<rt>le</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'在写书法.' },
+    { type:'mc', skill:'Present actions (zai)', stem:'🎹 Which word means “to study”?', choices:['<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>看电视<rt>kàn diànshì</rt></ruby>','<ruby>打电话<rt>dǎ diànhuà</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'学习 = to study.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>下午<rt>xiàwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电视<rt>diànshì</rt></ruby><sup>②</sup>，<ruby>他<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹<rt>tán</rt></ruby><ruby>钢琴<rt>gāngqín</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>电话<rt>diànhuà</rt></ruby><sup>④</sup>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>太极拳<rt>tàijíquán</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 下午 xiàwǔ: afternoon ② 电视 diànshì: TV ③ 钢琴 gāngqín: piano ④ 电话 diànhuà: phone</div>', stem:'What is Hassan (哈桑) doing?', choices:['Studying (学习).', 'Watching TV.', 'Playing the piano.', 'Making a call.'], ans:0, hint:'Read the first sentence about 哈桑.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>现在<rt>xiànzài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>下午<rt>xiàwǔ</rt></ruby><sup>①</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>电视<rt>diànshì</rt></ruby><sup>②</sup>，<ruby>他<rt>tā</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>弹<rt>tán</rt></ruby><ruby>钢琴<rt>gāngqín</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>电话<rt>diànhuà</rt></ruby><sup>④</sup>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěn duō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>太极拳<rt>tàijíquán</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 下午 xiàwǔ: afternoon ② 电视 diànshì: TV ③ 钢琴 gāngqín: piano ④ 电话 diànhuà: phone</div>', stem:'In China, what do many people like to do in the park?', choices:['Practise Tai Chi (打太极拳).', 'Watch TV.', 'Make phone calls.', 'Study Chinese.'], ans:0, hint:'Read the last sentence about 公园.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Right now, people everywhere are doing different things \u2014 studying, watching TV, playing music or sport. What do you most like to do in your free time, and who do you usually do it with? | 🔵 Cycle 3 — In China, many people practise Tai Chi (\u592a\u6781\u62f3) in parks early in the morning \u2014 slow, gentle movements that exercise the body and calm the mind. What do people in the UAE do to stay healthy and relax, and why do you think calm activities like Tai Chi can be good for busy students?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L7 我在学习。</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1B-L5', num:'Lesson 5', title:'今天二月一号。Today is February 1st.', cn:'日期',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'📅 "What is the date today?" in Chinese:', choices:['<ruby>今天几月几号<rt>jīntiān jǐ yuè jǐ hào</rt></ruby>？', '<ruby>几月几号今天<rt>jǐ yuè jǐ hào jīntiān</rt></ruby>？', '<ruby>今天号几月几<rt>jīntiān hào jǐ yuè jǐ</rt></ruby>？', '<ruby>月几号几今天<rt>yuè jǐ hào jǐ jīntiān</rt></ruby>？'], ans:0, hint:'今天 (today) + 几月 (which month) + 几号 (which day) → 今天几月几号？' },
-    { type:'mc', stem:'<ruby>月<rt>yuè</rt></ruby> means:', choices:['month', 'year', 'day', 'week'], ans:0, hint:'月 = month: 二月 = February (lit. "2nd month").' },
-    { type:'mc', stem:'<ruby>号<rt>hào</rt></ruby> means:', choices:['day (of the month / date)', 'month', 'year', 'hour'], ans:0, hint:'号 = day of the month (spoken): 一号 = the 1st.' },
-    { type:'mc', stem:'<ruby>年<rt>nián</rt></ruby> means:', choices:['year', 'month', 'day', 'now'], ans:0, hint:'年 = year.' },
-    { type:'mc', stem:'<ruby>日<rt>rì</rt></ruby> means:', choices:['day (of the month, written form)', 'month', 'year', 'noon'], ans:0, hint:'日 = day · written form of 号 (一日 = 一号, the 1st).' },
-    { type:'mc', stem:'"Today is February 1st":', choices:['<ruby>今天二月一号<rt>jīntiān èr yuè yī hào</rt></ruby>。', '<ruby>今天一号二月<rt>jīntiān yī hào èr yuè</rt></ruby>。', '<ruby>二月今天一号<rt>èr yuè jīntiān yī hào</rt></ruby>。', '<ruby>一号二月今天<rt>yī hào èr yuè jīntiān</rt></ruby>。'], ans:0, hint:'Order: 今天 + month (二月) + day (一号). Month comes before day.' },
-    { type:'fill', stem:'Say "Today is May 2nd": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>五<rt>wǔ</rt></ruby>＿<ruby>二号<rt>èr hào</rt></ruby>。</span>', ans:['月','yuè','yue'], hint:'number + 月 = the month: 五月 = May.' },
-    { type:'mc', stem:'<ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby> is used to ask about:', choices:['the date', 'the time', 'a person', 'a place'], ans:0, hint:'几月几号 = "which month, which day" → asks the date.' },
-    { type:'mc', stem:'<ruby>今年<rt>jīnnián</rt></ruby> means:', choices:['this year', 'today', 'this month', 'last year'], ans:0, hint:'今 (this/current) + 年 (year) = this year.' },
-    { type:'fill', stem:'Say "Today is the 1st": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>一<rt>yī</rt></ruby>＿。</span>', ans:['号','hào','hao'], hint:'number + 号 = the day of the month. 一号 = the 1st.' },
+    { type:'mc', skill:'Dates', stem:'📅 "What is the date today?" in Chinese:', choices:['<ruby>今天几月几号<rt>jīntiān jǐ yuè jǐ hào</rt></ruby>？', '<ruby>几月几号今天<rt>jǐ yuè jǐ hào jīntiān</rt></ruby>？', '<ruby>今天号几月几<rt>jīntiān hào jǐ yuè jǐ</rt></ruby>？', '<ruby>月几号几今天<rt>yuè jǐ hào jǐ jīntiān</rt></ruby>？'], ans:0, hint:'今天 (today) + 几月 (which month) + 几号 (which day) → 今天几月几号？' },
+    { type:'mc', skill:'Dates', stem:'<ruby>月<rt>yuè</rt></ruby> means:', choices:['month', 'year', 'day', 'week'], ans:0, hint:'月 = month: 二月 = February (lit. "2nd month").' },
+    { type:'mc', skill:'Dates', stem:'<ruby>号<rt>hào</rt></ruby> means:', choices:['day (of the month / date)', 'month', 'year', 'hour'], ans:0, hint:'号 = day of the month (spoken): 一号 = the 1st.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>年<rt>nián</rt></ruby> means:', choices:['year', 'month', 'day', 'now'], ans:0, hint:'年 = year.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>日<rt>rì</rt></ruby> means:', choices:['day (of the month, written form)', 'month', 'year', 'noon'], ans:0, hint:'日 = day · written form of 号 (一日 = 一号, the 1st).' },
+    { type:'mc', skill:'Dates', stem:'"Today is February 1st":', choices:['<ruby>今天二月一号<rt>jīntiān èr yuè yī hào</rt></ruby>。', '<ruby>今天一号二月<rt>jīntiān yī hào èr yuè</rt></ruby>。', '<ruby>二月今天一号<rt>èr yuè jīntiān yī hào</rt></ruby>。', '<ruby>一号二月今天<rt>yī hào èr yuè jīntiān</rt></ruby>。'], ans:0, hint:'Order: 今天 + month (二月) + day (一号). Month comes before day.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "Today is May 2nd": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>五<rt>wǔ</rt></ruby>＿<ruby>二号<rt>èr hào</rt></ruby>。</span>', ans:['月','yuè','yue'], hint:'number + 月 = the month: 五月 = May.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby> is used to ask about:', choices:['the date', 'the time', 'a person', 'a place'], ans:0, hint:'几月几号 = "which month, which day" → asks the date.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>今年<rt>jīnnián</rt></ruby> means:', choices:['this year', 'today', 'this month', 'last year'], ans:0, hint:'今 (this/current) + 年 (year) = this year.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "Today is the 1st": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>一<rt>yī</rt></ruby>＿。</span>', ans:['号','hào','hao'], hint:'number + 号 = the day of the month. 一号 = the 1st.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'Which order is correct for a Chinese date?', choices:['month first, then day: 二月一号', 'day first, then month: 一号二月', 'year after month: 二月年', 'day before month: 一号二月一号'], ans:0, hint:'Chinese goes big-to-small: 年 → 月 → 号. So 二月一号 (Feb, then 1st).' },
-    { type:'mc', stem:'<ruby>号<rt>hào</rt></ruby> and <ruby>日<rt>rì</rt></ruby> both mean "day of the month". Which is more spoken / casual?', choices:['<ruby>号<rt>hào</rt></ruby> — used in speaking', '<ruby>日<rt>rì</rt></ruby> — used in speaking', 'they are never interchangeable', 'neither is used for dates'], ans:0, hint:'号 is spoken/casual; 日 is the written/formal form. 一号 = 一日.' },
-    { type:'fill', stem:'Ask "What is the date today?": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby>＿<ruby>月<rt>yuè</rt></ruby>＿<ruby>号<rt>hào</rt></ruby>？</span>', ans:['几','jǐ','ji'], hint:'几 = which / how many. 今天几月几号？(both blanks are 几)' },
-    { type:'mc', stem:'For the month "February", which is correct?', choices:['<ruby>二月<rt>èr yuè</rt></ruby>', '<ruby>两月<rt>liǎng yuè</rt></ruby>', '<ruby>二个月<rt>èr gè yuè</rt></ruby>', '<ruby>两个月<rt>liǎng gè yuè</rt></ruby>'], ans:0, hint:'For dates (months), use 二, not 两: 二月 = February. (两 is for counting, e.g. 两个月 = two months.)' },
-    { type:'mc', stem:'<ruby>今天五月二号<rt>jīntiān wǔ yuè èr hào</rt></ruby> means:', choices:['Today is May 2nd', 'Today is February 5th', 'Today is the 5th month, 5th day', 'This year is May'], ans:0, hint:'五月 = May (5th month) · 二号 = the 2nd.' },
-    { type:'mc', stem:'Someone asks <ruby>今天几月几号<rt>jīntiān jǐ yuè jǐ hào</rt></ruby>？ — best reply:', choices:['<ruby>今天二月一号<rt>jīntiān èr yuè yī hào</rt></ruby>。', '<ruby>今天八点<rt>jīntiān bā diǎn</rt></ruby>。', '<ruby>今天星期一<rt>jīntiān xīngqīyī</rt></ruby>。', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。'], ans:0, hint:'几月几号 asks the date → answer with month + day.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['yuè', 'nián', 'rì', 'hào'], right:['月', '年', '日', '号'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 月, 年, 日, 五, 号.' },
-    { type:'fill', stem:'Say "Today is February 1st": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>二月<rt>èr yuè</rt></ruby>一＿。</span>', ans:['号','hào','hao'], hint:'number + 号 = the day. 一号 = the 1st.' },
-    { type:'mc', stem:'Put the words in order — "big to small" (Chinese date order):', choices:['<ruby>年<rt>nián</rt></ruby> → <ruby>月<rt>yuè</rt></ruby> → <ruby>号<rt>hào</rt></ruby>', '<ruby>号<rt>hào</rt></ruby> → <ruby>月<rt>yuè</rt></ruby> → <ruby>年<rt>nián</rt></ruby>', '<ruby>月<rt>yuè</rt></ruby> → <ruby>年<rt>nián</rt></ruby> → <ruby>号<rt>hào</rt></ruby>', '<ruby>年<rt>nián</rt></ruby> → <ruby>号<rt>hào</rt></ruby> → <ruby>月<rt>yuè</rt></ruby>'], ans:0, hint:'Chinese always goes largest-to-smallest: year, then month, then day.' },
-    { type:'mc', stem:'"This year is 2026" uses which word for "this year"?', choices:['<ruby>今年<rt>jīnnián</rt></ruby>', '<ruby>今天<rt>jīntiān</rt></ruby>', '<ruby>今月<rt>jīnyuè</rt></ruby>', '<ruby>这年<rt>zhè nián</rt></ruby>'], ans:0, hint:'今年 = this year · 今天 = today.' },
+    { type:'mc', skill:'Dates', stem:'Which order is correct for a Chinese date?', choices:['month first, then day: 二月一号', 'day first, then month: 一号二月', 'year after month: 二月年', 'day before month: 一号二月一号'], ans:0, hint:'Chinese goes big-to-small: 年 → 月 → 号. So 二月一号 (Feb, then 1st).' },
+    { type:'mc', skill:'Dates', stem:'<ruby>号<rt>hào</rt></ruby> and <ruby>日<rt>rì</rt></ruby> both mean "day of the month". Which is more spoken / casual?', choices:['<ruby>号<rt>hào</rt></ruby> — used in speaking', '<ruby>日<rt>rì</rt></ruby> — used in speaking', 'they are never interchangeable', 'neither is used for dates'], ans:0, hint:'号 is spoken/casual; 日 is the written/formal form. 一号 = 一日.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask "What is the date today?": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby>＿<ruby>月<rt>yuè</rt></ruby>＿<ruby>号<rt>hào</rt></ruby>？</span>', ans:['几','jǐ','ji'], hint:'几 = which / how many. 今天几月几号？(both blanks are 几)' },
+    { type:'mc', skill:'Dates', stem:'For the month "February", which is correct?', choices:['<ruby>二月<rt>èr yuè</rt></ruby>', '<ruby>两月<rt>liǎng yuè</rt></ruby>', '<ruby>二个月<rt>èr gè yuè</rt></ruby>', '<ruby>两个月<rt>liǎng gè yuè</rt></ruby>'], ans:0, hint:'For dates (months), use 二, not 两: 二月 = February. (两 is for counting, e.g. 两个月 = two months.)' },
+    { type:'mc', skill:'Dates', stem:'<ruby>今天五月二号<rt>jīntiān wǔ yuè èr hào</rt></ruby> means:', choices:['Today is May 2nd', 'Today is February 5th', 'Today is the 5th month, 5th day', 'This year is May'], ans:0, hint:'五月 = May (5th month) · 二号 = the 2nd.' },
+    { type:'mc', skill:'Dates', stem:'Someone asks <ruby>今天几月几号<rt>jīntiān jǐ yuè jǐ hào</rt></ruby>？ — best reply:', choices:['<ruby>今天二月一号<rt>jīntiān èr yuè yī hào</rt></ruby>。', '<ruby>今天八点<rt>jīntiān bā diǎn</rt></ruby>。', '<ruby>今天星期一<rt>jīntiān xīngqīyī</rt></ruby>。', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。'], ans:0, hint:'几月几号 asks the date → answer with month + day.' },
+    { type:'match', skill:'Dates', stem:'Match each pinyin to its character (写汉字).', left:['yuè', 'nián', 'rì', 'hào'], right:['月', '年', '日', '号'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 月, 年, 日, 五, 号.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "Today is February 1st": <span class="cn"><ruby>今天<rt>jīntiān</rt></ruby><ruby>二月<rt>èr yuè</rt></ruby>一＿。</span>', ans:['号','hào','hao'], hint:'number + 号 = the day. 一号 = the 1st.' },
+    { type:'mc', skill:'Dates', stem:'Put the words in order — "big to small" (Chinese date order):', choices:['<ruby>年<rt>nián</rt></ruby> → <ruby>月<rt>yuè</rt></ruby> → <ruby>号<rt>hào</rt></ruby>', '<ruby>号<rt>hào</rt></ruby> → <ruby>月<rt>yuè</rt></ruby> → <ruby>年<rt>nián</rt></ruby>', '<ruby>月<rt>yuè</rt></ruby> → <ruby>年<rt>nián</rt></ruby> → <ruby>号<rt>hào</rt></ruby>', '<ruby>年<rt>nián</rt></ruby> → <ruby>号<rt>hào</rt></ruby> → <ruby>月<rt>yuè</rt></ruby>'], ans:0, hint:'Chinese always goes largest-to-smallest: year, then month, then day.' },
+    { type:'mc', skill:'Dates', stem:'"This year is 2026" uses which word for "this year"?', choices:['<ruby>今年<rt>jīnnián</rt></ruby>', '<ruby>今天<rt>jīntiān</rt></ruby>', '<ruby>今月<rt>jīnyuè</rt></ruby>', '<ruby>这年<rt>zhè nián</rt></ruby>'], ans:0, hint:'今年 = this year · 今天 = today.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>八月<rt>bā yuè</rt></ruby> is to <ruby>月<rt>yuè</rt></ruby> as <ruby>八号<rt>bā hào</rt></ruby> is to:', choices:['<ruby>号<rt>hào</rt></ruby> (the day)', '<ruby>年<rt>nián</rt></ruby> (the year)', '<ruby>点<rt>diǎn</rt></ruby> (the hour)', '<ruby>岁<rt>suì</rt></ruby> (age)'], ans:0, hint:'number + 月 = month · number + 号 = day of the month.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>今天几月几号<rt>jīntiān jǐ yuè jǐ hào</rt></ruby>？ B: ___', choices:['<ruby>今天五月二号<rt>jīntiān wǔ yuè èr hào</rt></ruby>。', '<ruby>今天八点半<rt>jīntiān bā diǎn bàn</rt></ruby>。', '<ruby>今天几岁<rt>jīntiān jǐ suì</rt></ruby>？', '<ruby>他是我哥哥<rt>tā shì wǒ gēge</rt></ruby>。'], ans:0, hint:'几月几号 asks the date → reply with month + day.' },
-    { type:'mc', stem:'<ruby>日<rt>rì</rt></ruby> is the written form; <ruby>号<rt>hào</rt></ruby> is the spoken form. "May 1st" written on a poster is most likely:', choices:['<ruby>五月一日<rt>wǔ yuè yī rì</rt></ruby>', '<ruby>五月一岁<rt>wǔ yuè yī suì</rt></ruby>', '<ruby>五点一号<rt>wǔ diǎn yī hào</rt></ruby>', '<ruby>一号五月<rt>yī hào wǔ yuè</rt></ruby>'], ans:0, hint:'On formal/written notices the date uses 日: 五月一日.' },
-    { type:'mc', stem:'<ruby>今天是开斋节<rt>jīntiān shì kāizhāijié</rt></ruby> means:', choices:['Today is Eid al-Fitr', 'Today is the 1st', 'Today is Tuesday', 'Today is my birthday'], ans:0, hint:'开斋节 = Eid al-Fitr · 是 links today to the festival.' },
-    { type:'mc', stem:'In Chinese (HSK), which number word is used for the month "February"? (HSK tip)', choices:['<ruby>二<rt>èr</rt></ruby> → 二月 (use 二 for dates and ordinals).', '<ruby>两<rt>liǎng</rt></ruby> → 两月.', 'Either 二 or 两 works.', '<ruby>第二<rt>dì\u2019èr</rt></ruby> → 第二月.'], ans:0, hint:'HSK tip: dates use 二 (二月, 二号); 两 is only for counting amounts (两个月 = two months). Opposite of the clock rule 两点!' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>今天<rt>jīntiān</rt></ruby><ruby>五月<rt>wǔ yuè</rt></ruby><ruby>二号<rt>èr hào</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>开斋节<rt>kāizhāijié</rt></ruby><sup>②</sup>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>，<ruby>因为<rt>yīnwèi</rt></ruby><sup>④</sup><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 开斋节 kāizhāijié: Eid al-Fitr ③ 高兴 gāoxìng: happy ④ 因为 yīnwèi: because ⑤ 生日 shēngrì: birthday</div>', stem:'What is the date today in the passage?', choices:['May 2nd (五月二号).', 'February 1st (二月一号).', 'May 5th (五月五号).', 'February 2nd (二月二号).'], ans:0, hint:'Read what 玛丽亚 says after 今天.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>今天<rt>jīntiān</rt></ruby><ruby>五月<rt>wǔ yuè</rt></ruby><ruby>二号<rt>èr hào</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>开斋节<rt>kāizhāijié</rt></ruby><sup>②</sup>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>，<ruby>因为<rt>yīnwèi</rt></ruby><sup>④</sup><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 开斋节 kāizhāijié: Eid al-Fitr ③ 高兴 gāoxìng: happy ④ 因为 yīnwèi: because ⑤ 生日 shēngrì: birthday</div>', stem:'Why is Hassan happy?', choices:['Today is also his younger sister\u2019s birthday.', 'Today is his own birthday.', 'It is a school holiday.', 'He got a present.'], ans:0, hint:'Read the part after 因为 (because).' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🎉 China has Chinese New Year (春节) and the UAE has Eid — both are special family festivals. What is your favourite festival, and what is the best food you eat to celebrate it? | 🔵 Cycle 3 — Chinese New Year and Eid are two of the biggest festivals in each culture. What is one way they are similar and one way they are different, and why do you think festivals matter so much to people?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>八月<rt>bā yuè</rt></ruby> is to <ruby>月<rt>yuè</rt></ruby> as <ruby>八号<rt>bā hào</rt></ruby> is to:', choices:['<ruby>号<rt>hào</rt></ruby> (the day)', '<ruby>年<rt>nián</rt></ruby> (the year)', '<ruby>点<rt>diǎn</rt></ruby> (the hour)', '<ruby>岁<rt>suì</rt></ruby> (age)'], ans:0, hint:'number + 月 = month · number + 号 = day of the month.' },
+    { type:'mc', skill:'Dates', stem:'Complete the dialogue — A: <ruby>今天几月几号<rt>jīntiān jǐ yuè jǐ hào</rt></ruby>？ B: ___', choices:['<ruby>今天五月二号<rt>jīntiān wǔ yuè èr hào</rt></ruby>。', '<ruby>今天八点半<rt>jīntiān bā diǎn bàn</rt></ruby>。', '<ruby>今天几岁<rt>jīntiān jǐ suì</rt></ruby>？', '<ruby>他是我哥哥<rt>tā shì wǒ gēge</rt></ruby>。'], ans:0, hint:'几月几号 asks the date → reply with month + day.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>日<rt>rì</rt></ruby> is the written form; <ruby>号<rt>hào</rt></ruby> is the spoken form. "May 1st" written on a poster is most likely:', choices:['<ruby>五月一日<rt>wǔ yuè yī rì</rt></ruby>', '<ruby>五月一岁<rt>wǔ yuè yī suì</rt></ruby>', '<ruby>五点一号<rt>wǔ diǎn yī hào</rt></ruby>', '<ruby>一号五月<rt>yī hào wǔ yuè</rt></ruby>'], ans:0, hint:'On formal/written notices the date uses 日: 五月一日.' },
+    { type:'mc', skill:'Dates', stem:'<ruby>今天是开斋节<rt>jīntiān shì kāizhāijié</rt></ruby> means:', choices:['Today is Eid al-Fitr', 'Today is the 1st', 'Today is Tuesday', 'Today is my birthday'], ans:0, hint:'开斋节 = Eid al-Fitr · 是 links today to the festival.' },
+    { type:'mc', skill:'Dates', stem:'In Chinese (HSK), which number word is used for the month "February"? (HSK tip)', choices:['<ruby>二<rt>èr</rt></ruby> → 二月 (use 二 for dates and ordinals).', '<ruby>两<rt>liǎng</rt></ruby> → 两月.', 'Either 二 or 两 works.', '<ruby>第二<rt>dì\u2019èr</rt></ruby> → 第二月.'], ans:0, hint:'HSK tip: dates use 二 (二月, 二号); 两 is only for counting amounts (两个月 = two months). Opposite of the clock rule 两点!' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>今天<rt>jīntiān</rt></ruby><ruby>五月<rt>wǔ yuè</rt></ruby><ruby>二号<rt>èr hào</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>开斋节<rt>kāizhāijié</rt></ruby><sup>②</sup>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>，<ruby>因为<rt>yīnwèi</rt></ruby><sup>④</sup><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 开斋节 kāizhāijié: Eid al-Fitr ③ 高兴 gāoxìng: happy ④ 因为 yīnwèi: because ⑤ 生日 shēngrì: birthday</div>', stem:'What is the date today in the passage?', choices:['May 2nd (五月二号).', 'February 1st (二月一号).', 'May 5th (五月五号).', 'February 2nd (二月二号).'], ans:0, hint:'Read what 玛丽亚 says after 今天.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>今天<rt>jīntiān</rt></ruby><ruby>五月<rt>wǔ yuè</rt></ruby><ruby>二号<rt>èr hào</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>开斋节<rt>kāizhāijié</rt></ruby><sup>②</sup>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>，<ruby>因为<rt>yīnwèi</rt></ruby><sup>④</sup><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 开斋节 kāizhāijié: Eid al-Fitr ③ 高兴 gāoxìng: happy ④ 因为 yīnwèi: because ⑤ 生日 shēngrì: birthday</div>', stem:'Why is Hassan happy?', choices:['Today is also his younger sister\u2019s birthday.', 'Today is his own birthday.', 'It is a school holiday.', 'He got a present.'], ans:0, hint:'Read the part after 因为 (because).' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🎉 China has Chinese New Year (春节) and the UAE has Eid — both are special family festivals. What is your favourite festival, and what is the best food you eat to celebrate it? | 🔵 Cycle 3 — Chinese New Year and Eid are two of the biggest festivals in each culture. What is one way they are similar and one way they are different, and why do you think festivals matter so much to people?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1B-L5 今天二月一号。</title>' +

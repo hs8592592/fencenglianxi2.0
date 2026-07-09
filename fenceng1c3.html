@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1C-L3', num:'Lesson 3', title:'我的一天。My day.', cn:'日常活动',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'📅 "This is my day" in Chinese:', choices:['<ruby>这是我的一天<rt>zhè shì wǒ de yì tiān</rt></ruby>。', '<ruby>我的一天这是<rt>wǒ de yì tiān zhè shì</rt></ruby>。', '<ruby>一天这是我的<rt>yì tiān zhè shì wǒ de</rt></ruby>。', '<ruby>这我的一天是<rt>zhè wǒ de yì tiān shì</rt></ruby>。'], ans:0, hint:'Word order: 这 (this) + 是 (is) + 我的 (my) + 一天 (day).' },
-    { type:'mc', stem:'🎒 <ruby>中学生<rt>zhōngxuéshēng</rt></ruby> means:', choices:['middle / high school student', 'primary school pupil', 'university student', 'teacher'], ans:0, hint:'中学 = middle/high school · 中学生 = a middle-school student.' },
-    { type:'mc', stem:'📚 <ruby>年级<rt>niánjí</rt></ruby> means:', choices:['grade / school year', 'age', 'birthday', 'homework'], ans:0, hint:'年级 = grade · 七年级 = grade 7.' },
-    { type:'mc', stem:'✏️ <ruby>做作业<rt>zuò zuòyè</rt></ruby> means:', choices:['to do homework', 'to do sports', 'to play guitar', 'to finish school'], ans:0, hint:'做 = to do · 作业 = homework.' },
-    { type:'match', stem:'Match each phrase to its meaning.', left:['<ruby>做运动<rt>zuò yùndòng</rt></ruby>', '<ruby>弹吉他<rt>tán jítā</rt></ruby>', '<ruby>放学<rt>fàngxué</rt></ruby>', '<ruby>每天<rt>měitiān</rt></ruby>'], right:['do sports / exercise', 'play the guitar', 'finish school', 'every day'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'做运动 = do sports · 弹吉他 = play guitar · 放学 = school is over · 每天 = every day.' },
-    { type:'mc', stem:'❓ <ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？ means:', choices:['What grade are you in?', 'How old are you?', 'What is your hobby?', 'Where is your school?'], ans:0, hint:'几 = which / how many · 你上几年级？asks the grade you are in.' },
-    { type:'mc', stem:'🎸 <ruby>弹吉他<rt>tán jítā</rt></ruby> means:', choices:['play the guitar', 'do sports', 'do homework', 'sing a song'], ans:0, hint:'弹 = to pluck/play (strings) · 吉他 = guitar.' },
-    { type:'mc', stem:'🏫 <ruby>放学<rt>fàngxué</rt></ruby> means:', choices:['school is over / finish school', 'go to school', 'have a class', 'do homework'], ans:0, hint:'上学 = go to school · 放学 = school finishes.' },
-    { type:'fill', stem:'Say "I am in grade seven": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>上<rt>shàng</rt></ruby>＿<ruby>年级<rt>niánjí</rt></ruby>。</span>', ans:['七','7','qī','qi'], hint:'七 = 7 · 我上七年级。= I am in grade 7.' },
-    { type:'mc', stem:'🎒 "I am in grade seven" — correct sentence:', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>我七年级上<rt>wǒ qī niánjí shàng</rt></ruby>。', '<ruby>七年级我上<rt>qī niánjí wǒ shàng</rt></ruby>。', '<ruby>我上年级七<rt>wǒ shàng niánjí qī</rt></ruby>。'], ans:0, hint:'Subject + 上 + number + 年级: 我 + 上 + 七 + 年级.' },
+    { type:'mc', skill:'School & grades', stem:'📅 "This is my day" in Chinese:', choices:['<ruby>这是我的一天<rt>zhè shì wǒ de yì tiān</rt></ruby>。', '<ruby>我的一天这是<rt>wǒ de yì tiān zhè shì</rt></ruby>。', '<ruby>一天这是我的<rt>yì tiān zhè shì wǒ de</rt></ruby>。', '<ruby>这我的一天是<rt>zhè wǒ de yì tiān shì</rt></ruby>。'], ans:0, hint:'Word order: 这 (this) + 是 (is) + 我的 (my) + 一天 (day).' },
+    { type:'mc', skill:'School & grades', stem:'🎒 <ruby>中学生<rt>zhōngxuéshēng</rt></ruby> means:', choices:['middle / high school student', 'primary school pupil', 'university student', 'teacher'], ans:0, hint:'中学 = middle/high school · 中学生 = a middle-school student.' },
+    { type:'mc', skill:'School & grades', stem:'📚 <ruby>年级<rt>niánjí</rt></ruby> means:', choices:['grade / school year', 'age', 'birthday', 'homework'], ans:0, hint:'年级 = grade · 七年级 = grade 7.' },
+    { type:'mc', skill:'School & grades', stem:'✏️ <ruby>做作业<rt>zuò zuòyè</rt></ruby> means:', choices:['to do homework', 'to do sports', 'to play guitar', 'to finish school'], ans:0, hint:'做 = to do · 作业 = homework.' },
+    { type:'match', skill:'School & grades', stem:'Match each phrase to its meaning.', left:['<ruby>做运动<rt>zuò yùndòng</rt></ruby>', '<ruby>弹吉他<rt>tán jítā</rt></ruby>', '<ruby>放学<rt>fàngxué</rt></ruby>', '<ruby>每天<rt>měitiān</rt></ruby>'], right:['do sports / exercise', 'play the guitar', 'finish school', 'every day'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'做运动 = do sports · 弹吉他 = play guitar · 放学 = school is over · 每天 = every day.' },
+    { type:'mc', skill:'School & grades', stem:'❓ <ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？ means:', choices:['What grade are you in?', 'How old are you?', 'What is your hobby?', 'Where is your school?'], ans:0, hint:'几 = which / how many · 你上几年级？asks the grade you are in.' },
+    { type:'mc', skill:'School & grades', stem:'🎸 <ruby>弹吉他<rt>tán jítā</rt></ruby> means:', choices:['play the guitar', 'do sports', 'do homework', 'sing a song'], ans:0, hint:'弹 = to pluck/play (strings) · 吉他 = guitar.' },
+    { type:'mc', skill:'School & grades', stem:'🏫 <ruby>放学<rt>fàngxué</rt></ruby> means:', choices:['school is over / finish school', 'go to school', 'have a class', 'do homework'], ans:0, hint:'上学 = go to school · 放学 = school finishes.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I am in grade seven": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>上<rt>shàng</rt></ruby>＿<ruby>年级<rt>niánjí</rt></ruby>。</span>', ans:['七','7','qī','qi'], hint:'七 = 7 · 我上七年级。= I am in grade 7.' },
+    { type:'mc', skill:'School & grades', stem:'🎒 "I am in grade seven" — correct sentence:', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>我七年级上<rt>wǒ qī niánjí shàng</rt></ruby>。', '<ruby>七年级我上<rt>qī niánjí wǒ shàng</rt></ruby>。', '<ruby>我上年级七<rt>wǒ shàng niánjí qī</rt></ruby>。'], ans:0, hint:'Subject + 上 + number + 年级: 我 + 上 + 七 + 年级.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 grammar questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 grammar questions
   { qs:[
-    { type:'mc', stem:'<ruby>几<rt>jǐ</rt></ruby> is used to ask about:', choices:['a number (how many / which)', 'a person (who)', 'a place (where)', 'a reason (why)'], ans:0, hint:'Interrogative 疑问词 几 asks a small number — e.g. 几年级 (which grade).' },
-    { type:'mc', stem:'Someone asks <ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？ — best reply:', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>我是中学生<rt>wǒ shì zhōngxuéshēng</rt></ruby>。', '<ruby>我做作业<rt>wǒ zuò zuòyè</rt></ruby>。', '<ruby>我喜欢弹吉他<rt>wǒ xǐhuan tán jítā</rt></ruby>。'], ans:0, hint:'几年级 asks the grade → answer with 上 + number + 年级.' },
-    { type:'fill', stem:'Ask "What grade are you in?": <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>上<rt>shàng</rt></ruby>＿<ruby>年级<rt>niánjí</rt></ruby>？</span>', ans:['几','jǐ','ji'], hint:'几 = which/how many. 你上几年级？= What grade are you in?' },
-    { type:'mc', stem:'<ruby>每天<rt>měitiān</rt></ruby> means:', choices:['every day', 'today', 'tomorrow', 'one day'], ans:0, hint:'每 = every · 天 = day · 每天 = every day.' },
-    { type:'mc', stem:'"I do homework every day" — correct sentence:', choices:['<ruby>我每天做作业<rt>wǒ měitiān zuò zuòyè</rt></ruby>。', '<ruby>我做作业每天<rt>wǒ zuò zuòyè měitiān</rt></ruby>。', '<ruby>每天做作业我<rt>měitiān zuò zuòyè wǒ</rt></ruby>。', '<ruby>我每天作业做<rt>wǒ měitiān zuòyè zuò</rt></ruby>。'], ans:0, hint:'Time word 每天 goes BEFORE the verb: 我 + 每天 + 做作业.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['zuò', 'zhōng', 'nián', 'wǒ'], right:['做', '中', '年', '我'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'做 zuò (to do) · 中 zhōng (middle) · 年 nián (year) · 我 wǒ (I).' },
-    { type:'fill', stem:'"After school I do sports": <span class="cn"><ruby>放学<rt>fàngxué</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>做<rt>zuò</rt></ruby>＿＿。</span>', ans:['运动','yùndòng','yundong'], hint:'做运动 = do sports / exercise.' },
-    { type:'mc', stem:'In <ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>, the word <ruby>上<rt>shàng</rt></ruby> means:', choices:['to attend / be in (a grade)', 'up / above', 'to go to school', 'morning'], ans:0, hint:'上 has many uses; here 上 + 年级 = to be in a grade.' },
-    { type:'mc', stem:'"What do you do every day?":', choices:['<ruby>你每天做什么<rt>nǐ měitiān zuò shénme</rt></ruby>？', '<ruby>你每天是什么<rt>nǐ měitiān shì shénme</rt></ruby>？', '<ruby>你做什么每天<rt>nǐ zuò shénme měitiān</rt></ruby>？', '<ruby>什么你每天做<rt>shénme nǐ měitiān zuò</rt></ruby>？'], ans:0, hint:'做什么 = do what · 你 + 每天 + 做什么？' },
-    { type:'mc', stem:'"He plays guitar every day" — correct word order:', choices:['<ruby>他每天弹吉他<rt>tā měitiān tán jítā</rt></ruby>。', '<ruby>他弹吉他每天<rt>tā tán jítā měitiān</rt></ruby>。', '<ruby>每天弹吉他他<rt>měitiān tán jítā tā</rt></ruby>。', '<ruby>他每天吉他弹<rt>tā měitiān jítā tán</rt></ruby>。'], ans:0, hint:'Subject + time (每天) + verb-object (弹吉他).' },
+    { type:'mc', skill:'School & grades', stem:'<ruby>几<rt>jǐ</rt></ruby> is used to ask about:', choices:['a number (how many / which)', 'a person (who)', 'a place (where)', 'a reason (why)'], ans:0, hint:'Interrogative 疑问词 几 asks a small number — e.g. 几年级 (which grade).' },
+    { type:'mc', skill:'School & grades', stem:'Someone asks <ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？ — best reply:', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>我是中学生<rt>wǒ shì zhōngxuéshēng</rt></ruby>。', '<ruby>我做作业<rt>wǒ zuò zuòyè</rt></ruby>。', '<ruby>我喜欢弹吉他<rt>wǒ xǐhuan tán jítā</rt></ruby>。'], ans:0, hint:'几年级 asks the grade → answer with 上 + number + 年级.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask "What grade are you in?": <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>上<rt>shàng</rt></ruby>＿<ruby>年级<rt>niánjí</rt></ruby>？</span>', ans:['几','jǐ','ji'], hint:'几 = which/how many. 你上几年级？= What grade are you in?' },
+    { type:'mc', skill:'School & grades', stem:'<ruby>每天<rt>měitiān</rt></ruby> means:', choices:['every day', 'today', 'tomorrow', 'one day'], ans:0, hint:'每 = every · 天 = day · 每天 = every day.' },
+    { type:'mc', skill:'School & grades', stem:'"I do homework every day" — correct sentence:', choices:['<ruby>我每天做作业<rt>wǒ měitiān zuò zuòyè</rt></ruby>。', '<ruby>我做作业每天<rt>wǒ zuò zuòyè měitiān</rt></ruby>。', '<ruby>每天做作业我<rt>měitiān zuò zuòyè wǒ</rt></ruby>。', '<ruby>我每天作业做<rt>wǒ měitiān zuòyè zuò</rt></ruby>。'], ans:0, hint:'Time word 每天 goes BEFORE the verb: 我 + 每天 + 做作业.' },
+    { type:'match', skill:'School & grades', stem:'Match each pinyin to its character (写汉字).', left:['zuò', 'zhōng', 'nián', 'wǒ'], right:['做', '中', '年', '我'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'做 zuò (to do) · 中 zhōng (middle) · 年 nián (year) · 我 wǒ (I).' },
+    { type:'fill', skill:'Sentence patterns', stem:'"After school I do sports": <span class="cn"><ruby>放学<rt>fàngxué</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>做<rt>zuò</rt></ruby>＿＿。</span>', ans:['运动','yùndòng','yundong'], hint:'做运动 = do sports / exercise.' },
+    { type:'mc', skill:'School & grades', stem:'In <ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>, the word <ruby>上<rt>shàng</rt></ruby> means:', choices:['to attend / be in (a grade)', 'up / above', 'to go to school', 'morning'], ans:0, hint:'上 has many uses; here 上 + 年级 = to be in a grade.' },
+    { type:'mc', skill:'School & grades', stem:'"What do you do every day?":', choices:['<ruby>你每天做什么<rt>nǐ měitiān zuò shénme</rt></ruby>？', '<ruby>你每天是什么<rt>nǐ měitiān shì shénme</rt></ruby>？', '<ruby>你做什么每天<rt>nǐ zuò shénme měitiān</rt></ruby>？', '<ruby>什么你每天做<rt>shénme nǐ měitiān zuò</rt></ruby>？'], ans:0, hint:'做什么 = do what · 你 + 每天 + 做什么？' },
+    { type:'mc', skill:'School & grades', stem:'"He plays guitar every day" — correct word order:', choices:['<ruby>他每天弹吉他<rt>tā měitiān tán jítā</rt></ruby>。', '<ruby>他弹吉他每天<rt>tā tán jítā měitiān</rt></ruby>。', '<ruby>每天弹吉他他<rt>měitiān tán jítā tā</rt></ruby>。', '<ruby>他每天吉他弹<rt>tā měitiān jítā tán</rt></ruby>。'], ans:0, hint:'Subject + time (每天) + verb-object (弹吉他).' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'A <ruby>中学生<rt>zhōngxuéshēng</rt></ruby> is usually older than a:', choices:['<ruby>小学生<rt>xiǎoxuéshēng</rt></ruby> (primary pupil)', 'university student', 'teacher', 'parent'], ans:0, hint:'小学 (primary) → 中学 (middle/high) → 大学 (university).' },
-    { type:'mc', stem:'In China, a student in <ruby>七年级<rt>qī niánjí</rt></ruby> is in their first year of:', choices:['<ruby>初中<rt>chūzhōng</rt></ruby> (junior middle school)', '<ruby>小学<rt>xiǎoxué</rt></ruby> (primary school)', '<ruby>大学<rt>dàxué</rt></ruby> (university)', 'kindergarten'], ans:0, hint:'Culture: Chinese middle school (初中) is grades 7–9; 七年级 is the first year.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？ B: ___', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>我每天做作业<rt>wǒ měitiān zuò zuòyè</rt></ruby>。', '<ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？', '<ruby>我喜欢弹吉他<rt>wǒ xǐhuan tán jítā</rt></ruby>。'], ans:0, hint:'几年级 asks the grade → answer with 上 + number + 年级.' },
-    { type:'mc', stem:'Where does the time word <ruby>每天<rt>měitiān</rt></ruby> go in a sentence?', choices:['before the verb: <ruby>我每天做运动<rt>wǒ měitiān zuò yùndòng</rt></ruby>。', 'after the verb: <ruby>我做运动每天<rt>wǒ zuò yùndòng měitiān</rt></ruby>。', 'at the very end: <ruby>做运动我每天<rt>zuò yùndòng wǒ měitiān</rt></ruby>。', 'before the subject: <ruby>每天我运动做<rt>měitiān wǒ yùndòng zuò</rt></ruby>。'], ans:0, hint:'In Chinese, time words come after the subject and before the verb.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you correctly say "I am in grade seven"? (HSK tip)', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。— use 上 + number + 年级.', '<ruby>我是七年级<rt>wǒ shì qī niánjí</rt></ruby>。— incorrect: 是 not used here.', '<ruby>我有七年级<rt>wǒ yǒu qī niánjí</rt></ruby>。— incorrect: 有 means "have".', '<ruby>我七年级上<rt>wǒ qī niánjí shàng</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: to give your grade, say 上 + number + 年级. Do NOT use 是.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中学生<rt>zhōngxuéshēng</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>七年级<rt>qī niánjí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><sup>②</sup><ruby>放学<rt>fàngxué</rt></ruby>。<ruby>放学<rt>fàngxué</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>先<rt>xiān</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>做运动<rt>zuò yùndòng</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><sup>④</sup>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>弹吉他<rt>tán jítā</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 中学生 zhōngxuéshēng: middle-school student ② 下午 xiàwǔ: afternoon ③ 以后 yǐhòu: after ④ 晚上 wǎnshang: evening</div>', stem:'What grade is Ali (阿里) in?', choices:['Grade 7 (七年级).', 'Grade 8 (八年级).', 'Grade 9 (九年级).', 'We are not told.'], ans:0, hint:'Find 上 ... 年级 in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中学生<rt>zhōngxuéshēng</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>七年级<rt>qī niánjí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><sup>②</sup><ruby>放学<rt>fàngxué</rt></ruby>。<ruby>放学<rt>fàngxué</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>先<rt>xiān</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>做运动<rt>zuò yùndòng</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><sup>④</sup>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>弹吉他<rt>tán jítā</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 中学生 zhōngxuéshēng: middle-school student ② 下午 xiàwǔ: afternoon ③ 以后 yǐhòu: after ④ 晚上 wǎnshang: evening</div>', stem:'What does Ali do FIRST after school?', choices:['He does his homework (做作业).', 'He does sports (做运动).', 'He plays the guitar (弹吉他).', 'He goes to school (上学).'], ans:0, hint:'Look for 先 (first) … 再 (then) — what comes after 先?' },
-    { type:'hots', stem:'🟡 Cycle 2 — Education is very important in Chinese culture — students often study many hours and families care a lot about school. What does your school day look like from morning to evening, and which part do you enjoy the most? | 🔵 Cycle 3 — In China doing well at school brings honour to the whole family, and homework can be heavy. Do you think long study hours and lots of homework are a good way to learn, and what matters more for young people — studying hard or having free time?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'School & grades', stem:'A <ruby>中学生<rt>zhōngxuéshēng</rt></ruby> is usually older than a:', choices:['<ruby>小学生<rt>xiǎoxuéshēng</rt></ruby> (primary pupil)', 'university student', 'teacher', 'parent'], ans:0, hint:'小学 (primary) → 中学 (middle/high) → 大学 (university).' },
+    { type:'mc', skill:'School & grades', stem:'In China, a student in <ruby>七年级<rt>qī niánjí</rt></ruby> is in their first year of:', choices:['<ruby>初中<rt>chūzhōng</rt></ruby> (junior middle school)', '<ruby>小学<rt>xiǎoxué</rt></ruby> (primary school)', '<ruby>大学<rt>dàxué</rt></ruby> (university)', 'kindergarten'], ans:0, hint:'Culture: Chinese middle school (初中) is grades 7–9; 七年级 is the first year.' },
+    { type:'mc', skill:'School & grades', stem:'Complete the dialogue — A: <ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？ B: ___', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>我每天做作业<rt>wǒ měitiān zuò zuòyè</rt></ruby>。', '<ruby>你上几年级<rt>nǐ shàng jǐ niánjí</rt></ruby>？', '<ruby>我喜欢弹吉他<rt>wǒ xǐhuan tán jítā</rt></ruby>。'], ans:0, hint:'几年级 asks the grade → answer with 上 + number + 年级.' },
+    { type:'mc', skill:'School & grades', stem:'Where does the time word <ruby>每天<rt>měitiān</rt></ruby> go in a sentence?', choices:['before the verb: <ruby>我每天做运动<rt>wǒ měitiān zuò yùndòng</rt></ruby>。', 'after the verb: <ruby>我做运动每天<rt>wǒ zuò yùndòng měitiān</rt></ruby>。', 'at the very end: <ruby>做运动我每天<rt>zuò yùndòng wǒ měitiān</rt></ruby>。', 'before the subject: <ruby>每天我运动做<rt>měitiān wǒ yùndòng zuò</rt></ruby>。'], ans:0, hint:'In Chinese, time words come after the subject and before the verb.' },
+    { type:'mc', skill:'School & grades', stem:'In Chinese (HSK), how do you correctly say "I am in grade seven"? (HSK tip)', choices:['<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。— use 上 + number + 年级.', '<ruby>我是七年级<rt>wǒ shì qī niánjí</rt></ruby>。— incorrect: 是 not used here.', '<ruby>我有七年级<rt>wǒ yǒu qī niánjí</rt></ruby>。— incorrect: 有 means "have".', '<ruby>我七年级上<rt>wǒ qī niánjí shàng</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: to give your grade, say 上 + number + 年级. Do NOT use 是.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中学生<rt>zhōngxuéshēng</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>七年级<rt>qī niánjí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><sup>②</sup><ruby>放学<rt>fàngxué</rt></ruby>。<ruby>放学<rt>fàngxué</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>先<rt>xiān</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>做运动<rt>zuò yùndòng</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><sup>④</sup>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>弹吉他<rt>tán jítā</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 中学生 zhōngxuéshēng: middle-school student ② 下午 xiàwǔ: afternoon ③ 以后 yǐhòu: after ④ 晚上 wǎnshang: evening</div>', stem:'What grade is Ali (阿里) in?', choices:['Grade 7 (七年级).', 'Grade 8 (八年级).', 'Grade 9 (九年级).', 'We are not told.'], ans:0, hint:'Find 上 ... 年级 in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中学生<rt>zhōngxuéshēng</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>七年级<rt>qī niánjí</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><sup>②</sup><ruby>放学<rt>fàngxué</rt></ruby>。<ruby>放学<rt>fàngxué</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>他<rt>tā</rt></ruby><ruby>先<rt>xiān</rt></ruby><ruby>做作业<rt>zuò zuòyè</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>做运动<rt>zuò yùndòng</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><sup>④</sup>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>弹吉他<rt>tán jítā</rt></ruby>。<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>一天<rt>yì tiān</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 中学生 zhōngxuéshēng: middle-school student ② 下午 xiàwǔ: afternoon ③ 以后 yǐhòu: after ④ 晚上 wǎnshang: evening</div>', stem:'What does Ali do FIRST after school?', choices:['He does his homework (做作业).', 'He does sports (做运动).', 'He plays the guitar (弹吉他).', 'He goes to school (上学).'], ans:0, hint:'Look for 先 (first) … 再 (then) — what comes after 先?' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Education is very important in Chinese culture — students often study many hours and families care a lot about school. What does your school day look like from morning to evening, and which part do you enjoy the most? | 🔵 Cycle 3 — In China doing well at school brings honour to the whole family, and homework can be heavy. Do you think long study hours and lots of homework are a good way to learn, and what matters more for young people — studying hard or having free time?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1C-L3 我的一天。</title>' +

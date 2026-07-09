@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L4', num:'Lesson 4', title:'你喜欢什么颜色？What colour do you like?', cn:'颜色',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 colour vocabulary (mixed types)
+  // TIER 1 · 夯实基础 — 10 colour vocabulary (mixed types)
   { qs:[
-    { type:'mc', stem:'🟢 Which word means “green”?', choices:['<ruby>绿色<rt>lǜsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>紫色<rt>zǐsè</rt></ruby>','<ruby>白色<rt>báisè</rt></ruby>'], ans:0, hint:'绿色 = green.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">紫色的＿</span> (flower)', ans:['花','huā','hua'], hint:'花 = flower.' },
-    { type:'match', stem:'🎨 Match each colour to its meaning.', left:['<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>绿色<rt>lǜsè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>'], right:['red','yellow','green','black'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'红色·黄色·绿色·黑色.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (colour words).', left:['huā','hóng','sè','lǜ'], right:['花','红','色','绿'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'花·红·色·绿.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红<rt>hóng</rt></ruby>（　）。 <span class="gl">(I like red — ___)</span>', choices:['<ruby>色<rt>sè</rt></ruby>','<ruby>花<rt>huā</rt></ruby>','<ruby>天<rt>tiān</rt></ruby>','<ruby>课<rt>kè</rt></ruby>'], ans:0, hint:'红色 = red.' },
-    { type:'mc', stem:'🎨 Which word means “colour”?', choices:['<ruby>颜色<rt>yánsè</rt></ruby>','<ruby>季节<rt>jìjié</rt></ruby>','<ruby>花<rt>huā</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>'], ans:0, hint:'颜色 = colour.' },
-    { type:'mc', stem:'🟣 Which word means “purple”?', choices:['<ruby>紫色<rt>zǐsè</rt></ruby>','<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>白色<rt>báisè</rt></ruby>'], ans:0, hint:'紫色 = purple.' },
-    { type:'mc', stem:'⚪ Which word means “white”?', choices:['<ruby>白色<rt>báisè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>','<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>绿色<rt>lǜsè</rt></ruby>'], ans:0, hint:'白色 = white.' },
-    { type:'mc', stem:'🌈 Which word means “all kinds / various”?', choices:['<ruby>各种<rt>gèzhǒng</rt></ruby>','<ruby>颜色<rt>yánsè</rt></ruby>','<ruby>花<rt>huā</rt></ruby>','<ruby>美<rt>měi</rt></ruby>'], ans:0, hint:'各种 = all kinds.' },
-    { type:'mc', stem:'🌻 Which means “I like yellow flowers”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黄色<rt>huángsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黄色<rt>huángsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黄色<rt>huángsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'黄色的花 = yellow flower.' },
+    { type:'mc', skill:'Colours', stem:'🟢 Which word means “green”?', choices:['<ruby>绿色<rt>lǜsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>紫色<rt>zǐsè</rt></ruby>','<ruby>白色<rt>báisè</rt></ruby>'], ans:0, hint:'绿色 = green.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">紫色的＿</span> (flower)', ans:['花','huā','hua'], hint:'花 = flower.' },
+    { type:'match', skill:'Colours', stem:'🎨 Match each colour to its meaning.', left:['<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>绿色<rt>lǜsè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>'], right:['red','yellow','green','black'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'红色·黄色·绿色·黑色.' },
+    { type:'match', skill:'Colours', stem:'写汉字 · Match the pinyin to its character (colour words).', left:['huā','hóng','sè','lǜ'], right:['花','红','色','绿'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'花·红·色·绿.' },
+    { type:'mc', skill:'Colours', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红<rt>hóng</rt></ruby>（　）。 <span class="gl">(I like red — ___)</span>', choices:['<ruby>色<rt>sè</rt></ruby>','<ruby>花<rt>huā</rt></ruby>','<ruby>天<rt>tiān</rt></ruby>','<ruby>课<rt>kè</rt></ruby>'], ans:0, hint:'红色 = red.' },
+    { type:'mc', skill:'Colours', stem:'🎨 Which word means “colour”?', choices:['<ruby>颜色<rt>yánsè</rt></ruby>','<ruby>季节<rt>jìjié</rt></ruby>','<ruby>花<rt>huā</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>'], ans:0, hint:'颜色 = colour.' },
+    { type:'mc', skill:'Colours', stem:'🟣 Which word means “purple”?', choices:['<ruby>紫色<rt>zǐsè</rt></ruby>','<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>白色<rt>báisè</rt></ruby>'], ans:0, hint:'紫色 = purple.' },
+    { type:'mc', skill:'Colours', stem:'⚪ Which word means “white”?', choices:['<ruby>白色<rt>báisè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>','<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>绿色<rt>lǜsè</rt></ruby>'], ans:0, hint:'白色 = white.' },
+    { type:'mc', skill:'Colours', stem:'🌈 Which word means “all kinds / various”?', choices:['<ruby>各种<rt>gèzhǒng</rt></ruby>','<ruby>颜色<rt>yánsè</rt></ruby>','<ruby>花<rt>huā</rt></ruby>','<ruby>美<rt>měi</rt></ruby>'], ans:0, hint:'各种 = all kinds.' },
+    { type:'mc', skill:'Colours', stem:'🌻 Which means “I like yellow flowers”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黄色<rt>huángsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黄色<rt>huángsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黄色<rt>huángsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'黄色的花 = yellow flower.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 grammar (什么颜色 / X色的Y / 写汉字), mixed types
+  // TIER 2 · 学以致用 — 10 grammar (什么颜色 / X色的Y / 写汉字), mixed types
   { qs:[
-    { type:'mc', stem:'<ruby>黄色<rt>huángsè</rt></ruby>（　）<ruby>花<rt>huā</rt></ruby> <span class="gl">(a yellow flower — colour + ___ + noun)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'colour + 的 + noun: 黄色的花.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (colours 2).', left:['huáng','hēi','bái','zǐ'], right:['黄','黑','白','紫'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'黄·黑·白·紫.' },
-    { type:'mc', stem:'👕 Which means “The teacher likes white clothes”?', choices:['<ruby>老师<rt>lǎoshī</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>学生<rt>xuésheng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'白色的衣服 = white clothes.' },
-    { type:'mc', stem:'<ruby>那里<rt>nàlǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby>（　）<ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(There are flowers of ___ (all kinds of) colours.)</span>', choices:['<ruby>各种<rt>gèzhǒng</rt></ruby>','<ruby>非常<rt>fēicháng</rt></ruby>','<ruby>哪<rt>nǎ</rt></ruby><ruby>个<rt>gè</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>'], ans:0, hint:'各种颜色 = all kinds of colours.' },
-    { type:'fill', stem:'认读 · Type the colour: <span class="cn">绿色的＿</span> (umbrella=伞)', ans:['伞','sǎn','san'], hint:'绿色的伞 = a green umbrella.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你喜欢什么颜色<rt>… shénme yánsè</rt></ruby>？ You like green. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>绿色<rt>lǜsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>秋天<rt>qiūtiān</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我喜欢….' },
-    { type:'mc', stem:'🗣️ <ruby>红色的花<rt>hóngsè de huā</rt></ruby> tells you:', choices:['a red flower','a flower colour','red and flower','flowers are red?'], ans:0, hint:'红色的花 = a red flower.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>（　）<ruby>颜色<rt>yánsè</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What colour do you like? — ___)</span>', choices:['<ruby>什么<rt>shénme</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'什么颜色 = what colour.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 黑色 hēisè: black</div>', stem:'What colour does Ali like?', choices:['Black (黑色).','Red.','White.','Green.'], ans:0, hint:'Find 阿里喜欢.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 黑色 hēisè: black</div>', stem:'What does mum like?', choices:['Red flowers (红色的花).','A black bag.','White clothes.','Green shoes.'], ans:0, hint:'Find 妈妈.' },
+    { type:'mc', skill:'Colours', stem:'<ruby>黄色<rt>huángsè</rt></ruby>（　）<ruby>花<rt>huā</rt></ruby> <span class="gl">(a yellow flower — colour + ___ + noun)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'colour + 的 + noun: 黄色的花.' },
+    { type:'match', skill:'Colours', stem:'写汉字 · Match the pinyin to its character (colours 2).', left:['huáng','hēi','bái','zǐ'], right:['黄','黑','白','紫'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'黄·黑·白·紫.' },
+    { type:'mc', skill:'Colours', stem:'👕 Which means “The teacher likes white clothes”?', choices:['<ruby>老师<rt>lǎoshī</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>学生<rt>xuésheng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'白色的衣服 = white clothes.' },
+    { type:'mc', skill:'Colours', stem:'<ruby>那里<rt>nàlǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby>（　）<ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby><ruby>。<rt></rt></ruby> <span class="gl">(There are flowers of ___ (all kinds of) colours.)</span>', choices:['<ruby>各种<rt>gèzhǒng</rt></ruby>','<ruby>非常<rt>fēicháng</rt></ruby>','<ruby>哪<rt>nǎ</rt></ruby><ruby>个<rt>gè</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>'], ans:0, hint:'各种颜色 = all kinds of colours.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the colour: <span class="cn">绿色的＿</span> (umbrella=伞)', ans:['伞','sǎn','san'], hint:'绿色的伞 = a green umbrella.' },
+    { type:'mc', skill:'Colours', stem:'🗣️ Someone asks <ruby>你喜欢什么颜色<rt>… shénme yánsè</rt></ruby>？ You like green. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>绿色<rt>lǜsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>秋天<rt>qiūtiān</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我喜欢….' },
+    { type:'mc', skill:'Colours', stem:'🗣️ <ruby>红色的花<rt>hóngsè de huā</rt></ruby> tells you:', choices:['a red flower','a flower colour','red and flower','flowers are red?'], ans:0, hint:'红色的花 = a red flower.' },
+    { type:'mc', skill:'Colours', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>（　）<ruby>颜色<rt>yánsè</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What colour do you like? — ___)</span>', choices:['<ruby>什么<rt>shénme</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'什么颜色 = what colour.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 黑色 hēisè: black</div>', stem:'What colour does Ali like?', choices:['Black (黑色).','Red.','White.','Green.'], ans:0, hint:'Find 阿里喜欢.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>黑色<rt>hēisè</rt></ruby><ruby>的<rt>de</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>白色<rt>báisè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 黑色 hēisè: black</div>', stem:'What does mum like?', choices:['Red flowers (红色的花).','A black bag.','White clothes.','Green shoes.'], ans:0, hint:'Find 妈妈.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>白色<rt>báisè</rt></ruby>（　）<ruby>衣服<rt>yīfu</rt></ruby> <span class="gl">(white clothes — colour + ___ + noun)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'白色的衣服.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你喜欢什么颜色<rt>… shénme yánsè</rt></ruby>？ You like purple. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>一年<rt>yì nián</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>季节<rt>jìjié</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>颜色<rt>yánsè</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我喜欢….' },
-    { type:'mc', stem:'🔴 Which word means “red”?', choices:['<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>绿色<rt>lǜsè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>'], ans:0, hint:'红色 = red.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you ask someone\u2019s favourite colour? (HSK tip)', choices:['<ruby>你喜欢什么颜色<rt>nǐ xǐhuan shénme yánsè</rt></ruby>？— 喜欢 + 什么颜色.', '<ruby>你是什么颜色<rt>nǐ shì shénme yánsè</rt></ruby>？— incorrect: no 是.', '<ruby>你喜欢颜色什么<rt>nǐ xǐhuan yánsè shénme</rt></ruby>？— wrong order.', '<ruby>什么颜色喜欢你<rt>shénme yánsè xǐhuan nǐ</rt></ruby>？— wrong order.'], ans:0, hint:'HSK tip: 喜欢 + 什么颜色. Do NOT use 是.' },
-    { type:'mc', stem:'🧧 In China, the colour <ruby>红色<rt>hóngsè</rt></ruby> (red) is special because it tells you:', choices:['luck and happiness — used at New Year and weddings', 'sadness and bad luck', 'cold weather', 'nothing at all'], ans:0, hint:'Culture: in China red stands for luck and joy, seen at Spring Festival and weddings.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>那里<rt>nàlǐ</rt></ruby><sup>①</sup><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><sup>②</sup><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>：<ruby>红色<rt>hóngsè</rt></ruby>、<ruby>黄色<rt>huángsè</rt></ruby>、<ruby>紫色<rt>zǐsè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>白色<rt>báisè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>最<rt>zuì</rt></ruby><sup>③</sup><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>这些<rt>zhèxiē</rt></ruby><sup>④</sup><ruby>花<rt>huā</rt></ruby><ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 那里 nàlǐ: there ② 各种 gèzhǒng: all kinds ③ 最 zuì: most ④ 这些 zhèxiē: these</div>', stem:'What colour flower does Fatima (法蒂玛) like most?', choices:['Purple (紫色).', 'Red (红色).', 'Yellow (黄色).', 'White (白色).'], ans:0, hint:'Find 法蒂玛最喜欢 … 的花.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>那里<rt>nàlǐ</rt></ruby><sup>①</sup><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><sup>②</sup><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>：<ruby>红色<rt>hóngsè</rt></ruby>、<ruby>黄色<rt>huángsè</rt></ruby>、<ruby>紫色<rt>zǐsè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>白色<rt>báisè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>最<rt>zuì</rt></ruby><sup>③</sup><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>这些<rt>zhèxiē</rt></ruby><sup>④</sup><ruby>花<rt>huā</rt></ruby><ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 那里 nàlǐ: there ② 各种 gèzhǒng: all kinds ③ 最 zuì: most ④ 这些 zhèxiē: these</div>', stem:'How many different flower colours are mentioned?', choices:['Four (red, yellow, purple, white).', 'Two.', 'Three.', 'Five.'], ans:0, hint:'Count the colours listed after 各种颜色的花.' },
-    { type:'hots', stem:'🟡 Cycle 2 — Colours can make us feel different things. In China, red (\u7ea2\u8272) means luck and happiness and is used at New Year and weddings. What is your favourite colour, and how does it make you feel? | 🔵 Cycle 3 — In China red means luck and is everywhere at festivals, while green and white are very important in Emirati and Islamic culture. Why do you think the same colour can mean different things in different cultures, and which colour do you think best represents your country \u2014 why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Colours', stem:'<ruby>白色<rt>báisè</rt></ruby>（　）<ruby>衣服<rt>yīfu</rt></ruby> <span class="gl">(white clothes — colour + ___ + noun)</span>', choices:['<ruby>的<rt>de</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'白色的衣服.' },
+    { type:'mc', skill:'Colours', stem:'🗣️ Someone asks <ruby>你喜欢什么颜色<rt>… shénme yánsè</rt></ruby>？ You like purple. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>一年<rt>yì nián</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>季节<rt>jìjié</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>颜色<rt>yánsè</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我喜欢….' },
+    { type:'mc', skill:'Colours', stem:'🔴 Which word means “red”?', choices:['<ruby>红色<rt>hóngsè</rt></ruby>','<ruby>黄色<rt>huángsè</rt></ruby>','<ruby>绿色<rt>lǜsè</rt></ruby>','<ruby>黑色<rt>hēisè</rt></ruby>'], ans:0, hint:'红色 = red.' },
+    { type:'mc', skill:'Colours', stem:'In Chinese (HSK), how do you ask someone\u2019s favourite colour? (HSK tip)', choices:['<ruby>你喜欢什么颜色<rt>nǐ xǐhuan shénme yánsè</rt></ruby>？— 喜欢 + 什么颜色.', '<ruby>你是什么颜色<rt>nǐ shì shénme yánsè</rt></ruby>？— incorrect: no 是.', '<ruby>你喜欢颜色什么<rt>nǐ xǐhuan yánsè shénme</rt></ruby>？— wrong order.', '<ruby>什么颜色喜欢你<rt>shénme yánsè xǐhuan nǐ</rt></ruby>？— wrong order.'], ans:0, hint:'HSK tip: 喜欢 + 什么颜色. Do NOT use 是.' },
+    { type:'mc', skill:'Colours', stem:'🧧 In China, the colour <ruby>红色<rt>hóngsè</rt></ruby> (red) is special because it tells you:', choices:['luck and happiness — used at New Year and weddings', 'sadness and bad luck', 'cold weather', 'nothing at all'], ans:0, hint:'Culture: in China red stands for luck and joy, seen at Spring Festival and weddings.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>那里<rt>nàlǐ</rt></ruby><sup>①</sup><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><sup>②</sup><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>：<ruby>红色<rt>hóngsè</rt></ruby>、<ruby>黄色<rt>huángsè</rt></ruby>、<ruby>紫色<rt>zǐsè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>白色<rt>báisè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>最<rt>zuì</rt></ruby><sup>③</sup><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>这些<rt>zhèxiē</rt></ruby><sup>④</sup><ruby>花<rt>huā</rt></ruby><ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 那里 nàlǐ: there ② 各种 gèzhǒng: all kinds ③ 最 zuì: most ④ 这些 zhèxiē: these</div>', stem:'What colour flower does Fatima (法蒂玛) like most?', choices:['Purple (紫色).', 'Red (红色).', 'Yellow (黄色).', 'White (白色).'], ans:0, hint:'Find 法蒂玛最喜欢 … 的花.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>那里<rt>nàlǐ</rt></ruby><sup>①</sup><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><sup>②</sup><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>：<ruby>红色<rt>hóngsè</rt></ruby>、<ruby>黄色<rt>huángsè</rt></ruby>、<ruby>紫色<rt>zǐsè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>白色<rt>báisè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>最<rt>zuì</rt></ruby><sup>③</sup><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>这些<rt>zhèxiē</rt></ruby><sup>④</sup><ruby>花<rt>huā</rt></ruby><ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！\u201d</p><div class="rn"><b>Notes:</b> ① 那里 nàlǐ: there ② 各种 gèzhǒng: all kinds ③ 最 zuì: most ④ 这些 zhèxiē: these</div>', stem:'How many different flower colours are mentioned?', choices:['Four (red, yellow, purple, white).', 'Two.', 'Three.', 'Five.'], ans:0, hint:'Count the colours listed after 各种颜色的花.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Colours can make us feel different things. In China, red (\u7ea2\u8272) means luck and happiness and is used at New Year and weddings. What is your favourite colour, and how does it make you feel? | 🔵 Cycle 3 — In China red means luck and is everywhere at festivals, while green and white are very important in Emirati and Islamic culture. Why do you think the same colour can mean different things in different cultures, and which colour do you think best represents your country \u2014 why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L4 你喜欢什么颜色？</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1C-L5', num:'Lesson 5', title:'你的爱好是什么？What is your hobby?', cn:'爱好',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & simple hobby questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & simple hobby questions
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby>（　）<ruby>是<rt>shì</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。 <span class="gl">(My hobby is reading. (___ ))</span>', choices:['<ruby>爱好<rt>àihào</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>','<ruby>足球<rt>zúqiú</rt></ruby>'], ans:0, hint:'爱好 = hobby.' },
-    { type:'mc', stem:'⚽ Which word means “football”?', choices:['<ruby>足球<rt>zúqiú</rt></ruby>','<ruby>篮球<rt>lánqiú</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>'], ans:0, hint:'足球 = football.' },
-    { type:'mc', stem:'🏀 Which verb goes with 篮球 (basketball)?', choices:['<ruby>打<rt>dǎ</rt></ruby> — to play (hands)','<ruby>踢<rt>tī</rt></ruby> — to kick (feet)','<ruby>看<rt>kàn</rt></ruby> — to watch','<ruby>听<rt>tīng</rt></ruby> — to listen'], ans:0, hint:'打篮球 = play basketball (with hands).' },
-    { type:'mc', stem:'❤️ Which word means “hobby”?', choices:['<ruby>爱好<rt>àihào</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>','<ruby>作<rt>zuò</rt></ruby><ruby>业<rt>yè</rt></ruby>','<ruby>家<rt>jiā</rt></ruby>'], ans:0, hint:'爱好 = hobby.' },
-    { type:'mc', stem:'⚽ Which verb goes with 足球 (football, with feet)?', choices:['<ruby>踢<rt>tī</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>听<rt>tīng</rt></ruby>'], ans:0, hint:'踢足球 = play football.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (hobby verbs).', left:['kàn','shū','dǎ','tīng'], right:['看','书','打','听'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看·书·打·听.' },
-    { type:'match', stem:'🏀 Match each activity to its meaning.', left:['<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>','<ruby>看电影<rt>kàn diànyǐng</rt></ruby>','<ruby>听音乐<rt>tīng yīnyuè</rt></ruby>'], right:['play basketball','play football','watch a movie','listen to music'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'打篮球·踢足球·看电影·听音乐.' },
-    { type:'mc', stem:'🎧 Which activity do you do with your EARS?', choices:['<ruby>听音乐<rt>tīng yīnyuè</rt></ruby>','<ruby>看电影<rt>kàn diànyǐng</rt></ruby>','<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>买衣服<rt>mǎi yīfu</rt></ruby>'], ans:0, hint:'听音乐 = listen to music.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我的爱好是＿足球。</span> (play=踢)', ans:['踢','tī','ti'], hint:'踢足球 = play football.' },
-    { type:'mc', stem:'🎬 Which word means “movie / film”?', choices:['<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>','<ruby>篮球<rt>lánqiú</rt></ruby>','<ruby>书<rt>shū</rt></ruby>'], ans:0, hint:'电影 = movie.' },
+    { type:'mc', skill:'Hobbies', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby>（　）<ruby>是<rt>shì</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。 <span class="gl">(My hobby is reading. (___ ))</span>', choices:['<ruby>爱好<rt>àihào</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>','<ruby>足球<rt>zúqiú</rt></ruby>'], ans:0, hint:'爱好 = hobby.' },
+    { type:'mc', skill:'Hobbies', stem:'⚽ Which word means “football”?', choices:['<ruby>足球<rt>zúqiú</rt></ruby>','<ruby>篮球<rt>lánqiú</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>'], ans:0, hint:'足球 = football.' },
+    { type:'mc', skill:'Hobbies', stem:'🏀 Which verb goes with 篮球 (basketball)?', choices:['<ruby>打<rt>dǎ</rt></ruby> — to play (hands)','<ruby>踢<rt>tī</rt></ruby> — to kick (feet)','<ruby>看<rt>kàn</rt></ruby> — to watch','<ruby>听<rt>tīng</rt></ruby> — to listen'], ans:0, hint:'打篮球 = play basketball (with hands).' },
+    { type:'mc', skill:'Hobbies', stem:'❤️ Which word means “hobby”?', choices:['<ruby>爱好<rt>àihào</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>','<ruby>作<rt>zuò</rt></ruby><ruby>业<rt>yè</rt></ruby>','<ruby>家<rt>jiā</rt></ruby>'], ans:0, hint:'爱好 = hobby.' },
+    { type:'mc', skill:'Hobbies', stem:'⚽ Which verb goes with 足球 (football, with feet)?', choices:['<ruby>踢<rt>tī</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>听<rt>tīng</rt></ruby>'], ans:0, hint:'踢足球 = play football.' },
+    { type:'match', skill:'Hobbies', stem:'写汉字 · Match the pinyin to its character (hobby verbs).', left:['kàn','shū','dǎ','tīng'], right:['看','书','打','听'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'看·书·打·听.' },
+    { type:'match', skill:'Hobbies', stem:'🏀 Match each activity to its meaning.', left:['<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>','<ruby>看电影<rt>kàn diànyǐng</rt></ruby>','<ruby>听音乐<rt>tīng yīnyuè</rt></ruby>'], right:['play basketball','play football','watch a movie','listen to music'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'打篮球·踢足球·看电影·听音乐.' },
+    { type:'mc', skill:'Hobbies', stem:'🎧 Which activity do you do with your EARS?', choices:['<ruby>听音乐<rt>tīng yīnyuè</rt></ruby>','<ruby>看电影<rt>kàn diànyǐng</rt></ruby>','<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>买衣服<rt>mǎi yīfu</rt></ruby>'], ans:0, hint:'听音乐 = listen to music.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我的爱好是＿足球。</span> (play=踢)', ans:['踢','tī','ti'], hint:'踢足球 = play football.' },
+    { type:'mc', skill:'Hobbies', stem:'🎬 Which word means “movie / film”?', choices:['<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>','<ruby>篮球<rt>lánqiú</rt></ruby>','<ruby>书<rt>shū</rt></ruby>'], ans:0, hint:'电影 = movie.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 simple usage + 写汉字 questions
+  // TIER 2 · 学以致用 — 10 simple usage + 写汉字 questions
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>（　）<ruby>踢足球<rt>tī zúqiú</rt></ruby>。 <span class="gl">(I like basketball ___ (and) football.)</span>', choices:['<ruby>和<rt>hé</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>'], ans:0, hint:'和 = and (joins two things).' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）。 <span class="gl">(I like reading — ___)</span>', choices:['<ruby>书<rt>shū</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>','<ruby>足球<rt>zúqiú</rt></ruby>'], ans:0, hint:'看书 = read a book.' },
-    { type:'mc', stem:'🗣️ After you answer, your friend asks <ruby>你呢<rt>nǐ ne</rt></ruby>？ They are asking:', choices:['And you? / What about you?','Who are you?','Where are you?','How old are you?'], ans:0, hint:'你呢？= And you?' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">我喜欢＿音乐。</span> (listen)', ans:['听','tīng','ting'], hint:'听音乐 = listen to music.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你的爱好是什么<rt>… àihào shì shénme</rt></ruby>？ You like music. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>。'], ans:0, hint:'Answer: 我的爱好是….' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (ball & film).', left:['lán','qiú','diàn','yǐng'], right:['篮','球','电','影'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'篮·球·电·影.' },
-    { type:'mc', stem:'🎵 Which sentence means “Her hobby is buying clothes”?', choices:['<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>买衣服<rt>mǎi yīfu</rt></ruby>。','<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>买衣服<rt>mǎi yīfu</rt></ruby>。','<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby>。'], ans:0, hint:'她的爱好是买衣服.' },
-    { type:'mc', stem:'⚽ Which verbs are correct: ___ basketball and ___ football?', choices:['<ruby>打<rt>dǎ</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>踢<rt>tī</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — play · kick','<ruby>踢<rt>tī</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — wrong','<ruby>看<rt>kàn</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>听<rt>tīng</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — wrong','<ruby>买<rt>mǎi</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — wrong'], ans:0, hint:'打篮球 (hands) · 踢足球 (feet).' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby</div>', stem:'What is Fatima’s hobby?', choices:['Listening to music and reading (听音乐、看书).','Playing basketball.','Watching movies.','Buying clothes.'], ans:0, hint:'Find 爱好.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby</div>', stem:'Does Fatima like playing basketball?', choices:['No, she does not (不喜欢打篮球).','Yes, she loves it.','She plays every day.','The passage does not say.'], ans:0, hint:'Find 篮球.' },
+    { type:'mc', skill:'Hobbies', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>（　）<ruby>踢足球<rt>tī zúqiú</rt></ruby>。 <span class="gl">(I like basketball ___ (and) football.)</span>', choices:['<ruby>和<rt>hé</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>'], ans:0, hint:'和 = and (joins two things).' },
+    { type:'mc', skill:'Hobbies', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看<rt>kàn</rt></ruby>（　）。 <span class="gl">(I like reading — ___)</span>', choices:['<ruby>书<rt>shū</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>','<ruby>足球<rt>zúqiú</rt></ruby>'], ans:0, hint:'看书 = read a book.' },
+    { type:'mc', skill:'Hobbies', stem:'🗣️ After you answer, your friend asks <ruby>你呢<rt>nǐ ne</rt></ruby>？ They are asking:', choices:['And you? / What about you?','Who are you?','Where are you?','How old are you?'], ans:0, hint:'你呢？= And you?' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">我喜欢＿音乐。</span> (listen)', ans:['听','tīng','ting'], hint:'听音乐 = listen to music.' },
+    { type:'mc', skill:'Hobbies', stem:'🗣️ Someone asks <ruby>你的爱好是什么<rt>… àihào shì shénme</rt></ruby>？ You like music. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>。'], ans:0, hint:'Answer: 我的爱好是….' },
+    { type:'match', skill:'Hobbies', stem:'写汉字 · Match the pinyin to its character (ball & film).', left:['lán','qiú','diàn','yǐng'], right:['篮','球','电','影'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'篮·球·电·影.' },
+    { type:'mc', skill:'Hobbies', stem:'🎵 Which sentence means “Her hobby is buying clothes”?', choices:['<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>买衣服<rt>mǎi yīfu</rt></ruby>。','<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>买衣服<rt>mǎi yīfu</rt></ruby>。','<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby>。'], ans:0, hint:'她的爱好是买衣服.' },
+    { type:'mc', skill:'Hobbies', stem:'⚽ Which verbs are correct: ___ basketball and ___ football?', choices:['<ruby>打<rt>dǎ</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>踢<rt>tī</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — play · kick','<ruby>踢<rt>tī</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — wrong','<ruby>看<rt>kàn</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>听<rt>tīng</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — wrong','<ruby>买<rt>mǎi</rt></ruby><ruby>篮<rt>lán</rt></ruby><ruby>球<rt>qiú</rt></ruby><ruby> <rt></rt></ruby><ruby>·<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>玩<rt>wán</rt></ruby><ruby>足<rt>zú</rt></ruby><ruby>球<rt>qiú</rt></ruby> — wrong'], ans:0, hint:'打篮球 (hands) · 踢足球 (feet).' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby</div>', stem:'What is Fatima’s hobby?', choices:['Listening to music and reading (听音乐、看书).','Playing basketball.','Watching movies.','Buying clothes.'], ans:0, hint:'Find 爱好.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby</div>', stem:'Does Fatima like playing basketball?', choices:['No, she does not (不喜欢打篮球).','Yes, she loves it.','She plays every day.','The passage does not say.'], ans:0, hint:'Find 篮球.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In Chinese (HSK), how do you ask someone\u2019s hobby? (HSK tip)', choices:['<ruby>你的爱好是什么<rt>nǐ de àihào shì shénme</rt></ruby>？— 爱好 is a noun, use 是什么.', '<ruby>你的爱好做什么<rt>nǐ de àihào zuò shénme</rt></ruby>？— incorrect.', '<ruby>你爱好什么是<rt>nǐ àihào shénme shì</rt></ruby>？— wrong word order.', '<ruby>什么你的爱好是<rt>shénme nǐ de àihào shì</rt></ruby>？— wrong word order.'], ans:0, hint:'HSK tip: 爱好 (hobby) is a noun → 你的爱好是什么？' },
-    { type:'mc', stem:'🥋 Chinese Kungfu (<ruby>中国功夫<rt>Zhōngguó gōngfu</rt></ruby>) is a kind of:', choices:['Chinese martial art', 'Chinese painting', 'Chinese food', 'Chinese song'], ans:0, hint:'Culture: 功夫 / 武术 is a traditional Chinese martial art, famous from places like Shaolin (少林).' },
-    { type:'mc', stem:'🦶 Why do we say 踢足球 (football)?', choices:['<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>i<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>f<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby>r<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>f<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>t<rt></rt></ruby> — feet','<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>i<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>f<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby>r<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>h<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby><ruby>d<rt></rt></ruby><ruby>s<rt></rt></ruby> — wrong','<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>m<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>t<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>w<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>t<rt></rt></ruby><ruby>c<rt></rt></ruby><ruby>h<rt></rt></ruby> — wrong','<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>m<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>t<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>b<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>y<rt></rt></ruby> — wrong'], ans:0, hint:'踢 = kick (feet) → 踢足球.' },
-    { type:'mc', stem:'🏀 Which word means “basketball”?', choices:['<ruby>篮球<rt>lánqiú</rt></ruby>','<ruby>足球<rt>zúqiú</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>'], ans:0, hint:'篮球 = basketball.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>（　）<ruby>听音乐<rt>tīng yīnyuè</rt></ruby>。 <span class="gl">(I like reading ___ (and) listening to music.)</span>', choices:['<ruby>和<rt>hé</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>'], ans:0, hint:'和 = and.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><sup>②</sup><ruby>和<rt>hé</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby><sup>③</sup>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>踢足球<rt>tī zúqiú</rt></ruby><sup>④</sup>。<ruby>他们<rt>tāmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby ② 打篮球 dǎ lánqiú: play basketball ③ 看电影 kàn diànyǐng: watch a film ④ 踢足球 tī zúqiú: play football ⑤ 听音乐 tīng yīnyuè: listen to music</div>', stem:'What is Hassan\u2019s (哈桑) hobby?', choices:['Playing basketball and watching films.', 'Playing football.', 'Buying clothes.', 'Reading books.'], ans:0, hint:'Find 哈桑的爱好是 … in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><sup>②</sup><ruby>和<rt>hé</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby><sup>③</sup>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>踢足球<rt>tī zúqiú</rt></ruby><sup>④</sup>。<ruby>他们<rt>tāmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby ② 打篮球 dǎ lánqiú: play basketball ③ 看电影 kàn diànyǐng: watch a film ④ 踢足球 tī zúqiú: play football ⑤ 听音乐 tīng yīnyuè: listen to music</div>', stem:'What do BOTH friends like to do?', choices:['Listen to music (听音乐).', 'Play basketball (打篮球).', 'Watch films (看电影).', 'Play football (踢足球).'], ans:0, hint:'Look for 都 (both) — what comes after it?' },
-    { type:'hots', stem:'🟡 Cycle 2 — Chinese Kungfu (中国功夫) is a famous martial art that trains both the body and the mind. What sport or hobby do you and your friends enjoy together, and would you like to try learning Kungfu — why or why not? | 🔵 Cycle 3 — Kungfu trains the body and self-control, and many cultures have their own important sports. Are there activities in Emirati culture that train both body and mind, and why do you think martial arts from China have become popular all over the world?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Hobbies', stem:'In Chinese (HSK), how do you ask someone\u2019s hobby? (HSK tip)', choices:['<ruby>你的爱好是什么<rt>nǐ de àihào shì shénme</rt></ruby>？— 爱好 is a noun, use 是什么.', '<ruby>你的爱好做什么<rt>nǐ de àihào zuò shénme</rt></ruby>？— incorrect.', '<ruby>你爱好什么是<rt>nǐ àihào shénme shì</rt></ruby>？— wrong word order.', '<ruby>什么你的爱好是<rt>shénme nǐ de àihào shì</rt></ruby>？— wrong word order.'], ans:0, hint:'HSK tip: 爱好 (hobby) is a noun → 你的爱好是什么？' },
+    { type:'mc', skill:'Hobbies', stem:'🥋 Chinese Kungfu (<ruby>中国功夫<rt>Zhōngguó gōngfu</rt></ruby>) is a kind of:', choices:['Chinese martial art', 'Chinese painting', 'Chinese food', 'Chinese song'], ans:0, hint:'Culture: 功夫 / 武术 is a traditional Chinese martial art, famous from places like Shaolin (少林).' },
+    { type:'mc', skill:'Hobbies', stem:'🦶 Why do we say 踢足球 (football)?', choices:['<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>i<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>f<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby>r<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>f<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>t<rt></rt></ruby> — feet','<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>i<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>f<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby>r<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>h<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby><ruby>d<rt></rt></ruby><ruby>s<rt></rt></ruby> — wrong','<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>m<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>t<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>w<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>t<rt></rt></ruby><ruby>c<rt></rt></ruby><ruby>h<rt></rt></ruby> — wrong','<ruby>踢<rt>tī</rt></ruby><ruby> <rt></rt></ruby><ruby>m<rt></rt></ruby><ruby>e<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby><ruby>s<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>t<rt></rt></ruby><ruby>o<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>b<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>y<rt></rt></ruby> — wrong'], ans:0, hint:'踢 = kick (feet) → 踢足球.' },
+    { type:'mc', skill:'Hobbies', stem:'🏀 Which word means “basketball”?', choices:['<ruby>篮球<rt>lánqiú</rt></ruby>','<ruby>足球<rt>zúqiú</rt></ruby>','<ruby>电影<rt>diànyǐng</rt></ruby>','<ruby>音乐<rt>yīnyuè</rt></ruby>'], ans:0, hint:'篮球 = basketball.' },
+    { type:'mc', skill:'Hobbies', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>（　）<ruby>听音乐<rt>tīng yīnyuè</rt></ruby>。 <span class="gl">(I like reading ___ (and) listening to music.)</span>', choices:['<ruby>和<rt>hé</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>'], ans:0, hint:'和 = and.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><sup>②</sup><ruby>和<rt>hé</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby><sup>③</sup>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>踢足球<rt>tī zúqiú</rt></ruby><sup>④</sup>。<ruby>他们<rt>tāmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby ② 打篮球 dǎ lánqiú: play basketball ③ 看电影 kàn diànyǐng: watch a film ④ 踢足球 tī zúqiú: play football ⑤ 听音乐 tīng yīnyuè: listen to music</div>', stem:'What is Hassan\u2019s (哈桑) hobby?', choices:['Playing basketball and watching films.', 'Playing football.', 'Buying clothes.', 'Reading books.'], ans:0, hint:'Find 哈桑的爱好是 … in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>爱好<rt>àihào</rt></ruby><sup>①</sup><ruby>是<rt>shì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><sup>②</sup><ruby>和<rt>hé</rt></ruby><ruby>看电影<rt>kàn diànyǐng</rt></ruby><sup>③</sup>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>踢足球<rt>tī zúqiú</rt></ruby><sup>④</sup>。<ruby>他们<rt>tāmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>听音乐<rt>tīng yīnyuè</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 爱好 àihào: hobby ② 打篮球 dǎ lánqiú: play basketball ③ 看电影 kàn diànyǐng: watch a film ④ 踢足球 tī zúqiú: play football ⑤ 听音乐 tīng yīnyuè: listen to music</div>', stem:'What do BOTH friends like to do?', choices:['Listen to music (听音乐).', 'Play basketball (打篮球).', 'Watch films (看电影).', 'Play football (踢足球).'], ans:0, hint:'Look for 都 (both) — what comes after it?' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Chinese Kungfu (中国功夫) is a famous martial art that trains both the body and the mind. What sport or hobby do you and your friends enjoy together, and would you like to try learning Kungfu — why or why not? | 🔵 Cycle 3 — Kungfu trains the body and self-control, and many cultures have their own important sports. Are there activities in Emirati culture that train both body and mind, and why do you think martial arts from China have become popular all over the world?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1C-L5 你的爱好是什么？</title>' +

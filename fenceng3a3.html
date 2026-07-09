@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'3A-L3', num:'Lesson 3', title:'请问，去地铁站怎么走？Excuse me, how do I get to the subway station?', cn:'问路与指路',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: directions & stations (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: directions & stations (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'<ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby>（　）。 <span class="gl">(Turn left (左 + ___).)</span>', choices:['<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'往左转 = turn left.' },
-    { type:'mc', stem:'<ruby>去<rt></rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>怎么<rt>zěnme</rt></ruby>（　）？ <span class="gl">(How do I ___ (get there) to the subway station?)</span>', choices:['<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>'], ans:0, hint:'怎么走 = how do I get there.' },
-    { type:'fill', stem:'认读 · Type the direction: <span class="cn">往（　）走。</span> (forward)', ans:['前','qián','qian'], hint:'往前走 = go forward. The word is 前.' },
-    { type:'mc', stem:'🔄 Which word means “to turn”?', choices:['<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'转 = to turn. 往左转 = turn left.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">地铁站在你的（　）边。</span> (right)', ans:['右','yòu','you'], hint:'右边 = on the right. The word is 右.' },
-    { type:'mc', stem:'<ruby>在<rt>zài</rt></ruby><ruby>第一个<rt>dì-yī ge</rt></ruby>（　）<ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。 <span class="gl">(Turn left at the first ___ (intersection).)</span>', choices:['<ruby>路口<rt>lùkǒu</rt></ruby>','<ruby>分钟<rt>fēnzhōng</rt></ruby>','<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>'], ans:0, hint:'路口 = intersection.' },
-    { type:'match', stem:'🚉 Match each place to its meaning.', left:['<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>汽车站<rt>qìchēzhàn</rt></ruby>','<ruby>火车站<rt>huǒchēzhàn</rt></ruby>','<ruby>路口<rt>lùkǒu</rt></ruby>'], right:['subway station','bus station','train station','intersection'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'地铁站=subway · 汽车站=bus · 火车站=train · 路口=intersection.' },
-    { type:'match', stem:'🧭 Match each word to its meaning.', left:['<ruby>往<rt>wǎng</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>分钟<rt>fēnzhōng</rt></ruby>'], right:['toward','to turn','to stop','minute'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'往=toward · 转=turn · 停=stop · 分钟=minute.' },
-    { type:'mc', stem:'🚇 Which word means “subway station”?', choices:['<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>汽车站<rt>qìchēzhàn</rt></ruby>','<ruby>火车站<rt>huǒchēzhàn</rt></ruby>','<ruby>路口<rt>lùkǒu</rt></ruby>'], ans:0, hint:'地铁站 = subway station.' },
-    { type:'mc', stem:'🛑 Which word means “to stop”?', choices:['<ruby>停<rt>tíng</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>往<rt>wǎng</rt></ruby>'], ans:0, hint:'停 = to stop.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby>（　）。 <span class="gl">(Turn left (左 + ___).)</span>', choices:['<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'往左转 = turn left.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>去<rt></rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>怎么<rt>zěnme</rt></ruby>（　）？ <span class="gl">(How do I ___ (get there) to the subway station?)</span>', choices:['<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>'], ans:0, hint:'怎么走 = how do I get there.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the direction: <span class="cn">往（　）走。</span> (forward)', ans:['前','qián','qian'], hint:'往前走 = go forward. The word is 前.' },
+    { type:'mc', skill:'Directions', stem:'🔄 Which word means “to turn”?', choices:['<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'转 = to turn. 往左转 = turn left.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">地铁站在你的（　）边。</span> (right)', ans:['右','yòu','you'], hint:'右边 = on the right. The word is 右.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>在<rt>zài</rt></ruby><ruby>第一个<rt>dì-yī ge</rt></ruby>（　）<ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。 <span class="gl">(Turn left at the first ___ (intersection).)</span>', choices:['<ruby>路口<rt>lùkǒu</rt></ruby>','<ruby>分钟<rt>fēnzhōng</rt></ruby>','<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>'], ans:0, hint:'路口 = intersection.' },
+    { type:'match', skill:'Directions', stem:'🚉 Match each place to its meaning.', left:['<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>汽车站<rt>qìchēzhàn</rt></ruby>','<ruby>火车站<rt>huǒchēzhàn</rt></ruby>','<ruby>路口<rt>lùkǒu</rt></ruby>'], right:['subway station','bus station','train station','intersection'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'地铁站=subway · 汽车站=bus · 火车站=train · 路口=intersection.' },
+    { type:'match', skill:'Directions', stem:'🧭 Match each word to its meaning.', left:['<ruby>往<rt>wǎng</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>分钟<rt>fēnzhōng</rt></ruby>'], right:['toward','to turn','to stop','minute'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'往=toward · 转=turn · 停=stop · 分钟=minute.' },
+    { type:'mc', skill:'Directions', stem:'🚇 Which word means “subway station”?', choices:['<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>汽车站<rt>qìchēzhàn</rt></ruby>','<ruby>火车站<rt>huǒchēzhàn</rt></ruby>','<ruby>路口<rt>lùkǒu</rt></ruby>'], ans:0, hint:'地铁站 = subway station.' },
+    { type:'mc', skill:'Directions', stem:'🛑 Which word means “to stop”?', choices:['<ruby>停<rt>tíng</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>往<rt>wǎng</rt></ruby>'], ans:0, hint:'停 = to stop.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — first 3 BASIC, then usage + 认读 (recognition) + 2 reading (HSK 1-2 light)
+  // TIER 2 · 学以致用 — first 3 BASIC, then usage + 认读 (recognition) + 2 reading (HSK 1-2 light)
   { qs:[
-    { type:'mc', stem:'<ruby>去<rt></rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>怎么<rt>zěnme</rt></ruby>（　）？ <span class="gl">(How do I ___ (get there)?)</span>', choices:['<ruby>走<rt>zǒu</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'怎么走 = how do I get there.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['yòu','lù','kǒu','zài'], right:['右','路','口','再'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'右=right · 路=road · 口=mouth/opening · 再=then/again.' },
-    { type:'mc', stem:'<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>右<rt>yòu</rt></ruby>（　）。 <span class="gl">(Turn right at the intersection (右 + ___).)</span>', choices:['<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'往右转 = turn right.' },
-    { type:'fill', stem:'认读 · Type the word for distance: <span class="cn">地铁站（　）这里不远。</span> (from)', ans:['离','lí','li'], hint:'离 = (distance) from. The word is 离.' },
-    { type:'mc', stem:'（　）<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>。 <span class="gl">(___ (then) keep going forward, the station is on your right.)</span>', choices:['<ruby>再<rt>zài</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'再 = then / after that.' },
-    { type:'mc', stem:'（　）<ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>。 <span class="gl">(Go forward (___ + forward + walk).)</span>', choices:['<ruby>往<rt>wǎng</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>'], ans:0, hint:'往 + direction + verb. 往前走.' },
-    { type:'mc', stem:'<ruby>地铁站<rt>dìtiězhàn</rt></ruby>（　）<ruby>这<rt>zhè</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。 <span class="gl">(The subway station is not far ___ (from) here.)</span>', choices:['<ruby>离<rt>lí</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>'], ans:0, hint:'离 = (distance) from.' },
-    { type:'mc', stem:'🗣️ A asks <ruby>去地铁站怎么走<rt>qù dìtiězhàn zěnme zǒu</rt></ruby>？ A good answer is:', choices:['<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>地<rt></rt></ruby><ruby>铁<rt></rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。','<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。'], ans:0, hint:'Give directions: 往…走，往…转.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>右<rt>yòu</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>左边<rt>zuǒbian</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 路口 lùkǒu: intersection ③ 左边 zuǒbian: on the left</div>', stem:'Is the shop near or far from here?', choices:['Near (很近).', 'Far.', 'Very far.', 'We cannot tell.'], ans:0, hint:'Read the first sentence: 商店离这里很 ……' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>右<rt>yòu</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>左边<rt>zuǒbian</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 路口 lùkǒu: intersection ③ 左边 zuǒbian: on the left</div>', stem:'Where is the shop?', choices:['On your left (左边).', 'On your right.', 'Behind you.', 'Inside the station.'], ans:0, hint:'Find 商店在你的 …… 边.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>去<rt></rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>怎么<rt>zěnme</rt></ruby>（　）？ <span class="gl">(How do I ___ (get there)?)</span>', choices:['<ruby>走<rt>zǒu</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'怎么走 = how do I get there.' },
+    { type:'match', skill:'Directions', stem:'写汉字 · Match each pinyin to its character.', left:['yòu','lù','kǒu','zài'], right:['右','路','口','再'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'右=right · 路=road · 口=mouth/opening · 再=then/again.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>右<rt>yòu</rt></ruby>（　）。 <span class="gl">(Turn right at the intersection (右 + ___).)</span>', choices:['<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>停<rt>tíng</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'往右转 = turn right.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word for distance: <span class="cn">地铁站（　）这里不远。</span> (from)', ans:['离','lí','li'], hint:'离 = (distance) from. The word is 离.' },
+    { type:'mc', skill:'Directions', stem:'（　）<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>。 <span class="gl">(___ (then) keep going forward, the station is on your right.)</span>', choices:['<ruby>再<rt>zài</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'再 = then / after that.' },
+    { type:'mc', skill:'Directions', stem:'（　）<ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>。 <span class="gl">(Go forward (___ + forward + walk).)</span>', choices:['<ruby>往<rt>wǎng</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>'], ans:0, hint:'往 + direction + verb. 往前走.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>地铁站<rt>dìtiězhàn</rt></ruby>（　）<ruby>这<rt>zhè</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。 <span class="gl">(The subway station is not far ___ (from) here.)</span>', choices:['<ruby>离<rt>lí</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>'], ans:0, hint:'离 = (distance) from.' },
+    { type:'mc', skill:'Directions', stem:'🗣️ A asks <ruby>去地铁站怎么走<rt>qù dìtiězhàn zěnme zǒu</rt></ruby>？ A good answer is:', choices:['<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>地<rt></rt></ruby><ruby>铁<rt></rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。','<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。'], ans:0, hint:'Give directions: 往…走，往…转.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>右<rt>yòu</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>左边<rt>zuǒbian</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 路口 lùkǒu: intersection ③ 左边 zuǒbian: on the left</div>', stem:'Is the shop near or far from here?', choices:['Near (很近).', 'Far.', 'Very far.', 'We cannot tell.'], ans:0, hint:'Read the first sentence: 商店离这里很 ……' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>右<rt>yòu</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>左边<rt>zuǒbian</rt></ruby><sup>③</sup>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 路口 lùkǒu: intersection ③ 左边 zuǒbian: on the left</div>', stem:'Where is the shop?', choices:['On your left (左边).', 'On your right.', 'Behind you.', 'Inside the station.'], ans:0, hint:'Find 商店在你的 …… 边.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — first 2 BASIC, then extended (incl. HSK tips) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — first 2 BASIC, then extended (incl. HSK tips) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>往<rt>wǎng</rt></ruby>（　）<ruby>转<rt>zhuǎn</rt></ruby>。 <span class="gl">(Turn ___ (right).)</span>', choices:['<ruby>右<rt>yòu</rt></ruby>','<ruby>左<rt>zuǒ</rt></ruby>','<ruby>前<rt>qián</rt></ruby>','<ruby>后<rt>hòu</rt></ruby>'], ans:0, hint:'往右转 = turn right.' },
-    { type:'mc', stem:'🚉 Which word means “train station”?', choices:['<ruby>火车站<rt>huǒchēzhàn</rt></ruby>','<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>汽车站<rt>qìchēzhàn</rt></ruby>','<ruby>路口<rt>lùkǒu</rt></ruby>'], ans:0, hint:'火车站 = train station.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>去地铁站怎么走<rt>… zěnme zǒu</rt></ruby>？ A good answer is:', choices:['<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>地铁<rt>dìtiě</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。'], ans:0, hint:'Give directions: 往…走，往…转.' },
-    { type:'mc', stem:'How does the preposition <ruby>往<rt>wǎng</rt></ruby> work? (HSK tip)', choices:['往 + direction + verb: 往前走 (go forward) · 往左转 (turn left) — 往 tells you which way.', '往 means "to stop".', '往 always goes at the end of a sentence.', '往 means "how much".'], ans:0, hint:'往 + 前/后/左/右 + verb. 往右转 = turn (to the) right.' },
-    { type:'mc', stem:'🛑 At a red light, what should you do?', choices:['<ruby>停<rt>tíng</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'停 = to stop.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby>，<ruby>去<rt>qù</rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><sup>①</sup><ruby>怎么<rt>zěnme</rt></ruby><ruby>走<rt>zǒu</rt></ruby>？”<ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>第一<rt>dì-yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>，<ruby>走路<rt>zǒulù</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>分钟<rt>fēnzhōng</rt></ruby><sup>③</sup><ruby>就<rt>jiù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 地铁站 dìtiězhàn: subway station ② 路口 lùkǒu: intersection ③ 分钟 fēnzhōng: minute(s)</div>', stem:'Is the subway station far from here?', choices:['No, it is not far (离这里不远).', 'Yes, very far.', 'We cannot tell.', 'It is closed.'], ans:0, hint:'Find 地铁站离这里 ……' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby>，<ruby>去<rt>qù</rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><sup>①</sup><ruby>怎么<rt>zěnme</rt></ruby><ruby>走<rt>zǒu</rt></ruby>？”<ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>第一<rt>dì-yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>，<ruby>走路<rt>zǒulù</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>分钟<rt>fēnzhōng</rt></ruby><sup>③</sup><ruby>就<rt>jiù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 地铁站 dìtiězhàn: subway station ② 路口 lùkǒu: intersection ③ 分钟 fēnzhōng: minute(s)</div>', stem:'At the first intersection, which way should Hassan turn?', choices:['Turn left (往左转).', 'Turn right.', 'Go back.', 'Stop and wait.'], ans:0, hint:'Find 在第一个路口往 …… 转.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🗺️ Imagine you must guide a friend from your school to your favourite place WITHOUT using a phone map — only landmarks like a big tree, a mosque, a mall or a fountain. Invent the clearest, most creative set of directions you can, and explain why landmarks can sometimes be better than street names. | 🔵 Cycle 3 — 🧭 The Tang poem 寻隐者不遇 shows a traveller who asks the way and receives a beautiful but vague answer — "he is somewhere in these mountains, but the clouds are too deep to know where." Today, people in both China and the UAE usually follow phone maps (GPS) instead of asking a stranger. Why do you think the way people find their path has changed so much, and what might we GAIN — and what might we LOSE — when we stop asking each other for directions and trust only our screens?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Directions', stem:'<ruby>往<rt>wǎng</rt></ruby>（　）<ruby>转<rt>zhuǎn</rt></ruby>。 <span class="gl">(Turn ___ (right).)</span>', choices:['<ruby>右<rt>yòu</rt></ruby>','<ruby>左<rt>zuǒ</rt></ruby>','<ruby>前<rt>qián</rt></ruby>','<ruby>后<rt>hòu</rt></ruby>'], ans:0, hint:'往右转 = turn right.' },
+    { type:'mc', skill:'Directions', stem:'🚉 Which word means “train station”?', choices:['<ruby>火车站<rt>huǒchēzhàn</rt></ruby>','<ruby>地铁站<rt>dìtiězhàn</rt></ruby>','<ruby>汽车站<rt>qìchēzhàn</rt></ruby>','<ruby>路口<rt>lùkǒu</rt></ruby>'], ans:0, hint:'火车站 = train station.' },
+    { type:'mc', skill:'Directions', stem:'🗣️ Someone asks <ruby>去地铁站怎么走<rt>… zěnme zǒu</rt></ruby>？ A good answer is:', choices:['<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>地铁<rt>dìtiě</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。'], ans:0, hint:'Give directions: 往…走，往…转.' },
+    { type:'mc', skill:'Directions', stem:'How does the preposition <ruby>往<rt>wǎng</rt></ruby> work? (HSK tip)', choices:['往 + direction + verb: 往前走 (go forward) · 往左转 (turn left) — 往 tells you which way.', '往 means "to stop".', '往 always goes at the end of a sentence.', '往 means "how much".'], ans:0, hint:'往 + 前/后/左/右 + verb. 往右转 = turn (to the) right.' },
+    { type:'mc', skill:'Directions', stem:'🛑 At a red light, what should you do?', choices:['<ruby>停<rt>tíng</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'停 = to stop.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby>，<ruby>去<rt>qù</rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><sup>①</sup><ruby>怎么<rt>zěnme</rt></ruby><ruby>走<rt>zǒu</rt></ruby>？”<ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>第一<rt>dì-yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>，<ruby>走路<rt>zǒulù</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>分钟<rt>fēnzhōng</rt></ruby><sup>③</sup><ruby>就<rt>jiù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 地铁站 dìtiězhàn: subway station ② 路口 lùkǒu: intersection ③ 分钟 fēnzhōng: minute(s)</div>', stem:'Is the subway station far from here?', choices:['No, it is not far (离这里不远).', 'Yes, very far.', 'We cannot tell.', 'It is closed.'], ans:0, hint:'Find 地铁站离这里 ……' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby>，<ruby>去<rt>qù</rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><sup>①</sup><ruby>怎么<rt>zěnme</rt></ruby><ruby>走<rt>zǒu</rt></ruby>？”<ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>第一<rt>dì-yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>，<ruby>走路<rt>zǒulù</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>分钟<rt>fēnzhōng</rt></ruby><sup>③</sup><ruby>就<rt>jiù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 地铁站 dìtiězhàn: subway station ② 路口 lùkǒu: intersection ③ 分钟 fēnzhōng: minute(s)</div>', stem:'At the first intersection, which way should Hassan turn?', choices:['Turn left (往左转).', 'Turn right.', 'Go back.', 'Stop and wait.'], ans:0, hint:'Find 在第一个路口往 …… 转.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🗺️ Imagine you must guide a friend from your school to your favourite place WITHOUT using a phone map — only landmarks like a big tree, a mosque, a mall or a fountain. Invent the clearest, most creative set of directions you can, and explain why landmarks can sometimes be better than street names. | 🔵 Cycle 3 — 🧭 The Tang poem 寻隐者不遇 shows a traveller who asks the way and receives a beautiful but vague answer — "he is somewhere in these mountains, but the clouds are too deep to know where." Today, people in both China and the UAE usually follow phone maps (GPS) instead of asking a stranger. Why do you think the way people find their path has changed so much, and what might we GAIN — and what might we LOSE — when we stop asking each other for directions and trust only our screens?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3A-L3 请问，去地铁站怎么走？</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2B-L5', num:'Lesson 5', title:'请问你们要什么 What can I do for you?', cn:'点餐与疑问句',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: ordering food (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: ordering food (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'🍲 Which one is something to EAT?', choices:['<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>服务员<rt>fúwùyuán</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], ans:0, hint:'饺子 = dumplings (food).' },
-    { type:'mc', stem:'🧑‍🍳 Which word means “waiter”?', choices:['<ruby>服务员<rt>fúwùyuán</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>'], ans:0, hint:'服务员 = waiter.' },
-    { type:'mc', stem:'（　）<ruby>坐<rt>zuò</rt></ruby>。 <span class="gl">(___ (Please) sit down.)</span>', choices:['<ruby>请<rt>qǐng</rt></ruby>','<ruby>要<rt>yào</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>'], ans:0, hint:'请 + verb = please…' },
-    { type:'mc', stem:'🥣 Which measure word goes with 汤 (soup)?', choices:['<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>盘<rt>pán</rt></ruby> — a plate of','<ruby>支<rt>zhī</rt></ruby> — a pen','<ruby>本<rt>běn</rt></ruby> — a book'], ans:0, hint:'碗 = bowl. 一碗汤.' },
-    { type:'fill', stem:'认读 · Type the food: <span class="cn">这是（　）。</span> (menu)', ans:['菜单','càidān','caidan'], hint:'菜单 = menu.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。 <span class="gl">(I ___ (want) a plate of dumplings.)</span>', choices:['<ruby>要<rt>yào</rt></ruby>','<ruby>请<rt>qǐng</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>是<rt>shì</rt></ruby>'], ans:0, hint:'要 = to want / order.' },
-    { type:'match', stem:'🥟 Match each word to its meaning.', left:['<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>服务员<rt>fúwùyuán</rt></ruby>'], right:['dumplings','soup','menu','waiter'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'饺子=dumplings·汤=soup·菜单=menu·服务员=waiter.' },
-    { type:'mc', stem:'📋 Which word means “menu”?', choices:['<ruby>菜单<rt>càidān</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], ans:0, hint:'菜单 = menu.' },
-    { type:'fill', stem:'认读 · Type the measure word: <span class="cn">我要一（　）饺子。</span> (a plate of)', ans:['盘','pán','pan'], hint:'盘 = plate.' },
-    { type:'match', stem:'🙏 Match each word to its meaning.', left:['<ruby>请<rt>qǐng</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>要<rt>yào</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], right:['please','to sit','to want','bowl (of)'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'请=please·坐=sit·要=want·碗=bowl.' },
+    { type:'mc', skill:'Ordering & requests', stem:'🍲 Which one is something to EAT?', choices:['<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>服务员<rt>fúwùyuán</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], ans:0, hint:'饺子 = dumplings (food).' },
+    { type:'mc', skill:'Ordering & requests', stem:'🧑‍🍳 Which word means “waiter”?', choices:['<ruby>服务员<rt>fúwùyuán</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>'], ans:0, hint:'服务员 = waiter.' },
+    { type:'mc', skill:'Ordering & requests', stem:'（　）<ruby>坐<rt>zuò</rt></ruby>。 <span class="gl">(___ (Please) sit down.)</span>', choices:['<ruby>请<rt>qǐng</rt></ruby>','<ruby>要<rt>yào</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>'], ans:0, hint:'请 + verb = please…' },
+    { type:'mc', skill:'Ordering & requests', stem:'🥣 Which measure word goes with 汤 (soup)?', choices:['<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>盘<rt>pán</rt></ruby> — a plate of','<ruby>支<rt>zhī</rt></ruby> — a pen','<ruby>本<rt>běn</rt></ruby> — a book'], ans:0, hint:'碗 = bowl. 一碗汤.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the food: <span class="cn">这是（　）。</span> (menu)', ans:['菜单','càidān','caidan'], hint:'菜单 = menu.' },
+    { type:'mc', skill:'Ordering & requests', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。 <span class="gl">(I ___ (want) a plate of dumplings.)</span>', choices:['<ruby>要<rt>yào</rt></ruby>','<ruby>请<rt>qǐng</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>是<rt>shì</rt></ruby>'], ans:0, hint:'要 = to want / order.' },
+    { type:'match', skill:'Ordering & requests', stem:'🥟 Match each word to its meaning.', left:['<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>服务员<rt>fúwùyuán</rt></ruby>'], right:['dumplings','soup','menu','waiter'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'饺子=dumplings·汤=soup·菜单=menu·服务员=waiter.' },
+    { type:'mc', skill:'Ordering & requests', stem:'📋 Which word means “menu”?', choices:['<ruby>菜单<rt>càidān</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], ans:0, hint:'菜单 = menu.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the measure word: <span class="cn">我要一（　）饺子。</span> (a plate of)', ans:['盘','pán','pan'], hint:'盘 = plate.' },
+    { type:'match', skill:'Ordering & requests', stem:'🙏 Match each word to its meaning.', left:['<ruby>请<rt>qǐng</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>要<rt>yào</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], right:['please','to sit','to want','bowl (of)'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'请=please·坐=sit·要=want·碗=bowl.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 usage + interrogative sentences + 写汉字 (HSK 1-2 light)
+  // TIER 2 · 学以致用 — 10 usage + interrogative sentences + 写汉字 (HSK 1-2 light)
   { qs:[
-    { type:'mc', stem:'<ruby>请<rt>qǐng</rt></ruby>（　）<ruby>有<rt>yǒu</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(May I ___ (ask), do you have dumplings?)</span>', choices:['<ruby>问<rt>wèn</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>要<rt>yào</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>'], ans:0, hint:'请问 = may I ask / excuse me.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>汤<rt>tāng</rt></ruby>。 <span class="gl">(I want a ___ (bowl) of soup.)</span>', choices:['<ruby>碗<rt>wǎn</rt></ruby>','<ruby>盘<rt>pán</rt></ruby>','<ruby>杯<rt>bēi</rt></ruby>','<ruby>瓶<rt>píng</rt></ruby>'], ans:0, hint:'碗 = bowl.' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">请问你们（　）什么？</span> (to want)', ans:['要','yào','yao'], hint:'要 = to want.' },
-    { type:'mc', stem:'❓ Which question does a waiter ask to take your order?', choices:['<ruby>请<rt>qǐng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'请问你们要什么？= what would you like?' },
-    { type:'mc', stem:'🗣️ A waiter asks <ruby>请问你们要什么<rt>qǐngwèn nǐmen yào shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。','<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>菜单<rt>càidān</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。'], ans:0, hint:'Order food: 我要….' },
-    { type:'mc', stem:'🥟 Which measure word goes with 饺子 (dumplings, on a plate)?', choices:['<ruby>盘<rt>pán</rt></ruby> — a plate of','<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>杯<rt>bēi</rt></ruby> — a cup of','<ruby>部<rt>bù</rt></ruby> — a phone'], ans:0, hint:'盘 = plate. 一盘饺子.' },
-    { type:'mc', stem:'<ruby>请<rt>qǐng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby>（　）<ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Excuse me, what would you like? (___))</span>', choices:['<ruby>要<rt>yào</rt></ruby>','<ruby>请<rt>qǐng</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>是<rt>shì</rt></ruby>'], ans:0, hint:'要 = to want / order.' },
-    { type:'mc', stem:'🍽 Which one is a PERSON?', choices:['<ruby>服务员<rt>fúwùyuán</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>'], ans:0, hint:'服务员 = waiter (a person).' },
-    { type:'mc', stem:'🥟 Which sentence means “I want a plate of dumplings and a cup of juice”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>碗<rt>wǎn</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。','<ruby>饺子<rt>jiǎozi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby>。'], ans:0, hint:'一盘饺子 = a plate of dumplings.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['yào','qǐng','zuò','yuán'], right:['要','请','坐','员'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'要=want·请=please·坐=sit·员=staff.' },
+    { type:'mc', skill:'Ordering & requests', stem:'<ruby>请<rt>qǐng</rt></ruby>（　）<ruby>有<rt>yǒu</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(May I ___ (ask), do you have dumplings?)</span>', choices:['<ruby>问<rt>wèn</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>要<rt>yào</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>'], ans:0, hint:'请问 = may I ask / excuse me.' },
+    { type:'mc', skill:'Ordering & requests', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>汤<rt>tāng</rt></ruby>。 <span class="gl">(I want a ___ (bowl) of soup.)</span>', choices:['<ruby>碗<rt>wǎn</rt></ruby>','<ruby>盘<rt>pán</rt></ruby>','<ruby>杯<rt>bēi</rt></ruby>','<ruby>瓶<rt>píng</rt></ruby>'], ans:0, hint:'碗 = bowl.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">请问你们（　）什么？</span> (to want)', ans:['要','yào','yao'], hint:'要 = to want.' },
+    { type:'mc', skill:'Ordering & requests', stem:'❓ Which question does a waiter ask to take your order?', choices:['<ruby>请<rt>qǐng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'请问你们要什么？= what would you like?' },
+    { type:'mc', skill:'Ordering & requests', stem:'🗣️ A waiter asks <ruby>请问你们要什么<rt>qǐngwèn nǐmen yào shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。','<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>菜单<rt>càidān</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。'], ans:0, hint:'Order food: 我要….' },
+    { type:'mc', skill:'Ordering & requests', stem:'🥟 Which measure word goes with 饺子 (dumplings, on a plate)?', choices:['<ruby>盘<rt>pán</rt></ruby> — a plate of','<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>杯<rt>bēi</rt></ruby> — a cup of','<ruby>部<rt>bù</rt></ruby> — a phone'], ans:0, hint:'盘 = plate. 一盘饺子.' },
+    { type:'mc', skill:'Ordering & requests', stem:'<ruby>请<rt>qǐng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby>（　）<ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Excuse me, what would you like? (___))</span>', choices:['<ruby>要<rt>yào</rt></ruby>','<ruby>请<rt>qǐng</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>是<rt>shì</rt></ruby>'], ans:0, hint:'要 = to want / order.' },
+    { type:'mc', skill:'Ordering & requests', stem:'🍽 Which one is a PERSON?', choices:['<ruby>服务员<rt>fúwùyuán</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>汤<rt>tāng</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>'], ans:0, hint:'服务员 = waiter (a person).' },
+    { type:'mc', skill:'Ordering & requests', stem:'🥟 Which sentence means “I want a plate of dumplings and a cup of juice”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>碗<rt>wǎn</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>。','<ruby>饺子<rt>jiǎozi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>要<rt>yào</rt></ruby>。'], ans:0, hint:'一盘饺子 = a plate of dumplings.' },
+    { type:'match', skill:'Ordering & requests', stem:'写汉字 · Match each pinyin to its character.', left:['yào','qǐng','zuò','yuán'], right:['要','请','坐','员'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'要=want·请=please·坐=sit·员=staff.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'Culture: <ruby>中国的筷子文化<rt>Zhōngguó de kuàizi wénhuà</rt></ruby> — chopsticks. Which is true?', choices:['In China people usually eat with chopsticks (筷子); it is polite not to stick them upright in your rice.', 'Chopsticks are only used for soup.', 'Chinese people never use chopsticks.', 'Chopsticks must always be made of gold.'], ans:0, hint:'筷子 = chopsticks. There are polite customs — e.g. do not stand chopsticks upright in a bowl of rice.' },
-    { type:'mc', stem:'<ruby>请<rt>qǐng</rt></ruby>（　）！ <span class="gl">(___ (Please) sit down!)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>吃<rt>chī</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>'], ans:0, hint:'请坐 = please sit.' },
-    { type:'mc', stem:'🥣 Which word means “soup”?', choices:['<ruby>汤<rt>tāng</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], ans:0, hint:'汤 = soup.' },
-    { type:'mc', stem:'🥟 Which measure word goes with 饺子 (a plate)?', choices:['<ruby>盘<rt>pán</rt></ruby> — a plate of','<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>杯<rt>bēi</rt></ruby> — a cup of','<ruby>瓶<rt>píng</rt></ruby> — a bottle of'], ans:0, hint:'盘 = plate. 一盘饺子.' },
-    { type:'mc', stem:'Why do we say <ruby>请问<rt>qǐngwèn</rt></ruby> before a question? (HSK tip)', choices:['请问 makes a question polite — like "excuse me / may I ask" in English.', '请问 means "I do not know".', '请问 can only be used by waiters.', '请问 means "no".'], ans:0, hint:'请 = please + 问 = ask → 请问 is a polite opener: 请问，现在几点？= Excuse me, what time is it?' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>饭店<rt>fàndiàn</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>。<ruby>服务员<rt>fúwùyuán</rt></ruby><sup>①</sup><ruby>说<rt>shuō</rt></ruby>：“<ruby>你们好<rt>nǐmen hǎo</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>坐<rt>zuò</rt></ruby>，<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>菜单<rt>càidān</rt></ruby><sup>②</sup>，<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>吗<rt>ma</rt></ruby>？”<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>有<rt>yǒu</rt></ruby>，<ruby>请<rt>qǐng</rt></ruby><ruby>看<rt>kàn</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>这儿<rt>zhèr</rt></ruby>。”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>碗<rt>wǎn</rt></ruby><ruby>牛肉汤<rt>niúròutāng</rt></ruby><sup>③</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>炒面<rt>chǎomiàn</rt></ruby><sup>④</sup><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 服务员 fúwùyuán: waiter ② 菜单 càidān: menu ③ 牛肉汤 niúròutāng: beef soup ④ 炒面 chǎomiàn: fried noodles</div>', stem:'What does Ali (阿里) order?', choices:['A plate of dumplings and a bowl of beef soup.', 'A plate of fried noodles and a cup of juice.', 'Only a cup of juice.', 'Rice and tea.'], ans:0, hint:'Find 阿里要 …… near the end of the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>饭店<rt>fàndiàn</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>。<ruby>服务员<rt>fúwùyuán</rt></ruby><sup>①</sup><ruby>说<rt>shuō</rt></ruby>：“<ruby>你们好<rt>nǐmen hǎo</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>坐<rt>zuò</rt></ruby>，<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>菜单<rt>càidān</rt></ruby><sup>②</sup>，<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>吗<rt>ma</rt></ruby>？”<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>有<rt>yǒu</rt></ruby>，<ruby>请<rt>qǐng</rt></ruby><ruby>看<rt>kàn</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>这儿<rt>zhèr</rt></ruby>。”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>碗<rt>wǎn</rt></ruby><ruby>牛肉汤<rt>niúròutāng</rt></ruby><sup>③</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>炒面<rt>chǎomiàn</rt></ruby><sup>④</sup><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 服务员 fúwùyuán: waiter ② 菜单 càidān: menu ③ 牛肉汤 niúròutāng: beef soup ④ 炒面 chǎomiàn: fried noodles</div>', stem:'What does Hassan (哈桑) order to drink?', choices:['A cup of juice (一杯果汁).', 'A bowl of soup.', 'A plate of dumplings.', 'Milk.'], ans:0, hint:'Find 哈桑要 …… and look for the drink (杯 = cup).' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🥢 In a restaurant you can order all kinds of food: 饺子、汤、米饭、果汁. Imagine you are in a Chinese restaurant. What would you order, and how would you ask the waiter (服务员) politely using 请问？ | 🔵 Cycle 3 — 🥢 In China people usually eat with chopsticks (筷子); in the UAE people often eat with the right hand or with a fork and spoon. Why do you think different cultures eat in different ways, and what can the way people eat tell us about a culture?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Ordering & requests', stem:'Culture: <ruby>中国的筷子文化<rt>Zhōngguó de kuàizi wénhuà</rt></ruby> — chopsticks. Which is true?', choices:['In China people usually eat with chopsticks (筷子); it is polite not to stick them upright in your rice.', 'Chopsticks are only used for soup.', 'Chinese people never use chopsticks.', 'Chopsticks must always be made of gold.'], ans:0, hint:'筷子 = chopsticks. There are polite customs — e.g. do not stand chopsticks upright in a bowl of rice.' },
+    { type:'mc', skill:'Ordering & requests', stem:'<ruby>请<rt>qǐng</rt></ruby>（　）！ <span class="gl">(___ (Please) sit down!)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>吃<rt>chī</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>'], ans:0, hint:'请坐 = please sit.' },
+    { type:'mc', skill:'Ordering & requests', stem:'🥣 Which word means “soup”?', choices:['<ruby>汤<rt>tāng</rt></ruby>','<ruby>饺子<rt>jiǎozi</rt></ruby>','<ruby>菜单<rt>càidān</rt></ruby>','<ruby>碗<rt>wǎn</rt></ruby>'], ans:0, hint:'汤 = soup.' },
+    { type:'mc', skill:'Ordering & requests', stem:'🥟 Which measure word goes with 饺子 (a plate)?', choices:['<ruby>盘<rt>pán</rt></ruby> — a plate of','<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>杯<rt>bēi</rt></ruby> — a cup of','<ruby>瓶<rt>píng</rt></ruby> — a bottle of'], ans:0, hint:'盘 = plate. 一盘饺子.' },
+    { type:'mc', skill:'Ordering & requests', stem:'Why do we say <ruby>请问<rt>qǐngwèn</rt></ruby> before a question? (HSK tip)', choices:['请问 makes a question polite — like "excuse me / may I ask" in English.', '请问 means "I do not know".', '请问 can only be used by waiters.', '请问 means "no".'], ans:0, hint:'请 = please + 问 = ask → 请问 is a polite opener: 请问，现在几点？= Excuse me, what time is it?' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>饭店<rt>fàndiàn</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>。<ruby>服务员<rt>fúwùyuán</rt></ruby><sup>①</sup><ruby>说<rt>shuō</rt></ruby>：“<ruby>你们好<rt>nǐmen hǎo</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>坐<rt>zuò</rt></ruby>，<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>菜单<rt>càidān</rt></ruby><sup>②</sup>，<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>吗<rt>ma</rt></ruby>？”<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>有<rt>yǒu</rt></ruby>，<ruby>请<rt>qǐng</rt></ruby><ruby>看<rt>kàn</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>这儿<rt>zhèr</rt></ruby>。”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>碗<rt>wǎn</rt></ruby><ruby>牛肉汤<rt>niúròutāng</rt></ruby><sup>③</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>炒面<rt>chǎomiàn</rt></ruby><sup>④</sup><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 服务员 fúwùyuán: waiter ② 菜单 càidān: menu ③ 牛肉汤 niúròutāng: beef soup ④ 炒面 chǎomiàn: fried noodles</div>', stem:'What does Ali (阿里) order?', choices:['A plate of dumplings and a bowl of beef soup.', 'A plate of fried noodles and a cup of juice.', 'Only a cup of juice.', 'Rice and tea.'], ans:0, hint:'Find 阿里要 …… near the end of the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>饭店<rt>fàndiàn</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>。<ruby>服务员<rt>fúwùyuán</rt></ruby><sup>①</sup><ruby>说<rt>shuō</rt></ruby>：“<ruby>你们好<rt>nǐmen hǎo</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>坐<rt>zuò</rt></ruby>，<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>菜单<rt>càidān</rt></ruby><sup>②</sup>，<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>你们<rt>nǐmen</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>吗<rt>ma</rt></ruby>？”<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>有<rt>yǒu</rt></ruby>，<ruby>请<rt>qǐng</rt></ruby><ruby>看<rt>kàn</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>这儿<rt>zhèr</rt></ruby>。”<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>碗<rt>wǎn</rt></ruby><ruby>牛肉汤<rt>niúròutāng</rt></ruby><sup>③</sup>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>炒面<rt>chǎomiàn</rt></ruby><sup>④</sup><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>果汁<rt>guǒzhī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 服务员 fúwùyuán: waiter ② 菜单 càidān: menu ③ 牛肉汤 niúròutāng: beef soup ④ 炒面 chǎomiàn: fried noodles</div>', stem:'What does Hassan (哈桑) order to drink?', choices:['A cup of juice (一杯果汁).', 'A bowl of soup.', 'A plate of dumplings.', 'Milk.'], ans:0, hint:'Find 哈桑要 …… and look for the drink (杯 = cup).' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🥢 In a restaurant you can order all kinds of food: 饺子、汤、米饭、果汁. Imagine you are in a Chinese restaurant. What would you order, and how would you ask the waiter (服务员) politely using 请问？ | 🔵 Cycle 3 — 🥢 In China people usually eat with chopsticks (筷子); in the UAE people often eat with the right hand or with a fork and spoon. Why do you think different cultures eat in different ways, and what can the way people eat tell us about a culture?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2B-L5 请问你们要什么？</title>' +

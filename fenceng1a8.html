@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1A-L8', num:'Lesson 8', title:'我是阿联酋人。I am Emirati.', cn:'国籍',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 Workbook-style questions
+  // TIER 1 · 夯实基础 — 10 Workbook-style questions
   { qs:[
-    { type:'mc', stem:'🌍 "I am Emirati" in Chinese:', choices:['<ruby>我是阿联酋人<rt>wǒ shì Āliánqiúrén</rt></ruby>。', '<ruby>我阿联酋是人<rt>wǒ Āliánqiú shì rén</rt></ruby>。', '<ruby>阿联酋人我是<rt>Āliánqiúrén wǒ shì</rt></ruby>。', '<ruby>我是人阿联酋<rt>wǒ shì rén Āliánqiú</rt></ruby>。'], ans:0, hint:'我是 + country + 人 = I am from ___.' },
-    { type:'mc', stem:'❓ "What nationality are you?":', choices:['<ruby>你是哪国人<rt>nǐ shì nǎ guó rén</rt></ruby>？', '<ruby>你是什么<rt>nǐ shì shénme</rt></ruby>？', '<ruby>你来自哪里<rt>nǐ láizì nǎlǐ</rt></ruby>？', '<ruby>你国家什么<rt>nǐ guójiā shénme</rt></ruby>？'], ans:0, hint:'你是哪国人？= What nationality are you?' },
-    { type:'mc', stem:'🌍 <ruby>人<rt>rén</rt></ruby> after a country name means:', choices:['person / people from that country', 'country', 'language', 'city'], ans:0, hint:'中国人 = Chinese person. 人 = person.' },
-    { type:'mc', stem:'🌍 <ruby>中国人<rt>Zhōngguórén</rt></ruby> means:', choices:['Chinese person', 'Chinese language', 'China', 'Chinese food'], ans:0, hint:'中国 + 人 = Chinese person.' },
-    { type:'mc', stem:'🌍 <ruby>朋友<rt>péngyou</rt></ruby> means:', choices:['friend', 'teacher', 'classmate', 'family'], ans:0, hint:'朋友 = friend.' },
-    { type:'match', stem:'Match each nationality to its Chinese.', left:['Emirati', 'Chinese', 'Jordanian', 'Egyptian'], right:['<ruby>约旦人<rt>Yuēdànrén</rt></ruby>', '<ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>', '<ruby>埃及人<rt>Āijírén</rt></ruby>', '<ruby>中国人<rt>Zhōngguórén</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 0], [3, 2]], hint:'Nationality = country + 人.' },
-    { type:'mc', stem:'🌍 <ruby>我是阿联酋人<rt>wǒ shì Āliánqiúrén</rt></ruby>。 means:', choices:['I am Emirati.', 'I am from China.', 'I am a student.', 'I am a friend.'], ans:0, hint:'阿联酋人 = Emirati.' },
-    { type:'mc', stem:'🌍 <ruby>哪<rt>nǎ</rt></ruby> in 你是哪国人 means:', choices:['which', 'what', 'where', 'who'], ans:0, hint:'哪 (nǎ) = which · used in 你是哪国人？= What nationality are you?' },
-    { type:'mc', stem:'🌍 <ruby>我的朋友<rt>wǒ de péngyou</rt></ruby> means:', choices:['my friend', 'our friends', 'her friend', 'the friend'], ans:0, hint:'我的 = my. 你的 = your. 他的 = his.' },
-    { type:'mc', stem:'🌍 You are from Jordan. Reply to 你是哪国人？:', choices:['<ruby>我是约旦人<rt>wǒ shì Yuēdànrén</rt></ruby>。', '<ruby>你是约旦人<rt>nǐ shì Yuēdànrén</rt></ruby>。', '<ruby>他是约旦人<rt>tā shì Yuēdànrén</rt></ruby>。', '<ruby>约旦人是我<rt>Yuēdànrén shì wǒ</rt></ruby>。'], ans:0, hint:'Reply: 我是 + nationality.' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 "I am Emirati" in Chinese:', choices:['<ruby>我是阿联酋人<rt>wǒ shì Āliánqiúrén</rt></ruby>。', '<ruby>我阿联酋是人<rt>wǒ Āliánqiú shì rén</rt></ruby>。', '<ruby>阿联酋人我是<rt>Āliánqiúrén wǒ shì</rt></ruby>。', '<ruby>我是人阿联酋<rt>wǒ shì rén Āliánqiú</rt></ruby>。'], ans:0, hint:'我是 + country + 人 = I am from ___.' },
+    { type:'mc', skill:'Nationalities', stem:'❓ "What nationality are you?":', choices:['<ruby>你是哪国人<rt>nǐ shì nǎ guó rén</rt></ruby>？', '<ruby>你是什么<rt>nǐ shì shénme</rt></ruby>？', '<ruby>你来自哪里<rt>nǐ láizì nǎlǐ</rt></ruby>？', '<ruby>你国家什么<rt>nǐ guójiā shénme</rt></ruby>？'], ans:0, hint:'你是哪国人？= What nationality are you?' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 <ruby>人<rt>rén</rt></ruby> after a country name means:', choices:['person / people from that country', 'country', 'language', 'city'], ans:0, hint:'中国人 = Chinese person. 人 = person.' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 <ruby>中国人<rt>Zhōngguórén</rt></ruby> means:', choices:['Chinese person', 'Chinese language', 'China', 'Chinese food'], ans:0, hint:'中国 + 人 = Chinese person.' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 <ruby>朋友<rt>péngyou</rt></ruby> means:', choices:['friend', 'teacher', 'classmate', 'family'], ans:0, hint:'朋友 = friend.' },
+    { type:'match', skill:'Nationalities', stem:'Match each nationality to its Chinese.', left:['Emirati', 'Chinese', 'Jordanian', 'Egyptian'], right:['<ruby>约旦人<rt>Yuēdànrén</rt></ruby>', '<ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>', '<ruby>埃及人<rt>Āijírén</rt></ruby>', '<ruby>中国人<rt>Zhōngguórén</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 0], [3, 2]], hint:'Nationality = country + 人.' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 <ruby>我是阿联酋人<rt>wǒ shì Āliánqiúrén</rt></ruby>。 means:', choices:['I am Emirati.', 'I am from China.', 'I am a student.', 'I am a friend.'], ans:0, hint:'阿联酋人 = Emirati.' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 <ruby>哪<rt>nǎ</rt></ruby> in 你是哪国人 means:', choices:['which', 'what', 'where', 'who'], ans:0, hint:'哪 (nǎ) = which · used in 你是哪国人？= What nationality are you?' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 <ruby>我的朋友<rt>wǒ de péngyou</rt></ruby> means:', choices:['my friend', 'our friends', 'her friend', 'the friend'], ans:0, hint:'我的 = my. 你的 = your. 他的 = his.' },
+    { type:'mc', skill:'Nationalities', stem:'🌍 You are from Jordan. Reply to 你是哪国人？:', choices:['<ruby>我是约旦人<rt>wǒ shì Yuēdànrén</rt></ruby>。', '<ruby>你是约旦人<rt>nǐ shì Yuēdànrén</rt></ruby>。', '<ruby>他是约旦人<rt>tā shì Yuēdànrén</rt></ruby>。', '<ruby>约旦人是我<rt>Yuēdànrén shì wǒ</rt></ruby>。'], ans:0, hint:'Reply: 我是 + nationality.' },
   ]},
 
 
   { qs:[
-    { type:'mc', stem:'<span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？</span> means:', choices:['What nationality are you?','Where do you live?','What is your name?','How old are you?'], ans:0, hint:'<ruby>哪<rt>nǎ</rt></ruby>= which,<ruby>国<rt>guó</rt></ruby>= country,<ruby>人<rt>rén</rt></ruby>= person' },
-    { type:'mc', stem:'Which word means "friend"?', choices:['<ruby>朋友<rt>péngyou</rt></ruby>','<ruby>国家<rt>guójiā</rt></ruby>','<ruby>名字<rt>míngzi</rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby>'], ans:0, hint:'<ruby>朋<rt>péng</rt></ruby>+two characters meaning companion' },
-    { type:'mc', stem:'<span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby>。</span> — <ruby>这<rt>zhè</rt></ruby> means:', choices:['this','that','which','who'], ans:0, hint:'<ruby>这<rt>zhè</rt></ruby>= this (near);<ruby>那<rt>nà</rt></ruby>= that (far)' },
-    { type:'mc', stem:'<ruby>中国人<rt>Zhōngguórén</rt></ruby> means:', choices:['Chinese person','UAE person','British person','Egyptian person'], ans:0, hint:'<ruby>中国<rt>Zhōngguó</rt></ruby>= China; add<ruby>人<rt>rén</rt></ruby>= person from that country' },
-    { type:'mc', stem:'<span class="cn"><ruby>的<rt>de</rt></ruby></span> in <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby></span> shows:', choices:['possession (my friend)','a question','an action','a location'], ans:0, hint:'<ruby>的<rt>de</rt></ruby>¹ is a structural particle showing possession (<ruby>结构助词<rt>jiégòu zhùcí</rt></ruby>)' },
-    { type:'mc', stem:'How do you say "British person" in Chinese?', choices:['<ruby>英国人<rt>Yīngguórén</rt></ruby>','<ruby>美国人<rt>Měiguórén</rt></ruby>','<ruby>法国人<rt>Fǎguórén</rt></ruby>','<ruby>德国人<rt>Déguórén</rt></ruby>'], ans:0, hint:'<ruby>英国<rt>Yīngguó</rt></ruby>= England/UK; +<ruby>人<rt>rén</rt></ruby>= British person' },
-    { type:'fill', stem:'Ask nationality: <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿<ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>？</span>', ans:['哪','nǎ','na'], hint:'<ruby>哪<rt>nǎ</rt></ruby>= which (interrogative pronoun<ruby>疑问代词<rt>yíwèn dàicí</rt></ruby>)' },
-    { type:'match', stem:'Match nationality to country', left:['<ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>','<ruby>中国人<rt>Zhōngguórén</rt></ruby>','<ruby>英国人<rt>Yīngguórén</rt></ruby>','<ruby>沙特人<rt>Shātèrén</rt></ruby>'], right:['Emirati','Chinese','British','Saudi'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Country +<ruby>人<rt>rén</rt></ruby>= person from that country' },
-    { type:'mc', stem:'Someone asks <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？</span> — the correct reply is:', choices:['<ruby>我是<rt>wǒ shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。','<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。'], ans:0, hint:'Reply with<ruby>我是<rt>wǒ shì</rt></ruby>+ nationality — first person response' },
-    { type:'fill', stem:'Introduce a friend: <span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby>＿＿，<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>英国人<rt>Yīngguórén</rt></ruby>。</span>', ans:['朋友','péngyǒu','pengyou'], hint:'<ruby>朋友<rt>péngyou</rt></ruby>= friend' },
+    { type:'mc', skill:'Nationalities', stem:'<span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？</span> means:', choices:['What nationality are you?','Where do you live?','What is your name?','How old are you?'], ans:0, hint:'<ruby>哪<rt>nǎ</rt></ruby>= which,<ruby>国<rt>guó</rt></ruby>= country,<ruby>人<rt>rén</rt></ruby>= person' },
+    { type:'mc', skill:'Nationalities', stem:'Which word means "friend"?', choices:['<ruby>朋友<rt>péngyou</rt></ruby>','<ruby>国家<rt>guójiā</rt></ruby>','<ruby>名字<rt>míngzi</rt></ruby>','<ruby>老师<rt>lǎoshī</rt></ruby>'], ans:0, hint:'<ruby>朋<rt>péng</rt></ruby>+two characters meaning companion' },
+    { type:'mc', skill:'Nationalities', stem:'<span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby>。</span> — <ruby>这<rt>zhè</rt></ruby> means:', choices:['this','that','which','who'], ans:0, hint:'<ruby>这<rt>zhè</rt></ruby>= this (near);<ruby>那<rt>nà</rt></ruby>= that (far)' },
+    { type:'mc', skill:'Nationalities', stem:'<ruby>中国人<rt>Zhōngguórén</rt></ruby> means:', choices:['Chinese person','UAE person','British person','Egyptian person'], ans:0, hint:'<ruby>中国<rt>Zhōngguó</rt></ruby>= China; add<ruby>人<rt>rén</rt></ruby>= person from that country' },
+    { type:'mc', skill:'Nationalities', stem:'<span class="cn"><ruby>的<rt>de</rt></ruby></span> in <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby></span> shows:', choices:['possession (my friend)','a question','an action','a location'], ans:0, hint:'<ruby>的<rt>de</rt></ruby>¹ is a structural particle showing possession (<ruby>结构助词<rt>jiégòu zhùcí</rt></ruby>)' },
+    { type:'mc', skill:'Nationalities', stem:'How do you say "British person" in Chinese?', choices:['<ruby>英国人<rt>Yīngguórén</rt></ruby>','<ruby>美国人<rt>Měiguórén</rt></ruby>','<ruby>法国人<rt>Fǎguórén</rt></ruby>','<ruby>德国人<rt>Déguórén</rt></ruby>'], ans:0, hint:'<ruby>英国<rt>Yīngguó</rt></ruby>= England/UK; +<ruby>人<rt>rén</rt></ruby>= British person' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask nationality: <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿<ruby>国<rt>guó</rt></ruby><ruby>人<rt>rén</rt></ruby>？</span>', ans:['哪','nǎ','na'], hint:'<ruby>哪<rt>nǎ</rt></ruby>= which (interrogative pronoun<ruby>疑问代词<rt>yíwèn dàicí</rt></ruby>)' },
+    { type:'match', skill:'Nationalities', stem:'Match nationality to country', left:['<ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>','<ruby>中国人<rt>Zhōngguórén</rt></ruby>','<ruby>英国人<rt>Yīngguórén</rt></ruby>','<ruby>沙特人<rt>Shātèrén</rt></ruby>'], right:['Emirati','Chinese','British','Saudi'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Country +<ruby>人<rt>rén</rt></ruby>= person from that country' },
+    { type:'mc', skill:'Nationalities', stem:'Someone asks <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？</span> — the correct reply is:', choices:['<ruby>我是<rt>wǒ shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。','<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>埃及人<rt>Āijírén</rt></ruby>。'], ans:0, hint:'Reply with<ruby>我是<rt>wǒ shì</rt></ruby>+ nationality — first person response' },
+    { type:'fill', skill:'Sentence patterns', stem:'Introduce a friend: <span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby>＿＿，<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>英国人<rt>Yīngguórén</rt></ruby>。</span>', ans:['朋友','péngyǒu','pengyou'], hint:'<ruby>朋友<rt>péngyou</rt></ruby>= friend' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'What does <ruby>你是哪国人<rt>nǐ shì nǎ guó rén</rt></ruby>？ mean?', choices:['What nationality are you?', 'Where do you live?', 'What is your name?', 'How old are you?'], ans:0, hint:'哪国人 = which country person = nationality.' },
-    { type:'mc', stem:'Which word means "friend"?', choices:['<ruby>朋友<rt>péngyou</rt></ruby>', '<ruby>国家<rt>guójiā</rt></ruby>', '<ruby>名字<rt>míngzi</rt></ruby>', '<ruby>老师<rt>lǎoshī</rt></ruby>'], ans:0, hint:'朋友 = friend.' },
-    { type:'mc', stem:'<ruby>这是我的朋友<rt>zhè shì wǒ de péngyou</rt></ruby>。 means:', choices:['This is my friend.', 'That is my friend.', 'Who is my friend?', 'I have a friend.'], ans:0, hint:'这是我的朋友 = This is my friend.' },
-    { type:'mc', stem:'<ruby>中国人<rt>Zhōngguórén</rt></ruby> means:', choices:['Chinese person', 'UAE person', 'British person', 'Egyptian person'], ans:0, hint:'中国 = China + 人 = person.' },
-    { type:'mc', stem:'In Chinese (HSK), nationality = country + 人. Which is the word for British person? (HSK tip)', choices:['英国人 (Yīngguórén) — UK + person.', '英人 (Yīng rén) — incomplete.', '英国的人 (Yīngguó de rén) — overly formal.', '英国者 (Yīngguó zhě) — wrong word.'], ans:0, hint:'HSK tip: Country + 人 = person from that country. 英国 = UK, so 英国人 = British person.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><sup>①</sup><ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>。<ruby>她们<rt>tāmen</rt></ruby><sup>②</sup><ruby>一起<rt>yīqǐ</rt></ruby><sup>③</sup><ruby>学习<rt>xuéxí</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？"<ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>，<ruby>你呢<rt>nǐ ne</rt></ruby><sup>④</sup>？"</p><div class="rn"><b>Notes:</b> ① 好朋友 hǎo péngyou: good friend ② 她们 tāmen: they/them (female) ③ 一起 yīqǐ: together ④ 你呢 nǐ ne: what about you?</div>', stem:'What nationality is Xiao Li?', choices:['Chinese (中国人).', 'Emirati (阿联酋人).', 'Jordanian (约旦人).', 'Egyptian (埃及人).'], ans:0, hint:'Find what Xiao Li says: 我是...' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><sup>①</sup><ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>。<ruby>她们<rt>tāmen</rt></ruby><sup>②</sup><ruby>一起<rt>yīqǐ</rt></ruby><sup>③</sup><ruby>学习<rt>xuéxí</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？"<ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>，<ruby>你呢<rt>nǐ ne</rt></ruby><sup>④</sup>？"</p><div class="rn"><b>Notes:</b> ① 好朋友 hǎo péngyou: good friend ② 她们 tāmen: they/them (female) ③ 一起 yīqǐ: together ④ 你呢 nǐ ne: what about you?</div>', stem:'What are Fatima and Xiao Li doing together?', choices:['Studying Chinese (学习中文).', 'Playing football.', 'Eating lunch.', 'Going home.'], ans:0, hint:'Find 一起 and 学习 in the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — China has 56 ethnic groups, each with its own clothes, food and festivals, all in one country. What different cultures live in your country, and what is one tradition of yours you would proudly share? | 🔵 Cycle 3 — China has 56 ethnic groups in one nation, and the UAE is home to people from many countries. What is good, and what can be hard, about many cultures living side by side, and what do you think makes someone truly “belong” to a country?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Nationalities', stem:'What does <ruby>你是哪国人<rt>nǐ shì nǎ guó rén</rt></ruby>？ mean?', choices:['What nationality are you?', 'Where do you live?', 'What is your name?', 'How old are you?'], ans:0, hint:'哪国人 = which country person = nationality.' },
+    { type:'mc', skill:'Nationalities', stem:'Which word means "friend"?', choices:['<ruby>朋友<rt>péngyou</rt></ruby>', '<ruby>国家<rt>guójiā</rt></ruby>', '<ruby>名字<rt>míngzi</rt></ruby>', '<ruby>老师<rt>lǎoshī</rt></ruby>'], ans:0, hint:'朋友 = friend.' },
+    { type:'mc', skill:'Nationalities', stem:'<ruby>这是我的朋友<rt>zhè shì wǒ de péngyou</rt></ruby>。 means:', choices:['This is my friend.', 'That is my friend.', 'Who is my friend?', 'I have a friend.'], ans:0, hint:'这是我的朋友 = This is my friend.' },
+    { type:'mc', skill:'Nationalities', stem:'<ruby>中国人<rt>Zhōngguórén</rt></ruby> means:', choices:['Chinese person', 'UAE person', 'British person', 'Egyptian person'], ans:0, hint:'中国 = China + 人 = person.' },
+    { type:'mc', skill:'Nationalities', stem:'In Chinese (HSK), nationality = country + 人. Which is the word for British person? (HSK tip)', choices:['英国人 (Yīngguórén) — UK + person.', '英人 (Yīng rén) — incomplete.', '英国的人 (Yīngguó de rén) — overly formal.', '英国者 (Yīngguó zhě) — wrong word.'], ans:0, hint:'HSK tip: Country + 人 = person from that country. 英国 = UK, so 英国人 = British person.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><sup>①</sup><ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>。<ruby>她们<rt>tāmen</rt></ruby><sup>②</sup><ruby>一起<rt>yīqǐ</rt></ruby><sup>③</sup><ruby>学习<rt>xuéxí</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？"<ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>，<ruby>你呢<rt>nǐ ne</rt></ruby><sup>④</sup>？"</p><div class="rn"><b>Notes:</b> ① 好朋友 hǎo péngyou: good friend ② 她们 tāmen: they/them (female) ③ 一起 yīqǐ: together ④ 你呢 nǐ ne: what about you?</div>', stem:'What nationality is Xiao Li?', choices:['Chinese (中国人).', 'Emirati (阿联酋人).', 'Jordanian (约旦人).', 'Egyptian (埃及人).'], ans:0, hint:'Find what Xiao Li says: 我是...' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><sup>①</sup><ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>。<ruby>她们<rt>tāmen</rt></ruby><sup>②</sup><ruby>一起<rt>yīqǐ</rt></ruby><sup>③</sup><ruby>学习<rt>xuéxí</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>你<rt>nǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哪国人<rt>nǎ guó rén</rt></ruby>？"<ruby>小丽<rt>Xiǎo Lì</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguórén</rt></ruby>，<ruby>你呢<rt>nǐ ne</rt></ruby><sup>④</sup>？"</p><div class="rn"><b>Notes:</b> ① 好朋友 hǎo péngyou: good friend ② 她们 tāmen: they/them (female) ③ 一起 yīqǐ: together ④ 你呢 nǐ ne: what about you?</div>', stem:'What are Fatima and Xiao Li doing together?', choices:['Studying Chinese (学习中文).', 'Playing football.', 'Eating lunch.', 'Going home.'], ans:0, hint:'Find 一起 and 学习 in the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — China has 56 ethnic groups, each with its own clothes, food and festivals, all in one country. What different cultures live in your country, and what is one tradition of yours you would proudly share? | 🔵 Cycle 3 — China has 56 ethnic groups in one nation, and the UAE is home to people from many countries. What is good, and what can be hard, about many cultures living side by side, and what do you think makes someone truly “belong” to a country?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1A-L8 我是阿联酋人。</title>' +

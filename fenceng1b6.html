@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1B-L6', num:'Lesson 6', title:'祝你生日快乐！Happy birthday to you!', cn:'生日',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'🎂 "Happy birthday to you!" in Chinese:', choices:['<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！', '<ruby>生日你祝快乐<rt>shēngrì nǐ zhù kuàilè</rt></ruby>！', '<ruby>快乐生日祝你<rt>kuàilè shēngrì zhù nǐ</rt></ruby>！', '<ruby>你快乐祝生日<rt>nǐ kuàilè zhù shēngrì</rt></ruby>！'], ans:0, hint:'祝 (wish) + 你 (you) + 生日 (birthday) + 快乐 (happy) → 祝你生日快乐！' },
-    { type:'mc', stem:'<ruby>生日<rt>shēngrì</rt></ruby> means:', choices:['birthday', 'festival', 'present', 'today'], ans:0, hint:'生日 = birthday (lit. "birth day").' },
-    { type:'mc', stem:'<ruby>快乐<rt>kuàilè</rt></ruby> means:', choices:['happy / joyful', 'fast', 'birthday', 'present'], ans:0, hint:'快乐 = happy. 生日快乐 = happy birthday.' },
-    { type:'mc', stem:'🎁 <ruby>礼物<rt>lǐwù</rt></ruby> means:', choices:['present / gift', 'party', 'cake', 'card'], ans:0, hint:'礼物 = gift / present.' },
-    { type:'mc', stem:'<ruby>祝<rt>zhù</rt></ruby> means:', choices:['to wish (someone something)', 'to know', 'to give', 'to eat'], ans:0, hint:'祝 = to wish · used in greetings: 祝你…… = I wish you….' },
-    { type:'mc', stem:'<ruby>知道<rt>zhīdào</rt></ruby> means:', choices:['to know', 'to want', 'to wish', 'to give'], ans:0, hint:'知道 = to know.' },
-    { type:'mc', stem:'"Today is my birthday":', choices:['<ruby>今天是我的生日<rt>jīntiān shì wǒ de shēngrì</rt></ruby>。', '<ruby>我的今天是生日<rt>wǒ de jīntiān shì shēngrì</rt></ruby>。', '<ruby>生日是今天我的<rt>shēngrì shì jīntiān wǒ de</rt></ruby>。', '<ruby>是我的生日今天<rt>shì wǒ de shēngrì jīntiān</rt></ruby>。'], ans:0, hint:'今天 + 是 + 我的 + 生日 = Today is my birthday.' },
-    { type:'mc', stem:'<ruby>你的<rt>nǐ de</rt></ruby> means:', choices:['your', 'my', 'his', 'our'], ans:0, hint:'你 (you) + 的 (possessive) = your.' },
-    { type:'fill', stem:'Wish a friend: <span class="cn"><ruby>祝<rt>zhù</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby>＿＿！</span>', ans:['快乐','kuàilè','kuaile'], hint:'快乐 = happy. 祝你生日快乐！= Happy birthday to you!' },
-    { type:'mc', stem:'"My birthday is June 1st":', choices:['<ruby>我的生日是六月一号<rt>wǒ de shēngrì shì liù yuè yī hào</rt></ruby>。', '<ruby>六月一号我的生日是<rt>liù yuè yī hào wǒ de shēngrì shì</rt></ruby>。', '<ruby>我的生日六月是一号<rt>wǒ de shēngrì liù yuè shì yī hào</rt></ruby>。', '<ruby>是我的生日六月一号<rt>shì wǒ de shēngrì liù yuè yī hào</rt></ruby>。'], ans:0, hint:'我的生日 + 是 + 六月一号 (month before day).' },
+    { type:'mc', skill:'Birthday & wishes', stem:'🎂 "Happy birthday to you!" in Chinese:', choices:['<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！', '<ruby>生日你祝快乐<rt>shēngrì nǐ zhù kuàilè</rt></ruby>！', '<ruby>快乐生日祝你<rt>kuàilè shēngrì zhù nǐ</rt></ruby>！', '<ruby>你快乐祝生日<rt>nǐ kuàilè zhù shēngrì</rt></ruby>！'], ans:0, hint:'祝 (wish) + 你 (you) + 生日 (birthday) + 快乐 (happy) → 祝你生日快乐！' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>生日<rt>shēngrì</rt></ruby> means:', choices:['birthday', 'festival', 'present', 'today'], ans:0, hint:'生日 = birthday (lit. "birth day").' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>快乐<rt>kuàilè</rt></ruby> means:', choices:['happy / joyful', 'fast', 'birthday', 'present'], ans:0, hint:'快乐 = happy. 生日快乐 = happy birthday.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'🎁 <ruby>礼物<rt>lǐwù</rt></ruby> means:', choices:['present / gift', 'party', 'cake', 'card'], ans:0, hint:'礼物 = gift / present.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>祝<rt>zhù</rt></ruby> means:', choices:['to wish (someone something)', 'to know', 'to give', 'to eat'], ans:0, hint:'祝 = to wish · used in greetings: 祝你…… = I wish you….' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>知道<rt>zhīdào</rt></ruby> means:', choices:['to know', 'to want', 'to wish', 'to give'], ans:0, hint:'知道 = to know.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'"Today is my birthday":', choices:['<ruby>今天是我的生日<rt>jīntiān shì wǒ de shēngrì</rt></ruby>。', '<ruby>我的今天是生日<rt>wǒ de jīntiān shì shēngrì</rt></ruby>。', '<ruby>生日是今天我的<rt>shēngrì shì jīntiān wǒ de</rt></ruby>。', '<ruby>是我的生日今天<rt>shì wǒ de shēngrì jīntiān</rt></ruby>。'], ans:0, hint:'今天 + 是 + 我的 + 生日 = Today is my birthday.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>你的<rt>nǐ de</rt></ruby> means:', choices:['your', 'my', 'his', 'our'], ans:0, hint:'你 (you) + 的 (possessive) = your.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Wish a friend: <span class="cn"><ruby>祝<rt>zhù</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby>＿＿！</span>', ans:['快乐','kuàilè','kuaile'], hint:'快乐 = happy. 祝你生日快乐！= Happy birthday to you!' },
+    { type:'mc', skill:'Birthday & wishes', stem:'"My birthday is June 1st":', choices:['<ruby>我的生日是六月一号<rt>wǒ de shēngrì shì liù yuè yī hào</rt></ruby>。', '<ruby>六月一号我的生日是<rt>liù yuè yī hào wǒ de shēngrì shì</rt></ruby>。', '<ruby>我的生日六月是一号<rt>wǒ de shēngrì liù yuè shì yī hào</rt></ruby>。', '<ruby>是我的生日六月一号<rt>shì wǒ de shēngrì liù yuè yī hào</rt></ruby>。'], ans:0, hint:'我的生日 + 是 + 六月一号 (month before day).' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'"When is your birthday?" — <ruby>你的生日是几月几号<rt>nǐ de shēngrì shì jǐ yuè jǐ hào</rt></ruby>？ asks for:', choices:['the date of your birthday', 'the time of your birthday', 'who your birthday is for', 'your age'], ans:0, hint:'几月几号 asks the date → asks WHEN your birthday is.' },
-    { type:'fill', stem:'Answer "My birthday is June 1st": <span class="cn"><ruby>我的<rt>wǒ de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>是<rt>shì</rt></ruby>＿<ruby>月<rt>yuè</rt></ruby><ruby>一号<rt>yī hào</rt></ruby>。</span>', ans:['六','6','liù','liu'], hint:'六 = 6 · 六月 = June. 我的生日是六月一号。' },
-    { type:'mc', stem:'<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！ is what kind of sentence?', choices:['an exclamatory sentence (a wish / greeting)', 'a question', 'a statement of fact', 'a command to do homework'], ans:0, hint:'感叹句 — a warm exclamation / wish, ending with ！' },
-    { type:'mc', stem:'<ruby>的<rt>de</rt></ruby> in <ruby>我的生日<rt>wǒ de shēngrì</rt></ruby> shows:', choices:['possession (my birthday)', 'a question', 'past time', 'negation'], ans:0, hint:'的 links owner to thing: 我的 = my, 你的 = your.' },
-    { type:'mc', stem:'Someone says <ruby>今天是我的生日<rt>jīntiān shì wǒ de shēngrì</rt></ruby>。 — best reply:', choices:['<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！', '<ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？', '<ruby>你是谁<rt>nǐ shì shéi</rt></ruby>？', '<ruby>我没有姐姐<rt>wǒ méiyǒu jiějie</rt></ruby>。'], ans:0, hint:'When it is someone\u2019s birthday, wish them 生日快乐！' },
-    { type:'mc', stem:'To ask whose present this is, you might say <ruby>这是谁的<rt>zhè shì shéi de</rt></ruby>＿? Fill the blank:', choices:['<ruby>礼物<rt>lǐwù</rt></ruby>', '<ruby>快乐<rt>kuàilè</rt></ruby>', '<ruby>知道<rt>zhīdào</rt></ruby>', '<ruby>祝<rt>zhù</rt></ruby>'], ans:0, hint:'谁的礼物 = whose present. 这是谁的礼物？' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['liù', 'kuài', 'lè', 'shēng'], right:['六', '快', '乐', '生'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 六, 快, 乐, 的, 生.' },
-    { type:'fill', stem:'Ask "When is your birthday?": <span class="cn"><ruby>你的<rt>nǐ de</rt></ruby>＿＿<ruby>是<rt>shì</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？</span>', ans:['生日','shēngrì','shengri'], hint:'生日 = birthday. 你的生日是几月几号？' },
-    { type:'mc', stem:'<ruby>知道<rt>zhīdào</rt></ruby> means "to know". "I know your birthday" =', choices:['<ruby>我知道你的生日<rt>wǒ zhīdào nǐ de shēngrì</rt></ruby>。', '<ruby>我你的生日知道<rt>wǒ nǐ de shēngrì zhīdào</rt></ruby>。', '<ruby>知道我你的生日<rt>zhīdào wǒ nǐ de shēngrì</rt></ruby>。', '<ruby>你的生日我知道是<rt>nǐ de shēngrì wǒ zhīdào shì</rt></ruby>。'], ans:0, hint:'Subject + verb + object: 我 + 知道 + 你的生日.' },
-    { type:'mc', stem:'Put in order — "Happy birthday to you!":', choices:['<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！', '<ruby>你祝快乐生日<rt>nǐ zhù kuàilè shēngrì</rt></ruby>！', '<ruby>生日快乐祝你<rt>shēngrì kuàilè zhù nǐ</rt></ruby>！', '<ruby>快乐你生日祝<rt>kuàilè nǐ shēngrì zhù</rt></ruby>！'], ans:0, hint:'祝 + 你 + 生日 + 快乐.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'"When is your birthday?" — <ruby>你的生日是几月几号<rt>nǐ de shēngrì shì jǐ yuè jǐ hào</rt></ruby>？ asks for:', choices:['the date of your birthday', 'the time of your birthday', 'who your birthday is for', 'your age'], ans:0, hint:'几月几号 asks the date → asks WHEN your birthday is.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Answer "My birthday is June 1st": <span class="cn"><ruby>我的<rt>wǒ de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>是<rt>shì</rt></ruby>＿<ruby>月<rt>yuè</rt></ruby><ruby>一号<rt>yī hào</rt></ruby>。</span>', ans:['六','6','liù','liu'], hint:'六 = 6 · 六月 = June. 我的生日是六月一号。' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！ is what kind of sentence?', choices:['an exclamatory sentence (a wish / greeting)', 'a question', 'a statement of fact', 'a command to do homework'], ans:0, hint:'感叹句 — a warm exclamation / wish, ending with ！' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>的<rt>de</rt></ruby> in <ruby>我的生日<rt>wǒ de shēngrì</rt></ruby> shows:', choices:['possession (my birthday)', 'a question', 'past time', 'negation'], ans:0, hint:'的 links owner to thing: 我的 = my, 你的 = your.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'Someone says <ruby>今天是我的生日<rt>jīntiān shì wǒ de shēngrì</rt></ruby>。 — best reply:', choices:['<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！', '<ruby>现在几点<rt>xiànzài jǐ diǎn</rt></ruby>？', '<ruby>你是谁<rt>nǐ shì shéi</rt></ruby>？', '<ruby>我没有姐姐<rt>wǒ méiyǒu jiějie</rt></ruby>。'], ans:0, hint:'When it is someone\u2019s birthday, wish them 生日快乐！' },
+    { type:'mc', skill:'Birthday & wishes', stem:'To ask whose present this is, you might say <ruby>这是谁的<rt>zhè shì shéi de</rt></ruby>＿? Fill the blank:', choices:['<ruby>礼物<rt>lǐwù</rt></ruby>', '<ruby>快乐<rt>kuàilè</rt></ruby>', '<ruby>知道<rt>zhīdào</rt></ruby>', '<ruby>祝<rt>zhù</rt></ruby>'], ans:0, hint:'谁的礼物 = whose present. 这是谁的礼物？' },
+    { type:'match', skill:'Birthday & wishes', stem:'Match each pinyin to its character (写汉字).', left:['liù', 'kuài', 'lè', 'shēng'], right:['六', '快', '乐', '生'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 六, 快, 乐, 的, 生.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask "When is your birthday?": <span class="cn"><ruby>你的<rt>nǐ de</rt></ruby>＿＿<ruby>是<rt>shì</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？</span>', ans:['生日','shēngrì','shengri'], hint:'生日 = birthday. 你的生日是几月几号？' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>知道<rt>zhīdào</rt></ruby> means "to know". "I know your birthday" =', choices:['<ruby>我知道你的生日<rt>wǒ zhīdào nǐ de shēngrì</rt></ruby>。', '<ruby>我你的生日知道<rt>wǒ nǐ de shēngrì zhīdào</rt></ruby>。', '<ruby>知道我你的生日<rt>zhīdào wǒ nǐ de shēngrì</rt></ruby>。', '<ruby>你的生日我知道是<rt>nǐ de shēngrì wǒ zhīdào shì</rt></ruby>。'], ans:0, hint:'Subject + verb + object: 我 + 知道 + 你的生日.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'Put in order — "Happy birthday to you!":', choices:['<ruby>祝你生日快乐<rt>zhù nǐ shēngrì kuàilè</rt></ruby>！', '<ruby>你祝快乐生日<rt>nǐ zhù kuàilè shēngrì</rt></ruby>！', '<ruby>生日快乐祝你<rt>shēngrì kuàilè zhù nǐ</rt></ruby>！', '<ruby>快乐你生日祝<rt>kuàilè nǐ shēngrì zhù</rt></ruby>！'], ans:0, hint:'祝 + 你 + 生日 + 快乐.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>生日快乐<rt>shēngrì kuàilè</rt></ruby> literally means:', choices:['"birthday happy" (Happy Birthday)', '"happy to be born"', '"quick birthday"', '"birthday present"'], ans:0, hint:'生日 (birthday) + 快乐 (happy) — Chinese puts the noun before the adjective in this set phrase.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>你的生日是几月几号<rt>nǐ de shēngrì shì jǐ yuè jǐ hào</rt></ruby>？ B: ___', choices:['<ruby>我的生日是六月一号<rt>wǒ de shēngrì shì liù yuè yī hào</rt></ruby>。', '<ruby>现在六点<rt>xiànzài liù diǎn</rt></ruby>。', '<ruby>我有两个哥哥<rt>wǒ yǒu liǎng gè gēge</rt></ruby>。', '<ruby>祝你快乐<rt>zhù nǐ kuàilè</rt></ruby>！'], ans:0, hint:'几月几号 asks the date → answer with 我的生日是 + month + day.' },
-    { type:'mc', stem:'<ruby>祝<rt>zhù</rt></ruby> ("to wish") can start many greetings. Which is a correct New-Year wish?', choices:['<ruby>祝你新年快乐<rt>zhù nǐ xīnnián kuàilè</rt></ruby>！', '<ruby>你祝新年快乐<rt>nǐ zhù xīnnián kuàilè</rt></ruby>！', '<ruby>新年祝你快乐吗<rt>xīnnián zhù nǐ kuàilè ma</rt></ruby>？', '<ruby>快乐新年祝<rt>kuàilè xīnnián zhù</rt></ruby>。'], ans:0, hint:'祝 + 你 + (occasion) + 快乐！works for many wishes: 生日快乐, 新年快乐.' },
-    { type:'mc', stem:'"This is a present for you" — <ruby>这是给你的<rt>zhè shì gěi nǐ de</rt></ruby>＿。', choices:['<ruby>礼物<rt>lǐwù</rt></ruby> — present', '<ruby>生日<rt>shēngrì</rt></ruby> — birthday', '<ruby>快乐<rt>kuàilè</rt></ruby> — happy', '<ruby>几号<rt>jǐ hào</rt></ruby> — which day'], ans:0, hint:'礼物 = gift. 这是给你的礼物。= This is a present for you.' },
-    { type:'mc', stem:'In Chinese (HSK), 快乐 means "happy". In the set phrase 生日快乐, the word order is: (HSK tip)', choices:['noun + adjective: 生日(noun) 快乐(adj) — like a wish "(may your) birthday (be) happy".', 'adjective + noun: 快乐生日, exactly like English "happy birthday".', 'verb + noun.', 'There is no fixed order.'], ans:0, hint:'HSK tip: the fixed wish is 生日快乐 (noun first), NOT 快乐生日 — different from English word order.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>六月<rt>liù yuè</rt></ruby><ruby>一号<rt>yī hào</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>祝<rt>zhù</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>快乐<rt>kuàilè</rt></ruby>！"<ruby>他<rt>tā</rt></ruby><ruby>送<rt>sòng</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>礼物<rt>lǐwù</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>②</sup>，<ruby>说<rt>shuō</rt></ruby>："<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 送 sòng: to give (a gift) ② 高兴 gāoxìng: happy / glad</div>', stem:'When is Maria\u2019s birthday?', choices:['June 1st (六月一号).', 'January 6th (一月六号).', 'June 6th (六月六号).', 'May 2nd (五月二号).'], ans:0, hint:'Find 她的生日是…… in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>六月<rt>liù yuè</rt></ruby><ruby>一号<rt>yī hào</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>祝<rt>zhù</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>快乐<rt>kuàilè</rt></ruby>！"<ruby>他<rt>tā</rt></ruby><ruby>送<rt>sòng</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>礼物<rt>lǐwù</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>②</sup>，<ruby>说<rt>shuō</rt></ruby>："<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 送 sòng: to give (a gift) ② 高兴 gāoxìng: happy / glad</div>', stem:'What does Hassan give Maria?', choices:['A present (一个礼物).', 'A birthday cake.', 'A card.', 'Nothing.'], ans:0, hint:'Find 他送玛丽亚…… in the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🎂 In China some people eat long noodles for a long life, and families everywhere celebrate birthdays in their own way. How does your family celebrate your birthday, and do you prefer big parties or small quiet ones? | 🔵 Cycle 3 — Birthdays are celebrated differently around the world — cakes, long noodles, or other special foods. Does your culture have a special birthday food with a meaning, and do you think it is the gift or the people around you that makes a birthday special?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>生日快乐<rt>shēngrì kuàilè</rt></ruby> literally means:', choices:['"birthday happy" (Happy Birthday)', '"happy to be born"', '"quick birthday"', '"birthday present"'], ans:0, hint:'生日 (birthday) + 快乐 (happy) — Chinese puts the noun before the adjective in this set phrase.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'Complete the dialogue — A: <ruby>你的生日是几月几号<rt>nǐ de shēngrì shì jǐ yuè jǐ hào</rt></ruby>？ B: ___', choices:['<ruby>我的生日是六月一号<rt>wǒ de shēngrì shì liù yuè yī hào</rt></ruby>。', '<ruby>现在六点<rt>xiànzài liù diǎn</rt></ruby>。', '<ruby>我有两个哥哥<rt>wǒ yǒu liǎng gè gēge</rt></ruby>。', '<ruby>祝你快乐<rt>zhù nǐ kuàilè</rt></ruby>！'], ans:0, hint:'几月几号 asks the date → answer with 我的生日是 + month + day.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'<ruby>祝<rt>zhù</rt></ruby> ("to wish") can start many greetings. Which is a correct New-Year wish?', choices:['<ruby>祝你新年快乐<rt>zhù nǐ xīnnián kuàilè</rt></ruby>！', '<ruby>你祝新年快乐<rt>nǐ zhù xīnnián kuàilè</rt></ruby>！', '<ruby>新年祝你快乐吗<rt>xīnnián zhù nǐ kuàilè ma</rt></ruby>？', '<ruby>快乐新年祝<rt>kuàilè xīnnián zhù</rt></ruby>。'], ans:0, hint:'祝 + 你 + (occasion) + 快乐！works for many wishes: 生日快乐, 新年快乐.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'"This is a present for you" — <ruby>这是给你的<rt>zhè shì gěi nǐ de</rt></ruby>＿。', choices:['<ruby>礼物<rt>lǐwù</rt></ruby> — present', '<ruby>生日<rt>shēngrì</rt></ruby> — birthday', '<ruby>快乐<rt>kuàilè</rt></ruby> — happy', '<ruby>几号<rt>jǐ hào</rt></ruby> — which day'], ans:0, hint:'礼物 = gift. 这是给你的礼物。= This is a present for you.' },
+    { type:'mc', skill:'Birthday & wishes', stem:'In Chinese (HSK), 快乐 means "happy". In the set phrase 生日快乐, the word order is: (HSK tip)', choices:['noun + adjective: 生日(noun) 快乐(adj) — like a wish "(may your) birthday (be) happy".', 'adjective + noun: 快乐生日, exactly like English "happy birthday".', 'verb + noun.', 'There is no fixed order.'], ans:0, hint:'HSK tip: the fixed wish is 生日快乐 (noun first), NOT 快乐生日 — different from English word order.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>六月<rt>liù yuè</rt></ruby><ruby>一号<rt>yī hào</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>祝<rt>zhù</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>快乐<rt>kuàilè</rt></ruby>！"<ruby>他<rt>tā</rt></ruby><ruby>送<rt>sòng</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>礼物<rt>lǐwù</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>②</sup>，<ruby>说<rt>shuō</rt></ruby>："<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 送 sòng: to give (a gift) ② 高兴 gāoxìng: happy / glad</div>', stem:'When is Maria\u2019s birthday?', choices:['June 1st (六月一号).', 'January 6th (一月六号).', 'June 6th (六月六号).', 'May 2nd (五月二号).'], ans:0, hint:'Find 她的生日是…… in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>六月<rt>liù yuè</rt></ruby><ruby>一号<rt>yī hào</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>祝<rt>zhù</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><ruby>快乐<rt>kuàilè</rt></ruby>！"<ruby>他<rt>tā</rt></ruby><ruby>送<rt>sòng</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>礼物<rt>lǐwù</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>②</sup>，<ruby>说<rt>shuō</rt></ruby>："<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 送 sòng: to give (a gift) ② 高兴 gāoxìng: happy / glad</div>', stem:'What does Hassan give Maria?', choices:['A present (一个礼物).', 'A birthday cake.', 'A card.', 'Nothing.'], ans:0, hint:'Find 他送玛丽亚…… in the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🎂 In China some people eat long noodles for a long life, and families everywhere celebrate birthdays in their own way. How does your family celebrate your birthday, and do you prefer big parties or small quiet ones? | 🔵 Cycle 3 — Birthdays are celebrated differently around the world — cakes, long noodles, or other special foods. Does your culture have a special birthday food with a meaning, and do you think it is the gift or the people around you that makes a birthday special?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1B-L6 祝你生日快乐！</title>' +

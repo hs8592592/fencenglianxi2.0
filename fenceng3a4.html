@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,45 +1360,45 @@ const LESSONS = [
 { id:'3A-L4', num:'Lesson 4', title:'我想去上海旅行 I want to travel to Shanghai', cn:'比较句',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: adjectives + 比 (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: adjectives + 比 (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'🐢 Which word means “slow”?', choices:['<ruby>慢<rt>màn</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'慢 = slow.' },
-    { type:'match', stem:'💰 Match each word to its meaning.', left:['<ruby>贵<rt>guì</rt></ruby>','<ruby>便宜<rt>piányi</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>'], right:['expensive','cheap','fast','slow'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'贵=expensive · 便宜=cheap · 快=fast · 慢=slow.' },
-    { type:'mc', stem:'✈️ Which word means “to travel”?', choices:['<ruby>旅行<rt>lǚxíng</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>工作<rt>gōngzuò</rt></ruby>','<ruby>睡觉<rt>shuìjiào</rt></ruby>'], ans:0, hint:'旅行 = to travel.' },
-    { type:'mc', stem:'<ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby>（　）。 <span class="gl">(A plane is ___ (faster) than a train.)</span>', choices:['<ruby>快<rt>kuài</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>','<ruby>贵<rt>guì</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'A 比 B + adjective. 快 = fast.' },
-    { type:'mc', stem:'💰 Which word means “expensive”?', choices:['<ruby>贵<rt>guì</rt></ruby>','<ruby>便宜<rt>piányi</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'贵 = expensive.' },
-    { type:'fill', stem:'认读 · Type the comparison word: <span class="cn">迪拜（　）上海热。</span> (hotter than)', ans:['比','bǐ','bi'], hint:'A 比 B + adjective. The word is 比.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">飞机很快，但（　）很贵。</span> (but)', ans:['是','shì','shi'], hint:'但是 = but. The word is 是 (但是).' },
-    { type:'match', stem:'📏 Match each word to its meaning.', left:['<ruby>大<rt>dà</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>','<ruby>多<rt>duō</rt></ruby>','<ruby>少<rt>shǎo</rt></ruby>'], right:['big','small','many','few'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'大=big · 小=small · 多=many · 少=few.' },
-    { type:'mc', stem:'<ruby>迪拜<rt>Díbài</rt></ruby>（　）<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>热<rt>rè</rt></ruby>。 <span class="gl">(Dubai is hotter ___ (than) Shanghai.)</span>', choices:['<ruby>比<rt>bǐ</rt></ruby>','<ruby>和<rt>hé</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'A 比 B + adjective.' },
-    { type:'mc', stem:'<ruby>上海<rt>Shànghǎi</rt></ruby>（　）<ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。 <span class="gl">(Shanghai is ___ (not as) hot as Dubai.)</span>', choices:['<ruby>没有<rt>méiyǒu</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>太<rt>tài</rt></ruby>'], ans:0, hint:'A 没有 B + adj = A is not as … as B.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'🐢 Which word means “slow”?', choices:['<ruby>慢<rt>màn</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'慢 = slow.' },
+    { type:'match', skill:'Comparisons (bi)', stem:'💰 Match each word to its meaning.', left:['<ruby>贵<rt>guì</rt></ruby>','<ruby>便宜<rt>piányi</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>'], right:['expensive','cheap','fast','slow'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'贵=expensive · 便宜=cheap · 快=fast · 慢=slow.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'✈️ Which word means “to travel”?', choices:['<ruby>旅行<rt>lǚxíng</rt></ruby>','<ruby>学习<rt>xuéxí</rt></ruby>','<ruby>工作<rt>gōngzuò</rt></ruby>','<ruby>睡觉<rt>shuìjiào</rt></ruby>'], ans:0, hint:'旅行 = to travel.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'<ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby>（　）。 <span class="gl">(A plane is ___ (faster) than a train.)</span>', choices:['<ruby>快<rt>kuài</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>','<ruby>贵<rt>guì</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'A 比 B + adjective. 快 = fast.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'💰 Which word means “expensive”?', choices:['<ruby>贵<rt>guì</rt></ruby>','<ruby>便宜<rt>piányi</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'贵 = expensive.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the comparison word: <span class="cn">迪拜（　）上海热。</span> (hotter than)', ans:['比','bǐ','bi'], hint:'A 比 B + adjective. The word is 比.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">飞机很快，但（　）很贵。</span> (but)', ans:['是','shì','shi'], hint:'但是 = but. The word is 是 (但是).' },
+    { type:'match', skill:'Comparisons (bi)', stem:'📏 Match each word to its meaning.', left:['<ruby>大<rt>dà</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>','<ruby>多<rt>duō</rt></ruby>','<ruby>少<rt>shǎo</rt></ruby>'], right:['big','small','many','few'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'大=big · 小=small · 多=many · 少=few.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'<ruby>迪拜<rt>Díbài</rt></ruby>（　）<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>热<rt>rè</rt></ruby>。 <span class="gl">(Dubai is hotter ___ (than) Shanghai.)</span>', choices:['<ruby>比<rt>bǐ</rt></ruby>','<ruby>和<rt>hé</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'A 比 B + adjective.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'<ruby>上海<rt>Shànghǎi</rt></ruby>（　）<ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。 <span class="gl">(Shanghai is ___ (not as) hot as Dubai.)</span>', choices:['<ruby>没有<rt>méiyǒu</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>太<rt>tài</rt></ruby>'], ans:0, hint:'A 没有 B + adj = A is not as … as B.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — first 3 BASIC, then 比 usage + 认读 + 2 reading (HSK 1-2 light)
+  // TIER 2 · 学以致用 — first 3 BASIC, then 比 usage + 认读 + 2 reading (HSK 1-2 light)
   { qs:[
-    { type:'mc', stem:'⚡ Which word means “fast”?', choices:['<ruby>快<rt>kuài</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'快 = fast.' },
-    { type:'fill', stem:'认读 · Type the comparison word: <span class="cn">飞机（　）火车快。</span> (than)', ans:['比','bǐ','bi'], hint:'The word is 比.' },
-    { type:'mc', stem:'↔️ Which word is the opposite of 大 (big)?', choices:['<ruby>小<rt>xiǎo</rt></ruby>','<ruby>多<rt>duō</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'大 (big) ↔ 小 (small).' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（　）<ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt></rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby>。 <span class="gl">(I want to ___ (take) a plane to travel.)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>开<rt>kāi</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'坐飞机 = go by plane.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['bǐ','dà','xiǎo','duō'], right:['比','大','小','多'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'比=than · 大=big · 小=small · 多=many.' },
-    { type:'mc', stem:'🌡️ Which sentence means “Shanghai is not as hot as Dubai”?', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>迪拜<rt>Díbài</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'A 没有 B + adj = not as … as.' },
-    { type:'mc', stem:'<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>贵<rt>guì</rt></ruby>，（　）<ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。 <span class="gl">(Flying is expensive, ___ (but) very fast.)</span>', choices:['<ruby>但是<rt>dànshì</rt></ruby>','<ruby>因为<rt>yīnwèi</rt></ruby>','<ruby>所以<rt>suǒyǐ</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'但是 = but.' },
-    { type:'mc', stem:'✈️ Which sentence says “A plane is faster than a train”?', choices:['<ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>快<rt>kuài</rt></ruby>。'], ans:0, hint:'A 比 B + adjective.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><sup>①</sup><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>贵<rt>guì</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><sup>③</sup><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 比 bǐ: than / compared to ② 旅行 lǚxíng: to travel ③ 但是 dànshì: but</div>', stem:'Which is faster, the plane or the train?', choices:['The plane (飞机比火车快).', 'The train.', 'They are the same.', 'We cannot tell.'], ans:0, hint:'Read the first sentence: 飞机比火车 ……' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><sup>①</sup><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>贵<rt>guì</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><sup>③</sup><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 比 bǐ: than / compared to ② 旅行 lǚxíng: to travel ③ 但是 dànshì: but</div>', stem:'How does the speaker describe taking a plane?', choices:['Expensive, but fast (很贵，但是很快).', 'Cheap and slow.', 'Cheap but fast.', 'Slow but cheap.'], ans:0, hint:'Find 坐飞机很……，但是很……' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'⚡ Which word means “fast”?', choices:['<ruby>快<rt>kuài</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>多<rt>duō</rt></ruby>'], ans:0, hint:'快 = fast.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the comparison word: <span class="cn">飞机（　）火车快。</span> (than)', ans:['比','bǐ','bi'], hint:'The word is 比.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'↔️ Which word is the opposite of 大 (big)?', choices:['<ruby>小<rt>xiǎo</rt></ruby>','<ruby>多<rt>duō</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'大 (big) ↔ 小 (small).' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby>（　）<ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt></rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby>。 <span class="gl">(I want to ___ (take) a plane to travel.)</span>', choices:['<ruby>坐<rt>zuò</rt></ruby>','<ruby>开<rt>kāi</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'坐飞机 = go by plane.' },
+    { type:'match', skill:'Comparisons (bi)', stem:'写汉字 · Match each pinyin to its character.', left:['bǐ','dà','xiǎo','duō'], right:['比','大','小','多'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'比=than · 大=big · 小=small · 多=many.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'🌡️ Which sentence means “Shanghai is not as hot as Dubai”?', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>迪拜<rt>Díbài</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'A 没有 B + adj = not as … as.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>贵<rt>guì</rt></ruby>，（　）<ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。 <span class="gl">(Flying is expensive, ___ (but) very fast.)</span>', choices:['<ruby>但是<rt>dànshì</rt></ruby>','<ruby>因为<rt>yīnwèi</rt></ruby>','<ruby>所以<rt>suǒyǐ</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'但是 = but.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'✈️ Which sentence says “A plane is faster than a train”?', choices:['<ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>快<rt>kuài</rt></ruby>。'], ans:0, hint:'A 比 B + adjective.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><sup>①</sup><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>贵<rt>guì</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><sup>③</sup><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 比 bǐ: than / compared to ② 旅行 lǚxíng: to travel ③ 但是 dànshì: but</div>', stem:'Which is faster, the plane or the train?', choices:['The plane (飞机比火车快).', 'The train.', 'They are the same.', 'We cannot tell.'], ans:0, hint:'Read the first sentence: 飞机比火车 ……' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><sup>①</sup><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>②</sup>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>贵<rt>guì</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><sup>③</sup><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 比 bǐ: than / compared to ② 旅行 lǚxíng: to travel ③ 但是 dànshì: but</div>', stem:'How does the speaker describe taking a plane?', choices:['Expensive, but fast (很贵，但是很快).', 'Cheap and slow.', 'Cheap but fast.', 'Slow but cheap.'], ans:0, hint:'Find 坐飞机很……，但是很……' },
   ]},
 
-  // TIER 3 · 深度掌握 — first 2 BASIC, then extended (HSK tips) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — first 2 BASIC, then extended (HSK tips) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'How does the <ruby>比<rt>bǐ</rt></ruby> comparison work? (HSK tip)', choices:['A 比 B + adjective: 飞机比火车快 (the plane is faster than the train).', 'A 比 B 很 + adjective: 飞机比火车很快.', 'A adjective 比 B: 飞机快比火车.', '比 means "the same as".'], ans:0, hint:'A 比 B + adj. Do NOT add 很 before the adjective in a 比 sentence.' },
-    { type:'mc', stem:'<ruby>飞机<rt>fēijī</rt></ruby>（　）<ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。 <span class="gl">(A plane is faster ___ (than) a train.)</span>', choices:['<ruby>比<rt>bǐ</rt></ruby>','<ruby>和<rt>hé</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'A 比 B + adjective.' },
-    { type:'mc', stem:'✈️ Which sentence means “The plane is faster than the train”?', choices:['<ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>快<rt>kuài</rt></ruby>。'], ans:0, hint:'A 比 B + adjective.' },
-    { type:'mc', stem:'Culture: <ruby>迪拜和上海<rt>Díbài hé Shànghǎi</rt></ruby> — Dubai & Shanghai. Which is true?', choices:['Both are large, modern, fast-growing cities by the water, with tall towers and busy ports — but Dubai grew in the desert and Shanghai by a great river.', 'Dubai and Shanghai are small villages.', 'Neither city has tall buildings.', 'They are the same city.'], ans:0, hint:'Both are world cities with famous skylines, but their climate, history and setting are very different.' },
-    { type:'mc', stem:'🏷️ Which word is the opposite of 贵 (expensive)?', choices:['<ruby>便宜<rt>piányi</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>热<rt>rè</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'贵 (expensive) ↔ 便宜 (cheap).' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>①</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby><sup>②</sup>，<ruby>迪拜<rt>Díbài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>三十九<rt>sānshíjiǔ</rt></ruby><ruby>度<rt>dù</rt></ruby><sup>③</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 旅行 lǚxíng: to travel ② 城市 chéngshì: city ③ 度 dù: degree (temperature)</div>', stem:'Which city is hotter right now, Dubai or Shanghai?', choices:['Dubai (上海没有迪拜热).', 'Shanghai.', 'Both the same.', 'Neither is hot.'], ans:0, hint:'上海没有迪拜热 = Shanghai is not as hot as Dubai → Dubai is hotter.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>①</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby><sup>②</sup>，<ruby>迪拜<rt>Díbài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>三十九<rt>sānshíjiǔ</rt></ruby><ruby>度<rt>dù</rt></ruby><sup>③</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 旅行 lǚxíng: to travel ② 城市 chéngshì: city ③ 度 dù: degree (temperature)</div>', stem:'How will the speaker travel to Shanghai?', choices:['By plane, which is fast (坐飞机……很快).', 'By train, which is slow.', 'By boat.', 'By car.'], ans:0, hint:'Find 坐 …… 去上海很快.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🌆 Imagine a Shanghai student visits Dubai and you visit Shanghai on a \\"swap day.\\" What THREE things do you think would surprise each of you the most about the other city — the weather, the food, the buildings, the way people travel? Imagine and describe both visits. | 🔵 Cycle 3 — 🏙️ Dubai and Shanghai are both fast-growing world cities with tall towers and busy ports, yet they grew from very different places — a desert beside the sea and a great river delta — with different climates, histories and cultures. Why do you think two such different cities can end up looking similar in some ways, and what makes each one special and worth keeping different?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'How does the <ruby>比<rt>bǐ</rt></ruby> comparison work? (HSK tip)', choices:['A 比 B + adjective: 飞机比火车快 (the plane is faster than the train).', 'A 比 B 很 + adjective: 飞机比火车很快.', 'A adjective 比 B: 飞机快比火车.', '比 means "the same as".'], ans:0, hint:'A 比 B + adj. Do NOT add 很 before the adjective in a 比 sentence.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'<ruby>飞机<rt>fēijī</rt></ruby>（　）<ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。 <span class="gl">(A plane is faster ___ (than) a train.)</span>', choices:['<ruby>比<rt>bǐ</rt></ruby>','<ruby>和<rt>hé</rt></ruby>','<ruby>也<rt>yě</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'A 比 B + adjective.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'✈️ Which sentence means “The plane is faster than the train”?', choices:['<ruby>飞机<rt>fēijī</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>快<rt>kuài</rt></ruby>。','<ruby>飞机<rt>fēijī</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>比<rt>bǐ</rt></ruby><ruby>快<rt>kuài</rt></ruby>。'], ans:0, hint:'A 比 B + adjective.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'Culture: <ruby>迪拜和上海<rt>Díbài hé Shànghǎi</rt></ruby> — Dubai & Shanghai. Which is true?', choices:['Both are large, modern, fast-growing cities by the water, with tall towers and busy ports — but Dubai grew in the desert and Shanghai by a great river.', 'Dubai and Shanghai are small villages.', 'Neither city has tall buildings.', 'They are the same city.'], ans:0, hint:'Both are world cities with famous skylines, but their climate, history and setting are very different.' },
+    { type:'mc', skill:'Comparisons (bi)', stem:'🏷️ Which word is the opposite of 贵 (expensive)?', choices:['<ruby>便宜<rt>piányi</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>','<ruby>热<rt>rè</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'贵 (expensive) ↔ 便宜 (cheap).' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>①</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby><sup>②</sup>，<ruby>迪拜<rt>Díbài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>三十九<rt>sānshíjiǔ</rt></ruby><ruby>度<rt>dù</rt></ruby><sup>③</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 旅行 lǚxíng: to travel ② 城市 chéngshì: city ③ 度 dù: degree (temperature)</div>', stem:'Which city is hotter right now, Dubai or Shanghai?', choices:['Dubai (上海没有迪拜热).', 'Shanghai.', 'Both the same.', 'Neither is hot.'], ans:0, hint:'上海没有迪拜热 = Shanghai is not as hot as Dubai → Dubai is hotter.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>旅行<rt>lǚxíng</rt></ruby><sup>①</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby><sup>②</sup>，<ruby>迪拜<rt>Díbài</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>城市<rt>chéngshì</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>有<rt>yǒu</rt></ruby><ruby>三十九<rt>sānshíjiǔ</rt></ruby><ruby>度<rt>dù</rt></ruby><sup>③</sup>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>但是<rt>dànshì</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>坐<rt>zuò</rt></ruby><ruby>飞机<rt>fēijī</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>快<rt>kuài</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 旅行 lǚxíng: to travel ② 城市 chéngshì: city ③ 度 dù: degree (temperature)</div>', stem:'How will the speaker travel to Shanghai?', choices:['By plane, which is fast (坐飞机……很快).', 'By train, which is slow.', 'By boat.', 'By car.'], ans:0, hint:'Find 坐 …… 去上海很快.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🌆 Imagine a Shanghai student visits Dubai and you visit Shanghai on a \\"swap day.\\" What THREE things do you think would surprise each of you the most about the other city — the weather, the food, the buildings, the way people travel? Imagine and describe both visits. | 🔵 Cycle 3 — 🏙️ Dubai and Shanghai are both fast-growing world cities with tall towers and busy ports, yet they grew from very different places — a desert beside the sea and a great river delta — with different climates, histories and cultures. Why do you think two such different cities can end up looking similar in some ways, and what makes each one special and worth keeping different?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3A-L4 我想去上海旅行。</title>' +

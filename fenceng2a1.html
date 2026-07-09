@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L1', num:'Lesson 1', title:'今天太热了！It\u2019s too hot today!', cn:'天气',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary (mixed question types, NOT starting with word-order)
+  // TIER 1 · 夯实基础 — 10 core vocabulary (mixed question types, NOT starting with word-order)
   { qs:[
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">今天太＿了！</span> (cold)', ans:['冷','lěng','leng'], hint:'冷 = cold.' },
-    { type:'mc', stem:'🌡️ Which word means “degree (temperature)”?', choices:['<ruby>度<rt>dù</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'度 = degree.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (weather).', left:['qì','lěng','rè','dù'], right:['气','冷','热','度'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'气·冷·热·度.' },
-    { type:'mc', stem:'❄️ Which word means “cold”?', choices:['<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>'], ans:0, hint:'冷 = cold.' },
-    { type:'mc', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Today is ___ (too) hot!)</span>', choices:['<ruby>太<rt>tài</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'太…了 = too….' },
-    { type:'mc', stem:'😊 Which word means “comfortable”?', choices:['<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>','<ruby>度<rt>dù</rt></ruby>'], ans:0, hint:'舒服 = comfortable.' },
-    { type:'mc', stem:'🔥 Which sentence means “Today is too hot”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'太热了 = too hot.' },
-    { type:'mc', stem:'<ruby>迪拜<rt>Díbài</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>多少<rt>duōshao</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(How many ___ (degrees) in Dubai today?)</span>', choices:['<ruby>度<rt>dù</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'多少度 = how many degrees.' },
-    { type:'match', stem:'🌡️ Match each weather word to its meaning.', left:['<ruby>热<rt>rè</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>'], right:['hot','cold','weather','comfortable'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'热·冷·天气·舒服.' },
-    { type:'mc', stem:'🥶 Which word means below 0 °C?', choices:['<ruby>零下<rt>língxià</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>暖和<rt>nuǎnhuo</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'零下 = below zero.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">今天太＿了！</span> (cold)', ans:['冷','lěng','leng'], hint:'冷 = cold.' },
+    { type:'mc', skill:'Weather', stem:'🌡️ Which word means “degree (temperature)”?', choices:['<ruby>度<rt>dù</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'度 = degree.' },
+    { type:'match', skill:'Weather', stem:'写汉字 · Match the pinyin to its character (weather).', left:['qì','lěng','rè','dù'], right:['气','冷','热','度'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'气·冷·热·度.' },
+    { type:'mc', skill:'Weather', stem:'❄️ Which word means “cold”?', choices:['<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>'], ans:0, hint:'冷 = cold.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Today is ___ (too) hot!)</span>', choices:['<ruby>太<rt>tài</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'太…了 = too….' },
+    { type:'mc', skill:'Weather', stem:'😊 Which word means “comfortable”?', choices:['<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>','<ruby>度<rt>dù</rt></ruby>'], ans:0, hint:'舒服 = comfortable.' },
+    { type:'mc', skill:'Weather', stem:'🔥 Which sentence means “Today is too hot”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'太热了 = too hot.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>迪拜<rt>Díbài</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>多少<rt>duōshao</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(How many ___ (degrees) in Dubai today?)</span>', choices:['<ruby>度<rt>dù</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'多少度 = how many degrees.' },
+    { type:'match', skill:'Weather', stem:'🌡️ Match each weather word to its meaning.', left:['<ruby>热<rt>rè</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>'], right:['hot','cold','weather','comfortable'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'热·冷·天气·舒服.' },
+    { type:'mc', skill:'Weather', stem:'🥶 Which word means below 0 °C?', choices:['<ruby>零下<rt>língxià</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>暖和<rt>nuǎnhuo</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'零下 = below zero.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 usage + 写汉字 (mixed types)
+  // TIER 2 · 学以致用 — 10 usage + 写汉字 (mixed types)
   { qs:[
-    { type:'mc', stem:'<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>零下<rt>língxià</rt></ruby><ruby>三<rt>sān</rt></ruby>（　）。 <span class="gl">(Beijing is minus three ___ (degrees) today.)</span>', choices:['<ruby>度<rt>dù</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'度 = degree.' },
-    { type:'mc', stem:'🌤️ Which sentence means “Today is not cold, not hot, very comfortable”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。'], ans:0, hint:'不冷不热 = neither cold nor hot.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>今天天气怎么样<rt>… zěnmeyàng</rt></ruby>？ It is hot. Reply:', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星<rt>xīng</rt></ruby><ruby>期<rt>qī</rt></ruby><ruby>四<rt>sì</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>。'], ans:0, hint:'Answer about the weather: 今天很….' },
-    { type:'mc', stem:'<ruby>迪拜<rt>Díbài</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(What is Dubai’s weather like today? — ___)</span>', choices:['<ruby>怎么样<rt>zěnmeyàng</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'怎么样 = what is it like.' },
-    { type:'mc', stem:'<ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(What is the weather like today? — ___)</span>', choices:['<ruby>怎么样<rt>zěnmeyàng</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'怎么样 = how / what is it like.' },
-    { type:'mc', stem:'🗣️ <ruby>零下<rt>língxià</rt></ruby> (below zero) describes weather that is:', choices:['very cold','very hot','sunny and warm','comfortable'], ans:0, hint:'零下 = below zero → very cold.' },
-    { type:'fill', stem:'认读 · Type the temperature word: <span class="cn">北京今天二十＿。</span> (degrees)', ans:['度','dù','du'], hint:'度 = degree.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (weather 2).', left:['shū','fú','tiān','shǎo'], right:['舒','服','天','少'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'舒·服·天·少.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby><sup>①</sup>，<ruby>二十<rt>èrshí</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>！”<ruby>北京<rt>Běijīng</rt></ruby><ruby>零下<rt>língxià</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>，<ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 暖和 nuǎnhuo: warm</div>', stem:'How is the weather in Shanghai today?', choices:['Warm, 20 degrees (暖和).','Below zero.','Very hot, 40 degrees.','Rainy.'], ans:0, hint:'Find 上海.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby><sup>①</sup>，<ruby>二十<rt>èrshí</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>！”<ruby>北京<rt>Běijīng</rt></ruby><ruby>零下<rt>língxià</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>，<ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 暖和 nuǎnhuo: warm</div>', stem:'Why does the passage say 太冷了 about Beijing?', choices:['It is minus 5 degrees — too cold.','It is 20 degrees — warm.','It is raining.','It is sunny.'], ans:0, hint:'Find 北京.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>零下<rt>língxià</rt></ruby><ruby>三<rt>sān</rt></ruby>（　）。 <span class="gl">(Beijing is minus three ___ (degrees) today.)</span>', choices:['<ruby>度<rt>dù</rt></ruby>','<ruby>天气<rt>tiānqì</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>热<rt>rè</rt></ruby>'], ans:0, hint:'度 = degree.' },
+    { type:'mc', skill:'Weather', stem:'🌤️ Which sentence means “Today is not cold, not hot, very comfortable”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。'], ans:0, hint:'不冷不热 = neither cold nor hot.' },
+    { type:'mc', skill:'Weather', stem:'🗣️ Someone asks <ruby>今天天气怎么样<rt>… zěnmeyàng</rt></ruby>？ It is hot. Reply:', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星<rt>xīng</rt></ruby><ruby>期<rt>qī</rt></ruby><ruby>四<rt>sì</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>。'], ans:0, hint:'Answer about the weather: 今天很….' },
+    { type:'mc', skill:'Weather', stem:'<ruby>迪拜<rt>Díbài</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(What is Dubai’s weather like today? — ___)</span>', choices:['<ruby>怎么样<rt>zěnmeyàng</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'怎么样 = what is it like.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>今天<rt>jīntiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>（　）<ruby>？<rt></rt></ruby> <span class="gl">(What is the weather like today? — ___)</span>', choices:['<ruby>怎么样<rt>zěnmeyàng</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'怎么样 = how / what is it like.' },
+    { type:'mc', skill:'Weather', stem:'🗣️ <ruby>零下<rt>língxià</rt></ruby> (below zero) describes weather that is:', choices:['very cold','very hot','sunny and warm','comfortable'], ans:0, hint:'零下 = below zero → very cold.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the temperature word: <span class="cn">北京今天二十＿。</span> (degrees)', ans:['度','dù','du'], hint:'度 = degree.' },
+    { type:'match', skill:'Weather', stem:'写汉字 · Match the pinyin to its character (weather 2).', left:['shū','fú','tiān','shǎo'], right:['舒','服','天','少'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'舒·服·天·少.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby><sup>①</sup>，<ruby>二十<rt>èrshí</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>！”<ruby>北京<rt>Běijīng</rt></ruby><ruby>零下<rt>língxià</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>，<ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 暖和 nuǎnhuo: warm</div>', stem:'How is the weather in Shanghai today?', choices:['Warm, 20 degrees (暖和).','Below zero.','Very hot, 40 degrees.','Rainy.'], ans:0, hint:'Find 上海.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby><sup>①</sup>，<ruby>二十<rt>èrshí</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>！”<ruby>北京<rt>Běijīng</rt></ruby><ruby>零下<rt>língxià</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>，<ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 暖和 nuǎnhuo: warm</div>', stem:'Why does the passage say 太冷了 about Beijing?', choices:['It is minus 5 degrees — too cold.','It is 20 degrees — warm.','It is raining.','It is sunny.'], ans:0, hint:'Find 北京.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🗣️ A friend asks <ruby>今天天气怎么样<rt>… zěnmeyàng</rt></ruby>？ It is comfortable. Reply:', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>十<rt>shí</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>岁<rt>suì</rt></ruby>。'], ans:0, hint:'Answer: 今天很舒服.' },
-    { type:'mc', stem:'🗺️ China is a very big country, so its weather is:', choices:['different in different places — the north can be cold (零下), the south stays warm', 'exactly the same everywhere', 'always hot', 'always below zero'], ans:0, hint:'Culture: China is huge — northern winters can be 零下, while the south stays warmer.' },
-    { type:'mc', stem:'🔥 Which word means “hot”?', choices:['<ruby>热<rt>rè</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>度<rt>dù</rt></ruby>'], ans:0, hint:'热 = hot.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you ask about the weather? (HSK tip)', choices:['<ruby>今天天气怎么样<rt>jīntiān tiānqì zěnmeyàng</rt></ruby>？— use 怎么样.', '<ruby>今天天气什么<rt>jīntiān tiānqì shénme</rt></ruby>？— incorrect.', '<ruby>今天怎么样天气<rt>jīntiān zěnmeyàng tiānqì</rt></ruby>？— wrong word order.', '<ruby>天气今天怎么样吗<rt>tiānqì jīntiān zěnmeyàng ma</rt></ruby>？— do not add 吗.'], ans:0, hint:'HSK tip: ask about a state/quality with 怎么样 — and do NOT add 吗 after it.' },
-    { type:'mc', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Today is ___ (too) cold!)</span>', choices:['<ruby>太<rt>tài</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'太…了 = too….' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十八<rt>sānshíbā</rt></ruby><sup>①</sup><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>零下<rt>língxià</rt></ruby><sup>②</sup><ruby>三<rt>sān</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>北京<rt>Běijīng</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby><sup>③</sup>。\u201d</p><div class="rn"><b>Notes:</b> ① 三十八 sānshíbā: 38 ② 零下 língxià: below zero ③ 不舒服 bù shūfu: not feeling well</div>', stem:'How is the weather in Dubai today?', choices:['Very hot, 38 degrees.', 'Very cold, below zero.', 'Not hot, not cold.', 'Rainy.'], ans:0, hint:'Find 迪拜 … 度 near the start.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十八<rt>sānshíbā</rt></ruby><sup>①</sup><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>零下<rt>língxià</rt></ruby><sup>②</sup><ruby>三<rt>sān</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>北京<rt>Běijīng</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby><sup>③</sup>。\u201d</p><div class="rn"><b>Notes:</b> ① 三十八 sānshíbā: 38 ② 零下 língxià: below zero ③ 不舒服 bù shūfu: not feeling well</div>', stem:'Why does Fatima (法蒂玛) feel uncomfortable?', choices:['Beijing is too cold (太冷了).', 'Beijing is too hot.', 'Dubai is too cold.', 'It is raining in Dubai.'], ans:0, hint:'Find what 法蒂玛 says about 北京.' },
-    { type:'hots', stem:'🟡 Cycle 2 — The weather changes every day — some days are hot (热), some cold (冷), some comfortable (舒服). What is your favourite kind of weather, and what do you like to do on those days? | 🔵 Cycle 3 — China is huge — the north can be freezing while the south stays warm — and the UAE is famous for its hot desert climate. How do you think climate changes the way people build homes, dress and eat, and what clever ways do people where you live use to stay cool?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Weather', stem:'🗣️ A friend asks <ruby>今天天气怎么样<rt>… zěnmeyàng</rt></ruby>？ It is comfortable. Reply:', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>十<rt>shí</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>岁<rt>suì</rt></ruby>。'], ans:0, hint:'Answer: 今天很舒服.' },
+    { type:'mc', skill:'Weather', stem:'🗺️ China is a very big country, so its weather is:', choices:['different in different places — the north can be cold (零下), the south stays warm', 'exactly the same everywhere', 'always hot', 'always below zero'], ans:0, hint:'Culture: China is huge — northern winters can be 零下, while the south stays warmer.' },
+    { type:'mc', skill:'Weather', stem:'🔥 Which word means “hot”?', choices:['<ruby>热<rt>rè</rt></ruby>','<ruby>冷<rt>lěng</rt></ruby>','<ruby>舒服<rt>shūfu</rt></ruby>','<ruby>度<rt>dù</rt></ruby>'], ans:0, hint:'热 = hot.' },
+    { type:'mc', skill:'Weather', stem:'In Chinese (HSK), how do you ask about the weather? (HSK tip)', choices:['<ruby>今天天气怎么样<rt>jīntiān tiānqì zěnmeyàng</rt></ruby>？— use 怎么样.', '<ruby>今天天气什么<rt>jīntiān tiānqì shénme</rt></ruby>？— incorrect.', '<ruby>今天怎么样天气<rt>jīntiān zěnmeyàng tiānqì</rt></ruby>？— wrong word order.', '<ruby>天气今天怎么样吗<rt>tiānqì jīntiān zěnmeyàng ma</rt></ruby>？— do not add 吗.'], ans:0, hint:'HSK tip: ask about a state/quality with 怎么样 — and do NOT add 吗 after it.' },
+    { type:'mc', skill:'Weather', stem:'<ruby>今天<rt>jīntiān</rt></ruby>（　）<ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Today is ___ (too) cold!)</span>', choices:['<ruby>太<rt>tài</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>也<rt>yě</rt></ruby>'], ans:0, hint:'太…了 = too….' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十八<rt>sānshíbā</rt></ruby><sup>①</sup><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>零下<rt>língxià</rt></ruby><sup>②</sup><ruby>三<rt>sān</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>北京<rt>Běijīng</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby><sup>③</sup>。\u201d</p><div class="rn"><b>Notes:</b> ① 三十八 sānshíbā: 38 ② 零下 língxià: below zero ③ 不舒服 bù shūfu: not feeling well</div>', stem:'How is the weather in Dubai today?', choices:['Very hot, 38 degrees.', 'Very cold, below zero.', 'Not hot, not cold.', 'Rainy.'], ans:0, hint:'Find 迪拜 … 度 near the start.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十八<rt>sānshíbā</rt></ruby><sup>①</sup><ruby>度<rt>dù</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby>！\u201d<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>零下<rt>língxià</rt></ruby><sup>②</sup><ruby>三<rt>sān</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>北京<rt>Běijīng</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>舒服<rt>shūfu</rt></ruby><sup>③</sup>。\u201d</p><div class="rn"><b>Notes:</b> ① 三十八 sānshíbā: 38 ② 零下 língxià: below zero ③ 不舒服 bù shūfu: not feeling well</div>', stem:'Why does Fatima (法蒂玛) feel uncomfortable?', choices:['Beijing is too cold (太冷了).', 'Beijing is too hot.', 'Dubai is too cold.', 'It is raining in Dubai.'], ans:0, hint:'Find what 法蒂玛 says about 北京.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — The weather changes every day — some days are hot (热), some cold (冷), some comfortable (舒服). What is your favourite kind of weather, and what do you like to do on those days? | 🔵 Cycle 3 — China is huge — the north can be freezing while the south stays warm — and the UAE is famous for its hot desert climate. How do you think climate changes the way people build homes, dress and eat, and what clever ways do people where you live use to stay cool?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L1 今天太热了！</title>' +

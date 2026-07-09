@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L5', num:'Lesson 5', title:'我们去奇迹花园了。We went to the Miracle Garden.', cn:'行程',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 place vocabulary + 去…了 (mixed types)
+  // TIER 1 · 夯实基础 — 10 place vocabulary + 去…了 (mixed types)
   { qs:[
-    { type:'mc', stem:'📅 Which word means “weekend”?', choices:['<ruby>周末<rt>zhōumò</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>','<ruby>运动<rt>yùndòng</rt></ruby>'], ans:0, hint:'周末 = weekend.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>（　）。 <span class="gl">(I went to the library (___, already).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'verb + 了 = it happened.' },
-    { type:'mc', stem:'🕌 Which word means “mosque”?', choices:['<ruby>清真寺<rt>qīngzhēnsì</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>'], ans:0, hint:'清真寺 = mosque.' },
-    { type:'fill', stem:'认读 · Type the place: <span class="cn">我去电影院＿。</span> (already=了)', ans:['了','le'], hint:'去…了 = went to….' },
-    { type:'mc', stem:'🌷 Which word means “garden”?', choices:['<ruby>花园<rt>huāyuán</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>体育馆<rt>tǐyùguǎn</rt></ruby>'], ans:0, hint:'花园 = garden.' },
-    { type:'mc', stem:'🛍️ Which word means “shop”?', choices:['<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>','<ruby>清真寺<rt>qīngzhēnsì</rt></ruby>'], ans:0, hint:'商店 = shop.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (place words).', left:['yuán','yùn','dòng','zhōu'], right:['园','运','动','周'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'园·运·动·周.' },
-    { type:'mc', stem:'🏟️ Where do you go to do sports?', choices:['<ruby>体育馆<rt>tǐyùguǎn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>电影院<rt>diànyǐngyuàn</rt></ruby>'], ans:0, hint:'体育馆 = gym.' },
-    { type:'match', stem:'🗺️ Match each place to its meaning.', left:['<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>电影院<rt>diànyǐngyuàn</rt></ruby>','<ruby>清真寺<rt>qīngzhēnsì</rt></ruby>'], right:['library','shop','cinema','mosque'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'图书馆·商店·电影院·清真寺.' },
-    { type:'mc', stem:'🌷 Which means “I went to the Miracle Garden”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去…了 = went to….' },
+    { type:'mc', skill:'Places & past actions', stem:'📅 Which word means “weekend”?', choices:['<ruby>周末<rt>zhōumò</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>','<ruby>运动<rt>yùndòng</rt></ruby>'], ans:0, hint:'周末 = weekend.' },
+    { type:'mc', skill:'Places & past actions', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>（　）。 <span class="gl">(I went to the library (___, already).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'verb + 了 = it happened.' },
+    { type:'mc', skill:'Places & past actions', stem:'🕌 Which word means “mosque”?', choices:['<ruby>清真寺<rt>qīngzhēnsì</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>'], ans:0, hint:'清真寺 = mosque.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the place: <span class="cn">我去电影院＿。</span> (already=了)', ans:['了','le'], hint:'去…了 = went to….' },
+    { type:'mc', skill:'Places & past actions', stem:'🌷 Which word means “garden”?', choices:['<ruby>花园<rt>huāyuán</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>体育馆<rt>tǐyùguǎn</rt></ruby>'], ans:0, hint:'花园 = garden.' },
+    { type:'mc', skill:'Places & past actions', stem:'🛍️ Which word means “shop”?', choices:['<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>','<ruby>清真寺<rt>qīngzhēnsì</rt></ruby>'], ans:0, hint:'商店 = shop.' },
+    { type:'match', skill:'Places & past actions', stem:'写汉字 · Match the pinyin to its character (place words).', left:['yuán','yùn','dòng','zhōu'], right:['园','运','动','周'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'园·运·动·周.' },
+    { type:'mc', skill:'Places & past actions', stem:'🏟️ Where do you go to do sports?', choices:['<ruby>体育馆<rt>tǐyùguǎn</rt></ruby>','<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>电影院<rt>diànyǐngyuàn</rt></ruby>'], ans:0, hint:'体育馆 = gym.' },
+    { type:'match', skill:'Places & past actions', stem:'🗺️ Match each place to its meaning.', left:['<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>电影院<rt>diànyǐngyuàn</rt></ruby>','<ruby>清真寺<rt>qīngzhēnsì</rt></ruby>'], right:['library','shop','cinema','mosque'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'图书馆·商店·电影院·清真寺.' },
+    { type:'mc', skill:'Places & past actions', stem:'🌷 Which means “I went to the Miracle Garden”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去…了 = went to….' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 grammar (了 / 哪儿 / 写汉字), mixed types
+  // TIER 2 · 学以致用 — 10 grammar (了 / 哪儿 / 写汉字), mixed types
   { qs:[
-    { type:'mc', stem:'📚 Which means “He went to the gym”?', choices:['<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去体育馆了.' },
-    { type:'fill', stem:'认读 · Type the place: <span class="cn">我去图书馆＿。</span> (already=了)', ans:['了','le'], hint:'去…了 = went to….' },
-    { type:'mc', stem:'🗣️ <ruby>你去运动了<rt>nǐ qù yùndòng le</rt></ruby>？ A good reply is:', choices:['是的，我去运动了。','是的，我九岁。','是的，今天晴天。','是的，我喜欢绿色。'], ans:0, hint:'Answer about the activity: 是的，我去运动了.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Where did you go? — ___)</span>', choices:['<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'哪儿 = where.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>（　）。 <span class="gl">(I went to the shop (___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'去…了 = went to….' },
-    { type:'mc', stem:'<ruby>周末<rt>zhōumò</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Where did you go on the weekend? — ___)</span>', choices:['<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'哪儿 = where.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>周末你去哪儿了<rt>… qù nǎr le</rt></ruby>？ You went to the library. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我去…了.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (place words 2).', left:['qù','diàn','shū','guǎn'], right:['去','店','书','馆'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去·店·书·馆.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>电影院<rt>diànyǐngyuàn</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 电影院 diànyǐngyuàn: cinema</div>', stem:'Where did Fatima go on Saturday?', choices:['The cinema and the shop (电影院、商店).','The library only.','The mosque.','The gym.'], ans:0, hint:'Find 星期六.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>电影院<rt>diànyǐngyuàn</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 电影院 diànyǐngyuàn: cinema</div>', stem:'Where did Fatima go on Sunday?', choices:['The library (图书馆).','The cinema.','The shop.','The garden.'], ans:0, hint:'Find 星期日.' },
+    { type:'mc', skill:'Places & past actions', stem:'📚 Which means “He went to the gym”?', choices:['<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'去体育馆了.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the place: <span class="cn">我去图书馆＿。</span> (already=了)', ans:['了','le'], hint:'去…了 = went to….' },
+    { type:'mc', skill:'Places & past actions', stem:'🗣️ <ruby>你去运动了<rt>nǐ qù yùndòng le</rt></ruby>？ A good reply is:', choices:['是的，我去运动了。','是的，我九岁。','是的，今天晴天。','是的，我喜欢绿色。'], ans:0, hint:'Answer about the activity: 是的，我去运动了.' },
+    { type:'mc', skill:'Places & past actions', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Where did you go? — ___)</span>', choices:['<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'哪儿 = where.' },
+    { type:'mc', skill:'Places & past actions', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>（　）。 <span class="gl">(I went to the shop (___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'去…了 = went to….' },
+    { type:'mc', skill:'Places & past actions', stem:'<ruby>周末<rt>zhōumò</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Where did you go on the weekend? — ___)</span>', choices:['<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'哪儿 = where.' },
+    { type:'mc', skill:'Places & past actions', stem:'🗣️ Someone asks <ruby>周末你去哪儿了<rt>… qù nǎr le</rt></ruby>？ You went to the library. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>九<rt>jiǔ</rt></ruby><ruby>岁<rt>suì</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我去…了.' },
+    { type:'match', skill:'Places & past actions', stem:'写汉字 · Match the pinyin to its character (place words 2).', left:['qù','diàn','shū','guǎn'], right:['去','店','书','馆'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'去·店·书·馆.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>电影院<rt>diànyǐngyuàn</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 电影院 diànyǐngyuàn: cinema</div>', stem:'Where did Fatima go on Saturday?', choices:['The cinema and the shop (电影院、商店).','The library only.','The mosque.','The gym.'], ans:0, hint:'Find 星期六.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>电影院<rt>diànyǐngyuàn</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>了<rt>le</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 电影院 diànyǐngyuàn: cinema</div>', stem:'Where did Fatima go on Sunday?', choices:['The library (图书馆).','The cinema.','The shop.','The garden.'], ans:0, hint:'Find 星期日.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In Chinese (HSK), how do you say "I went to the library"? (HSK tip)', choices:['<ruby>我去图书馆了<rt>wǒ qù túshūguǎn le</rt></ruby>。— verb 去 + place + 了.', '<ruby>我是去图书馆<rt>wǒ shì qù túshūguǎn</rt></ruby>。— incorrect: no 是.', '<ruby>我去图书馆<rt>wǒ qù túshūguǎn</rt></ruby>。— missing 了 for a finished action.', '<ruby>我了图书馆去<rt>wǒ le túshūguǎn qù</rt></ruby>。— wrong order.'], ans:0, hint:'HSK tip: a finished action uses verb + 了: 去…了. Do NOT add 是.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>花园<rt>huāyuán</rt></ruby>（　）。 <span class="gl">(I went to the garden (___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'去…了 = went to….' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>周末你去哪儿了<rt>… qù nǎr le</rt></ruby>？ You went to the shop. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>周末<rt>zhōumò</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我去商店了.' },
-    { type:'mc', stem:'📚 Which word means “library”?', choices:['<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>电影院<rt>diànyǐngyuàn</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>'], ans:0, hint:'图书馆 = library.' },
-    { type:'mc', stem:'🏯 Chinese classical gardens (<ruby>中国园林<rt>Zhōngguó yuánlín</rt></ruby>) are designed to feel:', choices:['calm and natural, with water, rocks, plants and small pavilions', 'loud and full of machines', 'empty with nothing in them', 'like a sports stadium'], ans:0, hint:'Culture: 园林 blend water, rocks and plants to feel like peaceful, natural scenery.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>？<ruby>星期六<rt>xīngqīliù</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><sup>②</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><sup>④</sup><ruby>了<rt>le</rt></ruby>。<ruby>那里<rt>nàlǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 哪儿 nǎr: where ② 图书馆 túshūguǎn: library ③ 商店 shāngdiàn: shop ④ 奇迹花园 Qíjì Huāyuán: Miracle Garden</div>', stem:'Where did Hassan go on Saturday (星期六)?', choices:['The library and the shop (图书馆、商店).', 'The Miracle Garden.', 'The gym.', 'The mosque.'], ans:0, hint:'Find 星期六 in the passage and read what follows.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>？<ruby>星期六<rt>xīngqīliù</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><sup>②</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><sup>④</sup><ruby>了<rt>le</rt></ruby>。<ruby>那里<rt>nàlǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 哪儿 nǎr: where ② 图书馆 túshūguǎn: library ③ 商店 shāngdiàn: shop ④ 奇迹花园 Qíjì Huāyuán: Miracle Garden</div>', stem:'What did Hassan see at the Miracle Garden?', choices:['Flowers of all kinds of colours (各种颜色的花).', 'A football match.', 'Snow.', 'Books.'], ans:0, hint:'Read the last sentence about 奇迹花园.' },
-    { type:'hots', stem:'🟡 Cycle 2 — On weekends people go to many places \u2014 the library, shops, the gym, parks and gardens. Where do you like to go on the weekend, and what do you do there? | 🔵 Cycle 3 — Chinese classical gardens (\u4e2d\u56fd\u56ed\u6797) mix water, rocks, plants and small pavilions to feel calm and natural, while Dubai is famous for huge modern places like Miracle Garden. Would you rather visit a quiet natural garden or a big modern attraction, and what do you think makes a place really worth visiting?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Places & past actions', stem:'In Chinese (HSK), how do you say "I went to the library"? (HSK tip)', choices:['<ruby>我去图书馆了<rt>wǒ qù túshūguǎn le</rt></ruby>。— verb 去 + place + 了.', '<ruby>我是去图书馆<rt>wǒ shì qù túshūguǎn</rt></ruby>。— incorrect: no 是.', '<ruby>我去图书馆<rt>wǒ qù túshūguǎn</rt></ruby>。— missing 了 for a finished action.', '<ruby>我了图书馆去<rt>wǒ le túshūguǎn qù</rt></ruby>。— wrong order.'], ans:0, hint:'HSK tip: a finished action uses verb + 了: 去…了. Do NOT add 是.' },
+    { type:'mc', skill:'Places & past actions', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>花园<rt>huāyuán</rt></ruby>（　）。 <span class="gl">(I went to the garden (___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'去…了 = went to….' },
+    { type:'mc', skill:'Places & past actions', stem:'🗣️ Someone asks <ruby>周末你去哪儿了<rt>… qù nǎr le</rt></ruby>？ You went to the shop. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>紫色<rt>zǐsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>周末<rt>zhōumò</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 我去商店了.' },
+    { type:'mc', skill:'Places & past actions', stem:'📚 Which word means “library”?', choices:['<ruby>图书馆<rt>túshūguǎn</rt></ruby>','<ruby>商店<rt>shāngdiàn</rt></ruby>','<ruby>电影院<rt>diànyǐngyuàn</rt></ruby>','<ruby>花园<rt>huāyuán</rt></ruby>'], ans:0, hint:'图书馆 = library.' },
+    { type:'mc', skill:'Places & past actions', stem:'🏯 Chinese classical gardens (<ruby>中国园林<rt>Zhōngguó yuánlín</rt></ruby>) are designed to feel:', choices:['calm and natural, with water, rocks, plants and small pavilions', 'loud and full of machines', 'empty with nothing in them', 'like a sports stadium'], ans:0, hint:'Culture: 园林 blend water, rocks and plants to feel like peaceful, natural scenery.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>？<ruby>星期六<rt>xīngqīliù</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><sup>②</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><sup>④</sup><ruby>了<rt>le</rt></ruby>。<ruby>那里<rt>nàlǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 哪儿 nǎr: where ② 图书馆 túshūguǎn: library ③ 商店 shāngdiàn: shop ④ 奇迹花园 Qíjì Huāyuán: Miracle Garden</div>', stem:'Where did Hassan go on Saturday (星期六)?', choices:['The library and the shop (图书馆、商店).', 'The Miracle Garden.', 'The gym.', 'The mosque.'], ans:0, hint:'Find 星期六 in the passage and read what follows.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>哪儿<rt>nǎr</rt></ruby><sup>①</sup><ruby>了<rt>le</rt></ruby>？<ruby>星期六<rt>xīngqīliù</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby><sup>②</sup><ruby>了<rt>le</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby>。<ruby>星期日<rt>xīngqīrì</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>奇迹花园<rt>Qíjì Huāyuán</rt></ruby><sup>④</sup><ruby>了<rt>le</rt></ruby>。<ruby>那里<rt>nàlǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>各种<rt>gèzhǒng</rt></ruby><ruby>颜色<rt>yánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>花<rt>huā</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>美<rt>měi</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 哪儿 nǎr: where ② 图书馆 túshūguǎn: library ③ 商店 shāngdiàn: shop ④ 奇迹花园 Qíjì Huāyuán: Miracle Garden</div>', stem:'What did Hassan see at the Miracle Garden?', choices:['Flowers of all kinds of colours (各种颜色的花).', 'A football match.', 'Snow.', 'Books.'], ans:0, hint:'Read the last sentence about 奇迹花园.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — On weekends people go to many places \u2014 the library, shops, the gym, parks and gardens. Where do you like to go on the weekend, and what do you do there? | 🔵 Cycle 3 — Chinese classical gardens (\u4e2d\u56fd\u56ed\u6797) mix water, rocks, plants and small pavilions to feel calm and natural, while Dubai is famous for huge modern places like Miracle Garden. Would you rather visit a quiet natural garden or a big modern attraction, and what do you think makes a place really worth visiting?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L5 我们去奇迹花园了。</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1B-L2', num:'Lesson 2', title:'我有两个哥哥。I have two older brothers.', cn:'家庭',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'👬 "I have two older brothers" in Chinese:', choices:['<ruby>我有两个哥哥<rt>wǒ yǒu liǎng gè gēge</rt></ruby>。', '<ruby>我两个有哥哥<rt>wǒ liǎng gè yǒu gēge</rt></ruby>。', '<ruby>哥哥我有两个<rt>gēge wǒ yǒu liǎng gè</rt></ruby>。', '<ruby>两个我哥哥有<rt>liǎng gè wǒ gēge yǒu</rt></ruby>。'], ans:0, hint:'Subject + 有 + number + 个 + noun: 我 + 有 + 两 + 个 + 哥哥.' },
-    { type:'mc', stem:'<ruby>有<rt>yǒu</rt></ruby> means:', choices:['to have', 'to not have', 'to want', 'to be'], ans:0, hint:'有 = to have · 没有 = to not have.' },
-    { type:'mc', stem:'<ruby>没有<rt>méiyǒu</rt></ruby> means:', choices:['to not have / do not have', 'to have', 'to like', 'to know'], ans:0, hint:'没有 = the negative of 有 (to have).' },
-    { type:'mc', stem:'<ruby>个<rt>gè</rt></ruby> is:', choices:['a measure word (used with a number + noun)', 'a number', 'a family member', 'a question word'], ans:0, hint:'个 is the most common measure word 量词: number + 个 + noun.' },
-    { type:'mc', stem:'<ruby>两<rt>liǎng</rt></ruby> means:', choices:['two', 'three', 'both / and', 'a few'], ans:0, hint:'两 = 2 (used before a measure word, e.g. 两个).' },
-    { type:'mc', stem:'<ruby>和<rt>hé</rt></ruby> means:', choices:['and', 'or', 'with you', 'also'], ans:0, hint:'和 = and · joins two nouns: 哥哥和妹妹.' },
-    { type:'mc', stem:'👶 <ruby>孩子<rt>háizi</rt></ruby> means:', choices:['child', 'parent', 'family', 'friend'], ans:0, hint:'孩子 = child.' },
-    { type:'mc', stem:'🏠 <ruby>家<rt>jiā</rt></ruby> means:', choices:['family / home', 'school', 'country', 'room'], ans:0, hint:'家 = home or family.' },
-    { type:'fill', stem:'Say "I have one younger sister": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yī</rt></ruby>＿<ruby>妹妹<rt>mèimei</rt></ruby>。</span>', ans:['个','gè','ge'], hint:'Number + 个 + noun: 一个妹妹 = one younger sister.' },
-    { type:'match', stem:'Match each word to its meaning.', left:['<ruby>有<rt>yǒu</rt></ruby>', '<ruby>没有<rt>méiyǒu</rt></ruby>', '<ruby>和<rt>hé</rt></ruby>', '<ruby>孩子<rt>háizi</rt></ruby>'], right:['to have', 'to not have', 'and', 'child'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'有 have · 没有 not have · 和 and · 孩子 child.' },
+    { type:'mc', skill:'Family & numbers', stem:'👬 "I have two older brothers" in Chinese:', choices:['<ruby>我有两个哥哥<rt>wǒ yǒu liǎng gè gēge</rt></ruby>。', '<ruby>我两个有哥哥<rt>wǒ liǎng gè yǒu gēge</rt></ruby>。', '<ruby>哥哥我有两个<rt>gēge wǒ yǒu liǎng gè</rt></ruby>。', '<ruby>两个我哥哥有<rt>liǎng gè wǒ gēge yǒu</rt></ruby>。'], ans:0, hint:'Subject + 有 + number + 个 + noun: 我 + 有 + 两 + 个 + 哥哥.' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>有<rt>yǒu</rt></ruby> means:', choices:['to have', 'to not have', 'to want', 'to be'], ans:0, hint:'有 = to have · 没有 = to not have.' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>没有<rt>méiyǒu</rt></ruby> means:', choices:['to not have / do not have', 'to have', 'to like', 'to know'], ans:0, hint:'没有 = the negative of 有 (to have).' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>个<rt>gè</rt></ruby> is:', choices:['a measure word (used with a number + noun)', 'a number', 'a family member', 'a question word'], ans:0, hint:'个 is the most common measure word 量词: number + 个 + noun.' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>两<rt>liǎng</rt></ruby> means:', choices:['two', 'three', 'both / and', 'a few'], ans:0, hint:'两 = 2 (used before a measure word, e.g. 两个).' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>和<rt>hé</rt></ruby> means:', choices:['and', 'or', 'with you', 'also'], ans:0, hint:'和 = and · joins two nouns: 哥哥和妹妹.' },
+    { type:'mc', skill:'Family & numbers', stem:'👶 <ruby>孩子<rt>háizi</rt></ruby> means:', choices:['child', 'parent', 'family', 'friend'], ans:0, hint:'孩子 = child.' },
+    { type:'mc', skill:'Family & numbers', stem:'🏠 <ruby>家<rt>jiā</rt></ruby> means:', choices:['family / home', 'school', 'country', 'room'], ans:0, hint:'家 = home or family.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I have one younger sister": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yī</rt></ruby>＿<ruby>妹妹<rt>mèimei</rt></ruby>。</span>', ans:['个','gè','ge'], hint:'Number + 个 + noun: 一个妹妹 = one younger sister.' },
+    { type:'match', skill:'Family & numbers', stem:'Match each word to its meaning.', left:['<ruby>有<rt>yǒu</rt></ruby>', '<ruby>没有<rt>méiyǒu</rt></ruby>', '<ruby>和<rt>hé</rt></ruby>', '<ruby>孩子<rt>háizi</rt></ruby>'], right:['to have', 'to not have', 'and', 'child'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'有 have · 没有 not have · 和 and · 孩子 child.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'To count a noun you must add a measure word: <ruby>两<rt>liǎng</rt></ruby>＿<ruby>哥哥<rt>gēge</rt></ruby>. Fill the blank:', choices:['<ruby>个<rt>gè</rt></ruby>', '<ruby>和<rt>hé</rt></ruby>', '<ruby>家<rt>jiā</rt></ruby>', '<ruby>是<rt>shì</rt></ruby>'], ans:0, hint:'number + 个 + noun: 两个哥哥 = two older brothers.' },
-    { type:'mc', stem:'"I do not have an older sister" — correct sentence:', choices:['<ruby>我没有姐姐<rt>wǒ méiyǒu jiějie</rt></ruby>。', '<ruby>我不有姐姐<rt>wǒ bù yǒu jiějie</rt></ruby>。', '<ruby>我姐姐没有<rt>wǒ jiějie méiyǒu</rt></ruby>。', '<ruby>没有我姐姐<rt>méiyǒu wǒ jiějie</rt></ruby>。'], ans:0, hint:'有 is negated with 没, never 不 → 没有, not 不有.' },
-    { type:'mc', stem:'Which is correct for "two" before 个 — <ruby>两个<rt>liǎng gè</rt></ruby> or <ruby>二个<rt>èr gè</rt></ruby>?', choices:['<ruby>两个<rt>liǎng gè</rt></ruby>', '<ruby>二个<rt>èr gè</rt></ruby>', 'both are correct', 'neither is correct'], ans:0, hint:'Before a measure word, "2" is 两, not 二. So 两个 is correct.' },
-    { type:'fill', stem:'Complete "I have two older brothers": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿<ruby>两个<rt>liǎng gè</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>。</span>', ans:['有','yǒu','you'], hint:'有 = to have. 我有两个哥哥。' },
-    { type:'mc', stem:'"I have two older brothers and one younger sister":', choices:['<ruby>我有两个哥哥和一个妹妹<rt>wǒ yǒu liǎng gè gēge hé yí gè mèimei</rt></ruby>。', '<ruby>我有两个哥哥一个妹妹和<rt>wǒ yǒu liǎng gè gēge yí gè mèimei hé</rt></ruby>。', '<ruby>我和有两个哥哥一个妹妹<rt>wǒ hé yǒu liǎng gè gēge yí gè mèimei</rt></ruby>。', '<ruby>两个哥哥和一个妹妹我有<rt>liǎng gè gēge hé yí gè mèimei wǒ yǒu</rt></ruby>。'], ans:0, hint:'和 joins the two items in the middle: ……哥哥 和 ……妹妹.' },
-    { type:'mc', stem:'<ruby>和<rt>hé</rt></ruby> is used to connect:', choices:['two nouns (e.g. 哥哥和妹妹)', 'two whole sentences', 'a subject and a verb', 'a question and answer'], ans:0, hint:'和 = and · links nouns: 哥哥和妹妹 (older brother and younger sister).' },
-    { type:'fill', stem:'Negate the verb 有 — say "I do not have a younger brother": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿＿<ruby>弟弟<rt>dìdi</rt></ruby>。</span>', ans:['没有','méiyǒu','meiyou'], hint:'有 → 没有 (not 不有). 我没有弟弟。' },
-    { type:'mc', stem:'Put in the correct order — "one younger sister":', choices:['<ruby>一个妹妹<rt>yí gè mèimei</rt></ruby>', '<ruby>妹妹一个<rt>mèimei yí gè</rt></ruby>', '<ruby>个一妹妹<rt>gè yī mèimei</rt></ruby>', '<ruby>一妹妹个<rt>yī mèimei gè</rt></ruby>'], ans:0, hint:'Order is number + 个 + noun: 一个妹妹.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['yǒu', 'gè', 'liǎng', 'jiě'], right:['有', '个', '两', '姐'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 有, 个, 两, 姐, 妹.' },
-    { type:'mc', stem:'<ruby>你家有几个人<rt>nǐ jiā yǒu jǐ gè rén</rt></ruby>？ means:', choices:['How many people are in your family?', 'Who is in your family?', 'Where is your family?', 'Is your family big?'], ans:0, hint:'几 = how many · 几个人 = how many people.' },
+    { type:'mc', skill:'Family & numbers', stem:'To count a noun you must add a measure word: <ruby>两<rt>liǎng</rt></ruby>＿<ruby>哥哥<rt>gēge</rt></ruby>. Fill the blank:', choices:['<ruby>个<rt>gè</rt></ruby>', '<ruby>和<rt>hé</rt></ruby>', '<ruby>家<rt>jiā</rt></ruby>', '<ruby>是<rt>shì</rt></ruby>'], ans:0, hint:'number + 个 + noun: 两个哥哥 = two older brothers.' },
+    { type:'mc', skill:'Family & numbers', stem:'"I do not have an older sister" — correct sentence:', choices:['<ruby>我没有姐姐<rt>wǒ méiyǒu jiějie</rt></ruby>。', '<ruby>我不有姐姐<rt>wǒ bù yǒu jiějie</rt></ruby>。', '<ruby>我姐姐没有<rt>wǒ jiějie méiyǒu</rt></ruby>。', '<ruby>没有我姐姐<rt>méiyǒu wǒ jiějie</rt></ruby>。'], ans:0, hint:'有 is negated with 没, never 不 → 没有, not 不有.' },
+    { type:'mc', skill:'Family & numbers', stem:'Which is correct for "two" before 个 — <ruby>两个<rt>liǎng gè</rt></ruby> or <ruby>二个<rt>èr gè</rt></ruby>?', choices:['<ruby>两个<rt>liǎng gè</rt></ruby>', '<ruby>二个<rt>èr gè</rt></ruby>', 'both are correct', 'neither is correct'], ans:0, hint:'Before a measure word, "2" is 两, not 二. So 两个 is correct.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Complete "I have two older brothers": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿<ruby>两个<rt>liǎng gè</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>。</span>', ans:['有','yǒu','you'], hint:'有 = to have. 我有两个哥哥。' },
+    { type:'mc', skill:'Family & numbers', stem:'"I have two older brothers and one younger sister":', choices:['<ruby>我有两个哥哥和一个妹妹<rt>wǒ yǒu liǎng gè gēge hé yí gè mèimei</rt></ruby>。', '<ruby>我有两个哥哥一个妹妹和<rt>wǒ yǒu liǎng gè gēge yí gè mèimei hé</rt></ruby>。', '<ruby>我和有两个哥哥一个妹妹<rt>wǒ hé yǒu liǎng gè gēge yí gè mèimei</rt></ruby>。', '<ruby>两个哥哥和一个妹妹我有<rt>liǎng gè gēge hé yí gè mèimei wǒ yǒu</rt></ruby>。'], ans:0, hint:'和 joins the two items in the middle: ……哥哥 和 ……妹妹.' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>和<rt>hé</rt></ruby> is used to connect:', choices:['two nouns (e.g. 哥哥和妹妹)', 'two whole sentences', 'a subject and a verb', 'a question and answer'], ans:0, hint:'和 = and · links nouns: 哥哥和妹妹 (older brother and younger sister).' },
+    { type:'fill', skill:'Sentence patterns', stem:'Negate the verb 有 — say "I do not have a younger brother": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿＿<ruby>弟弟<rt>dìdi</rt></ruby>。</span>', ans:['没有','méiyǒu','meiyou'], hint:'有 → 没有 (not 不有). 我没有弟弟。' },
+    { type:'mc', skill:'Family & numbers', stem:'Put in the correct order — "one younger sister":', choices:['<ruby>一个妹妹<rt>yí gè mèimei</rt></ruby>', '<ruby>妹妹一个<rt>mèimei yí gè</rt></ruby>', '<ruby>个一妹妹<rt>gè yī mèimei</rt></ruby>', '<ruby>一妹妹个<rt>yī mèimei gè</rt></ruby>'], ans:0, hint:'Order is number + 个 + noun: 一个妹妹.' },
+    { type:'match', skill:'Family & numbers', stem:'Match each pinyin to its character (写汉字).', left:['yǒu', 'gè', 'liǎng', 'jiě'], right:['有', '个', '两', '姐'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 有, 个, 两, 姐, 妹.' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>你家有几个人<rt>nǐ jiā yǒu jǐ gè rén</rt></ruby>？ means:', choices:['How many people are in your family?', 'Who is in your family?', 'Where is your family?', 'Is your family big?'], ans:0, hint:'几 = how many · 几个人 = how many people.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'How do you negate the verb <ruby>有<rt>yǒu</rt></ruby>?', choices:['<ruby>没有<rt>méiyǒu</rt></ruby> (use 没)', '<ruby>不有<rt>bù yǒu</rt></ruby> (use 不)', '<ruby>无有<rt>wú yǒu</rt></ruby>', '<ruby>有没<rt>yǒu méi</rt></ruby>'], ans:0, hint:'有 is special: it is always negated with 没, giving 没有.' },
-    { type:'mc', stem:'Complete: <ruby>我有一个哥哥<rt>wǒ yǒu yí gè gēge</rt></ruby>＿<ruby>一个妹妹<rt>yí gè mèimei</rt></ruby>。', choices:['<ruby>和<rt>hé</rt></ruby> — and', '<ruby>没<rt>méi</rt></ruby> — not', '<ruby>个<rt>gè</rt></ruby> — measure word', '<ruby>谁<rt>shéi</rt></ruby> — who'], ans:0, hint:'和 joins the two nouns: 一个哥哥 和 一个妹妹.' },
-    { type:'mc', stem:'<ruby>三个孩子<rt>sān gè háizi</rt></ruby> means:', choices:['three children', 'third child', 'a few children', 'the children'], ans:0, hint:'number + 个 + noun: 三个孩子 = three children.' },
-    { type:'mc', stem:'"I have two older brothers" — which is correct?', choices:['<ruby>我有两个哥哥<rt>wǒ yǒu liǎng gè gēge</rt></ruby>。', '<ruby>我有二个哥哥<rt>wǒ yǒu èr gè gēge</rt></ruby>。', '<ruby>我有两哥哥<rt>wǒ yǒu liǎng gēge</rt></ruby>。', '<ruby>我有二哥哥<rt>wǒ yǒu èr gēge</rt></ruby>。'], ans:0, hint:'Use 两 (not 二) before a measure word, and do not drop 个.' },
-    { type:'mc', stem:'In Chinese (HSK), both 两 and 二 mean "2". When do you use <ruby>两<rt>liǎng</rt></ruby>? (HSK tip)', choices:['Before a measure word, e.g. 两个、两岁.', 'In dates and ordinals, e.g. 二月、第二.', 'Only when counting out loud.', 'They are completely interchangeable.'], ans:0, hint:'HSK tip: 两 + measure word (两个人); 二 for the digit, dates and ordinals (二月, 第二).' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五个<rt>wǔ gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>两个<rt>liǎng gè</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>没有<rt>méiyǒu</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>今年<rt>jīnnián</rt></ruby><sup>①</sup><ruby>六岁<rt>liù suì</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><sup>②</sup><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 今年 jīnnián: this year ② 爱 ài: to love</div>', stem:'How many older brothers does Ali have?', choices:['Two (两个).', 'One (一个).', 'Three (三个).', 'None.'], ans:0, hint:'Find 阿里有……哥哥 in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五个<rt>wǔ gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>两个<rt>liǎng gè</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>没有<rt>méiyǒu</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>今年<rt>jīnnián</rt></ruby><sup>①</sup><ruby>六岁<rt>liù suì</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><sup>②</sup><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 今年 jīnnián: this year ② 爱 ài: to love</div>', stem:'Does Ali have an older sister (姐姐)?', choices:['No — the passage says 没有姐姐.', 'Yes — he has one older sister.', 'Yes — he has two older sisters.', 'The passage does not say.'], ans:0, hint:'Look for 没有 before 姐姐 in the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🤗 In China, and in the Arab world too, kids often call a kind grown-up “auntie” or “uncle” even when they are not really family. Do you call anyone auntie or uncle who is not your real family, and how does that make you feel? | 🔵 Cycle 3 — Calling friends and neighbours “auntie”, “uncle”, “brother” or “sister” is a warm custom in both China and the Arab world. Why do you think people do this, and what does it show about how these cultures feel about community?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Family & numbers', stem:'How do you negate the verb <ruby>有<rt>yǒu</rt></ruby>?', choices:['<ruby>没有<rt>méiyǒu</rt></ruby> (use 没)', '<ruby>不有<rt>bù yǒu</rt></ruby> (use 不)', '<ruby>无有<rt>wú yǒu</rt></ruby>', '<ruby>有没<rt>yǒu méi</rt></ruby>'], ans:0, hint:'有 is special: it is always negated with 没, giving 没有.' },
+    { type:'mc', skill:'Family & numbers', stem:'Complete: <ruby>我有一个哥哥<rt>wǒ yǒu yí gè gēge</rt></ruby>＿<ruby>一个妹妹<rt>yí gè mèimei</rt></ruby>。', choices:['<ruby>和<rt>hé</rt></ruby> — and', '<ruby>没<rt>méi</rt></ruby> — not', '<ruby>个<rt>gè</rt></ruby> — measure word', '<ruby>谁<rt>shéi</rt></ruby> — who'], ans:0, hint:'和 joins the two nouns: 一个哥哥 和 一个妹妹.' },
+    { type:'mc', skill:'Family & numbers', stem:'<ruby>三个孩子<rt>sān gè háizi</rt></ruby> means:', choices:['three children', 'third child', 'a few children', 'the children'], ans:0, hint:'number + 个 + noun: 三个孩子 = three children.' },
+    { type:'mc', skill:'Family & numbers', stem:'"I have two older brothers" — which is correct?', choices:['<ruby>我有两个哥哥<rt>wǒ yǒu liǎng gè gēge</rt></ruby>。', '<ruby>我有二个哥哥<rt>wǒ yǒu èr gè gēge</rt></ruby>。', '<ruby>我有两哥哥<rt>wǒ yǒu liǎng gēge</rt></ruby>。', '<ruby>我有二哥哥<rt>wǒ yǒu èr gēge</rt></ruby>。'], ans:0, hint:'Use 两 (not 二) before a measure word, and do not drop 个.' },
+    { type:'mc', skill:'Family & numbers', stem:'In Chinese (HSK), both 两 and 二 mean "2". When do you use <ruby>两<rt>liǎng</rt></ruby>? (HSK tip)', choices:['Before a measure word, e.g. 两个、两岁.', 'In dates and ordinals, e.g. 二月、第二.', 'Only when counting out loud.', 'They are completely interchangeable.'], ans:0, hint:'HSK tip: 两 + measure word (两个人); 二 for the digit, dates and ordinals (二月, 第二).' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五个<rt>wǔ gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>两个<rt>liǎng gè</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>没有<rt>méiyǒu</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>今年<rt>jīnnián</rt></ruby><sup>①</sup><ruby>六岁<rt>liù suì</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><sup>②</sup><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 今年 jīnnián: this year ② 爱 ài: to love</div>', stem:'How many older brothers does Ali have?', choices:['Two (两个).', 'One (一个).', 'Three (三个).', 'None.'], ans:0, hint:'Find 阿里有……哥哥 in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五个<rt>wǔ gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>两个<rt>liǎng gè</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>没有<rt>méiyǒu</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>今年<rt>jīnnián</rt></ruby><sup>①</sup><ruby>六岁<rt>liù suì</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><sup>②</sup><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 今年 jīnnián: this year ② 爱 ài: to love</div>', stem:'Does Ali have an older sister (姐姐)?', choices:['No — the passage says 没有姐姐.', 'Yes — he has one older sister.', 'Yes — he has two older sisters.', 'The passage does not say.'], ans:0, hint:'Look for 没有 before 姐姐 in the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🤗 In China, and in the Arab world too, kids often call a kind grown-up “auntie” or “uncle” even when they are not really family. Do you call anyone auntie or uncle who is not your real family, and how does that make you feel? | 🔵 Cycle 3 — Calling friends and neighbours “auntie”, “uncle”, “brother” or “sister” is a warm custom in both China and the Arab world. Why do you think people do this, and what does it show about how these cultures feel about community?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1B-L2 我有两个哥哥。</title>' +

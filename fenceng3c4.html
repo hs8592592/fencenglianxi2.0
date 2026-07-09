@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1361,40 +1361,40 @@ const LESSONS = [
   tiers:[
 
   { qs:[
-    { type:'match', stem:'🔎 Match each word to its meaning.', left:['<ruby>找<rt>zhǎo</rt></ruby>','<ruby>错<rt>cuò</rt></ruby>','<ruby>完<rt>wán</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>'], right:['to look for','wrong','finished','to see'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'找·错·完·看见.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(I ___ (found) my book!)</span>', choices:['<ruby>找到<rt>zhǎodào</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>做<rt>zuò</rt></ruby><ruby>完<rt>wán</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>'], ans:0, hint:'找到 = found (找 + 到 result).' },
-    { type:'mc', stem:'<ruby>这个<rt>zhège</rt></ruby><ruby>字<rt>zì</rt></ruby><ruby>写<rt>xiě</rt></ruby>（　）<ruby>了<rt>le</rt></ruby>。 <span class="gl">(This character is written ___ (wrong).)</span>', choices:['<ruby>错<rt>cuò</rt></ruby>','<ruby>完<rt>wán</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>见<rt>jiàn</rt></ruby>'], ans:0, hint:'写错 = written wrongly.' },
-    { type:'match', stem:'🧠 Match each word to its meaning.', left:['<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], right:['maybe / possible','to plan','already','definitely'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'可能·打算·已经·一定.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>写<rt>xiě</rt></ruby><ruby>完<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。 <span class="gl">(I have ___ (already) finished writing.)</span>', choices:['<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>'], ans:0, hint:'已经…了 = already….' },
-    { type:'mc', stem:'<ruby>明天<rt>míngtiān</rt></ruby><ruby>我<rt>wǒ</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。 <span class="gl">(Tomorrow I ___ (plan to) go to the library.)</span>', choices:['<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], ans:0, hint:'打算 = to plan to.' },
-    { type:'mc', stem:'💪 加油！ is something you say to:', choices:['encourage someone','say sorry','say goodbye','ask a price'], ans:0, hint:'加油！= keep going / you can do it!' },
-    { type:'mc', stem:'👀 Which means \u201cto see / catch sight of\u201d?', choices:['<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], ans:0, hint:'看见 = to see.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我＿到了！</span> (find=找)', ans:['找','zhǎo','zhao'], hint:'找到 = found.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character.', left:['zhǎo','cuò','wán','dìng'], right:['找','错','完','定'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'找·错·完·定.' },
+    { type:'match', skill:'Result complements', stem:'🔎 Match each word to its meaning.', left:['<ruby>找<rt>zhǎo</rt></ruby>','<ruby>错<rt>cuò</rt></ruby>','<ruby>完<rt>wán</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>'], right:['to look for','wrong','finished','to see'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'找·错·完·看见.' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(I ___ (found) my book!)</span>', choices:['<ruby>找到<rt>zhǎodào</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>做<rt>zuò</rt></ruby><ruby>完<rt>wán</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>'], ans:0, hint:'找到 = found (找 + 到 result).' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>这个<rt>zhège</rt></ruby><ruby>字<rt>zì</rt></ruby><ruby>写<rt>xiě</rt></ruby>（　）<ruby>了<rt>le</rt></ruby>。 <span class="gl">(This character is written ___ (wrong).)</span>', choices:['<ruby>错<rt>cuò</rt></ruby>','<ruby>完<rt>wán</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>见<rt>jiàn</rt></ruby>'], ans:0, hint:'写错 = written wrongly.' },
+    { type:'match', skill:'Result complements', stem:'🧠 Match each word to its meaning.', left:['<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], right:['maybe / possible','to plan','already','definitely'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'可能·打算·已经·一定.' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>写<rt>xiě</rt></ruby><ruby>完<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。 <span class="gl">(I have ___ (already) finished writing.)</span>', choices:['<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>'], ans:0, hint:'已经…了 = already….' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>明天<rt>míngtiān</rt></ruby><ruby>我<rt>wǒ</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。 <span class="gl">(Tomorrow I ___ (plan to) go to the library.)</span>', choices:['<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], ans:0, hint:'打算 = to plan to.' },
+    { type:'mc', skill:'Result complements', stem:'💪 加油！ is something you say to:', choices:['encourage someone','say sorry','say goodbye','ask a price'], ans:0, hint:'加油！= keep going / you can do it!' },
+    { type:'mc', skill:'Result complements', stem:'👀 Which means \u201cto see / catch sight of\u201d?', choices:['<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], ans:0, hint:'看见 = to see.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我＿到了！</span> (find=找)', ans:['找','zhǎo','zhao'], hint:'找到 = found.' },
+    { type:'match', skill:'Result complements', stem:'写汉字 · Match the pinyin to its character.', left:['zhǎo','cuò','wán','dìng'], right:['找','错','完','定'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'找·错·完·定.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>作业<rt>zuòyè</rt></ruby><ruby>做<rt>zuò</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Have you ___ (finished) your homework?)</span>', choices:['<ruby>完<rt>wán</rt></ruby>','<ruby>错<rt>cuò</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>见<rt>jiàn</rt></ruby>'], ans:0, hint:'做完 = finished doing.' },
-    { type:'mc', stem:'🗣️ Which sentence means \u201cI found it!\u201d?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>找<rt>zhǎo</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>打算<rt>dǎsuàn</rt></ruby><ruby>找<rt>zhǎo</rt></ruby>。'], ans:0, hint:'我找到了！= I found it!' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby>。 <span class="gl">(I ___ (saw) him in the park.)</span>', choices:['<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], ans:0, hint:'看见 = saw.' },
-    { type:'mc', stem:'<ruby>别<rt>bié</rt></ruby><ruby>担心<rt>dānxīn</rt></ruby>，<ruby>你<rt>nǐ</rt></ruby>（　）<ruby>能<rt>néng</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Do not worry \u2014 you ___ (definitely) can do it!)</span>', choices:['<ruby>一定<rt>yídìng</rt></ruby>','<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>'], ans:0, hint:'一定 = definitely.' },
-    { type:'mc', stem:'<ruby>他<rt>tā</rt></ruby>（　）<ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>清<rt>qīng</rt></ruby><ruby>楚<rt>chǔ</rt></ruby>。 <span class="gl">(He is ___ (maybe) at home; I am not sure.)</span>', choices:['<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>'], ans:0, hint:'可能 = maybe / possibly.' },
-    { type:'mc', stem:'🗣️ 加油！is used to:', choices:['encourage someone to keep trying','say thank you','ask the time','say goodbye'], ans:0, hint:'加油 = keep going / cheer someone on.' },
-    { type:'mc', stem:'✍️ Which sentence means \u201cThis sentence is written wrong\u201d?', choices:['<ruby>这个<rt>zhège</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>这个<rt>zhège</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>完<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>了<rt>le</rt></ruby>。'], ans:0, hint:'写错 = written wrongly.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">我已经做＿了。</span> (finish=完)', ans:['完','wán','wan'], hint:'做完 = finished.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很久<rt>hěnjiǔ</rt></ruby>。<ruby>后来<rt>hòulái</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。“<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 很久 hěnjiǔ: a long time ② 后来 hòulái: later</div>', stem:'What was Hassan looking for?', choices:['His book (书).','His keys.','His phone.','His bag.'], ans:0, hint:'Find 找不到他的书.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很久<rt>hěnjiǔ</rt></ruby>。<ruby>后来<rt>hòulái</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。“<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 很久 hěnjiǔ: a long time ② 后来 hòulái: later</div>', stem:'Where did he find it?', choices:['On the table (桌子上).','Under the bed.','In the bag.','At school.'], ans:0, hint:'Find 在桌子上看见了.' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>作业<rt>zuòyè</rt></ruby><ruby>做<rt>zuò</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(Have you ___ (finished) your homework?)</span>', choices:['<ruby>完<rt>wán</rt></ruby>','<ruby>错<rt>cuò</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>见<rt>jiàn</rt></ruby>'], ans:0, hint:'做完 = finished doing.' },
+    { type:'mc', skill:'Result complements', stem:'🗣️ Which sentence means \u201cI found it!\u201d?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>没<rt>méi</rt></ruby><ruby>找<rt>zhǎo</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>打算<rt>dǎsuàn</rt></ruby><ruby>找<rt>zhǎo</rt></ruby>。'], ans:0, hint:'我找到了！= I found it!' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>里<rt>lǐ</rt></ruby>。 <span class="gl">(I ___ (saw) him in the park.)</span>', choices:['<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>'], ans:0, hint:'看见 = saw.' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>别<rt>bié</rt></ruby><ruby>担心<rt>dānxīn</rt></ruby>，<ruby>你<rt>nǐ</rt></ruby>（　）<ruby>能<rt>néng</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Do not worry \u2014 you ___ (definitely) can do it!)</span>', choices:['<ruby>一定<rt>yídìng</rt></ruby>','<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>打算<rt>dǎsuàn</rt></ruby>'], ans:0, hint:'一定 = definitely.' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>他<rt>tā</rt></ruby>（　）<ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>清<rt>qīng</rt></ruby><ruby>楚<rt>chǔ</rt></ruby>。 <span class="gl">(He is ___ (maybe) at home; I am not sure.)</span>', choices:['<ruby>可能<rt>kěnéng</rt></ruby>','<ruby>一定<rt>yídìng</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>'], ans:0, hint:'可能 = maybe / possibly.' },
+    { type:'mc', skill:'Result complements', stem:'🗣️ 加油！is used to:', choices:['encourage someone to keep trying','say thank you','ask the time','say goodbye'], ans:0, hint:'加油 = keep going / cheer someone on.' },
+    { type:'mc', skill:'Result complements', stem:'✍️ Which sentence means \u201cThis sentence is written wrong\u201d?', choices:['<ruby>这个<rt>zhège</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>这个<rt>zhège</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>完<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>句子<rt>jùzi</rt></ruby><ruby>了<rt>le</rt></ruby>。'], ans:0, hint:'写错 = written wrongly.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">我已经做＿了。</span> (finish=完)', ans:['完','wán','wan'], hint:'做完 = finished.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很久<rt>hěnjiǔ</rt></ruby>。<ruby>后来<rt>hòulái</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。“<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 很久 hěnjiǔ: a long time ② 后来 hòulái: later</div>', stem:'What was Hassan looking for?', choices:['His book (书).','His keys.','His phone.','His bag.'], ans:0, hint:'Find 找不到他的书.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>书<rt>shū</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>找<rt>zhǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很久<rt>hěnjiǔ</rt></ruby>。<ruby>后来<rt>hòulái</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>桌<rt>zhuō</rt></ruby><ruby>子<rt>zi</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>了<rt>le</rt></ruby>。“<ruby>我<rt>wǒ</rt></ruby><ruby>找到<rt>zhǎodào</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 很久 hěnjiǔ: a long time ② 后来 hòulái: later</div>', stem:'Where did he find it?', choices:['On the table (桌子上).','Under the bed.','In the bag.','At school.'], ans:0, hint:'Find 在桌子上看见了.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>道<rt>dào</rt></ruby><ruby>题<rt>tí</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>做<rt>zuò</rt></ruby>（　）<ruby>了<rt>le</rt></ruby>。 <span class="gl">(I did this question ___ (wrong).)</span>', choices:['<ruby>错<rt>cuò</rt></ruby>','<ruby>完<rt>wán</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>见<rt>jiàn</rt></ruby>'], ans:0, hint:'做错 = did wrongly.' },
-    { type:'mc', stem:'🗣️ Your friend has a test tomorrow. You encourage them:', choices:['<ruby>明天<rt>míngtiān</rt></ruby><ruby>考试<rt>kǎoshì</rt></ruby>，<ruby>加油<rt>jiāyóu</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>考试<rt>kǎoshì</rt></ruby>。','<ruby>太<rt>tài</rt></ruby><ruby>贵<rt>guì</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'明天考试，加油！' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>明年<rt>míngnián</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。 <span class="gl">(I ___ (plan to) go to China next year.)</span>', choices:['<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>错<rt>cuò</rt></ruby>'], ans:0, hint:'打算 = to plan to.' },
-    { type:'mc', stem:'💡 How do you say you finished doing something? (HSK tip)', choices:['<ruby>做<rt>zuò</rt></ruby><ruby>完<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>  ✔ verb + 完 + 了','<ruby>完<rt>wán</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby>  ✘','<ruby>了<rt>le</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>完<rt>wán</rt></ruby>  ✘','<ruby>做<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>完<rt>wán</rt></ruby>  ✘'], ans:0, hint:'verb + 完 + 了 = finished doing (做完了).' },
-    { type:'mc', stem:'🧵 On the ancient Silk Road, China was famously known as the:', choices:['Land of Silk and Porcelain (丝国 / 瓷国)','Land of Snow','Land of Cars','Land of Football'], ans:0, hint:'丝国/瓷国: China was famed for silk and porcelain along the Silk Road.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>打算<rt>dǎsuàn</rt></ruby><ruby>明年<rt>míngnián</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>已经<rt>yǐjīng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>书<rt>shū</rt></ruby>，<ruby>学<rt>xué</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你<rt>nǐ</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>一定<rt>yídìng</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>有时候<rt>yǒushíhou</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>怕<rt>pà</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>加油<rt>jiāyóu</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>一定<rt>yídìng</rt></ruby><ruby>能<rt>néng</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 打算 dǎsuàn: to plan ② 有时候 yǒushíhou: sometimes ③ 怕 pà: afraid</div>', stem:'What does Hassan plan to do next year?', choices:['Go to China (去中国).','Stay home.','Buy a car.','Stop studying.'], ans:0, hint:'Find 打算明年去中国.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>打算<rt>dǎsuàn</rt></ruby><ruby>明年<rt>míngnián</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>已经<rt>yǐjīng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>书<rt>shū</rt></ruby>，<ruby>学<rt>xué</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你<rt>nǐ</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>一定<rt>yídìng</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>有时候<rt>yǒushíhou</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>怕<rt>pà</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>加油<rt>jiāyóu</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>一定<rt>yídìng</rt></ruby><ruby>能<rt>néng</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 打算 dǎsuàn: to plan ② 有时候 yǒushíhou: sometimes ③ 怕 pà: afraid</div>', stem:'What does Hassan do when he writes a character wrong?', choices:['He does not worry and says 加油 (keeps trying).','He gives up.','He cries.','He goes home.'], ans:0, hint:'Find 可是他不怕….' },
-    { type:'hots', stem:'🟡 Cycle 2 — On the Silk Road, China was famous as the Land of Silk (丝国) and Porcelain (瓷国); the Gulf and the UAE were famous for pearls (珍珠) traded by sea. If you could show the class one famous treasure from China and one from the Gulf, which would you pick, and why? | 🔵 Cycle 3 — China became known on the Silk Road as the Land of Silk and Porcelain, while the Gulf was famous for pearls. Why does a region become famous for one special product, and what do China\u2019s silk and the Gulf\u2019s pearls, each tell you about the land, sea and history of their people?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>道<rt>dào</rt></ruby><ruby>题<rt>tí</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>做<rt>zuò</rt></ruby>（　）<ruby>了<rt>le</rt></ruby>。 <span class="gl">(I did this question ___ (wrong).)</span>', choices:['<ruby>错<rt>cuò</rt></ruby>','<ruby>完<rt>wán</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>见<rt>jiàn</rt></ruby>'], ans:0, hint:'做错 = did wrongly.' },
+    { type:'mc', skill:'Result complements', stem:'🗣️ Your friend has a test tomorrow. You encourage them:', choices:['<ruby>明天<rt>míngtiān</rt></ruby><ruby>考试<rt>kǎoshì</rt></ruby>，<ruby>加油<rt>jiāyóu</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>考试<rt>kǎoshì</rt></ruby>。','<ruby>太<rt>tài</rt></ruby><ruby>贵<rt>guì</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'明天考试，加油！' },
+    { type:'mc', skill:'Result complements', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>明年<rt>míngnián</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。 <span class="gl">(I ___ (plan to) go to China next year.)</span>', choices:['<ruby>打算<rt>dǎsuàn</rt></ruby>','<ruby>已经<rt>yǐjīng</rt></ruby>','<ruby>看见<rt>kànjiàn</rt></ruby>','<ruby>错<rt>cuò</rt></ruby>'], ans:0, hint:'打算 = to plan to.' },
+    { type:'mc', skill:'Result complements', stem:'💡 How do you say you finished doing something? (HSK tip)', choices:['<ruby>做<rt>zuò</rt></ruby><ruby>完<rt>wán</rt></ruby><ruby>了<rt>le</rt></ruby>  ✔ verb + 完 + 了','<ruby>完<rt>wán</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby>  ✘','<ruby>了<rt>le</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>完<rt>wán</rt></ruby>  ✘','<ruby>做<rt>zuò</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>完<rt>wán</rt></ruby>  ✘'], ans:0, hint:'verb + 完 + 了 = finished doing (做完了).' },
+    { type:'mc', skill:'Result complements', stem:'🧵 On the ancient Silk Road, China was famously known as the:', choices:['Land of Silk and Porcelain (丝国 / 瓷国)','Land of Snow','Land of Cars','Land of Football'], ans:0, hint:'丝国/瓷国: China was famed for silk and porcelain along the Silk Road.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>打算<rt>dǎsuàn</rt></ruby><ruby>明年<rt>míngnián</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>已经<rt>yǐjīng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>书<rt>shū</rt></ruby>，<ruby>学<rt>xué</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你<rt>nǐ</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>一定<rt>yídìng</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>有时候<rt>yǒushíhou</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>怕<rt>pà</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>加油<rt>jiāyóu</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>一定<rt>yídìng</rt></ruby><ruby>能<rt>néng</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 打算 dǎsuàn: to plan ② 有时候 yǒushíhou: sometimes ③ 怕 pà: afraid</div>', stem:'What does Hassan plan to do next year?', choices:['Go to China (去中国).','Stay home.','Buy a car.','Stop studying.'], ans:0, hint:'Find 打算明年去中国.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>打算<rt>dǎsuàn</rt></ruby><ruby>明年<rt>míngnián</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>已经<rt>yǐjīng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>书<rt>shū</rt></ruby>，<ruby>学<rt>xué</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你<rt>nǐ</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>一定<rt>yídìng</rt></ruby><ruby>行<rt>xíng</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>有时候<rt>yǒushíhou</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>错<rt>cuò</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>怕<rt>pà</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>加油<rt>jiāyóu</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>一定<rt>yídìng</rt></ruby><ruby>能<rt>néng</rt></ruby><ruby>学<rt>xué</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>中文<rt>Zhōngwén</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 打算 dǎsuàn: to plan ② 有时候 yǒushíhou: sometimes ③ 怕 pà: afraid</div>', stem:'What does Hassan do when he writes a character wrong?', choices:['He does not worry and says 加油 (keeps trying).','He gives up.','He cries.','He goes home.'], ans:0, hint:'Find 可是他不怕….' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — On the Silk Road, China was famous as the Land of Silk (丝国) and Porcelain (瓷国); the Gulf and the UAE were famous for pearls (珍珠) traded by sea. If you could show the class one famous treasure from China and one from the Gulf, which would you pick, and why? | 🔵 Cycle 3 — China became known on the Silk Road as the Land of Silk and Porcelain, while the Gulf was famous for pearls. Why does a region become famous for one special product, and what do China\u2019s silk and the Gulf\u2019s pearls, each tell you about the land, sea and history of their people?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
   ]},
 
   ]},
@@ -2191,7 +2191,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2411,7 +2411,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2615,12 +2615,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2629,6 +2629,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2657,7 +2661,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2669,22 +2673,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2762,7 +2766,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3C-L4 我找到了！</title>' +

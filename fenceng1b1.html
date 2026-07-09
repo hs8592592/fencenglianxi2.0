@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1B-L1', num:'Lesson 1', title:'她是我妹妹。She is my younger sister.', cn:'家庭成员',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'👧 "She is my younger sister" in Chinese:', choices:['<ruby>她是我妹妹<rt>tā shì wǒ mèimei</rt></ruby>。', '<ruby>她妹妹我是<rt>tā mèimei wǒ shì</rt></ruby>。', '<ruby>我是她妹妹<rt>wǒ shì tā mèimei</rt></ruby>。', '<ruby>妹妹是我她<rt>mèimei shì wǒ tā</rt></ruby>。'], ans:0, hint:'Word order: 她 (she) + 是 (is) + 我 (my) + 妹妹 (younger sister).' },
-    { type:'mc', stem:'👧 <ruby>妹妹<rt>mèimei</rt></ruby> means:', choices:['younger sister', 'older sister', 'younger brother', 'mother'], ans:0, hint:'妹妹 = younger sister · 姐姐 = older sister.' },
-    { type:'mc', stem:'👨 <ruby>爸爸<rt>bàba</rt></ruby> means:', choices:['dad / father', 'mum / mother', 'grandpa', 'older brother'], ans:0, hint:'爸爸 = dad · 妈妈 = mum.' },
-    { type:'mc', stem:'👩 <ruby>妈妈<rt>māma</rt></ruby> means:', choices:['mum / mother', 'dad / father', 'grandma', 'younger sister'], ans:0, hint:'妈妈 = mum / mother.' },
-    { type:'match', stem:'Match each family word to its meaning.', left:['<ruby>爷爷<rt>yéye</rt></ruby>', '<ruby>奶奶<rt>nǎinai</rt></ruby>', '<ruby>哥哥<rt>gēge</rt></ruby>', '<ruby>姐姐<rt>jiějie</rt></ruby>'], right:['grandpa', 'grandma', 'older brother', 'older sister'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'爷爷/奶奶 = (paternal) grandpa/grandma · 哥哥/姐姐 = older brother/sister.' },
-    { type:'mc', stem:'❓ <ruby>他是谁<rt>tā shì shéi</rt></ruby>？ means:', choices:['Who is he?', 'Where is he?', 'How old is he?', 'What is his name?'], ans:0, hint:'谁 (shéi) = who · 他是谁？= Who is he?' },
-    { type:'mc', stem:'👦 <ruby>弟弟<rt>dìdi</rt></ruby> means:', choices:['younger brother', 'older brother', 'younger sister', 'dad'], ans:0, hint:'弟弟 = younger brother · 哥哥 = older brother.' },
-    { type:'mc', stem:'❓ <ruby>谁<rt>shéi</rt></ruby> means:', choices:['who', 'what', 'where', 'which'], ans:0, hint:'谁 = who — asks about a person.' },
-    { type:'fill', stem:'Answer "He is my dad": <span class="cn"><ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby>＿＿。</span>', ans:['爸爸','bàba','baba'], hint:'爸爸 = dad. 他是我爸爸。= He is my dad.' },
-    { type:'mc', stem:'👩 "She is my mother":', choices:['<ruby>她是我妈妈<rt>tā shì wǒ māma</rt></ruby>。', '<ruby>他是我妈妈<rt>tā shì wǒ māma</rt></ruby>。', '<ruby>她是我爸爸<rt>tā shì wǒ bàba</rt></ruby>。', '<ruby>我是她妈妈<rt>wǒ shì tā māma</rt></ruby>。'], ans:0, hint:'她 = she (女 female radical) · 妈妈 = mother.' },
+    { type:'mc', skill:'Family members', stem:'👧 "She is my younger sister" in Chinese:', choices:['<ruby>她是我妹妹<rt>tā shì wǒ mèimei</rt></ruby>。', '<ruby>她妹妹我是<rt>tā mèimei wǒ shì</rt></ruby>。', '<ruby>我是她妹妹<rt>wǒ shì tā mèimei</rt></ruby>。', '<ruby>妹妹是我她<rt>mèimei shì wǒ tā</rt></ruby>。'], ans:0, hint:'Word order: 她 (she) + 是 (is) + 我 (my) + 妹妹 (younger sister).' },
+    { type:'mc', skill:'Family members', stem:'👧 <ruby>妹妹<rt>mèimei</rt></ruby> means:', choices:['younger sister', 'older sister', 'younger brother', 'mother'], ans:0, hint:'妹妹 = younger sister · 姐姐 = older sister.' },
+    { type:'mc', skill:'Family members', stem:'👨 <ruby>爸爸<rt>bàba</rt></ruby> means:', choices:['dad / father', 'mum / mother', 'grandpa', 'older brother'], ans:0, hint:'爸爸 = dad · 妈妈 = mum.' },
+    { type:'mc', skill:'Family members', stem:'👩 <ruby>妈妈<rt>māma</rt></ruby> means:', choices:['mum / mother', 'dad / father', 'grandma', 'younger sister'], ans:0, hint:'妈妈 = mum / mother.' },
+    { type:'match', skill:'Family members', stem:'Match each family word to its meaning.', left:['<ruby>爷爷<rt>yéye</rt></ruby>', '<ruby>奶奶<rt>nǎinai</rt></ruby>', '<ruby>哥哥<rt>gēge</rt></ruby>', '<ruby>姐姐<rt>jiějie</rt></ruby>'], right:['grandpa', 'grandma', 'older brother', 'older sister'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'爷爷/奶奶 = (paternal) grandpa/grandma · 哥哥/姐姐 = older brother/sister.' },
+    { type:'mc', skill:'Family members', stem:'❓ <ruby>他是谁<rt>tā shì shéi</rt></ruby>？ means:', choices:['Who is he?', 'Where is he?', 'How old is he?', 'What is his name?'], ans:0, hint:'谁 (shéi) = who · 他是谁？= Who is he?' },
+    { type:'mc', skill:'Family members', stem:'👦 <ruby>弟弟<rt>dìdi</rt></ruby> means:', choices:['younger brother', 'older brother', 'younger sister', 'dad'], ans:0, hint:'弟弟 = younger brother · 哥哥 = older brother.' },
+    { type:'mc', skill:'Family members', stem:'❓ <ruby>谁<rt>shéi</rt></ruby> means:', choices:['who', 'what', 'where', 'which'], ans:0, hint:'谁 = who — asks about a person.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Answer "He is my dad": <span class="cn"><ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby>＿＿。</span>', ans:['爸爸','bàba','baba'], hint:'爸爸 = dad. 他是我爸爸。= He is my dad.' },
+    { type:'mc', skill:'Family members', stem:'👩 "She is my mother":', choices:['<ruby>她是我妈妈<rt>tā shì wǒ māma</rt></ruby>。', '<ruby>他是我妈妈<rt>tā shì wǒ māma</rt></ruby>。', '<ruby>她是我爸爸<rt>tā shì wǒ bàba</rt></ruby>。', '<ruby>我是她妈妈<rt>wǒ shì tā māma</rt></ruby>。'], ans:0, hint:'她 = she (女 female radical) · 妈妈 = mother.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 grammar questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 grammar questions
   { qs:[
-    { type:'mc', stem:'<ruby>谁<rt>shéi</rt></ruby> is used to ask about:', choices:['a person (who)', 'a place (where)', 'a number (how many)', 'a time (when)'], ans:0, hint:'Interrogative pronoun 疑问代词 谁 = who — asks which person.' },
-    { type:'mc', stem:'<ruby>你妹妹多大<rt>nǐ mèimei duō dà</rt></ruby>？ means:', choices:['How old is your younger sister?', 'Who is your younger sister?', 'Where is your younger sister?', 'Is she your younger sister?'], ans:0, hint:'多大 (duō dà) = how old — used to ask someones age.' },
-    { type:'fill', stem:'Reply "My younger sister is nine": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>＿<ruby>岁<rt>suì</rt></ruby>。</span>', ans:['九','9','jiǔ','jiu'], hint:'九 = 9 · 我妹妹九岁。= My younger sister is nine years old.' },
-    { type:'mc', stem:'Someone asks <ruby>他是谁<rt>tā shì shéi</rt></ruby>？ — best reply:', choices:['<ruby>他是我哥哥<rt>tā shì wǒ gēge</rt></ruby>。', '<ruby>你是我哥哥<rt>nǐ shì wǒ gēge</rt></ruby>。', '<ruby>他是谁哥哥<rt>tā shì shéi gēge</rt></ruby>。', '<ruby>我是他哥哥<rt>wǒ shì tā gēge</rt></ruby>。'], ans:0, hint:'Answer about him → 他是我 + relationship.' },
-    { type:'mc', stem:'<ruby>我的爸爸<rt>wǒ de bàba</rt></ruby> means:', choices:['my dad', 'your dad', 'his dad', 'her dad'], ans:0, hint:'的 shows possession (structural particle 结构助词) · 我的 = my.' },
-    { type:'mc', stem:'"She is my older sister" — correct sentence:', choices:['<ruby>她是我姐姐<rt>tā shì wǒ jiějie</rt></ruby>。', '<ruby>她我姐姐是<rt>tā wǒ jiějie shì</rt></ruby>。', '<ruby>姐姐是她我<rt>jiějie shì tā wǒ</rt></ruby>。', '<ruby>我姐姐她是<rt>wǒ jiějie tā shì</rt></ruby>。'], ans:0, hint:'Subject + 是 + 我 + family word. 她是我姐姐。' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['bà', 'mā', 'jiě', 'mèi'], right:['爸', '妈', '姐', '妹'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'The 女 (female) radical appears in 妈, 姐, 妹 — words for female relatives.' },
-    { type:'fill', stem:'Ask "Who is she?": <span class="cn"><ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿？</span>', ans:['谁','shéi','shei'], hint:'谁 = who. 她是谁？= Who is she?' },
-    { type:'mc', stem:'To say "She is my mum", which character is correct — <ruby>他<rt>tā</rt></ruby> or <ruby>她<rt>tā</rt></ruby>?', choices:['<ruby>她<rt>tā</rt></ruby> — female (女)', '<ruby>他<rt>tā</rt></ruby> — male (亻)', '<ruby>它<rt>tā</rt></ruby> — a thing', 'They are all wrong'], ans:0, hint:'Mum is female → 她 (女 radical). All three sound the same: tā.' },
-    { type:'mc', stem:'"How old is your younger brother?":', choices:['<ruby>你弟弟多大<rt>nǐ dìdi duō dà</rt></ruby>？', '<ruby>你弟弟是谁<rt>nǐ dìdi shì shéi</rt></ruby>？', '<ruby>你弟弟在哪里<rt>nǐ dìdi zài nǎlǐ</rt></ruby>？', '<ruby>谁是你弟弟<rt>shéi shì nǐ dìdi</rt></ruby>？'], ans:0, hint:'Ask age → 你 + person + 多大？' },
+    { type:'mc', skill:'Family members', stem:'<ruby>谁<rt>shéi</rt></ruby> is used to ask about:', choices:['a person (who)', 'a place (where)', 'a number (how many)', 'a time (when)'], ans:0, hint:'Interrogative pronoun 疑问代词 谁 = who — asks which person.' },
+    { type:'mc', skill:'Family members', stem:'<ruby>你妹妹多大<rt>nǐ mèimei duō dà</rt></ruby>？ means:', choices:['How old is your younger sister?', 'Who is your younger sister?', 'Where is your younger sister?', 'Is she your younger sister?'], ans:0, hint:'多大 (duō dà) = how old — used to ask someones age.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Reply "My younger sister is nine": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>＿<ruby>岁<rt>suì</rt></ruby>。</span>', ans:['九','9','jiǔ','jiu'], hint:'九 = 9 · 我妹妹九岁。= My younger sister is nine years old.' },
+    { type:'mc', skill:'Family members', stem:'Someone asks <ruby>他是谁<rt>tā shì shéi</rt></ruby>？ — best reply:', choices:['<ruby>他是我哥哥<rt>tā shì wǒ gēge</rt></ruby>。', '<ruby>你是我哥哥<rt>nǐ shì wǒ gēge</rt></ruby>。', '<ruby>他是谁哥哥<rt>tā shì shéi gēge</rt></ruby>。', '<ruby>我是他哥哥<rt>wǒ shì tā gēge</rt></ruby>。'], ans:0, hint:'Answer about him → 他是我 + relationship.' },
+    { type:'mc', skill:'Family members', stem:'<ruby>我的爸爸<rt>wǒ de bàba</rt></ruby> means:', choices:['my dad', 'your dad', 'his dad', 'her dad'], ans:0, hint:'的 shows possession (structural particle 结构助词) · 我的 = my.' },
+    { type:'mc', skill:'Family members', stem:'"She is my older sister" — correct sentence:', choices:['<ruby>她是我姐姐<rt>tā shì wǒ jiějie</rt></ruby>。', '<ruby>她我姐姐是<rt>tā wǒ jiějie shì</rt></ruby>。', '<ruby>姐姐是她我<rt>jiějie shì tā wǒ</rt></ruby>。', '<ruby>我姐姐她是<rt>wǒ jiějie tā shì</rt></ruby>。'], ans:0, hint:'Subject + 是 + 我 + family word. 她是我姐姐。' },
+    { type:'match', skill:'Family members', stem:'Match each pinyin to its character (写汉字).', left:['bà', 'mā', 'jiě', 'mèi'], right:['爸', '妈', '姐', '妹'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'The 女 (female) radical appears in 妈, 姐, 妹 — words for female relatives.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask "Who is she?": <span class="cn"><ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿？</span>', ans:['谁','shéi','shei'], hint:'谁 = who. 她是谁？= Who is she?' },
+    { type:'mc', skill:'Family members', stem:'To say "She is my mum", which character is correct — <ruby>他<rt>tā</rt></ruby> or <ruby>她<rt>tā</rt></ruby>?', choices:['<ruby>她<rt>tā</rt></ruby> — female (女)', '<ruby>他<rt>tā</rt></ruby> — male (亻)', '<ruby>它<rt>tā</rt></ruby> — a thing', 'They are all wrong'], ans:0, hint:'Mum is female → 她 (女 radical). All three sound the same: tā.' },
+    { type:'mc', skill:'Family members', stem:'"How old is your younger brother?":', choices:['<ruby>你弟弟多大<rt>nǐ dìdi duō dà</rt></ruby>？', '<ruby>你弟弟是谁<rt>nǐ dìdi shì shéi</rt></ruby>？', '<ruby>你弟弟在哪里<rt>nǐ dìdi zài nǎlǐ</rt></ruby>？', '<ruby>谁是你弟弟<rt>shéi shì nǐ dìdi</rt></ruby>？'], ans:0, hint:'Ask age → 你 + person + 多大？' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'Your <ruby>哥哥<rt>gēge</rt></ruby> is older than you. Your <ruby>弟弟<rt>dìdi</rt></ruby> is:', choices:['younger than you', 'older than you', 'the same age as you', 'your father'], ans:0, hint:'哥/姐 = older sibling · 弟/妹 = younger sibling.' },
-    { type:'mc', stem:'In a Chinese family, <ruby>爷爷<rt>yéye</rt></ruby> and <ruby>奶奶<rt>nǎinai</rt></ruby> are your:', choices:['fathers parents (paternal grandparents)', 'mothers parents', 'aunt and uncle', 'older brother and sister'], ans:0, hint:'Culture: Chinese separates paternal 爷爷/奶奶 from maternal grandparents (外公/外婆).' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>他是谁<rt>tā shì shéi</rt></ruby>？ B: ___', choices:['<ruby>他是我爷爷<rt>tā shì wǒ yéye</rt></ruby>。', '<ruby>他多大<rt>tā duō dà</rt></ruby>？', '<ruby>她是谁<rt>tā shì shéi</rt></ruby>？', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。'], ans:0, hint:'谁 asks "who" → the answer names the person: 他是我 + relationship.' },
-    { type:'mc', stem:'"Whose dad is he?" — <ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿<ruby>的<rt>de</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby>？', choices:['<ruby>谁<rt>shéi</rt></ruby> — 谁的 = whose', '<ruby>哪<rt>nǎ</rt></ruby> — which', '<ruby>多大<rt>duō dà</rt></ruby> — how old', '<ruby>哪里<rt>nǎlǐ</rt></ruby> — where'], ans:0, hint:'谁 + 的 = whose · 他是谁的爸爸？= Whose dad is he?' },
-    { type:'mc', stem:'In Chinese (HSK), how do you correctly say "My younger sister is nine"? (HSK tip)', choices:['<ruby>我妹妹九岁<rt>wǒ mèimei jiǔ suì</rt></ruby>。— no verb needed.', '<ruby>我妹妹是九岁<rt>wǒ mèimei shì jiǔ suì</rt></ruby>。— incorrect: 是 not used for age.', '<ruby>我妹妹有九岁<rt>wǒ mèimei yǒu jiǔ suì</rt></ruby>。— incorrect: 有 not used for age.', '<ruby>九岁我妹妹<rt>jiǔ suì wǒ mèimei</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: age uses Subject + number + 岁. Do NOT add 是 or 有.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby><sup>①</sup>。<ruby>照片<rt>zhàopiàn</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>②</sup><ruby>朋友<rt>péngyou</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>谁<rt>shéi</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>今年<rt>jīnnián</rt></ruby><sup>③</sup><ruby>九岁<rt>jiǔ suì</rt></ruby>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>呢<rt>ne</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>。"</p><div class="rn"><b>Notes:</b> ① 照片 zhàopiàn: photo ② 问 wèn: to ask ③ 今年 jīnnián: this year</div>', stem:'How old is the friends younger sister (妹妹)?', choices:['Nine years old (九岁).', 'Twelve years old (十二岁).', 'Four years old (四岁).', 'We are not told.'], ans:0, hint:'Find 妹妹 in the passage and read the age after it.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby><sup>①</sup>。<ruby>照片<rt>zhàopiàn</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>②</sup><ruby>朋友<rt>péngyou</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>谁<rt>shéi</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>今年<rt>jīnnián</rt></ruby><sup>③</sup><ruby>九岁<rt>jiǔ suì</rt></ruby>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>呢<rt>ne</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>。"</p><div class="rn"><b>Notes:</b> ① 照片 zhàopiàn: photo ② 问 wèn: to ask ③ 今年 jīnnián: this year</div>', stem:'Who is twelve years old in the passage?', choices:['The older brother (哥哥).', 'The younger sister (妹妹).', 'Hassan (哈桑).', 'The dad (爸爸).'], ans:0, hint:'Find 哥哥 and check the age that follows it.' },
-    { type:'hots', stem:'🟡 Cycle 2 — Family is very important in Chinese culture — children show respect to their 爷爷 (grandpa) and 奶奶 (grandma), and families spend a lot of time together. How do you show respect to the older people in your family, and what is one family tradition you enjoy? | 🔵 Cycle 3 — In Chinese culture respect for elders is a deep value, and the family name comes first in a person’s name. Is respect for elders shown the same way in Emirati culture, and do you think it is better for grandparents to live with the family or apart?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Family members', stem:'Your <ruby>哥哥<rt>gēge</rt></ruby> is older than you. Your <ruby>弟弟<rt>dìdi</rt></ruby> is:', choices:['younger than you', 'older than you', 'the same age as you', 'your father'], ans:0, hint:'哥/姐 = older sibling · 弟/妹 = younger sibling.' },
+    { type:'mc', skill:'Family members', stem:'In a Chinese family, <ruby>爷爷<rt>yéye</rt></ruby> and <ruby>奶奶<rt>nǎinai</rt></ruby> are your:', choices:['fathers parents (paternal grandparents)', 'mothers parents', 'aunt and uncle', 'older brother and sister'], ans:0, hint:'Culture: Chinese separates paternal 爷爷/奶奶 from maternal grandparents (外公/外婆).' },
+    { type:'mc', skill:'Family members', stem:'Complete the dialogue — A: <ruby>他是谁<rt>tā shì shéi</rt></ruby>？ B: ___', choices:['<ruby>他是我爷爷<rt>tā shì wǒ yéye</rt></ruby>。', '<ruby>他多大<rt>tā duō dà</rt></ruby>？', '<ruby>她是谁<rt>tā shì shéi</rt></ruby>？', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。'], ans:0, hint:'谁 asks "who" → the answer names the person: 他是我 + relationship.' },
+    { type:'mc', skill:'Family members', stem:'"Whose dad is he?" — <ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿<ruby>的<rt>de</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby>？', choices:['<ruby>谁<rt>shéi</rt></ruby> — 谁的 = whose', '<ruby>哪<rt>nǎ</rt></ruby> — which', '<ruby>多大<rt>duō dà</rt></ruby> — how old', '<ruby>哪里<rt>nǎlǐ</rt></ruby> — where'], ans:0, hint:'谁 + 的 = whose · 他是谁的爸爸？= Whose dad is he?' },
+    { type:'mc', skill:'Family members', stem:'In Chinese (HSK), how do you correctly say "My younger sister is nine"? (HSK tip)', choices:['<ruby>我妹妹九岁<rt>wǒ mèimei jiǔ suì</rt></ruby>。— no verb needed.', '<ruby>我妹妹是九岁<rt>wǒ mèimei shì jiǔ suì</rt></ruby>。— incorrect: 是 not used for age.', '<ruby>我妹妹有九岁<rt>wǒ mèimei yǒu jiǔ suì</rt></ruby>。— incorrect: 有 not used for age.', '<ruby>九岁我妹妹<rt>jiǔ suì wǒ mèimei</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: age uses Subject + number + 岁. Do NOT add 是 or 有.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby><sup>①</sup>。<ruby>照片<rt>zhàopiàn</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>②</sup><ruby>朋友<rt>péngyou</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>谁<rt>shéi</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>今年<rt>jīnnián</rt></ruby><sup>③</sup><ruby>九岁<rt>jiǔ suì</rt></ruby>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>呢<rt>ne</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>。"</p><div class="rn"><b>Notes:</b> ① 照片 zhàopiàn: photo ② 问 wèn: to ask ③ 今年 jīnnián: this year</div>', stem:'How old is the friends younger sister (妹妹)?', choices:['Nine years old (九岁).', 'Twelve years old (十二岁).', 'Four years old (四岁).', 'We are not told.'], ans:0, hint:'Find 妹妹 in the passage and read the age after it.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby><sup>①</sup>。<ruby>照片<rt>zhàopiàn</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><ruby>人<rt>rén</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>②</sup><ruby>朋友<rt>péngyou</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>谁<rt>shéi</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>她<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby>，<ruby>今年<rt>jīnnián</rt></ruby><sup>③</sup><ruby>九岁<rt>jiǔ suì</rt></ruby>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>呢<rt>ne</rt></ruby>？"<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>。"</p><div class="rn"><b>Notes:</b> ① 照片 zhàopiàn: photo ② 问 wèn: to ask ③ 今年 jīnnián: this year</div>', stem:'Who is twelve years old in the passage?', choices:['The older brother (哥哥).', 'The younger sister (妹妹).', 'Hassan (哈桑).', 'The dad (爸爸).'], ans:0, hint:'Find 哥哥 and check the age that follows it.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Family is very important in Chinese culture — children show respect to their 爷爷 (grandpa) and 奶奶 (grandma), and families spend a lot of time together. How do you show respect to the older people in your family, and what is one family tradition you enjoy? | 🔵 Cycle 3 — In Chinese culture respect for elders is a deep value, and the family name comes first in a person’s name. Is respect for elders shown the same way in Emirati culture, and do you think it is better for grandparents to live with the family or apart?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1B-L1 她是我妹妹。</title>' +

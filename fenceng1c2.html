@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1C-L2', num:'Lesson 2', title:'我六点半起床。I get up at 6:30.', cn:'日常生活',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'⏰ "What time do you get up?" in Chinese:', choices:['<ruby>你几点起床<rt>nǐ jǐ diǎn qǐchuáng</rt></ruby>？', '<ruby>几点你起床<rt>jǐ diǎn nǐ qǐchuáng</rt></ruby>？', '<ruby>你起床几点<rt>nǐ qǐchuáng jǐ diǎn</rt></ruby>？', '<ruby>起床你几点<rt>qǐchuáng nǐ jǐ diǎn</rt></ruby>？'], ans:0, hint:'Subject + 几点 (what time) + verb: 你 + 几点 + 起床？' },
-    { type:'mc', stem:'<ruby>起床<rt>qǐchuáng</rt></ruby> means:', choices:['to get up', 'to go to bed', 'to eat', 'to go home'], ans:0, hint:'起床 = to get up (out of bed).' },
-    { type:'mc', stem:'😴 <ruby>睡觉<rt>shuìjiào</rt></ruby> means:', choices:['to sleep / go to bed', 'to get up', 'to study', 'to pray'], ans:0, hint:'睡觉 = to sleep / go to bed.' },
-    { type:'mc', stem:'🍚 <ruby>吃饭<rt>chīfàn</rt></ruby> means:', choices:['to eat (a meal)', 'to cook', 'to go to school', 'to play'], ans:0, hint:'吃饭 = to eat a meal.' },
-    { type:'mc', stem:'<ruby>上学<rt>shàngxué</rt></ruby> means:', choices:['to go to school', 'to go home', 'to have class', 'to sleep'], ans:0, hint:'上学 = to go to school.' },
-    { type:'mc', stem:'<ruby>上课<rt>shàngkè</rt></ruby> means:', choices:['to have class / attend class', 'to go home', 'to get up', 'to eat'], ans:0, hint:'上课 = to have / attend class.' },
-    { type:'mc', stem:'🏠 <ruby>回家<rt>huíjiā</rt></ruby> means:', choices:['to go home', 'to go to school', 'to get up', 'to pray'], ans:0, hint:'回家 = to go home.' },
-    { type:'mc', stem:'"I get up at 6:30":', choices:['<ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby>。', '<ruby>我起床六点半<rt>wǒ qǐchuáng liù diǎn bàn</rt></ruby>。', '<ruby>六点半我起床<rt>liù diǎn bàn wǒ qǐchuáng</rt></ruby>。', '<ruby>我六点半床起<rt>wǒ liù diǎn bàn chuáng qǐ</rt></ruby>。'], ans:0, hint:'Subject + time (六点半) + verb (起床): the time goes before the action.' },
-    { type:'fill', stem:'Say "I go to bed at night": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>晚上<rt>wǎnshang</rt></ruby>＿＿。</span>', ans:['睡觉','shuìjiào','shuijiao'], hint:'睡觉 = to go to bed / sleep. 我晚上睡觉。' },
-    { type:'match', stem:'Match each daily action to its meaning.', left:['<ruby>起床<rt>qǐchuáng</rt></ruby>', '<ruby>睡觉<rt>shuìjiào</rt></ruby>', '<ruby>吃饭<rt>chīfàn</rt></ruby>', '<ruby>上学<rt>shàngxué</rt></ruby>'], right:['to get up', 'to sleep', 'to eat a meal', 'to go to school'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'起床 get up · 睡觉 sleep · 吃饭 eat · 上学 go to school.' },
+    { type:'mc', skill:'Daily routine', stem:'⏰ "What time do you get up?" in Chinese:', choices:['<ruby>你几点起床<rt>nǐ jǐ diǎn qǐchuáng</rt></ruby>？', '<ruby>几点你起床<rt>jǐ diǎn nǐ qǐchuáng</rt></ruby>？', '<ruby>你起床几点<rt>nǐ qǐchuáng jǐ diǎn</rt></ruby>？', '<ruby>起床你几点<rt>qǐchuáng nǐ jǐ diǎn</rt></ruby>？'], ans:0, hint:'Subject + 几点 (what time) + verb: 你 + 几点 + 起床？' },
+    { type:'mc', skill:'Daily routine', stem:'<ruby>起床<rt>qǐchuáng</rt></ruby> means:', choices:['to get up', 'to go to bed', 'to eat', 'to go home'], ans:0, hint:'起床 = to get up (out of bed).' },
+    { type:'mc', skill:'Daily routine', stem:'😴 <ruby>睡觉<rt>shuìjiào</rt></ruby> means:', choices:['to sleep / go to bed', 'to get up', 'to study', 'to pray'], ans:0, hint:'睡觉 = to sleep / go to bed.' },
+    { type:'mc', skill:'Daily routine', stem:'🍚 <ruby>吃饭<rt>chīfàn</rt></ruby> means:', choices:['to eat (a meal)', 'to cook', 'to go to school', 'to play'], ans:0, hint:'吃饭 = to eat a meal.' },
+    { type:'mc', skill:'Daily routine', stem:'<ruby>上学<rt>shàngxué</rt></ruby> means:', choices:['to go to school', 'to go home', 'to have class', 'to sleep'], ans:0, hint:'上学 = to go to school.' },
+    { type:'mc', skill:'Daily routine', stem:'<ruby>上课<rt>shàngkè</rt></ruby> means:', choices:['to have class / attend class', 'to go home', 'to get up', 'to eat'], ans:0, hint:'上课 = to have / attend class.' },
+    { type:'mc', skill:'Daily routine', stem:'🏠 <ruby>回家<rt>huíjiā</rt></ruby> means:', choices:['to go home', 'to go to school', 'to get up', 'to pray'], ans:0, hint:'回家 = to go home.' },
+    { type:'mc', skill:'Daily routine', stem:'"I get up at 6:30":', choices:['<ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby>。', '<ruby>我起床六点半<rt>wǒ qǐchuáng liù diǎn bàn</rt></ruby>。', '<ruby>六点半我起床<rt>liù diǎn bàn wǒ qǐchuáng</rt></ruby>。', '<ruby>我六点半床起<rt>wǒ liù diǎn bàn chuáng qǐ</rt></ruby>。'], ans:0, hint:'Subject + time (六点半) + verb (起床): the time goes before the action.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I go to bed at night": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>晚上<rt>wǎnshang</rt></ruby>＿＿。</span>', ans:['睡觉','shuìjiào','shuijiao'], hint:'睡觉 = to go to bed / sleep. 我晚上睡觉。' },
+    { type:'match', skill:'Daily routine', stem:'Match each daily action to its meaning.', left:['<ruby>起床<rt>qǐchuáng</rt></ruby>', '<ruby>睡觉<rt>shuìjiào</rt></ruby>', '<ruby>吃饭<rt>chīfàn</rt></ruby>', '<ruby>上学<rt>shàngxué</rt></ruby>'], right:['to get up', 'to sleep', 'to eat a meal', 'to go to school'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'起床 get up · 睡觉 sleep · 吃饭 eat · 上学 go to school.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'Where does the time go? "She has class at 8 in the morning" =', choices:['<ruby>她上午八点上课<rt>tā shàngwǔ bā diǎn shàngkè</rt></ruby>。 (time before verb)', '<ruby>她上课上午八点<rt>tā shàngkè shàngwǔ bā diǎn</rt></ruby>。', '<ruby>上午八点她上课<rt>shàngwǔ bā diǎn tā shàngkè</rt></ruby>上课。', '<ruby>她上课八点上午<rt>tā shàngkè bā diǎn shàngwǔ</rt></ruby>。'], ans:0, hint:'In Chinese the time WHEN comes before the verb: Subject + time + verb. 她 + 上午八点 + 上课.' },
-    { type:'mc', stem:'In <ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby>, the time <ruby>六点半<rt>liù diǎn bàn</rt></ruby> comes:', choices:['before the verb 起床', 'after the verb 起床', 'at the very end', 'before the subject 我'], ans:0, hint:'Time-when goes before the verb: 我 + 六点半 + 起床.' },
-    { type:'fill', stem:'Ask "What time do you get up?": <span class="cn"><ruby>你<rt>nǐ</rt></ruby>＿＿<ruby>起床<rt>qǐchuáng</rt></ruby>？</span>', ans:['几点','jǐ diǎn','jidian','jǐdiǎn'], hint:'几点 = what time / what o-clock. 你几点起床？' },
-    { type:'mc', stem:'<ruby>她上午八点上课<rt>tā shàngwǔ bā diǎn shàngkè</rt></ruby> means:', choices:['She has class at 8 in the morning.', 'She gets up at 8 in the morning.', 'She goes home at 8.', 'She eats at 8 in the evening.'], ans:0, hint:'上午八点 (8 AM) + 上课 (have class).' },
-    { type:'mc', stem:'Put in order — "I go home at 5 in the afternoon":', choices:['<ruby>我下午五点回家<rt>wǒ xiàwǔ wǔ diǎn huíjiā</rt></ruby>。', '<ruby>我回家下午五点<rt>wǒ huíjiā xiàwǔ wǔ diǎn</rt></ruby>。', '<ruby>下午五点我回家<rt>xiàwǔ wǔ diǎn wǒ huíjiā</rt></ruby>回家。', '<ruby>我下午回家五点<rt>wǒ xiàwǔ huíjiā wǔ diǎn</rt></ruby>。'], ans:0, hint:'Subject + time (下午五点) + verb (回家).' },
-    { type:'mc', stem:'🙏 <ruby>祷告<rt>dǎogào</rt></ruby> means:', choices:['to pray', 'to play', 'to read', 'to rest'], ans:0, hint:'祷告 = to pray.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['qǐ', 'chuáng', 'xué', 'diǎn'], right:['起', '床', '学', '点'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 起, 床, 学, 几, 点.' },
-    { type:'fill', stem:'Say "She has class at 8 in the morning": <span class="cn"><ruby>她<rt>tā</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby>＿＿。</span>', ans:['上课','shàngkè','shangke'], hint:'上课 = to have class. 她上午八点上课。' },
-    { type:'mc', stem:'To ask the time someone does something, use <ruby>你几点<rt>nǐ jǐ diǎn</rt></ruby> + verb. "What time do you sleep?" =', choices:['<ruby>你几点睡觉<rt>nǐ jǐ diǎn shuìjiào</rt></ruby>？', '<ruby>你睡觉几点<rt>nǐ shuìjiào jǐ diǎn</rt></ruby>？', '<ruby>几点睡觉你<rt>jǐ diǎn shuìjiào nǐ</rt></ruby>？', '<ruby>你几点觉睡<rt>nǐ jǐ diǎn jiào shuì</rt></ruby>？'], ans:0, hint:'你 + 几点 + verb: 你几点睡觉？' },
-    { type:'mc', stem:'Which order matches a normal day, morning to night?', choices:['<ruby>起床<rt>qǐchuáng</rt></ruby> → <ruby>上学<rt>shàngxué</rt></ruby> → <ruby>上课<rt>shàngkè</rt></ruby> → <ruby>回家<rt>huíjiā</rt></ruby> → <ruby>睡觉<rt>shuìjiào</rt></ruby>', '<ruby>睡觉<rt>shuìjiào</rt></ruby> → <ruby>起床<rt>qǐchuáng</rt></ruby> → <ruby>回家<rt>huíjiā</rt></ruby> → <ruby>上学<rt>shàngxué</rt></ruby>', '<ruby>回家<rt>huíjiā</rt></ruby> → <ruby>上课<rt>shàngkè</rt></ruby> → <ruby>起床<rt>qǐchuáng</rt></ruby>', '<ruby>上课<rt>shàngkè</rt></ruby> → <ruby>睡觉<rt>shuìjiào</rt></ruby> → <ruby>起床<rt>qǐchuáng</rt></ruby>'], ans:0, hint:'A normal day: get up → go to school → have class → go home → sleep.' },
+    { type:'mc', skill:'Daily routine', stem:'Where does the time go? "She has class at 8 in the morning" =', choices:['<ruby>她上午八点上课<rt>tā shàngwǔ bā diǎn shàngkè</rt></ruby>。 (time before verb)', '<ruby>她上课上午八点<rt>tā shàngkè shàngwǔ bā diǎn</rt></ruby>。', '<ruby>上午八点她上课<rt>shàngwǔ bā diǎn tā shàngkè</rt></ruby>上课。', '<ruby>她上课八点上午<rt>tā shàngkè bā diǎn shàngwǔ</rt></ruby>。'], ans:0, hint:'In Chinese the time WHEN comes before the verb: Subject + time + verb. 她 + 上午八点 + 上课.' },
+    { type:'mc', skill:'Daily routine', stem:'In <ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby>, the time <ruby>六点半<rt>liù diǎn bàn</rt></ruby> comes:', choices:['before the verb 起床', 'after the verb 起床', 'at the very end', 'before the subject 我'], ans:0, hint:'Time-when goes before the verb: 我 + 六点半 + 起床.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask "What time do you get up?": <span class="cn"><ruby>你<rt>nǐ</rt></ruby>＿＿<ruby>起床<rt>qǐchuáng</rt></ruby>？</span>', ans:['几点','jǐ diǎn','jidian','jǐdiǎn'], hint:'几点 = what time / what o-clock. 你几点起床？' },
+    { type:'mc', skill:'Daily routine', stem:'<ruby>她上午八点上课<rt>tā shàngwǔ bā diǎn shàngkè</rt></ruby> means:', choices:['She has class at 8 in the morning.', 'She gets up at 8 in the morning.', 'She goes home at 8.', 'She eats at 8 in the evening.'], ans:0, hint:'上午八点 (8 AM) + 上课 (have class).' },
+    { type:'mc', skill:'Daily routine', stem:'Put in order — "I go home at 5 in the afternoon":', choices:['<ruby>我下午五点回家<rt>wǒ xiàwǔ wǔ diǎn huíjiā</rt></ruby>。', '<ruby>我回家下午五点<rt>wǒ huíjiā xiàwǔ wǔ diǎn</rt></ruby>。', '<ruby>下午五点我回家<rt>xiàwǔ wǔ diǎn wǒ huíjiā</rt></ruby>回家。', '<ruby>我下午回家五点<rt>wǒ xiàwǔ huíjiā wǔ diǎn</rt></ruby>。'], ans:0, hint:'Subject + time (下午五点) + verb (回家).' },
+    { type:'mc', skill:'Daily routine', stem:'🙏 <ruby>祷告<rt>dǎogào</rt></ruby> means:', choices:['to pray', 'to play', 'to read', 'to rest'], ans:0, hint:'祷告 = to pray.' },
+    { type:'match', skill:'Daily routine', stem:'Match each pinyin to its character (写汉字).', left:['qǐ', 'chuáng', 'xué', 'diǎn'], right:['起', '床', '学', '点'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 起, 床, 学, 几, 点.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "She has class at 8 in the morning": <span class="cn"><ruby>她<rt>tā</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby>＿＿。</span>', ans:['上课','shàngkè','shangke'], hint:'上课 = to have class. 她上午八点上课。' },
+    { type:'mc', skill:'Daily routine', stem:'To ask the time someone does something, use <ruby>你几点<rt>nǐ jǐ diǎn</rt></ruby> + verb. "What time do you sleep?" =', choices:['<ruby>你几点睡觉<rt>nǐ jǐ diǎn shuìjiào</rt></ruby>？', '<ruby>你睡觉几点<rt>nǐ shuìjiào jǐ diǎn</rt></ruby>？', '<ruby>几点睡觉你<rt>jǐ diǎn shuìjiào nǐ</rt></ruby>？', '<ruby>你几点觉睡<rt>nǐ jǐ diǎn jiào shuì</rt></ruby>？'], ans:0, hint:'你 + 几点 + verb: 你几点睡觉？' },
+    { type:'mc', skill:'Daily routine', stem:'Which order matches a normal day, morning to night?', choices:['<ruby>起床<rt>qǐchuáng</rt></ruby> → <ruby>上学<rt>shàngxué</rt></ruby> → <ruby>上课<rt>shàngkè</rt></ruby> → <ruby>回家<rt>huíjiā</rt></ruby> → <ruby>睡觉<rt>shuìjiào</rt></ruby>', '<ruby>睡觉<rt>shuìjiào</rt></ruby> → <ruby>起床<rt>qǐchuáng</rt></ruby> → <ruby>回家<rt>huíjiā</rt></ruby> → <ruby>上学<rt>shàngxué</rt></ruby>', '<ruby>回家<rt>huíjiā</rt></ruby> → <ruby>上课<rt>shàngkè</rt></ruby> → <ruby>起床<rt>qǐchuáng</rt></ruby>', '<ruby>上课<rt>shàngkè</rt></ruby> → <ruby>睡觉<rt>shuìjiào</rt></ruby> → <ruby>起床<rt>qǐchuáng</rt></ruby>'], ans:0, hint:'A normal day: get up → go to school → have class → go home → sleep.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In Chinese, the time WHEN something happens goes:', choices:['before the verb (我六点起床)', 'after the verb (我起床六点)', 'at the very end of the sentence', 'before the subject'], ans:0, hint:'Time-when is an adverbial and sits before the verb: 我(subj) + 六点(time) + 起床(verb).' },
-    { type:'mc', stem:'<ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby> means:', choices:['I get up at 6:30.', 'I get up at 6:00.', 'I go to bed at 6:30.', 'I have class at 6:30.'], ans:0, hint:'六点半 = 6:30 (半 = 30 min) · 起床 = get up.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>你几点起床<rt>nǐ jǐ diǎn qǐchuáng</rt></ruby>？ B: ___', choices:['<ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby>。', '<ruby>我是学生<rt>wǒ shì xuésheng</rt></ruby>。', '<ruby>今天五月二号<rt>jīntiān wǔ yuè èr hào</rt></ruby>。', '<ruby>他是老师<rt>tā shì lǎoshī</rt></ruby>。'], ans:0, hint:'你几点 + verb asks the time of an action → answer with the time + the same verb.' },
-    { type:'mc', stem:'Which word is NOT a daily-routine action?', choices:['<ruby>医生<rt>yīshēng</rt></ruby> (doctor)', '<ruby>起床<rt>qǐchuáng</rt></ruby> (get up)', '<ruby>上课<rt>shàngkè</rt></ruby> (have class)', '<ruby>睡觉<rt>shuìjiào</rt></ruby> (sleep)'], ans:0, hint:'医生 is a job, not an action you do in a daily routine.' },
-    { type:'mc', stem:'In Chinese (HSK), where do you put a time word like "at 7" in "I eat at 7"? (HSK tip)', choices:['Before the verb: <ruby>我七点吃饭<rt>wǒ qī diǎn chīfàn</rt></ruby>。', 'After the verb: <ruby>我吃饭七点<rt>wǒ chīfàn qī diǎn</rt></ruby>。', 'At the end: <ruby>我吃饭七点钟<rt>wǒ chīfàn qī diǎn zhōng</rt></ruby>。', 'Before the subject: <ruby>七点我吃饭<rt>qī diǎn wǒ chīfàn</rt></ruby> only.'], ans:0, hint:'HSK tip: a "time-when" word goes BEFORE the verb (我七点吃饭) — the opposite of English "I eat AT seven".' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><sup>①</sup><ruby>六点半<rt>liù diǎn bàn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby>。<ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>在<rt>zài</rt></ruby><sup>②</sup><ruby>学校<rt>xuéxiào</rt></ruby><sup>③</sup><ruby>上课<rt>shàngkè</rt></ruby>。<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><ruby>回家<rt>huíjiā</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>祷告<rt>dǎogào</rt></ruby><sup>④</sup>，<ruby>十点<rt>shí diǎn</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 每天 měitiān: every day ② 在 zài: at / in ③ 学校 xuéxiào: school ④ 祷告 dǎogào: to pray</div>', stem:'What time does Hassan get up?', choices:['6:30 (六点半).', '8:00 (八点).', '10:00 (十点).', '12:00 (中午).'], ans:0, hint:'Find 起床 in the passage and read the time just before it.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><sup>①</sup><ruby>六点半<rt>liù diǎn bàn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby>。<ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>在<rt>zài</rt></ruby><sup>②</sup><ruby>学校<rt>xuéxiào</rt></ruby><sup>③</sup><ruby>上课<rt>shàngkè</rt></ruby>。<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><ruby>回家<rt>huíjiā</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>祷告<rt>dǎogào</rt></ruby><sup>④</sup>，<ruby>十点<rt>shí diǎn</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 每天 měitiān: every day ② 在 zài: at / in ③ 学校 xuéxiào: school ④ 祷告 dǎogào: to pray</div>', stem:'What does Hassan do in the evening before sleeping?', choices:['He prays (祷告).', 'He goes to school.', 'He eats lunch.', 'He gets up.'], ans:0, hint:'Read the 晚上 (evening) part of the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🌞 Everyone’s day is a little different. What is your favourite part of the day, and if you had one extra hour every day, how would you spend it? | 🔵 Cycle 3 — There is an old Chinese saying, 一寸光阴一寸金 — “time is as precious as gold”. Do you agree that time is precious, and is it better to plan your whole day carefully or to leave some time free — why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Daily routine', stem:'In Chinese, the time WHEN something happens goes:', choices:['before the verb (我六点起床)', 'after the verb (我起床六点)', 'at the very end of the sentence', 'before the subject'], ans:0, hint:'Time-when is an adverbial and sits before the verb: 我(subj) + 六点(time) + 起床(verb).' },
+    { type:'mc', skill:'Daily routine', stem:'<ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby> means:', choices:['I get up at 6:30.', 'I get up at 6:00.', 'I go to bed at 6:30.', 'I have class at 6:30.'], ans:0, hint:'六点半 = 6:30 (半 = 30 min) · 起床 = get up.' },
+    { type:'mc', skill:'Daily routine', stem:'Complete the dialogue — A: <ruby>你几点起床<rt>nǐ jǐ diǎn qǐchuáng</rt></ruby>？ B: ___', choices:['<ruby>我六点半起床<rt>wǒ liù diǎn bàn qǐchuáng</rt></ruby>。', '<ruby>我是学生<rt>wǒ shì xuésheng</rt></ruby>。', '<ruby>今天五月二号<rt>jīntiān wǔ yuè èr hào</rt></ruby>。', '<ruby>他是老师<rt>tā shì lǎoshī</rt></ruby>。'], ans:0, hint:'你几点 + verb asks the time of an action → answer with the time + the same verb.' },
+    { type:'mc', skill:'Daily routine', stem:'Which word is NOT a daily-routine action?', choices:['<ruby>医生<rt>yīshēng</rt></ruby> (doctor)', '<ruby>起床<rt>qǐchuáng</rt></ruby> (get up)', '<ruby>上课<rt>shàngkè</rt></ruby> (have class)', '<ruby>睡觉<rt>shuìjiào</rt></ruby> (sleep)'], ans:0, hint:'医生 is a job, not an action you do in a daily routine.' },
+    { type:'mc', skill:'Daily routine', stem:'In Chinese (HSK), where do you put a time word like "at 7" in "I eat at 7"? (HSK tip)', choices:['Before the verb: <ruby>我七点吃饭<rt>wǒ qī diǎn chīfàn</rt></ruby>。', 'After the verb: <ruby>我吃饭七点<rt>wǒ chīfàn qī diǎn</rt></ruby>。', 'At the end: <ruby>我吃饭七点钟<rt>wǒ chīfàn qī diǎn zhōng</rt></ruby>。', 'Before the subject: <ruby>七点我吃饭<rt>qī diǎn wǒ chīfàn</rt></ruby> only.'], ans:0, hint:'HSK tip: a "time-when" word goes BEFORE the verb (我七点吃饭) — the opposite of English "I eat AT seven".' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><sup>①</sup><ruby>六点半<rt>liù diǎn bàn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby>。<ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>在<rt>zài</rt></ruby><sup>②</sup><ruby>学校<rt>xuéxiào</rt></ruby><sup>③</sup><ruby>上课<rt>shàngkè</rt></ruby>。<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><ruby>回家<rt>huíjiā</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>祷告<rt>dǎogào</rt></ruby><sup>④</sup>，<ruby>十点<rt>shí diǎn</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 每天 měitiān: every day ② 在 zài: at / in ③ 学校 xuéxiào: school ④ 祷告 dǎogào: to pray</div>', stem:'What time does Hassan get up?', choices:['6:30 (六点半).', '8:00 (八点).', '10:00 (十点).', '12:00 (中午).'], ans:0, hint:'Find 起床 in the passage and read the time just before it.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><sup>①</sup><ruby>六点半<rt>liù diǎn bàn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby>。<ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>在<rt>zài</rt></ruby><sup>②</sup><ruby>学校<rt>xuéxiào</rt></ruby><sup>③</sup><ruby>上课<rt>shàngkè</rt></ruby>。<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><ruby>回家<rt>huíjiā</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>祷告<rt>dǎogào</rt></ruby><sup>④</sup>，<ruby>十点<rt>shí diǎn</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 每天 měitiān: every day ② 在 zài: at / in ③ 学校 xuéxiào: school ④ 祷告 dǎogào: to pray</div>', stem:'What does Hassan do in the evening before sleeping?', choices:['He prays (祷告).', 'He goes to school.', 'He eats lunch.', 'He gets up.'], ans:0, hint:'Read the 晚上 (evening) part of the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🌞 Everyone’s day is a little different. What is your favourite part of the day, and if you had one extra hour every day, how would you spend it? | 🔵 Cycle 3 — There is an old Chinese saying, 一寸光阴一寸金 — “time is as precious as gold”. Do you agree that time is precious, and is it better to plan your whole day carefully or to leave some time free — why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1C-L2 我六点半起床。</title>' +

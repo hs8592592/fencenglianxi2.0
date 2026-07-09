@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1C-L1', num:'Lesson 1', title:'我是学生。I am a student.', cn:'职业',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'🎒 "I am a student" in Chinese:', choices:['<ruby>我是学生<rt>wǒ shì xuésheng</rt></ruby>。', '<ruby>学生我是<rt>xuésheng wǒ shì</rt></ruby>。', '<ruby>我学生是<rt>wǒ xuésheng shì</rt></ruby>。', '<ruby>是我学生<rt>shì wǒ xuésheng</rt></ruby>。'], ans:0, hint:'Subject + 是 + noun: 我 + 是 + 学生.' },
-    { type:'mc', stem:'<ruby>学生<rt>xuésheng</rt></ruby> means:', choices:['student', 'teacher', 'doctor', 'police officer'], ans:0, hint:'学生 = student.' },
-    { type:'mc', stem:'<ruby>老师<rt>lǎoshī</rt></ruby> means:', choices:['teacher', 'student', 'doctor', 'worker'], ans:0, hint:'老师 = teacher.' },
-    { type:'mc', stem:'🩺 <ruby>医生<rt>yīshēng</rt></ruby> means:', choices:['doctor', 'nurse', 'teacher', 'police officer'], ans:0, hint:'医生 = doctor.' },
-    { type:'mc', stem:'👮 <ruby>警察<rt>jǐngchá</rt></ruby> means:', choices:['police officer', 'soldier', 'driver', 'teacher'], ans:0, hint:'警察 = police officer.' },
-    { type:'mc', stem:'<ruby>工作<rt>gōngzuò</rt></ruby> means:', choices:['work / job', 'school', 'family', 'home'], ans:0, hint:'工作 = work / job: 做什么工作 = what work (do you) do.' },
-    { type:'mc', stem:'<ruby>做<rt>zuò</rt></ruby> means:', choices:['to do / to make', 'to be', 'to have', 'to love'], ans:0, hint:'做 = to do · 做什么工作 = what job do (you) do.' },
-    { type:'mc', stem:'"My mum is a teacher":', choices:['<ruby>我妈妈是老师<rt>wǒ māma shì lǎoshī</rt></ruby>。', '<ruby>老师我妈妈是<rt>lǎoshī wǒ māma shì</rt></ruby>。', '<ruby>我妈妈老师是<rt>wǒ māma lǎoshī shì</rt></ruby>。', '<ruby>是我妈妈老师<rt>shì wǒ māma lǎoshī</rt></ruby>。'], ans:0, hint:'Subject (我妈妈) + 是 + occupation (老师).' },
-    { type:'fill', stem:'Say "He is a doctor": <span class="cn"><ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿。</span>', ans:['医生','yīshēng','yisheng'], hint:'医生 = doctor. 他是医生。' },
-    { type:'mc', stem:'<ruby>也<rt>yě</rt></ruby> means:', choices:['also / too', 'not', 'very', 'and'], ans:0, hint:'也 = also / too: 我妈妈也是老师 = My mum is also a teacher.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'🎒 "I am a student" in Chinese:', choices:['<ruby>我是学生<rt>wǒ shì xuésheng</rt></ruby>。', '<ruby>学生我是<rt>xuésheng wǒ shì</rt></ruby>。', '<ruby>我学生是<rt>wǒ xuésheng shì</rt></ruby>。', '<ruby>是我学生<rt>shì wǒ xuésheng</rt></ruby>。'], ans:0, hint:'Subject + 是 + noun: 我 + 是 + 学生.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>学生<rt>xuésheng</rt></ruby> means:', choices:['student', 'teacher', 'doctor', 'police officer'], ans:0, hint:'学生 = student.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>老师<rt>lǎoshī</rt></ruby> means:', choices:['teacher', 'student', 'doctor', 'worker'], ans:0, hint:'老师 = teacher.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'🩺 <ruby>医生<rt>yīshēng</rt></ruby> means:', choices:['doctor', 'nurse', 'teacher', 'police officer'], ans:0, hint:'医生 = doctor.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'👮 <ruby>警察<rt>jǐngchá</rt></ruby> means:', choices:['police officer', 'soldier', 'driver', 'teacher'], ans:0, hint:'警察 = police officer.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>工作<rt>gōngzuò</rt></ruby> means:', choices:['work / job', 'school', 'family', 'home'], ans:0, hint:'工作 = work / job: 做什么工作 = what work (do you) do.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>做<rt>zuò</rt></ruby> means:', choices:['to do / to make', 'to be', 'to have', 'to love'], ans:0, hint:'做 = to do · 做什么工作 = what job do (you) do.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'"My mum is a teacher":', choices:['<ruby>我妈妈是老师<rt>wǒ māma shì lǎoshī</rt></ruby>。', '<ruby>老师我妈妈是<rt>lǎoshī wǒ māma shì</rt></ruby>。', '<ruby>我妈妈老师是<rt>wǒ māma lǎoshī shì</rt></ruby>。', '<ruby>是我妈妈老师<rt>shì wǒ māma lǎoshī</rt></ruby>。'], ans:0, hint:'Subject (我妈妈) + 是 + occupation (老师).' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "He is a doctor": <span class="cn"><ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿。</span>', ans:['医生','yīshēng','yisheng'], hint:'医生 = doctor. 他是医生。' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>也<rt>yě</rt></ruby> means:', choices:['also / too', 'not', 'very', 'and'], ans:0, hint:'也 = also / too: 我妈妈也是老师 = My mum is also a teacher.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'How do you make <ruby>是<rt>shì</rt></ruby> negative ("is not")?', choices:['<ruby>不是<rt>bú shì</rt></ruby> (不 + 是)', '<ruby>没是<rt>méi shì</rt></ruby>', '<ruby>是不<rt>shì bù</rt></ruby>', '<ruby>无是<rt>wú shì</rt></ruby>'], ans:0, hint:'是 is negated with 不 → 不是 (is not).' },
-    { type:'mc', stem:'"She is not a doctor, she is a teacher":', choices:['<ruby>她不是医生，她是老师<rt>tā bú shì yīshēng, tā shì lǎoshī</rt></ruby>。', '<ruby>她是医生不，她老师是<rt>tā shì yīshēng bù, tā lǎoshī shì</rt></ruby>。', '<ruby>她医生不是，她是老师<rt>tā yīshēng bú shì, tā shì lǎoshī</rt></ruby>。', '<ruby>不她是医生，她老师是<rt>bù tā shì yīshēng, tā lǎoshī shì</rt></ruby>。'], ans:0, hint:'不 goes BEFORE 是: 她不是医生。' },
-    { type:'fill', stem:'Negate it — "He is NOT a teacher": <span class="cn"><ruby>他<rt>tā</rt></ruby>＿＿<ruby>老师<rt>lǎoshī</rt></ruby>。</span>', ans:['不是','bú shì','bushi','búshì'], hint:'不 + 是 = is not. 他不是老师。' },
-    { type:'mc', stem:'Where does the adverb <ruby>也<rt>yě</rt></ruby> ("also") go? "My mum is ALSO a teacher" =', choices:['<ruby>我妈妈也是老师<rt>wǒ māma yě shì lǎoshī</rt></ruby>。(也 before 是)', '<ruby>也我妈妈是老师<rt>yě wǒ māma shì lǎoshī</rt></ruby>。', '<ruby>我妈妈是也老师<rt>wǒ māma shì yě lǎoshī</rt></ruby>。', '<ruby>我妈妈是老师也<rt>wǒ māma shì lǎoshī yě</rt></ruby>。'], ans:0, hint:'也 goes before the verb: Subject + 也 + 是 + ….' },
-    { type:'mc', stem:'<ruby>你爸爸做什么工作<rt>nǐ bàba zuò shénme gōngzuò</rt></ruby>？ asks:', choices:['What job does your dad do?', 'Where is your dad?', 'Who is your dad?', 'How old is your dad?'], ans:0, hint:'做什么工作 = what work / what job (does someone) do.' },
-    { type:'mc', stem:'Someone says <ruby>我是老师<rt>wǒ shì lǎoshī</rt></ruby>。 To say "Me too (I am also a teacher)":', choices:['<ruby>我也是老师<rt>wǒ yě shì lǎoshī</rt></ruby>。', '<ruby>我是也老师<rt>wǒ shì yě lǎoshī</rt></ruby>。', '<ruby>也我是老师<rt>yě wǒ shì lǎoshī</rt></ruby>。', '<ruby>我老师也是<rt>wǒ lǎoshī yě shì</rt></ruby>。'], ans:0, hint:'也 before 是: 我也是老师。' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['lǎo', 'shī', 'gōng', 'zuò'], right:['老', '师', '工', '作'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 个, 老, 师, 工, 作.' },
-    { type:'fill', stem:'Answer "What job does he do?" — "He is a police officer": <span class="cn"><ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿。</span>', ans:['警察','jǐngchá','jingcha'], hint:'警察 = police officer. 他是警察。' },
-    { type:'mc', stem:'<ruby>工作<rt>gōngzuò</rt></ruby> can mean both "work" (noun) and "to work" (verb). In <ruby>做什么工作<rt>zuò shénme gōngzuò</rt></ruby>, it is:', choices:['a noun — "what (kind of) work"', 'a question word', 'a measure word', 'a negative'], ans:0, hint:'做 (do) + 什么 (what) + 工作 (work/job) → asks the job.' },
-    { type:'mc', stem:'"He is not a student, he is a teacher" — fill: <ruby>他<rt>tā</rt></ruby><ruby>不是<rt>bú shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>，<ruby>他<rt>tā</rt></ruby>＿<ruby>老师<rt>lǎoshī</rt></ruby>。', choices:['<ruby>是<rt>shì</rt></ruby>', '<ruby>不<rt>bù</rt></ruby>', '<ruby>也<rt>yě</rt></ruby>', '<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'Correct the statement with the positive 是: 他是老师。' },
+    { type:'mc', skill:'Jobs & occupations', stem:'How do you make <ruby>是<rt>shì</rt></ruby> negative ("is not")?', choices:['<ruby>不是<rt>bú shì</rt></ruby> (不 + 是)', '<ruby>没是<rt>méi shì</rt></ruby>', '<ruby>是不<rt>shì bù</rt></ruby>', '<ruby>无是<rt>wú shì</rt></ruby>'], ans:0, hint:'是 is negated with 不 → 不是 (is not).' },
+    { type:'mc', skill:'Jobs & occupations', stem:'"She is not a doctor, she is a teacher":', choices:['<ruby>她不是医生，她是老师<rt>tā bú shì yīshēng, tā shì lǎoshī</rt></ruby>。', '<ruby>她是医生不，她老师是<rt>tā shì yīshēng bù, tā lǎoshī shì</rt></ruby>。', '<ruby>她医生不是，她是老师<rt>tā yīshēng bú shì, tā shì lǎoshī</rt></ruby>。', '<ruby>不她是医生，她老师是<rt>bù tā shì yīshēng, tā lǎoshī shì</rt></ruby>。'], ans:0, hint:'不 goes BEFORE 是: 她不是医生。' },
+    { type:'fill', skill:'Sentence patterns', stem:'Negate it — "He is NOT a teacher": <span class="cn"><ruby>他<rt>tā</rt></ruby>＿＿<ruby>老师<rt>lǎoshī</rt></ruby>。</span>', ans:['不是','bú shì','bushi','búshì'], hint:'不 + 是 = is not. 他不是老师。' },
+    { type:'mc', skill:'Jobs & occupations', stem:'Where does the adverb <ruby>也<rt>yě</rt></ruby> ("also") go? "My mum is ALSO a teacher" =', choices:['<ruby>我妈妈也是老师<rt>wǒ māma yě shì lǎoshī</rt></ruby>。(也 before 是)', '<ruby>也我妈妈是老师<rt>yě wǒ māma shì lǎoshī</rt></ruby>。', '<ruby>我妈妈是也老师<rt>wǒ māma shì yě lǎoshī</rt></ruby>。', '<ruby>我妈妈是老师也<rt>wǒ māma shì lǎoshī yě</rt></ruby>。'], ans:0, hint:'也 goes before the verb: Subject + 也 + 是 + ….' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>你爸爸做什么工作<rt>nǐ bàba zuò shénme gōngzuò</rt></ruby>？ asks:', choices:['What job does your dad do?', 'Where is your dad?', 'Who is your dad?', 'How old is your dad?'], ans:0, hint:'做什么工作 = what work / what job (does someone) do.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'Someone says <ruby>我是老师<rt>wǒ shì lǎoshī</rt></ruby>。 To say "Me too (I am also a teacher)":', choices:['<ruby>我也是老师<rt>wǒ yě shì lǎoshī</rt></ruby>。', '<ruby>我是也老师<rt>wǒ shì yě lǎoshī</rt></ruby>。', '<ruby>也我是老师<rt>yě wǒ shì lǎoshī</rt></ruby>。', '<ruby>我老师也是<rt>wǒ lǎoshī yě shì</rt></ruby>。'], ans:0, hint:'也 before 是: 我也是老师。' },
+    { type:'match', skill:'Jobs & occupations', stem:'Match each pinyin to its character (写汉字).', left:['lǎo', 'shī', 'gōng', 'zuò'], right:['老', '师', '工', '作'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 个, 老, 师, 工, 作.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Answer "What job does he do?" — "He is a police officer": <span class="cn"><ruby>他<rt>tā</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿。</span>', ans:['警察','jǐngchá','jingcha'], hint:'警察 = police officer. 他是警察。' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>工作<rt>gōngzuò</rt></ruby> can mean both "work" (noun) and "to work" (verb). In <ruby>做什么工作<rt>zuò shénme gōngzuò</rt></ruby>, it is:', choices:['a noun — "what (kind of) work"', 'a question word', 'a measure word', 'a negative'], ans:0, hint:'做 (do) + 什么 (what) + 工作 (work/job) → asks the job.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'"He is not a student, he is a teacher" — fill: <ruby>他<rt>tā</rt></ruby><ruby>不是<rt>bú shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>，<ruby>他<rt>tā</rt></ruby>＿<ruby>老师<rt>lǎoshī</rt></ruby>。', choices:['<ruby>是<rt>shì</rt></ruby>', '<ruby>不<rt>bù</rt></ruby>', '<ruby>也<rt>yě</rt></ruby>', '<ruby>做<rt>zuò</rt></ruby>'], ans:0, hint:'Correct the statement with the positive 是: 他是老师。' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'Which sentence correctly uses BOTH 不是 and 是? "He is not a doctor, he is a teacher."', choices:['<ruby>他不是医生，他是老师<rt>tā bú shì yīshēng, tā shì lǎoshī</rt></ruby>。', '<ruby>他不医生，他老师<rt>tā bù yīshēng, tā lǎoshī</rt></ruby>。', '<ruby>他没是医生，他是老师<rt>tā méi shì yīshēng, tā shì lǎoshī</rt></ruby>。', '<ruby>他是不医生，他是老师<rt>tā shì bù yīshēng, tā shì lǎoshī</rt></ruby>。'], ans:0, hint:'是字句 needs 是; its negative is 不是 (不 before 是).' },
-    { type:'mc', stem:'<ruby>也<rt>yě</rt></ruby> ("also") connects two people doing the same thing. "My dad is a teacher; my mum is ALSO a teacher" =', choices:['<ruby>我妈妈也是老师<rt>wǒ māma yě shì lǎoshī</rt></ruby>。', '<ruby>我妈妈是老师也<rt>wǒ māma shì lǎoshī yě</rt></ruby>。', '<ruby>也是我妈妈老师<rt>yě shì wǒ māma lǎoshī</rt></ruby>。', '<ruby>我也妈妈是老师<rt>wǒ yě māma shì lǎoshī</rt></ruby>。'], ans:0, hint:'也 sits right before the verb 是.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>你妈妈做什么工作<rt>nǐ māma zuò shénme gōngzuò</rt></ruby>？ B: ___', choices:['<ruby>我妈妈是医生<rt>wǒ māma shì yīshēng</rt></ruby>。', '<ruby>我妈妈很好<rt>wǒ māma hěn hǎo</rt></ruby>。', '<ruby>我妈妈九岁<rt>wǒ māma jiǔ suì</rt></ruby>。', '<ruby>她是谁<rt>tā shì shéi</rt></ruby>？'], ans:0, hint:'做什么工作 asks the job → answer with 是 + occupation.' },
-    { type:'mc', stem:'<ruby>警察<rt>jǐngchá</rt></ruby>, <ruby>医生<rt>yīshēng</rt></ruby>, <ruby>老师<rt>lǎoshī</rt></ruby> are all:', choices:['occupations (工作)', 'family members', 'numbers', 'places'], ans:0, hint:'They are all jobs / occupations.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you negate 是 ("to be")? (HSK tip)', choices:['Use 不 → 不是. (是 always takes 不, never 没.)', 'Use 没 → 没是.', 'Use 无 → 无是.', 'Either 不 or 没 works.'], ans:0, hint:'HSK tip: 是 is negated only with 不 (不是). 没 negates 有 (没有), not 是.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>警察<rt>jǐngchá</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>不是<rt>bú shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 警察 jǐngchá: police officer</div>', stem:'What is Hassan\u2019s father\u2019s job?', choices:['A police officer (警察).', 'A doctor (医生).', 'A teacher (老师).', 'A student (学生).'], ans:0, hint:'Find 我爸爸是…… in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>警察<rt>jǐngchá</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>不是<rt>bú shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 警察 jǐngchá: police officer</div>', stem:'Who else, besides the mother, is a teacher?', choices:['The older sister (姐姐).', 'The father (爸爸).', 'The older brother (哥哥).', 'Hassan himself.'], ans:0, hint:'Look for the sentence with 也是老师 (also a teacher).' },
-    { type:'hots', stem:'🟡 Cycle 2 — 👩‍🏫 People have all kinds of jobs — teachers, doctors, police officers, and many more. What job would you like to do when you grow up, and which job do you think helps other people the most? | 🔵 Cycle 3 — In China, teachers are highly respected — there is even a special Teachers’ Day. Which jobs do people respect the most where you live, and do you think the most important jobs are always the ones people respect the most?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'Which sentence correctly uses BOTH 不是 and 是? "He is not a doctor, he is a teacher."', choices:['<ruby>他不是医生，他是老师<rt>tā bú shì yīshēng, tā shì lǎoshī</rt></ruby>。', '<ruby>他不医生，他老师<rt>tā bù yīshēng, tā lǎoshī</rt></ruby>。', '<ruby>他没是医生，他是老师<rt>tā méi shì yīshēng, tā shì lǎoshī</rt></ruby>。', '<ruby>他是不医生，他是老师<rt>tā shì bù yīshēng, tā shì lǎoshī</rt></ruby>。'], ans:0, hint:'是字句 needs 是; its negative is 不是 (不 before 是).' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>也<rt>yě</rt></ruby> ("also") connects two people doing the same thing. "My dad is a teacher; my mum is ALSO a teacher" =', choices:['<ruby>我妈妈也是老师<rt>wǒ māma yě shì lǎoshī</rt></ruby>。', '<ruby>我妈妈是老师也<rt>wǒ māma shì lǎoshī yě</rt></ruby>。', '<ruby>也是我妈妈老师<rt>yě shì wǒ māma lǎoshī</rt></ruby>。', '<ruby>我也妈妈是老师<rt>wǒ yě māma shì lǎoshī</rt></ruby>。'], ans:0, hint:'也 sits right before the verb 是.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'Complete the dialogue — A: <ruby>你妈妈做什么工作<rt>nǐ māma zuò shénme gōngzuò</rt></ruby>？ B: ___', choices:['<ruby>我妈妈是医生<rt>wǒ māma shì yīshēng</rt></ruby>。', '<ruby>我妈妈很好<rt>wǒ māma hěn hǎo</rt></ruby>。', '<ruby>我妈妈九岁<rt>wǒ māma jiǔ suì</rt></ruby>。', '<ruby>她是谁<rt>tā shì shéi</rt></ruby>？'], ans:0, hint:'做什么工作 asks the job → answer with 是 + occupation.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'<ruby>警察<rt>jǐngchá</rt></ruby>, <ruby>医生<rt>yīshēng</rt></ruby>, <ruby>老师<rt>lǎoshī</rt></ruby> are all:', choices:['occupations (工作)', 'family members', 'numbers', 'places'], ans:0, hint:'They are all jobs / occupations.' },
+    { type:'mc', skill:'Jobs & occupations', stem:'In Chinese (HSK), how do you negate 是 ("to be")? (HSK tip)', choices:['Use 不 → 不是. (是 always takes 不, never 没.)', 'Use 没 → 没是.', 'Use 无 → 无是.', 'Either 不 or 没 works.'], ans:0, hint:'HSK tip: 是 is negated only with 不 (不是). 没 negates 有 (没有), not 是.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>警察<rt>jǐngchá</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>不是<rt>bú shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 警察 jǐngchá: police officer</div>', stem:'What is Hassan\u2019s father\u2019s job?', choices:['A police officer (警察).', 'A doctor (医生).', 'A teacher (老师).', 'A student (学生).'], ans:0, hint:'Find 我爸爸是…… in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>学生<rt>xuésheng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>警察<rt>jǐngchá</rt></ruby><sup>①</sup>，<ruby>他<rt>tā</rt></ruby><ruby>不是<rt>bú shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>姐姐<rt>jiějie</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 警察 jǐngchá: police officer</div>', stem:'Who else, besides the mother, is a teacher?', choices:['The older sister (姐姐).', 'The father (爸爸).', 'The older brother (哥哥).', 'Hassan himself.'], ans:0, hint:'Look for the sentence with 也是老师 (also a teacher).' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 👩‍🏫 People have all kinds of jobs — teachers, doctors, police officers, and many more. What job would you like to do when you grow up, and which job do you think helps other people the most? | 🔵 Cycle 3 — In China, teachers are highly respected — there is even a special Teachers’ Day. Which jobs do people respect the most where you live, and do you think the most important jobs are always the ones people respect the most?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1C-L1 我是学生。</title>' +

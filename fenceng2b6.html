@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2B-L6', num:'Lesson 6', title:'我买了一部手机 I bought a mobile phone', cn:'购物与助词了',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: shopping items + measure words (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: shopping items + measure words (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，（　）<ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>。 <span class="gl">(I bought a phone, ___ (also) a bag.)</span>', choices:['<ruby>还<rt>hái</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'还 = also.' },
-    { type:'mc', stem:'💻 Which word means “computer”?', choices:['<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>本子<rt>běnzi</rt></ruby>'], ans:0, hint:'电脑 = computer.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby>（　）<ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。 <span class="gl">(I bought a computer (already — ___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'了 = it happened.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我买了手机，（　）买了书包。</span> (also)', ans:['还','hái','hai'], hint:'还 = also.' },
-    { type:'mc', stem:'📱 Which word means “mobile phone”?', choices:['<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>'], ans:0, hint:'手机 = phone.' },
-    { type:'match', stem:'📱 Match each item to its meaning.', left:['<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>'], right:['phone','computer','schoolbag','pen'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'手机=phone·电脑=computer·书包=schoolbag·笔=pen.' },
-    { type:'fill', stem:'认读 · Type the measure word: <span class="cn">我买了一（　）手机。</span> (a phone)', ans:['部','bù','bu'], hint:'部 = MW for phones.' },
-    { type:'match', stem:'🔢 Match each measure word to what it counts.', left:['部','台','支','本'], right:['phone (一部手机)','computer (一台电脑)','pen (一支笔)','book (一本书)'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'部=phones·台=machines·支=pens·本=books.' },
-    { type:'mc', stem:'📱 Which measure word goes with 手机 (phone)?', choices:['<ruby>部<rt>bù</rt></ruby> — for phones','<ruby>台<rt>tái</rt></ruby> — for machines','<ruby>支<rt>zhī</rt></ruby> — for pens','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'部 = MW for phones.' },
-    { type:'mc', stem:'🔌 Which one is electronic?', choices:['<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>本子<rt>běnzi</rt></ruby>'], ans:0, hint:'电脑 = computer (electronic).' },
+    { type:'mc', skill:'Shopping (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，（　）<ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>。 <span class="gl">(I bought a phone, ___ (also) a bag.)</span>', choices:['<ruby>还<rt>hái</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'还 = also.' },
+    { type:'mc', skill:'Shopping (past)', stem:'💻 Which word means “computer”?', choices:['<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>本子<rt>běnzi</rt></ruby>'], ans:0, hint:'电脑 = computer.' },
+    { type:'mc', skill:'Shopping (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby>（　）<ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。 <span class="gl">(I bought a computer (already — ___).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'了 = it happened.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我买了手机，（　）买了书包。</span> (also)', ans:['还','hái','hai'], hint:'还 = also.' },
+    { type:'mc', skill:'Shopping (past)', stem:'📱 Which word means “mobile phone”?', choices:['<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>'], ans:0, hint:'手机 = phone.' },
+    { type:'match', skill:'Shopping (past)', stem:'📱 Match each item to its meaning.', left:['<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>'], right:['phone','computer','schoolbag','pen'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'手机=phone·电脑=computer·书包=schoolbag·笔=pen.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the measure word: <span class="cn">我买了一（　）手机。</span> (a phone)', ans:['部','bù','bu'], hint:'部 = MW for phones.' },
+    { type:'match', skill:'Shopping (past)', stem:'🔢 Match each measure word to what it counts.', left:['部','台','支','本'], right:['phone (一部手机)','computer (一台电脑)','pen (一支笔)','book (一本书)'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'部=phones·台=machines·支=pens·本=books.' },
+    { type:'mc', skill:'Shopping (past)', stem:'📱 Which measure word goes with 手机 (phone)?', choices:['<ruby>部<rt>bù</rt></ruby> — for phones','<ruby>台<rt>tái</rt></ruby> — for machines','<ruby>支<rt>zhī</rt></ruby> — for pens','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'部 = MW for phones.' },
+    { type:'mc', skill:'Shopping (past)', stem:'🔌 Which one is electronic?', choices:['<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>本子<rt>běnzi</rt></ruby>'], ans:0, hint:'电脑 = computer (electronic).' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 usage + 了 (completed) + 还 + 写汉字 (HSK 1-2 light)
+  // TIER 2 · 学以致用 — 10 usage + 了 (completed) + 还 + 写汉字 (HSK 1-2 light)
   { qs:[
-    { type:'mc', stem:'💻 Which measure word goes with 电脑 (computer)?', choices:['<ruby>台<rt>tái</rt></ruby> — for machines','<ruby>部<rt>bù</rt></ruby> — for phones','<ruby>支<rt>zhī</rt></ruby> — for pens','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'台 = MW for computers.' },
-    { type:'fill', stem:'认读 · Type the particle: <span class="cn">你买（　）什么？</span> (it happened)', ans:['了','le'], hint:'了 after the verb shows it happened.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['mǎi','shǒu','jī','bǐ'], right:['买','手','机','笔'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'买=buy·手=hand·机=machine·笔=pen.' },
-    { type:'mc', stem:'❓ Which question gets the answer <ruby>我买了几本书<rt>wǒ mǎi le jǐ běn shū</rt></ruby>?', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你买了什么？= What did you buy?' },
-    { type:'mc', stem:'✏️ Which one do you WRITE with?', choices:['<ruby>笔<rt>bǐ</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>手机<rt>shǒujī</rt></ruby>'], ans:0, hint:'笔 = pen (you write with it).' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>手机<rt>shǒujī</rt></ruby>。 <span class="gl">(I bought one ___ (MW) phone.)</span>', choices:['<ruby>部<rt>bù</rt></ruby>','<ruby>台<rt>tái</rt></ruby>','<ruby>支<rt>zhī</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'部 = MW for phones.' },
-    { type:'mc', stem:'💻 Which sentence means “I bought a computer”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。','<ruby>电脑<rt>diànnǎo</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby>。'], ans:0, hint:'买了 = bought (completed).' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你买了什么<rt>nǐ mǎi le shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'Answer: 我买了….' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby>（　）<ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What did you buy? (___))</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'verb + 了 = it happened.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，（　）<ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。 <span class="gl">(I bought a phone, ___ (also) a pen.)</span>', choices:['<ruby>还<rt>hái</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'还 = also.' },
+    { type:'mc', skill:'Shopping (past)', stem:'💻 Which measure word goes with 电脑 (computer)?', choices:['<ruby>台<rt>tái</rt></ruby> — for machines','<ruby>部<rt>bù</rt></ruby> — for phones','<ruby>支<rt>zhī</rt></ruby> — for pens','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'台 = MW for computers.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the particle: <span class="cn">你买（　）什么？</span> (it happened)', ans:['了','le'], hint:'了 after the verb shows it happened.' },
+    { type:'match', skill:'Shopping (past)', stem:'写汉字 · Match each pinyin to its character.', left:['mǎi','shǒu','jī','bǐ'], right:['买','手','机','笔'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'买=buy·手=hand·机=machine·笔=pen.' },
+    { type:'mc', skill:'Shopping (past)', stem:'❓ Which question gets the answer <ruby>我买了几本书<rt>wǒ mǎi le jǐ běn shū</rt></ruby>?', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你买了什么？= What did you buy?' },
+    { type:'mc', skill:'Shopping (past)', stem:'✏️ Which one do you WRITE with?', choices:['<ruby>笔<rt>bǐ</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>手机<rt>shǒujī</rt></ruby>'], ans:0, hint:'笔 = pen (you write with it).' },
+    { type:'mc', skill:'Shopping (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>手机<rt>shǒujī</rt></ruby>。 <span class="gl">(I bought one ___ (MW) phone.)</span>', choices:['<ruby>部<rt>bù</rt></ruby>','<ruby>台<rt>tái</rt></ruby>','<ruby>支<rt>zhī</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'部 = MW for phones.' },
+    { type:'mc', skill:'Shopping (past)', stem:'💻 Which sentence means “I bought a computer”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。','<ruby>电脑<rt>diànnǎo</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby>。'], ans:0, hint:'买了 = bought (completed).' },
+    { type:'mc', skill:'Shopping (past)', stem:'🗣️ Someone asks <ruby>你买了什么<rt>nǐ mǎi le shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'Answer: 我买了….' },
+    { type:'mc', skill:'Shopping (past)', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>买<rt>mǎi</rt></ruby>（　）<ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What did you buy? (___))</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>呢<rt>ne</rt></ruby>','<ruby>的<rt>de</rt></ruby>'], ans:0, hint:'verb + 了 = it happened.' },
+    { type:'mc', skill:'Shopping (past)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，（　）<ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。 <span class="gl">(I bought a phone, ___ (also) a pen.)</span>', choices:['<ruby>还<rt>hái</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>很<rt>hěn</rt></ruby>'], ans:0, hint:'还 = also.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'📞 Which one can you call people with?', choices:['<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>','<ruby>本子<rt>běnzi</rt></ruby>'], ans:0, hint:'手机 = mobile phone.' },
-    { type:'mc', stem:'What does <ruby>了<rt>le</rt></ruby> after a verb show? (HSK tip)', choices:['That the action is completed / already happened (买了 = bought).', 'That the action will happen tomorrow.', 'That you do not want to do it.', 'That it is a question.'], ans:0, hint:'Verb + 了 = completed action: 我买了 = I bought · 我去了 = I went.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>。 <span class="gl">(I ___ (bought) a schoolbag.)</span>', choices:['<ruby>买<rt>mǎi</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'买了 = bought.' },
-    { type:'mc', stem:'🎒 Which word means “schoolbag”?', choices:['<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>'], ans:0, hint:'书包 = schoolbag.' },
-    { type:'mc', stem:'Culture: <ruby>中国的移动支付<rt>Zhōngguó de yídòng zhīfù</rt></ruby> — mobile payment. Which is true?', choices:['In China most people pay with their phone (扫码 / 手机支付) instead of cash, even in small shops.', 'Mobile payment does not exist in China.', 'Chinese people can only pay with coins.', 'Phones cannot be used to pay anywhere.'], ans:0, hint:'移动支付 = mobile payment. In China, paying by scanning a QR code with your phone is everywhere.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>昨天<rt>zuótiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>部<rt>bù</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>、<ruby>几<rt>jǐ</rt></ruby><sup>②</sup><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。<ruby>回家<rt>huíjiā</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>你们<rt>nǐmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>我<rt>wǒ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 几 jǐ: a few / several ③ 以后 yǐhòu: after ④ 东西 dōngxi: things</div>', stem:'What did the speaker (我) buy?', choices:['A phone, a schoolbag, some books and some pens.', 'Only a computer.', 'A computer and a phone.', 'Nothing.'], ans:0, hint:'Find 我买了…… 还买了…… in the second sentence.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>昨天<rt>zuótiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>部<rt>bù</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>、<ruby>几<rt>jǐ</rt></ruby><sup>②</sup><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。<ruby>回家<rt>huíjiā</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>你们<rt>nǐmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>我<rt>wǒ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 几 jǐ: a few / several ③ 以后 yǐhòu: after ④ 东西 dōngxi: things</div>', stem:'What did Dad (爸爸) buy?', choices:['A computer (一台电脑).', 'A mobile phone.', 'Some pens and books.', 'A schoolbag.'], ans:0, hint:'Find 爸爸买了…… — note the measure word 台.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🛍️ Think about the last time you went shopping. What did you buy (买了什么)? Describe at least three things using 了 and the right measure words (一部、一台、几本、几支……). | 🔵 Cycle 3 — 📱 In China almost everyone now pays with a mobile phone (手机支付) instead of cash, even at tiny shops and markets. The UAE also uses cards and phones to pay. Why do you think mobile payment spread so fast in China, and what might be good — or not so good — about a world with no cash?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Shopping (past)', stem:'📞 Which one can you call people with?', choices:['<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>','<ruby>本子<rt>běnzi</rt></ruby>'], ans:0, hint:'手机 = mobile phone.' },
+    { type:'mc', skill:'Shopping (past)', stem:'What does <ruby>了<rt>le</rt></ruby> after a verb show? (HSK tip)', choices:['That the action is completed / already happened (买了 = bought).', 'That the action will happen tomorrow.', 'That you do not want to do it.', 'That it is a question.'], ans:0, hint:'Verb + 了 = completed action: 我买了 = I bought · 我去了 = I went.' },
+    { type:'mc', skill:'Shopping (past)', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>。 <span class="gl">(I ___ (bought) a schoolbag.)</span>', choices:['<ruby>买<rt>mǎi</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'买了 = bought.' },
+    { type:'mc', skill:'Shopping (past)', stem:'🎒 Which word means “schoolbag”?', choices:['<ruby>书包<rt>shūbāo</rt></ruby>','<ruby>手机<rt>shǒujī</rt></ruby>','<ruby>电脑<rt>diànnǎo</rt></ruby>','<ruby>笔<rt>bǐ</rt></ruby>'], ans:0, hint:'书包 = schoolbag.' },
+    { type:'mc', skill:'Shopping (past)', stem:'Culture: <ruby>中国的移动支付<rt>Zhōngguó de yídòng zhīfù</rt></ruby> — mobile payment. Which is true?', choices:['In China most people pay with their phone (扫码 / 手机支付) instead of cash, even in small shops.', 'Mobile payment does not exist in China.', 'Chinese people can only pay with coins.', 'Phones cannot be used to pay anywhere.'], ans:0, hint:'移动支付 = mobile payment. In China, paying by scanning a QR code with your phone is everywhere.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>昨天<rt>zuótiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>部<rt>bù</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>、<ruby>几<rt>jǐ</rt></ruby><sup>②</sup><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。<ruby>回家<rt>huíjiā</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>你们<rt>nǐmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>我<rt>wǒ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 几 jǐ: a few / several ③ 以后 yǐhòu: after ④ 东西 dōngxi: things</div>', stem:'What did the speaker (我) buy?', choices:['A phone, a schoolbag, some books and some pens.', 'Only a computer.', 'A computer and a phone.', 'Nothing.'], ans:0, hint:'Find 我买了…… 还买了…… in the second sentence.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>昨天<rt>zuótiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>部<rt>bù</rt></ruby><ruby>手机<rt>shǒujī</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>书包<rt>shūbāo</rt></ruby>、<ruby>几<rt>jǐ</rt></ruby><sup>②</sup><ruby>本<rt>běn</rt></ruby><ruby>书<rt>shū</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>几<rt>jǐ</rt></ruby><ruby>支<rt>zhī</rt></ruby><ruby>笔<rt>bǐ</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>台<rt>tái</rt></ruby><ruby>电脑<rt>diànnǎo</rt></ruby>。<ruby>回家<rt>huíjiā</rt></ruby><ruby>以后<rt>yǐhòu</rt></ruby><sup>③</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>你们<rt>nǐmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？”<ruby>我<rt>wǒ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 几 jǐ: a few / several ③ 以后 yǐhòu: after ④ 东西 dōngxi: things</div>', stem:'What did Dad (爸爸) buy?', choices:['A computer (一台电脑).', 'A mobile phone.', 'Some pens and books.', 'A schoolbag.'], ans:0, hint:'Find 爸爸买了…… — note the measure word 台.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🛍️ Think about the last time you went shopping. What did you buy (买了什么)? Describe at least three things using 了 and the right measure words (一部、一台、几本、几支……). | 🔵 Cycle 3 — 📱 In China almost everyone now pays with a mobile phone (手机支付) instead of cash, even at tiny shops and markets. The UAE also uses cards and phones to pay. Why do you think mobile payment spread so fast in China, and what might be good — or not so good — about a world with no cash?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2B-L6 我买了一部手机。</title>' +

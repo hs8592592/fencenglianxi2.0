@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1361,40 +1361,40 @@ const LESSONS = [
   tiers:[
 
   { qs:[
-    { type:'match', stem:'🎉 Match each word to its meaning.', left:['<ruby>春节<rt>Chūnjié</rt></ruby>','<ruby>节日<rt>jiérì</rt></ruby>','<ruby>灯笼<rt>dēnglong</rt></ruby>','<ruby>春联<rt>chūnlián</rt></ruby>'], right:['Spring Festival','festival','lantern','couplet'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'春节·节日·灯笼·春联.' },
-    { type:'mc', stem:'🎊 Which means \u201clively / bustling\u201d?', choices:['<ruby>热闹<rt>rènao</rt></ruby>','<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>'], ans:0, hint:'热闹 = lively / bustling.' },
-    { type:'mc', stem:'⭐ Which means \u201cimportant\u201d?', choices:['<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>热闹<rt>rènao</rt></ruby>','<ruby>有名<rt>yǒumíng</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>'], ans:0, hint:'重要 = important.' },
-    { type:'mc', stem:'🛍️ Which means \u201cto prepare\u201d?', choices:['<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>参观<rt>cānguān</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>','<ruby>准<rt>zhǔn</rt></ruby><ruby>时<rt>shí</rt></ruby>'], ans:0, hint:'准备 = to prepare.' },
-    { type:'mc', stem:'<ruby>春节<rt>Chūnjié</rt></ruby>（　）<ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。 <span class="gl">(Spring Festival ___ (is about to) arrive.)</span>', choices:['<ruby>要<rt>yào</rt></ruby>','<ruby>最<rt>zuì</rt></ruby>','<ruby>先<rt>xiān</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>'], ans:0, hint:'要…了 = about to happen.' },
-    { type:'match', stem:'🧧 Match each Spring Festival activity to its meaning.', left:['<ruby>贴春联<rt>tiē chūnlián</rt></ruby>','<ruby>发红包<rt>fā hóngbāo</rt></ruby>','<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>吃饺子<rt>chī jiǎozi</rt></ruby>'], right:['paste couplets','give red packets','hang lanterns','eat dumplings'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'贴春联·发红包·挂灯笼·吃饺子.' },
-    { type:'mc', stem:'🏖️ Which means \u201cto have a holiday / days off\u201d?', choices:['<ruby>放假<rt>fàngjià</rt></ruby>','<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>','<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>重要<rt>zhòngyào</rt></ruby>'], ans:0, hint:'放假 = to have a holiday.' },
-    { type:'mc', stem:'🔎 福 (often pasted at the door) refers to:', choices:['<ruby>福<rt>fú</rt></ruby> — fortune / good luck','<ruby>门<rt>mén</rt></ruby> — door','<ruby>家<rt>jiā</rt></ruby> — home','<ruby>节<rt>jié</rt></ruby> — festival'], ans:0, hint:'福 = fortune / good luck.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">＿节要到了。</span> (spring=春)', ans:['春','chūn','chun'], hint:'春节 = Spring Festival.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character.', left:['jié','fú','dào','dēng'], right:['节','福','到','灯'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'节·福·到·灯.' },
+    { type:'match', skill:'Festivals', stem:'🎉 Match each word to its meaning.', left:['<ruby>春节<rt>Chūnjié</rt></ruby>','<ruby>节日<rt>jiérì</rt></ruby>','<ruby>灯笼<rt>dēnglong</rt></ruby>','<ruby>春联<rt>chūnlián</rt></ruby>'], right:['Spring Festival','festival','lantern','couplet'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'春节·节日·灯笼·春联.' },
+    { type:'mc', skill:'Festivals', stem:'🎊 Which means \u201clively / bustling\u201d?', choices:['<ruby>热闹<rt>rènao</rt></ruby>','<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>'], ans:0, hint:'热闹 = lively / bustling.' },
+    { type:'mc', skill:'Festivals', stem:'⭐ Which means \u201cimportant\u201d?', choices:['<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>热闹<rt>rènao</rt></ruby>','<ruby>有名<rt>yǒumíng</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>'], ans:0, hint:'重要 = important.' },
+    { type:'mc', skill:'Festivals', stem:'🛍️ Which means \u201cto prepare\u201d?', choices:['<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>参观<rt>cānguān</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>','<ruby>准<rt>zhǔn</rt></ruby><ruby>时<rt>shí</rt></ruby>'], ans:0, hint:'准备 = to prepare.' },
+    { type:'mc', skill:'Festivals', stem:'<ruby>春节<rt>Chūnjié</rt></ruby>（　）<ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。 <span class="gl">(Spring Festival ___ (is about to) arrive.)</span>', choices:['<ruby>要<rt>yào</rt></ruby>','<ruby>最<rt>zuì</rt></ruby>','<ruby>先<rt>xiān</rt></ruby>','<ruby>从<rt>cóng</rt></ruby>'], ans:0, hint:'要…了 = about to happen.' },
+    { type:'match', skill:'Festivals', stem:'🧧 Match each Spring Festival activity to its meaning.', left:['<ruby>贴春联<rt>tiē chūnlián</rt></ruby>','<ruby>发红包<rt>fā hóngbāo</rt></ruby>','<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>吃饺子<rt>chī jiǎozi</rt></ruby>'], right:['paste couplets','give red packets','hang lanterns','eat dumplings'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'贴春联·发红包·挂灯笼·吃饺子.' },
+    { type:'mc', skill:'Festivals', stem:'🏖️ Which means \u201cto have a holiday / days off\u201d?', choices:['<ruby>放假<rt>fàngjià</rt></ruby>','<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>','<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>重要<rt>zhòngyào</rt></ruby>'], ans:0, hint:'放假 = to have a holiday.' },
+    { type:'mc', skill:'Festivals', stem:'🔎 福 (often pasted at the door) refers to:', choices:['<ruby>福<rt>fú</rt></ruby> — fortune / good luck','<ruby>门<rt>mén</rt></ruby> — door','<ruby>家<rt>jiā</rt></ruby> — home','<ruby>节<rt>jié</rt></ruby> — festival'], ans:0, hint:'福 = fortune / good luck.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">＿节要到了。</span> (spring=春)', ans:['春','chūn','chun'], hint:'春节 = Spring Festival.' },
+    { type:'match', skill:'Festivals', stem:'写汉字 · Match the pinyin to its character.', left:['jié','fú','dào','dēng'], right:['节','福','到','灯'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'节·福·到·灯.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>过<rt>guo</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>街<rt>jiē</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(During Spring Festival the streets are very ___ (lively).)</span>', choices:['<ruby>热闹<rt>rènao</rt></ruby>','<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>'], ans:0, hint:'热闹 = lively / bustling.' },
-    { type:'mc', stem:'<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby>（　）。 <span class="gl">(Spring Festival is about to arrive ___ (le — change is near).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>的<rt>de</rt></ruby>','<ruby>吧<rt>ba</rt></ruby>'], ans:0, hint:'要 + verb + 了 marks an imminent change.' },
-    { type:'mc', stem:'🗣️ Which means \u201cSpring Festival is coming\u201d?', choices:['<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby>。'], ans:0, hint:'要…了 = is about to happen.' },
-    { type:'mc', stem:'<ruby>春节<rt>Chūnjié</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>最<rt>zuì</rt></ruby>（　）<ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>。 <span class="gl">(Spring Festival is China\u2019s most ___ (important) festival.)</span>', choices:['<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>热闹<rt>rènao</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>'], ans:0, hint:'最重要 = the most important.' },
-    { type:'mc', stem:'🧧 Which activity means \u201cgiving red packets\u201d?', choices:['<ruby>发红包<rt>fā hóngbāo</rt></ruby>','<ruby>贴春联<rt>tiē chūnlián</rt></ruby>','<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>'], ans:0, hint:'发红包 = give red packets.' },
-    { type:'mc', stem:'🗣️ 要…了 tells you that something:', choices:['is about to happen soon','already finished long ago','never happens','happens every day'], ans:0, hint:'要…了 = about to happen.' },
-    { type:'match', stem:'🔎 Match the word to its meaning.', left:['<ruby>热闹<rt>rènao</rt></ruby>','<ruby>节日<rt>jiérì</rt></ruby>','<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>'], right:['lively','festival','to prepare','to have a holiday'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'热闹·节日·准备·放假.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">春节是最重要的＿日。</span> (festival=节)', ans:['节','jié','jie'], hint:'节日 = festival.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>春节<rt>Chūnjié</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>最<rt>zuì</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>。<ruby>过<rt>guo</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>，<ruby>孩子<rt>háizi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>发红包<rt>fā hóngbāo</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>春节<rt>Chūnjié</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 人们 rénmen: people ② 孩子 háizi: children</div>', stem:'What is China\u2019s most important festival?', choices:['Spring Festival (春节).','National Day.','Mid-Autumn Festival.','Not said.'], ans:0, hint:'Find 最重要的节日.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>春节<rt>Chūnjié</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>最<rt>zuì</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>。<ruby>过<rt>guo</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>，<ruby>孩子<rt>háizi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>发红包<rt>fā hóngbāo</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>春节<rt>Chūnjié</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 人们 rénmen: people ② 孩子 háizi: children</div>', stem:'What do children especially like?', choices:['Getting red packets (发红包).','Cleaning.','Studying.','Sleeping.'], ans:0, hint:'Find 孩子很喜欢….' },
+    { type:'mc', skill:'Festivals', stem:'<ruby>过<rt>guo</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>街<rt>jiē</rt></ruby><ruby>上<rt>shàng</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(During Spring Festival the streets are very ___ (lively).)</span>', choices:['<ruby>热闹<rt>rènao</rt></ruby>','<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>'], ans:0, hint:'热闹 = lively / bustling.' },
+    { type:'mc', skill:'Festivals', stem:'<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby>（　）。 <span class="gl">(Spring Festival is about to arrive ___ (le — change is near).)</span>', choices:['<ruby>了<rt>le</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>的<rt>de</rt></ruby>','<ruby>吧<rt>ba</rt></ruby>'], ans:0, hint:'要 + verb + 了 marks an imminent change.' },
+    { type:'mc', skill:'Festivals', stem:'🗣️ Which means \u201cSpring Festival is coming\u201d?', choices:['<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>过<rt>guo</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby>。'], ans:0, hint:'要…了 = is about to happen.' },
+    { type:'mc', skill:'Festivals', stem:'<ruby>春节<rt>Chūnjié</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>最<rt>zuì</rt></ruby>（　）<ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>。 <span class="gl">(Spring Festival is China\u2019s most ___ (important) festival.)</span>', choices:['<ruby>重要<rt>zhòngyào</rt></ruby>','<ruby>热闹<rt>rènao</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>'], ans:0, hint:'最重要 = the most important.' },
+    { type:'mc', skill:'Festivals', stem:'🧧 Which activity means \u201cgiving red packets\u201d?', choices:['<ruby>发红包<rt>fā hóngbāo</rt></ruby>','<ruby>贴春联<rt>tiē chūnlián</rt></ruby>','<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>'], ans:0, hint:'发红包 = give red packets.' },
+    { type:'mc', skill:'Festivals', stem:'🗣️ 要…了 tells you that something:', choices:['is about to happen soon','already finished long ago','never happens','happens every day'], ans:0, hint:'要…了 = about to happen.' },
+    { type:'match', skill:'Festivals', stem:'🔎 Match the word to its meaning.', left:['<ruby>热闹<rt>rènao</rt></ruby>','<ruby>节日<rt>jiérì</rt></ruby>','<ruby>准备<rt>zhǔnbèi</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>'], right:['lively','festival','to prepare','to have a holiday'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'热闹·节日·准备·放假.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">春节是最重要的＿日。</span> (festival=节)', ans:['节','jié','jie'], hint:'节日 = festival.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>春节<rt>Chūnjié</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>最<rt>zuì</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>。<ruby>过<rt>guo</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>，<ruby>孩子<rt>háizi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>发红包<rt>fā hóngbāo</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>春节<rt>Chūnjié</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 人们 rénmen: people ② 孩子 háizi: children</div>', stem:'What is China\u2019s most important festival?', choices:['Spring Festival (春节).','National Day.','Mid-Autumn Festival.','Not said.'], ans:0, hint:'Find 最重要的节日.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。<ruby>春节<rt>Chūnjié</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>最<rt>zuì</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>。<ruby>过<rt>guo</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>时候<rt>shíhou</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>饺子<rt>jiǎozi</rt></ruby>，<ruby>孩子<rt>háizi</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>发红包<rt>fā hóngbāo</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>春节<rt>Chūnjié</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>！<rt></rt></ruby>”</p><div class="rn"><b>Notes:</b> ① 人们 rénmen: people ② 孩子 háizi: children</div>', stem:'What do children especially like?', choices:['Getting red packets (发红包).','Cleaning.','Studying.','Sleeping.'], ans:0, hint:'Find 孩子很喜欢….' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'🧨 Which means \u201cto set off firecrackers\u201d?', choices:['<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>','<ruby>发红包<rt>fā hóngbāo</rt></ruby>','<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>贴春联<rt>tiē chūnlián</rt></ruby>'], ans:0, hint:'放鞭炮 = set off firecrackers.' },
-    { type:'mc', stem:'🏮 Which means \u201cto hang lanterns\u201d?', choices:['<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>','<ruby>吃饺子<rt>chī jiǎozi</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>'], ans:0, hint:'挂灯笼 = hang lanterns.' },
-    { type:'mc', stem:'🗣️ Spring Festival is near. You suggest preparing together:', choices:['<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>准备<rt>zhǔnbèi</rt></ruby><ruby>吧<rt>ba</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>有点儿<rt>yǒudiǎnr</rt></ruby><ruby>困<rt>kùn</rt></ruby>。','<ruby>哈利法塔<rt>Hālìfǎtǎ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高<rt>gāo</rt></ruby>。'], ans:0, hint:'春节要到了，我们一起准备吧！' },
-    { type:'mc', stem:'💡 How do you say something is \u201cabout to happen\u201d? (HSK tip)', choices:['<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。  ✔ 要 + verb + 了','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>要<rt>yào</rt></ruby>。  ✘','<ruby>了<rt>le</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby>。  ✘','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>要<rt>yào</rt></ruby>。  ✘'], ans:0, hint:'要…了: 要 + verb + 了 = about to happen (春节要到了).' },
-    { type:'mc', stem:'🏮 Spring Festival (春节) is a Chinese traditional festival (中国传统节日). One key idea is:', choices:['it is the most important family-reunion festival, when families gather and celebrate together','it is a school sports day','it has no special customs','only adults celebrate it'], ans:0, hint:'春节 = the most important Chinese festival; families reunite, eat together and celebrate.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>准备<rt>zhǔnbèi</rt></ruby><ruby>放假<rt>fàngjià</rt></ruby>，<ruby>一<rt>yī</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>团圆饭<rt>tuányuánfàn</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>放鞭炮<rt>fàng biānpào</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>，<ruby>叫<rt>jiào</rt></ruby><ruby>开斋节<rt>Kāizhāijié</rt></ruby>。”<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>开斋节<rt>Kāizhāijié</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>一样<rt>yíyàng</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 团圆饭 tuányuánfàn: reunion dinner ② 开斋节 Kāizhāijié: Eid al-Fitr ③ 一样 yíyàng: the same</div>', stem:'What do the Chinese friend\u2019s family do together?', choices:['Eat a reunion dinner (团圆饭).','Go to school.','Play football.','Nothing special.'], ans:0, hint:'Find 一家人一起吃团圆饭.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>准备<rt>zhǔnbèi</rt></ruby><ruby>放假<rt>fàngjià</rt></ruby>，<ruby>一<rt>yī</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>团圆饭<rt>tuányuánfàn</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>放鞭炮<rt>fàng biānpào</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>，<ruby>叫<rt>jiào</rt></ruby><ruby>开斋节<rt>Kāizhāijié</rt></ruby>。”<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>开斋节<rt>Kāizhāijié</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>一样<rt>yíyàng</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 团圆饭 tuányuánfàn: reunion dinner ② 开斋节 Kāizhāijié: Eid al-Fitr ③ 一样 yíyàng: the same</div>', stem:'What do Eid and Spring Festival share, according to the friend?', choices:['Being together with family (和家人在一起).','Setting off firecrackers only.','Eating dumplings only.','Nothing.'], ans:0, hint:'Find 开斋节和春节一样….' },
-    { type:'hots', stem:'🟡 Cycle 2 — 春节 (Spring Festival) is China\u2019s biggest festival — families gather, eat 饺子 and a 团圆饭 (reunion dinner), give 红包 and hang 灯笼. In the UAE, Eid is the biggest festival, with family visits, gifts and feasting. What is your favourite festival, and which Chinese New Year custom would you most like to try? | 🔵 Cycle 3 — 春节 and Eid are both the most important family festivals of their cultures, built around reunion, food and giving. Why do you think almost every culture has one great festival centred on family and sharing food? What do 春节 and Eid each show about what their cultures value most?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'mc', skill:'Festivals', stem:'🧨 Which means \u201cto set off firecrackers\u201d?', choices:['<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>','<ruby>发红包<rt>fā hóngbāo</rt></ruby>','<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>贴春联<rt>tiē chūnlián</rt></ruby>'], ans:0, hint:'放鞭炮 = set off firecrackers.' },
+    { type:'mc', skill:'Festivals', stem:'🏮 Which means \u201cto hang lanterns\u201d?', choices:['<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>','<ruby>放鞭炮<rt>fàng biānpào</rt></ruby>','<ruby>吃饺子<rt>chī jiǎozi</rt></ruby>','<ruby>放假<rt>fàngjià</rt></ruby>'], ans:0, hint:'挂灯笼 = hang lanterns.' },
+    { type:'mc', skill:'Festivals', stem:'🗣️ Spring Festival is near. You suggest preparing together:', choices:['<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>准备<rt>zhǔnbèi</rt></ruby><ruby>吧<rt>ba</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>有点儿<rt>yǒudiǎnr</rt></ruby><ruby>困<rt>kùn</rt></ruby>。','<ruby>哈利法塔<rt>Hālìfǎtǎ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高<rt>gāo</rt></ruby>。'], ans:0, hint:'春节要到了，我们一起准备吧！' },
+    { type:'mc', skill:'Festivals', stem:'💡 How do you say something is \u201cabout to happen\u201d? (HSK tip)', choices:['<ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。  ✔ 要 + verb + 了','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>要<rt>yào</rt></ruby>。  ✘','<ruby>了<rt>le</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby>。  ✘','<ruby>春节<rt>Chūnjié</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>要<rt>yào</rt></ruby>。  ✘'], ans:0, hint:'要…了: 要 + verb + 了 = about to happen (春节要到了).' },
+    { type:'mc', skill:'Festivals', stem:'🏮 Spring Festival (春节) is a Chinese traditional festival (中国传统节日). One key idea is:', choices:['it is the most important family-reunion festival, when families gather and celebrate together','it is a school sports day','it has no special customs','only adults celebrate it'], ans:0, hint:'春节 = the most important Chinese festival; families reunite, eat together and celebrate.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>准备<rt>zhǔnbèi</rt></ruby><ruby>放假<rt>fàngjià</rt></ruby>，<ruby>一<rt>yī</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>团圆饭<rt>tuányuánfàn</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>放鞭炮<rt>fàng biānpào</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>，<ruby>叫<rt>jiào</rt></ruby><ruby>开斋节<rt>Kāizhāijié</rt></ruby>。”<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>开斋节<rt>Kāizhāijié</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>一样<rt>yíyàng</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 团圆饭 tuányuánfàn: reunion dinner ② 开斋节 Kāizhāijié: Eid al-Fitr ③ 一样 yíyàng: the same</div>', stem:'What do the Chinese friend\u2019s family do together?', choices:['Eat a reunion dinner (团圆饭).','Go to school.','Play football.','Nothing special.'], ans:0, hint:'Find 一家人一起吃团圆饭.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>春节<rt>Chūnjié</rt></ruby><ruby>要<rt>yào</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>准备<rt>zhǔnbèi</rt></ruby><ruby>放假<rt>fàngjià</rt></ruby>，<ruby>一<rt>yī</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>团圆饭<rt>tuányuánfàn</rt></ruby>。<ruby>他们<rt>tāmen</rt></ruby><ruby>贴春联<rt>tiē chūnlián</rt></ruby>、<ruby>挂灯笼<rt>guà dēnglong</rt></ruby>，<ruby>还<rt>hái</rt></ruby><ruby>放鞭炮<rt>fàng biānpào</rt></ruby>，<ruby>非常<rt>fēicháng</rt></ruby><ruby>热闹<rt>rènao</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>重要<rt>zhòngyào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>节日<rt>jiérì</rt></ruby>，<ruby>叫<rt>jiào</rt></ruby><ruby>开斋节<rt>Kāizhāijié</rt></ruby>。”<ruby>朋友<rt>péngyou</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>开斋节<rt>Kāizhāijié</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>春节<rt>Chūnjié</rt></ruby><ruby>一样<rt>yíyàng</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 团圆饭 tuányuánfàn: reunion dinner ② 开斋节 Kāizhāijié: Eid al-Fitr ③ 一样 yíyàng: the same</div>', stem:'What do Eid and Spring Festival share, according to the friend?', choices:['Being together with family (和家人在一起).','Setting off firecrackers only.','Eating dumplings only.','Nothing.'], ans:0, hint:'Find 开斋节和春节一样….' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 春节 (Spring Festival) is China\u2019s biggest festival — families gather, eat 饺子 and a 团圆饭 (reunion dinner), give 红包 and hang 灯笼. In the UAE, Eid is the biggest festival, with family visits, gifts and feasting. What is your favourite festival, and which Chinese New Year custom would you most like to try? | 🔵 Cycle 3 — 春节 and Eid are both the most important family festivals of their cultures, built around reunion, food and giving. Why do you think almost every culture has one great festival centred on family and sharing food? What do 春节 and Eid each show about what their cultures value most?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
   ]},
 
   ]},
@@ -2191,7 +2191,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2411,7 +2411,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2615,12 +2615,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2629,6 +2629,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2657,7 +2661,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2669,22 +2673,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2762,7 +2766,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3B-L6 春节要到了。</title>' +

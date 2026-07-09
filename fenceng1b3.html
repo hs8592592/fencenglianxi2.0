@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1B-L3', num:'Lesson 3', title:'我爱我家。I love my family.', cn:'介绍家庭',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'❤️ "I love my family" in Chinese:', choices:['<ruby>我爱我家<rt>wǒ ài wǒ jiā</rt></ruby>。', '<ruby>我家爱我<rt>wǒ jiā ài wǒ</rt></ruby>。', '<ruby>家我爱我<rt>jiā wǒ ài wǒ</rt></ruby>。', '<ruby>爱我我家<rt>ài wǒ wǒ jiā</rt></ruby>。'], ans:0, hint:'Subject + verb + object: 我 (I) + 爱 (love) + 我家 (my family).' },
-    { type:'mc', stem:'<ruby>爱<rt>ài</rt></ruby> means:', choices:['to love', 'to have', 'family', 'home'], ans:0, hint:'爱 = to love.' },
-    { type:'mc', stem:'<ruby>大家<rt>dàjiā</rt></ruby> means:', choices:['everyone', 'adult', 'big home', 'family'], ans:0, hint:'大家 = everyone / everybody.' },
-    { type:'mc', stem:'In <ruby>五口人<rt>wǔ kǒu rén</rt></ruby>, the word <ruby>口<rt>kǒu</rt></ruby> is:', choices:['a measure word for family members', 'a number', 'the word for "family"', 'a question word'], ans:0, hint:'口 is the special measure word for counting people in a family: 五口人 = five family members.' },
-    { type:'mc', stem:'👋 <ruby>大家好<rt>dàjiā hǎo</rt></ruby>！ means:', choices:['Hello everyone!', 'Goodbye everyone!', 'How are you?', 'This is my family.'], ans:0, hint:'大家好 = Hello everyone — used to greet a group.' },
-    { type:'mc', stem:'"This is my family":', choices:['<ruby>这是我的一家<rt>zhè shì wǒ de yìjiā</rt></ruby>。', '<ruby>我的一家这是<rt>wǒ de yìjiā zhè shì</rt></ruby>。', '<ruby>一家我的是这<rt>yìjiā wǒ de shì zhè</rt></ruby>。', '<ruby>是这我的一家<rt>shì zhè wǒ de yìjiā</rt></ruby>。'], ans:0, hint:'这 + 是 + 我的 + 一家 = This is my (whole) family.' },
-    { type:'fill', stem:'Say "My family has five people": <span class="cn"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五<rt>wǔ</rt></ruby>＿<ruby>人<rt>rén</rt></ruby>。</span>', ans:['口','kǒu','kou'], hint:'Count family members with 口: 五口人 = five people in the family.' },
-    { type:'mc', stem:'<ruby>我家有五口人<rt>wǒ jiā yǒu wǔ kǒu rén</rt></ruby> means:', choices:['My family has five people', 'My family loves five people', 'There are five families', 'My home has five rooms'], ans:0, hint:'我家有 + 五口人 = my family has five members.' },
-    { type:'match', stem:'Match each word to its meaning.', left:['<ruby>爱<rt>ài</rt></ruby>', '<ruby>大家<rt>dàjiā</rt></ruby>', '<ruby>口<rt>kǒu</rt></ruby>', '<ruby>家<rt>jiā</rt></ruby>'], right:['to love', 'everyone', 'measure word for family members', 'home / family'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'爱 love · 大家 everyone · 口 (for family) · 家 home.' },
-    { type:'mc', stem:'When you say <ruby>我爱我家<rt>wǒ ài wǒ jiā</rt></ruby>, you are expressing:', choices:['I love my family', 'I have a family', 'My family is big', 'Who is my family'], ans:0, hint:'爱 = love → 我爱我家 = I love my family.' },
+    { type:'mc', skill:'My family', stem:'❤️ "I love my family" in Chinese:', choices:['<ruby>我爱我家<rt>wǒ ài wǒ jiā</rt></ruby>。', '<ruby>我家爱我<rt>wǒ jiā ài wǒ</rt></ruby>。', '<ruby>家我爱我<rt>jiā wǒ ài wǒ</rt></ruby>。', '<ruby>爱我我家<rt>ài wǒ wǒ jiā</rt></ruby>。'], ans:0, hint:'Subject + verb + object: 我 (I) + 爱 (love) + 我家 (my family).' },
+    { type:'mc', skill:'My family', stem:'<ruby>爱<rt>ài</rt></ruby> means:', choices:['to love', 'to have', 'family', 'home'], ans:0, hint:'爱 = to love.' },
+    { type:'mc', skill:'My family', stem:'<ruby>大家<rt>dàjiā</rt></ruby> means:', choices:['everyone', 'adult', 'big home', 'family'], ans:0, hint:'大家 = everyone / everybody.' },
+    { type:'mc', skill:'My family', stem:'In <ruby>五口人<rt>wǔ kǒu rén</rt></ruby>, the word <ruby>口<rt>kǒu</rt></ruby> is:', choices:['a measure word for family members', 'a number', 'the word for "family"', 'a question word'], ans:0, hint:'口 is the special measure word for counting people in a family: 五口人 = five family members.' },
+    { type:'mc', skill:'My family', stem:'👋 <ruby>大家好<rt>dàjiā hǎo</rt></ruby>！ means:', choices:['Hello everyone!', 'Goodbye everyone!', 'How are you?', 'This is my family.'], ans:0, hint:'大家好 = Hello everyone — used to greet a group.' },
+    { type:'mc', skill:'My family', stem:'"This is my family":', choices:['<ruby>这是我的一家<rt>zhè shì wǒ de yìjiā</rt></ruby>。', '<ruby>我的一家这是<rt>wǒ de yìjiā zhè shì</rt></ruby>。', '<ruby>一家我的是这<rt>yìjiā wǒ de shì zhè</rt></ruby>。', '<ruby>是这我的一家<rt>shì zhè wǒ de yìjiā</rt></ruby>。'], ans:0, hint:'这 + 是 + 我的 + 一家 = This is my (whole) family.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "My family has five people": <span class="cn"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五<rt>wǔ</rt></ruby>＿<ruby>人<rt>rén</rt></ruby>。</span>', ans:['口','kǒu','kou'], hint:'Count family members with 口: 五口人 = five people in the family.' },
+    { type:'mc', skill:'My family', stem:'<ruby>我家有五口人<rt>wǒ jiā yǒu wǔ kǒu rén</rt></ruby> means:', choices:['My family has five people', 'My family loves five people', 'There are five families', 'My home has five rooms'], ans:0, hint:'我家有 + 五口人 = my family has five members.' },
+    { type:'match', skill:'My family', stem:'Match each word to its meaning.', left:['<ruby>爱<rt>ài</rt></ruby>', '<ruby>大家<rt>dàjiā</rt></ruby>', '<ruby>口<rt>kǒu</rt></ruby>', '<ruby>家<rt>jiā</rt></ruby>'], right:['to love', 'everyone', 'measure word for family members', 'home / family'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'爱 love · 大家 everyone · 口 (for family) · 家 home.' },
+    { type:'mc', skill:'My family', stem:'When you say <ruby>我爱我家<rt>wǒ ài wǒ jiā</rt></ruby>, you are expressing:', choices:['I love my family', 'I have a family', 'My family is big', 'Who is my family'], ans:0, hint:'爱 = love → 我爱我家 = I love my family.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'To count people in a family, which measure word does this lesson use — <ruby>五口人<rt>wǔ kǒu rén</rt></ruby> or <ruby>五个人<rt>wǔ gè rén</rt></ruby>?', choices:['<ruby>口<rt>kǒu</rt></ruby> — 口 is used for family members', '<ruby>个<rt>gè</rt></ruby> — only 个 is correct', 'neither', 'both are wrong'], ans:0, hint:'口 is the warm, family-specific measure word: 我家有五口人.' },
-    { type:'mc', stem:'In <ruby>我家有五口人<rt>wǒ jiā yǒu wǔ kǒu rén</rt></ruby>, "五口" tells you:', choices:['how many people are in the family', 'who is in the family', 'where the family lives', 'how old the family is'], ans:0, hint:'number + 口 = how many family members.' },
-    { type:'fill', stem:'Complete "I love my family": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿<ruby>我家<rt>wǒ jiā</rt></ruby>。</span>', ans:['爱','ài','ai'], hint:'爱 = to love. 我爱我家。' },
-    { type:'mc', stem:'<ruby>大家好<rt>dàjiā hǎo</rt></ruby>！ is best used when you:', choices:['greet a whole group', 'greet one friend', 'say goodbye', 'ask a question'], ans:0, hint:'大家 = everyone → 大家好 greets a group at once.' },
-    { type:'mc', stem:'Put in order — "This is my family":', choices:['<ruby>这是我的一家<rt>zhè shì wǒ de yìjiā</rt></ruby>。', '<ruby>这我的一家是<rt>zhè wǒ de yìjiā shì</rt></ruby>。', '<ruby>我的这是一家<rt>wǒ de zhè shì yìjiā</rt></ruby>。', '<ruby>一家这是我的<rt>yìjiā zhè shì wǒ de</rt></ruby>。'], ans:0, hint:'这 + 是 + 我的 + 一家.' },
-    { type:'mc', stem:'In <ruby>爸爸、妈妈、姐姐、弟弟和我<rt>bàba, māma, jiějie, dìdi hé wǒ</rt></ruby>, the word <ruby>和<rt>hé</rt></ruby> comes:', choices:['before the last item (和我)', 'at the very beginning', 'after every name', 'it is not needed'], ans:0, hint:'和 joins the final item in a list: …弟弟 和 我.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['kǒu', 'ài', 'jiā', 'hé'], right:['口', '爱', '家', '和'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 口, 爱, 家, 是, 和.' },
-    { type:'fill', stem:'List the family, then add yourself: <span class="cn"><ruby>爸爸<rt>bàba</rt></ruby>、<ruby>妈妈<rt>māma</rt></ruby>、<ruby>姐姐<rt>jiějie</rt></ruby>、<ruby>弟弟<rt>dìdi</rt></ruby>＿<ruby>我<rt>wǒ</rt></ruby>。</span>', ans:['和','hé','he'], hint:'和 = and. …弟弟和我 = …younger brother and me.' },
-    { type:'mc', stem:'In <ruby>这是我的一家<rt>zhè shì wǒ de yìjiā</rt></ruby>, the word <ruby>是<rt>shì</rt></ruby> means:', choices:['is / am / are', 'to have', 'and', 'to love'], ans:0, hint:'是 = the verb "to be": 这是… = This is….' },
-    { type:'mc', stem:'Which is the best way to start introducing your family to the class?', choices:['<ruby>大家好！这是我的一家<rt>dàjiā hǎo! zhè shì wǒ de yìjiā</rt></ruby>。', '<ruby>我家好大家<rt>wǒ jiā hǎo dàjiā</rt></ruby>。', '<ruby>一家我大家好<rt>yìjiā wǒ dàjiā hǎo</rt></ruby>。', '<ruby>好大家这是<rt>hǎo dàjiā zhè shì</rt></ruby>。'], ans:0, hint:'Greet first (大家好！), then present (这是我的一家。).' },
+    { type:'mc', skill:'My family', stem:'To count people in a family, which measure word does this lesson use — <ruby>五口人<rt>wǔ kǒu rén</rt></ruby> or <ruby>五个人<rt>wǔ gè rén</rt></ruby>?', choices:['<ruby>口<rt>kǒu</rt></ruby> — 口 is used for family members', '<ruby>个<rt>gè</rt></ruby> — only 个 is correct', 'neither', 'both are wrong'], ans:0, hint:'口 is the warm, family-specific measure word: 我家有五口人.' },
+    { type:'mc', skill:'My family', stem:'In <ruby>我家有五口人<rt>wǒ jiā yǒu wǔ kǒu rén</rt></ruby>, "五口" tells you:', choices:['how many people are in the family', 'who is in the family', 'where the family lives', 'how old the family is'], ans:0, hint:'number + 口 = how many family members.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Complete "I love my family": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿<ruby>我家<rt>wǒ jiā</rt></ruby>。</span>', ans:['爱','ài','ai'], hint:'爱 = to love. 我爱我家。' },
+    { type:'mc', skill:'My family', stem:'<ruby>大家好<rt>dàjiā hǎo</rt></ruby>！ is best used when you:', choices:['greet a whole group', 'greet one friend', 'say goodbye', 'ask a question'], ans:0, hint:'大家 = everyone → 大家好 greets a group at once.' },
+    { type:'mc', skill:'My family', stem:'Put in order — "This is my family":', choices:['<ruby>这是我的一家<rt>zhè shì wǒ de yìjiā</rt></ruby>。', '<ruby>这我的一家是<rt>zhè wǒ de yìjiā shì</rt></ruby>。', '<ruby>我的这是一家<rt>wǒ de zhè shì yìjiā</rt></ruby>。', '<ruby>一家这是我的<rt>yìjiā zhè shì wǒ de</rt></ruby>。'], ans:0, hint:'这 + 是 + 我的 + 一家.' },
+    { type:'mc', skill:'My family', stem:'In <ruby>爸爸、妈妈、姐姐、弟弟和我<rt>bàba, māma, jiějie, dìdi hé wǒ</rt></ruby>, the word <ruby>和<rt>hé</rt></ruby> comes:', choices:['before the last item (和我)', 'at the very beginning', 'after every name', 'it is not needed'], ans:0, hint:'和 joins the final item in a list: …弟弟 和 我.' },
+    { type:'match', skill:'My family', stem:'Match each pinyin to its character (写汉字).', left:['kǒu', 'ài', 'jiā', 'hé'], right:['口', '爱', '家', '和'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Target characters: 口, 爱, 家, 是, 和.' },
+    { type:'fill', skill:'Sentence patterns', stem:'List the family, then add yourself: <span class="cn"><ruby>爸爸<rt>bàba</rt></ruby>、<ruby>妈妈<rt>māma</rt></ruby>、<ruby>姐姐<rt>jiějie</rt></ruby>、<ruby>弟弟<rt>dìdi</rt></ruby>＿<ruby>我<rt>wǒ</rt></ruby>。</span>', ans:['和','hé','he'], hint:'和 = and. …弟弟和我 = …younger brother and me.' },
+    { type:'mc', skill:'My family', stem:'In <ruby>这是我的一家<rt>zhè shì wǒ de yìjiā</rt></ruby>, the word <ruby>是<rt>shì</rt></ruby> means:', choices:['is / am / are', 'to have', 'and', 'to love'], ans:0, hint:'是 = the verb "to be": 这是… = This is….' },
+    { type:'mc', skill:'My family', stem:'Which is the best way to start introducing your family to the class?', choices:['<ruby>大家好！这是我的一家<rt>dàjiā hǎo! zhè shì wǒ de yìjiā</rt></ruby>。', '<ruby>我家好大家<rt>wǒ jiā hǎo dàjiā</rt></ruby>。', '<ruby>一家我大家好<rt>yìjiā wǒ dàjiā hǎo</rt></ruby>。', '<ruby>好大家这是<rt>hǎo dàjiā zhè shì</rt></ruby>。'], ans:0, hint:'Greet first (大家好！), then present (这是我的一家。).' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In <ruby>我爱我家<rt>wǒ ài wǒ jiā</rt></ruby>, the word <ruby>爱<rt>ài</rt></ruby> is a:', choices:['verb (action word) — to love', 'measure word', 'question word', 'number'], ans:0, hint:'爱 is a general verb 一般动词 · sentence = Subject + verb (爱) + object (我家).' },
-    { type:'mc', stem:'Complete: <ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>这是我的<rt>zhè shì wǒ de</rt></ruby>＿。', choices:['<ruby>一家<rt>yìjiā</rt></ruby> — my family', '<ruby>大家<rt>dàjiā</rt></ruby> — everyone', '<ruby>口<rt>kǒu</rt></ruby> — mouth', '<ruby>爱<rt>ài</rt></ruby> — love'], ans:0, hint:'这是我的一家 = This is my (whole) family.' },
-    { type:'mc', stem:'<ruby>大家<rt>dàjiā</rt></ruby> means "everyone". It does NOT mean:', choices:['a grown-up / adult', 'everybody', 'all of you', 'the whole group'], ans:0, hint:'Careful: 大家 = everyone · 大人 (dàrén) = an adult — different words.' },
-    { type:'mc', stem:'"My family has five people" — which sentence matches the lesson?', choices:['<ruby>我家有五口人<rt>wǒ jiā yǒu wǔ kǒu rén</rt></ruby>。', '<ruby>我家五口人有<rt>wǒ jiā wǔ kǒu rén yǒu</rt></ruby>。', '<ruby>五口人我家有<rt>wǔ kǒu rén wǒ jiā yǒu</rt></ruby>。', '<ruby>我家有人五口<rt>wǒ jiā yǒu rén wǔ kǒu</rt></ruby>。'], ans:0, hint:'我家 + 有 + 五口 + 人.' },
-    { type:'mc', stem:'In Chinese (HSK), what is the measure word for counting people in a FAMILY? (HSK tip)', choices:['<ruby>口<rt>kǒu</rt></ruby> — 几口人 asks family size (五口人).', '<ruby>个<rt>gè</rt></ruby> — the only correct choice.', '<ruby>两<rt>liǎng</rt></ruby> — used for any people.', 'No measure word is needed.'], ans:0, hint:'HSK tip: 口 counts family members (你家有几口人？); 个 is the general measure word for people elsewhere.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>一家<rt>yìjiā</rt></ruby><sup>①</sup>。<ruby>我家<rt>wǒ jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五口人<rt>wǔ kǒu rén</rt></ruby>：<ruby>爸爸<rt>bàba</rt></ruby>、<ruby>妈妈<rt>māma</rt></ruby>、<ruby>姐姐<rt>jiějie</rt></ruby>、<ruby>弟弟<rt>dìdi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby><sup>②</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一家 yìjiā: the whole family ② 医生 yīshēng: doctor</div>', stem:'How many people are in the writer\u2019s family?', choices:['Five (五口人).', 'Four (四口人).', 'Six (六口人).', 'Three (三口人).'], ans:0, hint:'Find 我家有……人 in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>一家<rt>yìjiā</rt></ruby><sup>①</sup>。<ruby>我家<rt>wǒ jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五口人<rt>wǔ kǒu rén</rt></ruby>：<ruby>爸爸<rt>bàba</rt></ruby>、<ruby>妈妈<rt>māma</rt></ruby>、<ruby>姐姐<rt>jiějie</rt></ruby>、<ruby>弟弟<rt>dìdi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby><sup>②</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一家 yìjiā: the whole family ② 医生 yīshēng: doctor</div>', stem:'What does the writer\u2019s mother do?', choices:['She is a teacher (老师).', 'She is a doctor (医生).', 'She is a student.', 'The passage does not say.'], ans:0, hint:'Find 妈妈是…… in the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — ❤️ Families everywhere love being together, but they do different things. What is the best thing your family likes to do together, and when does your whole family usually get together? | 🔵 Cycle 3 — In both China and the UAE, families are very close and gather for special days. What special day brings your family together, and do you think family time is more important than time with friends — why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'My family', stem:'In <ruby>我爱我家<rt>wǒ ài wǒ jiā</rt></ruby>, the word <ruby>爱<rt>ài</rt></ruby> is a:', choices:['verb (action word) — to love', 'measure word', 'question word', 'number'], ans:0, hint:'爱 is a general verb 一般动词 · sentence = Subject + verb (爱) + object (我家).' },
+    { type:'mc', skill:'My family', stem:'Complete: <ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>这是我的<rt>zhè shì wǒ de</rt></ruby>＿。', choices:['<ruby>一家<rt>yìjiā</rt></ruby> — my family', '<ruby>大家<rt>dàjiā</rt></ruby> — everyone', '<ruby>口<rt>kǒu</rt></ruby> — mouth', '<ruby>爱<rt>ài</rt></ruby> — love'], ans:0, hint:'这是我的一家 = This is my (whole) family.' },
+    { type:'mc', skill:'My family', stem:'<ruby>大家<rt>dàjiā</rt></ruby> means "everyone". It does NOT mean:', choices:['a grown-up / adult', 'everybody', 'all of you', 'the whole group'], ans:0, hint:'Careful: 大家 = everyone · 大人 (dàrén) = an adult — different words.' },
+    { type:'mc', skill:'My family', stem:'"My family has five people" — which sentence matches the lesson?', choices:['<ruby>我家有五口人<rt>wǒ jiā yǒu wǔ kǒu rén</rt></ruby>。', '<ruby>我家五口人有<rt>wǒ jiā wǔ kǒu rén yǒu</rt></ruby>。', '<ruby>五口人我家有<rt>wǔ kǒu rén wǒ jiā yǒu</rt></ruby>。', '<ruby>我家有人五口<rt>wǒ jiā yǒu rén wǔ kǒu</rt></ruby>。'], ans:0, hint:'我家 + 有 + 五口 + 人.' },
+    { type:'mc', skill:'My family', stem:'In Chinese (HSK), what is the measure word for counting people in a FAMILY? (HSK tip)', choices:['<ruby>口<rt>kǒu</rt></ruby> — 几口人 asks family size (五口人).', '<ruby>个<rt>gè</rt></ruby> — the only correct choice.', '<ruby>两<rt>liǎng</rt></ruby> — used for any people.', 'No measure word is needed.'], ans:0, hint:'HSK tip: 口 counts family members (你家有几口人？); 个 is the general measure word for people elsewhere.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>一家<rt>yìjiā</rt></ruby><sup>①</sup>。<ruby>我家<rt>wǒ jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五口人<rt>wǔ kǒu rén</rt></ruby>：<ruby>爸爸<rt>bàba</rt></ruby>、<ruby>妈妈<rt>māma</rt></ruby>、<ruby>姐姐<rt>jiějie</rt></ruby>、<ruby>弟弟<rt>dìdi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby><sup>②</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一家 yìjiā: the whole family ② 医生 yīshēng: doctor</div>', stem:'How many people are in the writer\u2019s family?', choices:['Five (五口人).', 'Four (四口人).', 'Six (六口人).', 'Three (三口人).'], ans:0, hint:'Find 我家有……人 in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>大家好<rt>dàjiā hǎo</rt></ruby>！<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>一家<rt>yìjiā</rt></ruby><sup>①</sup>。<ruby>我家<rt>wǒ jiā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>五口人<rt>wǔ kǒu rén</rt></ruby>：<ruby>爸爸<rt>bàba</rt></ruby>、<ruby>妈妈<rt>māma</rt></ruby>、<ruby>姐姐<rt>jiějie</rt></ruby>、<ruby>弟弟<rt>dìdi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>我<rt>wǒ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医生<rt>yīshēng</rt></ruby><sup>②</sup>，<ruby>妈妈<rt>māma</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>我的<rt>wǒ de</rt></ruby><ruby>家<rt>jiā</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一家 yìjiā: the whole family ② 医生 yīshēng: doctor</div>', stem:'What does the writer\u2019s mother do?', choices:['She is a teacher (老师).', 'She is a doctor (医生).', 'She is a student.', 'The passage does not say.'], ans:0, hint:'Find 妈妈是…… in the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — ❤️ Families everywhere love being together, but they do different things. What is the best thing your family likes to do together, and when does your whole family usually get together? | 🔵 Cycle 3 — In both China and the UAE, families are very close and gather for special days. What special day brings your family together, and do you think family time is more important than time with friends — why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1B-L3 我爱我家。</title>' +

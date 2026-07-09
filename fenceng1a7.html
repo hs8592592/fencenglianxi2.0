@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1A-L7', num:'Lesson 7', title:'这是阿联酋。This is the UAE.', cn:'国家',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 Workbook-style questions
+  // TIER 1 · 夯实基础 — 10 Workbook-style questions
   { qs:[
-    { type:'mc', stem:'🌍 <ruby>中国<rt>Zhōngguó</rt></ruby> means:', choices:['China', 'UAE', 'Egypt', 'Jordan'], ans:0, hint:'中国 = China. 中=middle, 国=country.' },
-    { type:'mc', stem:'🌍 <ruby>阿联酋<rt>Āliánqiú</rt></ruby> means:', choices:['UAE', 'China', 'Saudi Arabia', 'Oman'], ans:0, hint:'阿联酋 = United Arab Emirates (UAE).' },
-    { type:'mc', stem:'🌍 "This is the UAE" in Chinese:', choices:['<ruby>这是阿联酋<rt>zhè shì Āliánqiú</rt></ruby>。', '<ruby>阿联酋是这<rt>Āliánqiú shì zhè</rt></ruby>。', '<ruby>这阿联酋是<rt>zhè Āliánqiú shì</rt></ruby>。', '<ruby>是这阿联酋<rt>shì zhè Āliánqiú</rt></ruby>。'], ans:0, hint:'这是 + country = This is ___.' },
-    { type:'mc', stem:'❓ "Do you know?" in Chinese:', choices:['<ruby>你知道吗<rt>nǐ zhīdào ma</rt></ruby>？', '<ruby>你好吗<rt>nǐ hǎo ma</rt></ruby>？', '<ruby>这是什么<rt>zhè shì shénme</rt></ruby>？', '<ruby>你在哪里<rt>nǐ zài nǎlǐ</rt></ruby>？'], ans:0, hint:'你知道吗？= Do you know?' },
-    { type:'mc', stem:'🌍 <ruby>我不知道<rt>wǒ bù zhīdào</rt></ruby>。 means:', choices:['I do not know.', 'I know.', 'I understand.', 'I cant see.'], ans:0, hint:'不 (bù) = NOT · place before the verb.' },
-    { type:'match', stem:'Match each country to its Chinese name.', left:['China', 'UAE', 'Egypt', 'Jordan'], right:['<ruby>约旦<rt>Yuēdàn</rt></ruby>', '<ruby>中国<rt>Zhōngguó</rt></ruby>', '<ruby>埃及<rt>Āijí</rt></ruby>', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 2], [3, 0]], hint:'中国=China, 阿联酋=UAE, 埃及=Egypt, 约旦=Jordan.' },
-    { type:'mc', stem:'🌍 <ruby>沙特<rt>Shātè</rt></ruby> refers to:', choices:['Saudi Arabia', 'Egypt', 'Jordan', 'Oman'], ans:0, hint:'沙特 = Saudi Arabia.' },
-    { type:'mc', stem:'🌍 <ruby>国家<rt>guójiā</rt></ruby> means:', choices:['country / nation', 'city', 'school', 'family'], ans:0, hint:'国家 = country / nation.' },
-    { type:'mc', stem:'🌍 <ruby>看<rt>kàn</rt></ruby> means:', choices:['to look / to watch', 'to know', 'to say', 'to eat'], ans:0, hint:'看 = to look at / to see.' },
-    { type:'mc', stem:'🌍 The UAE has how many emirates?', choices:['7', '5', '6', '8'], ans:0, hint:'The UAE has 七个酋长国 = 7 emirates.' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 <ruby>中国<rt>Zhōngguó</rt></ruby> means:', choices:['China', 'UAE', 'Egypt', 'Jordan'], ans:0, hint:'中国 = China. 中=middle, 国=country.' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 <ruby>阿联酋<rt>Āliánqiú</rt></ruby> means:', choices:['UAE', 'China', 'Saudi Arabia', 'Oman'], ans:0, hint:'阿联酋 = United Arab Emirates (UAE).' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 "This is the UAE" in Chinese:', choices:['<ruby>这是阿联酋<rt>zhè shì Āliánqiú</rt></ruby>。', '<ruby>阿联酋是这<rt>Āliánqiú shì zhè</rt></ruby>。', '<ruby>这阿联酋是<rt>zhè Āliánqiú shì</rt></ruby>。', '<ruby>是这阿联酋<rt>shì zhè Āliánqiú</rt></ruby>。'], ans:0, hint:'这是 + country = This is ___.' },
+    { type:'mc', skill:'Know / not know', stem:'❓ "Do you know?" in Chinese:', choices:['<ruby>你知道吗<rt>nǐ zhīdào ma</rt></ruby>？', '<ruby>你好吗<rt>nǐ hǎo ma</rt></ruby>？', '<ruby>这是什么<rt>zhè shì shénme</rt></ruby>？', '<ruby>你在哪里<rt>nǐ zài nǎlǐ</rt></ruby>？'], ans:0, hint:'你知道吗？= Do you know?' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 <ruby>我不知道<rt>wǒ bù zhīdào</rt></ruby>。 means:', choices:['I do not know.', 'I know.', 'I understand.', 'I cant see.'], ans:0, hint:'不 (bù) = NOT · place before the verb.' },
+    { type:'match', skill:'Know / not know', stem:'Match each country to its Chinese name.', left:['China', 'UAE', 'Egypt', 'Jordan'], right:['<ruby>约旦<rt>Yuēdàn</rt></ruby>', '<ruby>中国<rt>Zhōngguó</rt></ruby>', '<ruby>埃及<rt>Āijí</rt></ruby>', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 2], [3, 0]], hint:'中国=China, 阿联酋=UAE, 埃及=Egypt, 约旦=Jordan.' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 <ruby>沙特<rt>Shātè</rt></ruby> refers to:', choices:['Saudi Arabia', 'Egypt', 'Jordan', 'Oman'], ans:0, hint:'沙特 = Saudi Arabia.' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 <ruby>国家<rt>guójiā</rt></ruby> means:', choices:['country / nation', 'city', 'school', 'family'], ans:0, hint:'国家 = country / nation.' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 <ruby>看<rt>kàn</rt></ruby> means:', choices:['to look / to watch', 'to know', 'to say', 'to eat'], ans:0, hint:'看 = to look at / to see.' },
+    { type:'mc', skill:'Know / not know', stem:'🌍 The UAE has how many emirates?', choices:['7', '5', '6', '8'], ans:0, hint:'The UAE has 七个酋长国 = 7 emirates.' },
   ]},
 
 
   { qs:[
-    { type:'mc', stem:'<span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>吗<rt>ma</rt></ruby>？</span> means:', choices:['Do you know?','Do you understand?','Can you see?','Do you like it?'], ans:0, hint:'<ruby>知道<rt>zhīdào</rt></ruby>= to know (a fact);<ruby>吗<rt>ma</rt></ruby>turns it into a yes/no question' },
-    { type:'mc', stem:'Which word means "country"?', choices:['<ruby>国家<rt>guójiā</rt></ruby>','<ruby>城市<rt>chéngshì</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>','<ruby>名字<rt>míngzi</rt></ruby>'], ans:0, hint:'<ruby>国家<rt>guójiā</rt></ruby>= country/nation' },
-    { type:'mc', stem:'<span class="cn"><ruby>沙特<rt>Shātè</rt></ruby></span> refers to:', choices:['Saudi Arabia','Egypt','Jordan','Oman'], ans:0, hint:'<ruby>沙特<rt>Shātè</rt></ruby>is the short form used in the lesson' },
-    { type:'mc', stem:'<span class="cn"><ruby>看<rt>kàn</rt></ruby></span> in this lesson means:', choices:['look / see','buy','know','want'], ans:0, hint:'<ruby>看<rt>kàn</rt></ruby>= to look at / to see' },
-    { type:'mc', stem:'<span class="cn"><ruby>哦<rt>ó</rt></ruby></span> is an interjection expressing:', choices:['realisation / "oh I see"','laughter','refusal','question'], ans:0, hint:'<ruby>哦<rt>ó</rt></ruby>shows sudden understanding — "Oh! I see!"' },
-    { type:'mc', stem:'<span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby>。</span> — <ruby>这<rt>zhè</rt></ruby> means:', choices:['this (near the speaker)','that (far from speaker)','which','who'], ans:0, hint:'<ruby>这<rt>zhè</rt></ruby>= this;<ruby>那<rt>nà</rt></ruby>= that — demonstrative pronouns based on distance' },
-    { type:'fill', stem:'Say "I know": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿＿<ruby>道<rt>dào</rt></ruby>。</span>', ans:['知','zhī','zhi'], hint:'<ruby>知道<rt>zhīdào</rt></ruby>= to know;<ruby>知<rt>zhī</rt></ruby>+<ruby>道<rt>dào</rt></ruby>' },
-    { type:'match', stem:'Match country to Chinese name', left:['<ruby>中国<rt>Zhōngguó</rt></ruby>','<ruby>埃及<rt>Āijí</rt></ruby>','<ruby>约旦<rt>Yuēdàn</rt></ruby>','<ruby>阿曼<rt>Āmàn</rt></ruby>'], right:['China','Egypt','Jordan','Oman'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Country names from Lesson 7' },
-    { type:'mc', stem:'<span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>不知道<rt>bù zhīdào</rt></ruby>。</span> means:', choices:["I do not know.","I do not want to.","I cannot see.","I do not like it."], ans:0, hint:'<ruby>不<rt>bù</rt></ruby>negates<ruby>知道<rt>zhīdào</rt></ruby>:<ruby>不知道<rt>bù zhīdào</rt></ruby>= do not know' },
-    { type:'fill', stem:'Complete: <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>＿＿？</span>', ans:['吗','ma'], hint:'<ruby>吗<rt>ma</rt></ruby>turns the statement into a yes/no question (<ruby>是非问句<rt>shìfēi wènjù</rt></ruby>)' },
+    { type:'mc', skill:'Know / not know', stem:'<span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>吗<rt>ma</rt></ruby>？</span> means:', choices:['Do you know?','Do you understand?','Can you see?','Do you like it?'], ans:0, hint:'<ruby>知道<rt>zhīdào</rt></ruby>= to know (a fact);<ruby>吗<rt>ma</rt></ruby>turns it into a yes/no question' },
+    { type:'mc', skill:'Know / not know', stem:'Which word means "country"?', choices:['<ruby>国家<rt>guójiā</rt></ruby>','<ruby>城市<rt>chéngshì</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>','<ruby>名字<rt>míngzi</rt></ruby>'], ans:0, hint:'<ruby>国家<rt>guójiā</rt></ruby>= country/nation' },
+    { type:'mc', skill:'Know / not know', stem:'<span class="cn"><ruby>沙特<rt>Shātè</rt></ruby></span> refers to:', choices:['Saudi Arabia','Egypt','Jordan','Oman'], ans:0, hint:'<ruby>沙特<rt>Shātè</rt></ruby>is the short form used in the lesson' },
+    { type:'mc', skill:'Know / not know', stem:'<span class="cn"><ruby>看<rt>kàn</rt></ruby></span> in this lesson means:', choices:['look / see','buy','know','want'], ans:0, hint:'<ruby>看<rt>kàn</rt></ruby>= to look at / to see' },
+    { type:'mc', skill:'Know / not know', stem:'<span class="cn"><ruby>哦<rt>ó</rt></ruby></span> is an interjection expressing:', choices:['realisation / "oh I see"','laughter','refusal','question'], ans:0, hint:'<ruby>哦<rt>ó</rt></ruby>shows sudden understanding — "Oh! I see!"' },
+    { type:'mc', skill:'Know / not know', stem:'<span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby>。</span> — <ruby>这<rt>zhè</rt></ruby> means:', choices:['this (near the speaker)','that (far from speaker)','which','who'], ans:0, hint:'<ruby>这<rt>zhè</rt></ruby>= this;<ruby>那<rt>nà</rt></ruby>= that — demonstrative pronouns based on distance' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I know": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿＿<ruby>道<rt>dào</rt></ruby>。</span>', ans:['知','zhī','zhi'], hint:'<ruby>知道<rt>zhīdào</rt></ruby>= to know;<ruby>知<rt>zhī</rt></ruby>+<ruby>道<rt>dào</rt></ruby>' },
+    { type:'match', skill:'Know / not know', stem:'Match country to Chinese name', left:['<ruby>中国<rt>Zhōngguó</rt></ruby>','<ruby>埃及<rt>Āijí</rt></ruby>','<ruby>约旦<rt>Yuēdàn</rt></ruby>','<ruby>阿曼<rt>Āmàn</rt></ruby>'], right:['China','Egypt','Jordan','Oman'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Country names from Lesson 7' },
+    { type:'mc', skill:'Know / not know', stem:'<span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>不知道<rt>bù zhīdào</rt></ruby>。</span> means:', choices:["I do not know.","I do not want to.","I cannot see.","I do not like it."], ans:0, hint:'<ruby>不<rt>bù</rt></ruby>negates<ruby>知道<rt>zhīdào</rt></ruby>:<ruby>不知道<rt>bù zhīdào</rt></ruby>= do not know' },
+    { type:'fill', skill:'Sentence patterns', stem:'Complete: <span class="cn"><ruby>你<rt>nǐ</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>＿＿？</span>', ans:['吗','ma'], hint:'<ruby>吗<rt>ma</rt></ruby>turns the statement into a yes/no question (<ruby>是非问句<rt>shìfēi wènjù</rt></ruby>)' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'What does <ruby>你知道吗<rt>nǐ zhīdào ma</rt></ruby>？ mean?', choices:['Do you know?', 'Do you understand?', 'Can you see?', 'Do you like it?'], ans:0, hint:'知道 = to know; 吗 makes it a yes/no question.' },
-    { type:'mc', stem:'Which word means "country"?', choices:['<ruby>国家<rt>guójiā</rt></ruby>', '<ruby>城市<rt>chéngshì</rt></ruby>', '<ruby>学校<rt>xuéxiào</rt></ruby>', '<ruby>名字<rt>míngzi</rt></ruby>'], ans:0, hint:'国家 = country/nation.' },
-    { type:'mc', stem:'<ruby>沙特<rt>Shātè</rt></ruby> refers to:', choices:['Saudi Arabia', 'Egypt', 'Jordan', 'Oman'], ans:0, hint:'沙特 = Saudi Arabia.' },
-    { type:'mc', stem:'<ruby>看<rt>kàn</rt></ruby> means:', choices:['to look / see', 'to buy', 'to know', 'to want'], ans:0, hint:'看 = to look at.' },
-    { type:'mc', stem:'In Chinese (HSK), 知道 (zhīdào) means to know a fact. Which sentence is correct? (HSK tip)', choices:['我知道。(wǒ zhīdào) — I know.', '我知。(wǒ zhī) — incomplete, missing 道.', '知道我。(zhīdào wǒ) — wrong word order.', '我道知。(wǒ dào zhī) — wrong word order.'], ans:0, hint:'HSK tip: 知道 is a two-character verb — always keep 知 and 道 together.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby><sup>③</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>班<rt>bān</rt></ruby><sup>④</sup><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><sup>⑤</sup><ruby>国家<rt>guójiā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>⑥</sup>：<ruby>阿联酋<rt>Āliánqiú</rt></ruby>、<ruby>埃及<rt>Āijí</rt></ruby>、<ruby>约旦<rt>Yuēdàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 上学 shàngxué: to attend school ④ 班 bān: class (school group) ⑤ 很多 hěn duō: many/a lot ⑥ 同学 tóngxué: classmate</div>', stem:'Where does Xiao Hua go to school?', choices:['In Dubai (迪拜).', 'In China (中国).', 'In Egypt (埃及).', 'In Jordan (约旦).'], ans:0, hint:'Find where Xiao Hua attends school in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby><sup>③</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>班<rt>bān</rt></ruby><sup>④</sup><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><sup>⑤</sup><ruby>国家<rt>guójiā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>⑥</sup>：<ruby>阿联酋<rt>Āliánqiú</rt></ruby>、<ruby>埃及<rt>Āijí</rt></ruby>、<ruby>约旦<rt>Yuēdàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 上学 shàngxué: to attend school ④ 班 bān: class (school group) ⑤ 很多 hěn duō: many/a lot ⑥ 同学 tóngxué: classmate</div>', stem:'Which nationalities are in Xiao Huas class?', choices:['Emirati, Egyptian and Jordanian.', 'Chinese, British and American.', 'Saudi, Omani and Kuwaiti.', 'French, German and Spanish.'], ans:0, hint:'Find the list of nationalities at the end of the passage.' },
-    { type:'hots', stem:'🟡 Cycle 2 — China calls itself 中国, the “Middle Kingdom”, because long ago people felt their land was the centre of the world. What is the name of your country, and what is one thing you would proudly show a visitor from China? | 🔵 Cycle 3 — Long ago many cultures believed their own land was the centre of the world. Why do you think people felt this way, and what could two very different countries like China and the UAE learn from each other?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Know / not know', stem:'What does <ruby>你知道吗<rt>nǐ zhīdào ma</rt></ruby>？ mean?', choices:['Do you know?', 'Do you understand?', 'Can you see?', 'Do you like it?'], ans:0, hint:'知道 = to know; 吗 makes it a yes/no question.' },
+    { type:'mc', skill:'Know / not know', stem:'Which word means "country"?', choices:['<ruby>国家<rt>guójiā</rt></ruby>', '<ruby>城市<rt>chéngshì</rt></ruby>', '<ruby>学校<rt>xuéxiào</rt></ruby>', '<ruby>名字<rt>míngzi</rt></ruby>'], ans:0, hint:'国家 = country/nation.' },
+    { type:'mc', skill:'Know / not know', stem:'<ruby>沙特<rt>Shātè</rt></ruby> refers to:', choices:['Saudi Arabia', 'Egypt', 'Jordan', 'Oman'], ans:0, hint:'沙特 = Saudi Arabia.' },
+    { type:'mc', skill:'Know / not know', stem:'<ruby>看<rt>kàn</rt></ruby> means:', choices:['to look / see', 'to buy', 'to know', 'to want'], ans:0, hint:'看 = to look at.' },
+    { type:'mc', skill:'Know / not know', stem:'In Chinese (HSK), 知道 (zhīdào) means to know a fact. Which sentence is correct? (HSK tip)', choices:['我知道。(wǒ zhīdào) — I know.', '我知。(wǒ zhī) — incomplete, missing 道.', '知道我。(zhīdào wǒ) — wrong word order.', '我道知。(wǒ dào zhī) — wrong word order.'], ans:0, hint:'HSK tip: 知道 is a two-character verb — always keep 知 and 道 together.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby><sup>③</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>班<rt>bān</rt></ruby><sup>④</sup><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><sup>⑤</sup><ruby>国家<rt>guójiā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>⑥</sup>：<ruby>阿联酋<rt>Āliánqiú</rt></ruby>、<ruby>埃及<rt>Āijí</rt></ruby>、<ruby>约旦<rt>Yuēdàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 上学 shàngxué: to attend school ④ 班 bān: class (school group) ⑤ 很多 hěn duō: many/a lot ⑥ 同学 tóngxué: classmate</div>', stem:'Where does Xiao Hua go to school?', choices:['In Dubai (迪拜).', 'In China (中国).', 'In Egypt (埃及).', 'In Jordan (约旦).'], ans:0, hint:'Find where Xiao Hua attends school in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby><sup>③</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>班<rt>bān</rt></ruby><sup>④</sup><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><sup>⑤</sup><ruby>国家<rt>guójiā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>⑥</sup>：<ruby>阿联酋<rt>Āliánqiú</rt></ruby>、<ruby>埃及<rt>Āijí</rt></ruby>、<ruby>约旦<rt>Yuēdàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 上学 shàngxué: to attend school ④ 班 bān: class (school group) ⑤ 很多 hěn duō: many/a lot ⑥ 同学 tóngxué: classmate</div>', stem:'Which nationalities are in Xiao Huas class?', choices:['Emirati, Egyptian and Jordanian.', 'Chinese, British and American.', 'Saudi, Omani and Kuwaiti.', 'French, German and Spanish.'], ans:0, hint:'Find the list of nationalities at the end of the passage.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — China calls itself 中国, the “Middle Kingdom”, because long ago people felt their land was the centre of the world. What is the name of your country, and what is one thing you would proudly show a visitor from China? | 🔵 Cycle 3 — Long ago many cultures believed their own land was the centre of the world. Why do you think people felt this way, and what could two very different countries like China and the UAE learn from each other?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1A-L7 这是阿联酋。</title>' +

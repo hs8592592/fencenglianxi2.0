@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1361,40 +1361,40 @@ const LESSONS = [
   tiers:[
 
   { qs:[
-    { type:'mc', stem:'🏀 Which means “play basketball”?', choices:['<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>','<ruby>游泳<rt>yóuyǒng</rt></ruby>'], ans:0, hint:'打篮球 = play basketball.' },
-    { type:'match', stem:'🏓 Match each sport to its meaning.', left:['<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby><ruby>乒<rt>pīng</rt></ruby><ruby>乓<rt>pāng</rt></ruby><ruby>球<rt>qiú</rt></ruby>','<ruby>游泳<rt>yóuyǒng</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], right:['play tennis','play table tennis','to swim','play the piano'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'打网球·打乒乓球·游泳·弹钢琴.' },
-    { type:'mc', stem:'🏊 Which means “to swim”?', choices:['<ruby>游泳<rt>yóuyǒng</rt></ruby>','<ruby>跑步<rt>pǎobù</rt></ruby>','<ruby>唱歌<rt>chànggē</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'游泳 = to swim.' },
-    { type:'mc', stem:'💧 Which sport do you do IN WATER?', choices:['<ruby>游泳<rt>yóuyǒng</rt></ruby>','<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>'], ans:0, hint:'游泳 = swimming.' },
-    { type:'mc', stem:'<ruby>他<rt>tā</rt></ruby>（　）<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>。 <span class="gl">(He ___ (can) play basketball.)</span>', choices:['<ruby>会<rt>huì</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>不<rt>bù</rt></ruby>'], ans:0, hint:'会 + verb = can….' },
-    { type:'mc', stem:'<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby>（　）<ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。 <span class="gl">(He plays basketball well — verb + ___ + adjective.)</span>', choices:['<ruby>得<rt>de</rt></ruby>','<ruby>的<rt>de</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>'], ans:0, hint:'V + 得 + adj (程度补语): 打得很好.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby>（　）<ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(You play ___ (really) well!)</span>', choices:['<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>不<rt>bù</rt></ruby>'], ans:0, hint:'真 + adjective = really….' },
-    { type:'mc', stem:'👍 Which means “not bad / pretty good”?', choices:['<ruby>不错<rt>búcuò</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>'], ans:0, hint:'不错 = not bad / pretty good.' },
-    { type:'fill', stem:'认读 · Type the complement particle: <span class="cn">他打篮球打＿很好。</span> (de)', ans:['得','de'], hint:'V + 得 + adj.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character.', left:['qiú','zhēn','yóu','yǒng'], right:['球','真','游','泳'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'球·真·游·泳.' },
+    { type:'mc', skill:'Skills (de)', stem:'🏀 Which means “play basketball”?', choices:['<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>','<ruby>游泳<rt>yóuyǒng</rt></ruby>'], ans:0, hint:'打篮球 = play basketball.' },
+    { type:'match', skill:'Skills (de)', stem:'🏓 Match each sport to its meaning.', left:['<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby><ruby>乒<rt>pīng</rt></ruby><ruby>乓<rt>pāng</rt></ruby><ruby>球<rt>qiú</rt></ruby>','<ruby>游泳<rt>yóuyǒng</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], right:['play tennis','play table tennis','to swim','play the piano'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'打网球·打乒乓球·游泳·弹钢琴.' },
+    { type:'mc', skill:'Skills (de)', stem:'🏊 Which means “to swim”?', choices:['<ruby>游泳<rt>yóuyǒng</rt></ruby>','<ruby>跑步<rt>pǎobù</rt></ruby>','<ruby>唱歌<rt>chànggē</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>'], ans:0, hint:'游泳 = to swim.' },
+    { type:'mc', skill:'Skills (de)', stem:'💧 Which sport do you do IN WATER?', choices:['<ruby>游泳<rt>yóuyǒng</rt></ruby>','<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>弹钢琴<rt>tán gāngqín</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>'], ans:0, hint:'游泳 = swimming.' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>他<rt>tā</rt></ruby>（　）<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>。 <span class="gl">(He ___ (can) play basketball.)</span>', choices:['<ruby>会<rt>huì</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>不<rt>bù</rt></ruby>'], ans:0, hint:'会 + verb = can….' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby>（　）<ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。 <span class="gl">(He plays basketball well — verb + ___ + adjective.)</span>', choices:['<ruby>得<rt>de</rt></ruby>','<ruby>的<rt>de</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>'], ans:0, hint:'V + 得 + adj (程度补语): 打得很好.' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby>（　）<ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(You play ___ (really) well!)</span>', choices:['<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>不<rt>bù</rt></ruby>'], ans:0, hint:'真 + adjective = really….' },
+    { type:'mc', skill:'Skills (de)', stem:'👍 Which means “not bad / pretty good”?', choices:['<ruby>不错<rt>búcuò</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>'], ans:0, hint:'不错 = not bad / pretty good.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the complement particle: <span class="cn">他打篮球打＿很好。</span> (de)', ans:['得','de'], hint:'V + 得 + adj.' },
+    { type:'match', skill:'Skills (de)', stem:'写汉字 · Match the pinyin to its character.', left:['qiú','zhēn','yóu','yǒng'], right:['球','真','游','泳'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'球·真·游·泳.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>，<ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby>（　）。 <span class="gl">(I can play the piano, and I play ___ — pretty well)</span>', choices:['<ruby>不错<rt>búcuò</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>'], ans:0, hint:'不错 = pretty good.' },
-    { type:'mc', stem:'<ruby>妹<rt>mèi</rt></ruby><ruby>妹<rt>mèi</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby>（　），<ruby>姐姐<rt>jiějie</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不错<rt>búcuò</rt></ruby>。 <span class="gl">(Younger sister writes ___ (average), older sister writes well.)</span>', choices:['<ruby>一般<rt>yìbān</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>会<rt>huì</rt></ruby>'], ans:0, hint:'一般 = average / so-so.' },
-    { type:'mc', stem:'🎾 Which sentence means “He plays tennis, and plays well”?', choices:['<ruby>他<rt>tā</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>，<ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>，<ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>。'], ans:0, hint:'打得很好 = plays well.' },
-    { type:'mc', stem:'📊 Which word describes an AVERAGE / so-so level?', choices:['<ruby>一般<rt>yìbān</rt></ruby> — average / so-so','<ruby>不错<rt>búcuò</rt></ruby> — pretty good','<ruby>很好<rt>hěn hǎo</rt></ruby> — very good','<ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby> — really good'], ans:0, hint:'一般 = average.' },
-    { type:'mc', stem:'🗣️ Your friend plays the piano beautifully. You say:', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>！<rt></rt></ruby>'], ans:0, hint:'Praise: 你弹得真好！' },
-    { type:'mc', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>（　）<ruby>漂亮<rt>piàoliang</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Is this the character you wrote? ___ (Really) beautiful!)</span>', choices:['<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>'], ans:0, hint:'真 + adj = really….' },
-    { type:'mc', stem:'🗣️ <ruby>他打得怎么样<rt>tā dǎ de zěnmeyàng</rt></ruby>？ is asking:', choices:['how well he plays','what he plays','where he plays','when he plays'], ans:0, hint:'打得怎么样 = how well does he play.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">你弹得真＿！</span> (good=好)', ans:['好','hǎo','hao'], hint:'真好 = really good.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！</p>', stem:'How well does Hassan play basketball?', choices:['Very well (打得很好).','Average (一般).','He cannot play.','Not said.'], ans:0, hint:'Find 打篮球 in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！</p>', stem:'Who swims really well?', choices:['Ali (阿里).','Hassan.','Fatima.','No one.'], ans:0, hint:'Find 游泳.' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>，<ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby>（　）。 <span class="gl">(I can play the piano, and I play ___ — pretty well)</span>', choices:['<ruby>不错<rt>búcuò</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>'], ans:0, hint:'不错 = pretty good.' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>妹<rt>mèi</rt></ruby><ruby>妹<rt>mèi</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby>（　），<ruby>姐姐<rt>jiějie</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不错<rt>búcuò</rt></ruby>。 <span class="gl">(Younger sister writes ___ (average), older sister writes well.)</span>', choices:['<ruby>一般<rt>yìbān</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>会<rt>huì</rt></ruby>'], ans:0, hint:'一般 = average / so-so.' },
+    { type:'mc', skill:'Skills (de)', stem:'🎾 Which sentence means “He plays tennis, and plays well”?', choices:['<ruby>他<rt>tā</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>，<ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>，<ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。','<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>。'], ans:0, hint:'打得很好 = plays well.' },
+    { type:'mc', skill:'Skills (de)', stem:'📊 Which word describes an AVERAGE / so-so level?', choices:['<ruby>一般<rt>yìbān</rt></ruby> — average / so-so','<ruby>不错<rt>búcuò</rt></ruby> — pretty good','<ruby>很好<rt>hěn hǎo</rt></ruby> — very good','<ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby> — really good'], ans:0, hint:'一般 = average.' },
+    { type:'mc', skill:'Skills (de)', stem:'🗣️ Your friend plays the piano beautifully. You say:', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>！<rt></rt></ruby>'], ans:0, hint:'Praise: 你弹得真好！' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>（　）<ruby>漂亮<rt>piàoliang</rt></ruby><ruby>！<rt></rt></ruby> <span class="gl">(Is this the character you wrote? ___ (Really) beautiful!)</span>', choices:['<ruby>真<rt>zhēn</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>得<rt>de</rt></ruby>','<ruby>一般<rt>yìbān</rt></ruby>'], ans:0, hint:'真 + adj = really….' },
+    { type:'mc', skill:'Skills (de)', stem:'🗣️ <ruby>他打得怎么样<rt>tā dǎ de zěnmeyàng</rt></ruby>？ is asking:', choices:['how well he plays','what he plays','where he plays','when he plays'], ans:0, hint:'打得怎么样 = how well does he play.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">你弹得真＿！</span> (good=好)', ans:['好','hǎo','hao'], hint:'真好 = really good.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！</p>', stem:'How well does Hassan play basketball?', choices:['Very well (打得很好).','Average (一般).','He cannot play.','Not said.'], ans:0, hint:'Find 打篮球 in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>打网球<rt>dǎ wǎngqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！</p>', stem:'Who swims really well?', choices:['Ali (阿里).','Hassan.','Fatima.','No one.'], ans:0, hint:'Find 游泳.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>他<rt>tā</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby><ruby>唱<rt>chàng</rt></ruby>（　）<ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。 <span class="gl">(He sings well — verb + ___ + adjective.)</span>', choices:['<ruby>得<rt>de</rt></ruby>','<ruby>的<rt>de</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>'], ans:0, hint:'V + 得 + adj: 唱得很好.' },
-    { type:'mc', stem:'🏓 Which means “play table tennis”?', choices:['<ruby>打<rt>dǎ</rt></ruby><ruby>乒<rt>pīng</rt></ruby><ruby>乓<rt>pāng</rt></ruby><ruby>球<rt>qiú</rt></ruby>','<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>'], ans:0, hint:'打乒乓球 = play table tennis.' },
-    { type:'mc', stem:'🗣️ Your friend sings beautifully. Best reply:', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>！<rt></rt></ruby>'], ans:0, hint:'Praise: 你唱得真好！' },
-    { type:'mc', stem:'💡 How do you say someone does something WELL in Chinese? (HSK tip)', choices:['<ruby>他<rt>tā</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。  ✔ V + 得 + adjective','<ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>打<rt>dǎ</rt></ruby>。  ✘','<ruby>他<rt>tā</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。  ✘','<ruby>他<rt>tā</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>很<rt>hěn</rt></ruby>。  ✘'], ans:0, hint:'程度补语: Verb + 得 + adjective (他打得很好).' },
-    { type:'mc', stem:'🎵 Chinese folk music (中国民族音乐) is often played on instruments such as:', choices:['the 古筝, 二胡 and 笛子','the piano and guitar only','drums only','no instruments at all'], ans:0, hint:'古筝 (zither), 二胡 (fiddle), 笛子 (flute) are classic Chinese instruments.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>，<ruby>她<rt>tā</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不错<rt>búcuò</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！<ruby>周末<rt>zhōumò</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>、<ruby>弹<rt>dàn</rt></ruby><ruby>琴<rt>qín</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>自己<rt>zìjǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby>，<ruby>真<rt>zhēn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 自己 zìjǐ: oneself / one\u2019s own ② 有意思 yǒuyìsi: interesting</div>', stem:'How well does Fatima play the piano?', choices:['Very well (弹得很好).','Average.','She cannot play.','Not said.'], ans:0, hint:'Find 弹钢琴.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>，<ruby>她<rt>tā</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不错<rt>búcuò</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！<ruby>周末<rt>zhōumò</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>、<ruby>弹<rt>dàn</rt></ruby><ruby>琴<rt>qín</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>自己<rt>zìjǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby>，<ruby>真<rt>zhēn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 自己 zìjǐ: oneself / one\u2019s own ② 有意思 yǒuyìsi: interesting</div>', stem:'How well does Fatima sing?', choices:['Average (一般).','Very well.','She does not sing.','Not said.'], ans:0, hint:'Find 唱歌.' },
-    { type:'hots', stem:'🟡 Cycle 2 — In China people play traditional instruments such as the 古筝, 二胡 and 笛子; in the UAE people love the oud (乌德琴) and the duff drum, and singing together at weddings and Eid. What instrument or skill from your OWN culture are you proud of, and which Chinese instrument would you most like to hear or learn? Tell a friend one thing you do well using 我…得很好. | 🔵 Cycle 3 — Chinese folk music (中国民族音乐) and traditional Emirati music both pass culture from one generation to the next. In a world full of pop music and phones, why do you think both cultures still teach young people their traditional music and skills? What might a country lose if it stopped practising its own music?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'mc', skill:'Skills (de)', stem:'<ruby>他<rt>tā</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby><ruby>唱<rt>chàng</rt></ruby>（　）<ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。 <span class="gl">(He sings well — verb + ___ + adjective.)</span>', choices:['<ruby>得<rt>de</rt></ruby>','<ruby>的<rt>de</rt></ruby>','<ruby>会<rt>huì</rt></ruby>','<ruby>真<rt>zhēn</rt></ruby>'], ans:0, hint:'V + 得 + adj: 唱得很好.' },
+    { type:'mc', skill:'Skills (de)', stem:'🏓 Which means “play table tennis”?', choices:['<ruby>打<rt>dǎ</rt></ruby><ruby>乒<rt>pīng</rt></ruby><ruby>乓<rt>pāng</rt></ruby><ruby>球<rt>qiú</rt></ruby>','<ruby>打网球<rt>dǎ wǎngqiú</rt></ruby>','<ruby>打篮球<rt>dǎ lánqiú</rt></ruby>','<ruby>踢足球<rt>tī zúqiú</rt></ruby>'], ans:0, hint:'打乒乓球 = play table tennis.' },
+    { type:'mc', skill:'Skills (de)', stem:'🗣️ Your friend sings beautifully. Best reply:', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>！<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>！<rt></rt></ruby>'], ans:0, hint:'Praise: 你唱得真好！' },
+    { type:'mc', skill:'Skills (de)', stem:'💡 How do you say someone does something WELL in Chinese? (HSK tip)', choices:['<ruby>他<rt>tā</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。  ✔ V + 得 + adjective','<ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>打<rt>dǎ</rt></ruby>。  ✘','<ruby>他<rt>tā</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。  ✘','<ruby>他<rt>tā</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>很<rt>hěn</rt></ruby>。  ✘'], ans:0, hint:'程度补语: Verb + 得 + adjective (他打得很好).' },
+    { type:'mc', skill:'Skills (de)', stem:'🎵 Chinese folk music (中国民族音乐) is often played on instruments such as:', choices:['the 古筝, 二胡 and 笛子','the piano and guitar only','drums only','no instruments at all'], ans:0, hint:'古筝 (zither), 二胡 (fiddle), 笛子 (flute) are classic Chinese instruments.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>，<ruby>她<rt>tā</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不错<rt>búcuò</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！<ruby>周末<rt>zhōumò</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>、<ruby>弹<rt>dàn</rt></ruby><ruby>琴<rt>qín</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>自己<rt>zìjǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby>，<ruby>真<rt>zhēn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 自己 zìjǐ: oneself / one\u2019s own ② 有意思 yǒuyìsi: interesting</div>', stem:'How well does Fatima play the piano?', choices:['Very well (弹得很好).','Average.','She cannot play.','Not said.'], ans:0, hint:'Find 弹钢琴.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>弹钢琴<rt>tán gāngqín</rt></ruby>，<ruby>她<rt>tā</rt></ruby><ruby>弹<rt>dàn</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>唱歌<rt>chànggē</rt></ruby>，<ruby>可是<rt>kěshì</rt></ruby><ruby>唱<rt>chàng</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>一般<rt>yìbān</rt></ruby>。<ruby>她<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>打篮球<rt>dǎ lánqiú</rt></ruby><ruby>打<rt>dǎ</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不错<rt>búcuò</rt></ruby>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>游泳<rt>yóuyǒng</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>游<rt>yóu</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>好<rt>hǎo</rt></ruby>！<ruby>周末<rt>zhōumò</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>运动<rt>yùndòng</rt></ruby>、<ruby>弹<rt>dàn</rt></ruby><ruby>琴<rt>qín</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>自己<rt>zìjǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby>，<ruby>真<rt>zhēn</rt></ruby><ruby>有意思<rt>yǒuyìsi</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 自己 zìjǐ: oneself / one\u2019s own ② 有意思 yǒuyìsi: interesting</div>', stem:'How well does Fatima sing?', choices:['Average (一般).','Very well.','She does not sing.','Not said.'], ans:0, hint:'Find 唱歌.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China people play traditional instruments such as the 古筝, 二胡 and 笛子; in the UAE people love the oud (乌德琴) and the duff drum, and singing together at weddings and Eid. What instrument or skill from your OWN culture are you proud of, and which Chinese instrument would you most like to hear or learn? Tell a friend one thing you do well using 我…得很好. | 🔵 Cycle 3 — Chinese folk music (中国民族音乐) and traditional Emirati music both pass culture from one generation to the next. In a world full of pop music and phones, why do you think both cultures still teach young people their traditional music and skills? What might a country lose if it stopped practising its own music?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
   ]},
 
   ]},
@@ -2191,7 +2191,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2411,7 +2411,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2615,12 +2615,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2629,6 +2629,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2657,7 +2661,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2669,22 +2673,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2762,7 +2766,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3B-L1 你弹得真好！</title>' +

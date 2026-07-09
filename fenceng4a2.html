@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1361,40 +1361,40 @@ const LESSONS = [
   tiers:[
 
   { qs:[
-    { type:'match', stem:'🧭 Match each direction to its meaning.', left:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], right:['east','west','south','north'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'东边·西边·南边·北边.' },
-    { type:'mc', stem:'（　）<ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。 <span class="gl">(To the ___ (north) is the gym.)</span>', choices:['<ruby>北边<rt>běibiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'北边 = the north side.' },
-    { type:'mc', stem:'<ruby>太阳<rt>tàiyáng</rt></ruby><ruby>从<rt>cóng</rt></ruby>（　）<ruby>出来<rt>chūlái</rt></ruby>。 <span class="gl">(The sun rises in the ___ (east).)</span>', choices:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], ans:0, hint:'东边 = the east.' },
-    { type:'mc', stem:'<ruby>学校<rt>xuéxiào</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>的<rt>de</rt></ruby>（　）。 <span class="gl">(The school is to the ___ (south) of my home.)</span>', choices:['<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'南边 = the south side.' },
-    { type:'mc', stem:'<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　），<ruby>我<rt>wǒ</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>懂<rt>dǒng</rt></ruby><ruby>了<rt>le</rt></ruby>。 <span class="gl">(The teacher spoke very ___ (clearly); I understood it all.)</span>', choices:['<ruby>清楚<rt>qīngchu</rt></ruby>','<ruby>不同<rt>bùtóng</rt></ruby>','<ruby>真的<rt>zhēnde</rt></ruby>','<ruby>棒<rt>bàng</rt></ruby>'], ans:0, hint:'清楚 = clear.' },
-    { type:'mc', stem:'🧭 东、西、南、北 are all:', choices:['directions (方位)','colours','animals','foods'], ans:0, hint:'They are directions.' },
-    { type:'mc', stem:'🧭 Which means \u201cnorth\u201d?', choices:['<ruby>北边<rt>běibiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'北边 = north.' },
-    { type:'mc', stem:'🗣️ Which sentence means \u201cThe gym is to the north\u201d?', choices:['<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。','<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。','<ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。'], ans:0, hint:'北边是体育馆 = the gym is to the north.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">＿边是体育馆。</span> (north=北)', ans:['北','běi','bei'], hint:'北边 = north.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character.', left:['dōng','xī','nán','běi'], right:['东','西','南','北'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'东·西·南·北.' },
+    { type:'match', skill:'Directions & places', stem:'🧭 Match each direction to its meaning.', left:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], right:['east','west','south','north'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'东边·西边·南边·北边.' },
+    { type:'mc', skill:'Directions & places', stem:'（　）<ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。 <span class="gl">(To the ___ (north) is the gym.)</span>', choices:['<ruby>北边<rt>běibiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'北边 = the north side.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>太阳<rt>tàiyáng</rt></ruby><ruby>从<rt>cóng</rt></ruby>（　）<ruby>出来<rt>chūlái</rt></ruby>。 <span class="gl">(The sun rises in the ___ (east).)</span>', choices:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], ans:0, hint:'东边 = the east.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>学校<rt>xuéxiào</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>的<rt>de</rt></ruby>（　）。 <span class="gl">(The school is to the ___ (south) of my home.)</span>', choices:['<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'南边 = the south side.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　），<ruby>我<rt>wǒ</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>懂<rt>dǒng</rt></ruby><ruby>了<rt>le</rt></ruby>。 <span class="gl">(The teacher spoke very ___ (clearly); I understood it all.)</span>', choices:['<ruby>清楚<rt>qīngchu</rt></ruby>','<ruby>不同<rt>bùtóng</rt></ruby>','<ruby>真的<rt>zhēnde</rt></ruby>','<ruby>棒<rt>bàng</rt></ruby>'], ans:0, hint:'清楚 = clear.' },
+    { type:'mc', skill:'Directions & places', stem:'🧭 东、西、南、北 are all:', choices:['directions (方位)','colours','animals','foods'], ans:0, hint:'They are directions.' },
+    { type:'mc', skill:'Directions & places', stem:'🧭 Which means \u201cnorth\u201d?', choices:['<ruby>北边<rt>běibiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'北边 = north.' },
+    { type:'mc', skill:'Directions & places', stem:'🗣️ Which sentence means \u201cThe gym is to the north\u201d?', choices:['<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。','<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。','<ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。'], ans:0, hint:'北边是体育馆 = the gym is to the north.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">＿边是体育馆。</span> (north=北)', ans:['北','běi','bei'], hint:'北边 = north.' },
+    { type:'match', skill:'Directions & places', stem:'写汉字 · Match the pinyin to its character.', left:['dōng','xī','nán','běi'], right:['东','西','南','北'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'东·西·南·北.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>的<rt>de</rt></ruby>（　）。 <span class="gl">(The library is to the ___ (west) of the school.)</span>', choices:['<ruby>西边<rt>xībiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], ans:0, hint:'西边 = the west side.' },
-    { type:'mc', stem:'🗣️ Which means \u201cTo the east is the library\u201d?', choices:['<ruby>东边<rt>dōngbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。','<ruby>西边<rt>xībiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。','<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。'], ans:0, hint:'东边是图书馆 = the library is to the east.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不<rt>bù</rt></ruby>（　），<ruby>请<rt>qǐng</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一次<rt>yícì</rt></ruby>。 <span class="gl">(You did not speak ___ (clearly); please say it again.)</span>', choices:['<ruby>清楚<rt>qīngchu</rt></ruby>','<ruby>不同<rt>bùtóng</rt></ruby>','<ruby>真的<rt>zhēnde</rt></ruby>','<ruby>棒<rt>bàng</rt></ruby>'], ans:0, hint:'清楚 = clear.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>的<rt>de</rt></ruby>（　）<ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。 <span class="gl">(To the ___ (north) of my home there is a park.)</span>', choices:['<ruby>北边<rt>běibiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'北边 = north.' },
-    { type:'mc', stem:'🗣️ 东边、西边、南边、北边 are used to:', choices:['say where something is (directions)','tell the time','ask a price','say thank you'], ans:0, hint:'They are direction words.' },
-    { type:'mc', stem:'<ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby>（　），<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>西边<rt>xībiān</rt></ruby>。 <span class="gl">(The gym is in the ___ (east); the library is in the west.)</span>', choices:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>清楚<rt>qīngchu</rt></ruby>'], ans:0, hint:'东边 = east.' },
-    { type:'mc', stem:'🧭 Which sentence describes a location?', choices:['<ruby>学校<rt>xuéxiào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'A location sentence: 南边是医院.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">老师说得很清＿。</span> (clear=楚)', ans:['楚','chǔ','chu'], hint:'清楚 = clear.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。<ruby>东边<rt>dōngbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>西边<rt>xībiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 体育馆 tǐyùguǎn: gym ② 医院 yīyuàn: hospital</div>', stem:'What is to the north of the school?', choices:['The gym (体育馆).','The library.','The park.','The hospital.'], ans:0, hint:'Find 北边是体育馆.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。<ruby>东边<rt>dōngbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>西边<rt>xībiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 体育馆 tǐyùguǎn: gym ② 医院 yīyuàn: hospital</div>', stem:'What is to the west?', choices:['The hospital (医院).','The gym.','The park.','The library.'], ans:0, hint:'Find 西边是医院.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>的<rt>de</rt></ruby>（　）。 <span class="gl">(The library is to the ___ (west) of the school.)</span>', choices:['<ruby>西边<rt>xībiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], ans:0, hint:'西边 = the west side.' },
+    { type:'mc', skill:'Directions & places', stem:'🗣️ Which means \u201cTo the east is the library\u201d?', choices:['<ruby>东边<rt>dōngbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。','<ruby>西边<rt>xībiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。','<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。'], ans:0, hint:'东边是图书馆 = the library is to the east.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>不<rt>bù</rt></ruby>（　），<ruby>请<rt>qǐng</rt></ruby><ruby>再<rt>zài</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一次<rt>yícì</rt></ruby>。 <span class="gl">(You did not speak ___ (clearly); please say it again.)</span>', choices:['<ruby>清楚<rt>qīngchu</rt></ruby>','<ruby>不同<rt>bùtóng</rt></ruby>','<ruby>真的<rt>zhēnde</rt></ruby>','<ruby>棒<rt>bàng</rt></ruby>'], ans:0, hint:'清楚 = clear.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>的<rt>de</rt></ruby>（　）<ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。 <span class="gl">(To the ___ (north) of my home there is a park.)</span>', choices:['<ruby>北边<rt>běibiān</rt></ruby>','<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>'], ans:0, hint:'北边 = north.' },
+    { type:'mc', skill:'Directions & places', stem:'🗣️ 东边、西边、南边、北边 are used to:', choices:['say where something is (directions)','tell the time','ask a price','say thank you'], ans:0, hint:'They are direction words.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby>（　），<ruby>图书馆<rt>túshūguǎn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>西边<rt>xībiān</rt></ruby>。 <span class="gl">(The gym is in the ___ (east); the library is in the west.)</span>', choices:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>清楚<rt>qīngchu</rt></ruby>'], ans:0, hint:'东边 = east.' },
+    { type:'mc', skill:'Directions & places', stem:'🧭 Which sentence describes a location?', choices:['<ruby>学校<rt>xuéxiào</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'A location sentence: 南边是医院.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">老师说得很清＿。</span> (clear=楚)', ans:['楚','chǔ','chu'], hint:'清楚 = clear.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。<ruby>东边<rt>dōngbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>西边<rt>xībiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 体育馆 tǐyùguǎn: gym ② 医院 yīyuàn: hospital</div>', stem:'What is to the north of the school?', choices:['The gym (体育馆).','The library.','The park.','The hospital.'], ans:0, hint:'Find 北边是体育馆.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我们<rt>wǒmen</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>图书馆<rt>túshūguǎn</rt></ruby>。<ruby>东边<rt>dōngbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>西边<rt>xībiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 体育馆 tǐyùguǎn: gym ② 医院 yīyuàn: hospital</div>', stem:'What is to the west?', choices:['The hospital (医院).','The gym.','The park.','The library.'], ans:0, hint:'Find 西边是医院.' },
   ]},
 
   { qs:[
-    { type:'mc', stem:'<ruby>清真寺<rt>qīngzhēnsì</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>的<rt>de</rt></ruby>（　）。 <span class="gl">(The mosque is to the ___ (east) of my home.)</span>', choices:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], ans:0, hint:'东边 = east.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　），<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>懂<rt>dǒng</rt></ruby>。 <span class="gl">(I spoke ___ (clearly); everyone understood.)</span>', choices:['<ruby>清楚<rt>qīngchu</rt></ruby>','<ruby>不同<rt>bùtóng</rt></ruby>','<ruby>真的<rt>zhēnde</rt></ruby>','<ruby>棒<rt>bàng</rt></ruby>'], ans:0, hint:'清楚 = clear.' },
-    { type:'mc', stem:'🗣️ A visitor asks where the gym is (it is to the north). You say:', choices:['<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby>。','<ruby>太<rt>tài</rt></ruby><ruby>贵<rt>guì</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'北边是体育馆。' },
-    { type:'mc', stem:'💡 How do you say \u201cTo the north is the gym\u201d? (HSK tip)', choices:['<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>  ✔ direction + 是 + place','<ruby>是<rt>shì</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>  ✘','<ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby>  ✘','<ruby>北边<rt>běibiān</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>是<rt>shì</rt></ruby>  ✘'], ans:0, hint:'Direction + 是 + place: 北边是体育馆.' },
-    { type:'mc', stem:'🕌 Beijing Niujie Mosque (北京牛街礼拜寺) is famous because:', choices:['it is a very old mosque that blends Chinese and Islamic styles','it is a new shopping mall','it is a train station','it has no history'], ans:0, hint:'牛街礼拜寺: a 1000-year-old mosque blending Chinese and Islamic design.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><ruby>玩<rt>wán</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>有名<rt>yǒumíng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>牛街<rt>Niújiē</rt></ruby><ruby>礼拜寺<rt>lǐbàisì</rt></ruby>。<ruby>礼拜寺<rt>lǐbàisì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>小店<rt>xiǎodiàn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>街<rt>jiē</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这里<rt>zhèlǐ</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>拍<rt>pāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 牛街礼拜寺 Niújiē Lǐbàisì: Niujie Mosque ② 街 jiē: street ③ 特别 tèbié: special</div>', stem:'Which famous place did Hassan visit?', choices:['Niujie Mosque (牛街礼拜寺).','A gym.','A market.','A school.'], ans:0, hint:'Find 牛街礼拜寺.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><ruby>玩<rt>wán</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>有名<rt>yǒumíng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>牛街<rt>Niújiē</rt></ruby><ruby>礼拜寺<rt>lǐbàisì</rt></ruby>。<ruby>礼拜寺<rt>lǐbàisì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>小店<rt>xiǎodiàn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>街<rt>jiē</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这里<rt>zhèlǐ</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>拍<rt>pāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 牛街礼拜寺 Niújiē Lǐbàisì: Niujie Mosque ② 街 jiē: street ③ 特别 tèbié: special</div>', stem:'What is to the north of the mosque?', choices:['Small shops (小店).','A busy street.','A park.','A hospital.'], ans:0, hint:'Find 它的北边有小店.' },
-    { type:'hots', stem:'🟡 Cycle 2 — Beijing\u2019s Niujie Mosque (牛街礼拜寺) is a 1000-year-old mosque that blends Chinese and Islamic styles; the UAE\u2019s Sheikh Zayed Grand Mosque is a huge modern white mosque. Which one would you like to visit, and what would you most want to see there? | 🔵 Cycle 3 — Beijing\u2019s Niujie Mosque mixes Chinese and Islamic design, while the UAE\u2019s Sheikh Zayed Grand Mosque is grand and modern. Why do you think places of worship are often a country\u2019s most beautiful buildings, and what does it mean that a Chinese mosque blends two cultures together? Compare.', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>清真寺<rt>qīngzhēnsì</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>的<rt>de</rt></ruby>（　）。 <span class="gl">(The mosque is to the ___ (east) of my home.)</span>', choices:['<ruby>东边<rt>dōngbiān</rt></ruby>','<ruby>西边<rt>xībiān</rt></ruby>','<ruby>南边<rt>nánbiān</rt></ruby>','<ruby>北边<rt>běibiān</rt></ruby>'], ans:0, hint:'东边 = east.' },
+    { type:'mc', skill:'Directions & places', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>得<rt>de</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　），<ruby>大<rt>dà</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>懂<rt>dǒng</rt></ruby>。 <span class="gl">(I spoke ___ (clearly); everyone understood.)</span>', choices:['<ruby>清楚<rt>qīngchu</rt></ruby>','<ruby>不同<rt>bùtóng</rt></ruby>','<ruby>真的<rt>zhēnde</rt></ruby>','<ruby>棒<rt>bàng</rt></ruby>'], ans:0, hint:'清楚 = clear.' },
+    { type:'mc', skill:'Directions & places', stem:'🗣️ A visitor asks where the gym is (it is to the north). You say:', choices:['<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>知道<rt>zhīdào</rt></ruby>。','<ruby>太<rt>tài</rt></ruby><ruby>贵<rt>guì</rt></ruby><ruby>了<rt>le</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'北边是体育馆。' },
+    { type:'mc', skill:'Directions & places', stem:'💡 How do you say \u201cTo the north is the gym\u201d? (HSK tip)', choices:['<ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>  ✔ direction + 是 + place','<ruby>是<rt>shì</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby>  ✘','<ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>是<rt>shì</rt></ruby>  ✘','<ruby>北边<rt>běibiān</rt></ruby><ruby>体育馆<rt>tǐyùguǎn</rt></ruby><ruby>是<rt>shì</rt></ruby>  ✘'], ans:0, hint:'Direction + 是 + place: 北边是体育馆.' },
+    { type:'mc', skill:'Directions & places', stem:'🕌 Beijing Niujie Mosque (北京牛街礼拜寺) is famous because:', choices:['it is a very old mosque that blends Chinese and Islamic styles','it is a new shopping mall','it is a train station','it has no history'], ans:0, hint:'牛街礼拜寺: a 1000-year-old mosque blending Chinese and Islamic design.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><ruby>玩<rt>wán</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>有名<rt>yǒumíng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>牛街<rt>Niújiē</rt></ruby><ruby>礼拜寺<rt>lǐbàisì</rt></ruby>。<ruby>礼拜寺<rt>lǐbàisì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>小店<rt>xiǎodiàn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>街<rt>jiē</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这里<rt>zhèlǐ</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>拍<rt>pāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 牛街礼拜寺 Niújiē Lǐbàisì: Niujie Mosque ② 街 jiē: street ③ 特别 tèbié: special</div>', stem:'Which famous place did Hassan visit?', choices:['Niujie Mosque (牛街礼拜寺).','A gym.','A market.','A school.'], ans:0, hint:'Find 牛街礼拜寺.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><ruby>玩<rt>wán</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>看<rt>kàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>有名<rt>yǒumíng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>牛街<rt>Niújiē</rt></ruby><ruby>礼拜寺<rt>lǐbàisì</rt></ruby>。<ruby>礼拜寺<rt>lǐbàisì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>。<ruby>它<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>北边<rt>běibiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>小店<rt>xiǎodiàn</rt></ruby>，<ruby>南边<rt>nánbiān</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>热闹<rt>rènao</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>街<rt>jiē</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这里<rt>zhèlǐ</rt></ruby><ruby>真<rt>zhēn</rt></ruby><ruby>特别<rt>tèbié</rt></ruby><ruby>！<rt></rt></ruby>”<ruby>他<rt>tā</rt></ruby><ruby>拍<rt>pāi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>照片<rt>zhàopiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 牛街礼拜寺 Niújiē Lǐbàisì: Niujie Mosque ② 街 jiē: street ③ 特别 tèbié: special</div>', stem:'What is to the north of the mosque?', choices:['Small shops (小店).','A busy street.','A park.','A hospital.'], ans:0, hint:'Find 它的北边有小店.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Beijing\u2019s Niujie Mosque (牛街礼拜寺) is a 1000-year-old mosque that blends Chinese and Islamic styles; the UAE\u2019s Sheikh Zayed Grand Mosque is a huge modern white mosque. Which one would you like to visit, and what would you most want to see there? | 🔵 Cycle 3 — Beijing\u2019s Niujie Mosque mixes Chinese and Islamic design, while the UAE\u2019s Sheikh Zayed Grand Mosque is grand and modern. Why do you think places of worship are often a country\u2019s most beautiful buildings, and what does it mean that a Chinese mosque blends two cultures together? Compare.', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
   ]},
 
   ]},
@@ -2191,7 +2191,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2411,7 +2411,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2615,12 +2615,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2629,6 +2629,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2657,7 +2661,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2669,22 +2673,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2762,7 +2766,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 4A-L2 北边是体育馆。</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2B-L3', num:'Lesson 3', title:'你们早饭一般吃什么？What do you usually eat for breakfast?', cn:'西餐与三餐',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary (mixed question types)
+  // TIER 1 · 夯实基础 — 10 core vocabulary (mixed question types)
   { qs:[
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">你早饭（　）吃什么？</span> (usually)', ans:['一般','yìbān','yiban'], hint:'一般 = usually.' },
-    { type:'fill', stem:'认读 · Type the food: <span class="cn">我早饭吃（　）。</span> (egg)', ans:['鸡蛋','jīdàn','jidan'], hint:'鸡蛋 = egg.' },
-    { type:'mc', stem:'🥩 Which one is a MEAT?', choices:['<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>','<ruby>比萨饼<rt>bǐsàbǐng</rt></ruby>'], ans:0, hint:'牛肉 = beef (meat).' },
-    { type:'mc', stem:'🍔 Which word means “hamburger”?', choices:['<ruby>汉堡包<rt>hànbǎobāo</rt></ruby>','<ruby>比萨饼<rt>bǐsàbǐng</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'汉堡包 = hamburger.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby>（　）<ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What do you ___ (usually) eat for breakfast?)</span>', choices:['<ruby>一般<rt>yìbān</rt></ruby>','<ruby>或者<rt>huòzhě</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>','<ruby>好吃<rt>hǎochī</rt></ruby>'], ans:0, hint:'一般 = usually.' },
-    { type:'match', stem:'🍳 Match each food to its meaning.', left:['<ruby>鸡蛋<rt>jīdàn</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], right:['egg','salad','beef','seafood'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'鸡蛋=egg·沙拉=salad·牛肉=beef·海鲜=seafood.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>（　）<ruby>海鲜<rt>hǎixiān</rt></ruby>。 <span class="gl">(I eat beef ___ (or) seafood.)</span>', choices:['<ruby>或者<rt>huòzhě</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>但是<rt>dànshì</rt></ruby>','<ruby>因<rt>yīn</rt></ruby><ruby>为<rt>wèi</rt></ruby>'], ans:0, hint:'或者 = or.' },
-    { type:'mc', stem:'🦐 Which verb goes with 海鲜 (seafood)?', choices:['<ruby>吃<rt>chī</rt></ruby> — to eat','<ruby>喝<rt>hē</rt></ruby> — to drink','<ruby>坐<rt>zuò</rt></ruby> — to sit','<ruby>买<rt>mǎi</rt></ruby> — to buy'], ans:0, hint:'吃 = eat (solid food).' },
-    { type:'match', stem:'🌅 Match each word to its meaning.', left:['<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>'], right:['breakfast','lunch','dinner','convenient'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'早饭=breakfast·午饭=lunch·晚饭=dinner·方便=convenient.' },
-    { type:'mc', stem:'🦐 Which word means “seafood”?', choices:['<ruby>海鲜<rt>hǎixiān</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>羊肉<rt>yángròu</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>'], ans:0, hint:'海鲜 = seafood.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">你早饭（　）吃什么？</span> (usually)', ans:['一般','yìbān','yiban'], hint:'一般 = usually.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the food: <span class="cn">我早饭吃（　）。</span> (egg)', ans:['鸡蛋','jīdàn','jidan'], hint:'鸡蛋 = egg.' },
+    { type:'mc', skill:'Meals & food', stem:'🥩 Which one is a MEAT?', choices:['<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>','<ruby>比萨饼<rt>bǐsàbǐng</rt></ruby>'], ans:0, hint:'牛肉 = beef (meat).' },
+    { type:'mc', skill:'Meals & food', stem:'🍔 Which word means “hamburger”?', choices:['<ruby>汉堡包<rt>hànbǎobāo</rt></ruby>','<ruby>比萨饼<rt>bǐsàbǐng</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'汉堡包 = hamburger.' },
+    { type:'mc', skill:'Meals & food', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby>（　）<ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(What do you ___ (usually) eat for breakfast?)</span>', choices:['<ruby>一般<rt>yìbān</rt></ruby>','<ruby>或者<rt>huòzhě</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>','<ruby>好吃<rt>hǎochī</rt></ruby>'], ans:0, hint:'一般 = usually.' },
+    { type:'match', skill:'Meals & food', stem:'🍳 Match each food to its meaning.', left:['<ruby>鸡蛋<rt>jīdàn</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], right:['egg','salad','beef','seafood'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'鸡蛋=egg·沙拉=salad·牛肉=beef·海鲜=seafood.' },
+    { type:'mc', skill:'Meals & food', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>（　）<ruby>海鲜<rt>hǎixiān</rt></ruby>。 <span class="gl">(I eat beef ___ (or) seafood.)</span>', choices:['<ruby>或者<rt>huòzhě</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>但是<rt>dànshì</rt></ruby>','<ruby>因<rt>yīn</rt></ruby><ruby>为<rt>wèi</rt></ruby>'], ans:0, hint:'或者 = or.' },
+    { type:'mc', skill:'Meals & food', stem:'🦐 Which verb goes with 海鲜 (seafood)?', choices:['<ruby>吃<rt>chī</rt></ruby> — to eat','<ruby>喝<rt>hē</rt></ruby> — to drink','<ruby>坐<rt>zuò</rt></ruby> — to sit','<ruby>买<rt>mǎi</rt></ruby> — to buy'], ans:0, hint:'吃 = eat (solid food).' },
+    { type:'match', skill:'Meals & food', stem:'🌅 Match each word to its meaning.', left:['<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>方便<rt>fāngbiàn</rt></ruby>'], right:['breakfast','lunch','dinner','convenient'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'早饭=breakfast·午饭=lunch·晚饭=dinner·方便=convenient.' },
+    { type:'mc', skill:'Meals & food', stem:'🦐 Which word means “seafood”?', choices:['<ruby>海鲜<rt>hǎixiān</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>羊肉<rt>yángròu</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>'], ans:0, hint:'海鲜 = seafood.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 usage + 写汉字 (mixed types)
+  // TIER 2 · 学以致用 — 10 usage + 写汉字 (mixed types)
   { qs:[
-    { type:'mc', stem:'🍽 Which meal is in the MORNING?', choices:['<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'早饭 = breakfast (morning meal).' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>吃<rt>chī</rt></ruby><ruby>汉堡包<rt>hànbǎobāo</rt></ruby>。 <span class="gl">(I eat a hamburger for ___ (lunch).)</span>', choices:['<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'午饭 = lunch.' },
-    { type:'mc', stem:'❓ Which question gets the answer <ruby>我一般吃鸡蛋<rt>wǒ yìbān chī jīdàn</rt></ruby>?', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你早饭一般吃什么？' },
-    { type:'mc', stem:'🍕 Which adjective describes fast food like 比萨饼 (easy to get)?', choices:['<ruby>方便<rt>fāngbiàn</rt></ruby> — convenient','<ruby>好吃<rt>hǎochī</rt></ruby> — tasty','<ruby>一般<rt>yìbān</rt></ruby> — usually','<ruby>或者<rt>huòzhě</rt></ruby> — or'], ans:0, hint:'方便 = convenient.' },
-    { type:'mc', stem:'🍳 Which sentence means “I eat egg for breakfast”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>晚饭<rt>wǎnfàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。'], ans:0, hint:'早饭吃鸡蛋 = eat egg for breakfast.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你早饭一般吃什么<rt>… yìbān chī shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'Answer: 我一般吃….' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['fàn','zǎo','niú','yáng'], right:['饭','早','牛','羊'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'饭=meal·早=morning·牛=cow·羊=sheep.' },
-    { type:'mc', stem:'🐑 Which word means “lamb”?', choices:['<ruby>羊肉<rt>yángròu</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'羊肉 = lamb.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>（　）<ruby>羊肉<rt>yángròu</rt></ruby>。 <span class="gl">(I eat beef ___ (or) lamb.)</span>', choices:['<ruby>或者<rt>huòzhě</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>但是<rt>dànshì</rt></ruby>','<ruby>因<rt>yīn</rt></ruby><ruby>为<rt>wèi</rt></ruby>'], ans:0, hint:'或者 = or.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我一般吃比萨饼，很（　）。</span> (convenient)', ans:['方便','fāngbiàn','fangbian'], hint:'方便 = convenient.' },
+    { type:'mc', skill:'Meals & food', stem:'🍽 Which meal is in the MORNING?', choices:['<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'早饭 = breakfast (morning meal).' },
+    { type:'mc', skill:'Meals & food', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>吃<rt>chī</rt></ruby><ruby>汉堡包<rt>hànbǎobāo</rt></ruby>。 <span class="gl">(I eat a hamburger for ___ (lunch).)</span>', choices:['<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'午饭 = lunch.' },
+    { type:'mc', skill:'Meals & food', stem:'❓ Which question gets the answer <ruby>我一般吃鸡蛋<rt>wǒ yìbān chī jīdàn</rt></ruby>?', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你早饭一般吃什么？' },
+    { type:'mc', skill:'Meals & food', stem:'🍕 Which adjective describes fast food like 比萨饼 (easy to get)?', choices:['<ruby>方便<rt>fāngbiàn</rt></ruby> — convenient','<ruby>好吃<rt>hǎochī</rt></ruby> — tasty','<ruby>一般<rt>yìbān</rt></ruby> — usually','<ruby>或者<rt>huòzhě</rt></ruby> — or'], ans:0, hint:'方便 = convenient.' },
+    { type:'mc', skill:'Meals & food', stem:'🍳 Which sentence means “I eat egg for breakfast”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>晚饭<rt>wǎnfàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。'], ans:0, hint:'早饭吃鸡蛋 = eat egg for breakfast.' },
+    { type:'mc', skill:'Meals & food', stem:'🗣️ Someone asks <ruby>你早饭一般吃什么<rt>… yìbān chī shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'Answer: 我一般吃….' },
+    { type:'match', skill:'Meals & food', stem:'写汉字 · Match each pinyin to its character.', left:['fàn','zǎo','niú','yáng'], right:['饭','早','牛','羊'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'饭=meal·早=morning·牛=cow·羊=sheep.' },
+    { type:'mc', skill:'Meals & food', stem:'🐑 Which word means “lamb”?', choices:['<ruby>羊肉<rt>yángròu</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'羊肉 = lamb.' },
+    { type:'mc', skill:'Meals & food', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>（　）<ruby>羊肉<rt>yángròu</rt></ruby>。 <span class="gl">(I eat beef ___ (or) lamb.)</span>', choices:['<ruby>或者<rt>huòzhě</rt></ruby>','<ruby>吗<rt>ma</rt></ruby>','<ruby>但是<rt>dànshì</rt></ruby>','<ruby>因<rt>yīn</rt></ruby><ruby>为<rt>wèi</rt></ruby>'], ans:0, hint:'或者 = or.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我一般吃比萨饼，很（　）。</span> (convenient)', ans:['方便','fāngbiàn','fangbian'], hint:'方便 = convenient.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🍕 Which word means “pizza”?', choices:['<ruby>比萨饼<rt>bǐsàbǐng</rt></ruby>','<ruby>汉堡包<rt>hànbǎobāo</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'比萨饼 = pizza.' },
-    { type:'mc', stem:'<ruby>或者<rt>huòzhě</rt></ruby> vs <ruby>还是<rt>háishi</rt></ruby> — what is the difference? (HSK tip)', choices:['或者 = "or" in a statement · 还是 = "or" in a question', 'They are exactly the same.', '或者 is only for questions', '还是 means "and"'], ans:0, hint:'HSK tip: statement → 牛肉或者海鲜 · question → 你吃牛肉还是海鲜？' },
-    { type:'mc', stem:'Culture: China is famous for its <ruby>八大菜系<rt>bā dà càixì</rt></ruby> (Eight Great Cuisines). Which statement is true?', choices:['China has eight major regional cuisines; for example <ruby>川菜<rt>chuāncài</rt></ruby> (Sichuan food) is famous for being spicy.', 'All Chinese food tastes exactly the same.', 'China only has one kind of cooking.', 'Chinese cuisine has no regional differences.'], ans:0, hint:'Culture: China is huge, so each region has its own style — 八大菜系. 川菜 (Sichuan) is known for spicy 辣 flavours.' },
-    { type:'mc', stem:'🌙 Which meal is in the EVENING?', choices:['<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>'], ans:0, hint:'晚饭 = dinner.' },
-    { type:'mc', stem:'🥗 Which word means “salad”?', choices:['<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>'], ans:0, hint:'沙拉 = salad.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><sup>①</sup><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>，<ruby>喝<rt>hē</rt></ruby><ruby>牛奶<rt>niúnǎi</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>汉堡包<rt>hànbǎobāo</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>沙拉<rt>shālā</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby><sup>②</sup>。<ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚饭<rt>wǎnfàn</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>、<ruby>羊肉<rt>yángròu</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><sup>③</sup>。<ruby>妈妈<rt>māma</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好吃<rt>hǎochī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一般 yìbān: usually ② 方便 fāngbiàn: convenient ③ 海鲜 hǎixiān: seafood</div>', stem:'What does Ali (阿里) usually eat and drink for breakfast?', choices:['Egg, and milk (鸡蛋、牛奶).', 'A hamburger or salad.', 'Beef and lamb.', 'Seafood.'], ans:0, hint:'Find 阿里 … 早饭一般 at the start of the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><sup>①</sup><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>，<ruby>喝<rt>hē</rt></ruby><ruby>牛奶<rt>niúnǎi</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>汉堡包<rt>hànbǎobāo</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>沙拉<rt>shālā</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby><sup>②</sup>。<ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚饭<rt>wǎnfàn</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>、<ruby>羊肉<rt>yángròu</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><sup>③</sup>。<ruby>妈妈<rt>māma</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好吃<rt>hǎochī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一般 yìbān: usually ② 方便 fāngbiàn: convenient ③ 海鲜 hǎixiān: seafood</div>', stem:'Why does Hassan (哈桑) eat a hamburger or salad for breakfast?', choices:['Because it is convenient (方便).', 'Because it is cheap.', 'Because it is spicy.', 'Because his mum makes it.'], ans:0, hint:'Find 哈桑 … 他说很 ___ to see his reason.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🍳 People eat different things for breakfast (早饭), lunch (午饭) and dinner (晚饭). What do you usually eat for breakfast, and what is your favourite meal of the day? Why? | 🔵 Cycle 3 — China has Eight Great Cuisines (八大菜系) — each region has its own flavours and famous dishes, shaped by climate, crops and history. The UAE also has special foods for everyday meals and for celebrations. Why do you think the same country can have so many different kinds of food, and what does a region\u2019s food tell us about the people who live there?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Meals & food', stem:'🍕 Which word means “pizza”?', choices:['<ruby>比萨饼<rt>bǐsàbǐng</rt></ruby>','<ruby>汉堡包<rt>hànbǎobāo</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>'], ans:0, hint:'比萨饼 = pizza.' },
+    { type:'mc', skill:'Meals & food', stem:'<ruby>或者<rt>huòzhě</rt></ruby> vs <ruby>还是<rt>háishi</rt></ruby> — what is the difference? (HSK tip)', choices:['或者 = "or" in a statement · 还是 = "or" in a question', 'They are exactly the same.', '或者 is only for questions', '还是 means "and"'], ans:0, hint:'HSK tip: statement → 牛肉或者海鲜 · question → 你吃牛肉还是海鲜？' },
+    { type:'mc', skill:'Meals & food', stem:'Culture: China is famous for its <ruby>八大菜系<rt>bā dà càixì</rt></ruby> (Eight Great Cuisines). Which statement is true?', choices:['China has eight major regional cuisines; for example <ruby>川菜<rt>chuāncài</rt></ruby> (Sichuan food) is famous for being spicy.', 'All Chinese food tastes exactly the same.', 'China only has one kind of cooking.', 'Chinese cuisine has no regional differences.'], ans:0, hint:'Culture: China is huge, so each region has its own style — 八大菜系. 川菜 (Sichuan) is known for spicy 辣 flavours.' },
+    { type:'mc', skill:'Meals & food', stem:'🌙 Which meal is in the EVENING?', choices:['<ruby>晚饭<rt>wǎnfàn</rt></ruby>','<ruby>早饭<rt>zǎofàn</rt></ruby>','<ruby>午饭<rt>wǔfàn</rt></ruby>','<ruby>沙拉<rt>shālā</rt></ruby>'], ans:0, hint:'晚饭 = dinner.' },
+    { type:'mc', skill:'Meals & food', stem:'🥗 Which word means “salad”?', choices:['<ruby>沙拉<rt>shālā</rt></ruby>','<ruby>海鲜<rt>hǎixiān</rt></ruby>','<ruby>牛肉<rt>niúròu</rt></ruby>','<ruby>鸡蛋<rt>jīdàn</rt></ruby>'], ans:0, hint:'沙拉 = salad.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><sup>①</sup><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>，<ruby>喝<rt>hē</rt></ruby><ruby>牛奶<rt>niúnǎi</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>汉堡包<rt>hànbǎobāo</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>沙拉<rt>shālā</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby><sup>②</sup>。<ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚饭<rt>wǎnfàn</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>、<ruby>羊肉<rt>yángròu</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><sup>③</sup>。<ruby>妈妈<rt>māma</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好吃<rt>hǎochī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一般 yìbān: usually ② 方便 fāngbiàn: convenient ③ 海鲜 hǎixiān: seafood</div>', stem:'What does Ali (阿里) usually eat and drink for breakfast?', choices:['Egg, and milk (鸡蛋、牛奶).', 'A hamburger or salad.', 'Beef and lamb.', 'Seafood.'], ans:0, hint:'Find 阿里 … 早饭一般 at the start of the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><sup>①</sup><ruby>吃<rt>chī</rt></ruby><ruby>鸡蛋<rt>jīdàn</rt></ruby>，<ruby>喝<rt>hē</rt></ruby><ruby>牛奶<rt>niúnǎi</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>好朋友<rt>hǎo péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>早饭<rt>zǎofàn</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>汉堡包<rt>hànbǎobāo</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>沙拉<rt>shālā</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby><sup>②</sup>。<ruby>中午<rt>zhōngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>一般<rt>yìbān</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>午饭<rt>wǔfàn</rt></ruby>。<ruby>晚饭<rt>wǎnfàn</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>家人<rt>jiārén</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>吃<rt>chī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>爱<rt>ài</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>牛肉<rt>niúròu</rt></ruby>、<ruby>羊肉<rt>yángròu</rt></ruby><ruby>或者<rt>huòzhě</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><sup>③</sup>。<ruby>妈妈<rt>māma</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>海鲜<rt>hǎixiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>好吃<rt>hǎochī</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 一般 yìbān: usually ② 方便 fāngbiàn: convenient ③ 海鲜 hǎixiān: seafood</div>', stem:'Why does Hassan (哈桑) eat a hamburger or salad for breakfast?', choices:['Because it is convenient (方便).', 'Because it is cheap.', 'Because it is spicy.', 'Because his mum makes it.'], ans:0, hint:'Find 哈桑 … 他说很 ___ to see his reason.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🍳 People eat different things for breakfast (早饭), lunch (午饭) and dinner (晚饭). What do you usually eat for breakfast, and what is your favourite meal of the day? Why? | 🔵 Cycle 3 — China has Eight Great Cuisines (八大菜系) — each region has its own flavours and famous dishes, shaped by climate, crops and history. The UAE also has special foods for everyday meals and for celebrations. Why do you think the same country can have so many different kinds of food, and what does a region\u2019s food tell us about the people who live there?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2B-L3 你们早饭一般吃什么？</title>' +

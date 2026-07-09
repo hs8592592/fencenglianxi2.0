@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1A-L9', num:'Lesson 9', title:'上海在中国。Shanghai is in China.', cn:'地点',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 Workbook-style questions
+  // TIER 1 · 夯实基础 — 10 Workbook-style questions
   { qs:[
-    { type:'mc', stem:'🗺 "Shanghai is in China":', choices:['<ruby>上海在中国<rt>Shànghǎi zài Zhōngguó</rt></ruby>。', '<ruby>中国在上海<rt>Zhōngguó zài Shànghǎi</rt></ruby>。', '<ruby>上海是中国<rt>Shànghǎi shì Zhōngguó</rt></ruby>。', '<ruby>在上海中国<rt>zài Shànghǎi Zhōngguó</rt></ruby>。'], ans:0, hint:'Place + 在 + country = Place is in Country.' },
-    { type:'mc', stem:'❓ "Where is Shanghai?":', choices:['<ruby>上海在哪里<rt>Shànghǎi zài nǎlǐ</rt></ruby>？', '<ruby>上海是哪里<rt>Shànghǎi shì nǎlǐ</rt></ruby>？', '<ruby>哪里上海在<rt>nǎlǐ Shànghǎi zài</rt></ruby>？', '<ruby>上海哪里是<rt>Shànghǎi nǎlǐ shì</rt></ruby>？'], ans:0, hint:'City + 在哪里？= Where is ___?' },
-    { type:'mc', stem:'🗺 <ruby>在<rt>zài</rt></ruby> in 上海在中国 means:', choices:['is in / located in', 'is / equals', 'has', 'from'], ans:0, hint:'在 = to be at / located in.' },
-    { type:'mc', stem:'🗺 <ruby>迪拜<rt>Díbài</rt></ruby> means:', choices:['Dubai', 'Abu Dhabi', 'Beijing', 'Cairo'], ans:0, hint:'迪拜 = Dubai.' },
-    { type:'mc', stem:'🗺 <ruby>哪里<rt>nǎlǐ</rt></ruby> means:', choices:['where (question word)', 'there', 'here', 'that place'], ans:0, hint:'哪里 = where.' },
-    { type:'match', stem:'Match each city to its country.', left:['<ruby>上海<rt>Shànghǎi</rt></ruby>', '<ruby>迪拜<rt>Díbài</rt></ruby>', '<ruby>开罗<rt>Kāiluó</rt></ruby>', '<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby>'], right:['<ruby>中国<rt>Zhōngguó</rt></ruby>', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby>', '<ruby>埃及<rt>Āijí</rt></ruby>', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby>'], pairs:[[0, 0], [1, 1], [2, 2], [3, 3]], hint:'Shanghai→China, Dubai/Abu Dhabi→UAE, Cairo→Egypt.' },
-    { type:'mc', stem:'🗺 "Dubai is in the UAE":', choices:['<ruby>迪拜在阿联酋<rt>Díbài zài Āliánqiú</rt></ruby>。', '<ruby>阿联酋在迪拜<rt>Āliánqiú zài Díbài</rt></ruby>。', '<ruby>迪拜是阿联酋<rt>Díbài shì Āliánqiú</rt></ruby>。', '<ruby>在迪拜阿联酋<rt>zài Díbài Āliánqiú</rt></ruby>。'], ans:0, hint:'City + 在 + country.' },
-    { type:'mc', stem:'🗺 <ruby>北京<rt>Běijīng</rt></ruby> is the capital of:', choices:['<ruby>中国<rt>Zhōngguó</rt></ruby> (China)', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby> (UAE)', '<ruby>埃及<rt>Āijí</rt></ruby> (Egypt)', '<ruby>约旦<rt>Yuēdàn</rt></ruby> (Jordan)'], ans:0, hint:'北京 = Beijing = capital of China.' },
-    { type:'mc', stem:'🗺 <ruby>来自<rt>láizì</rt></ruby> means:', choices:['to come from', 'to go to', 'to live in', 'to know'], ans:0, hint:'来自 = to come from.' },
-    { type:'mc', stem:'🗺 Answer to 上海在哪里？:', choices:['<ruby>上海在中国<rt>Shànghǎi zài Zhōngguó</rt></ruby>。', '<ruby>中国在上海<rt>Zhōngguó zài Shànghǎi</rt></ruby>。', '<ruby>上海是中国<rt>Shànghǎi shì Zhōngguó</rt></ruby>。', '<ruby>在中国上海<rt>zài Zhōngguó Shànghǎi</rt></ruby>。'], ans:0, hint:'City + 在 + country.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 "Shanghai is in China":', choices:['<ruby>上海在中国<rt>Shànghǎi zài Zhōngguó</rt></ruby>。', '<ruby>中国在上海<rt>Zhōngguó zài Shànghǎi</rt></ruby>。', '<ruby>上海是中国<rt>Shànghǎi shì Zhōngguó</rt></ruby>。', '<ruby>在上海中国<rt>zài Shànghǎi Zhōngguó</rt></ruby>。'], ans:0, hint:'Place + 在 + country = Place is in Country.' },
+    { type:'mc', skill:'Places & countries', stem:'❓ "Where is Shanghai?":', choices:['<ruby>上海在哪里<rt>Shànghǎi zài nǎlǐ</rt></ruby>？', '<ruby>上海是哪里<rt>Shànghǎi shì nǎlǐ</rt></ruby>？', '<ruby>哪里上海在<rt>nǎlǐ Shànghǎi zài</rt></ruby>？', '<ruby>上海哪里是<rt>Shànghǎi nǎlǐ shì</rt></ruby>？'], ans:0, hint:'City + 在哪里？= Where is ___?' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 <ruby>在<rt>zài</rt></ruby> in 上海在中国 means:', choices:['is in / located in', 'is / equals', 'has', 'from'], ans:0, hint:'在 = to be at / located in.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 <ruby>迪拜<rt>Díbài</rt></ruby> means:', choices:['Dubai', 'Abu Dhabi', 'Beijing', 'Cairo'], ans:0, hint:'迪拜 = Dubai.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 <ruby>哪里<rt>nǎlǐ</rt></ruby> means:', choices:['where (question word)', 'there', 'here', 'that place'], ans:0, hint:'哪里 = where.' },
+    { type:'match', skill:'Places & countries', stem:'Match each city to its country.', left:['<ruby>上海<rt>Shànghǎi</rt></ruby>', '<ruby>迪拜<rt>Díbài</rt></ruby>', '<ruby>开罗<rt>Kāiluó</rt></ruby>', '<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby>'], right:['<ruby>中国<rt>Zhōngguó</rt></ruby>', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby>', '<ruby>埃及<rt>Āijí</rt></ruby>', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby>'], pairs:[[0, 0], [1, 1], [2, 2], [3, 3]], hint:'Shanghai→China, Dubai/Abu Dhabi→UAE, Cairo→Egypt.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 "Dubai is in the UAE":', choices:['<ruby>迪拜在阿联酋<rt>Díbài zài Āliánqiú</rt></ruby>。', '<ruby>阿联酋在迪拜<rt>Āliánqiú zài Díbài</rt></ruby>。', '<ruby>迪拜是阿联酋<rt>Díbài shì Āliánqiú</rt></ruby>。', '<ruby>在迪拜阿联酋<rt>zài Díbài Āliánqiú</rt></ruby>。'], ans:0, hint:'City + 在 + country.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 <ruby>北京<rt>Běijīng</rt></ruby> is the capital of:', choices:['<ruby>中国<rt>Zhōngguó</rt></ruby> (China)', '<ruby>阿联酋<rt>Āliánqiú</rt></ruby> (UAE)', '<ruby>埃及<rt>Āijí</rt></ruby> (Egypt)', '<ruby>约旦<rt>Yuēdàn</rt></ruby> (Jordan)'], ans:0, hint:'北京 = Beijing = capital of China.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 <ruby>来自<rt>láizì</rt></ruby> means:', choices:['to come from', 'to go to', 'to live in', 'to know'], ans:0, hint:'来自 = to come from.' },
+    { type:'mc', skill:'Places & countries', stem:'🗺 Answer to 上海在哪里？:', choices:['<ruby>上海在中国<rt>Shànghǎi zài Zhōngguó</rt></ruby>。', '<ruby>中国在上海<rt>Zhōngguó zài Shànghǎi</rt></ruby>。', '<ruby>上海是中国<rt>Shànghǎi shì Zhōngguó</rt></ruby>。', '<ruby>在中国上海<rt>zài Zhōngguó Shànghǎi</rt></ruby>。'], ans:0, hint:'City + 在 + country.' },
   ]},
 
 
   { qs:[
-    { type:'mc', stem:'<span class="cn"><ruby>在<rt>zài</rt></ruby></span> in <ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby> means:', choices:['is located in','comes from','goes to','likes'], ans:0, hint:'<ruby>在<rt>zài</rt></ruby>= to be at / located at (verb of location)' },
-    { type:'mc', stem:'<span class="cn"><ruby>哪里<rt>nǎlǐ</rt></ruby></span> means:', choices:['where (question)','there','here','that place'], ans:0, hint:'<ruby>哪<rt>nǎ</rt></ruby>= which →<ruby>哪里<rt>nǎlǐ</rt></ruby>= which place = where (question word)' },
-    { type:'mc', stem:'<span class="cn"><ruby>来自<rt>láizì</rt></ruby></span> means:', choices:['come from','go to','located in','want to go'], ans:0, hint:'<ruby>来<rt>lái</rt></ruby>= come,<ruby>自<rt>zì</rt></ruby>= from/self' },
-    { type:'mc', stem:'Which city is in China?', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby>','<ruby>迪拜<rt>Díbài</rt></ruby>','<ruby>开罗<rt>Kāiluó</rt></ruby>','<ruby>阿曼<rt>Āmàn</rt></ruby>'], ans:0, hint:'<ruby>上海<rt>Shànghǎi</rt></ruby>appears in the lesson title — largest city in China' },
-    { type:'mc', stem:'<span class="cn"><ruby>那里<rt>nàlǐ</rt></ruby></span> means:', choices:['there (that place)','where','here','which place'], ans:0, hint:'<ruby>那<rt>nà</rt></ruby>= that →<ruby>那里<rt>nàlǐ</rt></ruby>= that place (not a question)' },
-    { type:'mc', stem:'<span class="cn"><ruby>北京<rt>Běijīng</rt></ruby></span> is:', choices:['the capital of China','a city in the UAE','a city in Egypt','the capital of Japan'], ans:0, hint:'<ruby>北京<rt>Běijīng</rt></ruby>= Beijing — capital city of China (<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>首都<rt>shǒudū</rt></ruby>)' },
-    { type:'fill', stem:'<span class="cn"><ruby>迪拜<rt>Díbài</rt></ruby>＿＿<ruby>阿联酋<rt>Āliánqiú</rt></ruby>。</span> (Dubai is in the UAE.)', ans:['在','zài','zai'], hint:'<ruby>在<rt>zài</rt></ruby>= located in — verb of location' },
-    { type:'match', stem:'Match city to country', left:['<ruby>上海<rt>Shànghǎi</rt></ruby>','<ruby>迪拜<rt>Díbài</rt></ruby>','<ruby>开罗<rt>Kāiluó</rt></ruby>','<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby>'], right:['<ruby>中国<rt>Zhōngguó</rt></ruby>','<ruby>阿联酋<rt>Āliánqiú</rt></ruby>','<ruby>埃及<rt>Āijí</rt></ruby>','<ruby>阿联酋<rt>Āliánqiú</rt></ruby>'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Geography from the lesson:<ruby>上海<rt>Shànghǎi</rt></ruby>→<ruby>中国<rt>Zhōngguó</rt></ruby>,<ruby>迪拜<rt>Díbài</rt></ruby>→<ruby>阿联酋<rt>Āliánqiú</rt></ruby>' },
-    { type:'mc', stem:'<span class="cn"><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪里<rt>nǎlǐ</rt></ruby>？</span> — Best answer:', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>来自<rt>láizì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。','<ruby>那里<rt>nàlǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby>。'], ans:0, hint:'Use<ruby>在<rt>zài</rt></ruby>+ location to answer<ruby>在<rt>zài</rt></ruby><ruby>哪里<rt>nǎlǐ</rt></ruby>questions' },
-    { type:'fill', stem:'Say "I come from Abu Dhabi": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>来自<rt>láizì</rt></ruby>＿＿＿＿。</span>', ans:['阿布扎比','ābùzhābǐ','abuzhabi'], hint:'<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby>= Abu Dhabi' },
+    { type:'mc', skill:'Places & countries', stem:'<span class="cn"><ruby>在<rt>zài</rt></ruby></span> in <ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby> means:', choices:['is located in','comes from','goes to','likes'], ans:0, hint:'<ruby>在<rt>zài</rt></ruby>= to be at / located at (verb of location)' },
+    { type:'mc', skill:'Places & countries', stem:'<span class="cn"><ruby>哪里<rt>nǎlǐ</rt></ruby></span> means:', choices:['where (question)','there','here','that place'], ans:0, hint:'<ruby>哪<rt>nǎ</rt></ruby>= which →<ruby>哪里<rt>nǎlǐ</rt></ruby>= which place = where (question word)' },
+    { type:'mc', skill:'Places & countries', stem:'<span class="cn"><ruby>来自<rt>láizì</rt></ruby></span> means:', choices:['come from','go to','located in','want to go'], ans:0, hint:'<ruby>来<rt>lái</rt></ruby>= come,<ruby>自<rt>zì</rt></ruby>= from/self' },
+    { type:'mc', skill:'Places & countries', stem:'Which city is in China?', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby>','<ruby>迪拜<rt>Díbài</rt></ruby>','<ruby>开罗<rt>Kāiluó</rt></ruby>','<ruby>阿曼<rt>Āmàn</rt></ruby>'], ans:0, hint:'<ruby>上海<rt>Shànghǎi</rt></ruby>appears in the lesson title — largest city in China' },
+    { type:'mc', skill:'Places & countries', stem:'<span class="cn"><ruby>那里<rt>nàlǐ</rt></ruby></span> means:', choices:['there (that place)','where','here','which place'], ans:0, hint:'<ruby>那<rt>nà</rt></ruby>= that →<ruby>那里<rt>nàlǐ</rt></ruby>= that place (not a question)' },
+    { type:'mc', skill:'Places & countries', stem:'<span class="cn"><ruby>北京<rt>Běijīng</rt></ruby></span> is:', choices:['the capital of China','a city in the UAE','a city in Egypt','the capital of Japan'], ans:0, hint:'<ruby>北京<rt>Běijīng</rt></ruby>= Beijing — capital city of China (<ruby>中国<rt>Zhōngguó</rt></ruby><ruby>首都<rt>shǒudū</rt></ruby>)' },
+    { type:'fill', skill:'Sentence patterns', stem:'<span class="cn"><ruby>迪拜<rt>Díbài</rt></ruby>＿＿<ruby>阿联酋<rt>Āliánqiú</rt></ruby>。</span> (Dubai is in the UAE.)', ans:['在','zài','zai'], hint:'<ruby>在<rt>zài</rt></ruby>= located in — verb of location' },
+    { type:'match', skill:'Places & countries', stem:'Match city to country', left:['<ruby>上海<rt>Shànghǎi</rt></ruby>','<ruby>迪拜<rt>Díbài</rt></ruby>','<ruby>开罗<rt>Kāiluó</rt></ruby>','<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby>'], right:['<ruby>中国<rt>Zhōngguó</rt></ruby>','<ruby>阿联酋<rt>Āliánqiú</rt></ruby>','<ruby>埃及<rt>Āijí</rt></ruby>','<ruby>阿联酋<rt>Āliánqiú</rt></ruby>'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Geography from the lesson:<ruby>上海<rt>Shànghǎi</rt></ruby>→<ruby>中国<rt>Zhōngguó</rt></ruby>,<ruby>迪拜<rt>Díbài</rt></ruby>→<ruby>阿联酋<rt>Āliánqiú</rt></ruby>' },
+    { type:'mc', skill:'Places & countries', stem:'<span class="cn"><ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪里<rt>nǎlǐ</rt></ruby>？</span> — Best answer:', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>来自<rt>láizì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。','<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。','<ruby>那里<rt>nàlǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>上海<rt>Shànghǎi</rt></ruby>。'], ans:0, hint:'Use<ruby>在<rt>zài</rt></ruby>+ location to answer<ruby>在<rt>zài</rt></ruby><ruby>哪里<rt>nǎlǐ</rt></ruby>questions' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I come from Abu Dhabi": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>来自<rt>láizì</rt></ruby>＿＿＿＿。</span>', ans:['阿布扎比','ābùzhābǐ','abuzhabi'], hint:'<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby>= Abu Dhabi' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>在<rt>zài</rt></ruby> in <ruby>上海在中国<rt>Shànghǎi zài Zhōngguó</rt></ruby> means:', choices:['is in / located in', 'is / equals', 'has', 'from'], ans:0, hint:'在 = to be at/in — used for location.' },
-    { type:'mc', stem:'<ruby>哪里<rt>nǎlǐ</rt></ruby> means:', choices:['where (question word)', 'there', 'here', 'that place'], ans:0, hint:'哪里 = where.' },
-    { type:'mc', stem:'<ruby>来自<rt>láizì</rt></ruby> means:', choices:['to come from', 'to go to', 'to live in', 'to know'], ans:0, hint:'来自 = to come from.' },
-    { type:'mc', stem:'Which city is in China?', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby>', '<ruby>迪拜<rt>Díbài</rt></ruby>', '<ruby>开罗<rt>Kāiluó</rt></ruby>', '<ruby>安曼<rt>Ānmàn</rt></ruby>'], ans:0, hint:"上海 (Shanghai) is China largest city." },
-    { type:'mc', stem:'In Chinese (HSK), 在 (zài) is used to show location. Which sentence is correct? (HSK tip)', choices:['上海在中国 (Shànghǎi zài Zhōngguó) — Shanghai is in China.','上海是中国 (Shànghǎi shì Zhōngguó) — wrong: 是 means equals, not located in.','中国在上海 (Zhōngguó zài Shànghǎi) — wrong: reverses the location.','上海有中国 (Shànghǎi yǒu Zhōngguó) — wrong: 有 means has.'], ans:0, hint:'HSK tip: Use 在 for location: Place + 在 + Country. Not 是 or 有!' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>上海<rt>Shànghǎi</rt></ruby>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>。<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>首都<rt>shǒudū</rt></ruby><sup>③</sup>。<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>④</sup><ruby>问<rt>wèn</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在哪里<rt>zài nǎlǐ</rt></ruby>？"<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 首都 shǒudū: capital city ④ 同学 tóngxué: classmate</div>', stem:'Where is Xiao Ming from?', choices:['Shanghai, China (上海，中国).', 'Abu Dhabi, UAE.', 'Cairo, Egypt.', 'Amman, Jordan.'], ans:0, hint:'Find 来自 at the start of the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>上海<rt>Shànghǎi</rt></ruby>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>。<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>首都<rt>shǒudū</rt></ruby><sup>③</sup>。<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>④</sup><ruby>问<rt>wèn</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在哪里<rt>zài nǎlǐ</rt></ruby>？"<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 首都 shǒudū: capital city ④ 同学 tóngxué: classmate</div>', stem:'What is Abu Dhabi described as in the passage?', choices:['The capital of the UAE (阿联酋的首都).', 'The largest city in UAE.', 'A city in China.', 'A city near Dubai.'], ans:0, hint:'Find 首都 — it means capital city.' },
-    { type:'hots', stem:'🟡 Cycle 2 — China has huge cities — 北京 (Beijing) is the capital and 上海 (Shanghai) means “on the sea”. Which city do you live in or near, and does its name have a meaning or story? | 🔵 Cycle 3 — Beijing is an old capital full of history while Shanghai is a modern business city, and big cities like Shanghai and Dubai often grow near water. Why do you think cities grow by the sea or rivers, and would you rather live in a busy big city or a small quiet town?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Places & countries', stem:'<ruby>在<rt>zài</rt></ruby> in <ruby>上海在中国<rt>Shànghǎi zài Zhōngguó</rt></ruby> means:', choices:['is in / located in', 'is / equals', 'has', 'from'], ans:0, hint:'在 = to be at/in — used for location.' },
+    { type:'mc', skill:'Places & countries', stem:'<ruby>哪里<rt>nǎlǐ</rt></ruby> means:', choices:['where (question word)', 'there', 'here', 'that place'], ans:0, hint:'哪里 = where.' },
+    { type:'mc', skill:'Places & countries', stem:'<ruby>来自<rt>láizì</rt></ruby> means:', choices:['to come from', 'to go to', 'to live in', 'to know'], ans:0, hint:'来自 = to come from.' },
+    { type:'mc', skill:'Places & countries', stem:'Which city is in China?', choices:['<ruby>上海<rt>Shànghǎi</rt></ruby>', '<ruby>迪拜<rt>Díbài</rt></ruby>', '<ruby>开罗<rt>Kāiluó</rt></ruby>', '<ruby>安曼<rt>Ānmàn</rt></ruby>'], ans:0, hint:"上海 (Shanghai) is China largest city." },
+    { type:'mc', skill:'Places & countries', stem:'In Chinese (HSK), 在 (zài) is used to show location. Which sentence is correct? (HSK tip)', choices:['上海在中国 (Shànghǎi zài Zhōngguó) — Shanghai is in China.','上海是中国 (Shànghǎi shì Zhōngguó) — wrong: 是 means equals, not located in.','中国在上海 (Zhōngguó zài Shànghǎi) — wrong: reverses the location.','上海有中国 (Shànghǎi yǒu Zhōngguó) — wrong: 有 means has.'], ans:0, hint:'HSK tip: Use 在 for location: Place + 在 + Country. Not 是 or 有!' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>上海<rt>Shànghǎi</rt></ruby>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>。<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>首都<rt>shǒudū</rt></ruby><sup>③</sup>。<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>④</sup><ruby>问<rt>wèn</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在哪里<rt>zài nǎlǐ</rt></ruby>？"<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 首都 shǒudū: capital city ④ 同学 tóngxué: classmate</div>', stem:'Where is Xiao Ming from?', choices:['Shanghai, China (上海，中国).', 'Abu Dhabi, UAE.', 'Cairo, Egypt.', 'Amman, Jordan.'], ans:0, hint:'Find 来自 at the start of the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>上海<rt>Shànghǎi</rt></ruby>。<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>。<ruby>阿布扎比<rt>Ābùzhābǐ</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋<rt>Āliánqiú</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>首都<rt>shǒudū</rt></ruby><sup>③</sup>。<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>④</sup><ruby>问<rt>wèn</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在哪里<rt>zài nǎlǐ</rt></ruby>？"<ruby>小明<rt>Xiǎo Míng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>上海<rt>Shànghǎi</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 首都 shǒudū: capital city ④ 同学 tóngxué: classmate</div>', stem:'What is Abu Dhabi described as in the passage?', choices:['The capital of the UAE (阿联酋的首都).', 'The largest city in UAE.', 'A city in China.', 'A city near Dubai.'], ans:0, hint:'Find 首都 — it means capital city.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — China has huge cities — 北京 (Beijing) is the capital and 上海 (Shanghai) means “on the sea”. Which city do you live in or near, and does its name have a meaning or story? | 🔵 Cycle 3 — Beijing is an old capital full of history while Shanghai is a modern business city, and big cities like Shanghai and Dubai often grow near water. Why do you think cities grow by the sea or rivers, and would you rather live in a busy big city or a small quiet town?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1A-L9 上海在中国。</title>' +

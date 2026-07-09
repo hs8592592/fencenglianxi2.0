@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'3A-L1', num:'Lesson 1', title:'你周末常常做什么？What do you often do on weekends?', cn:'休闲活动',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: leisure activities (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: leisure activities (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>（　）<ruby>排球<rt>páiqiú</rt></ruby>。 <span class="gl">(I like to ___ (play) volleyball.)</span>', choices:['<ruby>打<rt>dǎ</rt></ruby>','<ruby>练<rt>liàn</rt></ruby>','<ruby>爬<rt></rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'Ball games use 打: 打排球 = play volleyball.' },
-    { type:'match', stem:'🏐 Match each word to its meaning.', left:['<ruby>排球<rt>páiqiú</rt></ruby>','<ruby>武术<rt>wǔshù</rt></ruby>','<ruby>练<rt>liàn</rt></ruby>','<ruby>周末<rt>zhōumò</rt></ruby>'], right:['volleyball','martial arts','to practise','weekend'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'排球=volleyball · 武术=martial arts · 练=practise · 周末=weekend.' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>做<rt>zuò</rt></ruby>（　）？ <span class="gl">(What do you often do on weekends?)</span>', choices:['<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪里<rt>nǎlǐ</rt></ruby>','<ruby>谁<rt>shéi</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'做什么 = do what.' },
-    { type:'mc', stem:'🛍️ Which word means “to go shopping / stroll”?', choices:['<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>看书<rt>kàn shū</rt></ruby>'], ans:0, hint:'逛街 = to stroll the shops.' },
-    { type:'mc', stem:'🥋 Which word means “martial arts”?', choices:['<ruby>武术<rt>wǔshù</rt></ruby>','<ruby>排球<rt>páiqiú</rt></ruby>','<ruby>冲浪<rt>chōnglàng</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>'], ans:0, hint:'武术 = Chinese martial arts.' },
-    { type:'match', stem:'🎉 Match each activity to its meaning.', left:['<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>冲浪<rt>chōnglàng</rt></ruby>'], right:['to go shopping','to chat','to hike','to surf'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'逛街=shop · 聊天=chat · 爬山=hike · 冲浪=surf.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby>（　）<ruby>天<rt>tiān</rt></ruby>。 <span class="gl">(I ___ (chat) with friends.)</span>', choices:['<ruby>聊<rt>liáo</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>逛<rt>guàng</rt></ruby>','<ruby>爬<rt></rt></ruby>'], ans:0, hint:'聊天 = to chat.' },
-    { type:'mc', stem:'📅 Which word means “weekend”?', choices:['<ruby>周末<rt>zhōumò</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>','<ruby>明天<rt>míngtiān</rt></ruby>','<ruby>星期<rt>xīngqī</rt></ruby>'], ans:0, hint:'周末 = weekend.' },
-    { type:'fill', stem:'认读 · Type the character: <span class="cn">我喜欢爬（　）。</span> (mountain)', ans:['山','shan','shān'], hint:'爬山 = to hike. 山 = mountain.' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">我周末常常（　）街。</span> (stroll / shop)', ans:['逛','guàng','guang'], hint:'逛街 = to stroll the shops. The word is 逛.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>（　）<ruby>排球<rt>páiqiú</rt></ruby>。 <span class="gl">(I like to ___ (play) volleyball.)</span>', choices:['<ruby>打<rt>dǎ</rt></ruby>','<ruby>练<rt>liàn</rt></ruby>','<ruby>爬<rt></rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'Ball games use 打: 打排球 = play volleyball.' },
+    { type:'match', skill:'Weekend routines', stem:'🏐 Match each word to its meaning.', left:['<ruby>排球<rt>páiqiú</rt></ruby>','<ruby>武术<rt>wǔshù</rt></ruby>','<ruby>练<rt>liàn</rt></ruby>','<ruby>周末<rt>zhōumò</rt></ruby>'], right:['volleyball','martial arts','to practise','weekend'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'排球=volleyball · 武术=martial arts · 练=practise · 周末=weekend.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>做<rt>zuò</rt></ruby>（　）？ <span class="gl">(What do you often do on weekends?)</span>', choices:['<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪里<rt>nǎlǐ</rt></ruby>','<ruby>谁<rt>shéi</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'做什么 = do what.' },
+    { type:'mc', skill:'Weekend routines', stem:'🛍️ Which word means “to go shopping / stroll”?', choices:['<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>看书<rt>kàn shū</rt></ruby>'], ans:0, hint:'逛街 = to stroll the shops.' },
+    { type:'mc', skill:'Weekend routines', stem:'🥋 Which word means “martial arts”?', choices:['<ruby>武术<rt>wǔshù</rt></ruby>','<ruby>排球<rt>páiqiú</rt></ruby>','<ruby>冲浪<rt>chōnglàng</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>'], ans:0, hint:'武术 = Chinese martial arts.' },
+    { type:'match', skill:'Weekend routines', stem:'🎉 Match each activity to its meaning.', left:['<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>冲浪<rt>chōnglàng</rt></ruby>'], right:['to go shopping','to chat','to hike','to surf'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'逛街=shop · 聊天=chat · 爬山=hike · 冲浪=surf.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby>（　）<ruby>天<rt>tiān</rt></ruby>。 <span class="gl">(I ___ (chat) with friends.)</span>', choices:['<ruby>聊<rt>liáo</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>逛<rt>guàng</rt></ruby>','<ruby>爬<rt></rt></ruby>'], ans:0, hint:'聊天 = to chat.' },
+    { type:'mc', skill:'Weekend routines', stem:'📅 Which word means “weekend”?', choices:['<ruby>周末<rt>zhōumò</rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby>','<ruby>明天<rt>míngtiān</rt></ruby>','<ruby>星期<rt>xīngqī</rt></ruby>'], ans:0, hint:'周末 = weekend.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the character: <span class="cn">我喜欢爬（　）。</span> (mountain)', ans:['山','shan','shān'], hint:'爬山 = to hike. 山 = mountain.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">我周末常常（　）街。</span> (stroll / shop)', ans:['逛','guàng','guang'], hint:'逛街 = to stroll the shops. The word is 逛.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 8 usage + 常常 + verb doubling + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
+  // TIER 2 · 学以致用 — 8 usage + 常常 + verb doubling + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>街<rt>jiē</rt></ruby>。 <span class="gl">(I go ___ (shopping) with friends.)</span>', choices:['<ruby>逛<rt>guàng</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>练<rt>liàn</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby>'], ans:0, hint:'逛街 = to stroll the shops.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['shān','tiān','kàn','liàn'], right:['山','天','看','练'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'山=mountain · 天=day/sky · 看=look · 练=practise.' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">我和朋友（　）天。</span> (chat)', ans:['聊','liáo','liao'], hint:'聊天 = to chat. The word is 聊.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby>（　）。 <span class="gl">(We go to the seaside to ___ (surf).)</span>', choices:['<ruby>冲浪<rt>chōnglàng</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>'], ans:0, hint:'冲浪 = to surf (on the sea).' },
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby>（　）<ruby>什么<rt>shénme</rt></ruby>？ <span class="gl">(What do you often ___ (do) on weekends?)</span>', choices:['<ruby>做<rt>zuò</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'做什么 = do what.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>（　）<ruby>武术<rt>wǔshù</rt></ruby>。 <span class="gl">(I like to ___ (practise) martial arts.)</span>', choices:['<ruby>练<rt>liàn</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby>','<ruby>爬<rt></rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'练 + skill = practise. 练武术.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>爬山<rt>páshān</rt></ruby>。 <span class="gl">(I ___ (often) hike.)</span>', choices:['<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], ans:0, hint:'常常 = often. It goes before the verb.' },
-    { type:'mc', stem:'🗣️ A friend asks <ruby>你周末常常做什么<rt>nǐ zhōumò chángcháng zuò shénme</rt></ruby>？ You answer:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby>，<ruby>也<rt></rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？','<ruby>今天<rt>jīntiān</rt></ruby><ruby>明天<rt>míngtiān</rt></ruby>。','<ruby>他<rt></rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。'], ans:0, hint:'Answer with what YOU often do at weekends.' },
-{ type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>①</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 逛街 guàngjiē: to stroll &amp; shop</div>', stem:'What does the speaker do on Saturday morning?', choices:['Reads books at home (在家看书).', 'Goes shopping.', 'Goes to the park.', 'Practises martial arts.'], ans:0, hint:'Find 星期六上午，我常常 …… 在家看书 = read at home.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>①</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 逛街 guàngjiē: to stroll &amp; shop</div>', stem:'What does the speaker think about the weekend?', choices:['It is interesting (有意思).', 'It is boring.', 'It is too short.', 'It is tiring.'], ans:0, hint:'Look at the last sentence: 我觉得周末很 ……'},
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby>（　）<ruby>街<rt>jiē</rt></ruby>。 <span class="gl">(I go ___ (shopping) with friends.)</span>', choices:['<ruby>逛<rt>guàng</rt></ruby>','<ruby>看<rt>kàn</rt></ruby>','<ruby>练<rt>liàn</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby>'], ans:0, hint:'逛街 = to stroll the shops.' },
+    { type:'match', skill:'Weekend routines', stem:'写汉字 · Match each pinyin to its character.', left:['shān','tiān','kàn','liàn'], right:['山','天','看','练'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'山=mountain · 天=day/sky · 看=look · 练=practise.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">我和朋友（　）天。</span> (chat)', ans:['聊','liáo','liao'], hint:'聊天 = to chat. The word is 聊.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>们<rt>men</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby>（　）。 <span class="gl">(We go to the seaside to ___ (surf).)</span>', choices:['<ruby>冲浪<rt>chōnglàng</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>'], ans:0, hint:'冲浪 = to surf (on the sea).' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby>（　）<ruby>什么<rt>shénme</rt></ruby>？ <span class="gl">(What do you often ___ (do) on weekends?)</span>', choices:['<ruby>做<rt>zuò</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>','<ruby>在<rt>zài</rt></ruby>'], ans:0, hint:'做什么 = do what.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby>（　）<ruby>武术<rt>wǔshù</rt></ruby>。 <span class="gl">(I like to ___ (practise) martial arts.)</span>', choices:['<ruby>练<rt>liàn</rt></ruby>','<ruby>打<rt>dǎ</rt></ruby>','<ruby>爬<rt></rt></ruby>','<ruby>看<rt>kàn</rt></ruby>'], ans:0, hint:'练 + skill = practise. 练武术.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>爬山<rt>páshān</rt></ruby>。 <span class="gl">(I ___ (often) hike.)</span>', choices:['<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], ans:0, hint:'常常 = often. It goes before the verb.' },
+    { type:'mc', skill:'Weekend routines', stem:'🗣️ A friend asks <ruby>你周末常常做什么<rt>nǐ zhōumò chángcháng zuò shénme</rt></ruby>？ You answer:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby>，<ruby>也<rt></rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什么<rt>shénme</rt></ruby>？','<ruby>今天<rt>jīntiān</rt></ruby><ruby>明天<rt>míngtiān</rt></ruby>。','<ruby>他<rt></rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。'], ans:0, hint:'Answer with what YOU often do at weekends.' },
+{ type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>①</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 逛街 guàngjiē: to stroll &amp; shop</div>', stem:'What does the speaker do on Saturday morning?', choices:['Reads books at home (在家看书).', 'Goes shopping.', 'Goes to the park.', 'Practises martial arts.'], ans:0, hint:'Find 星期六上午，我常常 …… 在家看书 = read at home.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>看书<rt>kàn shū</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>①</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 逛街 guàngjiē: to stroll &amp; shop</div>', stem:'What does the speaker think about the weekend?', choices:['It is interesting (有意思).', 'It is boring.', 'It is too short.', 'It is tiring.'], ans:0, hint:'Look at the last sentence: 我觉得周末很 ……'},
       ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🏄 Which word means “to surf”?', choices:['<ruby>冲浪<rt>chōnglàng</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>'], ans:0, hint:'冲浪 = to surf.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby>（　）。 <span class="gl">(On weekends I often ___ (hike).)</span>', choices:['<ruby>爬山<rt>páshān</rt></ruby>','<ruby>看书<rt>kàn shū</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>','<ruby>逛街<rt>guàngjiē</rt></ruby>'], ans:0, hint:'爬山 = to hike.' },
-    { type:'mc', stem:'Where does <ruby>常常<rt>chángcháng</rt></ruby> go, and what does doubling a verb do? (HSK tip)', choices:['常常 goes before the verb (我常常爬山); doubling a verb (逛逛/看看) makes it sound casual and brief.', '常常 goes at the end of the sentence.', 'Doubling a verb makes it past tense.', '常常 means "never".'], ans:0, hint:'常常 + verb = often. 看看/逛逛 = "have a little look / stroll".' },
-    { type:'mc', stem:'🏐 Which verb goes with 排球 (volleyball)?', choices:['<ruby>打<rt>dǎ</rt></ruby> — to play','<ruby>练<rt>liàn</rt></ruby> — to practise','<ruby>爬<rt>pá</rt></ruby> — to climb','<ruby>冲<rt>chōng</rt></ruby> — to rush'], ans:0, hint:'打排球 = play volleyball.' },
-    { type:'mc', stem:'Culture: <ruby>中国人的休闲生活<rt>Zhōngguó rén de xiūxián shēnghuó</rt></ruby> — leisure in China. Which is true?', choices:['Chinese people enjoy many pastimes — practising 太极 (tai chi) and dancing in parks, hiking, playing chess, and shopping or chatting with friends.', 'People in China have no free time.', 'Chinese people only watch TV.', 'No one in China does sport.'], ans:0, hint:'休闲生活 = leisure life. Parks fill with people doing tai chi, dancing, and exercising, especially in the morning and at weekends.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby><sup>①</sup>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>②</sup>、<ruby>聊天<rt>liáotiān</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>爬山<rt>páshān</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby><sup>③</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby><sup>④</sup>。<ruby>冲浪<rt>chōnglàng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 事 shì: thing / matter ② 逛街 guàngjiē: to stroll & shop ③ 武术 wǔshù: martial arts ④ 冲浪 chōnglàng: to surf</div>', stem:'What do they do on Saturday morning?', choices:['Go shopping and chat (逛街、聊天).', 'Practise martial arts.', 'Go surfing.', 'Climb a mountain.'], ans:0, hint:'Find 星期六上午，我们去 ……' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby><sup>①</sup>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>②</sup>、<ruby>聊天<rt>liáotiān</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>爬山<rt>páshān</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby><sup>③</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby><sup>④</sup>。<ruby>冲浪<rt>chōnglàng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 事 shì: thing / matter ② 逛街 guàngjiē: to stroll & shop ③ 武术 wǔshù: martial arts ④ 冲浪 chōnglàng: to surf</div>', stem:'What does Hassan (哈桑) like to do?', choices:['Practise martial arts (练武术).', 'Go shopping.', 'Climb a mountain.', 'Read books.'], ans:0, hint:'Find 哈桑喜欢 ……' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🎉 Imagine you could invent the PERFECT weekend that mixes the best of Chinese and Emirati free-time activities — maybe tai chi in a park at sunrise, surfing at the beach, a desert hike, or chatting over mint tea. Design your dream weekend and explain why each part would be fun and good for you. | 🔵 Cycle 3 — 🌍 In China, parks fill at weekends with people doing tai chi, dancing and playing chess together; in the UAE, families often gather at home, visit the desert, the beach or the mall, especially in cooler hours. Why do you think climate, family life and tradition shape how people relax, and what can the way a culture spends its FREE time tell us about what it truly values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Weekend routines', stem:'🏄 Which word means “to surf”?', choices:['<ruby>冲浪<rt>chōnglàng</rt></ruby>','<ruby>爬山<rt>páshān</rt></ruby>','<ruby>逛街<rt>guàngjiē</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>'], ans:0, hint:'冲浪 = to surf.' },
+    { type:'mc', skill:'Weekend routines', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby>（　）。 <span class="gl">(On weekends I often ___ (hike).)</span>', choices:['<ruby>爬山<rt>páshān</rt></ruby>','<ruby>看书<rt>kàn shū</rt></ruby>','<ruby>聊天<rt>liáotiān</rt></ruby>','<ruby>逛街<rt>guàngjiē</rt></ruby>'], ans:0, hint:'爬山 = to hike.' },
+    { type:'mc', skill:'Weekend routines', stem:'Where does <ruby>常常<rt>chángcháng</rt></ruby> go, and what does doubling a verb do? (HSK tip)', choices:['常常 goes before the verb (我常常爬山); doubling a verb (逛逛/看看) makes it sound casual and brief.', '常常 goes at the end of the sentence.', 'Doubling a verb makes it past tense.', '常常 means "never".'], ans:0, hint:'常常 + verb = often. 看看/逛逛 = "have a little look / stroll".' },
+    { type:'mc', skill:'Weekend routines', stem:'🏐 Which verb goes with 排球 (volleyball)?', choices:['<ruby>打<rt>dǎ</rt></ruby> — to play','<ruby>练<rt>liàn</rt></ruby> — to practise','<ruby>爬<rt>pá</rt></ruby> — to climb','<ruby>冲<rt>chōng</rt></ruby> — to rush'], ans:0, hint:'打排球 = play volleyball.' },
+    { type:'mc', skill:'Weekend routines', stem:'Culture: <ruby>中国人的休闲生活<rt>Zhōngguó rén de xiūxián shēnghuó</rt></ruby> — leisure in China. Which is true?', choices:['Chinese people enjoy many pastimes — practising 太极 (tai chi) and dancing in parks, hiking, playing chess, and shopping or chatting with friends.', 'People in China have no free time.', 'Chinese people only watch TV.', 'No one in China does sport.'], ans:0, hint:'休闲生活 = leisure life. Parks fill with people doing tai chi, dancing, and exercising, especially in the morning and at weekends.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby><sup>①</sup>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>②</sup>、<ruby>聊天<rt>liáotiān</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>爬山<rt>páshān</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby><sup>③</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby><sup>④</sup>。<ruby>冲浪<rt>chōnglàng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 事 shì: thing / matter ② 逛街 guàngjiē: to stroll & shop ③ 武术 wǔshù: martial arts ④ 冲浪 chōnglàng: to surf</div>', stem:'What do they do on Saturday morning?', choices:['Go shopping and chat (逛街、聊天).', 'Practise martial arts.', 'Go surfing.', 'Climb a mountain.'], ans:0, hint:'Find 星期六上午，我们去 ……' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby><sup>①</sup>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>②</sup>、<ruby>聊天<rt>liáotiān</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>爬山<rt>páshān</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby><sup>③</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby><sup>④</sup>。<ruby>冲浪<rt>chōnglàng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 事 shì: thing / matter ② 逛街 guàngjiē: to stroll & shop ③ 武术 wǔshù: martial arts ④ 冲浪 chōnglàng: to surf</div>', stem:'What does Hassan (哈桑) like to do?', choices:['Practise martial arts (练武术).', 'Go shopping.', 'Climb a mountain.', 'Read books.'], ans:0, hint:'Find 哈桑喜欢 ……' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🎉 Imagine you could invent the PERFECT weekend that mixes the best of Chinese and Emirati free-time activities — maybe tai chi in a park at sunrise, surfing at the beach, a desert hike, or chatting over mint tea. Design your dream weekend and explain why each part would be fun and good for you. | 🔵 Cycle 3 — 🌍 In China, parks fill at weekends with people doing tai chi, dancing and playing chess together; in the UAE, families often gather at home, visit the desert, the beach or the mall, especially in cooler hours. Why do you think climate, family life and tradition shape how people relax, and what can the way a culture spends its FREE time tell us about what it truly values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 3A-L1 你周末常常做什么？</title>' +

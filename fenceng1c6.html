@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1C-L6', num:'Lesson 6', title:'我会说汉语。I can speak Chinese.', cn:'语言和能力',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & "can" sentence questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & "can" sentence questions
   { qs:[
-    { type:'mc', stem:'🗣️ "I can speak Chinese" in Chinese:', choices:['<ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby>。', '<ruby>我说会汉语<rt>wǒ shuō huì Hànyǔ</rt></ruby>。', '<ruby>我汉语会说<rt>wǒ Hànyǔ huì shuō</rt></ruby>。', '<ruby>会我说汉语<rt>huì wǒ shuō Hànyǔ</rt></ruby>。'], ans:0, hint:'Word order: 我 (I) + 会 (can) + 说 (speak) + 汉语 (Chinese).' },
-    { type:'mc', stem:'✅ <ruby>会<rt>huì</rt></ruby> means:', choices:['can / be able to', 'want', 'have', 'like'], ans:0, hint:'会 = can (a skill you have learned).' },
-    { type:'mc', stem:'🇨🇳 <ruby>汉语<rt>Hànyǔ</rt></ruby> means:', choices:['Chinese (language)', 'English', 'Arabic', 'a Chinese person'], ans:0, hint:'汉语 = the Chinese language.' },
-    { type:'mc', stem:'🇬🇧 <ruby>英语<rt>Yīngyǔ</rt></ruby> means:', choices:['English', 'Chinese', 'Arabic', 'French'], ans:0, hint:'英语 = English · 汉语 = Chinese · 阿拉伯语 = Arabic.' },
-    { type:'match', stem:'Match each word to its meaning.', left:['<ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby>', '<ruby>写汉字<rt>xiě Hànzì</rt></ruby>', '<ruby>学习<rt>xuéxí</rt></ruby>', '<ruby>些<rt>xiē</rt></ruby>'], right:['Arabic', 'write characters', 'to study / learn', 'some'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'阿拉伯语 = Arabic · 写汉字 = write characters · 学习 = study · 些 = some.' },
-    { type:'mc', stem:'❓ <ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？ means:', choices:['Which languages can you speak?', 'Do you like Chinese?', 'How old are you?', 'What is your hobby?'], ans:0, hint:'哪些 = which (ones) · 语言 = languages.' },
-    { type:'mc', stem:'🗣️ <ruby>说<rt>shuō</rt></ruby> means:', choices:['to speak / say', 'to write', 'to read', 'to listen'], ans:0, hint:'说 = to speak · 写 = to write.' },
-    { type:'mc', stem:'✍️ <ruby>写<rt>xiě</rt></ruby> means:', choices:['to write', 'to speak', 'to sing', 'to study'], ans:0, hint:'写汉字 = write Chinese characters.' },
-    { type:'fill', stem:'Say "I can speak Chinese": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿<ruby>说<rt>shuō</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby>。</span>', ans:['会','huì','hui'], hint:'会 = can. 我会说汉语。= I can speak Chinese.' },
-    { type:'mc', stem:'🇬🇧 "I can speak English" — correct sentence:', choices:['<ruby>我会说英语<rt>wǒ huì shuō Yīngyǔ</rt></ruby>。', '<ruby>我说英语会<rt>wǒ shuō Yīngyǔ huì</rt></ruby>。', '<ruby>我英语会说<rt>wǒ Yīngyǔ huì shuō</rt></ruby>。', '<ruby>会说我英语<rt>huì shuō wǒ Yīngyǔ</rt></ruby>。'], ans:0, hint:'我 + 会 + 说 + 英语.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'🗣️ "I can speak Chinese" in Chinese:', choices:['<ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby>。', '<ruby>我说会汉语<rt>wǒ shuō huì Hànyǔ</rt></ruby>。', '<ruby>我汉语会说<rt>wǒ Hànyǔ huì shuō</rt></ruby>。', '<ruby>会我说汉语<rt>huì wǒ shuō Hànyǔ</rt></ruby>。'], ans:0, hint:'Word order: 我 (I) + 会 (can) + 说 (speak) + 汉语 (Chinese).' },
+    { type:'mc', skill:'Abilities (hui)', stem:'✅ <ruby>会<rt>huì</rt></ruby> means:', choices:['can / be able to', 'want', 'have', 'like'], ans:0, hint:'会 = can (a skill you have learned).' },
+    { type:'mc', skill:'Abilities (hui)', stem:'🇨🇳 <ruby>汉语<rt>Hànyǔ</rt></ruby> means:', choices:['Chinese (language)', 'English', 'Arabic', 'a Chinese person'], ans:0, hint:'汉语 = the Chinese language.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'🇬🇧 <ruby>英语<rt>Yīngyǔ</rt></ruby> means:', choices:['English', 'Chinese', 'Arabic', 'French'], ans:0, hint:'英语 = English · 汉语 = Chinese · 阿拉伯语 = Arabic.' },
+    { type:'match', skill:'Abilities (hui)', stem:'Match each word to its meaning.', left:['<ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby>', '<ruby>写汉字<rt>xiě Hànzì</rt></ruby>', '<ruby>学习<rt>xuéxí</rt></ruby>', '<ruby>些<rt>xiē</rt></ruby>'], right:['Arabic', 'write characters', 'to study / learn', 'some'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'阿拉伯语 = Arabic · 写汉字 = write characters · 学习 = study · 些 = some.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'❓ <ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？ means:', choices:['Which languages can you speak?', 'Do you like Chinese?', 'How old are you?', 'What is your hobby?'], ans:0, hint:'哪些 = which (ones) · 语言 = languages.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'🗣️ <ruby>说<rt>shuō</rt></ruby> means:', choices:['to speak / say', 'to write', 'to read', 'to listen'], ans:0, hint:'说 = to speak · 写 = to write.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'✍️ <ruby>写<rt>xiě</rt></ruby> means:', choices:['to write', 'to speak', 'to sing', 'to study'], ans:0, hint:'写汉字 = write Chinese characters.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I can speak Chinese": <span class="cn"><ruby>我<rt>wǒ</rt></ruby>＿<ruby>说<rt>shuō</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby>。</span>', ans:['会','huì','hui'], hint:'会 = can. 我会说汉语。= I can speak Chinese.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'🇬🇧 "I can speak English" — correct sentence:', choices:['<ruby>我会说英语<rt>wǒ huì shuō Yīngyǔ</rt></ruby>。', '<ruby>我说英语会<rt>wǒ shuō Yīngyǔ huì</rt></ruby>。', '<ruby>我英语会说<rt>wǒ Yīngyǔ huì shuō</rt></ruby>。', '<ruby>会说我英语<rt>huì shuō wǒ Yīngyǔ</rt></ruby>。'], ans:0, hint:'我 + 会 + 说 + 英语.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 simple usage + 写汉字 questions
+  // TIER 2 · 学以致用 — 10 simple usage + 写汉字 questions
   { qs:[
-    { type:'mc', stem:'The word <ruby>会<rt>huì</rt></ruby> comes before:', choices:['a verb, e.g. 会说 / 会写', 'a number, e.g. 会七', 'a name, e.g. 会哈桑', 'nothing'], ans:0, hint:'会 + verb: 会说 (can speak), 会写 (can write).' },
-    { type:'mc', stem:'Someone asks <ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？ — best reply:', choices:['<ruby>我会说阿拉伯语和英语<rt>wǒ huì shuō Ālābóyǔ hé Yīngyǔ</rt></ruby>。', '<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>他是我哥哥<rt>tā shì wǒ gēge</rt></ruby>。', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。'], ans:0, hint:'Answer with 我会说 + the languages.' },
-    { type:'fill', stem:'Ask "Can you speak Chinese?": <span class="cn"><ruby>你<rt>nǐ</rt></ruby>＿<ruby>说<rt>shuō</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>吗<rt>ma</rt></ruby>？</span>', ans:['会','huì','hui'], hint:'会 = can. 你会说汉语吗？= Can you speak Chinese?' },
-    { type:'mc', stem:'<ruby>哪些<rt>nǎxiē</rt></ruby> means:', choices:['which (ones)', 'how many', 'where', 'why'], ans:0, hint:'哪些 asks "which ones" — 你会说哪些语言？' },
-    { type:'mc', stem:'"I can speak Arabic, English and Chinese":', choices:['<ruby>我会说阿拉伯语、英语和汉语<rt>wǒ huì shuō Ālābóyǔ, Yīngyǔ hé Hànyǔ</rt></ruby>。', '<ruby>我说会阿拉伯语英语汉语<rt>wǒ shuō huì Ālābóyǔ Yīngyǔ Hànyǔ</rt></ruby>。', '<ruby>我会阿拉伯语说英语汉语<rt>wǒ huì Ālābóyǔ shuō Yīngyǔ Hànyǔ</rt></ruby>。', '<ruby>和我会说阿拉伯语英语汉语<rt>hé wǒ huì shuō Ālābóyǔ Yīngyǔ Hànyǔ</rt></ruby>。'], ans:0, hint:'List items with 、 and use 和 before the last one.' },
-    { type:'match', stem:'Match each pinyin to its character (写汉字).', left:['huì', 'hàn', 'yǔ', 'zì'], right:['会', '汉', '语', '字'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'会 huì (can) · 汉 hàn · 语 yǔ (language) · 字 zì (character).' },
-    { type:'fill', stem:'Say "I can write Chinese characters": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>会<rt>huì</rt></ruby>＿<ruby>汉字<rt>Hànzì</rt></ruby>。</span>', ans:['写','xiě','xie'], hint:'写汉字 = write Chinese characters. 我会写汉字。' },
-    { type:'mc', stem:'<ruby>学习<rt>xuéxí</rt></ruby> means:', choices:['to study / learn', 'to play', 'to speak', 'to write'], ans:0, hint:'学习 = to study / learn.' },
-    { type:'mc', stem:'"Your Chinese is very good":', choices:['<ruby>你的汉语很好<rt>nǐ de Hànyǔ hěn hǎo</rt></ruby>。', '<ruby>你汉语的好很<rt>nǐ Hànyǔ de hǎo hěn</rt></ruby>。', '<ruby>很好你的汉语<rt>hěn hǎo nǐ de Hànyǔ</rt></ruby>。', '<ruby>你的很好汉语<rt>nǐ de hěn hǎo Hànyǔ</rt></ruby>。'], ans:0, hint:'你的汉语 (your Chinese) + 很好 (very good).' },
-    { type:'fill', stem:'Say "I can write some characters": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby>＿＿<ruby>汉字<rt>Hànzì</rt></ruby>。</span>', ans:['一些','yìxiē','yixie','些','xiē','xie'], hint:'一些 / 些 = some. 我会写一些汉字。' },
+    { type:'mc', skill:'Abilities (hui)', stem:'The word <ruby>会<rt>huì</rt></ruby> comes before:', choices:['a verb, e.g. 会说 / 会写', 'a number, e.g. 会七', 'a name, e.g. 会哈桑', 'nothing'], ans:0, hint:'会 + verb: 会说 (can speak), 会写 (can write).' },
+    { type:'mc', skill:'Abilities (hui)', stem:'Someone asks <ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？ — best reply:', choices:['<ruby>我会说阿拉伯语和英语<rt>wǒ huì shuō Ālābóyǔ hé Yīngyǔ</rt></ruby>。', '<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>他是我哥哥<rt>tā shì wǒ gēge</rt></ruby>。', '<ruby>我九岁<rt>wǒ jiǔ suì</rt></ruby>。'], ans:0, hint:'Answer with 我会说 + the languages.' },
+    { type:'fill', skill:'Sentence patterns', stem:'Ask "Can you speak Chinese?": <span class="cn"><ruby>你<rt>nǐ</rt></ruby>＿<ruby>说<rt>shuō</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>吗<rt>ma</rt></ruby>？</span>', ans:['会','huì','hui'], hint:'会 = can. 你会说汉语吗？= Can you speak Chinese?' },
+    { type:'mc', skill:'Abilities (hui)', stem:'<ruby>哪些<rt>nǎxiē</rt></ruby> means:', choices:['which (ones)', 'how many', 'where', 'why'], ans:0, hint:'哪些 asks "which ones" — 你会说哪些语言？' },
+    { type:'mc', skill:'Abilities (hui)', stem:'"I can speak Arabic, English and Chinese":', choices:['<ruby>我会说阿拉伯语、英语和汉语<rt>wǒ huì shuō Ālābóyǔ, Yīngyǔ hé Hànyǔ</rt></ruby>。', '<ruby>我说会阿拉伯语英语汉语<rt>wǒ shuō huì Ālābóyǔ Yīngyǔ Hànyǔ</rt></ruby>。', '<ruby>我会阿拉伯语说英语汉语<rt>wǒ huì Ālābóyǔ shuō Yīngyǔ Hànyǔ</rt></ruby>。', '<ruby>和我会说阿拉伯语英语汉语<rt>hé wǒ huì shuō Ālābóyǔ Yīngyǔ Hànyǔ</rt></ruby>。'], ans:0, hint:'List items with 、 and use 和 before the last one.' },
+    { type:'match', skill:'Abilities (hui)', stem:'Match each pinyin to its character (写汉字).', left:['huì', 'hàn', 'yǔ', 'zì'], right:['会', '汉', '语', '字'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'会 huì (can) · 汉 hàn · 语 yǔ (language) · 字 zì (character).' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I can write Chinese characters": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>会<rt>huì</rt></ruby>＿<ruby>汉字<rt>Hànzì</rt></ruby>。</span>', ans:['写','xiě','xie'], hint:'写汉字 = write Chinese characters. 我会写汉字。' },
+    { type:'mc', skill:'Abilities (hui)', stem:'<ruby>学习<rt>xuéxí</rt></ruby> means:', choices:['to study / learn', 'to play', 'to speak', 'to write'], ans:0, hint:'学习 = to study / learn.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'"Your Chinese is very good":', choices:['<ruby>你的汉语很好<rt>nǐ de Hànyǔ hěn hǎo</rt></ruby>。', '<ruby>你汉语的好很<rt>nǐ Hànyǔ de hǎo hěn</rt></ruby>。', '<ruby>很好你的汉语<rt>hěn hǎo nǐ de Hànyǔ</rt></ruby>。', '<ruby>你的很好汉语<rt>nǐ de hěn hǎo Hànyǔ</rt></ruby>。'], ans:0, hint:'你的汉语 (your Chinese) + 很好 (very good).' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "I can write some characters": <span class="cn"><ruby>我<rt>wǒ</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby>＿＿<ruby>汉字<rt>Hànzì</rt></ruby>。</span>', ans:['一些','yìxiē','yixie','些','xiē','xie'], hint:'一些 / 些 = some. 我会写一些汉字。' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>会<rt>huì</rt></ruby> shows a skill you have LEARNED. <ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby> means:', choices:['I learned Chinese, so I can speak it', 'I want to speak Chinese', 'I have a Chinese book', 'I like Chinese'], ans:0, hint:'会 + verb = you learned how to do it and can do it.' },
-    { type:'mc', stem:'🔤 One BIG difference between Arabic and Chinese writing is:', choices:['Chinese uses characters (汉字); Arabic uses letters', 'they use exactly the same letters', 'neither one can be written down', 'both are written with numbers'], ans:0, hint:'Culture: Chinese writes with characters (汉字); Arabic writes with an alphabet, right to left.' },
-    { type:'mc', stem:'Complete the dialogue — A: <ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？ B: ___', choices:['<ruby>我会说阿拉伯语和汉语<rt>wǒ huì shuō Ālābóyǔ hé Hànyǔ</rt></ruby>。', '<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？', '<ruby>他十二岁<rt>tā shí\u2019èr suì</rt></ruby>。'], ans:0, hint:'Answer with 我会说 + the languages you can speak.' },
-    { type:'mc', stem:'To ask a yes/no question "Can you speak Chinese?", add <ruby>吗<rt>ma</rt></ruby>:', choices:['at the end: 你会说汉语吗？', 'at the start: 吗你会说汉语？', 'after 你: 你吗会说汉语？', 'after 会: 你会吗说汉语？'], ans:0, hint:'吗 goes at the very end to make a yes/no question.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you say "I can speak Chinese"? (HSK tip)', choices:['<ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby>。— use 会 + verb.', '<ruby>我是说汉语<rt>wǒ shì shuō Hànyǔ</rt></ruby>。— incorrect: no 是.', '<ruby>我会汉语说<rt>wǒ huì Hànyǔ shuō</rt></ruby>。— wrong word order.', '<ruby>我说汉语会<rt>wǒ shuō Hànyǔ huì</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: for a learned skill use 会 + verb (会说). Do NOT add 是.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>英语<rt>Yīngyǔ</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><sup>①</sup><ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><sup>③</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你的<rt>nǐ de</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>很好<rt>hěn hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 现在 xiànzài: now ② 学习 xuéxí: study ③ 一些 yìxiē: some ④ 汉字 Hànzì: Chinese character</div>', stem:'Which languages can Hassan (哈桑) already speak well?', choices:['Arabic and English (阿拉伯语、英语).', 'Only Chinese (汉语).', 'Only English (英语).', 'Chinese and French.'], ans:0, hint:'Find 他会说 … 和 … near the start.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>英语<rt>Yīngyǔ</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><sup>①</sup><ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><sup>③</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你的<rt>nǐ de</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>很好<rt>hěn hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 现在 xiànzài: now ② 学习 xuéxí: study ③ 一些 yìxiē: some ④ 汉字 Hànzì: Chinese character</div>', stem:'What is Hassan learning now (现在)?', choices:['Chinese (汉语).', 'English (英语).', 'Arabic (阿拉伯语).', 'Football (足球).'], ans:0, hint:'Look for 现在他在学习 … .' },
-    { type:'hots', stem:'🟡 Cycle 2 — People can speak and understand many languages — some learn one, some learn several. How many languages can you speak or understand, and which one do you find the hardest to read or write? | 🔵 Cycle 3 — Chinese is written with characters (汉字) and Arabic with letters from right to left. What do you think makes each writing system special, and why is being able to speak several languages so useful in the UAE?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'<ruby>会<rt>huì</rt></ruby> shows a skill you have LEARNED. <ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby> means:', choices:['I learned Chinese, so I can speak it', 'I want to speak Chinese', 'I have a Chinese book', 'I like Chinese'], ans:0, hint:'会 + verb = you learned how to do it and can do it.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'🔤 One BIG difference between Arabic and Chinese writing is:', choices:['Chinese uses characters (汉字); Arabic uses letters', 'they use exactly the same letters', 'neither one can be written down', 'both are written with numbers'], ans:0, hint:'Culture: Chinese writes with characters (汉字); Arabic writes with an alphabet, right to left.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'Complete the dialogue — A: <ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？ B: ___', choices:['<ruby>我会说阿拉伯语和汉语<rt>wǒ huì shuō Ālābóyǔ hé Hànyǔ</rt></ruby>。', '<ruby>我上七年级<rt>wǒ shàng qī niánjí</rt></ruby>。', '<ruby>你会说哪些语言<rt>nǐ huì shuō nǎxiē yǔyán</rt></ruby>？', '<ruby>他十二岁<rt>tā shí\u2019èr suì</rt></ruby>。'], ans:0, hint:'Answer with 我会说 + the languages you can speak.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'To ask a yes/no question "Can you speak Chinese?", add <ruby>吗<rt>ma</rt></ruby>:', choices:['at the end: 你会说汉语吗？', 'at the start: 吗你会说汉语？', 'after 你: 你吗会说汉语？', 'after 会: 你会吗说汉语？'], ans:0, hint:'吗 goes at the very end to make a yes/no question.' },
+    { type:'mc', skill:'Abilities (hui)', stem:'In Chinese (HSK), how do you say "I can speak Chinese"? (HSK tip)', choices:['<ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby>。— use 会 + verb.', '<ruby>我是说汉语<rt>wǒ shì shuō Hànyǔ</rt></ruby>。— incorrect: no 是.', '<ruby>我会汉语说<rt>wǒ huì Hànyǔ shuō</rt></ruby>。— wrong word order.', '<ruby>我说汉语会<rt>wǒ shuō Hànyǔ huì</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: for a learned skill use 会 + verb (会说). Do NOT add 是.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>英语<rt>Yīngyǔ</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><sup>①</sup><ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><sup>③</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你的<rt>nǐ de</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>很好<rt>hěn hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 现在 xiànzài: now ② 学习 xuéxí: study ③ 一些 yìxiē: some ④ 汉字 Hànzì: Chinese character</div>', stem:'Which languages can Hassan (哈桑) already speak well?', choices:['Arabic and English (阿拉伯语、英语).', 'Only Chinese (汉语).', 'Only English (英语).', 'Chinese and French.'], ans:0, hint:'Find 他会说 … 和 … near the start.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>英语<rt>Yīngyǔ</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><sup>①</sup><ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><sup>③</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你的<rt>nǐ de</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>很好<rt>hěn hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 现在 xiànzài: now ② 学习 xuéxí: study ③ 一些 yìxiē: some ④ 汉字 Hànzì: Chinese character</div>', stem:'What is Hassan learning now (现在)?', choices:['Chinese (汉语).', 'English (英语).', 'Arabic (阿拉伯语).', 'Football (足球).'], ans:0, hint:'Look for 现在他在学习 … .' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — People can speak and understand many languages — some learn one, some learn several. How many languages can you speak or understand, and which one do you find the hardest to read or write? | 🔵 Cycle 3 — Chinese is written with characters (汉字) and Arabic with letters from right to left. What do you think makes each writing system special, and why is being able to speak several languages so useful in the UAE?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1C-L6 我会说汉语。</title>' +

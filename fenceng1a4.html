@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'1A-L4', num:'Lesson 4', title:'这是九。This is nine.', cn:'数字',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 Workbook-style questions
+  // TIER 1 · 夯实基础 — 10 Workbook-style questions
   { qs:[
-    { type:'mc', stem:'🔢 The number 3 in Chinese is:', choices:['<ruby>三<rt>sān</rt></ruby>', '<ruby>二<rt>èr</rt></ruby>', '<ruby>四<rt>sì</rt></ruby>', '<ruby>五<rt>wǔ</rt></ruby>'], ans:0, hint:'3 = 三 (sān).' },
-    { type:'mc', stem:'🔢 The number 7 in Chinese is:', choices:['<ruby>七<rt>qī</rt></ruby>', '<ruby>六<rt>liù</rt></ruby>', '<ruby>八<rt>bā</rt></ruby>', '<ruby>九<rt>jiǔ</rt></ruby>'], ans:0, hint:'7 = 七 (qī).' },
-    { type:'mc', stem:'🔢 <ruby>九<rt>jiǔ</rt></ruby> is which number?', choices:['9', '6', '7', '8'], ans:0, hint:'九 (jiǔ) = 9.' },
-    { type:'mc', stem:'🔢 <ruby>十<rt>shí</rt></ruby> is which number?', choices:['10', '9', '8', '7'], ans:0, hint:'十 (shí) = 10.' },
-    { type:'match', stem:'Match each digit to its Chinese character.', left:['1', '5', '8', '10'], right:['<ruby>十<rt>shí</rt></ruby>', '<ruby>一<rt>yī</rt></ruby>', '<ruby>八<rt>bā</rt></ruby>', '<ruby>五<rt>wǔ</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 2], [3, 0]], hint:'1=一, 5=五, 8=八, 10=十.' },
-    { type:'mc', stem:'🔢 <ruby>这是几<rt>zhè shì jǐ</rt></ruby>？ means:', choices:['What number is this?', 'This is nine.', 'How are you?', 'What is your name?'], ans:0, hint:'这是几？= What number is this?' },
-    { type:'mc', stem:'🔢 "This is nine" in Chinese:', choices:['<ruby>这是九<rt>zhè shì jiǔ</rt></ruby>。', '<ruby>九是这<rt>jiǔ shì zhè</rt></ruby>。', '<ruby>是这九<rt>shì zhè jiǔ</rt></ruby>。', '<ruby>这九是<rt>zhè jiǔ shì</rt></ruby>。'], ans:0, hint:'这是 + number = This is ___.' },
-    { type:'mc', stem:'🔢 二 + 三 = ?', choices:['<ruby>五<rt>wǔ</rt></ruby> (5)', '<ruby>四<rt>sì</rt></ruby> (4)', '<ruby>六<rt>liù</rt></ruby> (6)', '<ruby>七<rt>qī</rt></ruby> (7)'], ans:0, hint:'2 + 3 = 5 = 五.' },
-    { type:'mc', stem:'🔢 Lucky number in China (sounds like "wealth"):', choices:['<ruby>八<rt>bā</rt></ruby> (8)', '<ruby>四<rt>sì</rt></ruby> (4)', '<ruby>七<rt>qī</rt></ruby> (7)', '<ruby>九<rt>jiǔ</rt></ruby> (9)'], ans:0, hint:'八 (bā) ≈ 发 (fā = prosperity). Very lucky!' },
-    { type:'mc', stem:'🔢 Unlucky number in China (sounds like "death"):', choices:['<ruby>四<rt>sì</rt></ruby> (4)', '<ruby>八<rt>bā</rt></ruby> (8)', '<ruby>六<rt>liù</rt></ruby> (6)', '<ruby>九<rt>jiǔ</rt></ruby> (9)'], ans:0, hint:'四 (sì) ≈ 死 (sǐ = death). Avoided in China.' },
+    { type:'mc', skill:'Numbers', stem:'🔢 The number 3 in Chinese is:', choices:['<ruby>三<rt>sān</rt></ruby>', '<ruby>二<rt>èr</rt></ruby>', '<ruby>四<rt>sì</rt></ruby>', '<ruby>五<rt>wǔ</rt></ruby>'], ans:0, hint:'3 = 三 (sān).' },
+    { type:'mc', skill:'Numbers', stem:'🔢 The number 7 in Chinese is:', choices:['<ruby>七<rt>qī</rt></ruby>', '<ruby>六<rt>liù</rt></ruby>', '<ruby>八<rt>bā</rt></ruby>', '<ruby>九<rt>jiǔ</rt></ruby>'], ans:0, hint:'7 = 七 (qī).' },
+    { type:'mc', skill:'Numbers', stem:'🔢 <ruby>九<rt>jiǔ</rt></ruby> is which number?', choices:['9', '6', '7', '8'], ans:0, hint:'九 (jiǔ) = 9.' },
+    { type:'mc', skill:'Numbers', stem:'🔢 <ruby>十<rt>shí</rt></ruby> is which number?', choices:['10', '9', '8', '7'], ans:0, hint:'十 (shí) = 10.' },
+    { type:'match', skill:'Numbers', stem:'Match each digit to its Chinese character.', left:['1', '5', '8', '10'], right:['<ruby>十<rt>shí</rt></ruby>', '<ruby>一<rt>yī</rt></ruby>', '<ruby>八<rt>bā</rt></ruby>', '<ruby>五<rt>wǔ</rt></ruby>'], pairs:[[0, 1], [1, 3], [2, 2], [3, 0]], hint:'1=一, 5=五, 8=八, 10=十.' },
+    { type:'mc', skill:'Numbers', stem:'🔢 <ruby>这是几<rt>zhè shì jǐ</rt></ruby>？ means:', choices:['What number is this?', 'This is nine.', 'How are you?', 'What is your name?'], ans:0, hint:'这是几？= What number is this?' },
+    { type:'mc', skill:'Numbers', stem:'🔢 "This is nine" in Chinese:', choices:['<ruby>这是九<rt>zhè shì jiǔ</rt></ruby>。', '<ruby>九是这<rt>jiǔ shì zhè</rt></ruby>。', '<ruby>是这九<rt>shì zhè jiǔ</rt></ruby>。', '<ruby>这九是<rt>zhè jiǔ shì</rt></ruby>。'], ans:0, hint:'这是 + number = This is ___.' },
+    { type:'mc', skill:'Numbers', stem:'🔢 二 + 三 = ?', choices:['<ruby>五<rt>wǔ</rt></ruby> (5)', '<ruby>四<rt>sì</rt></ruby> (4)', '<ruby>六<rt>liù</rt></ruby> (6)', '<ruby>七<rt>qī</rt></ruby> (7)'], ans:0, hint:'2 + 3 = 5 = 五.' },
+    { type:'mc', skill:'Numbers', stem:'🔢 Lucky number in China (sounds like "wealth"):', choices:['<ruby>八<rt>bā</rt></ruby> (8)', '<ruby>四<rt>sì</rt></ruby> (4)', '<ruby>七<rt>qī</rt></ruby> (7)', '<ruby>九<rt>jiǔ</rt></ruby> (9)'], ans:0, hint:'八 (bā) ≈ 发 (fā = prosperity). Very lucky!' },
+    { type:'mc', skill:'Numbers', stem:'🔢 Unlucky number in China (sounds like "death"):', choices:['<ruby>四<rt>sì</rt></ruby> (4)', '<ruby>八<rt>bā</rt></ruby> (8)', '<ruby>六<rt>liù</rt></ruby> (6)', '<ruby>九<rt>jiǔ</rt></ruby> (9)'], ans:0, hint:'四 (sì) ≈ 死 (sǐ = death). Avoided in China.' },
   ]},
 
 
   { qs:[
-    { type:'mc', stem:'<span class="cn"><ruby>这是几<rt>zhè shì jǐ</rt></ruby>？</span> means:', choices:['What number is this?','What is this?','How many are there?','Is this nine?'], ans:0, hint:'<ruby>几<rt>jǐ</rt></ruby>= how many / which number (usually 1–9)' },
-    { type:'mc', stem:'Which number is <span class="cn"><ruby>五<rt>wǔ</rt></ruby></span>?', choices:['5','3','7','8'], ans:0, hint:'Count:<ruby>一<rt>yī</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>五<rt>wǔ</rt></ruby>' },
-    { type:'mc', stem:'<span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>九<rt>jiǔ</rt></ruby>。</span> means:', choices:['This is nine.','Nine is here.','Is this nine?','There are nine.'], ans:0, hint:'<ruby>这<rt>zhè</rt></ruby>= this,<ruby>是<rt>shì</rt></ruby>= is,<ruby>九<rt>jiǔ</rt></ruby>= nine' },
-    { type:'mc', stem:'How do you say "eight" in Chinese?', choices:['<ruby>八<rt>bā</rt></ruby>','<ruby>六<rt>liù</rt></ruby>','<ruby>七<rt>qī</rt></ruby>','<ruby>九<rt>jiǔ</rt></ruby>'], ans:0, hint:'<ruby>八<rt>bā</rt></ruby>= 8 — a lucky number in Chinese culture' },
-    { type:'mc', stem:'Which is the correct count from 1 to 5?', choices:['<ruby>一<rt>yī</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>五<rt>wǔ</rt></ruby>','<ruby>一<rt>yī</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>七<rt>qī</rt></ruby><ruby>九<rt>jiǔ</rt></ruby>','<ruby>二<rt>èr</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>六<rt>liù</rt></ruby><ruby>八<rt>bā</rt></ruby><ruby>十<rt>shí</rt></ruby>','<ruby>一<rt>yī</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>三<rt>sān</rt></ruby>'], ans:0, hint:'Sequential counting:<ruby>一<rt>yī</rt></ruby>(1)<ruby>二<rt>èr</rt></ruby>(2)<ruby>三<rt>sān</rt></ruby>(3)<ruby>四<rt>sì</rt></ruby>(4)<ruby>五<rt>wǔ</rt></ruby>(5)' },
-    { type:'mc', stem:'How do you say "ten" in Chinese?', choices:['<ruby>十<rt>shí</rt></ruby>','<ruby>九<rt>jiǔ</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>零<rt>líng</rt></ruby>'], ans:0, hint:'<ruby>十<rt>shí</rt></ruby>= 10; the base for 11–19' },
-    { type:'fill', stem:'Write the Chinese number for 7: ___', ans:['七','qī','qi'], hint:'<ruby>七<rt>qī</rt></ruby>= 7' },
-    { type:'match', stem:'Match Chinese numbers to digits', left:['<ruby>一<rt>yī</rt></ruby>','<ruby>四<rt>sì</rt></ruby>','<ruby>七<rt>qī</rt></ruby>','<ruby>十<rt>shí</rt></ruby>'], right:['1','4','7','10'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Basic numbers 1–10' },
-    { type:'mc', stem:'<span class="cn"><ruby>这是几<rt>zhè shì jǐ</rt></ruby>？<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>九<rt>jiǔ</rt></ruby>。</span> This exchange is a:', choices:['Question and answer about numbers','Greeting','Introduction','Farewell'], ans:0, hint:'<ruby>几<rt>jǐ</rt></ruby>asks "how many/which number";<ruby>九<rt>jiǔ</rt></ruby>gives the specific answer' },
-    { type:'fill', stem:'Say "This is six": <span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿。</span>', ans:['六','liù','liu'], hint:'<ruby>六<rt>liù</rt></ruby>= 6' },
+    { type:'mc', skill:'Numbers', stem:'<span class="cn"><ruby>这是几<rt>zhè shì jǐ</rt></ruby>？</span> means:', choices:['What number is this?','What is this?','How many are there?','Is this nine?'], ans:0, hint:'<ruby>几<rt>jǐ</rt></ruby>= how many / which number (usually 1–9)' },
+    { type:'mc', skill:'Numbers', stem:'Which number is <span class="cn"><ruby>五<rt>wǔ</rt></ruby></span>?', choices:['5','3','7','8'], ans:0, hint:'Count:<ruby>一<rt>yī</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>五<rt>wǔ</rt></ruby>' },
+    { type:'mc', skill:'Numbers', stem:'<span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>九<rt>jiǔ</rt></ruby>。</span> means:', choices:['This is nine.','Nine is here.','Is this nine?','There are nine.'], ans:0, hint:'<ruby>这<rt>zhè</rt></ruby>= this,<ruby>是<rt>shì</rt></ruby>= is,<ruby>九<rt>jiǔ</rt></ruby>= nine' },
+    { type:'mc', skill:'Numbers', stem:'How do you say "eight" in Chinese?', choices:['<ruby>八<rt>bā</rt></ruby>','<ruby>六<rt>liù</rt></ruby>','<ruby>七<rt>qī</rt></ruby>','<ruby>九<rt>jiǔ</rt></ruby>'], ans:0, hint:'<ruby>八<rt>bā</rt></ruby>= 8 — a lucky number in Chinese culture' },
+    { type:'mc', skill:'Numbers', stem:'Which is the correct count from 1 to 5?', choices:['<ruby>一<rt>yī</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>五<rt>wǔ</rt></ruby>','<ruby>一<rt>yī</rt></ruby><ruby>三<rt>sān</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>七<rt>qī</rt></ruby><ruby>九<rt>jiǔ</rt></ruby>','<ruby>二<rt>èr</rt></ruby><ruby>四<rt>sì</rt></ruby><ruby>六<rt>liù</rt></ruby><ruby>八<rt>bā</rt></ruby><ruby>十<rt>shí</rt></ruby>','<ruby>一<rt>yī</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>二<rt>èr</rt></ruby><ruby>三<rt>sān</rt></ruby>'], ans:0, hint:'Sequential counting:<ruby>一<rt>yī</rt></ruby>(1)<ruby>二<rt>èr</rt></ruby>(2)<ruby>三<rt>sān</rt></ruby>(3)<ruby>四<rt>sì</rt></ruby>(4)<ruby>五<rt>wǔ</rt></ruby>(5)' },
+    { type:'mc', skill:'Numbers', stem:'How do you say "ten" in Chinese?', choices:['<ruby>十<rt>shí</rt></ruby>','<ruby>九<rt>jiǔ</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>零<rt>líng</rt></ruby>'], ans:0, hint:'<ruby>十<rt>shí</rt></ruby>= 10; the base for 11–19' },
+    { type:'fill', skill:'Sentence patterns', stem:'Write the Chinese number for 7: ___', ans:['七','qī','qi'], hint:'<ruby>七<rt>qī</rt></ruby>= 7' },
+    { type:'match', skill:'Numbers', stem:'Match Chinese numbers to digits', left:['<ruby>一<rt>yī</rt></ruby>','<ruby>四<rt>sì</rt></ruby>','<ruby>七<rt>qī</rt></ruby>','<ruby>十<rt>shí</rt></ruby>'], right:['1','4','7','10'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'Basic numbers 1–10' },
+    { type:'mc', skill:'Numbers', stem:'<span class="cn"><ruby>这是几<rt>zhè shì jǐ</rt></ruby>？<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>九<rt>jiǔ</rt></ruby>。</span> This exchange is a:', choices:['Question and answer about numbers','Greeting','Introduction','Farewell'], ans:0, hint:'<ruby>几<rt>jǐ</rt></ruby>asks "how many/which number";<ruby>九<rt>jiǔ</rt></ruby>gives the specific answer' },
+    { type:'fill', skill:'Sentence patterns', stem:'Say "This is six": <span class="cn"><ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby>＿＿。</span>', ans:['六','liù','liu'], hint:'<ruby>六<rt>liù</rt></ruby>= 6' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
-  // TIER 3 · 深度掌握 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'<ruby>这是几<rt>zhè shì jǐ</rt></ruby>？ means:', choices:['What number is this?', 'What is this?', 'How many?', 'Is this nine?'], ans:0, hint:'几 = how many / which number.' },
-    { type:'mc', stem:'Which number is <ruby>五<rt>wǔ</rt></ruby>?', choices:['5', '3', '7', '8'], ans:0, hint:'Count: 一二三四五.' },
-    { type:'mc', stem:'<ruby>这是九<rt>zhè shì jiǔ</rt></ruby>。 means:', choices:['This is nine.', 'Nine is here.', 'Is this nine?', 'There are nine.'], ans:0, hint:'这=this, 是=is, 九=nine.' },
-    { type:'mc', stem:'How do you say "eight" in Chinese?', choices:['<ruby>八<rt>bā</rt></ruby>', '<ruby>六<rt>liù</rt></ruby>', '<ruby>七<rt>qī</rt></ruby>', '<ruby>九<rt>jiǔ</rt></ruby>'], ans:0, hint:'八 = 8.' },
-    { type:'mc', stem:'In Chinese (HSK), how do you say the number 20？ (HSK tip)', choices:['二十 (èrshí) — two-tens.', '十二 (shíèr) — ten-two.', '两十 (liǎng shí) — two tens (wrong form).', '廿 (niàn) — an old/literary form.'], ans:0, hint:'HSK tip: 20 = 二十 (èr + shí). Numbers 11–99 follow this pattern: tens + units.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小红<rt>Xiǎo Hóng</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>中文<rt>Zhōngwén</rt></ruby><sup>③</sup><ruby>数字<rt>shùzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>这是几<rt>zhè shì jǐ</rt></ruby>？"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>这是八<rt>zhè shì bā</rt></ruby>。"<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>很好<rt>hěn hǎo</rt></ruby>！<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>八<rt>bā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>幸运<rt>xìngyùn</rt></ruby><sup>⑤</sup><ruby>数字<rt>shùzì</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① Xiǎo Hóng: a common Chinese name ② 学习 xuéxí: to study ③ 中文 Zhōngwén: Chinese language ④ 数字 shùzì: number ⑤ 幸运 xìngyùn: lucky</div>', stem:'What number does Xiao Hong give when asked 这是几？', choices:['Eight (八).', 'Seven (七).', 'Nine (九).', 'Six (六).'], ans:0, hint:'Find Xiao Hongs answer in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小红<rt>Xiǎo Hóng</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>中文<rt>Zhōngwén</rt></ruby><sup>③</sup><ruby>数字<rt>shùzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>这是几<rt>zhè shì jǐ</rt></ruby>？"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>这是八<rt>zhè shì bā</rt></ruby>。"<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>很好<rt>hěn hǎo</rt></ruby>！<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>八<rt>bā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>幸运<rt>xìngyùn</rt></ruby><sup>⑤</sup><ruby>数字<rt>shùzì</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① Xiǎo Hóng: a common Chinese name ② 学习 xuéxí: to study ③ 中文 Zhōngwén: Chinese language ④ 数字 shùzì: number ⑤ 幸运 xìngyùn: lucky</div>', stem:'Why is 8 a special number in China, according to the passage?', choices:['It is a lucky number (幸运数字).', 'It sounds like death.', 'It is the largest single digit.', 'It is the teachers favourite.'], ans:0, hint:'Find 幸运 in the passage — it means lucky.' },
-    { type:'hots', stem:'🟡 Cycle 2 — In China people can show all the numbers 1–10 on just one hand using special finger signs. How do you usually show numbers with your fingers, and which numbers do you use the most every day? | 🔵 Cycle 3 — Numbers mean the same in maths everywhere, but counting gestures differ from culture to culture. Why do you think different cultures count and gesture in different ways, even for the very same idea?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Numbers', stem:'<ruby>这是几<rt>zhè shì jǐ</rt></ruby>？ means:', choices:['What number is this?', 'What is this?', 'How many?', 'Is this nine?'], ans:0, hint:'几 = how many / which number.' },
+    { type:'mc', skill:'Numbers', stem:'Which number is <ruby>五<rt>wǔ</rt></ruby>?', choices:['5', '3', '7', '8'], ans:0, hint:'Count: 一二三四五.' },
+    { type:'mc', skill:'Numbers', stem:'<ruby>这是九<rt>zhè shì jiǔ</rt></ruby>。 means:', choices:['This is nine.', 'Nine is here.', 'Is this nine?', 'There are nine.'], ans:0, hint:'这=this, 是=is, 九=nine.' },
+    { type:'mc', skill:'Numbers', stem:'How do you say "eight" in Chinese?', choices:['<ruby>八<rt>bā</rt></ruby>', '<ruby>六<rt>liù</rt></ruby>', '<ruby>七<rt>qī</rt></ruby>', '<ruby>九<rt>jiǔ</rt></ruby>'], ans:0, hint:'八 = 8.' },
+    { type:'mc', skill:'Numbers', stem:'In Chinese (HSK), how do you say the number 20？ (HSK tip)', choices:['二十 (èrshí) — two-tens.', '十二 (shíèr) — ten-two.', '两十 (liǎng shí) — two tens (wrong form).', '廿 (niàn) — an old/literary form.'], ans:0, hint:'HSK tip: 20 = 二十 (èr + shí). Numbers 11–99 follow this pattern: tens + units.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小红<rt>Xiǎo Hóng</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>中文<rt>Zhōngwén</rt></ruby><sup>③</sup><ruby>数字<rt>shùzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>这是几<rt>zhè shì jǐ</rt></ruby>？"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>这是八<rt>zhè shì bā</rt></ruby>。"<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>很好<rt>hěn hǎo</rt></ruby>！<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>八<rt>bā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>幸运<rt>xìngyùn</rt></ruby><sup>⑤</sup><ruby>数字<rt>shùzì</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① Xiǎo Hóng: a common Chinese name ② 学习 xuéxí: to study ③ 中文 Zhōngwén: Chinese language ④ 数字 shùzì: number ⑤ 幸运 xìngyùn: lucky</div>', stem:'What number does Xiao Hong give when asked 这是几？', choices:['Eight (八).', 'Seven (七).', 'Nine (九).', 'Six (六).'], ans:0, hint:'Find Xiao Hongs answer in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小红<rt>Xiǎo Hóng</rt></ruby><sup>①</sup><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>中文<rt>Zhōngwén</rt></ruby><sup>③</sup><ruby>数字<rt>shùzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>这是几<rt>zhè shì jǐ</rt></ruby>？"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>这是八<rt>zhè shì bā</rt></ruby>。"<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>很好<rt>hěn hǎo</rt></ruby>！<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>八<rt>bā</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>幸运<rt>xìngyùn</rt></ruby><sup>⑤</sup><ruby>数字<rt>shùzì</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① Xiǎo Hóng: a common Chinese name ② 学习 xuéxí: to study ③ 中文 Zhōngwén: Chinese language ④ 数字 shùzì: number ⑤ 幸运 xìngyùn: lucky</div>', stem:'Why is 8 a special number in China, according to the passage?', choices:['It is a lucky number (幸运数字).', 'It sounds like death.', 'It is the largest single digit.', 'It is the teachers favourite.'], ans:0, hint:'Find 幸运 in the passage — it means lucky.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China people can show all the numbers 1–10 on just one hand using special finger signs. How do you usually show numbers with your fingers, and which numbers do you use the most every day? | 🔵 Cycle 3 — Numbers mean the same in maths everywhere, but counting gestures differ from culture to culture. Why do you think different cultures count and gesture in different ways, even for the very same idea?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 1A-L4 这是九。</title>' +

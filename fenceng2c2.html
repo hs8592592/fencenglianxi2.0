@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'2C-L2', num:'Lesson 2', title:'一共七百三十八元 738 yuan altogether', cn:'购物与价钱',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: money + numbers (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: money + numbers (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'🔢 七百三十八 is the number:', choices:['<ruby>7<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>8<rt></rt></ruby>','<ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby>','<ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby>','<ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby>'], ans:0, hint:'七百=700·三十=30·八=8 → 738.' },
-    { type:'mc', stem:'🧮 Which word means “altogether”?', choices:['<ruby>一共<rt>yígòng</rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby>','<ruby>这里<rt>zhèlǐ</rt></ruby>','<ruby>用<rt>yòng</rt></ruby>'], ans:0, hint:'一共 = altogether.' },
-    { type:'match', stem:'💰 Match each word to its meaning.', left:['<ruby>钱<rt>qián</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>一共<rt>yígòng</rt></ruby>'], right:['money','yuan','hundred','altogether'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'钱=money·元=yuan·百=hundred·一共=altogether.' },
-    { type:'fill', stem:'认读 · Type the number word: <span class="cn">七（　）三十八元。</span> (hundred)', ans:['百','bǎi','bai'], hint:'百 = hundred.' },
-    { type:'mc', stem:'<ruby>这个<rt>zhège</rt></ruby>（　）<ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(How much is this? (___))</span>', choices:['<ruby>多少<rt>duōshao</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'多少钱 = how much.' },
-    { type:'mc', stem:'🪙 Which word means “money”?', choices:['<ruby>钱<rt>qián</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>一共<rt>yígòng</rt></ruby>'], ans:0, hint:'钱 = money.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">一（　）多少钱？</span> (altogether)', ans:['共','gòng','gong'], hint:'一共 = altogether.' },
-    { type:'match', stem:'🧮 Match each word to its meaning.', left:['<ruby>多少<rt>duōshao</rt></ruby>','<ruby>用<rt>yòng</rt></ruby>','<ruby>这里<rt>zhèlǐ</rt></ruby>','<ruby>慢走<rt>mànzǒu</rt></ruby>'], right:['how much','to use','here','take care'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'多少=how much·用=use·这里=here·慢走=take care.' },
-    { type:'mc', stem:'<ruby>七<rt>qī</rt></ruby>（　）<ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>。 <span class="gl">(738 yuan (7 ___ 38).)</span>', choices:['<ruby>百<rt>bǎi</rt></ruby>','<ruby>十<rt>shí</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>'], ans:0, hint:'百 = hundred.' },
-    { type:'mc', stem:'🔢 三百五十 is the number:', choices:['<ruby>3<rt></rt></ruby><ruby>5<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>3<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>5<rt></rt></ruby>','<ruby>5<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>0<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>5<rt></rt></ruby>'], ans:0, hint:'三百=300·五十=50 → 350.' },
+    { type:'mc', skill:'Prices & money', stem:'🔢 七百三十八 is the number:', choices:['<ruby>7<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>8<rt></rt></ruby>','<ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby>','<ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby>','<ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby>'], ans:0, hint:'七百=700·三十=30·八=8 → 738.' },
+    { type:'mc', skill:'Prices & money', stem:'🧮 Which word means “altogether”?', choices:['<ruby>一共<rt>yígòng</rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby>','<ruby>这里<rt>zhèlǐ</rt></ruby>','<ruby>用<rt>yòng</rt></ruby>'], ans:0, hint:'一共 = altogether.' },
+    { type:'match', skill:'Prices & money', stem:'💰 Match each word to its meaning.', left:['<ruby>钱<rt>qián</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>一共<rt>yígòng</rt></ruby>'], right:['money','yuan','hundred','altogether'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'钱=money·元=yuan·百=hundred·一共=altogether.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the number word: <span class="cn">七（　）三十八元。</span> (hundred)', ans:['百','bǎi','bai'], hint:'百 = hundred.' },
+    { type:'mc', skill:'Prices & money', stem:'<ruby>这个<rt>zhège</rt></ruby>（　）<ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(How much is this? (___))</span>', choices:['<ruby>多少<rt>duōshao</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'多少钱 = how much.' },
+    { type:'mc', skill:'Prices & money', stem:'🪙 Which word means “money”?', choices:['<ruby>钱<rt>qián</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>一共<rt>yígòng</rt></ruby>'], ans:0, hint:'钱 = money.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">一（　）多少钱？</span> (altogether)', ans:['共','gòng','gong'], hint:'一共 = altogether.' },
+    { type:'match', skill:'Prices & money', stem:'🧮 Match each word to its meaning.', left:['<ruby>多少<rt>duōshao</rt></ruby>','<ruby>用<rt>yòng</rt></ruby>','<ruby>这里<rt>zhèlǐ</rt></ruby>','<ruby>慢走<rt>mànzǒu</rt></ruby>'], right:['how much','to use','here','take care'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'多少=how much·用=use·这里=here·慢走=take care.' },
+    { type:'mc', skill:'Prices & money', stem:'<ruby>七<rt>qī</rt></ruby>（　）<ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>。 <span class="gl">(738 yuan (7 ___ 38).)</span>', choices:['<ruby>百<rt>bǎi</rt></ruby>','<ruby>十<rt>shí</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>'], ans:0, hint:'百 = hundred.' },
+    { type:'mc', skill:'Prices & money', stem:'🔢 三百五十 is the number:', choices:['<ruby>3<rt></rt></ruby><ruby>5<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>3<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>5<rt></rt></ruby>','<ruby>5<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>0<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>5<rt></rt></ruby>'], ans:0, hint:'三百=300·五十=50 → 350.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 usage + numbers (百) + 多少钱 + 写汉字 (HSK 1-2 light)
+  // TIER 2 · 学以致用 — 10 usage + numbers (百) + 多少钱 + 写汉字 (HSK 1-2 light)
   { qs:[
-    { type:'mc', stem:'🔢 一共七百三十八元 — how much in total?', choices:['<ruby>7<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>','<ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>','<ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>','<ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>'], ans:0, hint:'七百三十八 = 738.' },
-    { type:'fill', stem:'认读 · Type the number word: <span class="cn">三（　）元。</span> (hundred)', ans:['百','bǎi','bai'], hint:'三百 = 300.' },
-    { type:'mc', stem:'<ruby>三<rt>sān</rt></ruby>（　）<ruby>元<rt>yuán</rt></ruby>。 <span class="gl">(300 yuan (3 ___).)</span>', choices:['<ruby>百<rt>bǎi</rt></ruby>','<ruby>十<rt>shí</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>'], ans:0, hint:'三百 = 300.' },
-    { type:'mc', stem:'🛒 A shopkeeper says <ruby>一共一百元<rt>yígòng yìbǎi yuán</rt></ruby>。 What does it mean?', choices:['The total is 100 yuan.','There are 100 shops.','You bought 100 things.','The shop is 100 metres away.'], ans:0, hint:'一共 = altogether; 一百元 = 100 yuan.' },
-    { type:'mc', stem:'🔢 两百 is the number:', choices:['<ruby>2<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>2<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>2<rt></rt></ruby>','<ruby>2<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>0<rt></rt></ruby>'], ans:0, hint:'两=2·百=hundred → 200.' },
-    { type:'mc', stem:'💰 Which sentence asks “How much is this?”', choices:['<ruby>这个<rt>zhège</rt></ruby><ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>钱<rt>qián</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>多少<rt>duōshao</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>这个<rt>zhège</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>多少<rt>duōshao</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'这个多少钱？= How much is this?' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['yuán','qián','bǎi','gòng'], right:['元','钱','百','共'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'元=yuan·钱=money·百=hundred·共=total.' },
-    { type:'mc', stem:'<ruby>一<rt>yì</rt></ruby>（　）<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(How much ___ (altogether)?)</span>', choices:['<ruby>共<rt>gòng</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>'], ans:0, hint:'一共 = altogether.' },
-    { type:'mc', stem:'📱 Which verb goes with 手机 to pay (我___手机支付)?', choices:['<ruby>用<rt>yòng</rt></ruby> — to use','<ruby>要<rt>yào</rt></ruby> — to want','<ruby>买<rt>mǎi</rt></ruby> — to buy','<ruby>喝<rt>hē</rt></ruby> — to drink'], ans:0, hint:'用 = to use. 用手机支付 = pay by phone.' },
-    { type:'mc', stem:'<ruby>一共<rt>yígòng</rt></ruby><ruby>七<rt>qī</rt></ruby><ruby>百<rt>bǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby>（　）。 <span class="gl">(738 ___ (yuan) altogether.)</span>', choices:['<ruby>元<rt>yuán</rt></ruby>','<ruby>块<rt>kuài</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>'], ans:0, hint:'元 = yuan (money unit).' },
+    { type:'mc', skill:'Prices & money', stem:'🔢 一共七百三十八元 — how much in total?', choices:['<ruby>7<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>','<ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>','<ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby><ruby>8<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>','<ruby>8<rt></rt></ruby><ruby>3<rt></rt></ruby><ruby>7<rt></rt></ruby><ruby> <rt></rt></ruby><ruby>y<rt></rt></ruby><ruby>u<rt></rt></ruby><ruby>a<rt></rt></ruby><ruby>n<rt></rt></ruby>'], ans:0, hint:'七百三十八 = 738.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the number word: <span class="cn">三（　）元。</span> (hundred)', ans:['百','bǎi','bai'], hint:'三百 = 300.' },
+    { type:'mc', skill:'Prices & money', stem:'<ruby>三<rt>sān</rt></ruby>（　）<ruby>元<rt>yuán</rt></ruby>。 <span class="gl">(300 yuan (3 ___).)</span>', choices:['<ruby>百<rt>bǎi</rt></ruby>','<ruby>十<rt>shí</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>'], ans:0, hint:'三百 = 300.' },
+    { type:'mc', skill:'Prices & money', stem:'🛒 A shopkeeper says <ruby>一共一百元<rt>yígòng yìbǎi yuán</rt></ruby>。 What does it mean?', choices:['The total is 100 yuan.','There are 100 shops.','You bought 100 things.','The shop is 100 metres away.'], ans:0, hint:'一共 = altogether; 一百元 = 100 yuan.' },
+    { type:'mc', skill:'Prices & money', stem:'🔢 两百 is the number:', choices:['<ruby>2<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>2<rt></rt></ruby><ruby>0<rt></rt></ruby>','<ruby>2<rt></rt></ruby>','<ruby>2<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>0<rt></rt></ruby><ruby>0<rt></rt></ruby>'], ans:0, hint:'两=2·百=hundred → 200.' },
+    { type:'mc', skill:'Prices & money', stem:'💰 Which sentence asks “How much is this?”', choices:['<ruby>这个<rt>zhège</rt></ruby><ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>钱<rt>qián</rt></ruby><ruby>这个<rt>zhège</rt></ruby><ruby>多少<rt>duōshao</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>这个<rt>zhège</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>多少<rt>duōshao</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'这个多少钱？= How much is this?' },
+    { type:'match', skill:'Prices & money', stem:'写汉字 · Match each pinyin to its character.', left:['yuán','qián','bǎi','gòng'], right:['元','钱','百','共'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'元=yuan·钱=money·百=hundred·共=total.' },
+    { type:'mc', skill:'Prices & money', stem:'<ruby>一<rt>yì</rt></ruby>（　）<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(How much ___ (altogether)?)</span>', choices:['<ruby>共<rt>gòng</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>元<rt>yuán</rt></ruby>'], ans:0, hint:'一共 = altogether.' },
+    { type:'mc', skill:'Prices & money', stem:'📱 Which verb goes with 手机 to pay (我___手机支付)?', choices:['<ruby>用<rt>yòng</rt></ruby> — to use','<ruby>要<rt>yào</rt></ruby> — to want','<ruby>买<rt>mǎi</rt></ruby> — to buy','<ruby>喝<rt>hē</rt></ruby> — to drink'], ans:0, hint:'用 = to use. 用手机支付 = pay by phone.' },
+    { type:'mc', skill:'Prices & money', stem:'<ruby>一共<rt>yígòng</rt></ruby><ruby>七<rt>qī</rt></ruby><ruby>百<rt>bǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby>（　）。 <span class="gl">(738 ___ (yuan) altogether.)</span>', choices:['<ruby>元<rt>yuán</rt></ruby>','<ruby>块<rt>kuài</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>'], ans:0, hint:'元 = yuan (money unit).' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🔢 一百二十 is the number:', choices:['120','102','210','12'], ans:0, hint:'一百二十 = 120.' },
-    { type:'mc', stem:'Culture: <ruby>人民币上的风景名胜<rt>rénmínbì shàng de fēngjǐng míngshèng</rt></ruby> — scenic spots on RMB. Which is true?', choices:['Chinese banknotes show famous places, such as the mountains and rivers of 桂林 (Guilin) and the 人民大会堂 (Great Hall of the People).', 'Chinese money has no pictures on it.', 'RMB notes only show numbers.', 'Banknotes in China show cartoon characters.'], ans:0, hint:'人民币 = RMB. Different yuan notes picture famous Chinese landscapes and landmarks.' },
-    { type:'mc', stem:'How do you read a number like <ruby>七百三十八<rt>qībǎi sānshíbā</rt></ruby>? (HSK tip)', choices:['Read the hundreds, then the tens, then the ones: 七百 + 三十 + 八 = 738.', 'Read it backwards: 八三七.', 'Just say the first digit only.', 'Numbers over 100 cannot be said in Chinese.'], ans:0, hint:'HSK tip: 百 (hundreds) → 十 (tens) → ones. 七百三十八 = 7×100 + 3×10 + 8.' },
-    { type:'mc', stem:'🔢 五百 is the number:', choices:['500','50','5','5000'], ans:0, hint:'五百 = 500.' },
-    { type:'mc', stem:'💴 Which word is the Chinese money unit?', choices:['<ruby>元<rt>yuán</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>这里<rt>zhèlǐ</rt></ruby>','<ruby>慢走<rt>mànzǒu</rt></ruby>'], ans:0, hint:'元 = yuan (money unit).' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby>，<ruby>一百<rt>yìbǎi</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>，<ruby>六百<rt>liùbǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>用<rt>yòng</rt></ruby><sup>①</sup><ruby>手机<rt>shǒujī</rt></ruby><ruby>支付<rt>zhīfù</rt></ruby><sup>②</sup>。<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>一共<rt>yígòng</rt></ruby><sup>③</sup><ruby>七百<rt>qībǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>，<ruby>谢谢<rt>xièxie</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>慢走<rt>mànzǒu</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 用 yòng: to use ② 支付 zhīfù: to pay ③ 一共 yígòng: altogether ④ 慢走 mànzǒu: take care (goodbye)</div>', stem:'How much is the top (上衣)?', choices:['100 yuan (一百元).', '638 yuan.', '738 yuan.', '300 yuan.'], ans:0, hint:'Find 我买了一件上衣，…… 元.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby>，<ruby>一百<rt>yìbǎi</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>，<ruby>六百<rt>liùbǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>用<rt>yòng</rt></ruby><sup>①</sup><ruby>手机<rt>shǒujī</rt></ruby><ruby>支付<rt>zhīfù</rt></ruby><sup>②</sup>。<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>一共<rt>yígòng</rt></ruby><sup>③</sup><ruby>七百<rt>qībǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>，<ruby>谢谢<rt>xièxie</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>慢走<rt>mànzǒu</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 用 yòng: to use ② 支付 zhīfù: to pay ③ 一共 yígòng: altogether ④ 慢走 mànzǒu: take care (goodbye)</div>', stem:'How much is it altogether (一共)?', choices:['738 yuan (七百三十八元).', '100 yuan.', '638 yuan.', '200 yuan.'], ans:0, hint:'The waiter says 一共 …… 元 at the end. 100 + 638 = 738.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 💴 Chinese money (人民币, RMB) has beautiful places printed on it — mountains, lakes and famous buildings. If YOU could design a new banknote for your country, what place, animal or symbol would you put on it, and why? | 🔵 Cycle 3 — 💴 On Chinese 元 (yuan) notes you can find famous scenic spots, such as the mountains and rivers of 桂林 (Guilin) and the 人民大会堂 (Great Hall of the People); UAE dirham (迪拉姆) notes also show local landmarks. Why do you think so many countries print special places and symbols on their money, and what can a country\u2019s banknotes tell us about what its people are proud of?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Prices & money', stem:'🔢 一百二十 is the number:', choices:['120','102','210','12'], ans:0, hint:'一百二十 = 120.' },
+    { type:'mc', skill:'Prices & money', stem:'Culture: <ruby>人民币上的风景名胜<rt>rénmínbì shàng de fēngjǐng míngshèng</rt></ruby> — scenic spots on RMB. Which is true?', choices:['Chinese banknotes show famous places, such as the mountains and rivers of 桂林 (Guilin) and the 人民大会堂 (Great Hall of the People).', 'Chinese money has no pictures on it.', 'RMB notes only show numbers.', 'Banknotes in China show cartoon characters.'], ans:0, hint:'人民币 = RMB. Different yuan notes picture famous Chinese landscapes and landmarks.' },
+    { type:'mc', skill:'Prices & money', stem:'How do you read a number like <ruby>七百三十八<rt>qībǎi sānshíbā</rt></ruby>? (HSK tip)', choices:['Read the hundreds, then the tens, then the ones: 七百 + 三十 + 八 = 738.', 'Read it backwards: 八三七.', 'Just say the first digit only.', 'Numbers over 100 cannot be said in Chinese.'], ans:0, hint:'HSK tip: 百 (hundreds) → 十 (tens) → ones. 七百三十八 = 7×100 + 3×10 + 8.' },
+    { type:'mc', skill:'Prices & money', stem:'🔢 五百 is the number:', choices:['500','50','5','5000'], ans:0, hint:'五百 = 500.' },
+    { type:'mc', skill:'Prices & money', stem:'💴 Which word is the Chinese money unit?', choices:['<ruby>元<rt>yuán</rt></ruby>','<ruby>百<rt>bǎi</rt></ruby>','<ruby>这里<rt>zhèlǐ</rt></ruby>','<ruby>慢走<rt>mànzǒu</rt></ruby>'], ans:0, hint:'元 = yuan (money unit).' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby>，<ruby>一百<rt>yìbǎi</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>，<ruby>六百<rt>liùbǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>用<rt>yòng</rt></ruby><sup>①</sup><ruby>手机<rt>shǒujī</rt></ruby><ruby>支付<rt>zhīfù</rt></ruby><sup>②</sup>。<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>一共<rt>yígòng</rt></ruby><sup>③</sup><ruby>七百<rt>qībǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>，<ruby>谢谢<rt>xièxie</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>慢走<rt>mànzǒu</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 用 yòng: to use ② 支付 zhīfù: to pay ③ 一共 yígòng: altogether ④ 慢走 mànzǒu: take care (goodbye)</div>', stem:'How much is the top (上衣)?', choices:['100 yuan (一百元).', '638 yuan.', '738 yuan.', '300 yuan.'], ans:0, hint:'Find 我买了一件上衣，…… 元.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby>，<ruby>一百<rt>yìbǎi</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>，<ruby>六百<rt>liùbǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>用<rt>yòng</rt></ruby><sup>①</sup><ruby>手机<rt>shǒujī</rt></ruby><ruby>支付<rt>zhīfù</rt></ruby><sup>②</sup>。<ruby>服务员<rt>fúwùyuán</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>一共<rt>yígòng</rt></ruby><sup>③</sup><ruby>七百<rt>qībǎi</rt></ruby><ruby>三十八<rt>sānshíbā</rt></ruby><ruby>元<rt>yuán</rt></ruby>，<ruby>谢谢<rt>xièxie</rt></ruby>！<ruby>请<rt>qǐng</rt></ruby><ruby>慢走<rt>mànzǒu</rt></ruby><sup>④</sup>！”</p><div class="rn"><b>Notes:</b> ① 用 yòng: to use ② 支付 zhīfù: to pay ③ 一共 yígòng: altogether ④ 慢走 mànzǒu: take care (goodbye)</div>', stem:'How much is it altogether (一共)?', choices:['738 yuan (七百三十八元).', '100 yuan.', '638 yuan.', '200 yuan.'], ans:0, hint:'The waiter says 一共 …… 元 at the end. 100 + 638 = 738.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 💴 Chinese money (人民币, RMB) has beautiful places printed on it — mountains, lakes and famous buildings. If YOU could design a new banknote for your country, what place, animal or symbol would you put on it, and why? | 🔵 Cycle 3 — 💴 On Chinese 元 (yuan) notes you can find famous scenic spots, such as the mountains and rivers of 桂林 (Guilin) and the 人民大会堂 (Great Hall of the People); UAE dirham (迪拉姆) notes also show local landmarks. Why do you think so many countries print special places and symbols on their money, and what can a country\u2019s banknotes tell us about what its people are proud of?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2C-L2 一共七百三十八元。</title>' +

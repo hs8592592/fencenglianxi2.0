@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'2C-L5', num:'Lesson 5', title:'我家离学校不远 My home is not far from school', cn:'距离与方位',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: distance & location (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: distance & location (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'↔️ Which word means “far”?', choices:['<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>'], ans:0, hint:'远 = far.' },
-    { type:'match', stem:'🧭 Match each word to its meaning.', left:['<ruby>离<rt>lí</rt></ruby>','<ruby>来<rt>lái</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>'], right:['(distance) from','to come','often','school'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'离=from · 来=come · 常常=often · 学校=school.' },
-    { type:'mc', stem:'📍 Which word means “near”?', choices:['<ruby>近<rt>jìn</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>'], ans:0, hint:'近 = near.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。 <span class="gl">(I ___ (often) walk to school.)</span>', choices:['<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], ans:0, hint:'常常 = often (before the verb).' },
-    { type:'mc', stem:'<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）。 <span class="gl">(The shop is ___ (beside) the school.)</span>', choices:['<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>里边<rt>lǐbian</rt></ruby>','<ruby>外边<rt>wàibian</rt></ruby>','<ruby>前边<rt>qiánbian</rt></ruby>'], ans:0, hint:'旁边 = beside / next to.' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">我（　）路去学校。</span> (walk)', ans:['走','zǒu','zou'], hint:'走路 = to walk. The word is 走.' },
-    { type:'mc', stem:'🚶 Which word means “to walk / on foot”?', choices:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>坐车<rt>zuòchē</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>'], ans:0, hint:'走路 = to walk.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby>（　）<ruby>学校<rt>xuéxiào</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。 <span class="gl">(My home is not far ___ (from) school.)</span>', choices:['<ruby>离<rt>lí</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>'], ans:0, hint:'A 离 B = A is (distance) from B.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">我家离学校不（　）。</span> (far)', ans:['远','yuǎn','yuan'], hint:'不远 = not far. The word is 远.' },
-    { type:'match', stem:'🏠 Match each word to its meaning.', left:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>'], right:['to walk','beside','far','near'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'走路=walk · 旁边=beside · 远=far · 近=near.' },
+    { type:'mc', skill:'Distance & location', stem:'↔️ Which word means “far”?', choices:['<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>'], ans:0, hint:'远 = far.' },
+    { type:'match', skill:'Distance & location', stem:'🧭 Match each word to its meaning.', left:['<ruby>离<rt>lí</rt></ruby>','<ruby>来<rt>lái</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>学校<rt>xuéxiào</rt></ruby>'], right:['(distance) from','to come','often','school'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'离=from · 来=come · 常常=often · 学校=school.' },
+    { type:'mc', skill:'Distance & location', stem:'📍 Which word means “near”?', choices:['<ruby>近<rt>jìn</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>小<rt>xiǎo</rt></ruby>','<ruby>慢<rt>màn</rt></ruby>'], ans:0, hint:'近 = near.' },
+    { type:'mc', skill:'Distance & location', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。 <span class="gl">(I ___ (often) walk to school.)</span>', choices:['<ruby>常常<rt>chángcháng</rt></ruby>','<ruby>不<rt>bù</rt></ruby>','<ruby>没<rt>méi</rt></ruby>','<ruby>再<rt>zài</rt></ruby>'], ans:0, hint:'常常 = often (before the verb).' },
+    { type:'mc', skill:'Distance & location', stem:'<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>（　）。 <span class="gl">(The shop is ___ (beside) the school.)</span>', choices:['<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>里边<rt>lǐbian</rt></ruby>','<ruby>外边<rt>wàibian</rt></ruby>','<ruby>前边<rt>qiánbian</rt></ruby>'], ans:0, hint:'旁边 = beside / next to.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">我（　）路去学校。</span> (walk)', ans:['走','zǒu','zou'], hint:'走路 = to walk. The word is 走.' },
+    { type:'mc', skill:'Distance & location', stem:'🚶 Which word means “to walk / on foot”?', choices:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>坐车<rt>zuòchē</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>常常<rt>chángcháng</rt></ruby>'], ans:0, hint:'走路 = to walk.' },
+    { type:'mc', skill:'Distance & location', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby>（　）<ruby>学校<rt>xuéxiào</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。 <span class="gl">(My home is not far ___ (from) school.)</span>', choices:['<ruby>离<rt>lí</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>'], ans:0, hint:'A 离 B = A is (distance) from B.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">我家离学校不（　）。</span> (far)', ans:['远','yuǎn','yuan'], hint:'不远 = not far. The word is 远.' },
+    { type:'match', skill:'Distance & location', stem:'🏠 Match each word to its meaning.', left:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>'], right:['to walk','beside','far','near'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'走路=walk · 旁边=beside · 远=far · 近=near.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 8 usage + 离 pattern + 走路 + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
+  // TIER 2 · 学以致用 — 8 usage + 离 pattern + 走路 + character recognition, then 2 short reading (easier & 1-2 sentences shorter than Tier 3)
   { qs:[
-    { type:'mc', stem:'🏪 Which sentence means “There is a shop beside the school”?', choices:['<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。','<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>有<rt>yǒu</rt></ruby>。'], ans:0, hint:'旁边 = beside.' },
-    { type:'mc', stem:'🗣️ A asks <ruby>你家离学校远吗<rt>nǐ jiā lí xuéxiào yuǎn ma</rt></ruby>？ (It is near.) B answers:', choices:['<ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。'], ans:0, hint:'离…远吗？→ answer 很近 / 不远 / 很远.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(My home is very ___ (near) the school.)</span>', choices:['<ruby>近<rt>jìn</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>'], ans:0, hint:'近 = near.' },
-    { type:'mc', stem:'↔️ Which word is the opposite of 远 (far)?', choices:['<ruby>近<rt>jìn</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>来<rt>lái</rt></ruby>'], ans:0, hint:'远 (far) ↔ 近 (near).' },
-    { type:'mc', stem:'👋 Which verb means “to come (toward me)”?', choices:['<ruby>来<rt>lái</rt></ruby> — to come','<ruby>走<rt>zǒu</rt></ruby> — to walk','<ruby>坐<rt>zuò</rt></ruby> — to sit','<ruby>开<rt>kāi</rt></ruby> — to drive'], ans:0, hint:'来 = to come.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。 <span class="gl">(I go to school ___ (on foot).)</span>', choices:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>坐车<rt>zuòchē</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby><ruby>飞<rt></rt></ruby><ruby>机<rt></rt></ruby>','<ruby>旅行<rt>lǚxíng</rt></ruby>'], ans:0, hint:'走路 = on foot.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['zǒu','lái','yuǎn','jìn'], right:['走','来','远','近'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'走=walk · 来=come · 远=far · 近=near.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">商店在学校（　）。</span> (beside)', ans:['旁边','pángbiān','pangbian'], hint:'旁边 = beside. 商店在学校旁边。' },
-{ type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>公园<rt>gōngyuán</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>公园<rt>gōngyuán</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside</div>', stem:'Is the speaker\u2019s home near or far from the park?', choices:['Near (很近).', 'Far.', 'We cannot tell.', 'Very far.'], ans:0, hint:'Find 我家离公园 …… 近 = near.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>公园<rt>gōngyuán</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>公园<rt>gōngyuán</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside</div>', stem:'What is beside the park (公园旁边)?', choices:['A shop (商店).', 'A school.', 'A hospital.', 'A library.'], ans:0, hint:'Find 公园旁边有 ……'},
+    { type:'mc', skill:'Distance & location', stem:'🏪 Which sentence means “There is a shop beside the school”?', choices:['<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>里边<rt>lǐbian</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。','<ruby>商店<rt>shāngdiàn</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>有<rt>yǒu</rt></ruby>。'], ans:0, hint:'旁边 = beside.' },
+    { type:'mc', skill:'Distance & location', stem:'🗣️ A asks <ruby>你家离学校远吗<rt>nǐ jiā lí xuéxiào yuǎn ma</rt></ruby>？ (It is near.) B answers:', choices:['<ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>火车<rt>huǒchē</rt></ruby><ruby>去<rt>qù</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>星期<rt>xīngqī</rt></ruby><ruby>五<rt>wǔ</rt></ruby>。','<ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>。'], ans:0, hint:'离…远吗？→ answer 很近 / 不远 / 很远.' },
+    { type:'mc', skill:'Distance & location', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(My home is very ___ (near) the school.)</span>', choices:['<ruby>近<rt>jìn</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>大<rt>dà</rt></ruby>','<ruby>快<rt>kuài</rt></ruby>'], ans:0, hint:'近 = near.' },
+    { type:'mc', skill:'Distance & location', stem:'↔️ Which word is the opposite of 远 (far)?', choices:['<ruby>近<rt>jìn</rt></ruby>','<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>来<rt>lái</rt></ruby>'], ans:0, hint:'远 (far) ↔ 近 (near).' },
+    { type:'mc', skill:'Distance & location', stem:'👋 Which verb means “to come (toward me)”?', choices:['<ruby>来<rt>lái</rt></ruby> — to come','<ruby>走<rt>zǒu</rt></ruby> — to walk','<ruby>坐<rt>zuò</rt></ruby> — to sit','<ruby>开<rt>kāi</rt></ruby> — to drive'], ans:0, hint:'来 = to come.' },
+    { type:'mc', skill:'Distance & location', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。 <span class="gl">(I go to school ___ (on foot).)</span>', choices:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>坐车<rt>zuòchē</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby><ruby>飞<rt></rt></ruby><ruby>机<rt></rt></ruby>','<ruby>旅行<rt>lǚxíng</rt></ruby>'], ans:0, hint:'走路 = on foot.' },
+    { type:'match', skill:'Distance & location', stem:'写汉字 · Match each pinyin to its character.', left:['zǒu','lái','yuǎn','jìn'], right:['走','来','远','近'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'走=walk · 来=come · 远=far · 近=near.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">商店在学校（　）。</span> (beside)', ans:['旁边','pángbiān','pangbian'], hint:'旁边 = beside. 商店在学校旁边。' },
+{ type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>公园<rt>gōngyuán</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>公园<rt>gōngyuán</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside</div>', stem:'Is the speaker\u2019s home near or far from the park?', choices:['Near (很近).', 'Far.', 'We cannot tell.', 'Very far.'], ans:0, hint:'Find 我家离公园 …… 近 = near.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>公园<rt>gōngyuán</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>公园<rt>gōngyuán</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside</div>', stem:'What is beside the park (公园旁边)?', choices:['A shop (商店).', 'A school.', 'A hospital.', 'A library.'], ans:0, hint:'Find 公园旁边有 ……'},
       ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'Culture: <ruby>共享单车<rt>gòngxiǎng dānchē</rt></ruby> — shared bikes. Which is true?', choices:['In Chinese cities you can unlock a shared bike with your phone, ride it, and leave it for the next person — a cheap, green way to travel short distances.', 'Shared bikes do not exist in China.', 'You must buy a shared bike to use it.', 'Shared bikes can only be used by children.'], ans:0, hint:'共享单车 = shared bikes. They are everywhere in Chinese cities for short, near trips — scan with your phone to ride.' },
-    { type:'mc', stem:'How do you say one place is far / near another? (HSK tip)', choices:['A 离 B + 很远 / 很近 / 不远: 我家离学校很近。', 'A 在 B 远: 我家在学校远.', 'A 是 B 近: 我家是学校近.', 'You cannot compare distance in Chinese.'], ans:0, hint:'离 is the key word for distance: A 离 B 远/近 = A is far/near from B.' },
-    { type:'mc', stem:'🚶 Which word means you go ON FOOT?', choices:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>坐车<rt>zuòchē</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby><ruby>飞<rt>fēi</rt></ruby><ruby>机<rt>jī</rt></ruby>','<ruby>旅行<rt>lǚxíng</rt></ruby>'], ans:0, hint:'走路 = on foot.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby>（　）<ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。 <span class="gl">(My home is very near ___ (from) school.)</span>', choices:['<ruby>离<rt>lí</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>'], ans:0, hint:'A 离 B = A is (distance) from B.' },
-    { type:'mc', stem:'➡️ Which word means “beside / next to”?', choices:['<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>','<ruby>走路<rt>zǒulù</rt></ruby>'], ans:0, hint:'旁边 = beside.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>校车<rt>xiàochē</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěnduō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>骑<rt>qí</rt></ruby><ruby>共享单车<rt>gòngxiǎng dānchē</rt></ruby><sup>③</sup><ruby>去<rt>qù</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>、<ruby>上班<rt>shàngbān</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside ③ 共享单车 gòngxiǎng dānchē: shared bikes ④ 上班 shàngbān: to go to work</div>', stem:'Is the speaker\u2019s home near or far from school, and how do they get there?', choices:['Near; the speaker often walks (很近，常常走路).', 'Far; the speaker takes the train.', 'Near; the speaker flies.', 'Far; the speaker drives.'], ans:0, hint:'Read the first sentence: 我家离学校很近，我常常走路去学校。' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>校车<rt>xiàochē</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěnduō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>骑<rt>qí</rt></ruby><ruby>共享单车<rt>gòngxiǎng dānchē</rt></ruby><sup>③</sup><ruby>去<rt>qù</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>、<ruby>上班<rt>shàngbān</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside ③ 共享单车 gòngxiǎng dānchē: shared bikes ④ 上班 shàngbān: to go to work</div>', stem:'Why does Hassan (哈桑) take the school bus?', choices:['Because his home is far from school (离学校很远).', 'Because he likes the bus.', 'Because his home is near.', 'Because he cannot walk.'], ans:0, hint:'Find 哈桑家离学校很 …… to see the reason.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🚲 Imagine you could redesign the streets around your school so that getting there is easy, safe and fun for everyone — whether they live near or far. What would you add: bike paths, gardens, bridges, shade, something no one has thought of yet? Think freely and explain your ideas. | 🔵 Cycle 3 — 🌍 In Chinese cities, shared bikes let millions make short trips cheaply and without pollution; in the UAE, the hot desert climate shapes how and when people walk or cycle, so cities rely more on cars, metros and cool indoor spaces. Why do you think climate and city design change the way people move around, and how might a city\u2019s choices affect the air, people\u2019s health, and the way neighbours meet one another?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Distance & location', stem:'Culture: <ruby>共享单车<rt>gòngxiǎng dānchē</rt></ruby> — shared bikes. Which is true?', choices:['In Chinese cities you can unlock a shared bike with your phone, ride it, and leave it for the next person — a cheap, green way to travel short distances.', 'Shared bikes do not exist in China.', 'You must buy a shared bike to use it.', 'Shared bikes can only be used by children.'], ans:0, hint:'共享单车 = shared bikes. They are everywhere in Chinese cities for short, near trips — scan with your phone to ride.' },
+    { type:'mc', skill:'Distance & location', stem:'How do you say one place is far / near another? (HSK tip)', choices:['A 离 B + 很远 / 很近 / 不远: 我家离学校很近。', 'A 在 B 远: 我家在学校远.', 'A 是 B 近: 我家是学校近.', 'You cannot compare distance in Chinese.'], ans:0, hint:'离 is the key word for distance: A 离 B 远/近 = A is far/near from B.' },
+    { type:'mc', skill:'Distance & location', stem:'🚶 Which word means you go ON FOOT?', choices:['<ruby>走路<rt>zǒulù</rt></ruby>','<ruby>坐车<rt>zuòchē</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby><ruby>飞<rt>fēi</rt></ruby><ruby>机<rt>jī</rt></ruby>','<ruby>旅行<rt>lǚxíng</rt></ruby>'], ans:0, hint:'走路 = on foot.' },
+    { type:'mc', skill:'Distance & location', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>家<rt>jiā</rt></ruby>（　）<ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>。 <span class="gl">(My home is very near ___ (from) school.)</span>', choices:['<ruby>离<rt>lí</rt></ruby>','<ruby>在<rt>zài</rt></ruby>','<ruby>到<rt>dào</rt></ruby>','<ruby>比<rt>bǐ</rt></ruby>'], ans:0, hint:'A 离 B = A is (distance) from B.' },
+    { type:'mc', skill:'Distance & location', stem:'➡️ Which word means “beside / next to”?', choices:['<ruby>旁边<rt>pángbiān</rt></ruby>','<ruby>远<rt>yuǎn</rt></ruby>','<ruby>近<rt>jìn</rt></ruby>','<ruby>走路<rt>zǒulù</rt></ruby>'], ans:0, hint:'旁边 = beside.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>校车<rt>xiàochē</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěnduō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>骑<rt>qí</rt></ruby><ruby>共享单车<rt>gòngxiǎng dānchē</rt></ruby><sup>③</sup><ruby>去<rt>qù</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>、<ruby>上班<rt>shàngbān</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside ③ 共享单车 gòngxiǎng dānchē: shared bikes ④ 上班 shàngbān: to go to work</div>', stem:'Is the speaker\u2019s home near or far from school, and how do they get there?', choices:['Near; the speaker often walks (很近，常常走路).', 'Far; the speaker takes the train.', 'Near; the speaker flies.', 'Far; the speaker drives.'], ans:0, hint:'Read the first sentence: 我家离学校很近，我常常走路去学校。' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我家<rt>wǒ jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><sup>①</sup><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>近<rt>jìn</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>走路<rt>zǒulù</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>学校<rt>xuéxiào</rt></ruby><ruby>旁边<rt>pángbiān</rt></ruby><sup>②</sup><ruby>有<rt>yǒu</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby>。<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><ruby>坐<rt>zuò</rt></ruby><ruby>校车<rt>xiàochē</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>学校<rt>xuéxiào</rt></ruby>。<ruby>在<rt>zài</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby>，<ruby>很多<rt>hěnduō</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>骑<rt>qí</rt></ruby><ruby>共享单车<rt>gòngxiǎng dānchē</rt></ruby><sup>③</sup><ruby>去<rt>qù</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>、<ruby>上班<rt>shàngbān</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>方便<rt>fāngbiàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 离 lí: (distance) from ② 旁边 pángbiān: beside ③ 共享单车 gòngxiǎng dānchē: shared bikes ④ 上班 shàngbān: to go to work</div>', stem:'Why does Hassan (哈桑) take the school bus?', choices:['Because his home is far from school (离学校很远).', 'Because he likes the bus.', 'Because his home is near.', 'Because he cannot walk.'], ans:0, hint:'Find 哈桑家离学校很 …… to see the reason.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🚲 Imagine you could redesign the streets around your school so that getting there is easy, safe and fun for everyone — whether they live near or far. What would you add: bike paths, gardens, bridges, shade, something no one has thought of yet? Think freely and explain your ideas. | 🔵 Cycle 3 — 🌍 In Chinese cities, shared bikes let millions make short trips cheaply and without pollution; in the UAE, the hot desert climate shapes how and when people walk or cycle, so cities rely more on cars, metros and cool indoor spaces. Why do you think climate and city design change the way people move around, and how might a city\u2019s choices affect the air, people\u2019s health, and the way neighbours meet one another?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2C-L5 我家在学校旁边。</title>' +

@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2A-L9', num:'Lesson 9', title:'我今天很忙。I am busy today.', cn:'个人感受',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 feeling vocabulary (mixed types)
+  // TIER 1 · 夯实基础 — 10 feeling vocabulary (mixed types)
   { qs:[
-    { type:'mc', stem:'😊 Which word means “happy”?', choices:['<ruby>高兴<rt>gāoxìng</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'高兴 = happy.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(I am very ___ (busy) today.)</span>', choices:['<ruby>忙<rt>máng</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'很忙 = very busy.' },
-    { type:'mc', stem:'⏰ Which phrase means “when”?', choices:['<ruby>什么时候<rt>shénme shíhou</rt></ruby>','<ruby>怎么<rt>zěnme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'什么时候 = when.' },
-    { type:'match', stem:'😊 Match each feeling to its meaning.', left:['<ruby>忙<rt>máng</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], right:['busy','tired','hungry','thirsty'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'忙·累·饿·渴.' },
-    { type:'mc', stem:'🍔 Which word means “hungry”?', choices:['<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'饿 = hungry.' },
-    { type:'mc', stem:'😴 Which word means “tired”?', choices:['<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'累 = tired.' },
-    { type:'fill', stem:'认读 · Type the feeling: <span class="cn">我很＿。</span> (thirsty=渴)', ans:['渴','kě','ke'], hint:'渴 = thirsty.' },
-    { type:'mc', stem:'💧 Which word means you want a drink?', choices:['<ruby>渴<rt>kě</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'渴 = thirsty.' },
-    { type:'mc', stem:'🍔 Which means “I have not eaten, now I am hungry”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'没有吃饭…很饿.' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (feeling words).', left:['máng','hàn','zì','shí'], right:['忙','汉','字','时'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'忙·汉·字·时.' },
+    { type:'mc', skill:'Busy or free', stem:'😊 Which word means “happy”?', choices:['<ruby>高兴<rt>gāoxìng</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'高兴 = happy.' },
+    { type:'mc', skill:'Busy or free', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(I am very ___ (busy) today.)</span>', choices:['<ruby>忙<rt>máng</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'很忙 = very busy.' },
+    { type:'mc', skill:'Busy or free', stem:'⏰ Which phrase means “when”?', choices:['<ruby>什么时候<rt>shénme shíhou</rt></ruby>','<ruby>怎么<rt>zěnme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'什么时候 = when.' },
+    { type:'match', skill:'Busy or free', stem:'😊 Match each feeling to its meaning.', left:['<ruby>忙<rt>máng</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], right:['busy','tired','hungry','thirsty'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'忙·累·饿·渴.' },
+    { type:'mc', skill:'Busy or free', stem:'🍔 Which word means “hungry”?', choices:['<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'饿 = hungry.' },
+    { type:'mc', skill:'Busy or free', stem:'😴 Which word means “tired”?', choices:['<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'累 = tired.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the feeling: <span class="cn">我很＿。</span> (thirsty=渴)', ans:['渴','kě','ke'], hint:'渴 = thirsty.' },
+    { type:'mc', skill:'Busy or free', stem:'💧 Which word means you want a drink?', choices:['<ruby>渴<rt>kě</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'渴 = thirsty.' },
+    { type:'mc', skill:'Busy or free', stem:'🍔 Which means “I have not eaten, now I am hungry”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>，<rt></rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'没有吃饭…很饿.' },
+    { type:'match', skill:'Busy or free', stem:'写汉字 · Match the pinyin to its character (feeling words).', left:['máng','hàn','zì','shí'], right:['忙','汉','字','时'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'忙·汉·字·时.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 grammar (adjectival predicate / 什么时候 / 怎么 / 写汉字), mixed types
+  // TIER 2 · 学以致用 — 10 grammar (adjectival predicate / 什么时候 / 怎么 / 写汉字), mixed types
   { qs:[
-    { type:'fill', stem:'认读 · Type the feeling: <span class="cn">我没有吃饭，现在很＿。</span> (hungry=饿)', ans:['饿','è','e'], hint:'饿 = hungry.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(I am very ___ (tired) today.)</span>', choices:['<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'很累 = very tired.' },
-    { type:'mc', stem:'🥵 Which means “It is too hot today, I am very thirsty”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'太热了…很渴.' },
-    { type:'mc', stem:'<ruby>我们<rt>wǒmen</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(When shall we go to eat? — ___)</span>', choices:['<ruby>什么时候<rt>shénme shíhou</rt></ruby>','<ruby>怎么<rt>zěnme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'什么时候 = when.' },
-    { type:'mc', stem:'🗣️ <ruby>这个汉字怎么读<rt>… zěnme dú</rt></ruby> is asking:', choices:['how to read this character','what it means','where it is','who wrote it'], ans:0, hint:'怎么读 = how to read it.' },
-    { type:'mc', stem:'<ruby>这个<rt>zhège</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>（　）<ruby>读<rt>dú</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(How do you read this character? — ___)</span>', choices:['<ruby>怎么<rt>zěnme</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'怎么 = how (to do).' },
-    { type:'match', stem:'写汉字 · Match the pinyin to its character (feelings 2).', left:['lèi','è','kě','gāo'], right:['累','饿','渴','高'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'累·饿·渴·高.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你今天忙吗<rt>nǐ jīntiān máng ma</rt></ruby>？ You are busy. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我今天很忙.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>她<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy</div>', stem:'How does Fatima feel today?', choices:['Busy, tired and thirsty (忙、累、渴).','Bored and sleepy.','Cold and sad.','Free and relaxed.'], ans:0, hint:'Find 很忙 / 很累.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>她<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy</div>', stem:'Even though she is tired, how does Fatima feel?', choices:['Happy (高兴).','Angry.','Sad.','Sleepy.'], ans:0, hint:'Find 可是…高兴.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the feeling: <span class="cn">我没有吃饭，现在很＿。</span> (hungry=饿)', ans:['饿','è','e'], hint:'饿 = hungry.' },
+    { type:'mc', skill:'Busy or free', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(I am very ___ (tired) today.)</span>', choices:['<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>'], ans:0, hint:'很累 = very tired.' },
+    { type:'mc', skill:'Busy or free', stem:'🥵 Which means “It is too hot today, I am very thirsty”?', choices:['<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>冷<rt>lěng</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'太热了…很渴.' },
+    { type:'mc', skill:'Busy or free', stem:'<ruby>我们<rt>wǒmen</rt></ruby>（　）<ruby>去<rt>qù</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(When shall we go to eat? — ___)</span>', choices:['<ruby>什么时候<rt>shénme shíhou</rt></ruby>','<ruby>怎么<rt>zěnme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'什么时候 = when.' },
+    { type:'mc', skill:'Busy or free', stem:'🗣️ <ruby>这个汉字怎么读<rt>… zěnme dú</rt></ruby> is asking:', choices:['how to read this character','what it means','where it is','who wrote it'], ans:0, hint:'怎么读 = how to read it.' },
+    { type:'mc', skill:'Busy or free', stem:'<ruby>这个<rt>zhège</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby>（　）<ruby>读<rt>dú</rt></ruby><ruby>？<rt></rt></ruby> <span class="gl">(How do you read this character? — ___)</span>', choices:['<ruby>怎么<rt>zěnme</rt></ruby>','<ruby>什么<rt>shénme</rt></ruby>','<ruby>哪儿<rt>nǎr</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>'], ans:0, hint:'怎么 = how (to do).' },
+    { type:'match', skill:'Busy or free', stem:'写汉字 · Match the pinyin to its character (feelings 2).', left:['lèi','è','kě','gāo'], right:['累','饿','渴','高'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'累·饿·渴·高.' },
+    { type:'mc', skill:'Busy or free', stem:'🗣️ Someone asks <ruby>你今天忙吗<rt>nǐ jīntiān máng ma</rt></ruby>？ You are busy. Reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>公园<rt>gōngyuán</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>'], ans:0, hint:'Answer: 我今天很忙.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>她<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy</div>', stem:'How does Fatima feel today?', choices:['Busy, tired and thirsty (忙、累、渴).','Bored and sleepy.','Cold and sad.','Free and relaxed.'], ans:0, hint:'Find 很忙 / 很累.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>她<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>渴<rt>kě</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><ruby>她<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy</div>', stem:'Even though she is tired, how does Fatima feel?', choices:['Happy (高兴).','Angry.','Sad.','Sleepy.'], ans:0, hint:'Find 可是…高兴.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 basic (mixed) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 basic (mixed) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In Chinese (HSK), how do you say "I am very busy today"? (HSK tip)', choices:['<ruby>我今天很忙<rt>wǒ jīntiān hěn máng</rt></ruby>。— Subject + 很 + adjective.', '<ruby>我今天是忙<rt>wǒ jīntiān shì máng</rt></ruby>。— incorrect: no 是.', '<ruby>我今天忙很<rt>wǒ jīntiān máng hěn</rt></ruby>。— wrong order.', '<ruby>我是今天很忙<rt>wǒ shì jīntiān hěn máng</rt></ruby>。— incorrect.'], ans:0, hint:'HSK tip: adjectives take 很, not 是. 我很忙 = I am busy.' },
-    { type:'mc', stem:'💧 Which word means “thirsty”?', choices:['<ruby>渴<rt>kě</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'渴 = thirsty.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(I am very ___ (hungry) now.)</span>', choices:['<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'很饿 = very hungry.' },
-    { type:'mc', stem:'🏃 At a Chinese school sports day (<ruby>运动会<rt>yùndònghuì</rt></ruby>), students usually:', choices:['compete in races and games, and cheer for their class', 'sit quietly and read all day', 'stay at home', 'only watch television'], ans:0, hint:'Culture: a 运动会 is a lively school event with races, games and classes cheering each other on.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你今天的课多吗<rt>… kè duō ma</rt></ruby>？ Lots, and you are busy. Reply:', choices:['<ruby>很多<rt>hěn duō</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>课<rt>kè</rt></ruby><ruby>多<rt>duō</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 很多，我很忙.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>运动会<rt>yùndònghuì</rt></ruby><sup>②</sup>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><sup>③</sup>，<ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><sup>④</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><sup>⑤</sup><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy ② 运动会 yùndònghuì: sports day ③ 吃饭 chīfàn: eat ④ 饿 è: hungry ⑤ 可是 kěshì: but</div>', stem:'Why is Hassan (哈桑) hungry now?', choices:['He has not eaten (没有吃饭).', 'It is too hot.', 'He is tired.', 'He has too many books.'], ans:0, hint:'Find 没有吃饭，现在很饿.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>运动会<rt>yùndònghuì</rt></ruby><sup>②</sup>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><sup>③</sup>，<ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><sup>④</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><sup>⑤</sup><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy ② 运动会 yùndònghuì: sports day ③ 吃饭 chīfàn: eat ④ 饿 è: hungry ⑤ 可是 kěshì: but</div>', stem:'How does Hassan feel at the end, even though he is busy and tired?', choices:['Happy (高兴).', 'Angry.', 'Sad.', 'Bored.'], ans:0, hint:'Read the last sentence after 可是 (but).' },
-    { type:'hots', stem:'🟡 Cycle 2 — Everyone has busy days when they feel tired, hungry or thirsty, but also happy days. What kinds of things make YOUR day busy, and what helps you feel better when you are tired? | 🔵 Cycle 3 — In China, schools hold a big sports day (\u8fd0\u52a8\u4f1a) where students race, play games and cheer for their class together. Does your school have events like this, and why do you think shared events like sports days are good for students and for a school community?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'mc', skill:'Busy or free', stem:'In Chinese (HSK), how do you say "I am very busy today"? (HSK tip)', choices:['<ruby>我今天很忙<rt>wǒ jīntiān hěn máng</rt></ruby>。— Subject + 很 + adjective.', '<ruby>我今天是忙<rt>wǒ jīntiān shì máng</rt></ruby>。— incorrect: no 是.', '<ruby>我今天忙很<rt>wǒ jīntiān máng hěn</rt></ruby>。— wrong order.', '<ruby>我是今天很忙<rt>wǒ shì jīntiān hěn máng</rt></ruby>。— incorrect.'], ans:0, hint:'HSK tip: adjectives take 很, not 是. 我很忙 = I am busy.' },
+    { type:'mc', skill:'Busy or free', stem:'💧 Which word means “thirsty”?', choices:['<ruby>渴<rt>kě</rt></ruby>','<ruby>饿<rt>è</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'渴 = thirsty.' },
+    { type:'mc', skill:'Busy or free', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(I am very ___ (hungry) now.)</span>', choices:['<ruby>饿<rt>è</rt></ruby>','<ruby>渴<rt>kě</rt></ruby>','<ruby>累<rt>lèi</rt></ruby>','<ruby>忙<rt>máng</rt></ruby>'], ans:0, hint:'很饿 = very hungry.' },
+    { type:'mc', skill:'Busy or free', stem:'🏃 At a Chinese school sports day (<ruby>运动会<rt>yùndònghuì</rt></ruby>), students usually:', choices:['compete in races and games, and cheer for their class', 'sit quietly and read all day', 'stay at home', 'only watch television'], ans:0, hint:'Culture: a 运动会 is a lively school event with races, games and classes cheering each other on.' },
+    { type:'mc', skill:'Busy or free', stem:'🗣️ Someone asks <ruby>你今天的课多吗<rt>… kè duō ma</rt></ruby>？ Lots, and you are busy. Reply:', choices:['<ruby>很多<rt>hěn duō</rt></ruby><ruby>，<rt></rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>红色<rt>hóngsè</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>。<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>课<rt>kè</rt></ruby><ruby>多<rt>duō</rt></ruby><ruby>吗<rt>ma</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'Answer: 很多，我很忙.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>运动会<rt>yùndònghuì</rt></ruby><sup>②</sup>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><sup>③</sup>，<ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><sup>④</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><sup>⑤</sup><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy ② 运动会 yùndònghuì: sports day ③ 吃饭 chīfàn: eat ④ 饿 è: hungry ⑤ 可是 kěshì: but</div>', stem:'Why is Hassan (哈桑) hungry now?', choices:['He has not eaten (没有吃饭).', 'It is too hot.', 'He is tired.', 'He has too many books.'], ans:0, hint:'Find 没有吃饭，现在很饿.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>忙<rt>máng</rt></ruby><sup>①</sup>。<ruby>他<rt>tā</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>课<rt>kè</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>运动会<rt>yùndònghuì</rt></ruby><sup>②</sup>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>他<rt>tā</rt></ruby><ruby>没有<rt>méiyǒu</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby><sup>③</sup>，<ruby>现在<rt>xiànzài</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>饿<rt>è</rt></ruby><sup>④</sup>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>可是<rt>kěshì</rt></ruby><sup>⑤</sup><ruby>他<rt>tā</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>！</p><div class="rn"><b>Notes:</b> ① 忙 máng: busy ② 运动会 yùndònghuì: sports day ③ 吃饭 chīfàn: eat ④ 饿 è: hungry ⑤ 可是 kěshì: but</div>', stem:'How does Hassan feel at the end, even though he is busy and tired?', choices:['Happy (高兴).', 'Angry.', 'Sad.', 'Bored.'], ans:0, hint:'Read the last sentence after 可是 (but).' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Everyone has busy days when they feel tired, hungry or thirsty, but also happy days. What kinds of things make YOUR day busy, and what helps you feel better when you are tired? | 🔵 Cycle 3 — In China, schools hold a big sports day (\u8fd0\u52a8\u4f1a) where students race, play games and cheer for their class together. Does your school have events like this, and why do you think shared events like sports days are good for students and for a school community?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2A-L9 我今天很忙。</title>' +

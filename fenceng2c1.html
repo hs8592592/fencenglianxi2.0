@@ -1017,25 +1017,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1360,46 +1360,46 @@ const LESSONS = [
 { id:'2C-L1', num:'Lesson 1', title:'我想买一双鞋子 I want to buy a pair of shoes', cn:'购物与衣物量词',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary: clothing + measure words (mc / fill / match)
+  // TIER 1 · 夯实基础 — 10 core vocabulary: clothing + measure words (mc / fill / match)
   { qs:[
-    { type:'mc', stem:'👟 Which word means “shoes”?', choices:['<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>'], ans:0, hint:'鞋子 = shoes.' },
-    { type:'match', stem:'👕 Match each clothing word to its meaning.', left:['<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>'], right:['trousers','top','shoes','socks'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'裤子=trousers·上衣=top·鞋子=shoes·袜子=socks.' },
-    { type:'fill', stem:'认读 · Type the measure word: <span class="cn">我想买一（　）上衣。</span> (a top)', ans:['件','jiàn','jian'], hint:'件 = MW for tops.' },
-    { type:'mc', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）<ruby>你<rt>nǐ</rt></ruby>。 <span class="gl">(This top ___ (suits) you well.)</span>', choices:['<ruby>适合<rt>shìhé</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>贵<rt>guì</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'适合 = to suit.' },
-    { type:'mc', stem:'🦶 Which do you wear on your FEET?', choices:['<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>头巾<rt>tóujīn</rt></ruby>','<ruby>长袍<rt>chángpáo</rt></ruby>'], ans:0, hint:'鞋子 = shoes (on your feet).' },
-    { type:'fill', stem:'认读 · Type the item: <span class="cn">我想买一双（　）。</span> (shoes)', ans:['鞋子','xiézi','xiezi'], hint:'鞋子 = shoes.' },
-    { type:'match', stem:'🧣 Match each word to its meaning.', left:['<ruby>头巾<rt>tóujīn</rt></ruby>','<ruby>长袍<rt>chángpáo</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>适合<rt>shìhé</rt></ruby>'], right:['headscarf','robe','pretty','to suit'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'头巾=headscarf·长袍=robe·漂亮=pretty·适合=suit.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。 <span class="gl">(I ___ (want to) buy a pair of shoes.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
-    { type:'mc', stem:'👟 Which measure word goes with 鞋子 (shoes)?', choices:['<ruby>双<rt>shuāng</rt></ruby> — a pair of','<ruby>件<rt>jiàn</rt></ruby> — a top','<ruby>条<rt>tiáo</rt></ruby> — trousers','<ruby>台<rt>tái</rt></ruby> — a machine'], ans:0, hint:'双 = a pair (shoes/socks).' },
-    { type:'mc', stem:'👖 Which word means “trousers”?', choices:['<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>'], ans:0, hint:'裤子 = trousers.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'👟 Which word means “shoes”?', choices:['<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>'], ans:0, hint:'鞋子 = shoes.' },
+    { type:'match', skill:'Clothes & shopping', stem:'👕 Match each clothing word to its meaning.', left:['<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>'], right:['trousers','top','shoes','socks'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'裤子=trousers·上衣=top·鞋子=shoes·袜子=socks.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the measure word: <span class="cn">我想买一（　）上衣。</span> (a top)', ans:['件','jiàn','jian'], hint:'件 = MW for tops.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）<ruby>你<rt>nǐ</rt></ruby>。 <span class="gl">(This top ___ (suits) you well.)</span>', choices:['<ruby>适合<rt>shìhé</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>贵<rt>guì</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'适合 = to suit.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'🦶 Which do you wear on your FEET?', choices:['<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>头巾<rt>tóujīn</rt></ruby>','<ruby>长袍<rt>chángpáo</rt></ruby>'], ans:0, hint:'鞋子 = shoes (on your feet).' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the item: <span class="cn">我想买一双（　）。</span> (shoes)', ans:['鞋子','xiézi','xiezi'], hint:'鞋子 = shoes.' },
+    { type:'match', skill:'Clothes & shopping', stem:'🧣 Match each word to its meaning.', left:['<ruby>头巾<rt>tóujīn</rt></ruby>','<ruby>长袍<rt>chángpáo</rt></ruby>','<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>适合<rt>shìhé</rt></ruby>'], right:['headscarf','robe','pretty','to suit'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'头巾=headscarf·长袍=robe·漂亮=pretty·适合=suit.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。 <span class="gl">(I ___ (want to) buy a pair of shoes.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'👟 Which measure word goes with 鞋子 (shoes)?', choices:['<ruby>双<rt>shuāng</rt></ruby> — a pair of','<ruby>件<rt>jiàn</rt></ruby> — a top','<ruby>条<rt>tiáo</rt></ruby> — trousers','<ruby>台<rt>tái</rt></ruby> — a machine'], ans:0, hint:'双 = a pair (shoes/socks).' },
+    { type:'mc', skill:'Clothes & shopping', stem:'👖 Which word means “trousers”?', choices:['<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>'], ans:0, hint:'裤子 = trousers.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 usage + measure words 件/条/双 + 想买 + 写汉字 (HSK 1-2 light)
+  // TIER 2 · 学以致用 — 10 usage + measure words 件/条/双 + 想买 + 写汉字 (HSK 1-2 light)
   { qs:[
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。 <span class="gl">(I ___ (want to) buy trousers.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">这双鞋子很（　）。</span> (pretty)', ans:['漂亮','piàoliang','piaoliang'], hint:'漂亮 = pretty.' },
-    { type:'mc', stem:'🧥 Which do you wear on your TOP half?', choices:['<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>'], ans:0, hint:'上衣 = top / upper garment.' },
-    { type:'mc', stem:'❓ A shop assistant asks: which question means “What would you like to buy?”', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你想买什么？= What would you like to buy?' },
-    { type:'mc', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(These shoes are very ___ (pretty).)</span>', choices:['<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>适合<rt>shìhé</rt></ruby>','<ruby>贵<rt>guì</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'漂亮 = pretty.' },
-    { type:'mc', stem:'👟 Which sentence means “I want to buy a pair of shoes”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。','<ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>。'], ans:0, hint:'一双鞋子 = a pair of shoes.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['yī','jiàn','tiáo','shuāng'], right:['衣','件','条','双'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'衣=clothes·件=MW tops·条=MW long·双=pair.' },
-    { type:'mc', stem:'<ruby>一<rt>yì</rt></ruby>（　）<ruby>袜子<rt>wàzi</rt></ruby>。 <span class="gl">(One ___ (pair) of socks.)</span>', choices:['<ruby>双<rt>shuāng</rt></ruby>','<ruby>件<rt>jiàn</rt></ruby>','<ruby>条<rt>tiáo</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'双 = a pair.' },
-    { type:'mc', stem:'🗣️ A shop assistant asks <ruby>你想买什么<rt>nǐ xiǎng mǎi shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'Answer: 我想买….' },
-    { type:'mc', stem:'👖 Which measure word goes with 裤子 (trousers)?', choices:['<ruby>条<rt>tiáo</rt></ruby> — for trousers (long)','<ruby>双<rt>shuāng</rt></ruby> — a pair','<ruby>件<rt>jiàn</rt></ruby> — for tops','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'条 = MW for trousers.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。 <span class="gl">(I ___ (want to) buy trousers.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">这双鞋子很（　）。</span> (pretty)', ans:['漂亮','piàoliang','piaoliang'], hint:'漂亮 = pretty.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'🧥 Which do you wear on your TOP half?', choices:['<ruby>上衣<rt>shàngyī</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>'], ans:0, hint:'上衣 = top / upper garment.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'❓ A shop assistant asks: which question means “What would you like to buy?”', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>多少<rt>duōshao</rt></ruby><ruby>钱<rt>qián</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你想买什么？= What would you like to buy?' },
+    { type:'mc', skill:'Clothes & shopping', stem:'<ruby>这<rt>zhè</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby><ruby>很<rt>hěn</rt></ruby>（　）。 <span class="gl">(These shoes are very ___ (pretty).)</span>', choices:['<ruby>漂亮<rt>piàoliang</rt></ruby>','<ruby>适合<rt>shìhé</rt></ruby>','<ruby>贵<rt>guì</rt></ruby>','<ruby>大<rt>dà</rt></ruby>'], ans:0, hint:'漂亮 = pretty.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'👟 Which sentence means “I want to buy a pair of shoes”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。','<ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby><ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby>。'], ans:0, hint:'一双鞋子 = a pair of shoes.' },
+    { type:'match', skill:'Clothes & shopping', stem:'写汉字 · Match each pinyin to its character.', left:['yī','jiàn','tiáo','shuāng'], right:['衣','件','条','双'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'衣=clothes·件=MW tops·条=MW long·双=pair.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'<ruby>一<rt>yì</rt></ruby>（　）<ruby>袜子<rt>wàzi</rt></ruby>。 <span class="gl">(One ___ (pair) of socks.)</span>', choices:['<ruby>双<rt>shuāng</rt></ruby>','<ruby>件<rt>jiàn</rt></ruby>','<ruby>条<rt>tiáo</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'双 = a pair.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'🗣️ A shop assistant asks <ruby>你想买什么<rt>nǐ xiǎng mǎi shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>今天<rt>jīntiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>。'], ans:0, hint:'Answer: 我想买….' },
+    { type:'mc', skill:'Clothes & shopping', stem:'👖 Which measure word goes with 裤子 (trousers)?', choices:['<ruby>条<rt>tiáo</rt></ruby> — for trousers (long)','<ruby>双<rt>shuāng</rt></ruby> — a pair','<ruby>件<rt>jiàn</rt></ruby> — for tops','<ruby>本<rt>běn</rt></ruby> — for books'], ans:0, hint:'条 = MW for trousers.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. light HSK 1-2) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'🧕 Which do you wear on your HEAD?', choices:['<ruby>头巾<rt>tóujīn</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>'], ans:0, hint:'头巾 = headscarf.' },
-    { type:'mc', stem:'Clothing measure words — which set is correct? (HSK tip)', choices:['一件上衣 (top) · 一条裤子 (trousers) · 一双鞋子 (shoes) — each kind of clothing has its own measure word.', 'Everything uses 个.', 'Shoes use 件, tops use 双.', 'Measure words are never needed for clothes.'], ans:0, hint:'HSK tip: 件 → tops & robes · 条 → trousers & long items · 双 → pairs (shoes, socks).' },
-    { type:'mc', stem:'<ruby>这<rt>zhè</rt></ruby>（　）<ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>。 <span class="gl">(This ___ (MW) top is very pretty.)</span>', choices:['<ruby>件<rt>jiàn</rt></ruby>','<ruby>双<rt>shuāng</rt></ruby>','<ruby>条<rt>tiáo</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'件 = MW for tops.' },
-    { type:'mc', stem:'Culture: <ruby>汉服<rt>Hànfú</rt></ruby> — traditional Chinese clothing. Which is true?', choices:['汉服 is traditional Han Chinese dress, often with flowing robes and wide sleeves; many young people now wear it on special days.', '汉服 is a kind of modern sportswear.', '汉服 is only worn by children.', 'Chinese people have never had traditional clothing.'], ans:0, hint:'汉服 = "Han clothing" — historical Chinese dress that has become popular again at festivals and celebrations.' },
-    { type:'mc', stem:'🧦 Which word means “socks”?', choices:['<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>'], ans:0, hint:'袜子 = socks.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup><ruby>买<rt>mǎi</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><sup>②</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这<rt>zhè</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>适合<rt>shìhé</rt></ruby><sup>③</sup><ruby>你<rt>nǐ</rt></ruby>。”<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>头巾<rt>tóujīn</rt></ruby><sup>④</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 衣服 yīfu: clothes ③ 适合 shìhé: to suit ④ 头巾 tóujīn: headscarf</div>', stem:'What does the speaker (我) want to buy?', choices:['A top, a pair of trousers, and a pair of shoes.', 'Only a headscarf.', 'A computer and a phone.', 'Socks and a robe.'], ans:0, hint:'Find 我想买…… and 我还想买…… in the passage.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup><ruby>买<rt>mǎi</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><sup>②</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这<rt>zhè</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>适合<rt>shìhé</rt></ruby><sup>③</sup><ruby>你<rt>nǐ</rt></ruby>。”<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>头巾<rt>tóujīn</rt></ruby><sup>④</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 衣服 yīfu: clothes ③ 适合 shìhé: to suit ④ 头巾 tóujīn: headscarf</div>', stem:'What does Dad say about the top (上衣)?', choices:['It is pretty and suits you (很漂亮，很适合你).', 'It is too expensive.', 'It is too small.', 'She does not like it.'], ans:0, hint:'Find 爸爸说：“这件上衣很……”' },
-    { type:'hots', stem:'🟡 Cycle 2 — 👗 Your school is holding a \"Silk Road Culture Day\" (丝路文化日)! Everyone comes in traditional clothes. Your Chinese friend arrives in beautiful 汉服 (Hanfu) — which has styles for both boys and girls — while you wear your own traditional dress, such as a 长袍 (kandura) or an abaya. What would you wear, what colours would you choose for such a special day, and why? | 🔵 Cycle 3 — 🥻 In China people are proud of 汉服 (Hanfu); in the UAE people are proud of the 长袍 (kandura) and the abaya. Both cultures have traditional clothes for men and for women, worn at festivals (节日), weddings, and on national days — plain for every day, beautifully decorated for celebrations. Why do you think people in BOTH China and the Arab world still love and protect their traditional clothes in our modern world? What can the colours, shapes and cloth of traditional clothing tell us about a place\u2019s climate, history, and values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'🧕 Which do you wear on your HEAD?', choices:['<ruby>头巾<rt>tóujīn</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>'], ans:0, hint:'头巾 = headscarf.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'Clothing measure words — which set is correct? (HSK tip)', choices:['一件上衣 (top) · 一条裤子 (trousers) · 一双鞋子 (shoes) — each kind of clothing has its own measure word.', 'Everything uses 个.', 'Shoes use 件, tops use 双.', 'Measure words are never needed for clothes.'], ans:0, hint:'HSK tip: 件 → tops & robes · 条 → trousers & long items · 双 → pairs (shoes, socks).' },
+    { type:'mc', skill:'Clothes & shopping', stem:'<ruby>这<rt>zhè</rt></ruby>（　）<ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>。 <span class="gl">(This ___ (MW) top is very pretty.)</span>', choices:['<ruby>件<rt>jiàn</rt></ruby>','<ruby>双<rt>shuāng</rt></ruby>','<ruby>条<rt>tiáo</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'件 = MW for tops.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'Culture: <ruby>汉服<rt>Hànfú</rt></ruby> — traditional Chinese clothing. Which is true?', choices:['汉服 is traditional Han Chinese dress, often with flowing robes and wide sleeves; many young people now wear it on special days.', '汉服 is a kind of modern sportswear.', '汉服 is only worn by children.', 'Chinese people have never had traditional clothing.'], ans:0, hint:'汉服 = "Han clothing" — historical Chinese dress that has become popular again at festivals and celebrations.' },
+    { type:'mc', skill:'Clothes & shopping', stem:'🧦 Which word means “socks”?', choices:['<ruby>袜子<rt>wàzi</rt></ruby>','<ruby>鞋子<rt>xiézi</rt></ruby>','<ruby>裤子<rt>kùzi</rt></ruby>','<ruby>上衣<rt>shàngyī</rt></ruby>'], ans:0, hint:'袜子 = socks.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup><ruby>买<rt>mǎi</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><sup>②</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这<rt>zhè</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>适合<rt>shìhé</rt></ruby><sup>③</sup><ruby>你<rt>nǐ</rt></ruby>。”<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>头巾<rt>tóujīn</rt></ruby><sup>④</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 衣服 yīfu: clothes ③ 适合 shìhé: to suit ④ 头巾 tóujīn: headscarf</div>', stem:'What does the speaker (我) want to buy?', choices:['A top, a pair of trousers, and a pair of shoes.', 'Only a headscarf.', 'A computer and a phone.', 'Socks and a robe.'], ans:0, hint:'Find 我想买…… and 我还想买…… in the passage.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>爸爸<rt>bàba</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>商店<rt>shāngdiàn</rt></ruby><sup>①</sup><ruby>买<rt>mǎi</rt></ruby><ruby>衣服<rt>yīfu</rt></ruby><sup>②</sup>。<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>裤子<rt>kùzi</rt></ruby>。<ruby>爸爸<rt>bàba</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>这<rt>zhè</rt></ruby><ruby>件<rt>jiàn</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>漂亮<rt>piàoliang</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>适合<rt>shìhé</rt></ruby><sup>③</sup><ruby>你<rt>nǐ</rt></ruby>。”<ruby>我<rt>wǒ</rt></ruby><ruby>还<rt>hái</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>双<rt>shuāng</rt></ruby><ruby>鞋子<rt>xiézi</rt></ruby>。<ruby>妈妈<rt>māma</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>条<rt>tiáo</rt></ruby><ruby>头巾<rt>tóujīn</rt></ruby><sup>④</sup>。<ruby>我们<rt>wǒmen</rt></ruby><ruby>买<rt>mǎi</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>东西<rt>dōngxi</rt></ruby>，<ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 商店 shāngdiàn: shop ② 衣服 yīfu: clothes ③ 适合 shìhé: to suit ④ 头巾 tóujīn: headscarf</div>', stem:'What does Dad say about the top (上衣)?', choices:['It is pretty and suits you (很漂亮，很适合你).', 'It is too expensive.', 'It is too small.', 'She does not like it.'], ans:0, hint:'Find 爸爸说：“这件上衣很……”' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 👗 Your school is holding a \"Silk Road Culture Day\" (丝路文化日)! Everyone comes in traditional clothes. Your Chinese friend arrives in beautiful 汉服 (Hanfu) — which has styles for both boys and girls — while you wear your own traditional dress, such as a 长袍 (kandura) or an abaya. What would you wear, what colours would you choose for such a special day, and why? | 🔵 Cycle 3 — 🥻 In China people are proud of 汉服 (Hanfu); in the UAE people are proud of the 长袍 (kandura) and the abaya. Both cultures have traditional clothes for men and for women, worn at festivals (节日), weddings, and on national days — plain for every day, beautifully decorated for celebrations. Why do you think people in BOTH China and the Arab world still love and protect their traditional clothes in our modern world? What can the colours, shapes and cloth of traditional clothing tell us about a place\u2019s climate, history, and values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and compare.' },
   ]}]},
 
 
@@ -2195,7 +2195,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2415,7 +2415,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2619,12 +2619,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2633,6 +2633,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2661,7 +2665,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2673,22 +2677,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2766,7 +2770,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2C-L1 我想买一双鞋子。</title>' +

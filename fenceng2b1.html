@@ -1016,25 +1016,25 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   <div class="section-label">2 · Select mastery tier 选择分层</div>
   <div class="mobile-select-wrap" id="tierSelectWrap">
     <select class="mobile-select" id="tierSelect" onchange="setTier(parseInt(this.value))">
-      <option value="0">Tier 1 · 迈向掌握 — Core vocabulary &amp; sentence patterns</option>
-      <option value="1">Tier 2 · 达到掌握 — Sentence usage + HSK 3.0 grammar</option>
-      <option value="2">Tier 3 · 深度掌握 — Extended + reading + critical thinking</option>
+      <option value="0">Tier 1 · 夯实基础 — Core vocabulary &amp; sentence patterns</option>
+      <option value="1">Tier 2 · 学以致用 — Sentence usage + HSK 3.0 grammar</option>
+      <option value="2">Tier 3 · 拓展思辨 — Extended + reading + critical thinking</option>
     </select>
   </div>
   <div class="tier-grid">
     <div class="tier-card t1 active" id="tc0" onclick="setTier(0)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 1</div>
-      <div class="tc-cn">迈向掌握</div>
+      <div class="tc-cn">夯实基础</div>
       <div class="tc-desc">10 questions · Core vocabulary &amp; sentence patterns · Working toward mastery</div>
     </div>
     <div class="tier-card t2" id="tc1" onclick="setTier(1)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 2</div>
-      <div class="tc-cn">达到掌握</div>
+      <div class="tc-cn">学以致用</div>
       <div class="tc-desc">10 questions · Sentence usage + HSK 3.0 grammar · Working at mastery</div>
     </div>
     <div class="tier-card t3" id="tc2" onclick="setTier(2)">
       <div class="tc-level"><span class="tier-dot"></span>Tier 3</div>
-      <div class="tc-cn">深度掌握</div>
+      <div class="tc-cn">拓展思辨</div>
       <div class="tc-desc">8 questions · 5 basic (incl. HSK 3.0) + 2 reading comprehension + 1 critical thinking · Mastery with depth</div>
     </div>
   </div>
@@ -1359,46 +1359,46 @@ const LESSONS = [
 { id:'2B-L1', num:'Lesson 1', title:'你们想喝什么。What would you like to drink?', cn:'饮品',
   tiers:[
 
-  // TIER 1 · 迈向掌握 — 10 core vocabulary & sentence-pattern questions
+  // TIER 1 · 夯实基础 — 10 core vocabulary & sentence-pattern questions
   { qs:[
-    { type:'mc', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby>（　）？ <span class="gl">(What do you want to drink?)</span>', choices:['<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>','<ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'什么 = what.' },
-    { type:'match', stem:'🧃 Match each word to its meaning.', left:['<ruby>果汁<rt>guǒzhī</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>想<rt>xiǎng</rt></ruby>'], right:['juice','cola','to drink','to want'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'果汁=juice·可乐=cola·喝=drink·想=want.' },
-    { type:'mc', stem:'🥤 Which verb goes with drinks (水, 茶, 可乐)?', choices:['<ruby>喝<rt>hē</rt></ruby> — to drink','<ruby>吃<rt>chī</rt></ruby> — to eat','<ruby>坐<rt>zuò</rt></ruby> — to sit','<ruby>买<rt>mǎi</rt></ruby> — to buy'], ans:0, hint:'喝 = to drink (口 mouth radical).' },
-    { type:'mc', stem:'☕ Which word means “coffee”?', choices:['<ruby>咖啡<rt>kāfēi</rt></ruby>','<ruby>茶<rt>chá</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>'], ans:0, hint:'咖啡 = coffee.' },
-    { type:'fill', stem:'认读 · Type the measure word: <span class="cn">我想喝一（　）水。</span> (a cup of)', ans:['杯','bēi'], hint:'杯 = cup.' },
-    { type:'fill', stem:'认读 · Type the word: <span class="cn">你想喝（　）？</span> (what)', ans:['什么','shénme','shenme'], hint:'什么 = what.' },
-    { type:'mc', stem:'🥛 Which measure word goes with 牛奶 (milk)?', choices:['<ruby>杯<rt>bēi</rt></ruby> — a glass / cup of','<ruby>个<rt>gè</rt></ruby> — a (general)','<ruby>本<rt>běn</rt></ruby> — a book','<ruby>只<rt>zhǐ</rt></ruby> — an animal'], ans:0, hint:'一杯牛奶 = a glass of milk.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>喝<rt>hē</rt></ruby><ruby>水<rt>shuǐ</rt></ruby>。 <span class="gl">(I ___ (want to) drink water.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
-    { type:'match', stem:'🥤 Match each drink to its meaning.', left:['<ruby>水<rt>shuǐ</rt></ruby>','<ruby>茶<rt>chá</rt></ruby>','<ruby>咖啡<rt>kāfēi</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>'], right:['water','tea','coffee','milk'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'水=water·茶=tea·咖啡=coffee·牛奶=milk.' },
-    { type:'mc', stem:'🍵 Which word means “tea”?', choices:['<ruby>茶<rt>chá</rt></ruby>','<ruby>咖啡<rt>kāfēi</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>','<ruby>水<rt>shuǐ</rt></ruby>'], ans:0, hint:'茶 = tea.' },
+    { type:'mc', skill:'Drinks', stem:'<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby>（　）？ <span class="gl">(What do you want to drink?)</span>', choices:['<ruby>什么<rt>shénme</rt></ruby>','<ruby>谁<rt>shuí</rt></ruby>','<ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby>','<ruby>几<rt>jǐ</rt></ruby>'], ans:0, hint:'什么 = what.' },
+    { type:'match', skill:'Drinks', stem:'🧃 Match each word to its meaning.', left:['<ruby>果汁<rt>guǒzhī</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>想<rt>xiǎng</rt></ruby>'], right:['juice','cola','to drink','to want'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'果汁=juice·可乐=cola·喝=drink·想=want.' },
+    { type:'mc', skill:'Drinks', stem:'🥤 Which verb goes with drinks (水, 茶, 可乐)?', choices:['<ruby>喝<rt>hē</rt></ruby> — to drink','<ruby>吃<rt>chī</rt></ruby> — to eat','<ruby>坐<rt>zuò</rt></ruby> — to sit','<ruby>买<rt>mǎi</rt></ruby> — to buy'], ans:0, hint:'喝 = to drink (口 mouth radical).' },
+    { type:'mc', skill:'Drinks', stem:'☕ Which word means “coffee”?', choices:['<ruby>咖啡<rt>kāfēi</rt></ruby>','<ruby>茶<rt>chá</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>'], ans:0, hint:'咖啡 = coffee.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the measure word: <span class="cn">我想喝一（　）水。</span> (a cup of)', ans:['杯','bēi'], hint:'杯 = cup.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the word: <span class="cn">你想喝（　）？</span> (what)', ans:['什么','shénme','shenme'], hint:'什么 = what.' },
+    { type:'mc', skill:'Drinks', stem:'🥛 Which measure word goes with 牛奶 (milk)?', choices:['<ruby>杯<rt>bēi</rt></ruby> — a glass / cup of','<ruby>个<rt>gè</rt></ruby> — a (general)','<ruby>本<rt>běn</rt></ruby> — a book','<ruby>只<rt>zhǐ</rt></ruby> — an animal'], ans:0, hint:'一杯牛奶 = a glass of milk.' },
+    { type:'mc', skill:'Drinks', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>喝<rt>hē</rt></ruby><ruby>水<rt>shuǐ</rt></ruby>。 <span class="gl">(I ___ (want to) drink water.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>是<rt>shì</rt></ruby>','<ruby>有<rt>yǒu</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
+    { type:'match', skill:'Drinks', stem:'🥤 Match each drink to its meaning.', left:['<ruby>水<rt>shuǐ</rt></ruby>','<ruby>茶<rt>chá</rt></ruby>','<ruby>咖啡<rt>kāfēi</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>'], right:['water','tea','coffee','milk'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'水=water·茶=tea·咖啡=coffee·牛奶=milk.' },
+    { type:'mc', skill:'Drinks', stem:'🍵 Which word means “tea”?', choices:['<ruby>茶<rt>chá</rt></ruby>','<ruby>咖啡<rt>kāfēi</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>','<ruby>水<rt>shuǐ</rt></ruby>'], ans:0, hint:'茶 = tea.' },
   ]},
 
 
-  // TIER 2 · 达到掌握 — 10 sentence-usage + HSK 3.0 questions
+  // TIER 2 · 学以致用 — 10 sentence-usage + HSK 3.0 questions
   { qs:[
-    { type:'mc', stem:'🥤 Which measure word goes with 可乐 (cola, in a bottle)?', choices:['<ruby>瓶<rt>píng</rt></ruby> — a bottle of','<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>本<rt>běn</rt></ruby> — a book','<ruby>只<rt>zhǐ</rt></ruby> — an animal'], ans:0, hint:'瓶 = bottle. 一瓶可乐.' },
-    { type:'match', stem:'写汉字 · Match each pinyin to its character.', left:['hē','xiǎng','shuǐ','chá'], right:['喝','想','水','茶'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'喝=drink·想=want·水=water·茶=tea.' },
-    { type:'mc', stem:'<ruby>两<rt>liǎng</rt></ruby>（　）<ruby>可乐<rt>kělè</rt></ruby>。 <span class="gl">(Two ___ (bottles) of cola.)</span>', choices:['<ruby>瓶<rt>píng</rt></ruby>','<ruby>杯<rt>bēi</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'瓶 = bottle.' },
-    { type:'fill', stem:'认读 · Type the verb: <span class="cn">我想（　）水。</span> (to drink)', ans:['喝','hē'], hint:'喝 = to drink.' },
-    { type:'mc', stem:'❓ Which question gets the answer <ruby>我想喝可乐<rt>wǒ xiǎng hē kělè</rt></ruby>?', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你想喝什么？= What do you want to drink?' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>喝<rt>hē</rt></ruby><ruby>可乐<rt>kělè</rt></ruby>。 <span class="gl">(I ___ (want to) drink cola.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
-    { type:'mc', stem:'🥤 Which sentence means “I want a cup of coffee”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。'], ans:0, hint:'一杯咖啡 = a cup of coffee.' },
-    { type:'mc', stem:'🗣️ Someone asks <ruby>你想喝什么<rt>nǐ xiǎng hē shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>可乐<rt>kělè</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>可乐<rt>kělè</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。'], ans:0, hint:'Answer about yourself: 我想喝….' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>牛奶<rt>niúnǎi</rt></ruby>。 <span class="gl">(I want a ___ (glass) of milk.)</span>', choices:['<ruby>杯<rt>bēi</rt></ruby>','<ruby>瓶<rt>píng</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>只<rt>zhǐ</rt></ruby>'], ans:0, hint:'一杯牛奶 = a glass of milk.' },
-    { type:'mc', stem:'🍵 Which one is a HOT drink in China?', choices:['<ruby>茶<rt>chá</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>果汁<rt>guǒzhī</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>'], ans:0, hint:'茶 (tea) is usually served hot.' },
+    { type:'mc', skill:'Drinks', stem:'🥤 Which measure word goes with 可乐 (cola, in a bottle)?', choices:['<ruby>瓶<rt>píng</rt></ruby> — a bottle of','<ruby>碗<rt>wǎn</rt></ruby> — a bowl of','<ruby>本<rt>běn</rt></ruby> — a book','<ruby>只<rt>zhǐ</rt></ruby> — an animal'], ans:0, hint:'瓶 = bottle. 一瓶可乐.' },
+    { type:'match', skill:'Drinks', stem:'写汉字 · Match each pinyin to its character.', left:['hē','xiǎng','shuǐ','chá'], right:['喝','想','水','茶'], pairs:[[0,0],[1,1],[2,2],[3,3]], hint:'喝=drink·想=want·水=water·茶=tea.' },
+    { type:'mc', skill:'Drinks', stem:'<ruby>两<rt>liǎng</rt></ruby>（　）<ruby>可乐<rt>kělè</rt></ruby>。 <span class="gl">(Two ___ (bottles) of cola.)</span>', choices:['<ruby>瓶<rt>píng</rt></ruby>','<ruby>杯<rt>bēi</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>本<rt>běn</rt></ruby>'], ans:0, hint:'瓶 = bottle.' },
+    { type:'fill', skill:'Sentence patterns', stem:'认读 · Type the verb: <span class="cn">我想（　）水。</span> (to drink)', ans:['喝','hē'], hint:'喝 = to drink.' },
+    { type:'mc', skill:'Drinks', stem:'❓ Which question gets the answer <ruby>我想喝可乐<rt>wǒ xiǎng hē kělè</rt></ruby>?', choices:['<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>你<rt>nǐ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>哪<rt>nǎ</rt></ruby><ruby>儿<rt>ér</rt></ruby><ruby>？<rt></rt></ruby>','<ruby>这<rt>zhè</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>？<rt></rt></ruby>'], ans:0, hint:'你想喝什么？= What do you want to drink?' },
+    { type:'mc', skill:'Drinks', stem:'<ruby>我<rt>wǒ</rt></ruby>（　）<ruby>喝<rt>hē</rt></ruby><ruby>可乐<rt>kělè</rt></ruby>。 <span class="gl">(I ___ (want to) drink cola.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>坐<rt>zuò</rt></ruby>'], ans:0, hint:'想 + verb = want to.' },
+    { type:'mc', skill:'Drinks', stem:'🥤 Which sentence means “I want a cup of coffee”?', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>瓶<rt>píng</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>吃<rt>chī</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>一<rt>yì</rt></ruby><ruby>杯<rt>bēi</rt></ruby><ruby>咖啡<rt>kāfēi</rt></ruby>。'], ans:0, hint:'一杯咖啡 = a cup of coffee.' },
+    { type:'mc', skill:'Drinks', stem:'🗣️ Someone asks <ruby>你想喝什么<rt>nǐ xiǎng hē shénme</rt></ruby>？ Best reply:', choices:['<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>可乐<rt>kělè</rt></ruby>。','<ruby>你<rt>nǐ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>可乐<rt>kělè</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>医院<rt>yīyuàn</rt></ruby><ruby>工作<rt>gōngzuò</rt></ruby>。','<ruby>我<rt>wǒ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。'], ans:0, hint:'Answer about yourself: 我想喝….' },
+    { type:'mc', skill:'Drinks', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>想<rt>xiǎng</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>一<rt>yì</rt></ruby>（　）<ruby>牛奶<rt>niúnǎi</rt></ruby>。 <span class="gl">(I want a ___ (glass) of milk.)</span>', choices:['<ruby>杯<rt>bēi</rt></ruby>','<ruby>瓶<rt>píng</rt></ruby>','<ruby>个<rt>gè</rt></ruby>','<ruby>只<rt>zhǐ</rt></ruby>'], ans:0, hint:'一杯牛奶 = a glass of milk.' },
+    { type:'mc', skill:'Drinks', stem:'🍵 Which one is a HOT drink in China?', choices:['<ruby>茶<rt>chá</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>果汁<rt>guǒzhī</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>'], ans:0, hint:'茶 (tea) is usually served hot.' },
   ]},
 
 
-  // TIER 3 · 深度掌握 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
+  // TIER 3 · 拓展思辨 — 5 extended (incl. HSK 3.0) + 2 reading + 1 HOTS
   { qs:[
-    { type:'mc', stem:'In Chinese tea culture, which set are all real kinds of Chinese tea?', choices:['<ruby>绿茶<rt>lǜchá</rt></ruby>、<ruby>红茶<rt>hóngchá</rt></ruby>、<ruby>花茶<rt>huāchá</rt></ruby> (green, black, scented)', '<ruby>咖啡<rt>kāfēi</rt></ruby>、<ruby>可乐<rt>kělè</rt></ruby>、<ruby>果汁<rt>guǒzhī</rt></ruby>', '<ruby>牛奶<rt>niúnǎi</rt></ruby>、<ruby>水<rt>shuǐ</rt></ruby>、<ruby>可乐<rt>kělè</rt></ruby>', '<ruby>果汁<rt>guǒzhī</rt></ruby>、<ruby>牛奶<rt>niúnǎi</rt></ruby>、<ruby>咖啡<rt>kāfēi</rt></ruby>'], ans:0, hint:'Culture: Chinese people enjoy 绿茶 (green), 红茶 (black/red), and 花茶 (scented/jasmine) tea.' },
-    { type:'mc', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby>（　）<ruby>喝<rt>hē</rt></ruby><ruby>茶<rt>chá</rt></ruby>。 <span class="gl">(I do not ___ (want to) drink tea.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>吃<rt>chī</rt></ruby>'], ans:0, hint:'想 + verb = want to. 不想 = do not want.' },
-    { type:'mc', stem:'What is the difference between <ruby>想喝<rt>xiǎng hē</rt></ruby> and <ruby>喜欢喝<rt>xǐhuan hē</rt></ruby>? (HSK tip)', choices:['想喝 = would like to drink (right now) · 喜欢喝 = like drinking (in general)', 'They mean exactly the same thing.', '想喝 = like drinking · 喜欢喝 = will drink later', 'Neither can be followed by a drink.'], ans:0, hint:'HSK tip: 想 (modal verb) = a wish/want now · 喜欢 = a general preference (to like).' },
-    { type:'mc', stem:'☕ Which measure word goes with 咖啡 (a cup)?', choices:['<ruby>杯<rt>bēi</rt></ruby> — a cup of','<ruby>瓶<rt>píng</rt></ruby> — a bottle of','<ruby>个<rt>gè</rt></ruby> — a (general)','<ruby>本<rt>běn</rt></ruby> — a book'], ans:0, hint:'一杯咖啡 = a cup of coffee.' },
-    { type:'mc', stem:'🧃 Which word means “juice”?', choices:['<ruby>果汁<rt>guǒzhī</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>水<rt>shuǐ</rt></ruby>'], ans:0, hint:'果汁 = juice.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguó rén</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>茶<rt>chá</rt></ruby>。<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>绿茶<rt>lǜ chá</rt></ruby><sup>①</sup>，<ruby>爸爸<rt>bàba</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>红茶<rt>hóng chá</rt></ruby><sup>②</sup>，<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>花茶<rt>huā chá</rt></ruby><sup>③</sup>。<ruby>夏天<rt>xiàtiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>凉茶<rt>liáng chá</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>凉快<rt>liángkuài</rt></ruby>。<ruby>冬天<rt>dōngtiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>热茶<rt>rè chá</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 绿茶 lǜ chá: green tea ② 红茶 hóng chá: black tea ③ 花茶 huā chá: scented (jasmine) tea ④ 凉茶 liáng chá: cool herbal tea</div>', stem:'What kind of tea does Xiaohua\'s dad (爸爸) like to drink?', choices:['Black tea (红茶).', 'Green tea (绿茶).', 'Scented tea (花茶).', 'Coffee (咖啡).'], ans:0, hint:'Find 爸爸 in the passage and read the tea named after it.' },
-    { type:'reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguó rén</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>茶<rt>chá</rt></ruby>。<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>绿茶<rt>lǜ chá</rt></ruby><sup>①</sup>，<ruby>爸爸<rt>bàba</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>红茶<rt>hóng chá</rt></ruby><sup>②</sup>，<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>花茶<rt>huā chá</rt></ruby><sup>③</sup>。<ruby>夏天<rt>xiàtiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>凉茶<rt>liáng chá</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>凉快<rt>liángkuài</rt></ruby>。<ruby>冬天<rt>dōngtiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>热茶<rt>rè chá</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 绿茶 lǜ chá: green tea ② 红茶 hóng chá: black tea ③ 花茶 huā chá: scented (jasmine) tea ④ 凉茶 liáng chá: cool herbal tea</div>', stem:'In summer (夏天), what do people like to drink?', choices:['Cool herbal tea (凉茶).', 'Hot tea (热茶).', 'Coffee (咖啡).', 'Milk (牛奶).'], ans:0, hint:'Find 夏天 (summer) in the passage and read what people like to drink then.' },
-    { type:'hots', stem:'🟡 Cycle 2 — 🍵 Tea is very important in Chinese culture, and in the UAE people love sharing Arabic coffee (gahwa) and tea with guests. What is your favourite drink, and what drink do people in your family or country share when friends come to visit? | 🔵 Cycle 3 — In China people drink different teas in different seasons — cool tea (凉茶) in hot summers and hot tea (热茶) in cold winters. In the UAE, welcoming guests with Arabic coffee carries deep meaning too. Why do you think drinks are such an important part of welcoming guests and showing respect in both cultures?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'mc', skill:'Drinks', stem:'In Chinese tea culture, which set are all real kinds of Chinese tea?', choices:['<ruby>绿茶<rt>lǜchá</rt></ruby>、<ruby>红茶<rt>hóngchá</rt></ruby>、<ruby>花茶<rt>huāchá</rt></ruby> (green, black, scented)', '<ruby>咖啡<rt>kāfēi</rt></ruby>、<ruby>可乐<rt>kělè</rt></ruby>、<ruby>果汁<rt>guǒzhī</rt></ruby>', '<ruby>牛奶<rt>niúnǎi</rt></ruby>、<ruby>水<rt>shuǐ</rt></ruby>、<ruby>可乐<rt>kělè</rt></ruby>', '<ruby>果汁<rt>guǒzhī</rt></ruby>、<ruby>牛奶<rt>niúnǎi</rt></ruby>、<ruby>咖啡<rt>kāfēi</rt></ruby>'], ans:0, hint:'Culture: Chinese people enjoy 绿茶 (green), 红茶 (black/red), and 花茶 (scented/jasmine) tea.' },
+    { type:'mc', skill:'Drinks', stem:'<ruby>我<rt>wǒ</rt></ruby><ruby>不<rt>bù</rt></ruby>（　）<ruby>喝<rt>hē</rt></ruby><ruby>茶<rt>chá</rt></ruby>。 <span class="gl">(I do not ___ (want to) drink tea.)</span>', choices:['<ruby>想<rt>xiǎng</rt></ruby>','<ruby>喝<rt>hē</rt></ruby>','<ruby>买<rt>mǎi</rt></ruby>','<ruby>吃<rt>chī</rt></ruby>'], ans:0, hint:'想 + verb = want to. 不想 = do not want.' },
+    { type:'mc', skill:'Drinks', stem:'What is the difference between <ruby>想喝<rt>xiǎng hē</rt></ruby> and <ruby>喜欢喝<rt>xǐhuan hē</rt></ruby>? (HSK tip)', choices:['想喝 = would like to drink (right now) · 喜欢喝 = like drinking (in general)', 'They mean exactly the same thing.', '想喝 = like drinking · 喜欢喝 = will drink later', 'Neither can be followed by a drink.'], ans:0, hint:'HSK tip: 想 (modal verb) = a wish/want now · 喜欢 = a general preference (to like).' },
+    { type:'mc', skill:'Drinks', stem:'☕ Which measure word goes with 咖啡 (a cup)?', choices:['<ruby>杯<rt>bēi</rt></ruby> — a cup of','<ruby>瓶<rt>píng</rt></ruby> — a bottle of','<ruby>个<rt>gè</rt></ruby> — a (general)','<ruby>本<rt>běn</rt></ruby> — a book'], ans:0, hint:'一杯咖啡 = a cup of coffee.' },
+    { type:'mc', skill:'Drinks', stem:'🧃 Which word means “juice”?', choices:['<ruby>果汁<rt>guǒzhī</rt></ruby>','<ruby>牛奶<rt>niúnǎi</rt></ruby>','<ruby>可乐<rt>kělè</rt></ruby>','<ruby>水<rt>shuǐ</rt></ruby>'], ans:0, hint:'果汁 = juice.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguó rén</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>茶<rt>chá</rt></ruby>。<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>绿茶<rt>lǜ chá</rt></ruby><sup>①</sup>，<ruby>爸爸<rt>bàba</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>红茶<rt>hóng chá</rt></ruby><sup>②</sup>，<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>花茶<rt>huā chá</rt></ruby><sup>③</sup>。<ruby>夏天<rt>xiàtiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>凉茶<rt>liáng chá</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>凉快<rt>liángkuài</rt></ruby>。<ruby>冬天<rt>dōngtiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>热茶<rt>rè chá</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 绿茶 lǜ chá: green tea ② 红茶 hóng chá: black tea ③ 花茶 huā chá: scented (jasmine) tea ④ 凉茶 liáng chá: cool herbal tea</div>', stem:'What kind of tea does Xiaohua\'s dad (爸爸) like to drink?', choices:['Black tea (红茶).', 'Green tea (绿茶).', 'Scented tea (花茶).', 'Coffee (咖啡).'], ans:0, hint:'Find 爸爸 in the passage and read the tea named after it.' },
+    { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>我<rt>wǒ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>中国人<rt>Zhōngguó rén</rt></ruby>，<ruby>他们<rt>tāmen</rt></ruby><ruby>家<rt>jiā</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>茶<rt>chá</rt></ruby>。<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>妈妈<rt>māma</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>绿茶<rt>lǜ chá</rt></ruby><sup>①</sup>，<ruby>爸爸<rt>bàba</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>红茶<rt>hóng chá</rt></ruby><sup>②</sup>，<ruby>小华<rt>Xiǎohuá</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>哥哥<rt>gēge</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>花茶<rt>huā chá</rt></ruby><sup>③</sup>。<ruby>夏天<rt>xiàtiān</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>凉茶<rt>liáng chá</rt></ruby><sup>④</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>凉快<rt>liángkuài</rt></ruby>。<ruby>冬天<rt>dōngtiān</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>冷<rt>lěng</rt></ruby>，<ruby>人们<rt>rénmen</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>喝<rt>hē</rt></ruby><ruby>热茶<rt>rè chá</rt></ruby>，<ruby>很<rt>hěn</rt></ruby><ruby>暖和<rt>nuǎnhuo</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 绿茶 lǜ chá: green tea ② 红茶 hóng chá: black tea ③ 花茶 huā chá: scented (jasmine) tea ④ 凉茶 liáng chá: cool herbal tea</div>', stem:'In summer (夏天), what do people like to drink?', choices:['Cool herbal tea (凉茶).', 'Hot tea (热茶).', 'Coffee (咖啡).', 'Milk (牛奶).'], ans:0, hint:'Find 夏天 (summer) in the passage and read what people like to drink then.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🍵 Tea is very important in Chinese culture, and in the UAE people love sharing Arabic coffee (gahwa) and tea with guests. What is your favourite drink, and what drink do people in your family or country share when friends come to visit? | 🔵 Cycle 3 — In China people drink different teas in different seasons — cool tea (凉茶) in hot summers and hot tea (热茶) in cold winters. In the UAE, welcoming guests with Arabic coffee carries deep meaning too. Why do you think drinks are such an important part of welcoming guests and showing respect in both cultures?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -2194,7 +2194,7 @@ function showResult() {
   document.getElementById('rRing').className = 'result-ring ' + tierColors[selectedTier];
   document.getElementById('rRing').textContent = `${pct}%`;
   document.getElementById('rTitle').textContent = score===total ? '优秀！· Excellent!' : score>=total*0.7 ? '良好！· Good Work!' : '继续加油！· Keep Going!';
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const lesson = LESSONS[selectedLesson];
   const nameTag = studentName ? ` · ${studentName} · ${studentClass}` : '';
   document.getElementById('rSub').textContent = `${score} / ${total} correct · ${tierNames[selectedTier]} · ${lesson.num}: ${lesson.cn}${nameTag}`;
@@ -2414,7 +2414,7 @@ function printWorksheet() {
   const printQs = (currentQs && currentQs.length > 0)
     ? currentQs
     : lesson.tiers[selectedTier].qs;
-  const tierNames = ['Tier 1 · 迈向掌握', 'Tier 2 · 达到掌握', 'Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础', 'Tier 2 · 学以致用', 'Tier 3 · 拓展思辨'];
   const tierLabel = tierNames[selectedTier];
   const date = new Date().toLocaleDateString('zh-CN');
 
@@ -2618,12 +2618,12 @@ function toggleRemedialPanel() {
 function buildAnalyticsPanel() {
   const panel = document.getElementById('analyticsPanel');
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const total = currentQs.length;
   const typeLabels = { mc:'MC', fill:'Fill-in', match:'Match', reading:'Reading', hots:'HOTS' };
 
   // ─ Per-question data
-  let wrongQs = [], correctCount = 0, typeStats = {};
+  let wrongQs = [], correctCount = 0, typeStats = {}, skillStats = {};
   currentQs.forEach((q, i) => {
     const r = responses[i];
     const isCorrect = r?.correct === true;
@@ -2632,6 +2632,10 @@ function buildAnalyticsPanel() {
     if (!typeStats[q.type]) typeStats[q.type] = { total:0, correct:0 };
     typeStats[q.type].total++;
     if (isCorrect) typeStats[q.type].correct++;
+    var _sk = q.skill || (typeLabels[q.type]||q.type);
+    if (!skillStats[_sk]) skillStats[_sk] = { total:0, correct:0 };
+    skillStats[_sk].total++;
+    if (isCorrect) skillStats[_sk].correct++;
   });
 
   const pct = Math.round(correctCount/total*100);
@@ -2660,7 +2664,7 @@ function buildAnalyticsPanel() {
     reviewHtml += `<div class="analytics-q-row">
       <div class="analytics-q-icon ${iconClass}">${iconChar}</div>
       <div class="analytics-q-body">
-        <div class="analytics-q-num">Q${i+1} · ${typeLabels[q.type]||q.type}</div>
+        <div class="analytics-q-num">Q${i+1} · ${q.skill||typeLabels[q.type]||q.type} <span style="color:#b9b3a6">· ${typeLabels[q.type]||q.type}</span></div>
         <div class="analytics-q-stem">${stemText}</div>
         <div class="analytics-q-ans">
           <span class="aq-tag aq-right-tag">✓ ${correctLabel}</span>
@@ -2672,22 +2676,22 @@ function buildAnalyticsPanel() {
 
   // ─ Section 2: Type-based strength bars
   let strengthHtml = '';
-  Object.entries(typeStats).forEach(([type, stat]) => {
+  Object.entries(skillStats).forEach(([type, stat]) => {
     const pctT = Math.round(stat.correct/stat.total*100);
     strengthHtml += `<div class="strength-bar">
-      <span class="strength-label">${typeLabels[type]||type}</span>
+      <span class="strength-label">${type}</span>
       <div class="strength-track"><div class="strength-fill-${pctT>=60?'correct':'wrong'}" style="width:${pctT}%"></div></div>
       <span style="font-size:12px;font-weight:700;color:${pctT>=60?'var(--correct)':'var(--wrong)'};min-width:36px">${pctT}%</span>
     </div>`;
   });
 
   // ─ Section 3: Insight text
-  const strongTypes = Object.entries(typeStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>typeLabels[t]||t);
-  const weakTypes   = Object.entries(typeStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>typeLabels[t]||t);
+  const strongTypes = Object.entries(skillStats).filter(([,s])=>s.correct/s.total>=0.7).map(([t])=>t);
+  const weakTypes   = Object.entries(skillStats).filter(([,s])=>s.correct/s.total<0.5).map(([t])=>t);
   const studentLabel = studentName ? `<strong>${studentName}</strong>` : '你';
-  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>（${tierNames[selectedTier]}）— scored  <strong>${correctCount}/${total}（${pct}%）</strong>  points. `;
-  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join('、')}。`;
-  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join('、')}</strong>。Review incorrect questions and try the remedial worksheet.`;
+  let insightText = `This attempt — ${studentLabel}:  <strong>${lesson.num} · ${lesson.cn}</strong>(${tierNames[selectedTier]})— scored  <strong>${correctCount}/${total} (${pct}%)</strong>  points. `;
+  if (strongTypes.length) insightText += ` Strong: ${strongTypes.join(', ')}.`;
+  if (weakTypes.length)   insightText += ` Needs review: <strong style="color:var(--wrong)">${weakTypes.join(', ')}</strong>. Review the incorrect questions and try the remedial worksheet.`;
   else insightText += ' Great overall performance — keep it up!';
 
   // ─ Section 4: Remedial questions for wrong answers
@@ -2765,7 +2769,7 @@ function checkRemedialFill(ri) {
 
 function downloadRemedial() {
   const lesson = LESSONS[selectedLesson];
-  const tierNames = ['Tier 1 · 迈向掌握','Tier 2 · 达到掌握','Tier 3 · 深度掌握'];
+  const tierNames = ['Tier 1 · 夯实基础','Tier 2 · 学以致用','Tier 3 · 拓展思辨'];
   const date = new Date().toLocaleDateString('zh-CN');
   const remContent = (window._remedialHtml || '<p>No remedial questions.</p>');
   const printHTML = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>跨越丝路分层习题生成器 · 2B-L1 你们想喝什么？</title>' +
