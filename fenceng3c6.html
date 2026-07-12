@@ -678,63 +678,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .collapse-panel { animation: fadeIn .2s ease; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
 
-.hots-cycle-block {
-  border-radius: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-.hots-c2-block { background: #fffbea; border: 2px solid #e07b00; }
-.hots-c3-block { background: #eaf0fd; border: 2px solid #2a6fd4; }
-.hots-cycle-row {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-.hots-cycle-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 16px 12px;
-  min-width: 72px;
-  flex-shrink: 0;
-  text-align: center;
-}
-.hots-c2-badge { background: #e07b00; color: #fff; }
-.hots-c3-badge { background: #2a6fd4; color: #fff; }
-.hots-badge-cycle {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: .02em;
-  line-height: 1.1;
-}
-.hots-badge-grades {
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.6;
-  opacity: .95;
-}
-.hots-badge-do {
-  font-size: 11px;
-  font-weight: 800;
-  margin-top: 6px;
-  background: rgba(255,255,255,.3);
-  border-radius: 4px;
-  padding: 3px 7px;
-  white-space: nowrap;
-}
 .hots-cycle-content {
   padding: 14px 16px;
-  flex: 1;
-}
-.hots-c2-prompts .hots-prompt { border-left-color: #e07b00; }
-.hots-c3-prompts .hots-prompt { border-left-color: #2a6fd4; }
-@media(max-width:600px) {
-  .hots-cycle-row { flex-direction: column; }
-  .hots-cycle-badge { flex-direction: row; justify-content: flex-start; padding: 10px 14px; min-width: auto; }
-  .hots-badge-grades { margin-left: 6px; }
-  .hots-badge-do { margin-left: auto; margin-top: 0; }
 }
 /* ─── CUSTOM TOAST + CONFIRM (replaces native browser dialogs) ─── */
 #toastWrap { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: calc(100% - 32px); max-width: 460px; }
@@ -1394,7 +1339,7 @@ const LESSONS = [
     { type:'mc', skill:'Clothes (zhe)', stem:'✈️ Beijing Daxing International Airport (北京大兴国际机场) is famous as:', choices:['a huge modern airport shaped like a starfish','a small old airport','a train station','a museum'], ans:0, hint:'北京大兴国际机场: a giant modern airport, shaped like a starfish.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><ruby>大兴<rt>Dàxīng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>际<rt>jì</rt></ruby><ruby>机场<rt>jīchǎng</rt></ruby><ruby>接<rt>jiē</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby>。<ruby>机场<rt>jīchǎng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>好像<rt>hǎoxiàng</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>星星<rt>xīngxing</rt></ruby>。<ruby>朋友<rt>péngyou</rt></ruby><ruby>穿<rt>chuān</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>蓝色<rt>lánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby>，<ruby>戴<rt>dài</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>眼镜<rt>yǎnjìng</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>手<rt>shǒu</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>拿<rt>ná</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>张<rt>zhāng</rt></ruby><ruby>纸<rt>zhǐ</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>他<rt>tā</rt></ruby>，<ruby>举<rt>jǔ</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>手<rt>shǒu</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>他<rt>tā</rt></ruby>。<ruby>两<rt>liǎng</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 机场 jīchǎng: airport ② 好像 hǎoxiàng: to seem like ③ 举 jǔ: to raise</div>', stem:'Where does Hassan go to meet his friend?', choices:['Beijing Daxing Airport (大兴国际机场).','A school.','A market.','A museum.'], ans:0, hint:'Find 去北京大兴国际机场接朋友.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>北京<rt>Běijīng</rt></ruby><ruby>大兴<rt>Dàxīng</rt></ruby><ruby>国<rt>guó</rt></ruby><ruby>际<rt>jì</rt></ruby><ruby>机场<rt>jīchǎng</rt></ruby><ruby>接<rt>jiē</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby>。<ruby>机场<rt>jīchǎng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>大<rt>dà</rt></ruby>，<ruby>好像<rt>hǎoxiàng</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>大<rt>dà</rt></ruby><ruby>星星<rt>xīngxing</rt></ruby>。<ruby>朋友<rt>péngyou</rt></ruby><ruby>穿<rt>chuān</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>蓝色<rt>lánsè</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>上衣<rt>shàngyī</rt></ruby>，<ruby>戴<rt>dài</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>眼镜<rt>yǎnjìng</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>手<rt>shǒu</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>拿<rt>ná</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>张<rt>zhāng</rt></ruby><ruby>纸<rt>zhǐ</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>看见<rt>kànjiàn</rt></ruby><ruby>了<rt>le</rt></ruby><ruby>他<rt>tā</rt></ruby>，<ruby>举<rt>jǔ</rt></ruby><ruby>着<rt>zhe</rt></ruby><ruby>手<rt>shǒu</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>他<rt>tā</rt></ruby>。<ruby>两<rt>liǎng</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 机场 jīchǎng: airport ② 好像 hǎoxiàng: to seem like ③ 举 jǔ: to raise</div>', stem:'What is the friend wearing?', choices:['A blue top and glasses (蓝色的上衣，戴着眼镜).','A red hat.','A white skirt.','Nothing said.'], ans:0, hint:'Find 朋友穿着蓝色的上衣，戴着眼镜.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Beijing Daxing International Airport (北京大兴国际机场) is a huge modern airport shaped like a starfish; the UAE has world-famous airports too, such as Dubai International (DXB). If a visitor arrived at your country\u2019s biggest airport, what would you want them to see first, and why? | 🔵 Cycle 3 — Beijing Daxing and Dubai\u2019s airport are both giant modern gateways linking their countries to the world. Why do you think nations spend so much to build grand airports, and what does a country\u2019s main airport tell you about how it wants the world to see it? Compare China and the UAE.', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'hots', skill:'Critical thinking', stem:'Beijing Daxing and Dubai’s airport are both giant modern gateways linking their countries to the world. Why do you think nations spend so much to build grand airports, and what does a country’s main airport tell you about how it wants the world to see it? Compare China and the UAE.', prompts:[], hint:'Write your answers in English. 请用英文作答。' },
   ]},
 
   ]},
@@ -1554,43 +1499,12 @@ function renderQuestion() {
 
   // HOTS box
   if (q.type === 'hots') {
-    // Parse Cycle 2 and Cycle 3 from combined stem
-    const stemParts = q.stem.split(' | \u{1F535} Cycle 3 \u2014 ');
-    const c2Stem = stemParts[0].replace('\u{1F7E1} Cycle 2 \u2014 ', '');
-    const c3Stem = stemParts[1] || '';
-    const c2Prompts = q.prompts.filter(p => p.startsWith('[Cycle 2]')).map(p => p.replace('[Cycle 2] ',''));
-    const c3Prompts = q.prompts.filter(p => p.startsWith('[Cycle 3]')).map(p => p.replace('[Cycle 3] ',''));
-
     html += `<div class="hots-box">
       <div class="hots-label">Critical / Creative Thinking · 批判性思维</div>
-      <div class="hots-cycle-block hots-c2-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c2-badge">
-            <span class="hots-badge-cycle">Cycle 2</span>
-            <span class="hots-badge-grades">Grades<br>5 · 6 · 7 · 8</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c2Stem)}</div>
-            <div class="hots-prompts hots-c2-prompts">
-              ${c2Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hots-cycle-block hots-c3-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c3-badge">
-            <span class="hots-badge-cycle">Cycle 3</span>
-            <span class="hots-badge-grades">Grades<br>9 · 10 · 11 · 12</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
-            <div class="hots-prompts hots-c3-prompts">
-              ${c3Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
+      <div class="hots-cycle-content">
+        <div class="q-stem">${annotateHotsCJK(q.stem)}</div>
+        <div class="hots-prompts">
+          ${(q.prompts || []).map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
         </div>
       </div>
     </div>
@@ -1945,13 +1859,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 
@@ -2466,29 +2384,13 @@ function printWorksheet() {
       h += '<div class="pmatch-col"><div class="pmatch-hdr">English</div>' + rightShuffled.map(function(r) { return '<div class="pmatch-item">' + r + '</div>'; }).join('') + '</div>';
       h += '</div>';
     } else if (q.type === 'hots') {
-      // Parse both cycles
-      var stemParts = q.stem.split(' | 🔵 Cycle 3 — ');
-      var c2S = stemParts[0].replace('🟡 Cycle 2 — ', '');
-      var c3S = stemParts[1] || '';
-      var c2P = q.prompts.filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
-      var c3P = q.prompts.filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
-
-      h += '<div class="photsbox photsbox-c2">';
-      h += '<div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c2S + '</div>';
-      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '<div class="photsbox">';
+      h += '<div class="phots-lbl">Critical Thinking · 批判性思维</div>';
+      h += '<div class="pq-stem">' + q.stem + '</div>';
+      if (q.prompts && q.prompts.length) h += '<ul class="phots-prompts">' + q.prompts.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
       h += '</div>';
       h += '<div class="pwrite-lines">';
-      for (var li2 = 0; li2 < 5; li2++) h += '<div class="pwrite-line"></div>';
-      h += '</div>';
-
-      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;">';
-      h += '<div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c3S + '</div>';
-      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
-      h += '</div>';
-      h += '<div class="pwrite-lines">';
-      for (var li3 = 0; li3 < 5; li3++) h += '<div class="pwrite-line"></div>';
+      for (var lih = 0; lih < 8; lih++) h += '<div class="pwrite-line"></div>';
       h += '</div>';
     }
 
