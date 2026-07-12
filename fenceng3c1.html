@@ -678,63 +678,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .collapse-panel { animation: fadeIn .2s ease; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
 
-.hots-cycle-block {
-  border-radius: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-.hots-c2-block { background: #fffbea; border: 2px solid #e07b00; }
-.hots-c3-block { background: #eaf0fd; border: 2px solid #2a6fd4; }
-.hots-cycle-row {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-.hots-cycle-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 16px 12px;
-  min-width: 72px;
-  flex-shrink: 0;
-  text-align: center;
-}
-.hots-c2-badge { background: #e07b00; color: #fff; }
-.hots-c3-badge { background: #2a6fd4; color: #fff; }
-.hots-badge-cycle {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: .02em;
-  line-height: 1.1;
-}
-.hots-badge-grades {
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.6;
-  opacity: .95;
-}
-.hots-badge-do {
-  font-size: 11px;
-  font-weight: 800;
-  margin-top: 6px;
-  background: rgba(255,255,255,.3);
-  border-radius: 4px;
-  padding: 3px 7px;
-  white-space: nowrap;
-}
 .hots-cycle-content {
   padding: 14px 16px;
-  flex: 1;
-}
-.hots-c2-prompts .hots-prompt { border-left-color: #e07b00; }
-.hots-c3-prompts .hots-prompt { border-left-color: #2a6fd4; }
-@media(max-width:600px) {
-  .hots-cycle-row { flex-direction: column; }
-  .hots-cycle-badge { flex-direction: row; justify-content: flex-start; padding: 10px 14px; min-width: auto; }
-  .hots-badge-grades { margin-left: 6px; }
-  .hots-badge-do { margin-left: auto; margin-top: 0; }
 }
 /* ─── CUSTOM TOAST + CONFIRM (replaces native browser dialogs) ─── */
 #toastWrap { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: calc(100% - 32px); max-width: 460px; }
@@ -1394,7 +1339,7 @@ const LESSONS = [
     { type:'mc', skill:'Describing (reduplication)', stem:'🎁 For a happy event in China (值得庆祝的重要事件), a thoughtful gift could be:', choices:['silk, tea or porcelain (丝绸、茶叶、瓷器)','an empty box','nothing at all','a clock — which is avoided, as 送钟 sounds like an unlucky word'], ans:0, hint:'Popular Chinese gifts: silk, tea, porcelain; clocks are traditionally avoided.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>玩<rt>wán</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>送<rt>sòng</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>礼物<rt>lǐwù</rt></ruby>。<ruby>礼物<rt>lǐwù</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>茶叶<rt>cháyè</rt></ruby>、<ruby>丝绸<rt>sīchóu</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby><ruby>玩偶<rt>wánǒu</rt></ruby>。<ruby>熊猫<rt>xióngmāo</rt></ruby><ruby>胖胖<rt>pàngpàng</rt></ruby><ruby>的<rt>de</rt></ruby>、<ruby>圆圆<rt>yuányuán</rt></ruby><ruby>的<rt>de</rt></ruby>，<ruby>真<rt>zhēn</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>茶叶<rt>cháyè</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>送<rt>sòng</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>块<rt>kuài</rt></ruby><ruby>手表<rt>shǒubiǎo</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 礼物 lǐwù: gift ② 茶叶 cháyè: tea ③ 丝绸 sīchóu: silk</div>', stem:'What gifts does the Chinese friend bring Hassan?', choices:['Tea, silk and a panda doll (茶叶、丝绸、熊猫玩偶).','Only a watch.','Only books.','Nothing.'], ans:0, hint:'Find 送哈桑很多礼物.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>来<rt>lái</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>玩<rt>wán</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>送<rt>sòng</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><ruby>礼物<rt>lǐwù</rt></ruby>。<ruby>礼物<rt>lǐwù</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>茶叶<rt>cháyè</rt></ruby>、<ruby>丝绸<rt>sīchóu</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>一个<rt>yí gè</rt></ruby><ruby>熊猫<rt>xióngmāo</rt></ruby><ruby>玩偶<rt>wánǒu</rt></ruby>。<ruby>熊猫<rt>xióngmāo</rt></ruby><ruby>胖胖<rt>pàngpàng</rt></ruby><ruby>的<rt>de</rt></ruby>、<ruby>圆圆<rt>yuányuán</rt></ruby><ruby>的<rt>de</rt></ruby>，<ruby>真<rt>zhēn</rt></ruby><ruby>可爱<rt>kě’ài</rt></ruby>。<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>中国<rt>Zhōngguó</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>茶叶<rt>cháyè</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>送<rt>sòng</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>块<rt>kuài</rt></ruby><ruby>手表<rt>shǒubiǎo</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 礼物 lǐwù: gift ② 茶叶 cháyè: tea ③ 丝绸 sīchóu: silk</div>', stem:'What does Hassan give the friend in return?', choices:['An Emirati watch (手表).','Tea.','Silk.','Nothing.'], ans:0, hint:'Find 他送朋友一块….' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China, thoughtful gifts include 茶叶 (tea), 丝绸 (silk) and 瓷器 (porcelain), often wrapped in red for happy events. In the UAE, common gifts include dates, oud perfume and sweets, especially at Eid and weddings. What gift would you give a Chinese friend, and what would you give an Emirati friend, and why? | 🔵 Cycle 3 — Every culture has its own rules about gifts \u2014 what is lucky or unlucky (in China a clock is avoided, because 送钟 sounds like an unlucky word). Why do these customs matter, and what do a culture\u2019s favourite gifts (Chinese 茶叶/丝绸 vs Emirati dates/oud) tell you about what it values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = explore & compare  ·  🔵 Cycle 3 = think deeper about both cultures.' },
+    { type:'hots', skill:'Critical thinking', stem:'Every culture has its own rules about gifts — what is lucky or unlucky (in China a clock is avoided, because <ruby>送<rt>sòng</rt></ruby><ruby>钟<rt>zhōng</rt></ruby> (giving a clock) sounds like an unlucky word). Why do these customs matter, and what do a culture’s favourite gifts (Chinese <ruby>茶<rt>chá</rt></ruby><ruby>叶<rt>yè</rt></ruby> tea / <ruby>丝<rt>sī</rt></ruby><ruby>绸<rt>chóu</rt></ruby> silk vs Emirati dates/oud) tell you about what it values?', prompts:[], hint:'Write your answers in English. 请用英文作答。' },
   ]},
 
   ]},
@@ -1554,43 +1499,12 @@ function renderQuestion() {
 
   // HOTS box
   if (q.type === 'hots') {
-    // Parse Cycle 2 and Cycle 3 from combined stem
-    const stemParts = q.stem.split(' | \u{1F535} Cycle 3 \u2014 ');
-    const c2Stem = stemParts[0].replace('\u{1F7E1} Cycle 2 \u2014 ', '');
-    const c3Stem = stemParts[1] || '';
-    const c2Prompts = q.prompts.filter(p => p.startsWith('[Cycle 2]')).map(p => p.replace('[Cycle 2] ',''));
-    const c3Prompts = q.prompts.filter(p => p.startsWith('[Cycle 3]')).map(p => p.replace('[Cycle 3] ',''));
-
     html += `<div class="hots-box">
       <div class="hots-label">Critical / Creative Thinking · 批判性思维</div>
-      <div class="hots-cycle-block hots-c2-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c2-badge">
-            <span class="hots-badge-cycle">Cycle 2</span>
-            <span class="hots-badge-grades">Grades<br>5 · 6 · 7 · 8</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c2Stem)}</div>
-            <div class="hots-prompts hots-c2-prompts">
-              ${c2Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hots-cycle-block hots-c3-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c3-badge">
-            <span class="hots-badge-cycle">Cycle 3</span>
-            <span class="hots-badge-grades">Grades<br>9 · 10 · 11 · 12</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
-            <div class="hots-prompts hots-c3-prompts">
-              ${c3Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
+      <div class="hots-cycle-content">
+        <div class="q-stem">${annotateHotsCJK(q.stem)}</div>
+        <div class="hots-prompts">
+          ${(q.prompts || []).map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
         </div>
       </div>
     </div>
@@ -1945,13 +1859,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 
@@ -2466,29 +2384,13 @@ function printWorksheet() {
       h += '<div class="pmatch-col"><div class="pmatch-hdr">English</div>' + rightShuffled.map(function(r) { return '<div class="pmatch-item">' + r + '</div>'; }).join('') + '</div>';
       h += '</div>';
     } else if (q.type === 'hots') {
-      // Parse both cycles
-      var stemParts = q.stem.split(' | 🔵 Cycle 3 — ');
-      var c2S = stemParts[0].replace('🟡 Cycle 2 — ', '');
-      var c3S = stemParts[1] || '';
-      var c2P = q.prompts.filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
-      var c3P = q.prompts.filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
-
-      h += '<div class="photsbox photsbox-c2">';
-      h += '<div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c2S + '</div>';
-      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '<div class="photsbox">';
+      h += '<div class="phots-lbl">Critical Thinking · 批判性思维</div>';
+      h += '<div class="pq-stem">' + q.stem + '</div>';
+      if (q.prompts && q.prompts.length) h += '<ul class="phots-prompts">' + q.prompts.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
       h += '</div>';
       h += '<div class="pwrite-lines">';
-      for (var li2 = 0; li2 < 5; li2++) h += '<div class="pwrite-line"></div>';
-      h += '</div>';
-
-      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;">';
-      h += '<div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c3S + '</div>';
-      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
-      h += '</div>';
-      h += '<div class="pwrite-lines">';
-      for (var li3 = 0; li3 < 5; li3++) h += '<div class="pwrite-line"></div>';
+      for (var lih = 0; lih < 8; lih++) h += '<div class="pwrite-line"></div>';
       h += '</div>';
     }
 

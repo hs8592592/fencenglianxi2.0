@@ -678,63 +678,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .collapse-panel { animation: fadeIn .2s ease; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
 
-.hots-cycle-block {
-  border-radius: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-.hots-c2-block { background: #fffbea; border: 2px solid #e07b00; }
-.hots-c3-block { background: #eaf0fd; border: 2px solid #2a6fd4; }
-.hots-cycle-row {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-.hots-cycle-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 16px 12px;
-  min-width: 72px;
-  flex-shrink: 0;
-  text-align: center;
-}
-.hots-c2-badge { background: #e07b00; color: #fff; }
-.hots-c3-badge { background: #2a6fd4; color: #fff; }
-.hots-badge-cycle {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: .02em;
-  line-height: 1.1;
-}
-.hots-badge-grades {
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.6;
-  opacity: .95;
-}
-.hots-badge-do {
-  font-size: 11px;
-  font-weight: 800;
-  margin-top: 6px;
-  background: rgba(255,255,255,.3);
-  border-radius: 4px;
-  padding: 3px 7px;
-  white-space: nowrap;
-}
 .hots-cycle-content {
   padding: 14px 16px;
-  flex: 1;
-}
-.hots-c2-prompts .hots-prompt { border-left-color: #e07b00; }
-.hots-c3-prompts .hots-prompt { border-left-color: #2a6fd4; }
-@media(max-width:600px) {
-  .hots-cycle-row { flex-direction: column; }
-  .hots-cycle-badge { flex-direction: row; justify-content: flex-start; padding: 10px 14px; min-width: auto; }
-  .hots-badge-grades { margin-left: 6px; }
-  .hots-badge-do { margin-left: auto; margin-top: 0; }
 }
 /* ─── CUSTOM TOAST + CONFIRM (replaces native browser dialogs) ─── */
 #toastWrap { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: calc(100% - 32px); max-width: 460px; }
@@ -1399,7 +1344,7 @@ const LESSONS = [
     { type:'mc', skill:'Directions', stem:'🛑 At a red light, what should you do?', choices:['<ruby>停<rt>tíng</rt></ruby>','<ruby>走<rt>zǒu</rt></ruby>','<ruby>转<rt>zhuǎn</rt></ruby>','<ruby>到<rt>dào</rt></ruby>'], ans:0, hint:'停 = to stop.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby>，<ruby>去<rt>qù</rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><sup>①</sup><ruby>怎么<rt>zěnme</rt></ruby><ruby>走<rt>zǒu</rt></ruby>？”<ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>第一<rt>dì-yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>，<ruby>走路<rt>zǒulù</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>分钟<rt>fēnzhōng</rt></ruby><sup>③</sup><ruby>就<rt>jiù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 地铁站 dìtiězhàn: subway station ② 路口 lùkǒu: intersection ③ 分钟 fēnzhōng: minute(s)</div>', stem:'Is the subway station far from here?', choices:['No, it is not far (离这里不远).', 'Yes, very far.', 'We cannot tell.', 'It is closed.'], ans:0, hint:'Find 地铁站离这里 ……' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby>：“<ruby>请问<rt>qǐngwèn</rt></ruby>，<ruby>去<rt>qù</rt></ruby><ruby>地铁站<rt>dìtiězhàn</rt></ruby><sup>①</sup><ruby>怎么<rt>zěnme</rt></ruby><ruby>走<rt>zǒu</rt></ruby>？”<ruby>一<rt>yí</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>人<rt>rén</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>离<rt>lí</rt></ruby><ruby>这里<rt>zhèlǐ</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>远<rt>yuǎn</rt></ruby>。<ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>在<rt>zài</rt></ruby><ruby>第一<rt>dì-yī</rt></ruby><ruby>个<rt>gè</rt></ruby><ruby>路口<rt>lùkǒu</rt></ruby><sup>②</sup><ruby>往<rt>wǎng</rt></ruby><ruby>左<rt>zuǒ</rt></ruby><ruby>转<rt>zhuǎn</rt></ruby>，<ruby>再<rt>zài</rt></ruby><ruby>往<rt>wǎng</rt></ruby><ruby>前<rt>qián</rt></ruby><ruby>走<rt>zǒu</rt></ruby>，<ruby>地铁站<rt>dìtiězhàn</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>你<rt>nǐ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>右边<rt>yòubian</rt></ruby>，<ruby>走路<rt>zǒulù</rt></ruby><ruby>五<rt>wǔ</rt></ruby><ruby>分钟<rt>fēnzhōng</rt></ruby><sup>③</sup><ruby>就<rt>jiù</rt></ruby><ruby>到<rt>dào</rt></ruby><ruby>了<rt>le</rt></ruby>。”<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>谢谢<rt>xièxie</rt></ruby><ruby>你<rt>nǐ</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 地铁站 dìtiězhàn: subway station ② 路口 lùkǒu: intersection ③ 分钟 fēnzhōng: minute(s)</div>', stem:'At the first intersection, which way should Hassan turn?', choices:['Turn left (往左转).', 'Turn right.', 'Go back.', 'Stop and wait.'], ans:0, hint:'Find 在第一个路口往 …… 转.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🗺️ Imagine you must guide a friend from your school to your favourite place WITHOUT using a phone map — only landmarks like a big tree, a mosque, a mall or a fountain. Invent the clearest, most creative set of directions you can, and explain why landmarks can sometimes be better than street names. | 🔵 Cycle 3 — 🧭 The Tang poem 寻隐者不遇 shows a traveller who asks the way and receives a beautiful but vague answer — "he is somewhere in these mountains, but the clouds are too deep to know where." Today, people in both China and the UAE usually follow phone maps (GPS) instead of asking a stranger. Why do you think the way people find their path has changed so much, and what might we GAIN — and what might we LOSE — when we stop asking each other for directions and trust only our screens?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🧭 The Tang poem <ruby>寻<rt>xún</rt></ruby><ruby>隐<rt>yǐn</rt></ruby><ruby>者<rt>zhě</rt></ruby><ruby>不<rt>bú</rt></ruby><ruby>遇<rt>yù</rt></ruby> (a poem about looking for a hermit and not finding him) shows a traveller who asks the way and receives a beautiful but vague answer — "he is somewhere in these mountains, but the clouds are too deep to know where." Today, people in both China and the UAE usually follow phone maps (GPS) instead of asking a stranger. Why do you think the way people find their path has changed so much, and what might we GAIN — and what might we LOSE — when we stop asking each other for directions and trust only our screens?', prompts:[], hint:'Write your answers in English. 请用英文作答。' },
   ]}]},
 
 
@@ -1558,43 +1503,12 @@ function renderQuestion() {
 
   // HOTS box
   if (q.type === 'hots') {
-    // Parse Cycle 2 and Cycle 3 from combined stem
-    const stemParts = q.stem.split(' | \u{1F535} Cycle 3 \u2014 ');
-    const c2Stem = stemParts[0].replace('\u{1F7E1} Cycle 2 \u2014 ', '');
-    const c3Stem = stemParts[1] || '';
-    const c2Prompts = q.prompts.filter(p => p.startsWith('[Cycle 2]')).map(p => p.replace('[Cycle 2] ',''));
-    const c3Prompts = q.prompts.filter(p => p.startsWith('[Cycle 3]')).map(p => p.replace('[Cycle 3] ',''));
-
     html += `<div class="hots-box">
       <div class="hots-label">Critical / Creative Thinking · 批判性思维</div>
-      <div class="hots-cycle-block hots-c2-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c2-badge">
-            <span class="hots-badge-cycle">Cycle 2</span>
-            <span class="hots-badge-grades">Grades<br>5 · 6 · 7 · 8</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c2Stem)}</div>
-            <div class="hots-prompts hots-c2-prompts">
-              ${c2Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hots-cycle-block hots-c3-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c3-badge">
-            <span class="hots-badge-cycle">Cycle 3</span>
-            <span class="hots-badge-grades">Grades<br>9 · 10 · 11 · 12</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
-            <div class="hots-prompts hots-c3-prompts">
-              ${c3Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
+      <div class="hots-cycle-content">
+        <div class="q-stem">${annotateHotsCJK(q.stem)}</div>
+        <div class="hots-prompts">
+          ${(q.prompts || []).map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
         </div>
       </div>
     </div>
@@ -1949,13 +1863,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 
@@ -2470,29 +2388,13 @@ function printWorksheet() {
       h += '<div class="pmatch-col"><div class="pmatch-hdr">English</div>' + rightShuffled.map(function(r) { return '<div class="pmatch-item">' + r + '</div>'; }).join('') + '</div>';
       h += '</div>';
     } else if (q.type === 'hots') {
-      // Parse both cycles
-      var stemParts = q.stem.split(' | 🔵 Cycle 3 — ');
-      var c2S = stemParts[0].replace('🟡 Cycle 2 — ', '');
-      var c3S = stemParts[1] || '';
-      var c2P = q.prompts.filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
-      var c3P = q.prompts.filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
-
-      h += '<div class="photsbox photsbox-c2">';
-      h += '<div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c2S + '</div>';
-      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '<div class="photsbox">';
+      h += '<div class="phots-lbl">Critical Thinking · 批判性思维</div>';
+      h += '<div class="pq-stem">' + q.stem + '</div>';
+      if (q.prompts && q.prompts.length) h += '<ul class="phots-prompts">' + q.prompts.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
       h += '</div>';
       h += '<div class="pwrite-lines">';
-      for (var li2 = 0; li2 < 5; li2++) h += '<div class="pwrite-line"></div>';
-      h += '</div>';
-
-      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;">';
-      h += '<div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c3S + '</div>';
-      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
-      h += '</div>';
-      h += '<div class="pwrite-lines">';
-      for (var li3 = 0; li3 < 5; li3++) h += '<div class="pwrite-line"></div>';
+      for (var lih = 0; lih < 8; lih++) h += '<div class="pwrite-line"></div>';
       h += '</div>';
     }
 

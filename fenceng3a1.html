@@ -678,63 +678,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 .collapse-panel { animation: fadeIn .2s ease; }
 @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
 
-.hots-cycle-block {
-  border-radius: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-.hots-c2-block { background: #fffbea; border: 2px solid #e07b00; }
-.hots-c3-block { background: #eaf0fd; border: 2px solid #2a6fd4; }
-.hots-cycle-row {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-}
-.hots-cycle-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 16px 12px;
-  min-width: 72px;
-  flex-shrink: 0;
-  text-align: center;
-}
-.hots-c2-badge { background: #e07b00; color: #fff; }
-.hots-c3-badge { background: #2a6fd4; color: #fff; }
-.hots-badge-cycle {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: .02em;
-  line-height: 1.1;
-}
-.hots-badge-grades {
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.6;
-  opacity: .95;
-}
-.hots-badge-do {
-  font-size: 11px;
-  font-weight: 800;
-  margin-top: 6px;
-  background: rgba(255,255,255,.3);
-  border-radius: 4px;
-  padding: 3px 7px;
-  white-space: nowrap;
-}
 .hots-cycle-content {
   padding: 14px 16px;
-  flex: 1;
-}
-.hots-c2-prompts .hots-prompt { border-left-color: #e07b00; }
-.hots-c3-prompts .hots-prompt { border-left-color: #2a6fd4; }
-@media(max-width:600px) {
-  .hots-cycle-row { flex-direction: column; }
-  .hots-cycle-badge { flex-direction: row; justify-content: flex-start; padding: 10px 14px; min-width: auto; }
-  .hots-badge-grades { margin-left: 6px; }
-  .hots-badge-do { margin-left: auto; margin-top: 0; }
 }
 /* ─── CUSTOM TOAST + CONFIRM (replaces native browser dialogs) ─── */
 #toastWrap { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none; width: calc(100% - 32px); max-width: 460px; }
@@ -1399,7 +1344,7 @@ const LESSONS = [
     { type:'mc', skill:'Weekend routines', stem:'Culture: <ruby>中国人的休闲生活<rt>Zhōngguó rén de xiūxián shēnghuó</rt></ruby> — leisure in China. Which is true?', choices:['Chinese people enjoy many pastimes — practising 太极 (tai chi) and dancing in parks, hiking, playing chess, and shopping or chatting with friends.', 'People in China have no free time.', 'Chinese people only watch TV.', 'No one in China does sport.'], ans:0, hint:'休闲生活 = leisure life. Parks fill with people doing tai chi, dancing, and exercising, especially in the morning and at weekends.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby><sup>①</sup>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>②</sup>、<ruby>聊天<rt>liáotiān</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>爬山<rt>páshān</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby><sup>③</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby><sup>④</sup>。<ruby>冲浪<rt>chōnglàng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 事 shì: thing / matter ② 逛街 guàngjiē: to stroll & shop ③ 武术 wǔshù: martial arts ④ 冲浪 chōnglàng: to surf</div>', stem:'What do they do on Saturday morning?', choices:['Go shopping and chat (逛街、聊天).', 'Practise martial arts.', 'Go surfing.', 'Climb a mountain.'], ans:0, hint:'Find 星期六上午，我们去 ……' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>周末<rt>zhōumò</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>常常<rt>chángcháng</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>一起<rt>yìqǐ</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>很多<rt>hěnduō</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>事<rt>shì</rt></ruby><sup>①</sup>。<ruby>星期六<rt>xīngqīliù</rt></ruby><ruby>上午<rt>shàngwǔ</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>逛街<rt>guàngjiē</rt></ruby><sup>②</sup>、<ruby>聊天<rt>liáotiān</rt></ruby>。<ruby>下午<rt>xiàwǔ</rt></ruby>，<ruby>我<rt>wǒ</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>爬山<rt>páshān</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>练<rt>liàn</rt></ruby><ruby>武术<rt>wǔshù</rt></ruby><sup>③</sup>。<ruby>星期天<rt>xīngqītiān</rt></ruby>，<ruby>我们<rt>wǒmen</rt></ruby><ruby>去<rt>qù</rt></ruby><ruby>海边<rt>hǎibiān</rt></ruby><ruby>冲浪<rt>chōnglàng</rt></ruby><sup>④</sup>。<ruby>冲浪<rt>chōnglàng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>有意思<rt>yǒu yìsi</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>累<rt>lèi</rt></ruby>。<ruby>我<rt>wǒ</rt></ruby><ruby>觉得<rt>juéde</rt></ruby><ruby>周末<rt>zhōumò</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>开心<rt>kāixīn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 事 shì: thing / matter ② 逛街 guàngjiē: to stroll & shop ③ 武术 wǔshù: martial arts ④ 冲浪 chōnglàng: to surf</div>', stem:'What does Hassan (哈桑) like to do?', choices:['Practise martial arts (练武术).', 'Go shopping.', 'Climb a mountain.', 'Read books.'], ans:0, hint:'Find 哈桑喜欢 ……' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🎉 Imagine you could invent the PERFECT weekend that mixes the best of Chinese and Emirati free-time activities — maybe tai chi in a park at sunrise, surfing at the beach, a desert hike, or chatting over mint tea. Design your dream weekend and explain why each part would be fun and good for you. | 🔵 Cycle 3 — 🌍 In China, parks fill at weekends with people doing tai chi, dancing and playing chess together; in the UAE, families often gather at home, visit the desert, the beach or the mall, especially in cooler hours. Why do you think climate, family life and tradition shape how people relax, and what can the way a culture spends its FREE time tell us about what it truly values?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = imagine & create  ·  🔵 Cycle 3 = think deeper and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🌍 In China, parks fill at weekends with people doing tai chi, dancing and playing chess together; in the UAE, families often gather at home, visit the desert, the beach or the mall, especially in cooler hours. Why do you think climate, family life and tradition shape how people relax, and what can the way a culture spends its FREE time tell us about what it truly values?', prompts:[], hint:'Write your answers in English. 请用英文作答。' },
   ]}]},
 
 
@@ -1558,43 +1503,12 @@ function renderQuestion() {
 
   // HOTS box
   if (q.type === 'hots') {
-    // Parse Cycle 2 and Cycle 3 from combined stem
-    const stemParts = q.stem.split(' | \u{1F535} Cycle 3 \u2014 ');
-    const c2Stem = stemParts[0].replace('\u{1F7E1} Cycle 2 \u2014 ', '');
-    const c3Stem = stemParts[1] || '';
-    const c2Prompts = q.prompts.filter(p => p.startsWith('[Cycle 2]')).map(p => p.replace('[Cycle 2] ',''));
-    const c3Prompts = q.prompts.filter(p => p.startsWith('[Cycle 3]')).map(p => p.replace('[Cycle 3] ',''));
-
     html += `<div class="hots-box">
       <div class="hots-label">Critical / Creative Thinking · 批判性思维</div>
-      <div class="hots-cycle-block hots-c2-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c2-badge">
-            <span class="hots-badge-cycle">Cycle 2</span>
-            <span class="hots-badge-grades">Grades<br>5 · 6 · 7 · 8</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c2Stem)}</div>
-            <div class="hots-prompts hots-c2-prompts">
-              ${c2Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hots-cycle-block hots-c3-block">
-        <div class="hots-cycle-row">
-          <div class="hots-cycle-badge hots-c3-badge">
-            <span class="hots-badge-cycle">Cycle 3</span>
-            <span class="hots-badge-grades">Grades<br>9 · 10 · 11 · 12</span>
-            <span class="hots-badge-do">← Do this one!</span>
-          </div>
-          <div class="hots-cycle-content">
-            <div class="q-stem">${annotateHotsCJK(c3Stem)}</div>
-            <div class="hots-prompts hots-c3-prompts">
-              ${c3Prompts.map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
-            </div>
-          </div>
+      <div class="hots-cycle-content">
+        <div class="q-stem">${annotateHotsCJK(q.stem)}</div>
+        <div class="hots-prompts">
+          ${(q.prompts || []).map(p => `<div class="hots-prompt">💡 ${annotateHotsCJK(p)}</div>`).join('')}
         </div>
       </div>
     </div>
@@ -1949,13 +1863,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 
@@ -2470,29 +2388,13 @@ function printWorksheet() {
       h += '<div class="pmatch-col"><div class="pmatch-hdr">English</div>' + rightShuffled.map(function(r) { return '<div class="pmatch-item">' + r + '</div>'; }).join('') + '</div>';
       h += '</div>';
     } else if (q.type === 'hots') {
-      // Parse both cycles
-      var stemParts = q.stem.split(' | 🔵 Cycle 3 — ');
-      var c2S = stemParts[0].replace('🟡 Cycle 2 — ', '');
-      var c3S = stemParts[1] || '';
-      var c2P = q.prompts.filter(function(p){return p.indexOf('[Cycle 2]')===0;}).map(function(p){return p.replace('[Cycle 2] ','');});
-      var c3P = q.prompts.filter(function(p){return p.indexOf('[Cycle 3]')===0;}).map(function(p){return p.replace('[Cycle 3] ','');});
-
-      h += '<div class="photsbox photsbox-c2">';
-      h += '<div class="phots-lbl">🟡 CYCLE 2 · Grades 5–8 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c2S + '</div>';
-      if (c2P.length) h += '<ul class="phots-prompts">' + c2P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
+      h += '<div class="photsbox">';
+      h += '<div class="phots-lbl">Critical Thinking · 批判性思维</div>';
+      h += '<div class="pq-stem">' + q.stem + '</div>';
+      if (q.prompts && q.prompts.length) h += '<ul class="phots-prompts">' + q.prompts.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
       h += '</div>';
       h += '<div class="pwrite-lines">';
-      for (var li2 = 0; li2 < 5; li2++) h += '<div class="pwrite-line"></div>';
-      h += '</div>';
-
-      h += '<div class="photsbox photsbox-c3" style="margin-top:16px;">';
-      h += '<div class="phots-lbl">🔵 CYCLE 3 · Grades 9–12 · Critical Thinking</div>';
-      h += '<div class="pq-stem">' + c3S + '</div>';
-      if (c3P.length) h += '<ul class="phots-prompts">' + c3P.map(function(p){return '<li>'+p+'</li>';}).join('') + '</ul>';
-      h += '</div>';
-      h += '<div class="pwrite-lines">';
-      for (var li3 = 0; li3 < 5; li3++) h += '<div class="pwrite-line"></div>';
+      for (var lih = 0; lih < 8; lih++) h += '<div class="pwrite-line"></div>';
       h += '</div>';
     }
 
