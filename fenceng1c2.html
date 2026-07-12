@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Daily routine', stem:'In Chinese (HSK), where do you put a time word like "at 7" in "I eat at 7"? (HSK tip)', choices:['Before the verb: <ruby>我七点吃饭<rt>wǒ qī diǎn chīfàn</rt></ruby>。', 'After the verb: <ruby>我吃饭七点<rt>wǒ chīfàn qī diǎn</rt></ruby>。', 'At the end: <ruby>我吃饭七点钟<rt>wǒ chīfàn qī diǎn zhōng</rt></ruby>。', 'Before the subject: <ruby>七点我吃饭<rt>qī diǎn wǒ chīfàn</rt></ruby> only.'], ans:0, hint:'HSK tip: a "time-when" word goes BEFORE the verb (我七点吃饭) — the opposite of English "I eat AT seven".' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><sup>①</sup><ruby>六点半<rt>liù diǎn bàn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby>。<ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>在<rt>zài</rt></ruby><sup>②</sup><ruby>学校<rt>xuéxiào</rt></ruby><sup>③</sup><ruby>上课<rt>shàngkè</rt></ruby>。<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><ruby>回家<rt>huíjiā</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>祷告<rt>dǎogào</rt></ruby><sup>④</sup>，<ruby>十点<rt>shí diǎn</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 每天 měitiān: every day ② 在 zài: at / in ③ 学校 xuéxiào: school ④ 祷告 dǎogào: to pray</div>', stem:'What time does Hassan get up?', choices:['6:30 (六点半).', '8:00 (八点).', '10:00 (十点).', '12:00 (中午).'], ans:0, hint:'Find 起床 in the passage and read the time just before it.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>每天<rt>měitiān</rt></ruby><sup>①</sup><ruby>六点半<rt>liù diǎn bàn</rt></ruby><ruby>起床<rt>qǐchuáng</rt></ruby>。<ruby>上午<rt>shàngwǔ</rt></ruby><ruby>八点<rt>bā diǎn</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby>，<ruby>在<rt>zài</rt></ruby><sup>②</sup><ruby>学校<rt>xuéxiào</rt></ruby><sup>③</sup><ruby>上课<rt>shàngkè</rt></ruby>。<ruby>中午<rt>zhōngwǔ</rt></ruby><ruby>吃饭<rt>chīfàn</rt></ruby>，<ruby>下午<rt>xiàwǔ</rt></ruby><ruby>回家<rt>huíjiā</rt></ruby>。<ruby>晚上<rt>wǎnshang</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>祷告<rt>dǎogào</rt></ruby><sup>④</sup>，<ruby>十点<rt>shí diǎn</rt></ruby><ruby>睡觉<rt>shuìjiào</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 每天 měitiān: every day ② 在 zài: at / in ③ 学校 xuéxiào: school ④ 祷告 dǎogào: to pray</div>', stem:'What does Hassan do in the evening before sleeping?', choices:['He prays (祷告).', 'He goes to school.', 'He eats lunch.', 'He gets up.'], ans:0, hint:'Read the 晚上 (evening) part of the passage.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🌞 Everyone’s day is a little different. What is your favourite part of the day, and if you had one extra hour every day, how would you spend it? | 🔵 Cycle 3 — There is an old Chinese saying, 一寸光阴一寸金 — “time is as precious as gold”. Do you agree that time is precious, and is it better to plan your whole day carefully or to leave some time free — why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🌞 Everyone’s day is a little different. What is your favourite part of the day, and if you had one extra hour every day, how would you spend it? | 🔵 Cycle 3 — There is an old Chinese saying, <ruby>一<rt>yí</rt></ruby><ruby>寸<rt>cùn</rt></ruby><ruby>光<rt>guāng</rt></ruby><ruby>阴<rt>yīn</rt></ruby><ruby>一<rt>yí</rt></ruby><ruby>寸<rt>cùn</rt></ruby><ruby>金<rt>jīn</rt></ruby> — “time is as precious as gold”. Do you agree that time is precious, and is it better to plan your whole day carefully or to leave some time free — why?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Age & numbers', stem:'In Chinese (HSK), which sentence correctly states age? (HSK tip)', choices:['我十二岁。(wǒ shíèr suì) — no verb needed.', '我是十二岁。(wǒ shì shíèr suì) — incorrect: 是 not used for age.', '我有十二岁。(wǒ yǒu shíèr suì) — incorrect: 有 not used for age.', '岁我十二。(suì wǒ shíèr) — wrong word order.'], ans:0, hint:'HSK tip: Chinese age sentences use Subject + number + 岁. No verb 是 or 有!' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>和<rt>hé</rt></ruby><sup>①</sup><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><sup>②</sup>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>你<rt>nǐ</rt></ruby><ruby>多大<rt>duō dà</rt></ruby>？"<ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>。"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>："<ruby>我<rt>wǒ</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>！<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 和 hé: and ② 朋友 péngyou: friend ③ 高兴 gāoxìng: happy/pleased</div>', stem:'How old is Xiao Hua?', choices:['12 years old.', '11 years old.', '13 years old.', '10 years old.'], ans:0, hint:'Find Xiao Huas answer to 你多大 in the passage.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>阿里<rt>Ālǐ</rt></ruby><ruby>和<rt>hé</rt></ruby><sup>①</sup><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>好<rt>hǎo</rt></ruby><ruby>朋友<rt>péngyou</rt></ruby><sup>②</sup>。<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>问<rt>wèn</rt></ruby>："<ruby>你<rt>nǐ</rt></ruby><ruby>多大<rt>duō dà</rt></ruby>？"<ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>。"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>："<ruby>我<rt>wǒ</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>！<ruby>我们<rt>wǒmen</rt></ruby><ruby>都<rt>dōu</rt></ruby><ruby>十二岁<rt>shíèr suì</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 和 hé: and ② 朋友 péngyou: friend ③ 高兴 gāoxìng: happy/pleased</div>', stem:'What does Ali say after hearing Xiao Huas age?', choices:['I am also 12! We are both 12!', 'I am 13 years old.', 'How old are you?', 'Nice to meet you!'], ans:0, hint:'Find what Ali says with 也 and 都 in the passage.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China 8 (八) is lucky because it sounds like “wealth”, while 4 (四) is avoided because it sounds like “death”. Do you have a lucky or unlucky number, and why is it special to you? | 🔵 Cycle 3 — Some Chinese buildings even skip floor number 4. Are there numbers or things people avoid for luck in Emirati culture, and do you think it is wise or silly to make real choices based on lucky numbers?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China 8 (<ruby>八<rt>bā</rt></ruby>) is lucky because it sounds like “wealth”, while 4 (<ruby>四<rt>sì</rt></ruby>) is avoided because it sounds like “death”. Do you have a lucky or unlucky number, and why is it special to you? | 🔵 Cycle 3 — Some Chinese buildings even skip floor number 4. Are there numbers or things people avoid for luck in Emirati culture, and do you think it is wise or silly to make real choices based on lucky numbers?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

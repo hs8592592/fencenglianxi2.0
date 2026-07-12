@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Dates', stem:'In Chinese (HSK), which number word is used for the month "February"? (HSK tip)', choices:['<ruby>二<rt>èr</rt></ruby> → 二月 (use 二 for dates and ordinals).', '<ruby>两<rt>liǎng</rt></ruby> → 两月.', 'Either 二 or 两 works.', '<ruby>第二<rt>dì\u2019èr</rt></ruby> → 第二月.'], ans:0, hint:'HSK tip: dates use 二 (二月, 二号); 两 is only for counting amounts (两个月 = two months). Opposite of the clock rule 两点!' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>今天<rt>jīntiān</rt></ruby><ruby>五月<rt>wǔ yuè</rt></ruby><ruby>二号<rt>èr hào</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>开斋节<rt>kāizhāijié</rt></ruby><sup>②</sup>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>，<ruby>因为<rt>yīnwèi</rt></ruby><sup>④</sup><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 开斋节 kāizhāijié: Eid al-Fitr ③ 高兴 gāoxìng: happy ④ 因为 yīnwèi: because ⑤ 生日 shēngrì: birthday</div>', stem:'What is the date today in the passage?', choices:['May 2nd (五月二号).', 'February 1st (二月一号).', 'May 5th (五月五号).', 'February 2nd (二月二号).'], ans:0, hint:'Read what 玛丽亚 says after 今天.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>几月几号<rt>jǐ yuè jǐ hào</rt></ruby>？<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>①</sup><ruby>玛丽亚<rt>Mǎlìyà</rt></ruby>。<ruby>玛丽亚<rt>Mǎlìyà</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>今天<rt>jīntiān</rt></ruby><ruby>五月<rt>wǔ yuè</rt></ruby><ruby>二号<rt>èr hào</rt></ruby>，<ruby>是<rt>shì</rt></ruby><ruby>开斋节<rt>kāizhāijié</rt></ruby><sup>②</sup>。"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>③</sup>，<ruby>因为<rt>yīnwèi</rt></ruby><sup>④</sup><ruby>今天<rt>jīntiān</rt></ruby><ruby>也<rt>yě</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>他<rt>tā</rt></ruby><ruby>妹妹<rt>mèimei</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>生日<rt>shēngrì</rt></ruby><sup>⑤</sup>。</p><div class="rn"><b>Notes:</b> ① 问 wèn: to ask ② 开斋节 kāizhāijié: Eid al-Fitr ③ 高兴 gāoxìng: happy ④ 因为 yīnwèi: because ⑤ 生日 shēngrì: birthday</div>', stem:'Why is Hassan happy?', choices:['Today is also his younger sister\u2019s birthday.', 'Today is his own birthday.', 'It is a school holiday.', 'He got a present.'], ans:0, hint:'Read the part after 因为 (because).' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🎉 China has Chinese New Year (春节) and the UAE has Eid — both are special family festivals. What is your favourite festival, and what is the best food you eat to celebrate it? | 🔵 Cycle 3 — Chinese New Year and Eid are two of the biggest festivals in each culture. What is one way they are similar and one way they are different, and why do you think festivals matter so much to people?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — 🎉 China has Chinese New Year (<ruby>春<rt>chūn</rt></ruby><ruby>节<rt>jié</rt></ruby>) and the UAE has Eid — both are special family festivals. What is your favourite festival, and what is the best food you eat to celebrate it? | 🔵 Cycle 3 — Chinese New Year and Eid are two of the biggest festivals in each culture. What is one way they are similar and one way they are different, and why do you think festivals matter so much to people?', prompts:[], hint:'Write your answers in English. 请用英文作答。  🟡 Cycle 2 = fun and easy  ·  🔵 Cycle 3 = think deeper and give reasons.' },
   ]}]},
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

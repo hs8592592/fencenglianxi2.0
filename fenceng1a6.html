@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Days of the week', stem:'In Chinese (HSK), Sunday is NOT called 星期七. It is called: (HSK tip)', choices:['星期天 (xīngqī tiān) or 星期日 (xīngqī rì).', '星期七 (xīngqī qī) — seven.', '星期零 (xīngqī líng) — zero.', '星期末 (xīngqī mò) — week end.'], ans:0, hint:'HSK tip: Sunday = 星期天 or 星期日. The Chinese week uses 天/日 for Sunday, not a number.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期四<rt>xīngqī sì</rt></ruby>。<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期几<rt>xīngqī jǐ</rt></ruby>？"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期五<rt>xīngqī wǔ</rt></ruby>！<ruby>后天<rt>hòutiān</rt></ruby><sup>①</sup><ruby>就是<rt>jiùshì</rt></ruby><sup>②</sup><ruby>周末<rt>zhōumò</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby><sup>④</sup>！"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 后天 hòutiān: day after tomorrow ② 就是 jiùshì: that is exactly ③ 周末 zhōumò: weekend ④ 了 le: particle showing new situation</div>', stem:'What day is it today in the passage?', choices:['Thursday (星期四).', 'Friday (星期五).', 'Wednesday (星期三).', 'Saturday (星期六).'], ans:0, hint:'Find 今天 at the start of the passage.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期四<rt>xīngqī sì</rt></ruby>。<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>问<rt>wèn</rt></ruby><ruby>阿里<rt>Ālǐ</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期几<rt>xīngqī jǐ</rt></ruby>？"<ruby>阿里<rt>Ālǐ</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>明天<rt>míngtiān</rt></ruby><ruby>星期五<rt>xīngqī wǔ</rt></ruby>！<ruby>后天<rt>hòutiān</rt></ruby><sup>①</sup><ruby>就是<rt>jiùshì</rt></ruby><sup>②</sup><ruby>周末<rt>zhōumò</rt></ruby><sup>③</sup><ruby>了<rt>le</rt></ruby><sup>④</sup>！"<ruby>小红<rt>Xiǎo Hóng</rt></ruby><ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 后天 hòutiān: day after tomorrow ② 就是 jiùshì: that is exactly ③ 周末 zhōumò: weekend ④ 了 le: particle showing new situation</div>', stem:'How does Xiao Hong feel at the end, and why?', choices:['Happy, because the weekend is coming after tomorrow.', 'Sad, because there is school tomorrow.', 'Tired, because today is Monday.', 'Busy, because there is a test.'], ans:0, hint:'Find 高兴 and 周末 in the passage.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China weekdays are numbered — Monday is 星期一 (Day 1), Tuesday 星期二 (Day 2). Which day of the week is your favourite, and what do you most like to do on your rest days? | 🔵 Cycle 3 — China names its weekdays with numbers while English uses names, and different countries choose different rest days. Why do you think cultures pick different days to rest, and why does every culture need rest days at all?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China weekdays are numbered — Monday is <ruby>星<rt>xīng</rt></ruby><ruby>期<rt>qī</rt></ruby><ruby>一<rt>yī</rt></ruby> (Day 1), Tuesday <ruby>星<rt>xīng</rt></ruby><ruby>期<rt>qī</rt></ruby><ruby>二<rt>èr</rt></ruby> (Day 2). Which day of the week is your favourite, and what do you most like to do on your rest days? | 🔵 Cycle 3 — China names its weekdays with numbers while English uses names, and different countries choose different rest days. Why do you think cultures pick different days to rest, and why does every culture need rest days at all?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

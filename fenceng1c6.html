@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Abilities (hui)', stem:'In Chinese (HSK), how do you say "I can speak Chinese"? (HSK tip)', choices:['<ruby>我会说汉语<rt>wǒ huì shuō Hànyǔ</rt></ruby>。— use 会 + verb.', '<ruby>我是说汉语<rt>wǒ shì shuō Hànyǔ</rt></ruby>。— incorrect: no 是.', '<ruby>我会汉语说<rt>wǒ huì Hànyǔ shuō</rt></ruby>。— wrong word order.', '<ruby>我说汉语会<rt>wǒ shuō Hànyǔ huì</rt></ruby>。— wrong word order.'], ans:0, hint:'HSK tip: for a learned skill use 会 + verb (会说). Do NOT add 是.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>英语<rt>Yīngyǔ</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><sup>①</sup><ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><sup>③</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你的<rt>nǐ de</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>很好<rt>hěn hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 现在 xiànzài: now ② 学习 xuéxí: study ③ 一些 yìxiē: some ④ 汉字 Hànzì: Chinese character</div>', stem:'Which languages can Hassan (哈桑) already speak well?', choices:['Arabic and English (阿拉伯语、英语).', 'Only Chinese (汉语).', 'Only English (英语).', 'Chinese and French.'], ans:0, hint:'Find 他会说 … 和 … near the start.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>阿联酋人<rt>Āliánqiúrén</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>阿拉伯语<rt>Ālābóyǔ</rt></ruby><ruby>和<rt>hé</rt></ruby><ruby>英语<rt>Yīngyǔ</rt></ruby>。<ruby>现在<rt>xiànzài</rt></ruby><sup>①</sup><ruby>他<rt>tā</rt></ruby><ruby>在<rt>zài</rt></ruby><ruby>学习<rt>xuéxí</rt></ruby><sup>②</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>说<rt>shuō</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><sup>③</sup><ruby>汉语<rt>Hànyǔ</rt></ruby>，<ruby>也<rt>yě</rt></ruby><ruby>会<rt>huì</rt></ruby><ruby>写<rt>xiě</rt></ruby><ruby>一些<rt>yìxiē</rt></ruby><ruby>汉字<rt>Hànzì</rt></ruby><sup>④</sup>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>：“<ruby>你的<rt>nǐ de</rt></ruby><ruby>汉语<rt>Hànyǔ</rt></ruby><ruby>很好<rt>hěn hǎo</rt></ruby>！”</p><div class="rn"><b>Notes:</b> ① 现在 xiànzài: now ② 学习 xuéxí: study ③ 一些 yìxiē: some ④ 汉字 Hànzì: Chinese character</div>', stem:'What is Hassan learning now (现在)?', choices:['Chinese (汉语).', 'English (英语).', 'Arabic (阿拉伯语).', 'Football (足球).'], ans:0, hint:'Look for 现在他在学习 … .' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — People can speak and understand many languages — some learn one, some learn several. How many languages can you speak or understand, and which one do you find the hardest to read or write? | 🔵 Cycle 3 — Chinese is written with characters (汉字) and Arabic with letters from right to left. What do you think makes each writing system special, and why is being able to speak several languages so useful in the UAE?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — People can speak and understand many languages — some learn one, some learn several. How many languages can you speak or understand, and which one do you find the hardest to read or write? | 🔵 Cycle 3 — Chinese is written with characters (<ruby>汉<rt>hàn</rt></ruby><ruby>字<rt>zì</rt></ruby>) and Arabic with letters from right to left. What do you think makes each writing system special, and why is being able to speak several languages so useful in the UAE?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

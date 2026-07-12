@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Weather', stem:'🌾 Long ago, before phones, Chinese farmers used weather <ruby>谚语<rt>yànyǔ</rt></ruby> (proverbs). These sayings were used to:', choices:['guess what the weather would do', 'count the days of the week', 'name the months', 'write poems about food'], ans:0, hint:'Culture: weather proverbs (谚语) helped people predict rain, wind and good days for farming.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。<ruby>迪拜<rt>Díbài</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><sup>①</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十五<rt>sānshíwǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><sup>②</sup>，<ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><sup>③</sup><ruby>呢<rt>ne</rt></ruby>？\u201d<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 晴天 qíngtiān: sunny ② 下雨 xiàyǔ: to rain ③ 伞 sǎn: umbrella</div>', stem:'What is the weather like in Dubai today?', choices:['Sunny and hot (晴天，很热).', 'Rainy and cool.', 'Cloudy.', 'Snowing.'], ans:0, hint:'Find 迪拜 … near the start.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>今天<rt>jīntiān</rt></ruby><ruby>星期六<rt>xīngqīliù</rt></ruby>。<ruby>迪拜<rt>Díbài</rt></ruby><ruby>晴天<rt>qíngtiān</rt></ruby><sup>①</sup>，<ruby>很<rt>hěn</rt></ruby><ruby>热<rt>rè</rt></ruby>，<ruby>三十五<rt>sānshíwǔ</rt></ruby><ruby>度<rt>dù</rt></ruby>。<ruby>北京<rt>Běijīng</rt></ruby><ruby>今天<rt>jīntiān</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><sup>②</sup>，<ruby>不<rt>bù</rt></ruby><ruby>太<rt>tài</rt></ruby><ruby>热<rt>rè</rt></ruby>。<ruby>法蒂玛<rt>Fǎdìmǎ</rt></ruby><ruby>说<rt>shuō</rt></ruby>：\u201c<ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>了<rt>le</rt></ruby>，<ruby>我的<rt>wǒ de</rt></ruby><ruby>伞<rt>sǎn</rt></ruby><sup>③</sup><ruby>呢<rt>ne</rt></ruby>？\u201d<ruby>她<rt>tā</rt></ruby><ruby>不<rt>bù</rt></ruby><ruby>喜欢<rt>xǐhuan</rt></ruby><ruby>下雨<rt>xiàyǔ</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>天气<rt>tiānqì</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 晴天 qíngtiān: sunny ② 下雨 xiàyǔ: to rain ③ 伞 sǎn: umbrella</div>', stem:'Why does Fatima (法蒂玛) look for her umbrella?', choices:['Because it has started raining (下雨了).', 'Because it is snowing.', 'Because it is too hot.', 'Because it is windy.'], ans:0, hint:'She says 下雨了 — what does 了 tell you just happened?' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Many families have weather sayings, like \u201cred sky at night, a fine day is coming.\u201d Do you know any weather sayings or signs from your family or country, and do you think they are true? | 🔵 Cycle 3 — Long ago, Chinese farmers used weather proverbs (\u5929\u6c14\u8c1a\u8bed) to guess the weather before there were phones or apps. Why do you think people all over the world made up weather sayings, and do these old sayings still matter now that we have weather apps?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Many families have weather sayings, like “red sky at night, a fine day is coming.” Do you know any weather sayings or signs from your family or country, and do you think they are true? | 🔵 Cycle 3 — Long ago, Chinese farmers used weather proverbs (<ruby>天<rt>tiān</rt></ruby><ruby>气<rt>qì</rt></ruby><ruby>谚<rt>yàn</rt></ruby><ruby>语<rt>yǔ</rt></ruby>) to guess the weather before there were phones or apps. Why do you think people all over the world made up weather sayings, and do these old sayings still matter now that we have weather apps?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]},
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

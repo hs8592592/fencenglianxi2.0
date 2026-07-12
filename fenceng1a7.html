@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Know / not know', stem:'In Chinese (HSK), 知道 (zhīdào) means to know a fact. Which sentence is correct? (HSK tip)', choices:['我知道。(wǒ zhīdào) — I know.', '我知。(wǒ zhī) — incomplete, missing 道.', '知道我。(zhīdào wǒ) — wrong word order.', '我道知。(wǒ dào zhī) — wrong word order.'], ans:0, hint:'HSK tip: 知道 is a two-character verb — always keep 知 and 道 together.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby><sup>③</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>班<rt>bān</rt></ruby><sup>④</sup><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><sup>⑤</sup><ruby>国家<rt>guójiā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>⑥</sup>：<ruby>阿联酋<rt>Āliánqiú</rt></ruby>、<ruby>埃及<rt>Āijí</rt></ruby>、<ruby>约旦<rt>Yuēdàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 上学 shàngxué: to attend school ④ 班 bān: class (school group) ⑤ 很多 hěn duō: many/a lot ⑥ 同学 tóngxué: classmate</div>', stem:'Where does Xiao Hua go to school?', choices:['In Dubai (迪拜).', 'In China (中国).', 'In Egypt (埃及).', 'In Jordan (约旦).'], ans:0, hint:'Find where Xiao Hua attends school in the passage.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小华<rt>Xiǎo Huá</rt></ruby><ruby>来自<rt>láizì</rt></ruby><sup>①</sup><ruby>中国<rt>Zhōngguó</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>现在<rt>xiànzài</rt></ruby><sup>②</sup><ruby>在<rt>zài</rt></ruby><ruby>迪拜<rt>Díbài</rt></ruby><ruby>上学<rt>shàngxué</rt></ruby><sup>③</sup>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>班<rt>bān</rt></ruby><sup>④</sup><ruby>有<rt>yǒu</rt></ruby><ruby>很多<rt>hěn duō</rt></ruby><sup>⑤</sup><ruby>国家<rt>guójiā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>同学<rt>tóngxué</rt></ruby><sup>⑥</sup>：<ruby>阿联酋<rt>Āliánqiú</rt></ruby>、<ruby>埃及<rt>Āijí</rt></ruby>、<ruby>约旦<rt>Yuēdàn</rt></ruby>。</p><div class="rn"><b>Notes:</b> ① 来自 láizì: to come from ② 现在 xiànzài: now ③ 上学 shàngxué: to attend school ④ 班 bān: class (school group) ⑤ 很多 hěn duō: many/a lot ⑥ 同学 tóngxué: classmate</div>', stem:'Which nationalities are in Xiao Huas class?', choices:['Emirati, Egyptian and Jordanian.', 'Chinese, British and American.', 'Saudi, Omani and Kuwaiti.', 'French, German and Spanish.'], ans:0, hint:'Find the list of nationalities at the end of the passage.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — China calls itself 中国, the “Middle Kingdom”, because long ago people felt their land was the centre of the world. What is the name of your country, and what is one thing you would proudly show a visitor from China? | 🔵 Cycle 3 — Long ago many cultures believed their own land was the centre of the world. Why do you think people felt this way, and what could two very different countries like China and the UAE learn from each other?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — China calls itself <ruby>中<rt>zhōng</rt></ruby><ruby>国<rt>guó</rt></ruby>, the “Middle Kingdom”, because long ago people felt their land was the centre of the world. What is the name of your country, and what is one thing you would proudly show a visitor from China? | 🔵 Cycle 3 — Long ago many cultures believed their own land was the centre of the world. Why do you think people felt this way, and what could two very different countries like China and the UAE learn from each other?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

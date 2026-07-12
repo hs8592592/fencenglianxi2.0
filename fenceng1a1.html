@@ -1456,7 +1456,7 @@ const LESSONS = [
     { type:'mc', skill:'Pinyin & characters', stem:'In HSK, 拼音 (pīnyīn) is used to: (HSK tip)', choices:['Show the pronunciation of Chinese characters.', 'Replace Chinese characters completely.', 'Write Chinese characters in Arabic script.', 'Count the number of strokes in a character.'], ans:0, hint:'HSK tip: 拼音 is a pronunciation guide — it helps you READ characters, not replace them.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><sup>①</sup><ruby>每天<rt>měitiān</rt></ruby><sup>②</sup><ruby>练习<rt>liànxí</rt></ruby><sup>③</sup><ruby>拼音<rt>pīnyīn</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>拼音<rt>pīnyīn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><sup>④</sup><ruby>声调<rt>shēngdiào</rt></ruby><sup>⑤</sup>。<ruby>第一声<rt>dì yī shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>平的<rt>píng de</rt></ruby><sup>⑦</sup>，<ruby>第四声<rt>dì sì shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>降的<rt>jiàng de</rt></ruby><sup>⑧</sup>。"</p><div class="rn"><b>Notes:</b> ① Xiǎo Míng: common Chinese name ② 每天 měitiān: every day ③ 练习 liànxí: to practise ④ 四个 sì gè: four (+ measure word) ⑤ 声调 shēngdiào: tone ⑥ 第…声 dì…shēng: the … tone ⑦ 平的 píng de: flat/level ⑧ 降的 jiàng de: falling</div>', stem:'What does Xiao Mings teacher say about Chinese tones?', choices:['There are four tones in Chinese.', 'There are five tones in Chinese.', 'The first tone is rising.', 'Pinyin is not important.'], ans:0, hint:'Find what the teacher says — look for 四个声调.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><sup>①</sup><ruby>每天<rt>měitiān</rt></ruby><sup>②</sup><ruby>练习<rt>liànxí</rt></ruby><sup>③</sup><ruby>拼音<rt>pīnyīn</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>拼音<rt>pīnyīn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><sup>④</sup><ruby>声调<rt>shēngdiào</rt></ruby><sup>⑤</sup>。<ruby>第一声<rt>dì yī shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>平的<rt>píng de</rt></ruby><sup>⑦</sup>，<ruby>第四声<rt>dì sì shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>降的<rt>jiàng de</rt></ruby><sup>⑧</sup>。"</p><div class="rn"><b>Notes:</b> ① Xiǎo Míng: common Chinese name ② 每天 měitiān: every day ③ 练习 liànxí: to practise ④ 四个 sì gè: four (+ measure word) ⑤ 声调 shēngdiào: tone ⑥ 第…声 dì…shēng: the … tone ⑦ 平的 píng de: flat/level ⑧ 降的 jiàng de: falling</div>', stem:'What is Tone 1 like, according to the passage?', choices:['Flat and level (平的).', 'Rising up.', 'Dipping then rising.', 'Falling down.'], ans:0, hint:'Find 第一声 — 平的 means flat/level.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Some Chinese characters look like little pictures of real things — 山 looks like a mountain and 月 like the moon. If you invented your own picture-symbol for the sun, what would you draw, and why? | 🔵 Cycle 3 — Chinese uses thousands of characters while Arabic and English use a small alphabet. What might be good and bad about each way of writing, and why do you think Chinese kept its characters for thousands of years?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Some Chinese characters look like little pictures of real things — <ruby>山<rt>shān</rt></ruby> looks like a mountain and <ruby>月<rt>yuè</rt></ruby> like the moon. If you invented your own picture-symbol for the sun, what would you draw, and why? | 🔵 Cycle 3 — Chinese uses thousands of characters while Arabic and English use a small alphabet. What might be good and bad about each way of writing, and why do you think Chinese kept its characters for thousands of years?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -2006,13 +2006,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 

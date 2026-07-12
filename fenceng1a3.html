@@ -1398,7 +1398,7 @@ const LESSONS = [
     { type:'mc', skill:'Names & introductions', stem:'In HSK, which word order is correct when introducing your name? (HSK tip)', choices:['我叫… (wǒ jiào…) + your name.', '叫我… (jiào wǒ…) + your name.', '名字我… (míngzi wǒ…) + your name.', '是我… (shì wǒ…) + your name.'], ans:0, hint:'HSK tip: 我叫 + name = My name is ___. 叫 is the correct verb for names.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>新<rt>xīn</rt></ruby><sup>①</sup><ruby>学生<rt>xuésheng</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>②</sup>："<ruby>你<rt>nǐ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>名字<rt>míngzi</rt></ruby><sup>③</sup>？"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby>。<ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>④</sup><ruby>认识<rt>rènshi</rt></ruby><sup>⑤</sup><ruby>你<rt>nǐ</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 新 xīn: new ② 问 wèn: to ask ③ 名字 míngzi: name ④ 高兴 gāoxìng: happy/pleased ⑤ 认识 rènshi: to know a person</div>', stem:'Who is Hassan in the passage?', choices:['A new student.', 'A teacher.', 'A Chinese student.', 'A friend.'], ans:0, hint:'Find how Hassan is described at the start.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>是<rt>shì</rt></ruby><ruby>新<rt>xīn</rt></ruby><sup>①</sup><ruby>学生<rt>xuésheng</rt></ruby>。<ruby>老师<rt>lǎoshī</rt></ruby><ruby>问<rt>wèn</rt></ruby><sup>②</sup>："<ruby>你<rt>nǐ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>什么<rt>shénme</rt></ruby><ruby>名字<rt>míngzi</rt></ruby><sup>③</sup>？"<ruby>哈桑<rt>Hāsāng</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>我<rt>wǒ</rt></ruby><ruby>叫<rt>jiào</rt></ruby><ruby>哈桑<rt>Hāsāng</rt></ruby>。<ruby>很<rt>hěn</rt></ruby><ruby>高兴<rt>gāoxìng</rt></ruby><sup>④</sup><ruby>认识<rt>rènshi</rt></ruby><sup>⑤</sup><ruby>你<rt>nǐ</rt></ruby>！"</p><div class="rn"><b>Notes:</b> ① 新 xīn: new ② 问 wèn: to ask ③ 名字 míngzi: name ④ 高兴 gāoxìng: happy/pleased ⑤ 认识 rènshi: to know a person</div>', stem:'What does Hassan say after giving his name?', choices:['很高兴认识你！(Nice to meet you!)', '你好！(Hello!)', '谢谢！(Thank you!)', '再见！(Goodbye!)'], ans:0, hint:'Find what Hassan says at the end of the passage.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China the family name comes first — 王小明 means the Wang family, child Xiaoming. Does your family name come before or after your given name, and does your name have a special meaning or story? | 🔵 Cycle 3 — Putting the family name first shows how important family is in Chinese culture, while many cultures put the given name first. What might each name order tell us about what people value, and how are names usually chosen in Emirati culture?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — In China the family name comes first — <ruby>王<rt>wáng</rt></ruby><ruby>小<rt>xiǎo</rt></ruby><ruby>明<rt>míng</rt></ruby> means the Wang family, child Xiaoming. Does your family name come before or after your given name, and does your name have a special meaning or story? | 🔵 Cycle 3 — Putting the family name first shows how important family is in Chinese culture, while many cultures put the given name first. What might each name order tell us about what people value, and how are names usually chosen in Emirati culture?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -1948,13 +1948,17 @@ const HOTS_PY_RUNS = {"上": "<ruby>上<rt>shàng</rt></ruby>", "上海": "<ruby
 const HOTS_PY_CHARS = {"月": "yuè", "球": "qiú", "人": "rén", "中": "zhōng", "国": "guó", "八": "bā", "我": "wǒ", "十": "shí", "二": "èr", "岁": "suì", "四": "sì", "美": "měi", "山": "shān", "发": "fā", "北": "běi", "京": "jīng", "上": "shàng", "您": "nín", "你": "nǐ", "好": "hǎo", "木": "mù", "海": "hǎi", "天": "tiān", "水": "shuǐ", "法": "fǎ", "阿": "ā", "联": "lián", "酋": "qiú", "英": "yīng", "死": "sǐ"};
 function annotateHotsCJK(text) {
   if (!text) return text;
-  return String(text).replace(/[\u3400-\u9fff]+/g, function(run) {
-    if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
-    return run.split('').map(function(ch) {
-      var p = HOTS_PY_CHARS[ch];
-      return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
-    }).join('');
-  });
+  // 已带 <ruby> 注音的片段原样保留，避免二次注音（嵌套 ruby）
+  return String(text).split(/(<ruby>[\s\S]*?<\/ruby>)/).map(function(seg) {
+    if (seg.slice(0, 6) === '<ruby>') return seg;
+    return seg.replace(/[\u3400-\u9fff]+/g, function(run) {
+      if (HOTS_PY_RUNS[run]) return HOTS_PY_RUNS[run];
+      return run.split('').map(function(ch) {
+        var p = HOTS_PY_CHARS[ch];
+        return p ? '<ruby>' + ch + '<rt>' + p + '</rt></ruby>' : ch;
+      }).join('');
+    });
+  }).join('');
 }
 
 
