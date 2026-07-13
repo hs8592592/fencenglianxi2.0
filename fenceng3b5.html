@@ -3151,22 +3151,32 @@ document.addEventListener('click',function(){
   if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)) return;
   var SS=window.speechSynthesis;
   var soundOn=false; try{ soundOn=localStorage.getItem('ht-hover-sound')==='1'; }catch(e){}
-  var voice=null, btns=[], unlocked=false, lastErr='', last=null;
+  var voice=null, btns=[], unlocked=false, lastErr='', last=null, retried=false;
 
   function pickVoice(){
     var vs=[]; try{ vs=SS.getVoices()||[]; }catch(e){ return null; }
     var zh=vs.filter(function(v){ return /^zh/i.test(v.lang||''); });
     if(!zh.length) return null;
-    var pref=['google','tingting','ting-ting','meijia','mei-jia','xiaoxiao','yaoyao','huihui','kangkang'];
-    for(var i=0;i<pref.length;i++)
-      for(var j=0;j<zh.length;j++)
-        if((zh[j].name||'').toLowerCase().indexOf(pref[i])>=0) return zh[j];
-    var cn=zh.filter(function(v){ return /zh[-_]?CN/i.test(v.lang); });
-    return cn[0]||zh[0];
+    var cn=zh.filter(function(v){ return /zh[-_]?CN/i.test(v.lang||''); });
+    var pool=cn.length?cn:zh;
+    function find(re){ for(var i=0;i<pool.length;i++) if(re.test(pool[i].name||'')) return pool[i]; return null; }
+    /* Edge 的「在线自然语音」最像真人,优先;其次 Google;最后才是老式 SAPI 机械音 */
+    return find(/natural/i) || find(/online/i) || find(/xiaoxiao|yunxi|yunyang|xiaoyi/i)
+        || find(/google/i) || find(/tingting|ting-ting|meijia|mei-jia/i)
+        || find(/huihui|yaoyao|kangkang/i) || pool[0];
   }
   function ensureVoice(){ if(!voice) voice=pickVoice(); return voice; }
   try{ SS.onvoiceschanged=function(){ voice=pickVoice(); updateBtns(); }; }catch(e){}
   ensureVoice();
+  /* Edge/Chromium 的语音列表是异步加载的(自然语音尤其慢),头几秒反复重扫 */
+  (function(){
+    var tries=0;
+    var iv=setInterval(function(){
+      var better=pickVoice();
+      if(better && better!==voice){ voice=better; updateBtns(); }
+      if(++tries>10 || (voice && /natural|online/i.test(voice.name||''))) clearInterval(iv);
+    }, 400);
+  })();
 
   /* ① 首次真实交互(点击/触摸/按键)时,用一条静音语句解锁引擎 */
   function unlock(){
@@ -3200,8 +3210,18 @@ document.addEventListener('click',function(){
         u.onend  =function(){ if(el) el.classList.remove('ht-speaking'); };
         u.onerror=function(ev){                       /* ③ 出错就报出来 */
           if(el) el.classList.remove('ht-speaking');
-          lastErr=(ev&&ev.error)||'error';
-          updateBtns();
+          var err=(ev&&ev.error)||'error';
+          /* interrupted / canceled 是我们自己 cancel() 造成的,不是故障 -> 直接忽略,
+             否则划过词语时按钮会闪一下红框 */
+          if(err==='interrupted'||err==='canceled') return;
+          /* 在线自然语音偶尔抽风,自动换成本地语音重试一次 */
+          if(err==='synthesis-failed' && !retried){
+            retried=true;
+            var vs=SS.getVoices()||[];
+            var loc=vs.filter(function(x){ return /^zh/i.test(x.lang||'') && x!==v; })[0];
+            if(loc){ voice=loc; setTimeout(function(){ speak(text, el); },120); return; }
+          }
+          lastErr=err; updateBtns();
         };
         SS.speak(u);
       }catch(e){ if(el) el.classList.remove('ht-speaking'); }
@@ -3221,11 +3241,18 @@ document.addEventListener('click',function(){
   document.addEventListener('click', function(e){
     var el=hit(e); if(el){ unlock(); speak(textOf(el), el); }
   });
+  var hoverTimer=null;
   document.addEventListener('mouseover', function(e){
     if(!soundOn) return;
     var el=hit(e);
-    if(el&&el!==last){ last=el; speak(textOf(el), el); }
-    else if(!el){ last=null; }
+    if(!el){ last=null; clearTimeout(hoverTimer); return; }
+    if(el===last) return;
+    last=el;
+    /* 停留一小会儿再读:快速划过一整排词时不会每个都抢着读 */
+    clearTimeout(hoverTimer);
+    hoverTimer=setTimeout(function(){
+      if(last===el) speak(textOf(el), el);
+    },130);
   });
 
   function label(){
