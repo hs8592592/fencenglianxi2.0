@@ -178,6 +178,11 @@
   .ht-f-logo,.ht-f-c,.ht-f-copy{justify-self:center}
 }
 
+
+/* 返回块靠左上角,与 .about 卡片左边对齐 */
+.ht-back-row{max-width:1120px;margin:0 auto 14px;display:flex;justify-content:flex-start;text-align:left}
+.ht-back-row .ht-back{align-items:flex-start}
+@media(max-width:640px){.ht-back-row{padding:0 4px}}
 </style>
 </head>
 <body>
@@ -194,10 +199,12 @@
 </div>
 
 <header class="top">
-  <div class="ht-back">
-  <a class="ht-back-logo" href="index.html" aria-label="haoteach home"><img src="hlogo.png" alt="haoteach"></a>
-  <a class="ht-back-btn" href="index.html">← Back to homepage</a>
-</div>
+  <div class="ht-back-row">
+    <div class="ht-back">
+      <a class="ht-back-logo" href="index.html" aria-label="haoteach home"><img src="hlogo.png" alt="haoteach"></a>
+      <a class="ht-back-btn" href="index.html">← Back to homepage</a>
+    </div>
+  </div>
         <div class="about">
     <div class="row">
       <div class="ic">📚</div>
