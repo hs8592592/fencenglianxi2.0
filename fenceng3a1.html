@@ -716,11 +716,8 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
 <!-- ===== 新流程 第1屏:课程封面(1:1复刻) ===== -->
 <style>
   #coverScreen{max-width:1180px;margin:0 auto;padding:10px 16px 40px}
-  .cv-home-wrap{text-align:center;margin-bottom:16px}
   .cv-panda{height:112px;width:auto;pointer-events:none;user-select:none;flex:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14))}
   @media (max-width:640px){ .cv-panda{height:64px} }
-  .cv-home-btn{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:800;text-decoration:none;background:#EC8AA0;border-radius:999px;padding:12px 26px;box-shadow:0 5px 16px rgba(236,138,160,.30);transition:.15s}
-  .cv-home-btn:hover{background:#e57a92;box-shadow:0 7px 20px rgba(236,138,160,.4);transform:translateY(-1px)}
   .cv-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:6px 0 18px}
   .cv-navbtn{display:inline-flex;align-items:center;gap:9px;background:#fff;border:none;border-radius:999px;
     padding:13px 22px;font-size:15px;font-weight:800;color:#1a3a5c;cursor:pointer;font-family:inherit;
@@ -784,12 +781,20 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   }
 </style>
 <div id="coverScreen">
-  <div class="cv-home-wrap"><a class="cv-home-btn" href="lianxi.html">← Back to Lessons</a></div>
+  <div class="cv-head">
+    <div class="ht-back">
+      <a class="ht-back-logo" href="index.html" aria-label="haoteach home"><img src="hlogo.png" alt="haoteach"></a>
+      <a class="ht-back-btn" href="lianxi.html">← Back to Lessons</a>
+    </div>
+    <div class="cv-head-mid">
+      <img class="cv-panda" src="panda1.png" alt="">
+      <div class="cv-h1"><span class="cv-h1-id">3A-L1</span><span class="cv-h1-cn"><ruby>你<rt>nǐ</rt></ruby><ruby>周<rt>zhōu</rt></ruby><ruby>末<rt>mò</rt></ruby><ruby>常<rt>cháng</rt></ruby><ruby>常<rt>cháng</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什<rt>shén</rt></ruby><ruby>么<rt>me</rt></ruby>？</span><span class="cv-h1-en">What do you often do on weekends?</span></div>
+      <img class="cv-panda" src="panda2.png" alt="">
+    </div>
+    <div class="cv-head-sp"></div>
+  </div>
   <div class="cv-top">
     <button class="cv-navbtn" onclick="shiftLesson(-1)">←&nbsp; Previous Lesson</button>
-    <img class="cv-panda" src="panda1.png" alt="">
-    <div class="cv-h1"><span class="cv-h1-cn">3A-L1 <ruby>你<rt>nǐ</rt></ruby><ruby>周<rt>zhōu</rt></ruby><ruby>末<rt>mò</rt></ruby><ruby>常<rt>cháng</rt></ruby><ruby>常<rt>cháng</rt></ruby><ruby>做<rt>zuò</rt></ruby><ruby>什<rt>shén</rt></ruby><ruby>么<rt>me</rt></ruby>？</span><span class="cv-h1-en">What do you often do on weekends?</span></div>
-    <img class="cv-panda" src="panda2.png" alt="">
     <button class="cv-navbtn" onclick="shiftLesson(1)">Next Lesson &nbsp;→</button>
   </div>
   <div class="cv-keypoints">
@@ -3048,5 +3053,84 @@ function submitFeedback() {
   });
 }
 </script>
-</body>
+<style>
+/* ══ haoteach 统一组件:返回块 + 页脚 ══ */
+.ht-back{display:inline-flex;flex-direction:column;align-items:center;gap:8px}
+.ht-back-fixed{position:fixed;top:12px;left:12px;z-index:300;align-items:flex-start}
+.ht-back-logo{display:block;line-height:0;text-decoration:none}
+.ht-back-logo img{width:46px;height:46px;object-fit:contain;display:block;transition:.18s}
+.ht-back-logo:hover img{transform:translateY(-2px)}
+.ht-back-btn{display:inline-flex;align-items:center;gap:7px;background:#fff;color:#1F2421;
+  border:1.5px solid #E2DACE;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:700;
+  text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:.15s;font-family:inherit}
+.ht-back-btn:hover{color:#B8632A;border-color:#E89556;transform:translateY(-1px)}
+
+.ht-footer{max-width:1180px;margin:44px auto 0;padding:24px 40px 40px;border-top:1px solid #E2DACE;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;box-sizing:border-box}
+.ht-f-logo{justify-self:start;display:block;line-height:0;text-decoration:none}
+.ht-f-logo img{width:50px;height:50px;object-fit:contain;display:block;transition:.18s}
+.ht-f-logo:hover img{transform:translateY(-2px)}
+.ht-f-c{justify-self:center;position:relative}
+.ht-f-btn{border:none;background:none;font-family:inherit;font-size:14px;font-weight:600;
+  color:#4A4F4A;padding:9px 16px;border-radius:10px;cursor:pointer;transition:.15s;white-space:nowrap}
+.ht-f-btn:hover{color:#1F2421;background:#F0EBE2}
+.ht-f-pop{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);width:240px;
+  background:#fff;border:1px solid #E2DACE;border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.16);
+  padding:16px;display:none;z-index:900;font-size:13.5px;line-height:1.7;color:#1F2421;text-align:left}
+.ht-f-pop.show{display:block}
+.ht-f-pop a{color:inherit}
+.ht-f-copy{justify-self:end;font-size:12.5px;color:#4A4F4A;letter-spacing:.5px}
+@media(max-width:640px){
+  .ht-footer{grid-template-columns:1fr;justify-items:center;text-align:center;padding:22px 18px 32px;gap:12px}
+  .ht-f-logo,.ht-f-c,.ht-f-copy{justify-self:center}
+}
+
+/* ── 封面头部:返回块靠左,标题居中(图6)── */
+.cv-head{display:grid;grid-template-columns:minmax(140px,1fr) auto minmax(140px,1fr);
+  align-items:center;gap:14px;margin:4px 0 12px}
+.cv-head .ht-back{justify-self:start;align-items:flex-start}
+.cv-head-mid{display:flex;align-items:center;justify-content:center;gap:14px;min-width:0}
+.cv-head-mid .cv-h1{order:0;flex-basis:auto}
+.cv-head-sp{justify-self:end}
+.cv-h1-id{display:block;font-size:.62em;font-weight:900;color:#3a5a7c;letter-spacing:.04em;line-height:1.25;margin-bottom:3px}
+
+@media(max-width:700px){
+  .cv-head{grid-template-columns:1fr;justify-items:center;gap:10px}
+  .cv-head .ht-back{justify-self:center;align-items:center}
+  .cv-head-sp{display:none}
+  .cv-head-mid{flex-wrap:nowrap;gap:8px}
+  .cv-head-mid .cv-h1{font-size:22px}
+}
+
+/* ── 逐题回顾:字号加大、每题间距拉开(图7)── */
+.analytics-section-title{font-size:17px;letter-spacing:.05em;margin-bottom:1.2rem}
+.review-item{padding:18px 20px;margin-bottom:16px;font-size:15px;line-height:1.7;border-radius:12px}
+.review-item .ri-q{font-size:12.5px;margin-bottom:7px}
+.review-item .ri-stem{font-size:17px;line-height:1.6;margin-bottom:11px}
+.review-item .ri-answer{gap:12px}
+.ri-tag{padding:5px 13px;font-size:13.5px}
+</style>
+
+<!-- ══ haoteach 统一页脚 ══ -->
+<footer class="ht-footer">
+  <a class="ht-f-logo" href="index.html" aria-label="haoteach home"><img src="hlogo.png" alt="haoteach"></a>
+  <div class="ht-f-c">
+    <button type="button" class="ht-f-btn" onclick="htToggleContact(event)">Contact us</button>
+    <div class="ht-f-pop" id="htContactPop" onclick="event.stopPropagation()">
+      <strong>联系我们 Contact</strong><br>
+      Sun Hao<br>
+      📧 <a href="mailto:326615718@qq.com">326615718@qq.com</a>
+    </div>
+  </div>
+  <div class="ht-f-copy">© 2026 haoteach.com</div>
+</footer>
+
+<script>
+function htToggleContact(e){ if(e) e.stopPropagation();
+  var p=document.getElementById('htContactPop'); if(p) p.classList.toggle('show'); }
+document.addEventListener('click',function(){
+  var p=document.getElementById('htContactPop'); if(p) p.classList.remove('show'); });
+</script>
+
+
 </html>
