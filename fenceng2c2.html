@@ -3239,20 +3239,24 @@ document.addEventListener('click',function(){
   font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s}
 .ht-sound-btn:hover{border-color:#4a7cb5;color:#1a3a5c}
 .ht-sound-btn.on{background:#e8f0fb;border-color:#4a7cb5;color:#1a3a5c}
+.ht-sound-btn.warn{background:#fdecec;border-color:#e08a8a;color:#a33}
 .kw-item,#cvSentence,#rvSentence{cursor:pointer;border-radius:10px;transition:background .15s}
 .kw-item:hover,#cvSentence:hover,#rvSentence:hover{background:rgba(74,124,181,.12)}
 .ht-speaking{background:rgba(74,124,181,.22)!important}
 </style>
 <script>
-/* 词语/句子:点击即读;开关打开后鼠标飘过也读。用浏览器自带中文语音,无需联网服务。 */
+/* 词语/句子发音:点击即读;开关打开后悬停也读。用浏览器自带中文语音。
+   加固点:①首次真实交互时解锁语音引擎(绕开浏览器自动播放拦截)
+          ②cancel() 与 speak() 错开一帧,避免 Chrome 卡住不发声
+          ③出错时按钮上直接显示原因,不再"静默失败" */
 (function(){
-  if(!('speechSynthesis' in window)) return;
-  var soundOn=false;
-  try{ soundOn = localStorage.getItem('ht-hover-sound')==='1'; }catch(e){}
-  var voice=null, btns=[];
+  if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)) return;
+  var SS=window.speechSynthesis;
+  var soundOn=false; try{ soundOn=localStorage.getItem('ht-hover-sound')==='1'; }catch(e){}
+  var voice=null, btns=[], unlocked=false, lastErr='', last=null;
 
   function pickVoice(){
-    var vs=[]; try{ vs=speechSynthesis.getVoices()||[]; }catch(e){ return null; }
+    var vs=[]; try{ vs=SS.getVoices()||[]; }catch(e){ return null; }
     var zh=vs.filter(function(v){ return /^zh/i.test(v.lang||''); });
     if(!zh.length) return null;
     var pref=['google','tingting','ting-ting','meijia','mei-jia','xiaoxiao','yaoyao','huihui','kangkang'];
@@ -3263,62 +3267,87 @@ document.addEventListener('click',function(){
     return cn[0]||zh[0];
   }
   function ensureVoice(){ if(!voice) voice=pickVoice(); return voice; }
-  try{ speechSynthesis.onvoiceschanged=function(){ voice=pickVoice(); updateBtns(); }; }catch(e){}
+  try{ SS.onvoiceschanged=function(){ voice=pickVoice(); updateBtns(); }; }catch(e){}
   ensureVoice();
 
-  var cur=null;
+  /* ① 首次真实交互(点击/触摸/按键)时,用一条静音语句解锁引擎 */
+  function unlock(){
+    if(unlocked) return;
+    unlocked=true;
+    try{
+      SS.resume();
+      var u=new SpeechSynthesisUtterance(' ');
+      u.volume=0; u.lang='zh-CN';
+      SS.speak(u);
+    }catch(e){}
+    updateBtns();
+  }
+  ['pointerdown','touchstart','keydown'].forEach(function(ev){
+    document.addEventListener(ev, unlock, true);
+  });
+
   function speak(text, el){
     if(!text) return;
-    try{
-      speechSynthesis.cancel();
-      if(cur) cur.classList.remove('ht-speaking');
-      var u=new SpeechSynthesisUtterance(text);
-      var v=ensureVoice();
-      if(v) u.voice=v;
-      u.lang=(v&&v.lang)||'zh-CN';
-      u.rate=0.85; u.pitch=1;
-      if(el){ cur=el; el.classList.add('ht-speaking');
-        u.onend=u.onerror=function(){ el.classList.remove('ht-speaking'); }; }
-      speechSynthesis.speak(u);
-    }catch(e){}
+    var v=ensureVoice();
+    if(!v){ lastErr='novoice'; updateBtns(); return; }
+    try{ SS.cancel(); }catch(e){}
+    /* ② 错开一帧再 speak —— cancel() 紧接 speak() 会让 Chrome 卡死不发声 */
+    setTimeout(function(){
+      try{
+        SS.resume();
+        var u=new SpeechSynthesisUtterance(text);
+        u.voice=v; u.lang=v.lang||'zh-CN'; u.rate=0.85; u.pitch=1; u.volume=1;
+        if(el) el.classList.add('ht-speaking');
+        u.onstart=function(){ if(lastErr){ lastErr=''; updateBtns(); } };
+        u.onend  =function(){ if(el) el.classList.remove('ht-speaking'); };
+        u.onerror=function(ev){                       /* ③ 出错就报出来 */
+          if(el) el.classList.remove('ht-speaking');
+          lastErr=(ev&&ev.error)||'error';
+          updateBtns();
+        };
+        SS.speak(u);
+      }catch(e){ if(el) el.classList.remove('ht-speaking'); }
+    },0);
   }
 
-  /* 取纯汉字:词语用 .kw-cn;句子直接取数据里的 cn,绕开 ruby 拼音 */
+  /* 取纯汉字:词语取 .kw-cn;句子取数据里的 cn,绕开 ruby 拼音 */
   function textOf(el){
     if(el.classList.contains('kw-item')){
-      var c=el.querySelector('.kw-cn');
-      return c? c.textContent.trim() : '';
+      var c=el.querySelector('.kw-cn'); return c?c.textContent.trim():'';
     }
-    try{ return (KEYPOINTS && KEYPOINTS.sentence && KEYPOINTS.sentence.cn) || ''; }catch(e){ return ''; }
+    try{ return (KEYPOINTS&&KEYPOINTS.sentence&&KEYPOINTS.sentence.cn)||''; }catch(e){ return ''; }
   }
   var SEL='.kw-item, #cvSentence, #rvSentence';
-  function hit(e){ return e.target && e.target.closest ? e.target.closest(SEL) : null; }
+  function hit(e){ return e.target&&e.target.closest ? e.target.closest(SEL) : null; }
 
-  /* 事件委托:不改任何渲染代码,动态生成的元素也生效 */
   document.addEventListener('click', function(e){
-    var el=hit(e); if(el) speak(textOf(el), el);
+    var el=hit(e); if(el){ unlock(); speak(textOf(el), el); }
   });
-  var last=null;
   document.addEventListener('mouseover', function(e){
     if(!soundOn) return;
     var el=hit(e);
-    if(el && el!==last){ last=el; speak(textOf(el), el); }
+    if(el&&el!==last){ last=el; speak(textOf(el), el); }
     else if(!el){ last=null; }
   });
 
-  /* 开关按钮:插在 Key Words 词表上方(封面 + Revision 各一个) */
+  function label(){
+    if(lastErr==='not-allowed') return '\ud83d\udd07 \u8bf7\u5148\u70b9\u4e00\u4e0b\u9875\u9762';   /* 请先点一下页面 */
+    if(lastErr) return '\ud83d\udd07 \u8bed\u97f3\u4e0d\u53ef\u7528 ('+lastErr+')';                  /* 语音不可用 */
+    return soundOn ? '\ud83d\udd0a Hover sound: ON' : '\ud83d\udd08 Hover sound: OFF';
+  }
   function updateBtns(){
     var has=!!ensureVoice();
     btns.forEach(function(b){
-      b.style.display = has ? '' : 'none';   /* 设备没有中文语音就隐藏,免得点了没反应 */
-      b.textContent = soundOn ? '\ud83d\udd0a Hover sound: ON' : '\ud83d\udd08 Hover sound: OFF';
-      b.className = 'ht-sound-btn' + (soundOn ? ' on' : '');
+      b.style.display = has ? '' : 'none';   /* 设备无中文语音则隐藏,不做无效承诺 */
+      b.textContent = label();
+      b.className = 'ht-sound-btn' + (lastErr ? ' warn' : (soundOn?' on':''));
     });
   }
   function toggle(){
     soundOn=!soundOn;
     try{ localStorage.setItem('ht-hover-sound', soundOn?'1':'0'); }catch(e){}
     updateBtns();
+    if(soundOn) speak('\u4f60\u597d');   /* 开启时读一声"你好",立刻确认能出声 */
   }
   function mount(id){
     var a=document.getElementById(id);

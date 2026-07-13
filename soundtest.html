@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>发音诊断 Sound Test</title>
+<style>
+  body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#F7F6F2;color:#1F2421;
+       max-width:760px;margin:0 auto;padding:28px 20px 60px;line-height:1.7}
+  h1{font-size:22px;margin:0 0 4px} .sub{color:#666;font-size:14px;margin-bottom:22px}
+  .card{background:#fff;border:1px solid #E2DACE;border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .row{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dashed #eee}
+  .row:last-child{border:none}
+  .k{min-width:150px;font-weight:700;font-size:14px}
+  .v{font-size:14px;word-break:break-all}
+  .ok{color:#188038;font-weight:700} .no{color:#c5221f;font-weight:700} .warn{color:#b06000;font-weight:700}
+  button{font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;border:none;border-radius:10px;
+         padding:12px 20px;margin:6px 8px 6px 0;background:#4a7cb5;color:#fff;transition:.15s}
+  button:hover{background:#3a6394}
+  button.alt{background:#fff;color:#3a5a7c;border:1.5px solid #cbd8e6}
+  #hoverbox{display:inline-block;padding:14px 22px;background:#e8f0fb;border-radius:12px;
+            font-size:26px;font-weight:700;cursor:pointer;margin-top:6px}
+  #log{background:#1e1e1e;color:#d4d4d4;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
+       border-radius:10px;padding:14px;height:230px;overflow:auto;white-space:pre-wrap;margin-top:10px}
+  .hint{background:#FFF7E6;border:1px solid #F0D9A8;border-radius:10px;padding:12px 14px;font-size:13.5px;margin-top:12px}
+</style>
+</head>
+<body>
+
+<h1>🔊 发音诊断 Sound Test</h1>
+<div class="sub">把这个文件传到 GitHub 根目录,然后用 <b>haoteach.com/soundtest.html</b> 打开(必须是正式网址,不能是本地文件)。</div>
+
+<div class="card">
+  <div class="row"><div class="k">网址来源</div><div class="v" id="origin">—</div></div>
+  <div class="row"><div class="k">浏览器支持语音</div><div class="v" id="support">—</div></div>
+  <div class="row"><div class="k">中文语音数量</div><div class="v" id="zhcount">—</div></div>
+  <div class="row"><div class="k">选中的语音</div><div class="v" id="picked">—</div></div>
+  <div class="row"><div class="k">是否在 iframe 内</div><div class="v" id="iniframe">—</div></div>
+</div>
+
+<div class="card">
+  <b>第 1 步 · 点击测试</b>(最可靠,浏览器一定允许)
+  <div><button id="btnClick">▶ 点我读「你好」</button></div>
+
+  <b>第 2 步 · 悬停测试</b>(浏览器可能拦截)
+  <div><span id="hoverbox">把鼠标放到这里 · 打篮球</span></div>
+
+  <div><button class="alt" id="btnVoices">重新检测语音列表</button>
+       <button class="alt" id="btnClear">清空日志</button></div>
+
+  <div id="log"></div>
+  <div class="hint" id="verdict">👉 请先点「点我读你好」,再把鼠标放到蓝色方块上,然后把这一页的<b>日志内容截图发我</b>。</div>
+</div>
+
+<script>
+var SS = window.speechSynthesis;
+var logEl = document.getElementById('log');
+function log(s, cls){
+  var t = new Date().toLocaleTimeString();
+  logEl.textContent += '[' + t + '] ' + s + '\n';
+  logEl.scrollTop = logEl.scrollHeight;
+}
+function set(id, txt, cls){
+  var e = document.getElementById(id);
+  e.textContent = txt;
+  if (cls) e.className = 'v ' + cls;
+}
+
+set('origin', location.protocol + '//' + location.host + (location.protocol === 'file:' ? '  ← 本地文件(不算数!)' : '  ← 正式网址 ✓'),
+    location.protocol === 'file:' ? 'warn' : 'ok');
+set('iniframe', (window.top !== window.self) ? '是 ← 这会导致声音被拦截!' : '否 ✓',
+    (window.top !== window.self) ? 'no' : 'ok');
+
+if (!SS || !window.SpeechSynthesisUtterance) {
+  set('support', '不支持 ✗', 'no');
+  log('致命:这个浏览器根本没有 speechSynthesis');
+} else {
+  set('support', '支持 ✓', 'ok');
+}
+
+var voice = null;
+function scanVoices(){
+  if (!SS) return;
+  var vs = SS.getVoices() || [];
+  var zh = vs.filter(function(v){ return /^zh/i.test(v.lang || ''); });
+  set('zhcount', vs.length + ' 个语音,其中中文 ' + zh.length + ' 个',
+      zh.length ? 'ok' : 'no');
+  log('语音总数 ' + vs.length + ',中文 ' + zh.length +
+      (zh.length ? ' → ' + zh.map(function(v){ return v.name + '(' + v.lang + ')'; }).join(' | ') : ''));
+  if (!zh.length) {
+    set('picked', '没有中文语音!这台设备读不了中文', 'no');
+    document.getElementById('verdict').innerHTML =
+      '❌ <b>这台电脑没有安装中文语音包</b>,所以读不出中文。换一台电脑(Mac 或装了中文语音的 Windows),或用 Chrome 浏览器试试。';
+    return;
+  }
+  var pref = ['google','tingting','ting-ting','meijia','mei-jia','xiaoxiao','yaoyao','huihui','kangkang'];
+  for (var i = 0; i < pref.length && !voice; i++)
+    for (var j = 0; j < zh.length && !voice; j++)
+      if ((zh[j].name || '').toLowerCase().indexOf(pref[i]) >= 0) voice = zh[j];
+  if (!voice) voice = zh[0];
+  set('picked', voice.name + '  (' + voice.lang + ')', 'ok');
+}
+if (SS) { SS.onvoiceschanged = scanVoices; scanVoices(); }
+
+function say(text, how){
+  if (!SS) return;
+  if (!voice) { log('✗ [' + how + '] 还没找到中文语音'); return; }
+  try { SS.cancel(); } catch(e){}
+  setTimeout(function(){
+    try {
+      SS.resume();
+      var u = new SpeechSynthesisUtterance(text);
+      u.voice = voice; u.lang = voice.lang || 'zh-CN'; u.rate = 0.85; u.volume = 1;
+      u.onstart = function(){ log('✅ [' + how + '] 开始发声:「' + text + '」 —— 这一步成功说明能出声'); };
+      u.onend   = function(){ log('   [' + how + '] 播放结束'); };
+      u.onerror = function(ev){
+        var err = (ev && ev.error) || '未知';
+        log('❌ [' + how + '] 出错:' + err);
+        if (err === 'not-allowed')
+          document.getElementById('verdict').innerHTML =
+            '❌ <b>被浏览器拦截了(not-allowed)</b>:必须先在页面上点击一次,才允许发声。悬停发音在正式网址上会被拦。';
+      };
+      log('→ [' + how + '] 已调用 speak(「' + text + '」),等待浏览器响应…');
+      SS.speak(u);
+      setTimeout(function(){
+        if (!SS.speaking && !SS.pending)
+          log('⚠ [' + how + '] 调用后 1 秒既没开始也没报错 —— 典型的"被静默拦截"');
+      }, 1000);
+    } catch(e){ log('❌ [' + how + '] 异常:' + e.message); }
+  }, 0);
+}
+
+document.getElementById('btnClick').onclick   = function(){ say('你好', '点击'); };
+document.getElementById('hoverbox').onmouseenter = function(){ say('打篮球', '悬停'); };
+document.getElementById('hoverbox').onclick      = function(){ say('打篮球', '点击'); };
+document.getElementById('btnVoices').onclick  = function(){ voice = null; scanVoices(); };
+document.getElementById('btnClear').onclick   = function(){ logEl.textContent = ''; };
+
+log('诊断页已就绪。请按第 1 步、第 2 步依次操作。');
+</script>
+</body>
+</html>
