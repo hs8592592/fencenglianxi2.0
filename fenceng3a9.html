@@ -3136,4 +3136,108 @@ document.addEventListener('click',function(){
 </script>
 
 
+
+<style>
+/* ══ 点击发音 / 悬停发音 ══ */
+.ht-sound-btn{display:inline-flex;align-items:center;gap:6px;margin:0 0 10px;padding:6px 14px;
+  border:1.5px solid #cbd8e6;background:#fff;color:#3a5a7c;border-radius:999px;
+  font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s}
+.ht-sound-btn:hover{border-color:#4a7cb5;color:#1a3a5c}
+.ht-sound-btn.on{background:#e8f0fb;border-color:#4a7cb5;color:#1a3a5c}
+.kw-item,#cvSentence,#rvSentence{cursor:pointer;border-radius:10px;transition:background .15s}
+.kw-item:hover,#cvSentence:hover,#rvSentence:hover{background:rgba(74,124,181,.12)}
+.ht-speaking{background:rgba(74,124,181,.22)!important}
+</style>
+<script>
+/* 词语/句子:点击即读;开关打开后鼠标飘过也读。用浏览器自带中文语音,无需联网服务。 */
+(function(){
+  if(!('speechSynthesis' in window)) return;
+  var soundOn=false;
+  try{ soundOn = localStorage.getItem('ht-hover-sound')==='1'; }catch(e){}
+  var voice=null, btns=[];
+
+  function pickVoice(){
+    var vs=[]; try{ vs=speechSynthesis.getVoices()||[]; }catch(e){ return null; }
+    var zh=vs.filter(function(v){ return /^zh/i.test(v.lang||''); });
+    if(!zh.length) return null;
+    var pref=['google','tingting','ting-ting','meijia','mei-jia','xiaoxiao','yaoyao','huihui','kangkang'];
+    for(var i=0;i<pref.length;i++)
+      for(var j=0;j<zh.length;j++)
+        if((zh[j].name||'').toLowerCase().indexOf(pref[i])>=0) return zh[j];
+    var cn=zh.filter(function(v){ return /zh[-_]?CN/i.test(v.lang); });
+    return cn[0]||zh[0];
+  }
+  function ensureVoice(){ if(!voice) voice=pickVoice(); return voice; }
+  try{ speechSynthesis.onvoiceschanged=function(){ voice=pickVoice(); updateBtns(); }; }catch(e){}
+  ensureVoice();
+
+  var cur=null;
+  function speak(text, el){
+    if(!text) return;
+    try{
+      speechSynthesis.cancel();
+      if(cur) cur.classList.remove('ht-speaking');
+      var u=new SpeechSynthesisUtterance(text);
+      var v=ensureVoice();
+      if(v) u.voice=v;
+      u.lang=(v&&v.lang)||'zh-CN';
+      u.rate=0.85; u.pitch=1;
+      if(el){ cur=el; el.classList.add('ht-speaking');
+        u.onend=u.onerror=function(){ el.classList.remove('ht-speaking'); }; }
+      speechSynthesis.speak(u);
+    }catch(e){}
+  }
+
+  /* 取纯汉字:词语用 .kw-cn;句子直接取数据里的 cn,绕开 ruby 拼音 */
+  function textOf(el){
+    if(el.classList.contains('kw-item')){
+      var c=el.querySelector('.kw-cn');
+      return c? c.textContent.trim() : '';
+    }
+    try{ return (KEYPOINTS && KEYPOINTS.sentence && KEYPOINTS.sentence.cn) || ''; }catch(e){ return ''; }
+  }
+  var SEL='.kw-item, #cvSentence, #rvSentence';
+  function hit(e){ return e.target && e.target.closest ? e.target.closest(SEL) : null; }
+
+  /* 事件委托:不改任何渲染代码,动态生成的元素也生效 */
+  document.addEventListener('click', function(e){
+    var el=hit(e); if(el) speak(textOf(el), el);
+  });
+  var last=null;
+  document.addEventListener('mouseover', function(e){
+    if(!soundOn) return;
+    var el=hit(e);
+    if(el && el!==last){ last=el; speak(textOf(el), el); }
+    else if(!el){ last=null; }
+  });
+
+  /* 开关按钮:插在 Key Words 词表上方(封面 + Revision 各一个) */
+  function updateBtns(){
+    var has=!!ensureVoice();
+    btns.forEach(function(b){
+      b.style.display = has ? '' : 'none';   /* 设备没有中文语音就隐藏,免得点了没反应 */
+      b.textContent = soundOn ? '\ud83d\udd0a Hover sound: ON' : '\ud83d\udd08 Hover sound: OFF';
+      b.className = 'ht-sound-btn' + (soundOn ? ' on' : '');
+    });
+  }
+  function toggle(){
+    soundOn=!soundOn;
+    try{ localStorage.setItem('ht-hover-sound', soundOn?'1':'0'); }catch(e){}
+    updateBtns();
+  }
+  function mount(id){
+    var a=document.getElementById(id);
+    if(!a||!a.parentNode) return;
+    var b=document.createElement('button');
+    b.type='button'; b.className='ht-sound-btn';
+    b.addEventListener('click', function(ev){ ev.stopPropagation(); toggle(); });
+    a.parentNode.insertBefore(b, a);
+    btns.push(b);
+  }
+  mount('cvWords'); mount('rvWords');
+  updateBtns();
+})();
+</script>
+
+</body>
 </html>
