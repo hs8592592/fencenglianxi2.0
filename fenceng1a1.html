@@ -788,7 +788,9 @@ body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--t
   .py-chart{display:flex;flex-direction:column;gap:15px;width:100%}
   .py-gt{font-size:14px;font-weight:800;color:#2766CC;margin-bottom:8px;letter-spacing:.02em}
   .py-row{display:flex;flex-wrap:wrap;gap:8px}
-  .py-row span{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 9px;background:#fff;border:1.5px solid #d8e3f3;border-radius:9px;font-size:16px;font-weight:600;color:#1a3a5c}
+  .py-row span{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 9px;background:#fff;border:1.5px solid #d8e3f3;border-radius:9px;font-size:16px;font-weight:600;color:#1a3a5c;cursor:pointer;transition:background .15s,transform .1s}
+  .py-row span:hover{background:#E8F3F1;transform:translateY(-1px)}
+  .py-row span:active{transform:scale(.94)}
   .py-tone span{min-width:46px;font-size:19px}
   .py-note{font-size:12.5px;color:#8a97a6;margin-top:6px}
 
@@ -1461,7 +1463,7 @@ const LESSONS = [
     { type:'mc', skill:'Pinyin & characters', stem:'In HSK, 拼音 (pīnyīn) is used to: (HSK tip)', choices:['Show the pronunciation of Chinese characters.', 'Replace Chinese characters completely.', 'Write Chinese characters in Arabic script.', 'Count the number of strokes in a character.'], ans:0, hint:'HSK tip: 拼音 is a pronunciation guide — it helps you READ characters, not replace them.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><sup>①</sup><ruby>每天<rt>měitiān</rt></ruby><sup>②</sup><ruby>练习<rt>liànxí</rt></ruby><sup>③</sup><ruby>拼音<rt>pīnyīn</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>拼音<rt>pīnyīn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><sup>④</sup><ruby>声调<rt>shēngdiào</rt></ruby><sup>⑤</sup>。<ruby>第一声<rt>dì yī shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>平的<rt>píng de</rt></ruby><sup>⑦</sup>，<ruby>第四声<rt>dì sì shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>降的<rt>jiàng de</rt></ruby><sup>⑧</sup>。"</p><div class="rn"><b>Notes:</b> ① Xiǎo Míng: common Chinese name ② 每天 měitiān: every day ③ 练习 liànxí: to practise ④ 四个 sì gè: four (+ measure word) ⑤ 声调 shēngdiào: tone ⑥ 第…声 dì…shēng: the … tone ⑦ 平的 píng de: flat/level ⑧ 降的 jiàng de: falling</div>', stem:'What does Xiao Mings teacher say about Chinese tones?', choices:['There are four tones in Chinese.', 'There are five tones in Chinese.', 'The first tone is rising.', 'Pinyin is not important.'], ans:0, hint:'Find what the teacher says — look for 四个声调.' },
     { type:'reading', skill:'Reading', passageLabel:'Reading · 阅读', passage:'<p class="rp"><ruby>小明<rt>Xiǎo Míng</rt></ruby><sup>①</sup><ruby>每天<rt>měitiān</rt></ruby><sup>②</sup><ruby>练习<rt>liànxí</rt></ruby><sup>③</sup><ruby>拼音<rt>pīnyīn</rt></ruby>。<ruby>他<rt>tā</rt></ruby><ruby>的<rt>de</rt></ruby><ruby>老师<rt>lǎoshī</rt></ruby><ruby>说<rt>shuō</rt></ruby>："<ruby>拼音<rt>pīnyīn</rt></ruby><ruby>有<rt>yǒu</rt></ruby><ruby>四个<rt>sì gè</rt></ruby><sup>④</sup><ruby>声调<rt>shēngdiào</rt></ruby><sup>⑤</sup>。<ruby>第一声<rt>dì yī shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>平的<rt>píng de</rt></ruby><sup>⑦</sup>，<ruby>第四声<rt>dì sì shēng</rt></ruby><sup>⑥</sup><ruby>是<rt>shì</rt></ruby><ruby>降的<rt>jiàng de</rt></ruby><sup>⑧</sup>。"</p><div class="rn"><b>Notes:</b> ① Xiǎo Míng: common Chinese name ② 每天 měitiān: every day ③ 练习 liànxí: to practise ④ 四个 sì gè: four (+ measure word) ⑤ 声调 shēngdiào: tone ⑥ 第…声 dì…shēng: the … tone ⑦ 平的 píng de: flat/level ⑧ 降的 jiàng de: falling</div>', stem:'What is Tone 1 like, according to the passage?', choices:['Flat and level (平的).', 'Rising up.', 'Dipping then rising.', 'Falling down.'], ans:0, hint:'Find 第一声 — 平的 means flat/level.' },
-    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Some Chinese characters look like little pictures of real things — 山 looks like a mountain and 月 like the moon. If you invented your own picture-symbol for the sun, what would you draw, and why? | 🔵 Cycle 3 — Chinese uses thousands of characters while Arabic and English use a small alphabet. What might be good and bad about each way of writing, and why do you think Chinese kept its characters for thousands of years?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
+    { type:'hots', skill:'Critical thinking', stem:'🟡 Cycle 2 — Some Chinese characters look like little pictures of real things — 山 looks like a mountain and 月 like the moon. If you invented your own picture-symbol for the sun, what would you draw, and why? | 🔵 Cycle 3 — Chinese is a meaning-based (logographic) writing system: each character is linked to meaning, and many characters combine a meaning part (radical, e.g. 氵 = water) with a sound part. Arabic and English are sound-based (alphabetic) systems, where letters stand for sounds. What are the strengths and challenges of a meaning-based system versus a sound-based one, and why do you think Chinese has kept its character system for thousands of years?', prompts:[], hint:'Write your answers in English. 请用英文作答。  Cycle 2 = fun and easy · Cycle 3 = think and compare.' },
   ]}]}
 
 
@@ -3006,7 +3008,7 @@ function fitTitle(){
   while(el.scrollWidth>p.clientWidth && fs>12 && g<120){ fs-=1; el.style.fontSize=fs+'px'; g++; }
 }
 
-var PINYIN_CHART = '<div class="py-chart"><div class="py-group"><div class="py-gt">声母 Initials (23)</div><div class="py-row"><span>b</span><span>p</span><span>m</span><span>f</span><span>d</span><span>t</span><span>n</span><span>l</span><span>g</span><span>k</span><span>h</span><span>j</span><span>q</span><span>x</span><span>zh</span><span>ch</span><span>sh</span><span>r</span><span>z</span><span>c</span><span>s</span><span>y</span><span>w</span></div></div><div class="py-group"><div class="py-gt">韵母 Finals</div><div class="py-row"><span>a</span><span>o</span><span>e</span><span>i</span><span>u</span><span>ü</span><span>ai</span><span>ei</span><span>ui</span><span>ao</span><span>ou</span><span>iu</span><span>ie</span><span>üe</span><span>er</span><span>an</span><span>en</span><span>in</span><span>un</span><span>ün</span><span>ang</span><span>eng</span><span>ing</span><span>ong</span></div></div><div class="py-group"><div class="py-gt">声调 Tones</div><div class="py-row py-tone"><span>ā</span><span>á</span><span>ǎ</span><span>à</span></div><div class="py-note">1st ā · 2nd á · 3rd ǎ · 4th à　　例:mā(妈) má(麻) mǎ(马) mà(骂)</div></div></div>';
+var PINYIN_CHART = '<div class="py-chart"><div class="py-group"><div class="py-gt">声母 Initials (23)</div><div class="py-row"><span>b</span><span>p</span><span>m</span><span>f</span><span>d</span><span>t</span><span>n</span><span>l</span><span>g</span><span>k</span><span>h</span><span>j</span><span>q</span><span>x</span><span>zh</span><span>ch</span><span>sh</span><span>r</span><span>z</span><span>c</span><span>s</span><span>y</span><span>w</span></div></div><div class="py-group"><div class="py-gt">韵母 Finals</div><div class="py-row"><span>a</span><span>o</span><span>e</span><span>i</span><span>u</span><span>ü</span><span>ai</span><span>ei</span><span>ui</span><span>ao</span><span>ou</span><span>iu</span><span>ie</span><span>üe</span><span>er</span><span>an</span><span>en</span><span>in</span><span>un</span><span>ün</span><span>ang</span><span>eng</span><span>ing</span><span>ong</span></div></div><div class="py-group"><div class="py-gt">声调 Tones</div><div class="py-row py-tone"><span>mā</span><span>má</span><span>mǎ</span><span>mà</span></div><div class="py-note">1st ā · 2nd á · 3rd ǎ · 4th à　　例:mā(妈) má(麻) mǎ(马) mà(骂)</div></div></div>';
 function renderCoverKeypoints(){
   var cp=document.getElementById('cvPinyin'); if(cp) cp.innerHTML=PINYIN_CHART;
   var w=document.getElementById('cvWords');
@@ -3390,13 +3392,33 @@ document.addEventListener('click',function(){
   }
 
   /* 取纯汉字:词语取 .kw-cn;句子取数据里的 cn,绕开 ruby 拼音 */
+  /* 拼音单独发音时,浏览器中文语音会把 b、a 这种当英文字母念。
+     这里把每个拼音映射到一个「发这个音的汉字」,读汉字就得到正确的拼音发音。 */
+  var PY_SPEAK = {
+    /* 声母:配默认韵母,方便单独发音 */
+    'b':'波','p':'坡','m':'摸','f':'佛','d':'得','t':'特','n':'呢','l':'勒',
+    'g':'哥','k':'科','h':'喝','j':'鸡','q':'七','x':'西',
+    'zh':'知','ch':'吃','sh':'诗','r':'日','z':'资','c':'次','s':'丝','y':'衣','w':'乌',
+    /* 韵母:单独出现时的读法 */
+    'a':'啊','o':'喔','e':'鹅','i':'衣','u':'乌','ü':'鱼',
+    'ai':'爱','ei':'诶','ui':'威','ao':'熬','ou':'欧','iu':'优','ie':'耶','üe':'月',
+    'er':'儿','an':'安','en':'恩','in':'音','un':'温','ün':'云',
+    'ang':'昂','eng':'鞥','ing':'英','ong':'ōng',
+    /* 声调:显示 mā má mǎ mà,直接读 妈麻马骂 */
+    'mā':'妈','má':'麻','mǎ':'马','mà':'骂'
+  };
+
   function textOf(el){
     if(el.classList.contains('kw-item')){
       var c=el.querySelector('.kw-cn'); return c?c.textContent.trim():'';
     }
+    if(el.closest && el.closest('.py-row')){   /* 拼音表格子:映射成汉字发音 */
+      var p=(el.textContent||'').trim();
+      return PY_SPEAK[p] || p;
+    }
     try{ return (KEYPOINTS&&KEYPOINTS.sentence&&KEYPOINTS.sentence.cn)||''; }catch(e){ return ''; }
   }
-  var SEL='.kw-item, #cvSentence, #rvSentence';
+  var SEL='.kw-item, .py-row span, #cvSentence, #rvSentence';
   function hit(e){ return e.target&&e.target.closest ? e.target.closest(SEL) : null; }
 
   document.addEventListener('click', function(e){
@@ -3444,7 +3466,7 @@ document.addEventListener('click',function(){
     a.parentNode.insertBefore(b, a);
     btns.push(b);
   }
-  mount('cvWords'); mount('rvWords');
+  mount('cvWords'); mount('rvWords'); mount('cvPinyin');
   updateBtns();
 })();
 </script>
